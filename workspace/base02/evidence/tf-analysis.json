@@ -1,0 +1,13 @@
+{
+  "installed_source": "/home/zhuyulab/ns3-workspace/base-01-econ/isolation/rootfs/opt/ros/humble/lib/python3.10/site-packages/tf2_ros/buffer.py",
+  "source_sha256": "898667d87f4f40ee54802fd6b48ed479c5cc17a61cf9329bd111d2a157656f6a",
+  "constructor_excerpt": "    def __init__(\n        self,\n        cache_time: Optional[Duration] = None,\n        node: Optional[Node] = None\n    ) -> None:\n        \"\"\"\n        Constructor.\n\n        :param cache_time: Duration object describing how long to retain past information in BufferCore.\n        :param node: Create a tf2_frames service that returns all frames as a yaml document.\n        \"\"\"\n        if cache_time is not None:\n            tf2.BufferCore.__init__(self, cache_time)\n        else:\n            tf2.BufferCore.__init__(self)\n        tf2_ros.BufferInterface.__init__(self)\n\n        self._new_data_callbacks: List[Callable[[], None]] = []\n        self._callbacks_to_remove: List[Callable[[], None]] = []\n        self._callbacks_lock = threading.RLock()\n\n        if node is not None:\n            self.srv = node.create_service(FrameGraph, 'tf2_frames', self.__get_frames)\n\n",
+  "constructor_registers_jump_callback": false,
+  "jump_or_clear_registration_in_python_buffer": false,
+  "backward_sim_event_steps": 0,
+  "main_observer_failure": "tb1 map->base_scan unavailable at preflight timeout",
+  "late_probe_result": "All 3 namespaced buffers can_transform map->base_scan; all required topics received.",
+  "excluded_hypothesis": "Installed Buffer(node=...) only creates FrameGraph service, no automatic clock-jump cache-clear hook. Do not apply different-version behavior.",
+  "established_root_cause": null,
+  "limitation": "Main observer buffer/debug tuple was not saved before readiness gate; current evidence cannot identify its missing edge or the exact initial delivery/cache cause. No new Gazebo run or tool patch made."
+}

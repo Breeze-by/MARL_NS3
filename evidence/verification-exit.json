@@ -1,0 +1,9 @@
+{
+  "existing_test_command": "python3 -B workspace/gz01/test_bag_records.py",
+  "existing_test_native_exit": 0,
+  "scope": "Original one synthetic storage ordering test only, no ROS/real bag/NN",
+  "cpu_command": "python3 -B tools/replay_cpu.py --output evidence/cpu-replay.json",
+  "cpu_native_exit": 0,
+  "cpu_forwards": 3,
+  "new_optimizer_Node_environment_Action_Gazebo": 0
+}

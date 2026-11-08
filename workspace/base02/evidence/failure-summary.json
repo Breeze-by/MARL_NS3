@@ -1,0 +1,185 @@
+{
+  "case": "traditional-regression-01",
+  "source_commit": "4a0d5285523b9236e4ed7345d64680bc95869533",
+  "launch_utc": "2026-11-04T13:04:55.469218+00:00",
+  "finished_utc": "2026-11-04T13:09:03.139491+00:00",
+  "preflight": false,
+  "central_controller_started": false,
+  "preflight_error": "Preflight missing: ['tb1/TF map->base_scan']",
+  "autonomous_sim_seconds": 0.0,
+  "observed_stationary_stop": true,
+  "stop_evidence": {
+    "utc": "2026-11-04T13:09:01.288438+00:00",
+    "wall": 1793797741.2884598,
+    "sim": 217.0,
+    "kind": "observed_stop",
+    "positions": {
+      "tb1": [
+        5.006437262791508,
+        4.0000383420565395,
+        0.007818443770606752,
+        5.844904084687891e-05,
+        4.892111959015692e-05
+      ],
+      "tb2": [
+        -4.493623955512353,
+        4.0000375570317575,
+        0.007827448219304556,
+        5.658978008005805e-05,
+        4.904980510788998e-05
+      ],
+      "tb3": [
+        6.006298757492514,
+        -1.4999633455398491,
+        0.007815254892523509,
+        6.758402499577766e-05,
+        4.885608808140532e-05
+      ]
+    },
+    "per_robot_wall": {
+      "tb1": 14782.770455726,
+      "tb2": 14782.77061396,
+      "tb3": 14782.770649289
+    },
+    "sim_advanced": 1.4000000000000057,
+    "drive_received": {
+      "tb1": [
+        216.975,
+        30.0,
+        216.9,
+        0.0,
+        0.0,
+        -1.2979402009384244e-05,
+        1.0600974213299726e-06,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tb2": [
+        216.986,
+        30.0,
+        216.9,
+        0.0,
+        0.0,
+        -5.565964480647108e-06,
+        8.783378568965542e-06,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tb3": [
+        216.968,
+        30.0,
+        216.9,
+        0.0,
+        0.0,
+        2.8533976434633483e-06,
+        1.7011905516724165e-05,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "emergency_physics_pause": false,
+  "final_map_messages": {
+    "tb1": {
+      "utc": "2026-11-04T13:08:58.364130+00:00",
+      "wall": 1793797738.3641748,
+      "sim": 214.2,
+      "kind": "map",
+      "robot": "tb1",
+      "width": 153,
+      "height": 79,
+      "resolution": 0.05000000074505806,
+      "frame": "map",
+      "origin": [
+        -5.740917697239758,
+        -2.8246191474555133
+      ],
+      "known": 1645,
+      "occupied": 76
+    },
+    "tb2": {
+      "utc": "2026-11-04T13:08:58.398927+00:00",
+      "wall": 1793797738.3989723,
+      "sim": 214.3,
+      "kind": "map",
+      "robot": "tb2",
+      "width": 96,
+      "height": 211,
+      "resolution": 0.05000000074505806,
+      "frame": "map",
+      "origin": [
+        -1.1521599840024863,
+        -9.402353844320057
+      ],
+      "known": 1456,
+      "occupied": 97
+    },
+    "tb3": {
+      "utc": "2026-11-04T13:08:58.198837+00:00",
+      "wall": 1793797738.1988788,
+      "sim": 214.1,
+      "kind": "map",
+      "robot": "tb3",
+      "width": 155,
+      "height": 151,
+      "resolution": 0.05000000074505806,
+      "frame": "map",
+      "origin": [
+        -6.746678062444518,
+        -3.8639810731008355
+      ],
+      "known": 1368,
+      "occupied": 62
+    },
+    "merge_map": {
+      "utc": "2026-11-04T13:08:58.441471+00:00",
+      "wall": 1793797738.441503,
+      "sim": 214.3,
+      "kind": "map",
+      "robot": "merge_map",
+      "width": 254,
+      "height": 211,
+      "resolution": 0.05000000074505806,
+      "frame": "merge_map",
+      "origin": [
+        -5.652159984002486,
+        -5.402353844320057
+      ],
+      "known": 4469,
+      "occupied": 235
+    }
+  },
+  "contact_events": 0,
+  "minimum_observed_pair_distance_m": 5.590133123712702,
+  "observed_action_statuses": {
+    "tb1": [],
+    "tb2": [],
+    "tb3": []
+  },
+  "preflight_physics_drift_distance_m": {
+    "tb1": 0.006624250594720971,
+    "tb2": 0.006549940111922329,
+    "tb3": 0.006495785905854621
+  },
+  "reference_coverage": null,
+  "nav_success_rate": null,
+  "central_evaluation": "NOT RUN: controller never started; no allocation event log",
+  "tf_findings": "Main observer missing tb1 map->base_scan; late independent read-only probes saw all edges and could transform all 3; exact initial-cache cause not established.",
+  "tracked_processes": 43,
+  "tracked_still_alive": 0
+}

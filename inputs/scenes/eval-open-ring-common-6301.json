@@ -1,0 +1,67 @@
+{
+  "id": "eval-open-ring-common-6301",
+  "split": "LOCKED_EVAL",
+  "category": "loop_chambers",
+  "world_relative_phase": "inputs/worlds/eval-open-ring-common-6301.sdf",
+  "world_sha256": "df6dd541313a7ca227d2702c4502d74c1c3fc9895a372b0a40b9b9fef2bd6b28",
+  "source_provenance": {
+    "generator": "workspace/rl02/maps.py::layout/write_sdf",
+    "family": "loop_chambers",
+    "map_seed": 6301,
+    "exposure": {
+      "geometry_seen": false,
+      "history": "Not in the three prior registered map catalogs",
+      "note": "New geometry in familiar generator family; fixed before optimization, no policy outcome selection"
+    }
+  },
+  "physics_seed": 2026110601,
+  "robots": [
+    {
+      "name": "tb1",
+      "x": -4.292113299282114,
+      "y": 0.09126247063870929,
+      "yaw": 0.0
+    },
+    {
+      "name": "tb2",
+      "x": -4.667113299282114,
+      "y": -0.5587375293612907,
+      "yaw": 0.0
+    },
+    {
+      "name": "tb3",
+      "x": -3.9171132992821143,
+      "y": -0.5587375293612907,
+      "yaw": 0.0
+    }
+  ],
+  "wheel_contact_slip": 1e-05,
+  "ode_solver_type": "quick",
+  "reference_bounds": [
+    -5.800000000000001,
+    -5.6000000000000005,
+    7.25,
+    5.300000000000001
+  ],
+  "reference_area_m2": 101.76750000000003,
+  "reference_boundary_connections": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "maximum_autonomy_sim_s": 600,
+  "maximum_decisions": 130,
+  "common_start": {
+    "rule": "original declared first pose or fixed generator anchor; first static-clear compact triangle",
+    "anchor": [
+      -4.292113299282114,
+      0.09126247063870929
+    ],
+    "offset_rotation_degrees": 0,
+    "robot_yaw": 0.0,
+    "minimum_centre_spacing_m": 0.75,
+    "selection": "Geometry only; no sensor/backend/policy/Gazebo trial or outcome selection"
+  },
+  "qualification": "Static .25 body-circle clearance/swept assembly, actual .55 peer raster, unchanged closed reachable component"
+}

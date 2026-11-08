@@ -1,0 +1,293 @@
+{
+  "preflight": true,
+  "smoke_started": true,
+  "observed_stop": true,
+  "error": null,
+  "end_reason": "simulation_budget",
+  "sim_elapsed": 600.0,
+  "wall_elapsed": 676.5128988160286,
+  "natural_complete": false,
+  "threshold_reached": null,
+  "arm": "traditional",
+  "scene": "/mnt/inputs/scenes/regression-corridor-common-6201-dwb-v1.json",
+  "system_variant": "peer-compact-v1",
+  "launch_request_utc": "2026-11-08T15:16:10.485167+00:00",
+  "launch_exit_utc": "2026-11-08T15:28:19.618767+00:00",
+  "gazebo_started": true,
+  "gzserver_pid": 645610,
+  "autonomy_start_sim": 29.0,
+  "autonomy_start_wall_unix": 1794151012.7109342,
+  "peer_recording": {
+    "saved": true,
+    "rows": 6365,
+    "last_sequence": 6366,
+    "phase": "after_peer_spin_exit"
+  },
+  "counts": {
+    "tb1/tf_static": 2,
+    "model_states": 6340,
+    "tb1/joint_states": 24949,
+    "tb1/tf": 60934,
+    "tb1/model_state": 6339,
+    "tb1/contacts": 6339,
+    "tb1/odom": 18623,
+    "tb1/drive": 18718,
+    "tb1/scan": 3175,
+    "tb2/tf_static": 2,
+    "tb1/map": 144,
+    "tb2/joint_states": 24860,
+    "tb2/tf": 60666,
+    "tb2/scan": 3163,
+    "tb2/contacts": 6317,
+    "tb2/model_state": 6316,
+    "tb2/drive": 18650,
+    "tb2/odom": 18552,
+    "tb3/tf_static": 2,
+    "tb3/joint_states": 24751,
+    "tb3/tf": 60343,
+    "tb2/map": 143,
+    "tb3/scan": 3150,
+    "tb3/contacts": 6289,
+    "tb3/drive": 18570,
+    "tb3/odom": 18472,
+    "tb3/model_state": 6288,
+    "tb3/map": 142,
+    "merge_map/map": 424,
+    "tb1/cmd_vel": 1976,
+    "tb1/zero_command_topic": 484,
+    "tb2/cmd_vel": 2026,
+    "tb2/zero_command_topic": 503,
+    "tb3/cmd_vel": 2215,
+    "tb3/zero_command_topic": 466,
+    "tb1/feedback": 7491,
+    "tb2/feedback": 7882,
+    "tb3/feedback": 9677,
+    "tb1/action_status": 10,
+    "tb2/action_status": 8,
+    "tb3/action_status": 8
+  },
+  "map_changes": {
+    "tb1": 16,
+    "tb2": 16,
+    "tb3": 20,
+    "merge_map": 52
+  },
+  "distances": {
+    "tb1": 13.494673566241485,
+    "tb2": 11.108168667162262,
+    "tb3": 13.841819938580016
+  },
+  "max_displacement": {
+    "tb1": 5.56274308498004,
+    "tb2": 6.977437226021179,
+    "tb3": 6.473674333776215
+  },
+  "max_speed": {
+    "tb1": 0.26089777191162306,
+    "tb2": 0.26171643339011624,
+    "tb3": 0.26230901675357515
+  },
+  "minimum_pair_distance": 0.7463564627680651,
+  "action_statuses": {
+    "tb1": [
+      [
+        "14520ad5dd7b4ac5a4126cd3a72c0ba9",
+        2
+      ],
+      [
+        "14520ad5dd7b4ac5a4126cd3a72c0ba9",
+        4
+      ],
+      [
+        "225ae211fc81434ba69e1497b586a19b",
+        2
+      ],
+      [
+        "225ae211fc81434ba69e1497b586a19b",
+        4
+      ],
+      [
+        "2c425741380f4d52b3d4bd0f2eb9ff83",
+        2
+      ],
+      [
+        "2c425741380f4d52b3d4bd0f2eb9ff83",
+        4
+      ],
+      [
+        "aec1db24019545528554b4b7b51915f5",
+        2
+      ],
+      [
+        "aec1db24019545528554b4b7b51915f5",
+        4
+      ],
+      [
+        "cc350ea3e33243779b2e34b49ecd31ea",
+        2
+      ],
+      [
+        "cc350ea3e33243779b2e34b49ecd31ea",
+        4
+      ]
+    ],
+    "tb2": [
+      [
+        "a407fd4e33174d5babaf38565aa54fbd",
+        2
+      ],
+      [
+        "a407fd4e33174d5babaf38565aa54fbd",
+        4
+      ],
+      [
+        "be5bd9a4a74c4a2ea78eb446af33c698",
+        2
+      ],
+      [
+        "be5bd9a4a74c4a2ea78eb446af33c698",
+        4
+      ],
+      [
+        "e8033e3e88da4c348aa2bf385678b969",
+        2
+      ],
+      [
+        "e8033e3e88da4c348aa2bf385678b969",
+        4
+      ],
+      [
+        "f66895f55d774a239c2b977fac136288",
+        2
+      ],
+      [
+        "f66895f55d774a239c2b977fac136288",
+        4
+      ]
+    ],
+    "tb3": [
+      [
+        "5a62ec85885b44a4807c237f28c59144",
+        2
+      ],
+      [
+        "5a62ec85885b44a4807c237f28c59144",
+        4
+      ],
+      [
+        "7eb871d5dfd54d5c8facd9f0d7a0b4e3",
+        2
+      ],
+      [
+        "7eb871d5dfd54d5c8facd9f0d7a0b4e3",
+        4
+      ],
+      [
+        "dd614f700b34496e910eb22f8ad12a81",
+        2
+      ],
+      [
+        "dd614f700b34496e910eb22f8ad12a81",
+        4
+      ],
+      [
+        "edf5fda736b44a9bb40dcf44c775b5d7",
+        2
+      ],
+      [
+        "edf5fda736b44a9bb40dcf44c775b5d7",
+        4
+      ]
+    ]
+  },
+  "hazard": null,
+  "diagnostic_stop_pass": false,
+  "baseline_smoke_pass": true,
+  "engineering_evidence": {
+    "engineering_closed_loop_pass": false,
+    "facts": {
+      "bounded_run": true,
+      "no_hazard": true,
+      "observed_stop": true,
+      "actual_NN_three_choices": false,
+      "three_owned_accepted": true,
+      "three_feedback": true,
+      "three_real_movement": true,
+      "SLAM_and_merge_growth": true,
+      "terminal_feedback_to_new_owner": false,
+      "no_owner_overlap": true,
+      "request_reservation_linkage": true,
+      "no_rejected_RL_actions": true
+    },
+    "terminal_to_new_owner_witnesses": [],
+    "owner_overlap": [],
+    "target_link_errors": [],
+    "actual_inferences": 0,
+    "accepted_per_robot": {
+      "tb1": 5,
+      "tb2": 4,
+      "tb3": 4
+    }
+  },
+  "final_request_ownership": {
+    "closed": true,
+    "authority_stopped": true,
+    "requests": 13,
+    "unresolved_requests": [],
+    "owned_goals": {
+      "tb1": [
+        "14520ad5dd7b4ac5a4126cd3a72c0ba9",
+        "225ae211fc81434ba69e1497b586a19b",
+        "2c425741380f4d52b3d4bd0f2eb9ff83",
+        "aec1db24019545528554b4b7b51915f5",
+        "cc350ea3e33243779b2e34b49ecd31ea"
+      ],
+      "tb2": [
+        "a407fd4e33174d5babaf38565aa54fbd",
+        "be5bd9a4a74c4a2ea78eb446af33c698",
+        "e8033e3e88da4c348aa2bf385678b969",
+        "f66895f55d774a239c2b977fac136288"
+      ],
+      "tb3": [
+        "5a62ec85885b44a4807c237f28c59144",
+        "7eb871d5dfd54d5c8facd9f0d7a0b4e3",
+        "dd614f700b34496e910eb22f8ad12a81",
+        "edf5fda736b44a9bb40dcf44c775b5d7"
+      ]
+    },
+    "unterminated_UUIDs": {
+      "tb1": [],
+      "tb2": [],
+      "tb3": []
+    },
+    "record_errors": []
+  },
+  "active_cancel_pass": false,
+  "engineering_closed_loop_pass": false,
+  "lifecycle_pause_healthy": true,
+  "participation": {
+    "tb1": {
+      "path_m": 13.494673566241485,
+      "actual_goals": 5,
+      "effective_motion": true
+    },
+    "tb2": {
+      "path_m": 11.108168667162262,
+      "actual_goals": 4,
+      "effective_motion": true
+    },
+    "tb3": {
+      "path_m": 13.841819938580016,
+      "actual_goals": 4,
+      "effective_motion": true
+    }
+  },
+  "run_integrity": true,
+  "observer_records_saved": {
+    "events": 21058,
+    "trajectory_rows": 18943,
+    "drive_rows": 55938,
+    "map_snapshots": 8,
+    "tf_snapshots": 1
+  }
+}

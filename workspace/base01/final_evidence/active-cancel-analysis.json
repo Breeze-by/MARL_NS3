@@ -1,0 +1,402 @@
+{
+  "identity": {
+    "utc": "2026-11-04T11:42:41.289876+00:00",
+    "kind": "active_cancel_check",
+    "commit": "985cb095e01c7f2896c55bddd71c36ba3d0da0ea",
+    "tree": "fbe826f2d15d74db7c6f395a5f3ceace5c3651e5",
+    "driver": "libbase01_diff_drive.so",
+    "driver_sha256": "8d54d39a687de851c95137ddee4a7ebbab90c3373e07d96fad338870d4317fc0",
+    "tools": {
+      "apt-in-rootfs.sh": "6a2b517931b5ca99132350b2f1fe5d0efc2feec59f84403b71fc5919108609d7",
+      "run-baseline.sh": "b0247f4abec080e2a9bb9c6a2c38efcd27d5400623acfdb63b1b25919a9f40cc",
+      "check_source.py": "2fc7ce644cf52bf27b0962aad54da241cfa27c52a9bc624f1d869d2e9f9cd8bb",
+      "capture_case_identity.py": "6fcaea037c5579d9b575ed949a9b6fd443a97ffd30325eadd753c01764ef5a07",
+      "run_baseline.py": "e3b31a1d81c52e285c8e102ea6c232ad6c2a399894cd7c1572a0684f968fffd8",
+      "fetch-suv.py": "43edb2dec2dd7ef0e8d5f08361f60fd59b6e257fddbe4df8cbabbd91d622ca9f",
+      "in-rootfs.sh": "5f6455da8f58dc66f532b67da649931cbf3de9e3a8c2c40d64b6ea60cc4d163d"
+    },
+    "safety": {
+      "linear_mps": 0.01,
+      "angular_rps": 0.03,
+      "stable_wall_seconds": 1.5,
+      "stable_sim_seconds": 0.5,
+      "stop_window_wall_seconds": 12,
+      "min_pair_distance_m": 0.7
+    }
+  },
+  "trigger": {
+    "utc": "2026-11-04T11:43:52.281259+00:00",
+    "wall": 1793792632.2812862,
+    "sim": 53.3,
+    "kind": "active_cancel_trigger",
+    "goals": {
+      "tb1": [
+        "106b739444574dd0a974dea2ac6724ec"
+      ],
+      "tb2": [
+        "253e2f8747e549a993859bfff973731c"
+      ],
+      "tb3": [
+        "221ae712669d40688ac3ffb67e5d8842"
+      ]
+    },
+    "positions": {
+      "tb1": [
+        5.367175936101054,
+        3.473419468453622,
+        0.008027247453204166,
+        0.25287159348413635,
+        -1.0349040397130083
+      ],
+      "tb2": [
+        -4.041805433434225,
+        -0.04195283797616099,
+        0.00786215037468275,
+        0.17779786800590214,
+        0.03221363009234945
+      ],
+      "tb3": [
+        5.629289263064926,
+        -1.016138641368905,
+        0.00849819010990524,
+        0.05242869512106571,
+        -0.9379129888969918
+      ]
+    }
+  },
+  "cancel": [
+    {
+      "utc": "2026-11-04T11:43:52.925587+00:00",
+      "wall": 1793792632.9256368,
+      "sim": 53.4,
+      "kind": "cancel_all",
+      "robot": "tb1",
+      "return_code": 0,
+      "goals": 1,
+      "goal_ids": [
+        "106b739444574dd0a974dea2ac6724ec"
+      ]
+    },
+    {
+      "utc": "2026-11-04T11:43:52.946200+00:00",
+      "wall": 1793792632.9462318,
+      "sim": 53.5,
+      "kind": "cancel_all",
+      "robot": "tb2",
+      "return_code": 0,
+      "goals": 1,
+      "goal_ids": [
+        "253e2f8747e549a993859bfff973731c"
+      ]
+    },
+    {
+      "utc": "2026-11-04T11:43:52.965435+00:00",
+      "wall": 1793792632.9654756,
+      "sim": 53.6,
+      "kind": "cancel_all",
+      "robot": "tb3",
+      "return_code": 0,
+      "goals": 1,
+      "goal_ids": [
+        "221ae712669d40688ac3ffb67e5d8842"
+      ]
+    }
+  ],
+  "cancelled_statuses": [
+    {
+      "utc": "2026-11-04T11:43:52.916322+00:00",
+      "wall": 1793792632.9163597,
+      "sim": 53.4,
+      "kind": "action_status",
+      "robot": "tb1",
+      "goal": "106b739444574dd0a974dea2ac6724ec",
+      "status": 5
+    },
+    {
+      "utc": "2026-11-04T11:43:52.939568+00:00",
+      "wall": 1793792632.939585,
+      "sim": 53.5,
+      "kind": "action_status",
+      "robot": "tb2",
+      "goal": "253e2f8747e549a993859bfff973731c",
+      "status": 5
+    },
+    {
+      "utc": "2026-11-04T11:43:52.989223+00:00",
+      "wall": 1793792632.9892461,
+      "sim": 53.8,
+      "kind": "action_status",
+      "robot": "tb3",
+      "goal": "221ae712669d40688ac3ffb67e5d8842",
+      "status": 5
+    }
+  ],
+  "stop": {
+    "utc": "2026-11-04T11:44:02.237932+00:00",
+    "wall": 1793792642.237949,
+    "sim": 62.1,
+    "kind": "observed_stop",
+    "positions": {
+      "tb1": [
+        4.913418026187684,
+        3.4749209726330688,
+        0.008772777349526386,
+        5.9539176209099545e-05,
+        0.006287344488314184
+      ],
+      "tb2": [
+        -4.026973232875729,
+        -0.10551168739567812,
+        0.0078811881124092,
+        6.623404812857953e-05,
+        0.01324795278335642
+      ],
+      "tb3": [
+        5.72410672203658,
+        -1.119602412900604,
+        0.00835609802004906,
+        5.848389632717304e-05,
+        0.0012357206069243645
+      ]
+    },
+    "per_robot_wall": {
+      "tb1": 9683.719958116,
+      "tb2": 9683.720097091,
+      "tb3": 9683.720136052
+    },
+    "sim_advanced": 1.3999999999999986,
+    "drive_received": {
+      "tb1": [
+        62.093,
+        368.0,
+        62.0,
+        0.0,
+        0.0,
+        -0.000976759887078922,
+        0.0009533873035581156,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tb2": [
+        62.074,
+        692.0,
+        62.0,
+        0.0,
+        0.0,
+        -0.0019619468474999366,
+        0.001877634436759584,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tb3": [
+        62.086,
+        508.0,
+        62.0,
+        0.0,
+        0.0,
+        -0.0002809003161514225,
+        0.00026134247097715687,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "trigger_to_observed_stop_wall_seconds": 9.956662654876709,
+  "last_nav_pause_to_stop_wall_seconds": 5.731348514556885,
+  "emergency_physics_pause": false,
+  "contacts": 0,
+  "process_events": [
+    {
+      "utc": "2026-11-04T11:43:52.281562+00:00",
+      "wall": 1793792632.281569,
+      "sim": 53.3,
+      "kind": "process_signal",
+      "process": "exploration",
+      "pid": 452299,
+      "signal": "SIGINT"
+    },
+    {
+      "utc": "2026-11-04T11:43:52.897167+00:00",
+      "wall": 1793792632.8972147,
+      "sim": 53.3,
+      "kind": "process_exit",
+      "process": "exploration",
+      "code": 0
+    },
+    {
+      "utc": "2026-11-04T11:44:02.251734+00:00",
+      "wall": 1793792642.2517624,
+      "sim": 62.1,
+      "kind": "process_signal",
+      "process": "launch",
+      "pid": 449207,
+      "signal": "SIGINT"
+    },
+    {
+      "utc": "2026-11-04T11:44:03.921719+00:00",
+      "wall": 1793792643.921754,
+      "sim": 62.1,
+      "kind": "process_exit",
+      "process": "launch",
+      "code": 0
+    }
+  ],
+  "result": {
+    "preflight": true,
+    "smoke_started": true,
+    "observed_stop": true,
+    "error": null,
+    "end_reason": "active_cancel_trigger",
+    "sim_elapsed": 31.599999999999998,
+    "wall_elapsed": 36.46413726500032,
+    "cancel_trigger": {
+      "tb1": [
+        "106b739444574dd0a974dea2ac6724ec"
+      ],
+      "tb2": [
+        "253e2f8747e549a993859bfff973731c"
+      ],
+      "tb3": [
+        "221ae712669d40688ac3ffb67e5d8842"
+      ]
+    },
+    "counts": {
+      "model_states": 602,
+      "tb1/joint_states": 2336,
+      "tb1/scan": 304,
+      "tb1/contacts": 600,
+      "tb1/odom": 1746,
+      "tb1/drive": 1820,
+      "tb1/model_state": 600,
+      "tb1/map": 15,
+      "tb2/joint_states": 2262,
+      "tb2/scan": 293,
+      "tb2/model_state": 582,
+      "tb2/contacts": 580,
+      "tb2/drive": 1764,
+      "tb2/odom": 1688,
+      "tb2/map": 14,
+      "tb3/scan": 279,
+      "tb3/contacts": 554,
+      "tb3/model_state": 553,
+      "tb3/drive": 1680,
+      "tb3/joint_states": 2147,
+      "tb3/odom": 1605,
+      "tb3/map": 13,
+      "merge_map/map": 38,
+      "tb1/cmd_vel": 364,
+      "tb1/zero_command_topic": 163,
+      "tb2/cmd_vel": 688,
+      "tb2/zero_command_topic": 179,
+      "tb3/cmd_vel": 504,
+      "tb3/zero_command_topic": 178,
+      "tb1/feedback": 978,
+      "tb2/feedback": 2508,
+      "tb3/feedback": 1576,
+      "tb1/action_status": 4,
+      "tb2/action_status": 4,
+      "tb3/action_status": 5
+    },
+    "map_changes": {
+      "tb1": 4,
+      "tb2": 6,
+      "tb3": 4,
+      "merge_map": 14
+    },
+    "distances": {
+      "tb1": 1.356489528438862,
+      "tb2": 4.524736519563166,
+      "tb3": 0.9055392774273857
+    },
+    "max_displacement": {
+      "tb1": 0.706310085970616,
+      "tb2": 4.1340350557664305,
+      "tb3": 0.6135771388522175
+    },
+    "max_speed": {
+      "tb1": 0.2674890213449704,
+      "tb2": 0.2617536371193939,
+      "tb3": 0.3277776547043618
+    },
+    "minimum_pair_distance": 4.438456664863075,
+    "action_statuses": {
+      "tb1": [
+        [
+          "106b739444574dd0a974dea2ac6724ec",
+          2
+        ],
+        [
+          "106b739444574dd0a974dea2ac6724ec",
+          5
+        ],
+        [
+          "e2107c2744e04584a2af024148ef52e3",
+          2
+        ],
+        [
+          "e2107c2744e04584a2af024148ef52e3",
+          4
+        ]
+      ],
+      "tb2": [
+        [
+          "253e2f8747e549a993859bfff973731c",
+          2
+        ],
+        [
+          "253e2f8747e549a993859bfff973731c",
+          5
+        ],
+        [
+          "3812b7e07b67487092aac8c830a9247c",
+          2
+        ],
+        [
+          "3812b7e07b67487092aac8c830a9247c",
+          4
+        ]
+      ],
+      "tb3": [
+        [
+          "0d598cbfbe0a43cc9d660f0d6c379f99",
+          2
+        ],
+        [
+          "0d598cbfbe0a43cc9d660f0d6c379f99",
+          4
+        ],
+        [
+          "221ae712669d40688ac3ffb67e5d8842",
+          2
+        ],
+        [
+          "221ae712669d40688ac3ffb67e5d8842",
+          3
+        ],
+        [
+          "221ae712669d40688ac3ffb67e5d8842",
+          5
+        ]
+      ]
+    },
+    "hazard": null,
+    "diagnostic_stop_pass": false,
+    "active_cancel_pass": true,
+    "baseline_smoke_pass": false
+  }
+}

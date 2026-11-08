@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "version": "policy-reference-v1.0.0",
+  "created_UTC": "2026-11-06T05:56:23.955069+00:00",
+  "status": "FORMALLY FROZEN LIMITED RESEARCH REFERENCE",
+  "formally_frozen": true,
+  "scope": "Fixed three-robot high-level exploration behavior for subsequent independently authorized communication research; not a hardware or universal task-success certificate.",
+  "source": {
+    "commit": "9c37033199af5dd20435e8017c7a17f58bd22e55",
+    "branch": "policy/freeze-lifecycle-v1",
+    "worktree": "policy-freeze-01/workspace",
+    "base_delivery_commit": "1de71b2499439387de2496351083a9b665439b16",
+    "annotated_tag": "policy/frozen-reference-v1.0.0",
+    "runtime_delta": "Only dispatch existing requested cancels before missing/stale observation returns; original fresh-state order unchanged."
+  },
+  "checkpoint": {
+    "installed_path": "policy-freeze-01/runs/formal-01/checkpoint-00512.pt",
+    "origin_path": "rl-04/runs/formal-01/checkpoint-00512.pt",
+    "sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+    "selection": "Unchanged pre-TEST RL04 VAL selection; no TEST-based model reselection.",
+    "selected_additional_joint_decisions": 512,
+    "selected_additional_Adam_steps": 16,
+    "completed_parent_joint_decisions": 2048,
+    "completed_parent_Adam_steps": 64,
+    "inherited_RL03_parent_Adam_steps": 64
+  },
+  "policy": {
+    "algorithm": "central PPO; deterministic deployment argmax",
+    "input_features": 701,
+    "map_channels": 2,
+    "map_grid_side": 16,
+    "robot_features_each": 13,
+    "candidate_features_each": 10,
+    "hidden_layers": [
+      128,
+      128
+    ],
+    "activation": "Tanh",
+    "actor_heads": 3,
+    "slots_per_head": 17,
+    "candidate_mode": "rl04_approach_v2",
+    "observation_contract": "rl04-shared-frontier-approach-v2",
+    "task_roi": [
+      -5.8,
+      -5.6,
+      7.25,
+      5.3
+    ],
+    "projected_resolution_m": 0.05
+  },
+  "input_sources": {
+    "shared_map": "/merge_map received OccupancyGrid",
+    "local_maps": [
+      "/tb1/map",
+      "/tb2/map",
+      "/tb3/map"
+    ],
+    "poses": "namespaced odometry header stamps + exact-time TF; retain last success at original stamp, reject pose age>2s",
+    "task_state": "actual task ownership and Nav2 feedback/results",
+    "simulator_truth": "not policy input; only independent sensor/evaluation/safety roles"
+  },
+  "actions": {
+    "robot_order": [
+      "tb1",
+      "tb2",
+      "tb3"
+    ],
+    "maximum_candidates": 15,
+    "maximum_candidates_per_robot": 5,
+    "goal": "index resolves to observed shared-map navigation target; transformed to robot-local map for NavigateToPose",
+    "KEEP": -1,
+    "WAIT": -2,
+    "active_task": "KEEP only; no policy CANCEL action",
+    "idle_WAIT": "only if sampled conditional mask has no available work",
+    "low_level": "Nav2 planning, control and avoidance; policy has no cmd_vel publisher"
+  },
+  "candidate_rules": {
+    "shared_frontier_min_group": 3,
+    "original_score": "group_size/(centroid_distance_cells+1e-6)",
+    "selection": "observed local reachability/approach eligibility and dedup before top5",
+    "approach": "only if shared group has no own-known locally reachable endpoint; original shared path prefix stops at own unknown boundary",
+    "nontrivial_progress_m": 0.25,
+    "local_observed_path_budget_m": 23.400000000000002,
+    "history_visited_failed_exclusion_m": 0.2,
+    "last_success_exclusion_m": 0.5,
+    "active_and_joint_goal_separation_m": 0.7,
+    "inflation_cells": 7,
+    "navigation_timeout_sim_s": 90
+  },
+  "decision_timing": {
+    "ROS_condition_period_sim_s": 5.0,
+    "feedback_consumption": "Nav2 callbacks update observed feedback/result/ownership asynchronously; the policy consumes that state in the next scheduled joint snapshot.",
+    "active_task_ownership": "KEEP only; retain existing token and accepted UUID, do not resend or replace the owned goal.",
+    "navigation_task_timeout_sim_s": 90.0
+  },
+  "encoding_authority": {
+    "function": "multi_robot_exploration.ppo.encode",
+    "source": "src/multi_robot_exploration/multi_robot_exploration/ppo.py",
+    "sha256": "531a595922c7fd2c5c5fd5ef75e8e737a167c14af1ecd1880f5525c689bd5e9c",
+    "semantics": "Exact ordering, normalization/scales and whitelisted fields are defined by this pinned source, not reinterpreted by this document."
+  },
+  "runtime_policy_source_sha256": {
+    "src/multi_robot_exploration/multi_robot_exploration/allocation.py": "e0c382ffa94e15f36f3990a028193b8ea2b3cd5ae5f681bc5a5d0270902244dc",
+    "src/multi_robot_exploration/multi_robot_exploration/frontier.py": "b9834b91f7f0baeb9ef97036197ac2b67d1aac49072944827daa61647607b2b8",
+    "src/multi_robot_exploration/multi_robot_exploration/joint.py": "279d59be09b39ce501af862991d7e88703f0b48cf08e6d1aab9ed0d3b97bc78a",
+    "src/multi_robot_exploration/multi_robot_exploration/observations.py": "54fd9395d2c0dd75def8ad07601005423df06f960060561de20a86ed52d0284c",
+    "src/multi_robot_exploration/multi_robot_exploration/ppo.py": "531a595922c7fd2c5c5fd5ef75e8e737a167c14af1ecd1880f5525c689bd5e9c",
+    "src/multi_robot_exploration/multi_robot_exploration/control.py": "2ef26eb5eb722deb03265a324c397dc3be0b369a56a610b61fb807ba6a1f8956",
+    "src/multi_robot_exploration/multi_robot_exploration/environment.py": "acd9b7ff104965067e68f16f6fb51d3a48a6c11122f71990a5f739037b906064",
+    "src/multi_robot_exploration/multi_robot_exploration/rl_env.py": "d03c93ffcf0fd2833ca213b811b46016fa5a38dc48bb55b6f0b3563d7df3feb4",
+    "rl01/ros_policy.py": "7edca93a69fd7d1fc3fb6ab9f75e8bab80aa54bf9c4df454461c894834d35dd9",
+    "rl04/ros_headquarters.py": "b11def034acf195d630d1183928e3ee8736a6ee2147348f440bee1108e46331a",
+    "rl04/train-config.json": "ccada263927da68f4724313313a7dec27a1150fb3b06788cf9ab0dcab3a056b3"
+  },
+  "lifecycle": {
+    "missing_or_stale_observation": "No new policy selection or allocation. Dispatch already-requested cancellations after tick, independently of new-allocation freshness gate.",
+    "ownership": "Retain task/token/accepted UUID until real Action terminal handling; dispatch is not completion.",
+    "timeout": "90 simulated seconds checked on scheduled callback, then asynchronous cancellation; not a physical stop deadline under transport loss.",
+    "no_policy_velocity_control": true,
+    "stalled_WAIT": "Use existing detectable stalled_wait and budget/safety termination rules, not an indefinite silent loop."
+  },
+  "runtime": {
+    "wrapper": "policy-freeze-01/workspace/rl04/ros-python.sh",
+    "ros_entry": "policy-freeze-01/workspace/rl04/ros_headquarters.py",
+    "baseline_worktree": "base-01-econ/workspace",
+    "BASE01_commit": "12b366564842fbc98de57e0fc679a9b22d125543",
+    "BASE02_runtime_commit": "692b437d4d63a16a7ba58a091c5612469d0aa62e",
+    "rootfs": "base-01-econ/isolation/rootfs",
+    "driver_sha256": "8d54d39a687de851c95137ddee4a7ebbab90c3373e07d96fad338870d4317fc0",
+    "validated_dependency_inventory": "rl-04/evidence/p5-source-inventory-01.json",
+    "versions": "ROS2 Humble; Gazebo Classic; custom SLAM source2.6.0; nav2_bringup source1.1.16 and system controller/planner1.1.20 (not one uniform Nav2 version).",
+    "copied_provenance_json_sha256": {
+      "runs/selection.json": "54c7a70938007bc273432b66f56709df4768d0e1380706e91fbd082a855c22f6",
+      "runs/formal-01/summary.json": "c14c400366b96b578eb3484878140c49c5dbf0e7eeb725633a68d1dbf6eacf35",
+      "runs/formal-01/process-exit.json": "04326babd0bed1739ff57a88cd44cc4ffa24da596463f2472dba047f1fff620b"
+    },
+    "copy_semantics": "Only selected checkpoint and three original JSONs copied byte-for-byte to satisfy unchanged phase-relative loader. Historical formally_frozen=false fields and rl-04 origin paths remain historical. This manifest is current release authority. No READY/launch authorization copied.",
+    "execution_authorization": "This freeze does not authorize another Gazebo, training or hardware run; existing boot requires separately established readiness."
+  },
+  "inherited_evidence": {
+    "RL04_delivery_identity": "rl-04/FINAL_IDENTITY.json",
+    "RL04_report": "rl-04/workspace/rl04/FINAL_REPORT.md",
+    "independent_review": "reviews/RL-04/REVIEW.md",
+    "raw_manifest": "rl-04/RAW_SHA256SUMS",
+    "source_commits": {
+      "training_and_selection": "985158a3a0fd036177fb29fc62c3e41249d89ad3",
+      "public_regression_Mock_TEST": "9fe44e379e333409b228b3262f18c7f78ace3c85",
+      "real_Gazebo": "ed4ca13a7ba8d874b9e5cf5f06c8665868a30f95"
+    },
+    "Gazebo_scope": "One historical 180sim knownEconA RL/Nav2/SLAM run and observed stop at ed4ca13a7ba8d874b9e5cf5f06c8665868a30f95; not a new run of the fixed missing/stale cancellation branch."
+  },
+  "new_verification": {
+    "lifecycle": "Actual methods AST fixture; before and after 8 cases each, native0; unavailable-state timeout cancellation request, nonexpiry, ownership, no duplicate dispatch and unchanged fresh traces. Fake Action only.",
+    "layout": "Actual bwrap wrapper module-location and checkpoint-byte/path check, native0; no import of rclpy/torch or checkpoint deserialization.",
+    "evidence_sha256": {
+      "policy-freeze-01/evidence/lifecycle-01/after/execution.json": "cda66b5710521a74b419406483fa4596bcd3bd75f13ce4399be1b8b71e5fac19",
+      "policy-freeze-01/evidence/lifecycle-01/after/result.json": "018a454475425171db684e9c9610a141d15bc587c4bb9b063337e556f23fe4e7",
+      "policy-freeze-01/evidence/lifecycle-01/after/ros_policy.py": "7edca93a69fd7d1fc3fb6ab9f75e8bab80aa54bf9c4df454461c894834d35dd9",
+      "policy-freeze-01/evidence/lifecycle-01/before/execution.json": "3caaee5a2c312f5804ee62879e16da6bd691b08e23e3f625bad7b1b190da0350",
+      "policy-freeze-01/evidence/lifecycle-01/before/result.json": "2992bbbbf42096c9d6ce2745a92990a4275cb9491e9831d18897e6ce7d706500",
+      "policy-freeze-01/evidence/lifecycle-01/before/ros_policy.py": "b17692e5c409e540b7fc66186703ee0a2302a319287de0a005ff059d3783d01b",
+      "policy-freeze-01/evidence/lifecycle-01/runtime.patch": "e168389c053a6f125168839cefb5c2f8b8adfffdb638a5e293af018e8e2dfd8c",
+      "policy-freeze-01/evidence/runtime-layout.json": "65affe79b710d2d42f743cfc01dc461e7ebbc7f061c68c9823ca4c4db5aac228",
+      "policy-freeze-01/evidence/runtime-layout-execution.json": "fa83e202046cf24e394c3a51e1be1553f0b80c024201fcdc9c338b190190e23b"
+    },
+    "call_counts": {
+      "Node": 0,
+      "NN_forward": 0,
+      "environment_step": 0,
+      "optimizer_update": 0,
+      "real_Action": 0,
+      "Gazebo": 0
+    }
+  },
+  "known_limits": [
+    "Only6new within-public-family geometries×2poses and one180sim knownEconA engineering round.",
+    "No demonstrated extra PPO generalization advantage over46e-v2;time/path differences cross zero.",
+    "Public4202/502 remains incomplete at100;4203/501 has goals but short motion below1m.",
+    "No new moving active-cancel certificate;all10real goals already succeeded before end.",
+    "No full natural Gazebo exploration-task completion or real-robot safety/reliability certificate.",
+    "New missing/stale cancellation dispatch is unit verified, not real ROS delivery or physical stopping under network loss.",
+    "Frozen ROI and observed local reachability do not guarantee inter-robot path conflict avoidance or whole-world completion.",
+    "Known in-domain failures stay in future comparisons; no claim of statistically significant additional PPO generalization advantage."
+  ],
+  "change_rules": {
+    "permitted_outside_policy": [
+      "Semantics-preserving serialization, timestamp/source preservation, transport replacement, delivery scheduling/compression and explicit deployment adapters.",
+      "Separate safety/transport mechanisms must be declared, identical across comparisons and must not choose alternative exploration goals."
+    ],
+    "requires_new_version": [
+      "Weights, encode/normalization/ROI, candidate construction/ranking/filtering, masks/robot order, task/KEEP/WAIT semantics, thresholds, decision timing or core lifecycle changes."
+    ],
+    "forbidden": [
+      "Retraining or hidden goal rewriting to improve frozen-policy communication comparisons.",
+      "Ideal ROS/shared-memory access to data not actually delivered through the constrained transport.",
+      "Discarding known failed ideal runs, changing TEST selection after results, or treating this freeze as scientific/hardware PASS."
+    ],
+    "necessary_behavior_change": "Issue a new version, independently reaccept it and rebuild all affected comparison baselines."
+  },
+  "path_conventions": "All artifact/evidence paths are workspace-root-relative; runtime_policy_source_sha256 and encoding_authority.source are relative to source.worktree. Original provenance JSON paths describe historical RL04 origin."
+}

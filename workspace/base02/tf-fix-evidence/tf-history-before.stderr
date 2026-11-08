@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/project/workspace/base02/tests/test_tf_static_history.py", line 73, in <module>
+    results=[case(1,False),case(1,True),case(100,False)]
+  File "/project/workspace/base02/tests/test_tf_static_history.py", line 34, in case
+    pubs=[n.create_publisher(TFMessage,topic,qos(100)) for n in writers]
+  File "/project/workspace/base02/tests/test_tf_static_history.py", line 34, in <listcomp>
+    pubs=[n.create_publisher(TFMessage,topic,qos(100)) for n in writers]
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1285, in create_publisher
+    raise ex from None
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1283, in create_publisher
+    self._validate_topic_or_service_name(topic)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1189, in _validate_topic_or_service_name
+    validate_topic_name(topic_or_service_name, is_service=is_service)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/validate_topic_name.py", line 43, in validate_topic_name
+    raise InvalidTopicNameException(name, error_msg, invalid_index)
+rclpy.exceptions.InvalidTopicNameException: Invalid topic name: topic name token must not start with a number:
+  '/base02_tf_history_fixture/1_0'
+                              ^

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/opt/ros/humble/lib/python3.10/site-packages/launch_ros/utilities/evaluate_parameters.py", line 164, in evaluate_parameters
+    output_params.append(evaluate_parameter_dict(context, param))
+  File "/opt/ros/humble/lib/python3.10/site-packages/launch_ros/utilities/evaluate_parameters.py", line 65, in evaluate_parameter_dict
+    raise TypeError('Expecting tuple of substitutions got {}'.format(repr(name)))
+TypeError: Expecting tuple of substitutions got 'map_poses'

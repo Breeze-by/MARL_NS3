@@ -1,0 +1,116 @@
+{
+  "scope": "One pass over saved real decision masks, no policy forward/Node/bag/optimizer",
+  "robots": {
+    "tb1": {
+      "decisions": 119,
+      "idle": 89,
+      "idle_raw_legal0": 82,
+      "idle_raw_legal_positive": 7,
+      "idle_selected_candidate": 7,
+      "idle_WAIT_with_raw_legal": 0,
+      "idle_WAIT_without_raw_legal": 82,
+      "idle_conditional_candidate_positive": 7,
+      "busy_KEEP": 30,
+      "first_idle_zero_sim": 220.0,
+      "last_idle_zero_sim": 625.0
+    },
+    "tb2": {
+      "decisions": 119,
+      "idle": 115,
+      "idle_raw_legal0": 113,
+      "idle_raw_legal_positive": 2,
+      "idle_selected_candidate": 2,
+      "idle_WAIT_with_raw_legal": 0,
+      "idle_WAIT_without_raw_legal": 113,
+      "idle_conditional_candidate_positive": 2,
+      "busy_KEEP": 4,
+      "first_idle_zero_sim": 65.0,
+      "last_idle_zero_sim": 625.0
+    },
+    "tb3": {
+      "decisions": 119,
+      "idle": 115,
+      "idle_raw_legal0": 112,
+      "idle_raw_legal_positive": 3,
+      "idle_selected_candidate": 3,
+      "idle_WAIT_with_raw_legal": 0,
+      "idle_WAIT_without_raw_legal": 112,
+      "idle_conditional_candidate_positive": 3,
+      "busy_KEEP": 4,
+      "first_idle_zero_sim": 70.0,
+      "last_idle_zero_sim": 625.0
+    }
+  },
+  "limits": "Raw legal means existing qualified action_mask before joint prefix. Conditional mask is actual consumed support. Zero supply identifies stage outcome only, not which upstream map/frontier filter caused it. Busy KEEP is not voluntary idle. No first-arrival sensor credit inference.",
+  "split_at_original_quality95": {
+    "autonomy_start": 30.0,
+    "absolute_sim": 136.5,
+    "counts": {
+      "at_or_before95": {
+        "tb1": {
+          "decisions": 21,
+          "idle": 4,
+          "idle_raw_legal0": 0,
+          "idle_raw_legal_positive": 4,
+          "selected_candidate": 4,
+          "WAIT_without_raw_legal": 0,
+          "WAIT_with_raw_legal": 0,
+          "busy_KEEP": 17
+        },
+        "tb2": {
+          "decisions": 21,
+          "idle": 17,
+          "idle_raw_legal0": 15,
+          "idle_raw_legal_positive": 2,
+          "selected_candidate": 2,
+          "WAIT_without_raw_legal": 15,
+          "WAIT_with_raw_legal": 0,
+          "busy_KEEP": 4
+        },
+        "tb3": {
+          "decisions": 21,
+          "idle": 17,
+          "idle_raw_legal0": 14,
+          "idle_raw_legal_positive": 3,
+          "selected_candidate": 3,
+          "WAIT_without_raw_legal": 14,
+          "WAIT_with_raw_legal": 0,
+          "busy_KEEP": 4
+        }
+      },
+      "after95": {
+        "tb1": {
+          "decisions": 98,
+          "idle": 85,
+          "idle_raw_legal0": 82,
+          "idle_raw_legal_positive": 3,
+          "selected_candidate": 3,
+          "WAIT_without_raw_legal": 82,
+          "WAIT_with_raw_legal": 0,
+          "busy_KEEP": 13
+        },
+        "tb2": {
+          "decisions": 98,
+          "idle": 98,
+          "idle_raw_legal0": 98,
+          "idle_raw_legal_positive": 0,
+          "selected_candidate": 0,
+          "WAIT_without_raw_legal": 98,
+          "WAIT_with_raw_legal": 0,
+          "busy_KEEP": 0
+        },
+        "tb3": {
+          "decisions": 98,
+          "idle": 98,
+          "idle_raw_legal0": 98,
+          "idle_raw_legal_positive": 0,
+          "selected_candidate": 0,
+          "WAIT_without_raw_legal": 98,
+          "WAIT_with_raw_legal": 0,
+          "busy_KEEP": 0
+        }
+      }
+    }
+  },
+  "causal_limit": "Counts include post95 tail; only exclude selecting WAIT on the specific frames with an available qualified task. Do not exclude earlier allocation/path choices affecting subsequent eligibility; qualification-zero does not identify its upstream filter."
+}

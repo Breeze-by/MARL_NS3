@@ -1,0 +1,85 @@
+{
+  "status": "CANDIDATE ONLY / FORMAL FREEZE NOT READY",
+  "policy_formally_frozen": false,
+  "model": {
+    "path": "rl-03/runs/formal-01/checkpoint-02048.pt",
+    "sha256": "46e8079f3f9fa035b896be534f2acd70b94bd44e11d7b6ad2568e4b35732a7b7",
+    "actual_joint": 2048,
+    "actual_adam_steps": 64,
+    "initialization_sha256": "a746c56bfd71b57ea8fe2fc94b196aee5db4a7396913cfd0d534b137a1b0182c"
+  },
+  "source": {
+    "training_and_test": "b54e0f8e6bf7c6fbdfa6bbbfc84c68375f6fe039",
+    "actual_gazebo": "c2614a168b2659e2393a8c88ce9ed4fbc994db01",
+    "branch": "rl-03/candidate"
+  },
+  "observation": {
+    "contract": "rl03-local-reachable-v1",
+    "candidate_mode": "rl03_local_v1",
+    "legacy_default": "base02-v1",
+    "encoded_size": 701,
+    "roi": [
+      -5.8,
+      -5.6,
+      7.25,
+      5.3
+    ],
+    "resolution_m": 0.05,
+    "sources": [
+      "received shared map",
+      "received robot-local maps and origins",
+      "namespaced TF/odometry",
+      "observed Frontier groups",
+      "current tasks/terminal history"
+    ],
+    "no_simulator_truth_input": true
+  },
+  "candidate": {
+    "original_top_groups": 5,
+    "min_group_cells": 3,
+    "inflation_cells": 7,
+    "local_known_free_no_corner_paths": true,
+    "path_ceiling_m": 23.4,
+    "path_ceiling_not_completion_time_guarantee": true,
+    "score": "original group_size/(centroid_distance_cells+1e-6)",
+    "memory_exclusion_m": 0.2,
+    "last_success_exclusion_m": 0.5
+  },
+  "action": {
+    "robots": [
+      "tb1",
+      "tb2",
+      "tb3"
+    ],
+    "autoregressive_heads": 3,
+    "slots_per_head": 17,
+    "goal_slots_max": 15,
+    "KEEP": -1,
+    "WAIT": -2,
+    "output": "high-level map-frame next navigation goals; no cmd_vel",
+    "ownership": "immutable snapshot token + joint conditional reservation + actual Nav2 action UUID"
+  },
+  "execution": {
+    "planning_control_avoidance": "Nav2 unchanged",
+    "navigation_timeout_sim_s": 90.0,
+    "safety_and_stop": "existing BASE observed stop/ownership chain unchanged",
+    "transport": "ideal ROS only; no ns-3 or hardware"
+  },
+  "blockers": [
+    {
+      "priority": "P1",
+      "issue": "TEST three-robot participation8/12<registered10/12; some robot rows never have conditional legal goals"
+    },
+    {
+      "priority": "P2",
+      "issue": "Real Gazebo28/37 allocation calls await observation; stamped TF ordering suspected but exact failures not individually logged; continuous5sim inference not established"
+    }
+  ],
+  "evidence": {
+    "test": "rl-03/runs/test-01/comparison.json",
+    "participation": "rl-03/evidence/test-participation-audit.json",
+    "gazebo": "rl-03/evidence/gazebo-rl-01/result.json",
+    "timing": "rl-03/evidence/gazebo-timing-state-audit.json"
+  },
+  "next_step": "No automatic retraining, new TEST, ns-3, communication optimization, deployment or formal freeze. Any later changes require a new version/explicit authorization and renewed baselines."
+}

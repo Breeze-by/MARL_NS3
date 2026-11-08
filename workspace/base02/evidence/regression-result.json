@@ -1,0 +1,71 @@
+{
+  "preflight": false,
+  "smoke_started": false,
+  "observed_stop": true,
+  "error": "Preflight missing: ['tb1/TF map->base_scan']",
+  "end_reason": "not_started",
+  "sim_elapsed": 0.0,
+  "wall_elapsed": 0.0,
+  "counts": {
+    "model_states": 2170,
+    "tb1/joint_states": 8544,
+    "tb1/scan": 1084,
+    "tb1/contacts": 2168,
+    "tb1/odom": 6375,
+    "tb1/drive": 6375,
+    "tb1/model_state": 2168,
+    "tb1/map": 48,
+    "tb2/joint_states": 8470,
+    "tb2/scan": 1074,
+    "tb2/contacts": 2147,
+    "tb2/odom": 6314,
+    "tb2/drive": 6314,
+    "tb2/model_state": 2147,
+    "tb2/map": 47,
+    "tb3/joint_states": 8360,
+    "tb3/scan": 1061,
+    "tb3/contacts": 2121,
+    "tb3/drive": 6236,
+    "tb3/odom": 6236,
+    "tb3/model_state": 2121,
+    "tb3/map": 46,
+    "merge_map/map": 138,
+    "tb1/cmd_vel": 31,
+    "tb1/zero_command_topic": 31,
+    "tb2/cmd_vel": 31,
+    "tb2/zero_command_topic": 31,
+    "tb3/cmd_vel": 31,
+    "tb3/zero_command_topic": 31
+  },
+  "map_changes": {
+    "tb1": 1,
+    "tb2": 1,
+    "tb3": 1,
+    "merge_map": 1
+  },
+  "distances": {
+    "tb1": 0.006624250594720971,
+    "tb2": 0.006549940111922329,
+    "tb3": 0.006495785905854621
+  },
+  "max_displacement": {
+    "tb1": 0.006434183310603247,
+    "tb2": 0.0063702965466029835,
+    "tb3": 0.0062980758126316636
+  },
+  "max_speed": {
+    "tb1": 0.0004575098020674934,
+    "tb2": 0.0004639248261545729,
+    "tb3": 0.0005133857204102242
+  },
+  "minimum_pair_distance": 5.590133123712702,
+  "action_statuses": {
+    "tb1": [],
+    "tb2": [],
+    "tb3": []
+  },
+  "hazard": null,
+  "diagnostic_stop_pass": false,
+  "active_cancel_pass": false,
+  "baseline_smoke_pass": false
+}

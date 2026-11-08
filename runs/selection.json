@@ -1,0 +1,147 @@
+{
+  "status": "VAL SELECTED",
+  "selected": {
+    "joint": 512,
+    "run": 1,
+    "checkpoint": "rl-04/runs/formal-01/checkpoint-00512.pt",
+    "checkpoint_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+    "natural_complete_rate": 1.0,
+    "all_robot_participation_rate": 1.0,
+    "mean_coverage": 0.9515219067037385,
+    "penalty_T95_mean": 46.13333333333329,
+    "total_path_m": 63.27711476210773,
+    "additional_joint_decisions": 512,
+    "additional_Adam_steps": 16,
+    "inherited_reference": false,
+    "inherited_parent_Adam_steps": 64,
+    "nonforced_per_head": [
+      62,
+      59,
+      66
+    ],
+    "maximum_actor_gradient_per_head": [
+      0.2495564967393875,
+      0.32274898886680603,
+      0.25628799200057983
+    ],
+    "net_actor_weight_change_per_head": [
+      0.032563384622335434,
+      0.06567057222127914,
+      0.06059490144252777
+    ]
+  },
+  "eligible": [
+    {
+      "joint": 512,
+      "run": 1,
+      "checkpoint": "rl-04/runs/formal-01/checkpoint-00512.pt",
+      "checkpoint_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+      "natural_complete_rate": 1.0,
+      "all_robot_participation_rate": 1.0,
+      "mean_coverage": 0.9515219067037385,
+      "penalty_T95_mean": 46.13333333333329,
+      "total_path_m": 63.27711476210773,
+      "additional_joint_decisions": 512,
+      "additional_Adam_steps": 16,
+      "inherited_reference": false,
+      "inherited_parent_Adam_steps": 64,
+      "nonforced_per_head": [
+        62,
+        59,
+        66
+      ],
+      "maximum_actor_gradient_per_head": [
+        0.2495564967393875,
+        0.32274898886680603,
+        0.25628799200057983
+      ],
+      "net_actor_weight_change_per_head": [
+        0.032563384622335434,
+        0.06567057222127914,
+        0.06059490144252777
+      ]
+    },
+    {
+      "joint": 0,
+      "run": 1,
+      "checkpoint": "rl-04/runs/formal-01/initial.pt",
+      "checkpoint_sha256": "31dbfbdef43b650235c550931654284b5911aee4d5e21847f0d09e8b3ea68bdc",
+      "natural_complete_rate": 1.0,
+      "all_robot_participation_rate": 1.0,
+      "mean_coverage": 0.9618994136842874,
+      "penalty_T95_mean": 52.799999999999976,
+      "total_path_m": 77.57226954535562,
+      "additional_joint_decisions": 0,
+      "additional_Adam_steps": 0,
+      "inherited_reference": true,
+      "inherited_parent_Adam_steps": 64
+    },
+    {
+      "joint": 1024,
+      "run": 1,
+      "checkpoint": "rl-04/runs/formal-01/checkpoint-01024.pt",
+      "checkpoint_sha256": "74850194f33a13cfba46e46387d76c833c716ec0c7411a301b3de32195b05efb",
+      "natural_complete_rate": 1.0,
+      "all_robot_participation_rate": 1.0,
+      "mean_coverage": 0.9631411680659728,
+      "penalty_T95_mean": 90.99999999999942,
+      "total_path_m": 61.14188168948775,
+      "additional_joint_decisions": 1024,
+      "additional_Adam_steps": 32,
+      "inherited_reference": false,
+      "inherited_parent_Adam_steps": 64,
+      "nonforced_per_head": [
+        100,
+        103,
+        108
+      ],
+      "maximum_actor_gradient_per_head": [
+        0.2495564967393875,
+        0.3231319189071655,
+        0.25628799200057983
+      ],
+      "net_actor_weight_change_per_head": [
+        0.04711664095520973,
+        0.10461089015007019,
+        0.10219824314117432
+      ]
+    },
+    {
+      "joint": 2048,
+      "run": 1,
+      "checkpoint": "rl-04/runs/formal-01/checkpoint-02048.pt",
+      "checkpoint_sha256": "c30986bfb1b6fa180c413d90e6c59692a556071ac30cf4bce6ded804d91471e2",
+      "natural_complete_rate": 1.0,
+      "all_robot_participation_rate": 1.0,
+      "mean_coverage": 0.9631411680659728,
+      "penalty_T95_mean": 90.99999999999942,
+      "total_path_m": 61.14188168948775,
+      "additional_joint_decisions": 2048,
+      "additional_Adam_steps": 64,
+      "inherited_reference": false,
+      "inherited_parent_Adam_steps": 64,
+      "nonforced_per_head": [
+        200,
+        198,
+        203
+      ],
+      "maximum_actor_gradient_per_head": [
+        0.27134835720062256,
+        0.3231319189071655,
+        0.27824193239212036
+      ],
+      "net_actor_weight_change_per_head": [
+        0.07884625345468521,
+        0.1259784698486328,
+        0.15436501801013947
+      ]
+    }
+  ],
+  "excluded": [],
+  "formally_frozen": false,
+  "test_rollouts_before_selection": 0,
+  "parent_joint": 2048,
+  "additional_PPO_checkpoint_selected": true,
+  "test_reference_contract": "rl04_approach_v2",
+  "selection_rule": "eligible initial or actor-qualified prefix; natural, participation, penalty_T95, path, earliest joint"
+}

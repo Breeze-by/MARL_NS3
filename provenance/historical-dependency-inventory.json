@@ -1,0 +1,261 @@
+{
+  "status": "READ-ONLY PROSPECTIVE P5 SOURCE INVENTORY; NOT AUTHORIZATION OR RUNTIME PASS",
+  "checked_UTC": "2026-11-06T02:24:33.415140+00:00",
+  "current_commit": "9fe44e379e333409b228b3262f18c7f78ace3c85",
+  "selected": {
+    "joint": 512,
+    "run": 1,
+    "checkpoint": "rl-04/runs/formal-01/checkpoint-00512.pt",
+    "checkpoint_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+    "natural_complete_rate": 1.0,
+    "all_robot_participation_rate": 1.0,
+    "mean_coverage": 0.9515219067037385,
+    "penalty_T95_mean": 46.13333333333329,
+    "total_path_m": 63.27711476210773,
+    "additional_joint_decisions": 512,
+    "additional_Adam_steps": 16,
+    "inherited_reference": false,
+    "inherited_parent_Adam_steps": 64,
+    "nonforced_per_head": [
+      62,
+      59,
+      66
+    ],
+    "maximum_actor_gradient_per_head": [
+      0.2495564967393875,
+      0.32274898886680603,
+      0.25628799200057983
+    ],
+    "net_actor_weight_change_per_head": [
+      0.032563384622335434,
+      0.06567057222127914,
+      0.06059490144252777
+    ]
+  },
+  "project_files": {
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/observations.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/observations.py",
+      "sha256": "54fd9395d2c0dd75def8ad07601005423df06f960060561de20a86ed52d0284c"
+    },
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/rl_world.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/rl_world.py",
+      "sha256": "0ae43902af3e0ac0ca2fbc3ee4031ce787e6f94da58e049cfb5eb5b569025a0c"
+    },
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/rl_ledger.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/rl_ledger.py",
+      "sha256": "c8c4b24228f77418ffec0d4d90c6c753bd0d3938595e21e72a0988b43ceb6cc1"
+    },
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/evaluation.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/evaluation.py",
+      "sha256": "6be82ecf3189705c4e0c6374239dbc6e38c71e2b487376245c8c92bbfd1f1d42"
+    },
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/allocation.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/allocation.py",
+      "sha256": "e0c382ffa94e15f36f3990a028193b8ea2b3cd5ae5f681bc5a5d0270902244dc"
+    },
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/ppo.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/ppo.py",
+      "sha256": "531a595922c7fd2c5c5fd5ef75e8e737a167c14af1ecd1880f5525c689bd5e9c"
+    },
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/frontier.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/frontier.py",
+      "sha256": "b9834b91f7f0baeb9ef97036197ac2b67d1aac49072944827daa61647607b2b8"
+    },
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/rl_backend.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/rl_backend.py",
+      "sha256": "0e271ef6ecec9a2fba49d615dfba5b27ebf296ef9eaec4c270b643425ec421c5"
+    },
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/__init__.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/control.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/control.py",
+      "sha256": "2ef26eb5eb722deb03265a324c397dc3be0b369a56a610b61fb807ba6a1f8956"
+    },
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/rl_env.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/rl_env.py",
+      "sha256": "d03c93ffcf0fd2833ca213b811b46016fa5a38dc48bb55b6f0b3563d7df3feb4"
+    },
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/environment.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/environment.py",
+      "sha256": "acd9b7ff104965067e68f16f6fb51d3a48a6c11122f71990a5f739037b906064"
+    },
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/joint.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/joint.py",
+      "sha256": "279d59be09b39ce501af862991d7e88703f0b48cf08e6d1aab9ed0d3b97bc78a"
+    },
+    "workspace/rl04/common.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl04/common.py",
+      "sha256": "ecf2d913f672864d7c37e6ab1f819164c35307e161005128f02bae1988bdd5ee"
+    },
+    "workspace/rl04/train.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl04/train.py",
+      "sha256": "957101d0c59834c9839dfecfdd6955de718f38f7b5b02f1ef693375522e17ebd"
+    },
+    "workspace/rl04/train-config.json": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl04/train-config.json",
+      "sha256": "ccada263927da68f4724313313a7dec27a1150fb3b06788cf9ab0dcab3a056b3"
+    },
+    "workspace/rl04/ros_headquarters.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl04/ros_headquarters.py",
+      "sha256": "b11def034acf195d630d1183928e3ee8736a6ee2147348f440bee1108e46331a"
+    },
+    "workspace/rl04/gazebo_boot.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl04/gazebo_boot.py",
+      "sha256": "27b36417281e4eab86108ab8844a65106378c98739bd6f3fc3c9700b68894868"
+    },
+    "workspace/rl04/ros-python.sh": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl04/ros-python.sh",
+      "sha256": "0a8eaf8454585a8c1a52a010de4c6dfd8c8d61b81bdc327dba0d5f8ba312eb19"
+    },
+    "workspace/rl04/GAZEBO_PLAN.md": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl04/GAZEBO_PLAN.md",
+      "sha256": "7d9973b1cd8f075c48a02fd1ab4e9f745060d074aef244ac9c4d7160f8338d96"
+    },
+    "workspace/rl02/maps.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl02/maps.py",
+      "sha256": "d0b3627b1a084cd694b38afad34790d9fea7c567877651f2d041018b5f27aa59"
+    },
+    "workspace/rl02/diagnose.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl02/diagnose.py",
+      "sha256": "3690d2f5a11a12fb779246392d1c665c13e100ddccf5ba1505ed44f0e8d80218"
+    },
+    "workspace/rl02/execution.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl02/execution.py",
+      "sha256": "5577e3b6a9e3efca748008dc5b87a38ed5da1261030fdcf5a7008c866b654253"
+    },
+    "workspace/rl02/run_gazebo.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl02/run_gazebo.py",
+      "sha256": "f06b9923550dd316189aa41862d25e7cddcae32bb91cb1d5eff1bf7aca4da813"
+    },
+    "workspace/rl02/execution_evidence.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl02/execution_evidence.py",
+      "sha256": "3aa7dd8452bc5947f7c2611facd57fac557cd3ca129e3b7fc9cefa14e8a4c85d"
+    },
+    "workspace/rl02/bag-qos.yaml": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl02/bag-qos.yaml",
+      "sha256": "c044780c4ea0cf82bdf85717142acd7ce64d1d123c142816a1caf45b2d4d39a8"
+    },
+    "workspace/rl01/ros_policy.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl01/ros_policy.py",
+      "sha256": "b17692e5c409e540b7fc66186703ee0a2302a319287de0a005ff059d3783d01b"
+    },
+    "workspace/src/multi_robot/launch/gazebo_multirobot_mapping_with_nav2.launch.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/src/multi_robot/launch/gazebo_multirobot_mapping_with_nav2.launch.py",
+      "sha256": "1164a4f94bc2d07dc24bacb1702d68bfaeca2a989cfe46d86209f3db90047e4d"
+    },
+    "workspace/rl04/assess_state_availability.py": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl04/assess_state_availability.py",
+      "sha256": "abdb3838f6b2b15e23704004094f72a003468f5f92c0803cf6fdccf8b47a4328"
+    },
+    "workspace/rl04/FORMAL_LOCK.json": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/workspace/rl04/FORMAL_LOCK.json",
+      "sha256": "d5bd5d5fcd8752384eaa8dfdfb547679dc3f2507d7aaa5dfb50fba47b08fe2e3"
+    },
+    "runs/selection.json": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/runs/selection.json",
+      "sha256": "54c7a70938007bc273432b66f56709df4768d0e1380706e91fbd082a855c22f6"
+    },
+    "runs/selection-process-exit.json": {
+      "host": "/home/zhuyulab/ns3-workspace/rl-04/runs/selection-process-exit.json",
+      "sha256": "db405cb714e97d9e2b32a283854ad46f8575c26b1f090969ee4795261f922c3c"
+    }
+  },
+  "inside_mount_inventory": {
+    "packages": {
+      "multi_robot": {
+        "share": "/project/workspace/install/multi_robot/share/multi_robot",
+        "resolved_package_xml": "/project/workspace/src/multi_robot/package.xml",
+        "version": "0.0.0"
+      },
+      "merge_map": {
+        "share": "/project/workspace/install/merge_map/share/merge_map",
+        "resolved_package_xml": "/project/workspace/src/merge_map/package.xml",
+        "version": "0.0.0"
+      },
+      "slam_toolbox": {
+        "share": "/project/workspace/install/slam_toolbox/share/slam_toolbox",
+        "resolved_package_xml": "/project/workspace/src/slam_toolbox/package.xml",
+        "version": "2.6.0"
+      },
+      "nav2_bringup": {
+        "share": "/project/workspace/install/nav2_bringup/share/nav2_bringup",
+        "resolved_package_xml": "/project/workspace/src/nav2_bringup/package.xml",
+        "version": "1.1.16"
+      },
+      "nav2_controller": {
+        "share": "/opt/ros/humble/share/nav2_controller",
+        "resolved_package_xml": "/opt/ros/humble/share/nav2_controller/package.xml",
+        "version": "1.1.20"
+      },
+      "nav2_planner": {
+        "share": "/opt/ros/humble/share/nav2_planner",
+        "resolved_package_xml": "/opt/ros/humble/share/nav2_planner/package.xml",
+        "version": "1.1.20"
+      }
+    },
+    "files": {
+      "/project/workspace/install/base01_diff_drive/lib/libbase01_diff_drive.so": {
+        "resolved_inside": "/project/workspace/build/base01_diff_drive/libbase01_diff_drive.so",
+        "sha256": "8d54d39a687de851c95137ddee4a7ebbab90c3373e07d96fad338870d4317fc0",
+        "size": 16956288
+      },
+      "/project/workspace/install/multi_robot/share/multi_robot/worlds/my_world.world": {
+        "resolved_inside": "/project/workspace/src/multi_robot/worlds/my_world.world",
+        "sha256": "f9fb643594a8f0f0326fe1ba55b5389b91aa3f78dc08ba1f44a54228489f88bf",
+        "size": 54761
+      },
+      "/project/workspace/install/multi_robot/share/multi_robot/models/turtlebot3_waffle/model.sdf": {
+        "resolved_inside": "/project/workspace/src/multi_robot/models/turtlebot3_waffle/model.sdf",
+        "sha256": "e2659dd21d08a358da054898063b1378b6fa3c753668a1593a396b2c25cdaaf3",
+        "size": 15286
+      },
+      "/project/workspace/install/multi_robot/share/multi_robot/urdf/turtlebot3_waffle.urdf": {
+        "resolved_inside": "/project/workspace/src/multi_robot/urdf/turtlebot3_waffle.urdf",
+        "sha256": "584e58a31b306f714347f3db9b1c99d4dd5ee893cedb6f73d1cad8962ceb546e",
+        "size": 7088
+      },
+      "/project/workspace/install/multi_robot/share/multi_robot/params/nav2_params_tb1_0.yaml": {
+        "resolved_inside": "/project/workspace/src/multi_robot/params/nav2_params_tb1_0.yaml",
+        "sha256": "5e2076980517c410cce3c0a6e534201d6b28ec25f19074aef03e38f41c7acd54",
+        "size": 28544
+      },
+      "/project/workspace/install/multi_robot/share/multi_robot/params/nav2_params_tb2_0.yaml": {
+        "resolved_inside": "/project/workspace/src/multi_robot/params/nav2_params_tb2_0.yaml",
+        "sha256": "de1b94b47cb0534a3103b68c879be01929365107bef054474f8dad9779e1291e",
+        "size": 28545
+      },
+      "/project/workspace/install/multi_robot/share/multi_robot/params/nav2_params_tb3_0.yaml": {
+        "resolved_inside": "/project/workspace/src/multi_robot/params/nav2_params_tb3_0.yaml",
+        "sha256": "771a997ad5b930061139ca8c923f1eddd6154900394c61b4caccd4cb51e5e505",
+        "size": 28545
+      },
+      "/project/workspace/install/merge_map/share/merge_map/launch/merge_map_launch.py": {
+        "resolved_inside": "/project/workspace/src/merge_map/launch/merge_map_launch.py",
+        "sha256": "39883df2bf5d9a0962f7b635f0935007497d8be1455b1271052462065b03c089",
+        "size": 1909
+      },
+      "/project/workspace/install/multi_robot/share/multi_robot/launch/nav2_bringup/bringup_launch.py": {
+        "resolved_inside": "/project/workspace/src/multi_robot/launch/nav2_bringup/bringup_launch.py",
+        "sha256": "79728af76b47b7dbd94d08809f4caffe38b3b6ae632000392a6efc787e4fb567",
+        "size": 6896
+      }
+    }
+  },
+  "source_roles": {
+    "controller": "workspace/rl04/ros_headquarters.py -> workspace/rl01/ros_policy.py -> src/.../control.py",
+    "supervisor": "workspace/rl04/gazebo_boot.py imports workspace/rl02/run_gazebo.py",
+    "hazard_checks": "Observer.models/contacts/ready: finite pose, correct models,0.70m pair, contact, freshness/lifecycle",
+    "stop_chain": "Observer.stop_motion: owned authority ended, cancel-all/pause Nav2, fresh consumed zero/drive state and model stability, request_closure",
+    "ownership": "workspace/rl02/execution_evidence.py request_closure/engineering_closed_loop",
+    "driver": "libbase01_diff_drive.so under read-only /project; actual loaded inode/hash still must be verified during P5"
+  },
+  "read_only_file_inventory": true,
+  "ROS_Node_initialized": false,
+  "NN_forward": 0,
+  "env_step": 0,
+  "Gazebo_started": false,
+  "P5_READY_created": false,
+  "alias_note": "Host symlinks into absolute /project appear broken outside bwrap; inspected their actual resolved runtime targets inside the existing wrapper without initializing ROS."
+}

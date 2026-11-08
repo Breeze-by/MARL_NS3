@@ -1,0 +1,132 @@
+{
+  "preflight": true,
+  "smoke_started": true,
+  "observed_stop": true,
+  "error": null,
+  "end_reason": "simulation_budget",
+  "sim_elapsed": 180.0,
+  "wall_elapsed": 200.6826580699999,
+  "counts": {
+    "model_states": 2039,
+    "tb1/joint_states": 7995,
+    "tb1/scan": 1022,
+    "tb1/contacts": 2038,
+    "tb1/odom": 5972,
+    "tb1/drive": 6043,
+    "tb1/model_state": 2037,
+    "tb1/map": 46,
+    "tb2/joint_states": 7938,
+    "tb2/scan": 1014,
+    "tb2/model_state": 2023,
+    "tb2/contacts": 2022,
+    "tb2/drive": 6000,
+    "tb2/odom": 5927,
+    "tb3/joint_states": 7804,
+    "tb2/map": 45,
+    "tb3/scan": 996,
+    "tb3/contacts": 1987,
+    "tb3/odom": 5821,
+    "tb3/drive": 5893,
+    "tb3/model_state": 1986,
+    "tb3/map": 45,
+    "merge_map/map": 132,
+    "tb1/cmd_vel": 793,
+    "tb1/zero_command_topic": 105,
+    "tb2/cmd_vel": 688,
+    "tb2/zero_command_topic": 105,
+    "tb3/cmd_vel": 1543,
+    "tb3/zero_command_topic": 128,
+    "tb1/feedback": 3462,
+    "tb2/feedback": 2912,
+    "tb3/feedback": 7115
+  },
+  "map_changes": {
+    "tb1": 8,
+    "tb2": 6,
+    "tb3": 15,
+    "merge_map": 29
+  },
+  "distances": {
+    "tb1": 4.966955874140251,
+    "tb2": 4.523230026908168,
+    "tb3": 10.577190332255956
+  },
+  "max_displacement": {
+    "tb1": 3.947093953622461,
+    "tb2": 4.059199158612913,
+    "tb3": 5.873284045465845
+  },
+  "max_speed": {
+    "tb1": 0.26970167223932795,
+    "tb2": 0.2735491703588715,
+    "tb3": 0.2810149126691017
+  },
+  "minimum_pair_distance": 2.397501683026148,
+  "action_statuses": {
+    "tb1": [
+      [
+        "a80006cd369e492fa00cc3d2c28bbb34",
+        2
+      ],
+      [
+        "a80006cd369e492fa00cc3d2c28bbb34",
+        4
+      ],
+      [
+        "f677b191099d4c2db6a70488a20ad2de",
+        2
+      ],
+      [
+        "f677b191099d4c2db6a70488a20ad2de",
+        4
+      ]
+    ],
+    "tb2": [
+      [
+        "c59fd0c2018347bbadd6b4fc1e5ada7a",
+        2
+      ],
+      [
+        "c59fd0c2018347bbadd6b4fc1e5ada7a",
+        4
+      ],
+      [
+        "f419577639c6491c84598a633d081fb3",
+        2
+      ],
+      [
+        "f419577639c6491c84598a633d081fb3",
+        4
+      ]
+    ],
+    "tb3": [
+      [
+        "126216d0e68d48c7ade26ecaf9048d03",
+        2
+      ],
+      [
+        "126216d0e68d48c7ade26ecaf9048d03",
+        4
+      ],
+      [
+        "2af57c613acc466b88b7e6577653eb4b",
+        2
+      ],
+      [
+        "2af57c613acc466b88b7e6577653eb4b",
+        4
+      ],
+      [
+        "96c4ded3bd24475686a150db04ac7b36",
+        2
+      ],
+      [
+        "96c4ded3bd24475686a150db04ac7b36",
+        4
+      ]
+    ]
+  },
+  "hazard": null,
+  "diagnostic_stop_pass": false,
+  "baseline_smoke_pass": true
+}

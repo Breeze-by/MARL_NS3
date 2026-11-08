@@ -1,0 +1,56 @@
+{
+  "episode_decisions": 100,
+  "step_sim_seconds": 5.0,
+  "task_roi": [
+    -5.8,
+    -5.6,
+    7.25,
+    5.3
+  ],
+  "reward": {
+    "new_free_m2": 0.1,
+    "sim_seconds": -0.005,
+    "path_m": -0.01,
+    "duplicate_new_m2": -0.01,
+    "stationary_no_progress_seconds": -0.02,
+    "first_complete": 2.0
+  },
+  "backend": {
+    "resolution": 0.05,
+    "physics_dt": 0.2,
+    "lidar_hz": 5,
+    "lidar_rays": 360,
+    "lidar_range_m": 10.0,
+    "lidar_x_offset_m": -0.064,
+    "lidar_height_m": 0.131,
+    "max_linear_m_s": 0.26,
+    "max_angular_rad_s": 1.0,
+    "radius_m": 0.25,
+    "min_pair_m": 0.7,
+    "xy_goal_tolerance_m": 0.25,
+    "yaw_goal_tolerance_rad": 0.25,
+    "navigation_timeout_sim_s": 90.0,
+    "initial_positions": [
+      [
+        5.0,
+        4.0
+      ],
+      [
+        -4.5,
+        4.0
+      ],
+      [
+        6.0,
+        -1.5
+      ]
+    ],
+    "seed_effect": "frozen per-map position table changes actual x/y and robot role assignment; seed also controls original fixed LiDAR angular offsets"
+  },
+  "hidden": 128,
+  "torch_threads": 1,
+  "navigation_path_budget_m": 23.400000000000002,
+  "candidate_mode": "rl04_approach_v2",
+  "observation_contract": "rl04-shared-frontier-approach-v2",
+  "phase": "public_development_only",
+  "optimizer_updates": 0
+}

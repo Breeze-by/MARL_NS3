@@ -1,0 +1,357 @@
+{
+  "phase": "RL04 fixed-model post-training registration; newTEST/Gazebo execution still requires separate admission",
+  "source_commit_before_seal": "16111457bb8705a283b8b7ff3ba95fb862e01ad2",
+  "formal_runtime_commit": "985158a3a0fd036177fb29fc62c3e41249d89ad3",
+  "selected": {
+    "joint": 512,
+    "run": 1,
+    "checkpoint": "rl-04/runs/formal-01/checkpoint-00512.pt",
+    "checkpoint_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+    "natural_complete_rate": 1.0,
+    "all_robot_participation_rate": 1.0,
+    "mean_coverage": 0.9515219067037385,
+    "penalty_T95_mean": 46.13333333333329,
+    "total_path_m": 63.27711476210773,
+    "additional_joint_decisions": 512,
+    "additional_Adam_steps": 16,
+    "inherited_reference": false,
+    "inherited_parent_Adam_steps": 64,
+    "nonforced_per_head": [
+      62,
+      59,
+      66
+    ],
+    "maximum_actor_gradient_per_head": [
+      0.2495564967393875,
+      0.32274898886680603,
+      0.25628799200057983
+    ],
+    "net_actor_weight_change_per_head": [
+      0.032563384622335434,
+      0.06567057222127914,
+      0.06059490144252777
+    ]
+  },
+  "selection_sha256": "54c7a70938007bc273432b66f56709df4768d0e1380706e91fbd082a855c22f6",
+  "reference_candidate_mode": "rl04_approach_v2",
+  "reference_contract": "rl04-shared-frontier-approach-v2",
+  "maps_manifest": "rl-04/evidence/corpus-01/maps.json",
+  "cases": [
+    {
+      "map": "loop_chambers-5101",
+      "seed": 601,
+      "arm": "rl"
+    },
+    {
+      "map": "loop_chambers-5101",
+      "seed": 601,
+      "arm": "old_reference"
+    },
+    {
+      "map": "loop_chambers-5101",
+      "seed": 601,
+      "arm": "traditional"
+    },
+    {
+      "map": "loop_chambers-5101",
+      "seed": 602,
+      "arm": "rl"
+    },
+    {
+      "map": "loop_chambers-5101",
+      "seed": 602,
+      "arm": "old_reference"
+    },
+    {
+      "map": "loop_chambers-5101",
+      "seed": 602,
+      "arm": "traditional"
+    },
+    {
+      "map": "loop_chambers-5102",
+      "seed": 601,
+      "arm": "rl"
+    },
+    {
+      "map": "loop_chambers-5102",
+      "seed": 601,
+      "arm": "old_reference"
+    },
+    {
+      "map": "loop_chambers-5102",
+      "seed": 601,
+      "arm": "traditional"
+    },
+    {
+      "map": "loop_chambers-5102",
+      "seed": 602,
+      "arm": "rl"
+    },
+    {
+      "map": "loop_chambers-5102",
+      "seed": 602,
+      "arm": "old_reference"
+    },
+    {
+      "map": "loop_chambers-5102",
+      "seed": 602,
+      "arm": "traditional"
+    },
+    {
+      "map": "loop_chambers-5103",
+      "seed": 601,
+      "arm": "rl"
+    },
+    {
+      "map": "loop_chambers-5103",
+      "seed": 601,
+      "arm": "old_reference"
+    },
+    {
+      "map": "loop_chambers-5103",
+      "seed": 601,
+      "arm": "traditional"
+    },
+    {
+      "map": "loop_chambers-5103",
+      "seed": 602,
+      "arm": "rl"
+    },
+    {
+      "map": "loop_chambers-5103",
+      "seed": 602,
+      "arm": "old_reference"
+    },
+    {
+      "map": "loop_chambers-5103",
+      "seed": 602,
+      "arm": "traditional"
+    },
+    {
+      "map": "branching_corridors-5201",
+      "seed": 601,
+      "arm": "rl"
+    },
+    {
+      "map": "branching_corridors-5201",
+      "seed": 601,
+      "arm": "old_reference"
+    },
+    {
+      "map": "branching_corridors-5201",
+      "seed": 601,
+      "arm": "traditional"
+    },
+    {
+      "map": "branching_corridors-5201",
+      "seed": 602,
+      "arm": "rl"
+    },
+    {
+      "map": "branching_corridors-5201",
+      "seed": 602,
+      "arm": "old_reference"
+    },
+    {
+      "map": "branching_corridors-5201",
+      "seed": 602,
+      "arm": "traditional"
+    },
+    {
+      "map": "branching_corridors-5202",
+      "seed": 601,
+      "arm": "rl"
+    },
+    {
+      "map": "branching_corridors-5202",
+      "seed": 601,
+      "arm": "old_reference"
+    },
+    {
+      "map": "branching_corridors-5202",
+      "seed": 601,
+      "arm": "traditional"
+    },
+    {
+      "map": "branching_corridors-5202",
+      "seed": 602,
+      "arm": "rl"
+    },
+    {
+      "map": "branching_corridors-5202",
+      "seed": 602,
+      "arm": "old_reference"
+    },
+    {
+      "map": "branching_corridors-5202",
+      "seed": 602,
+      "arm": "traditional"
+    },
+    {
+      "map": "branching_corridors-5203",
+      "seed": 601,
+      "arm": "rl"
+    },
+    {
+      "map": "branching_corridors-5203",
+      "seed": 601,
+      "arm": "old_reference"
+    },
+    {
+      "map": "branching_corridors-5203",
+      "seed": 601,
+      "arm": "traditional"
+    },
+    {
+      "map": "branching_corridors-5203",
+      "seed": 602,
+      "arm": "rl"
+    },
+    {
+      "map": "branching_corridors-5203",
+      "seed": 602,
+      "arm": "old_reference"
+    },
+    {
+      "map": "branching_corridors-5203",
+      "seed": 602,
+      "arm": "traditional"
+    }
+  ],
+  "maximum_episodes": 36,
+  "max_joint_per_episode": 100,
+  "optimizer_updates": 0,
+  "test_wall_seconds": 7200,
+  "test_output": "rl-04/runs/test-01",
+  "engineering_task_gate": {
+    "maps": [
+      "loop_chambers-5101",
+      "loop_chambers-5102",
+      "loop_chambers-5103",
+      "branching_corridors-5201",
+      "branching_corridors-5202",
+      "branching_corridors-5203"
+    ],
+    "pose_seeds": [
+      601,
+      602
+    ],
+    "maximum_episodes": 36,
+    "arms_if_updated_selected": [
+      "selected_v2",
+      "46e_v2",
+      "traditional_v2"
+    ],
+    "arms_if_initial_selected": [
+      "initial46e_v2",
+      "46e_old_RL03_v1",
+      "traditional_v2"
+    ],
+    "minimum_natural": 10,
+    "minimum_participation": 10,
+    "maximum_natural_deficit_vs_traditional": 1,
+    "maximum_penalty_T95_ratio_vs_traditional": 1.25,
+    "maximum_illegal_or_safety_or_stop_failures": 0
+  },
+  "public_regression_binding": {
+    "script": "rl-04/workspace/rl04/public_regression.py",
+    "output": "rl-04/evidence/public-regression-01",
+    "cases": [
+      [
+        "branching_corridors-4202",
+        502
+      ],
+      [
+        "branching_corridors-4203",
+        501
+      ]
+    ],
+    "max_joint_per_case": 100,
+    "max_total_joint": 200,
+    "wall_seconds": 900,
+    "optimizer_updates": 0,
+    "comparison_cap": 40,
+    "source_of_admission": "reviewer concrete post-selection authorization; not newTEST"
+  },
+  "selected_typed_mock_binding": {
+    "wrapper": "rl-04/workspace/rl04/ros-python.sh",
+    "script_inside": "/mnt/workspace/rl04/mock_selected_ros.py",
+    "case_inside": "/mnt/evidence/typed-mock-01",
+    "checkpoint_inside": "/mnt/runs/formal-01/checkpoint-00512.pt",
+    "maximum_NN": 3,
+    "maximum_env_step": 0,
+    "sensor_fixture_reset": 1,
+    "Fake_Action_only": true,
+    "actual_Nav2_server": false,
+    "ROS_DOMAIN_ID": 68,
+    "ROS_LOCALHOST_ONLY": 1
+  },
+  "sha256": {
+    "base-01-econ/assets/gazebo_models/suv/meshes/suv.obj": "37ab9ef37a4880f9c4f191e441f51d3afa05973793c004a7606a893f19b63e7c",
+    "rl-02/evidence/map-qualification-01/alternating_baffles-1201/world.sdf": "2cc23441f64e641bf0884291535ce32b2eb5adbbb68cd9975b2863c43a84ce36",
+    "rl-02/evidence/map-qualification-01/alternating_baffles-1202/world.sdf": "e0579d78b4988571771e32a4bedc4f690b1879c85637b87ea42668980b638701",
+    "rl-02/evidence/map-qualification-01/alternating_baffles-1203/world.sdf": "a9421ae0c89365d277d4c509ee8ad7eb8510af3e00d0eb80f2133013748b6607",
+    "rl-02/evidence/map-qualification-01/central_hub_chambers-2103/world.sdf": "bef2bb95516e2772184aaff49b0c79259afcc7d801d0477853de1399fb1411ec",
+    "rl-02/evidence/map-qualification-01/partition_grid-1101/world.sdf": "79933548a748c60900dd08bc4b190539406ceb58c05b5ceea26308c4f8cadfd7",
+    "rl-02/evidence/map-qualification-01/partition_grid-1102/world.sdf": "96604073f00c4469281356d6a133a79be9609a725502ff5bf11030e7bdc97dcc",
+    "rl-02/evidence/map-qualification-01/partition_grid-1103/world.sdf": "7331a430d3da3cf9dfd5c7cb1850ad85eadf5d19b74ef3b9a2300d48ed0768c1",
+    "rl-02/workspace/src/multi_robot/worlds/my_world.world": "f9fb643594a8f0f0326fe1ba55b5389b91aa3f78dc08ba1f44a54228489f88bf",
+    "rl-03/evidence/new-test-qualification-01/branching_corridors-4201/world.sdf": "b00e59c28e5ee3e69ace8c3aef7b9ea07f81d561bd748f5b6bd2ec8fc31cb2f3",
+    "rl-03/evidence/new-test-qualification-01/branching_corridors-4202/world.sdf": "d413637d8da921edfa10b3bede5edbbe176ec2c087d1644968d0d274d16de389",
+    "rl-03/evidence/new-test-qualification-01/branching_corridors-4203/world.sdf": "67c374efd3382201def37493a4ac0651ead71e6ee52397eff905ef81c7ccbcec",
+    "rl-03/evidence/new-test-qualification-01/loop_chambers-4101/world.sdf": "312d22f42c4cc043a172120990598e097b4ae98b82339362d3bdc8601ffa476b",
+    "rl-03/evidence/new-test-qualification-01/loop_chambers-4102/world.sdf": "4ab43fcbeac522feb7745f1c19647ab20640e9274a6ac68b5dfdbe4c56edea68",
+    "rl-03/evidence/new-test-qualification-01/loop_chambers-4103/world.sdf": "47ecaa33b57348ca6b057a1842995eb2d6a0e477c0170889991d7b20dd96d8dc",
+    "rl-04/evidence/corpus-01/branching_corridors-5201/world.sdf": "48053702cc13cb953c08be6e63de04ad3e5d493fca231752f3b27d71db46fb9e",
+    "rl-04/evidence/corpus-01/branching_corridors-5202/world.sdf": "11b48edef6c03bb842285cd14090e58fbabdb3f5e51c88a2e732e388b4802776",
+    "rl-04/evidence/corpus-01/branching_corridors-5203/world.sdf": "700a58b185432c52b781e1fc585efb8df19595816674d7edbd3598e439914850",
+    "rl-04/evidence/corpus-01/branching_corridors-5401/world.sdf": "3ee1f71175d8e3bd68b17051410be3ca64a1661406307bb02cf51f29bc55ecd5",
+    "rl-04/evidence/corpus-01/loop_chambers-5101/world.sdf": "30383257dc4398cc9cd0338b12e7e0eb2a02812c7db470c49df8d88f339ca565",
+    "rl-04/evidence/corpus-01/loop_chambers-5102/world.sdf": "6c27c66c51aaff507b354dcb1a16a3225aeadf6c8c6e2e81c8e6573600c3e79b",
+    "rl-04/evidence/corpus-01/loop_chambers-5103/world.sdf": "2083aa5608771677b2e941902648dd6fdb971988c1b631e21a6723a405f1ce20",
+    "rl-04/evidence/corpus-01/loop_chambers-5301/world.sdf": "5b21f430798e9a6f55949e9584e5b67f81d0f9a78e5c48c91a4054fa8b5a42a3",
+    "rl-04/evidence/corpus-01/maps.json": "68d86a9b1533c1d6e80a7866c4a25bcfb2bf7c1ae60187c915c45bbe7b2904f6",
+    "rl-04/evidence/corpus-01/plan.json": "9420978925655a7f88b0f55008b0867e200cc3d6e48c1fafbd782b242a2f09de",
+    "rl-04/evidence/corpus-01/process-exit.json": "cd0fcc44831e55f84d8b5e33350a8282b9b54ea9282a0494b97d602025af4b79",
+    "rl-04/evidence/corpus-01/result.json": "07649f60cfab9ec37bdcbc1118fbbfb84f79e965fc132d4814b9259be54ee0fd",
+    "rl-04/workspace/rl02/diagnose.py": "3690d2f5a11a12fb779246392d1c665c13e100ddccf5ba1505ed44f0e8d80218",
+    "rl-04/workspace/rl02/execution.py": "5577e3b6a9e3efca748008dc5b87a38ed5da1261030fdcf5a7008c866b654253",
+    "rl-04/workspace/rl02/maps.py": "d0b3627b1a084cd694b38afad34790d9fea7c567877651f2d041018b5f27aa59",
+    "rl-04/workspace/rl04/TRAIN_EVAL_PLAN.md": "12c87212fc14e7090c0b8ffeae3aafc8943b6b60ebd6f7ccfcaa8ba3b7442a86",
+    "rl-04/workspace/rl04/common.py": "ecf2d913f672864d7c37e6ab1f819164c35307e161005128f02bae1988bdd5ee",
+    "rl-04/workspace/rl04/qualify_corpus.py": "4863f212f5d5c398689d3ef26680526379ad034ddbe0a6b995d81aa9f04c7268",
+    "rl-04/workspace/rl04/select_checkpoint.py": "dabb6b2f69d684ffd9b94a870374fa486b819ca6838e43cc2bbda9fece303ca4",
+    "rl-04/workspace/rl04/train-config.json": "ccada263927da68f4724313313a7dec27a1150fb3b06788cf9ab0dcab3a056b3",
+    "rl-04/workspace/rl04/train.py": "957101d0c59834c9839dfecfdd6955de718f38f7b5b02f1ef693375522e17ebd",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/allocation.py": "e0c382ffa94e15f36f3990a028193b8ea2b3cd5ae5f681bc5a5d0270902244dc",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/environment.py": "acd9b7ff104965067e68f16f6fb51d3a48a6c11122f71990a5f739037b906064",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/evaluation.py": "6be82ecf3189705c4e0c6374239dbc6e38c71e2b487376245c8c92bbfd1f1d42",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/frontier.py": "b9834b91f7f0baeb9ef97036197ac2b67d1aac49072944827daa61647607b2b8",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/joint.py": "279d59be09b39ce501af862991d7e88703f0b48cf08e6d1aab9ed0d3b97bc78a",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/observations.py": "54fd9395d2c0dd75def8ad07601005423df06f960060561de20a86ed52d0284c",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/ppo.py": "531a595922c7fd2c5c5fd5ef75e8e737a167c14af1ecd1880f5525c689bd5e9c",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/rl_backend.py": "0e271ef6ecec9a2fba49d615dfba5b27ebf296ef9eaec4c270b643425ec421c5",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/rl_env.py": "d03c93ffcf0fd2833ca213b811b46016fa5a38dc48bb55b6f0b3563d7df3feb4",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/rl_ledger.py": "c8c4b24228f77418ffec0d4d90c6c753bd0d3938595e21e72a0988b43ceb6cc1",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/rl_world.py": "0ae43902af3e0ac0ca2fbc3ee4031ce787e6f94da58e049cfb5eb5b569025a0c",
+    "rl-04/workspace/rl04/test.py": "977a66a38bba0bd8e32cdfe2f9505790ec2adc9d84406177677433a3f9689509",
+    "rl-04/workspace/rl04/compare.py": "5015776869602786000ae8ef2441ae508fc1a08edf5a1cc5e66fabf1ff7fec2a",
+    "rl-04/workspace/rl04/public_regression.py": "8d063dcab2d4f56467cf4329304045680ff062ec7b0d481b82739a53409fed78",
+    "rl-04/workspace/rl04/mock_selected_ros.py": "86b90239b9884b10df358d5162de633c1e955d902dbc8b026998acaf27b0bfd9",
+    "rl-04/workspace/rl04/ros_headquarters.py": "b11def034acf195d630d1183928e3ee8736a6ee2147348f440bee1108e46331a",
+    "rl-04/workspace/rl04/ros-python.sh": "0a8eaf8454585a8c1a52a010de4c6dfd8c8d61b81bdc327dba0d5f8ba312eb19",
+    "rl-04/workspace/rl04/assess_state_availability.py": "abdb3838f6b2b15e23704004094f72a003468f5f92c0803cf6fdccf8b47a4328",
+    "rl-04/workspace/rl04/gazebo_boot.py": "27b36417281e4eab86108ab8844a65106378c98739bd6f3fc3c9700b68894868",
+    "rl-04/workspace/rl04/FORMAL_LOCK.json": "d5bd5d5fcd8752384eaa8dfdfb547679dc3f2507d7aaa5dfb50fba47b08fe2e3",
+    "rl-04/workspace/rl01/ros_policy.py": "b17692e5c409e540b7fc66186703ee0a2302a319287de0a005ff059d3783d01b",
+    "rl-04/workspace/rl01/completion.py": "8995ea3e108921dd1fa8b79bdea81398d89f53a988e55089c6d8e438591bdb44",
+    "rl-04/workspace/src/multi_robot_exploration/multi_robot_exploration/control.py": "2ef26eb5eb722deb03265a324c397dc3be0b369a56a610b61fb807ba6a1f8956",
+    "rl-04/workspace/src/multi_robot/worlds/my_world.world": "f9fb643594a8f0f0326fe1ba55b5389b91aa3f78dc08ba1f44a54228489f88bf",
+    "rl-04/runs/selection.json": "54c7a70938007bc273432b66f56709df4768d0e1380706e91fbd082a855c22f6",
+    "rl-04/runs/selection-process-exit.json": "db405cb714e97d9e2b32a283854ad46f8575c26b1f090969ee4795261f922c3c",
+    "rl-04/runs/formal-01/summary.json": "c14c400366b96b578eb3484878140c49c5dbf0e7eeb725633a68d1dbf6eacf35",
+    "rl-04/runs/formal-01/process-exit.json": "04326babd0bed1739ff57a88cd44cc4ffa24da596463f2472dba047f1fff620b",
+    "rl-04/runs/formal-01/checkpoint-00512.pt": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d"
+  }
+}

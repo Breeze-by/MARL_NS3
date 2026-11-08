@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "configured_robots": [
+    {
+      "name": "tb1",
+      "x_pose": "5.0",
+      "y_pose": "4.0",
+      "z_pose": 0.01,
+      "roll": 0.0,
+      "pitch": 0.0,
+      "yaw": 0.0
+    },
+    {
+      "name": "tb2",
+      "x_pose": "-4.5",
+      "y_pose": "4.0",
+      "z_pose": 0.01,
+      "roll": 0.0,
+      "pitch": 0.0,
+      "yaw": 0.0
+    },
+    {
+      "name": "tb3",
+      "x_pose": "6.0",
+      "y_pose": "-1.5",
+      "z_pose": 0.01,
+      "roll": 0.0,
+      "pitch": 0.0,
+      "yaw": 0.0
+    },
+    {
+      "name": "tb4",
+      "x_pose": "-4.0",
+      "y_pose": "-4.5",
+      "z_pose": 0.01,
+      "roll": 0.0,
+      "pitch": 0.0,
+      "yaw": 0.0
+    }
+  ],
+  "minimum_spawn_distance_m": 5.5901699437494745,
+  "chassis_xy_radius_m": 0.23699894514533182,
+  "nav2_radius_m": 0.25,
+  "action_result_checks": [
+    "accepted_not_complete",
+    "success",
+    "abort",
+    "cancel",
+    "reject"
+  ],
+  "action_logs": [
+    "tb1 navigation goal accepted uuid=00000000000000000000000000000000",
+    "tb1 navigation result status=4",
+    "tb1 navigation goal accepted uuid=00000000000000000000000000000000",
+    "tb1 navigation result status=6",
+    "tb1 navigation goal accepted uuid=00000000000000000000000000000000",
+    "tb1 navigation result status=5",
+    "tb1 navigation goal rejected"
+  ]
+}

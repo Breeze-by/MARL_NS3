@@ -1,0 +1,51 @@
+{
+  "status": "BOUNDED TRAINING PASS",
+  "run_number": 1,
+  "initialization": "old_rl03_46e_weights_only_new_candidate_contract",
+  "actual_joint_decisions": 2048,
+  "counts": {
+    "world_projection_build": 104,
+    "env_reset": 104,
+    "backend_reset": 104,
+    "sensor_scans_scheduled": 150216,
+    "sensor_raycast_computations": 98039,
+    "backend_snapshot": 2152,
+    "allocator_observation_build": 2152,
+    "backend_goal_valid": 29544,
+    "formal_joint_decisions_attempted": 2048,
+    "policy_forward": 4058,
+    "policy_forward_samples": 12186,
+    "env_step": 2048,
+    "backend_advance": 2048,
+    "navigation_plans": 827,
+    "physics_ticks": 49968,
+    "formal_rollout_unique_samples": 2048,
+    "backend_stop": 208,
+    "sensor_stationary_cache_hits": 52177,
+    "optimizer_step": 64,
+    "optimizer_replay_samples": 8192
+  },
+  "validation_checkpoints": 4,
+  "nonforced_per_head": [
+    200,
+    198,
+    203
+  ],
+  "per_head_actor_weight_change": [
+    0.07884625345468521,
+    0.1259784698486328,
+    0.15436501801013947
+  ],
+  "critic_weight_change": 0.03513674810528755,
+  "episode_outcomes": {
+    "natural_complete": 102,
+    "decision_budget": 2
+  },
+  "native_exit_status_must_be_checked": true,
+  "wall_seconds": 4570.045721775998,
+  "failure": null,
+  "final_sha256": "683c8c87b0cdd1d20c4e3ad8a0ca660c4b554c0ba78d3780fc818bd8f365142b",
+  "policy_formally_frozen": false,
+  "test_episodes": 0,
+  "gazebo_formal_runs": 0
+}

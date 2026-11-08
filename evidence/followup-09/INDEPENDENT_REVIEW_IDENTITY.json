@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-11-08T14:43:24.518192+00:00",
+  "role": "Independent reviewer; source/robot execution performed by producers",
+  "runtime_source_commit": "76fd91cf937bd8d662302901dad063affbea3c38",
+  "producer_document_commit": "77cb84760af9e096ffa3f7391904a8602bf86437",
+  "producer_delivery_identity": "gz-01-followup-09/DELIVERY_IDENTITY.json",
+  "producer_manifest_sha256_verified": "bf00d0478cdce0742172b95d3c506d632e0adc9578d2873a23a174d4fc100f64",
+  "review_files": {
+    "REVIEW.md": "7569e55898aa9b2f8e89aaacc2eb410cb7225fda94ca3906ee34b6539a4e5d7a",
+    "REVIEW_PLAN.md": "024f16beea5999705ed85653a7dc2488cdc3a5e8d9e7c20a397e9d3a3e08bb1b",
+    "RECORDING_BOUNDARY_REVIEW.md": "a292d9ff3a858a9f1d13693c1193c7edf4ae2987c72dacfce77cbb479c59fc33",
+    "A_REVIEW.md": "0b7eb108fa7bc4112ad41aa123eea60f66fa538a3da919e95f215738889108d4",
+    "PERFORMANCE_REVIEW.md": "5f7f5f1a27e689ab13f96fb7402c785ccd08965474e76a585706a2326fc18ddb"
+  },
+  "scope": "Hashes of five final reviewer Markdown files only; no self-referential hash or historical/rawbag rescan",
+  "conclusions": {
+    "A_recording_and_journal": "ACCEPT WITH CONDITIONS, bounded scope",
+    "B_rotation_shim": "REJECT as default",
+    "GZ01_full": "INSUFFICIENT EVIDENCE",
+    "freeze": "NOT READY",
+    "NET": "NO-GO"
+  },
+  "actual_Gazebo_starts": 6,
+  "remaining_current_budget": 0,
+  "reviewer_robot_commands": 0,
+  "reviewer_Gazebo_runs": 0,
+  "training": 0,
+  "stopped": true
+}

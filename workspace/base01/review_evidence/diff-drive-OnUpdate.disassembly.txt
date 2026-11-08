@@ -1,0 +1,704 @@
+
+/opt/ros/humble/lib/libgazebo_ros_diff_drive.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000052340 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base>:
+   52340:	f3 0f 1e fa          	endbr64 
+   52344:	41 57                	push   %r15
+   52346:	41 56                	push   %r14
+   52348:	41 55                	push   %r13
+   5234a:	41 54                	push   %r12
+   5234c:	55                   	push   %rbp
+   5234d:	53                   	push   %rbx
+   5234e:	48 89 fb             	mov    %rdi,%rbx
+   52351:	48 81 ec b8 00 00 00 	sub    $0xb8,%rsp
+   52358:	8b bf 80 01 00 00    	mov    0x180(%rdi),%edi
+   5235e:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   52365:	00 00 
+   52367:	48 89 84 24 a8 00 00 	mov    %rax,0xa8(%rsp)
+   5236e:	00 
+   5236f:	31 c0                	xor    %eax,%eax
+   52371:	48 8d 46 20          	lea    0x20(%rsi),%rax
+   52375:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+   5237a:	85 ff                	test   %edi,%edi
+   5237c:	0f 84 a6 07 00 00    	je     52b28 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x7e8>
+   52382:	4c 8d 7c 24 60       	lea    0x60(%rsp),%r15
+   52387:	48 8b 74 24 20       	mov    0x20(%rsp),%rsi
+   5238c:	48 8d 93 28 01 00 00 	lea    0x128(%rbx),%rdx
+   52393:	4c 89 ff             	mov    %r15,%rdi
+   52396:	48 89 54 24 40       	mov    %rdx,0x40(%rsp)
+   5239b:	4c 89 7c 24 48       	mov    %r15,0x48(%rsp)
+   523a0:	e8 cb f5 fe ff       	call   41970 <gazebo::common::Time::operator-(gazebo::common::Time const&) const@plt>
+   523a5:	4c 89 ff             	mov    %r15,%rdi
+   523a8:	e8 e3 f4 fe ff       	call   41890 <gazebo::common::Time::Double() const@plt>
+   523ad:	4c 89 ff             	mov    %r15,%rdi
+   523b0:	f2 0f 11 44 24 08    	movsd  %xmm0,0x8(%rsp)
+   523b6:	e8 65 fe fe ff       	call   42220 <gazebo::common::Time::~Time()@plt>
+   523bb:	f2 0f 10 83 20 01 00 	movsd  0x120(%rbx),%xmm0
+   523c2:	00 
+   523c3:	66 0f 2f 44 24 08    	comisd 0x8(%rsp),%xmm0
+   523c9:	0f 87 47 06 00 00    	ja     52a16 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x6d6>
+   523cf:	83 bb 80 01 00 00 01 	cmpl   $0x1,0x180(%rbx)
+   523d6:	0f 84 64 07 00 00    	je     52b40 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x800>
+   523dc:	80 bb 98 04 00 00 00 	cmpb   $0x0,0x498(%rbx)
+   523e3:	0f 85 af 06 00 00    	jne    52a98 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x758>
+   523e9:	80 bb 99 04 00 00 00 	cmpb   $0x0,0x499(%rbx)
+   523f0:	0f 85 82 06 00 00    	jne    52a78 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x738>
+   523f6:	80 bb 9a 04 00 00 00 	cmpb   $0x0,0x49a(%rbx)
+   523fd:	0f 85 5d 06 00 00    	jne    52a60 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x720>
+   52403:	48 89 df             	mov    %rbx,%rdi
+   52406:	e8 25 f4 fe ff       	call   41830 <gazebo_plugins::GazeboRosDiffDrivePrivate::UpdateWheelVelocities()@plt>
+   5240b:	8b 93 9c 04 00 00    	mov    0x49c(%rbx),%edx
+   52411:	48 c7 44 24 60 00 00 	movq   $0x0,0x60(%rsp)
+   52418:	00 00 
+   5241a:	48 c7 44 24 68 00 00 	movq   $0x0,0x68(%rsp)
+   52421:	00 00 
+   52423:	48 c7 44 24 70 00 00 	movq   $0x0,0x70(%rsp)
+   5242a:	00 00 
+   5242c:	8d 04 12             	lea    (%rdx,%rdx,1),%eax
+   5242f:	48 85 c0             	test   %rax,%rax
+   52432:	0f 84 08 06 00 00    	je     52a40 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x700>
+   52438:	48 8d 2c c5 00 00 00 	lea    0x0(,%rax,8),%rbp
+   5243f:	00 
+   52440:	48 89 ef             	mov    %rbp,%rdi
+   52443:	e8 88 f6 fe ff       	call   41ad0 <operator new(unsigned long)@plt>
+   52448:	4c 8d 24 28          	lea    (%rax,%rbp,1),%r12
+   5244c:	48 8d 78 08          	lea    0x8(%rax),%rdi
+   52450:	48 89 44 24 60       	mov    %rax,0x60(%rsp)
+   52455:	4c 89 64 24 70       	mov    %r12,0x70(%rsp)
+   5245a:	48 c7 00 00 00 00 00 	movq   $0x0,(%rax)
+   52461:	4c 39 e7             	cmp    %r12,%rdi
+   52464:	0f 84 e3 06 00 00    	je     52b4d <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x80d>
+   5246a:	48 8d 55 f8          	lea    -0x8(%rbp),%rdx
+   5246e:	31 f6                	xor    %esi,%esi
+   52470:	e8 2b f2 fe ff       	call   416a0 <memset@plt>
+   52475:	8b 93 9c 04 00 00    	mov    0x49c(%rbx),%edx
+   5247b:	4c 89 64 24 68       	mov    %r12,0x68(%rsp)
+   52480:	85 d2                	test   %edx,%edx
+   52482:	0f 84 68 05 00 00    	je     529f0 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x6b0>
+   52488:	45 31 e4             	xor    %r12d,%r12d
+   5248b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   52490:	43 8d 2c 24          	lea    (%r12,%r12,1),%ebp
+   52494:	31 f6                	xor    %esi,%esi
+   52496:	44 8d 75 01          	lea    0x1(%rbp),%r14d
+   5249a:	4c 89 f0             	mov    %r14,%rax
+   5249d:	48 c1 e0 04          	shl    $0x4,%rax
+   524a1:	48 03 83 b0 00 00 00 	add    0xb0(%rbx),%rax
+   524a8:	48 8b 38             	mov    (%rax),%rdi
+   524ab:	48 8b 07             	mov    (%rdi),%rax
+   524ae:	ff 90 08 01 00 00    	call   *0x108(%rax)
+   524b4:	48 8b 43 58          	mov    0x58(%rbx),%rax
+   524b8:	45 89 e5             	mov    %r12d,%r13d
+   524bb:	66 0f 28 c8          	movapd %xmm0,%xmm1
+   524bf:	31 f6                	xor    %esi,%esi
+   524c1:	f2 0f 10 05 17 64 03 	movsd  0x36417(%rip),%xmm0        # 888e0 <std::piecewise_construct@@Base+0x14a>
+   524c8:	00 
+   524c9:	f2 42 0f 59 04 e8    	mulsd  (%rax,%r13,8),%xmm0
+   524cf:	48 8b 44 24 60       	mov    0x60(%rsp),%rax
+   524d4:	f2 0f 59 c1          	mulsd  %xmm1,%xmm0
+   524d8:	f2 42 0f 11 04 f0    	movsd  %xmm0,(%rax,%r14,8)
+   524de:	48 89 e8             	mov    %rbp,%rax
+   524e1:	48 c1 e0 04          	shl    $0x4,%rax
+   524e5:	48 03 83 b0 00 00 00 	add    0xb0(%rbx),%rax
+   524ec:	48 8b 38             	mov    (%rax),%rdi
+   524ef:	48 8b 07             	mov    (%rdi),%rax
+   524f2:	ff 90 08 01 00 00    	call   *0x108(%rax)
+   524f8:	4c 8b 7b 58          	mov    0x58(%rbx),%r15
+   524fc:	66 0f 28 c8          	movapd %xmm0,%xmm1
+   52500:	f2 0f 10 05 d8 63 03 	movsd  0x363d8(%rip),%xmm0        # 888e0 <std::piecewise_construct@@Base+0x14a>
+   52507:	00 
+   52508:	41 83 c4 01          	add    $0x1,%r12d
+   5250c:	48 8b 44 24 60       	mov    0x60(%rsp),%rax
+   52511:	f2 43 0f 59 04 ef    	mulsd  (%r15,%r13,8),%xmm0
+   52517:	f2 0f 59 c1          	mulsd  %xmm1,%xmm0
+   5251b:	f2 0f 11 04 e8       	movsd  %xmm0,(%rax,%rbp,8)
+   52520:	8b 83 9c 04 00 00    	mov    0x49c(%rbx),%eax
+   52526:	44 39 e0             	cmp    %r12d,%eax
+   52529:	0f 87 61 ff ff ff    	ja     52490 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x150>
+   5252f:	85 c0                	test   %eax,%eax
+   52531:	0f 84 b9 04 00 00    	je     529f0 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x6b0>
+   52537:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%rsp)
+   5253e:	00 
+   5253f:	e9 f5 01 00 00       	jmp    52739 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x3f9>
+   52544:	0f 1f 40 00          	nopl   0x0(%rax)
+   52548:	f2 0f 10 10          	movsd  (%rax),%xmm2
+   5254c:	f2 0f 5c 11          	subsd  (%rcx),%xmm2
+   52550:	66 0f 54 15 f8 63 03 	andpd  0x363f8(%rip),%xmm2        # 88950 <std::piecewise_construct@@Base+0x1ba>
+   52557:	00 
+   52558:	66 0f 2f ea          	comisd %xmm2,%xmm5
+   5255c:	0f 86 54 02 00 00    	jbe    527b6 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x476>
+   52562:	49 c1 e5 04          	shl    $0x4,%r13
+   52566:	4c 03 ab b0 00 00 00 	add    0xb0(%rbx),%r13
+   5256d:	bf 10 00 00 00       	mov    $0x10,%edi
+   52572:	f2 0f 10 0d 66 63 03 	movsd  0x36366(%rip),%xmm1        # 888e0 <std::piecewise_construct@@Base+0x14a>
+   52579:	00 
+   5257a:	4d 8b 6d 00          	mov    0x0(%r13),%r13
+   5257e:	49 8b 45 00          	mov    0x0(%r13),%rax
+   52582:	48 8b 80 50 01 00 00 	mov    0x150(%rax),%rax
+   52589:	48 89 44 24 10       	mov    %rax,0x10(%rsp)
+   5258e:	8b 44 24 04          	mov    0x4(%rsp),%eax
+   52592:	f2 41 0f 59 0c c7    	mulsd  (%r15,%rax,8),%xmm1
+   52598:	48 89 44 24 18       	mov    %rax,0x18(%rsp)
+   5259d:	f2 0f 5e c1          	divsd  %xmm1,%xmm0
+   525a1:	66 48 0f 7e c5       	movq   %xmm0,%rbp
+   525a6:	e8 25 f5 fe ff       	call   41ad0 <operator new(unsigned long)@plt>
+   525ab:	48 89 68 08          	mov    %rbp,0x8(%rax)
+   525af:	be 76 65 00 00       	mov    $0x6576,%esi
+   525b4:	4c 89 ef             	mov    %r13,%rdi
+   525b7:	48 8d 15 5a fd 04 00 	lea    0x4fd5a(%rip),%rdx        # a2318 <typeinfo name for std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >@@Base+0x128f8>
+   525be:	4c 8d a4 24 80 00 00 	lea    0x80(%rsp),%r12
+   525c5:	00 
+   525c6:	48 8d ac 24 90 00 00 	lea    0x90(%rsp),%rbp
+   525cd:	00 
+   525ce:	48 89 10             	mov    %rdx,(%rax)
+   525d1:	31 d2                	xor    %edx,%edx
+   525d3:	4c 8d 7c 24 58       	lea    0x58(%rsp),%r15
+   525d8:	48 89 44 24 58       	mov    %rax,0x58(%rsp)
+   525dd:	48 8b 44 24 10       	mov    0x10(%rsp),%rax
+   525e2:	66 89 b4 24 90 00 00 	mov    %si,0x90(%rsp)
+   525e9:	00 
+   525ea:	4c 89 f9             	mov    %r15,%rcx
+   525ed:	4c 89 e6             	mov    %r12,%rsi
+   525f0:	48 89 ac 24 80 00 00 	mov    %rbp,0x80(%rsp)
+   525f7:	00 
+   525f8:	c6 84 24 92 00 00 00 	movb   $0x6c,0x92(%rsp)
+   525ff:	6c 
+   52600:	48 c7 84 24 88 00 00 	movq   $0x3,0x88(%rsp)
+   52607:	00 03 00 00 00 
+   5260c:	c6 84 24 93 00 00 00 	movb   $0x0,0x93(%rsp)
+   52613:	00 
+   52614:	ff d0                	call   *%rax
+   52616:	48 8b bc 24 80 00 00 	mov    0x80(%rsp),%rdi
+   5261d:	00 
+   5261e:	48 39 ef             	cmp    %rbp,%rdi
+   52621:	74 11                	je     52634 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x2f4>
+   52623:	48 8b 84 24 90 00 00 	mov    0x90(%rsp),%rax
+   5262a:	00 
+   5262b:	48 8d 70 01          	lea    0x1(%rax),%rsi
+   5262f:	e8 bc f4 fe ff       	call   41af0 <operator delete(void*, unsigned long)@plt>
+   52634:	48 8b 7c 24 58       	mov    0x58(%rsp),%rdi
+   52639:	48 85 ff             	test   %rdi,%rdi
+   5263c:	74 06                	je     52644 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x304>
+   5263e:	48 8b 07             	mov    (%rdi),%rax
+   52641:	ff 50 08             	call   *0x8(%rax)
+   52644:	44 89 f0             	mov    %r14d,%eax
+   52647:	48 8b 4b 58          	mov    0x58(%rbx),%rcx
+   5264b:	48 8b 74 24 18       	mov    0x18(%rsp),%rsi
+   52650:	bf 10 00 00 00       	mov    $0x10,%edi
+   52655:	48 89 c2             	mov    %rax,%rdx
+   52658:	f2 0f 10 05 80 62 03 	movsd  0x36280(%rip),%xmm0        # 888e0 <std::piecewise_construct@@Base+0x14a>
+   5265f:	00 
+   52660:	f2 0f 59 04 f1       	mulsd  (%rcx,%rsi,8),%xmm0
+   52665:	48 c1 e2 04          	shl    $0x4,%rdx
+   52669:	48 03 93 b0 00 00 00 	add    0xb0(%rbx),%rdx
+   52670:	4c 8b 2a             	mov    (%rdx),%r13
+   52673:	49 8b 55 00          	mov    0x0(%r13),%rdx
+   52677:	4c 8b b2 50 01 00 00 	mov    0x150(%rdx),%r14
+   5267e:	48 8b 93 80 00 00 00 	mov    0x80(%rbx),%rdx
+   52685:	f2 0f 10 0c c2       	movsd  (%rdx,%rax,8),%xmm1
+   5268a:	f2 0f 5e c8          	divsd  %xmm0,%xmm1
+   5268e:	f2 0f 11 4c 24 10    	movsd  %xmm1,0x10(%rsp)
+   52694:	e8 37 f4 fe ff       	call   41ad0 <operator new(unsigned long)@plt>
+   52699:	f2 0f 10 4c 24 10    	movsd  0x10(%rsp),%xmm1
+   5269f:	48 89 44 24 58       	mov    %rax,0x58(%rsp)
+   526a4:	31 d2                	xor    %edx,%edx
+   526a6:	4c 89 e6             	mov    %r12,%rsi
+   526a9:	48 8d 0d 68 fc 04 00 	lea    0x4fc68(%rip),%rcx        # a2318 <typeinfo name for std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >@@Base+0x128f8>
+   526b0:	4c 89 ef             	mov    %r13,%rdi
+   526b3:	48 89 ac 24 80 00 00 	mov    %rbp,0x80(%rsp)
+   526ba:	00 
+   526bb:	48 89 08             	mov    %rcx,(%rax)
+   526be:	b9 76 65 00 00       	mov    $0x6576,%ecx
+   526c3:	66 89 8c 24 90 00 00 	mov    %cx,0x90(%rsp)
+   526ca:	00 
+   526cb:	4c 89 f9             	mov    %r15,%rcx
+   526ce:	c6 84 24 92 00 00 00 	movb   $0x6c,0x92(%rsp)
+   526d5:	6c 
+   526d6:	48 c7 84 24 88 00 00 	movq   $0x3,0x88(%rsp)
+   526dd:	00 03 00 00 00 
+   526e2:	c6 84 24 93 00 00 00 	movb   $0x0,0x93(%rsp)
+   526e9:	00 
+   526ea:	f2 0f 11 48 08       	movsd  %xmm1,0x8(%rax)
+   526ef:	41 ff d6             	call   *%r14
+   526f2:	48 8b bc 24 80 00 00 	mov    0x80(%rsp),%rdi
+   526f9:	00 
+   526fa:	48 39 ef             	cmp    %rbp,%rdi
+   526fd:	74 11                	je     52710 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x3d0>
+   526ff:	48 8b 84 24 90 00 00 	mov    0x90(%rsp),%rax
+   52706:	00 
+   52707:	48 8d 70 01          	lea    0x1(%rax),%rsi
+   5270b:	e8 e0 f3 fe ff       	call   41af0 <operator delete(void*, unsigned long)@plt>
+   52710:	48 8b 7c 24 58       	mov    0x58(%rsp),%rdi
+   52715:	48 85 ff             	test   %rdi,%rdi
+   52718:	74 06                	je     52720 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x3e0>
+   5271a:	48 8b 07             	mov    (%rdi),%rax
+   5271d:	ff 50 08             	call   *0x8(%rax)
+   52720:	83 44 24 04 01       	addl   $0x1,0x4(%rsp)
+   52725:	8b 44 24 04          	mov    0x4(%rsp),%eax
+   52729:	39 83 9c 04 00 00    	cmp    %eax,0x49c(%rbx)
+   5272f:	0f 86 bb 02 00 00    	jbe    529f0 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x6b0>
+   52735:	4c 8b 7b 58          	mov    0x58(%rbx),%r15
+   52739:	f2 0f 10 4b 78       	movsd  0x78(%rbx),%xmm1
+   5273e:	8b 44 24 04          	mov    0x4(%rsp),%eax
+   52742:	66 0f ef f6          	pxor   %xmm6,%xmm6
+   52746:	66 0f 2e ce          	ucomisd %xmm6,%xmm1
+   5274a:	44 8d 34 00          	lea    (%rax,%rax,1),%r14d
+   5274e:	48 8b 83 80 00 00 00 	mov    0x80(%rbx),%rax
+   52755:	45 8d 6e 01          	lea    0x1(%r14),%r13d
+   52759:	f2 42 0f 10 04 e8    	movsd  (%rax,%r13,8),%xmm0
+   5275f:	4e 8d 24 ed 00 00 00 	lea    0x0(,%r13,8),%r12
+   52766:	00 
+   52767:	7a 06                	jp     5276f <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x42f>
+   52769:	0f 84 f3 fd ff ff    	je     52562 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x222>
+   5276f:	48 8b 4c 24 60       	mov    0x60(%rsp),%rcx
+   52774:	66 0f 28 e0          	movapd %xmm0,%xmm4
+   52778:	44 89 f6             	mov    %r14d,%esi
+   5277b:	f2 0f 10 2d 8d 61 03 	movsd  0x3618d(%rip),%xmm5        # 88910 <std::piecewise_construct@@Base+0x17a>
+   52782:	00 
+   52783:	48 8d 14 f5 00 00 00 	lea    0x0(,%rsi,8),%rdx
+   5278a:	00 
+   5278b:	48 89 74 24 10       	mov    %rsi,0x10(%rsp)
+   52790:	f2 42 0f 10 1c e9    	movsd  (%rcx,%r13,8),%xmm3
+   52796:	48 01 d0             	add    %rdx,%rax
+   52799:	48 01 d1             	add    %rdx,%rcx
+   5279c:	f2 0f 5c e3          	subsd  %xmm3,%xmm4
+   527a0:	66 0f 28 d4          	movapd %xmm4,%xmm2
+   527a4:	66 0f 54 15 a4 61 03 	andpd  0x361a4(%rip),%xmm2        # 88950 <std::piecewise_construct@@Base+0x1ba>
+   527ab:	00 
+   527ac:	66 0f 2f ea          	comisd %xmm2,%xmm5
+   527b0:	0f 87 92 fd ff ff    	ja     52548 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x208>
+   527b6:	48 8b ab 98 00 00 00 	mov    0x98(%rbx),%rbp
+   527bd:	49 01 ec             	add    %rbp,%r12
+   527c0:	66 0f 2f c3          	comisd %xmm3,%xmm0
+   527c4:	f2 41 0f 10 3c 24    	movsd  (%r12),%xmm7
+   527ca:	f2 0f 11 7c 24 18    	movsd  %xmm7,0x18(%rsp)
+   527d0:	0f 82 e2 02 00 00    	jb     52ab8 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x778>
+   527d6:	f2 0f 59 4c 24 08    	mulsd  0x8(%rsp),%xmm1
+   527dc:	66 0f 28 c4          	movapd %xmm4,%xmm0
+   527e0:	48 89 4c 24 38       	mov    %rcx,0x38(%rsp)
+   527e5:	48 89 44 24 30       	mov    %rax,0x30(%rsp)
+   527ea:	48 89 54 24 28       	mov    %rdx,0x28(%rsp)
+   527ef:	e8 7c ee fe ff       	call   41670 <fmin@plt>
+   527f4:	f2 0f 58 44 24 18    	addsd  0x18(%rsp),%xmm0
+   527fa:	48 8b 54 24 28       	mov    0x28(%rsp),%rdx
+   527ff:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
+   52804:	48 8b 4c 24 38       	mov    0x38(%rsp),%rcx
+   52809:	f2 41 0f 11 04 24    	movsd  %xmm0,(%r12)
+   5280f:	f2 0f 10 10          	movsd  (%rax),%xmm2
+   52813:	f2 0f 10 01          	movsd  (%rcx),%xmm0
+   52817:	48 01 d5             	add    %rdx,%rbp
+   5281a:	f2 0f 10 7d 00       	movsd  0x0(%rbp),%xmm7
+   5281f:	f2 0f 10 4b 78       	movsd  0x78(%rbx),%xmm1
+   52824:	66 0f 2f d0          	comisd %xmm0,%xmm2
+   52828:	66 0f 28 da          	movapd %xmm2,%xmm3
+   5282c:	f2 0f 5c d8          	subsd  %xmm0,%xmm3
+   52830:	f2 0f 11 7c 24 18    	movsd  %xmm7,0x18(%rsp)
+   52836:	0f 86 c4 02 00 00    	jbe    52b00 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x7c0>
+   5283c:	f2 0f 59 4c 24 08    	mulsd  0x8(%rsp),%xmm1
+   52842:	66 0f 28 c3          	movapd %xmm3,%xmm0
+   52846:	e8 25 ee fe ff       	call   41670 <fmin@plt>
+   5284b:	f2 0f 58 44 24 18    	addsd  0x18(%rsp),%xmm0
+   52851:	49 c1 e5 04          	shl    $0x4,%r13
+   52855:	4c 03 ab b0 00 00 00 	add    0xb0(%rbx),%r13
+   5285c:	f2 0f 11 45 00       	movsd  %xmm0,0x0(%rbp)
+   52861:	f2 0f 10 05 77 60 03 	movsd  0x36077(%rip),%xmm0        # 888e0 <std::piecewise_construct@@Base+0x14a>
+   52868:	00 
+   52869:	4d 8b 6d 00          	mov    0x0(%r13),%r13
+   5286d:	f2 41 0f 10 0c 24    	movsd  (%r12),%xmm1
+   52873:	bf 10 00 00 00       	mov    $0x10,%edi
+   52878:	49 8b 45 00          	mov    0x0(%r13),%rax
+   5287c:	4c 8b b0 50 01 00 00 	mov    0x150(%rax),%r14
+   52883:	8b 44 24 04          	mov    0x4(%rsp),%eax
+   52887:	f2 41 0f 59 04 c7    	mulsd  (%r15,%rax,8),%xmm0
+   5288d:	48 89 44 24 18       	mov    %rax,0x18(%rsp)
+   52892:	f2 0f 5e c8          	divsd  %xmm0,%xmm1
+   52896:	66 48 0f 7e cd       	movq   %xmm1,%rbp
+   5289b:	e8 30 f2 fe ff       	call   41ad0 <operator new(unsigned long)@plt>
+   528a0:	48 8d 0d 71 fa 04 00 	lea    0x4fa71(%rip),%rcx        # a2318 <typeinfo name for std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >@@Base+0x128f8>
+   528a7:	ba 76 65 00 00       	mov    $0x6576,%edx
+   528ac:	4c 89 ef             	mov    %r13,%rdi
+   528af:	48 89 68 08          	mov    %rbp,0x8(%rax)
+   528b3:	4c 8d a4 24 80 00 00 	lea    0x80(%rsp),%r12
+   528ba:	00 
+   528bb:	48 8d ac 24 90 00 00 	lea    0x90(%rsp),%rbp
+   528c2:	00 
+   528c3:	48 89 08             	mov    %rcx,(%rax)
+   528c6:	4c 8d 7c 24 58       	lea    0x58(%rsp),%r15
+   528cb:	48 89 44 24 58       	mov    %rax,0x58(%rsp)
+   528d0:	4c 89 e6             	mov    %r12,%rsi
+   528d3:	66 89 94 24 90 00 00 	mov    %dx,0x90(%rsp)
+   528da:	00 
+   528db:	4c 89 f9             	mov    %r15,%rcx
+   528de:	31 d2                	xor    %edx,%edx
+   528e0:	48 89 ac 24 80 00 00 	mov    %rbp,0x80(%rsp)
+   528e7:	00 
+   528e8:	c6 84 24 92 00 00 00 	movb   $0x6c,0x92(%rsp)
+   528ef:	6c 
+   528f0:	48 c7 84 24 88 00 00 	movq   $0x3,0x88(%rsp)
+   528f7:	00 03 00 00 00 
+   528fc:	c6 84 24 93 00 00 00 	movb   $0x0,0x93(%rsp)
+   52903:	00 
+   52904:	41 ff d6             	call   *%r14
+   52907:	48 8b bc 24 80 00 00 	mov    0x80(%rsp),%rdi
+   5290e:	00 
+   5290f:	48 39 ef             	cmp    %rbp,%rdi
+   52912:	74 11                	je     52925 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x5e5>
+   52914:	48 8b 84 24 90 00 00 	mov    0x90(%rsp),%rax
+   5291b:	00 
+   5291c:	48 8d 70 01          	lea    0x1(%rax),%rsi
+   52920:	e8 cb f1 fe ff       	call   41af0 <operator delete(void*, unsigned long)@plt>
+   52925:	48 8b 7c 24 58       	mov    0x58(%rsp),%rdi
+   5292a:	48 85 ff             	test   %rdi,%rdi
+   5292d:	74 06                	je     52935 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x5f5>
+   5292f:	48 8b 07             	mov    (%rdi),%rax
+   52932:	ff 50 08             	call   *0x8(%rax)
+   52935:	48 8b 4c 24 10       	mov    0x10(%rsp),%rcx
+   5293a:	48 8b 53 58          	mov    0x58(%rbx),%rdx
+   5293e:	bf 10 00 00 00       	mov    $0x10,%edi
+   52943:	48 8b 74 24 18       	mov    0x18(%rsp),%rsi
+   52948:	f2 0f 10 05 90 5f 03 	movsd  0x35f90(%rip),%xmm0        # 888e0 <std::piecewise_construct@@Base+0x14a>
+   5294f:	00 
+   52950:	48 89 c8             	mov    %rcx,%rax
+   52953:	f2 0f 59 04 f2       	mulsd  (%rdx,%rsi,8),%xmm0
+   52958:	48 c1 e0 04          	shl    $0x4,%rax
+   5295c:	48 03 83 b0 00 00 00 	add    0xb0(%rbx),%rax
+   52963:	4c 8b 28             	mov    (%rax),%r13
+   52966:	49 8b 45 00          	mov    0x0(%r13),%rax
+   5296a:	4c 8b b0 50 01 00 00 	mov    0x150(%rax),%r14
+   52971:	48 8b 83 98 00 00 00 	mov    0x98(%rbx),%rax
+   52978:	f2 0f 10 0c c8       	movsd  (%rax,%rcx,8),%xmm1
+   5297d:	f2 0f 5e c8          	divsd  %xmm0,%xmm1
+   52981:	f2 0f 11 4c 24 10    	movsd  %xmm1,0x10(%rsp)
+   52987:	e8 44 f1 fe ff       	call   41ad0 <operator new(unsigned long)@plt>
+   5298c:	f2 0f 10 4c 24 10    	movsd  0x10(%rsp),%xmm1
+   52992:	48 89 44 24 58       	mov    %rax,0x58(%rsp)
+   52997:	31 d2                	xor    %edx,%edx
+   52999:	4c 89 e6             	mov    %r12,%rsi
+   5299c:	48 8d 0d 75 f9 04 00 	lea    0x4f975(%rip),%rcx        # a2318 <typeinfo name for std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >@@Base+0x128f8>
+   529a3:	4c 89 ef             	mov    %r13,%rdi
+   529a6:	48 89 ac 24 80 00 00 	mov    %rbp,0x80(%rsp)
+   529ad:	00 
+   529ae:	48 89 08             	mov    %rcx,(%rax)
+   529b1:	4c 89 f9             	mov    %r15,%rcx
+   529b4:	f2 0f 11 48 08       	movsd  %xmm1,0x8(%rax)
+   529b9:	b8 76 65 00 00       	mov    $0x6576,%eax
+   529be:	66 89 84 24 90 00 00 	mov    %ax,0x90(%rsp)
+   529c5:	00 
+   529c6:	c6 84 24 92 00 00 00 	movb   $0x6c,0x92(%rsp)
+   529cd:	6c 
+   529ce:	48 c7 84 24 88 00 00 	movq   $0x3,0x88(%rsp)
+   529d5:	00 03 00 00 00 
+   529da:	c6 84 24 93 00 00 00 	movb   $0x0,0x93(%rsp)
+   529e1:	00 
+   529e2:	41 ff d6             	call   *%r14
+   529e5:	e9 08 fd ff ff       	jmp    526f2 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x3b2>
+   529ea:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   529f0:	48 8b 74 24 20       	mov    0x20(%rsp),%rsi
+   529f5:	48 8b 7c 24 40       	mov    0x40(%rsp),%rdi
+   529fa:	e8 01 ea fe ff       	call   41400 <gazebo::common::Time::operator=(gazebo::common::Time const&)@plt>
+   529ff:	48 8b 7c 24 60       	mov    0x60(%rsp),%rdi
+   52a04:	48 85 ff             	test   %rdi,%rdi
+   52a07:	74 0d                	je     52a16 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x6d6>
+   52a09:	48 8b 74 24 70       	mov    0x70(%rsp),%rsi
+   52a0e:	48 29 fe             	sub    %rdi,%rsi
+   52a11:	e8 da f0 fe ff       	call   41af0 <operator delete(void*, unsigned long)@plt>
+   52a16:	48 8b 84 24 a8 00 00 	mov    0xa8(%rsp),%rax
+   52a1d:	00 
+   52a1e:	64 48 2b 04 25 28 00 	sub    %fs:0x28,%rax
+   52a25:	00 00 
+   52a27:	0f 85 2b 01 00 00    	jne    52b58 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x818>
+   52a2d:	48 81 c4 b8 00 00 00 	add    $0xb8,%rsp
+   52a34:	5b                   	pop    %rbx
+   52a35:	5d                   	pop    %rbp
+   52a36:	41 5c                	pop    %r12
+   52a38:	41 5d                	pop    %r13
+   52a3a:	41 5e                	pop    %r14
+   52a3c:	41 5f                	pop    %r15
+   52a3e:	c3                   	ret    
+   52a3f:	90                   	nop
+   52a40:	48 c7 44 24 60 00 00 	movq   $0x0,0x60(%rsp)
+   52a47:	00 00 
+   52a49:	45 31 e4             	xor    %r12d,%r12d
+   52a4c:	48 c7 44 24 70 00 00 	movq   $0x0,0x70(%rsp)
+   52a53:	00 00 
+   52a55:	e9 21 fa ff ff       	jmp    5247b <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x13b>
+   52a5a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   52a60:	48 8b 74 24 20       	mov    0x20(%rsp),%rsi
+   52a65:	48 89 df             	mov    %rbx,%rdi
+   52a68:	e8 a3 f3 fe ff       	call   41e10 <gazebo_plugins::GazeboRosDiffDrivePrivate::PublishOdometryTf(gazebo::common::Time const&)@plt>
+   52a6d:	e9 91 f9 ff ff       	jmp    52403 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xc3>
+   52a72:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   52a78:	48 8b 74 24 20       	mov    0x20(%rsp),%rsi
+   52a7d:	48 89 df             	mov    %rbx,%rdi
+   52a80:	e8 db f0 fe ff       	call   41b60 <gazebo_plugins::GazeboRosDiffDrivePrivate::PublishWheelsTf(gazebo::common::Time const&)@plt>
+   52a85:	80 bb 9a 04 00 00 00 	cmpb   $0x0,0x49a(%rbx)
+   52a8c:	0f 84 71 f9 ff ff    	je     52403 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xc3>
+   52a92:	eb cc                	jmp    52a60 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x720>
+   52a94:	0f 1f 40 00          	nopl   0x0(%rax)
+   52a98:	48 8b 74 24 20       	mov    0x20(%rsp),%rsi
+   52a9d:	48 89 df             	mov    %rbx,%rdi
+   52aa0:	e8 fb f4 fe ff       	call   41fa0 <gazebo_plugins::GazeboRosDiffDrivePrivate::PublishOdometryMsg(gazebo::common::Time const&)@plt>
+   52aa5:	80 bb 99 04 00 00 00 	cmpb   $0x0,0x499(%rbx)
+   52aac:	0f 84 44 f9 ff ff    	je     523f6 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xb6>
+   52ab2:	eb c4                	jmp    52a78 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x738>
+   52ab4:	0f 1f 40 00          	nopl   0x0(%rax)
+   52ab8:	66 0f 57 0d a0 5e 03 	xorpd  0x35ea0(%rip),%xmm1        # 88960 <std::piecewise_construct@@Base+0x1ca>
+   52abf:	00 
+   52ac0:	66 0f 28 c4          	movapd %xmm4,%xmm0
+   52ac4:	48 89 4c 24 38       	mov    %rcx,0x38(%rsp)
+   52ac9:	f2 0f 59 4c 24 08    	mulsd  0x8(%rsp),%xmm1
+   52acf:	48 89 44 24 30       	mov    %rax,0x30(%rsp)
+   52ad4:	48 89 54 24 28       	mov    %rdx,0x28(%rsp)
+   52ad9:	e8 62 f2 fe ff       	call   41d40 <fmax@plt>
+   52ade:	48 8b 4c 24 38       	mov    0x38(%rsp),%rcx
+   52ae3:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
+   52ae8:	f2 0f 58 44 24 18    	addsd  0x18(%rsp),%xmm0
+   52aee:	48 8b 54 24 28       	mov    0x28(%rsp),%rdx
+   52af3:	e9 11 fd ff ff       	jmp    52809 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x4c9>
+   52af8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   52aff:	00 
+   52b00:	66 0f 57 0d 58 5e 03 	xorpd  0x35e58(%rip),%xmm1        # 88960 <std::piecewise_construct@@Base+0x1ca>
+   52b07:	00 
+   52b08:	66 0f 28 c3          	movapd %xmm3,%xmm0
+   52b0c:	f2 0f 59 4c 24 08    	mulsd  0x8(%rsp),%xmm1
+   52b12:	e8 29 f2 fe ff       	call   41d40 <fmax@plt>
+   52b17:	f2 0f 58 44 24 18    	addsd  0x18(%rsp),%xmm0
+   52b1d:	e9 2f fd ff ff       	jmp    52851 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x511>
+   52b22:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   52b28:	48 89 c6             	mov    %rax,%rsi
+   52b2b:	48 89 df             	mov    %rbx,%rdi
+   52b2e:	e8 6d e8 fe ff       	call   413a0 <gazebo_plugins::GazeboRosDiffDrivePrivate::UpdateOdometryEncoder(gazebo::common::Time const&)@plt>
+   52b33:	e9 4a f8 ff ff       	jmp    52382 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x42>
+   52b38:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   52b3f:	00 
+   52b40:	48 89 df             	mov    %rbx,%rdi
+   52b43:	e8 48 f5 fe ff       	call   42090 <gazebo_plugins::GazeboRosDiffDrivePrivate::UpdateOdometryWorld()@plt>
+   52b48:	e9 8f f8 ff ff       	jmp    523dc <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x9c>
+   52b4d:	8b 93 9c 04 00 00    	mov    0x49c(%rbx),%edx
+   52b53:	e9 23 f9 ff ff       	jmp    5247b <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x13b>
+   52b58:	e8 63 f0 fe ff       	call   41bc0 <__stack_chk_fail@plt>
+   52b5d:	f3 0f 1e fa          	endbr64 
+   52b61:	48 89 c5             	mov    %rax,%rbp
+   52b64:	e9 d1 10 ff ff       	jmp    43c3a <std::locale::locale()@plt+0x18da>
+   52b69:	f3 0f 1e fa          	endbr64 
+   52b6d:	48 89 c5             	mov    %rax,%rbp
+   52b70:	e9 c5 10 ff ff       	jmp    43c3a <std::locale::locale()@plt+0x18da>
+   52b75:	f3 0f 1e fa          	endbr64 
+   52b79:	48 89 c5             	mov    %rax,%rbp
+   52b7c:	e9 b9 10 ff ff       	jmp    43c3a <std::locale::locale()@plt+0x18da>
+   52b81:	f3 0f 1e fa          	endbr64 
+   52b85:	48 89 c5             	mov    %rax,%rbp
+   52b88:	e9 bd 10 ff ff       	jmp    43c4a <std::locale::locale()@plt+0x18ea>
+   52b8d:	f3 0f 1e fa          	endbr64 
+   52b91:	48 89 c5             	mov    %rax,%rbp
+   52b94:	e9 a1 10 ff ff       	jmp    43c3a <std::locale::locale()@plt+0x18da>
+   52b99:	f3 0f 1e fa          	endbr64 
+   52b9d:	48 89 c5             	mov    %rax,%rbp
+   52ba0:	e9 b7 10 ff ff       	jmp    43c5c <std::locale::locale()@plt+0x18fc>
+   52ba5:	90                   	nop
+   52ba6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   52bad:	00 00 00 
+   52bb0:	f3 0f 1e fa          	endbr64 
+   52bb4:	41 56                	push   %r14
+   52bb6:	41 55                	push   %r13
+   52bb8:	41 54                	push   %r12
+   52bba:	4c 8d 67 18          	lea    0x18(%rdi),%r12
+   52bbe:	55                   	push   %rbp
+   52bbf:	48 89 f5             	mov    %rsi,%rbp
+   52bc2:	53                   	push   %rbx
+   52bc3:	0f b7 06             	movzwl (%rsi),%eax
+   52bc6:	48 89 fb             	mov    %rdi,%rbx
+   52bc9:	f2 0f 10 46 10       	movsd  0x10(%rsi),%xmm0
+   52bce:	66 89 07             	mov    %ax,(%rdi)
+   52bd1:	48 8b 46 08          	mov    0x8(%rsi),%rax
+   52bd5:	f2 0f 11 47 10       	movsd  %xmm0,0x10(%rdi)
+   52bda:	48 89 47 08          	mov    %rax,0x8(%rdi)
+   52bde:	48 8d 47 28          	lea    0x28(%rdi),%rax
+   52be2:	48 8b 55 20          	mov    0x20(%rbp),%rdx
+   52be6:	48 89 47 18          	mov    %rax,0x18(%rdi)
+   52bea:	48 8b 76 18          	mov    0x18(%rsi),%rsi
+   52bee:	4c 89 e7             	mov    %r12,%rdi
+   52bf1:	48 01 f2             	add    %rsi,%rdx
+   52bf4:	e8 87 e1 02 00       	call   80d80 <std::__detail::__variant::__gen_vtable_impl<std::__detail::__variant::_Multi_array<std::__detail::__variant::__deduce_visit_result<void> (*)(rclcpp::AnySubscriptionCallback<geometry_msgs::msg::Twist_<std::allocator<void> >, std::allocator<void> >::dispatch_intra_process(std::unique_ptr<geometry_msgs::msg::Twist_<std::allocator<void> >, std::default_delete<geometry_msgs::msg::Twist_<std::allocator<void> > > >, rclcpp::MessageInfo const&)::{lambda(auto:1&&)#1}&&, std::variant<std::function<void (geometry_msgs::msg::Twist_<std::allocator<void> > const&)>, std::function<void (geometry_msgs::msg::Twist_<std::allocator<void> > const&, rclcpp::MessageInfo const&)>, std::function<void (rclcpp::SerializedMessage const&)>, std::function<void (rclcpp::SerializedMessage const&, rclcpp::MessageInfo const&)>, std::function<void (std::unique_ptr<geometry_msgs::msg::Twist_<std::allocator<void> >, std::default_delete<geometry_msgs::msg::Twist_<std::allocator<void> > > >)>, std::function<void (std::unique_ptr<geometry_msgs::msg::Twist_<std::allocator<void> >, std::default_delete<geometry_msgs::msg::Twist_<std::allocator<void> > > >, rclcpp::MessageInfo const&)>, std::function<void (std::unique_ptr<rclcpp::SerializedMessage, std::default_delete<rclcpp::SerializedMessage> >)>, std::function<void (std::unique_ptr<rclcpp::SerializedMessage, std::default_delete<rclcpp::SerializedMessage> >, rclcpp::MessageInfo const&)>, std::function<void (std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > const>)>, std::function<void (std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > const>, rclcpp::MessageInfo const&)>, std::function<void (std::shared_ptr<rclcpp::SerializedMessage const>)>, std::function<void (std::shared_ptr<rclcpp::SerializedMessage const>, rclcpp::MessageInfo const&)>, std::function<void (std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > const> const&)>, std::function<void (std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > const> const&, rclcpp::MessageInfo const&)>, std::function<void (std::shared_ptr<rclcpp::SerializedMessage const> const&)>, std::function<void (std::shared_ptr<rclcpp::SerializedMessage const> const&, rclcpp::MessageInfo const&)>, std::function<void (std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > >)>, std::function<void (std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > >, rclcpp::MessageInfo const&)>, std::function<void (std::shared_ptr<rclcpp::SerializedMessage>)>, std::function<void (std::shared_ptr<rclcpp::SerializedMessage>, rclcpp::MessageInfo const&)> >&)>, std::integer_sequence<unsigned long, 5ul> >::__visit_invoke(rclcpp::AnySubscriptionCallback<geometry_msgs::msg::Twist_<std::allocator<void> >, std::allocator<void> >::dispatch_intra_process(std::unique_ptr<geometry_msgs::msg::Twist_<std::allocator<void> >, std::default_delete<geometry_msgs::msg::Twist_<std::allocator<void> > > >, rclcpp::MessageInfo const&)::{lambda(auto:1&&)#1}&&, std::variant<std::function<void (geometry_msgs::msg::Twist_<std::allocator<void> > const&)>, std::function<void (geometry_msgs::msg::Twist_<std::allocator<void> > const&, rclcpp::MessageInfo const&)>, std::function<void (rclcpp::SerializedMessage const&)>, std::function<void (rclcpp::SerializedMessage const&, rclcpp::MessageInfo const&)>, std::function<void (std::unique_ptr<geometry_msgs::msg::Twist_<std::allocator<void> >, std::default_delete<geometry_msgs::msg::Twist_<std::allocator<void> > > >)>, std::function<void (std::unique_ptr<geometry_msgs::msg::Twist_<std::allocator<void> >, std::default_delete<geometry_msgs::msg::Twist_<std::allocator<void> > > >, rclcpp::MessageInfo const&)>, std::function<void (std::unique_ptr<rclcpp::SerializedMessage, std::default_delete<rclcpp::SerializedMessage> >)>, std::function<void (std::unique_ptr<rclcpp::SerializedMessage, std::default_delete<rclcpp::SerializedMessage> >, rclcpp::MessageInfo const&)>, std::function<void (std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > const>)>, std::function<void (std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > const>, rclcpp::MessageInfo const&)>, std::function<void (std::shared_ptr<rclcpp::SerializedMessage const>)>, std::function<void (std::shared_ptr<rclcpp::SerializedMessage const>, rclcpp::MessageInfo const&)>, std::function<void (std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > const> const&)>, std::function<void (std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > const> const&, rclcpp::MessageInfo const&)>, std::function<void (std::shared_ptr<rclcpp::SerializedMessage const> const&)>, std::function<void (std::shared_ptr<rclcpp::SerializedMessage const> const&, rclcpp::MessageInfo const&)>, std::function<void (std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > >)>, std::function<void (std::shared_ptr<geometry_msgs::msg::Twist_<std::allocator<void> > >, rclcpp::MessageInfo const&)>, std::function<void (std::shared_ptr<rclcpp::SerializedMessage>)>, std::function<void (std::shared_ptr<rclcpp::SerializedMessage>, rclcpp::MessageInfo const&)> >&)@@Base+0x1080>
+   52bf9:	4c 8b 6d 40          	mov    0x40(%rbp),%r13
+   52bfd:	4c 2b 6d 38          	sub    0x38(%rbp),%r13
+   52c01:	48 c7 43 38 00 00 00 	movq   $0x0,0x38(%rbx)
+   52c08:	00 
+   52c09:	48 c7 43 40 00 00 00 	movq   $0x0,0x40(%rbx)
+   52c10:	00 
+   52c11:	48 c7 43 48 00 00 00 	movq   $0x0,0x48(%rbx)
+   52c18:	00 
+   52c19:	0f 84 d1 01 00 00    	je     52df0 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xab0>
+   52c1f:	0f 88 eb 01 00 00    	js     52e10 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xad0>
+   52c25:	4c 89 ef             	mov    %r13,%rdi
+   52c28:	e8 a3 ee fe ff       	call   41ad0 <operator new(unsigned long)@plt>
+   52c2d:	48 89 c1             	mov    %rax,%rcx
+   52c30:	49 01 cd             	add    %rcx,%r13
+   52c33:	48 89 4b 38          	mov    %rcx,0x38(%rbx)
+   52c37:	4c 89 6b 48          	mov    %r13,0x48(%rbx)
+   52c3b:	45 31 ed             	xor    %r13d,%r13d
+   52c3e:	48 89 4b 40          	mov    %rcx,0x40(%rbx)
+   52c42:	48 8b 75 38          	mov    0x38(%rbp),%rsi
+   52c46:	48 8b 45 40          	mov    0x40(%rbp),%rax
+   52c4a:	48 29 f0             	sub    %rsi,%rax
+   52c4d:	0f 85 7d 01 00 00    	jne    52dd0 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xa90>
+   52c53:	4c 01 e9             	add    %r13,%rcx
+   52c56:	4c 8d 6b 50          	lea    0x50(%rbx),%r13
+   52c5a:	48 8d 75 50          	lea    0x50(%rbp),%rsi
+   52c5e:	48 89 4b 40          	mov    %rcx,0x40(%rbx)
+   52c62:	4c 89 ef             	mov    %r13,%rdi
+   52c65:	e8 06 82 00 00       	call   5ae70 <gazebo_plugins::GazeboRosDiffDrivePrivate::PublishOdometryMsg(gazebo::common::Time const&)@@Base+0x510>
+   52c6a:	4c 8b b5 80 00 00 00 	mov    0x80(%rbp),%r14
+   52c71:	4c 2b 75 78          	sub    0x78(%rbp),%r14
+   52c75:	48 c7 43 78 00 00 00 	movq   $0x0,0x78(%rbx)
+   52c7c:	00 
+   52c7d:	48 c7 83 80 00 00 00 	movq   $0x0,0x80(%rbx)
+   52c84:	00 00 00 00 
+   52c88:	48 c7 83 88 00 00 00 	movq   $0x0,0x88(%rbx)
+   52c8f:	00 00 00 00 
+   52c93:	0f 84 1f 01 00 00    	je     52db8 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xa78>
+   52c99:	48 b8 f8 ff ff ff ff 	movabs $0x7ffffffffffffff8,%rax
+   52ca0:	ff ff 7f 
+   52ca3:	49 39 c6             	cmp    %rax,%r14
+   52ca6:	0f 87 54 01 00 00    	ja     52e00 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xac0>
+   52cac:	4c 89 f7             	mov    %r14,%rdi
+   52caf:	e8 1c ee fe ff       	call   41ad0 <operator new(unsigned long)@plt>
+   52cb4:	48 89 c1             	mov    %rax,%rcx
+   52cb7:	49 01 ce             	add    %rcx,%r14
+   52cba:	48 89 4b 78          	mov    %rcx,0x78(%rbx)
+   52cbe:	4c 89 b3 88 00 00 00 	mov    %r14,0x88(%rbx)
+   52cc5:	48 89 8b 80 00 00 00 	mov    %rcx,0x80(%rbx)
+   52ccc:	48 8b 85 80 00 00 00 	mov    0x80(%rbp),%rax
+   52cd3:	48 8b 75 78          	mov    0x78(%rbp),%rsi
+   52cd7:	49 89 c6             	mov    %rax,%r14
+   52cda:	49 29 f6             	sub    %rsi,%r14
+   52cdd:	48 39 f0             	cmp    %rsi,%rax
+   52ce0:	74 0e                	je     52cf0 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x9b0>
+   52ce2:	48 89 cf             	mov    %rcx,%rdi
+   52ce5:	4c 89 f2             	mov    %r14,%rdx
+   52ce8:	e8 13 f3 fe ff       	call   42000 <memmove@plt>
+   52ced:	48 89 c1             	mov    %rax,%rcx
+   52cf0:	4c 01 f1             	add    %r14,%rcx
+   52cf3:	4c 8b b5 98 00 00 00 	mov    0x98(%rbp),%r14
+   52cfa:	4c 2b b5 90 00 00 00 	sub    0x90(%rbp),%r14
+   52d01:	48 c7 83 90 00 00 00 	movq   $0x0,0x90(%rbx)
+   52d08:	00 00 00 00 
+   52d0c:	48 89 8b 80 00 00 00 	mov    %rcx,0x80(%rbx)
+   52d13:	48 c7 83 98 00 00 00 	movq   $0x0,0x98(%rbx)
+   52d1a:	00 00 00 00 
+   52d1e:	48 c7 83 a0 00 00 00 	movq   $0x0,0xa0(%rbx)
+   52d25:	00 00 00 00 
+   52d29:	0f 84 91 00 00 00    	je     52dc0 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xa80>
+   52d2f:	48 b8 f8 ff ff ff ff 	movabs $0x7ffffffffffffff8,%rax
+   52d36:	ff ff 7f 
+   52d39:	49 39 c6             	cmp    %rax,%r14
+   52d3c:	0f 87 de 00 00 00    	ja     52e20 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xae0>
+   52d42:	4c 89 f7             	mov    %r14,%rdi
+   52d45:	e8 86 ed fe ff       	call   41ad0 <operator new(unsigned long)@plt>
+   52d4a:	48 89 c1             	mov    %rax,%rcx
+   52d4d:	49 01 ce             	add    %rcx,%r14
+   52d50:	48 89 8b 90 00 00 00 	mov    %rcx,0x90(%rbx)
+   52d57:	4c 89 b3 a0 00 00 00 	mov    %r14,0xa0(%rbx)
+   52d5e:	48 89 8b 98 00 00 00 	mov    %rcx,0x98(%rbx)
+   52d65:	48 8b 85 98 00 00 00 	mov    0x98(%rbp),%rax
+   52d6c:	48 8b b5 90 00 00 00 	mov    0x90(%rbp),%rsi
+   52d73:	49 89 c6             	mov    %rax,%r14
+   52d76:	49 29 f6             	sub    %rsi,%r14
+   52d79:	48 39 f0             	cmp    %rsi,%rax
+   52d7c:	74 0e                	je     52d8c <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xa4c>
+   52d7e:	48 89 cf             	mov    %rcx,%rdi
+   52d81:	4c 89 f2             	mov    %r14,%rdx
+   52d84:	e8 77 f2 fe ff       	call   42000 <memmove@plt>
+   52d89:	48 89 c1             	mov    %rax,%rcx
+   52d8c:	4c 01 f1             	add    %r14,%rcx
+   52d8f:	48 8d b5 a8 00 00 00 	lea    0xa8(%rbp),%rsi
+   52d96:	48 8d bb a8 00 00 00 	lea    0xa8(%rbx),%rdi
+   52d9d:	48 89 8b 98 00 00 00 	mov    %rcx,0x98(%rbx)
+   52da4:	e8 f7 64 00 00       	call   592a0 <std::__detail::_Scanner<char>::_M_eat_escape_posix()@@Base+0x370>
+   52da9:	5b                   	pop    %rbx
+   52daa:	5d                   	pop    %rbp
+   52dab:	41 5c                	pop    %r12
+   52dad:	41 5d                	pop    %r13
+   52daf:	41 5e                	pop    %r14
+   52db1:	c3                   	ret    
+   52db2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   52db8:	31 c9                	xor    %ecx,%ecx
+   52dba:	e9 f8 fe ff ff       	jmp    52cb7 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x977>
+   52dbf:	90                   	nop
+   52dc0:	31 c9                	xor    %ecx,%ecx
+   52dc2:	e9 86 ff ff ff       	jmp    52d4d <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xa0d>
+   52dc7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   52dce:	00 00 
+   52dd0:	48 89 cf             	mov    %rcx,%rdi
+   52dd3:	48 89 c2             	mov    %rax,%rdx
+   52dd6:	49 89 c5             	mov    %rax,%r13
+   52dd9:	e8 22 f2 fe ff       	call   42000 <memmove@plt>
+   52dde:	48 89 c1             	mov    %rax,%rcx
+   52de1:	e9 6d fe ff ff       	jmp    52c53 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x913>
+   52de6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   52ded:	00 00 00 
+   52df0:	31 c9                	xor    %ecx,%ecx
+   52df2:	e9 39 fe ff ff       	jmp    52c30 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0x8f0>
+   52df7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+   52dfe:	00 00 
+   52e00:	4d 85 f6             	test   %r14,%r14
+   52e03:	79 13                	jns    52e18 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xad8>
+   52e05:	e8 b6 ea fe ff       	call   418c0 <std::__throw_bad_array_new_length()@plt>
+   52e0a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   52e10:	e8 3b e6 fe ff       	call   41450 <std::__throw_bad_alloc()@plt>
+   52e15:	0f 1f 00             	nopl   (%rax)
+   52e18:	e8 33 e6 fe ff       	call   41450 <std::__throw_bad_alloc()@plt>
+   52e1d:	0f 1f 00             	nopl   (%rax)
+   52e20:	4d 85 f6             	test   %r14,%r14
+   52e23:	79 0b                	jns    52e30 <gazebo_plugins::GazeboRosDiffDrivePrivate::OnUpdate(gazebo::common::UpdateInfo const&)@@Base+0xaf0>
+   52e25:	e8 96 ea fe ff       	call   418c0 <std::__throw_bad_array_new_length()@plt>
+   52e2a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   52e30:	e8 1b e6 fe ff       	call   41450 <std::__throw_bad_alloc()@plt>
+   52e35:	f3 0f 1e fa          	endbr64 
+   52e39:	48 89 c5             	mov    %rax,%rbp
+   52e3c:	e9 39 0e ff ff       	jmp    43c7a <std::locale::locale()@plt+0x191a>
+   52e41:	f3 0f 1e fa          	endbr64 
+   52e45:	48 89 c5             	mov    %rax,%rbp
+   52e48:	e9 62 0e ff ff       	jmp    43caf <std::locale::locale()@plt+0x194f>
+   52e4d:	f3 0f 1e fa          	endbr64 
+   52e51:	48 89 c5             	mov    %rax,%rbp
+   52e54:	e9 41 0e ff ff       	jmp    43c9a <std::locale::locale()@plt+0x193a>
+   52e59:	f3 0f 1e fa          	endbr64 
+   52e5d:	48 89 c5             	mov    %rax,%rbp
+   52e60:	e9 2d 0e ff ff       	jmp    43c92 <std::locale::locale()@plt+0x1932>
+   52e65:	f3 0f 1e fa          	endbr64 
+   52e69:	48 89 c5             	mov    %rax,%rbp
+   52e6c:	e9 fd 0d ff ff       	jmp    43c6e <std::locale::locale()@plt+0x190e>
+   52e71:	90                   	nop
+   52e72:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   52e79:	00 00 00 00 
+   52e7d:	0f 1f 00             	nopl   (%rax)
+
+0000000000052e80 <gazebo_plugins::GazeboRosDiffDrive::Load(boost::shared_ptr<gazebo::physics::Model>, std::shared_ptr<sdf::v9::Element>)@@Base>:
+   52e80:	f3 0f 1e fa          	endbr64 
+   52e84:	55                   	push   %rbp
+   52e85:	48 89 e5             	mov    %rsp,%rbp
+   52e88:	41 57                	push   %r15
+   52e8a:	41 56                	push   %r14
+   52e8c:	41 55                	push   %r13
+   52e8e:	41 54                	push   %r12
+   52e90:	53                   	push   %rbx
+   52e91:	48 81 ec d8 0a 00 00 	sub    $0xad8,%rsp
+   52e98:	48 89 95 38 f5 ff ff 	mov    %rdx,-0xac8(%rbp)
+   52e9f:	48 8b 0e             	mov    (%rsi),%rcx
+   52ea2:	48 89 bd 60 f5 ff ff 	mov    %rdi,-0xaa0(%rbp)
+   52ea9:	48 8b 57 58          	mov    0x58(%rdi),%rdx
+   52ead:	48 89 b5 48 f5 ff ff 	mov    %rsi,-0xab8(%rbp)
+   52eb4:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   52ebb:	00 00 
+   52ebd:	48 89 45 c8          	mov    %rax,-0x38(%rbp)
+   52ec1:	31 c0                	xor    %eax,%eax
+   52ec3:	48 8b 46 08          	mov    0x8(%rsi),%rax
+   52ec7:	48 85 c0             	test   %rax,%rax
+   52eca:	74 05                	je     52ed1 <gazebo_plugins::GazeboRosDiffDrive::Load(boost::shared_ptr<gazebo::physics::Model>, std::shared_ptr<sdf::v9::Element>)@@Base+0x51>
+   52ecc:	f0 83 40 08 01       	lock addl $0x1,0x8(%rax)
+   52ed1:	48 8b ba d0 00 00 00 	mov    0xd0(%rdx),%rdi
+   52ed8:	48 89 8a c8 00 00 00 	mov    %rcx,0xc8(%rdx)
+   52edf:	48                   	rex.W

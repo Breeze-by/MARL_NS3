@@ -1,0 +1,1340 @@
+{
+  "recorded_inference": {
+    "kind": "rl_real_inference",
+    "sim": 40.0,
+    "arm": "rl",
+    "sequence": 1,
+    "policy_start_sim": 40.0,
+    "policy_wall_s": 0.023994754010345787,
+    "decision_id": 1,
+    "observed_state_and_candidates": {
+      "contract": "rl04-shared-frontier-approach-v2",
+      "decision_id": 1,
+      "map_version": 1,
+      "sim_stamp": 40.0,
+      "trigger": null,
+      "map": {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 35.447,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      },
+      "robots": [
+        {
+          "id": "tb1",
+          "pose": [
+            -3.4240150819043573,
+            -3.581773874720909,
+            0.0019561178221518603
+          ],
+          "pose_stamp": 39.991,
+          "pose_source": "/tb1/odom + namespaced TF",
+          "velocity": [
+            1.9633143764118062e-05,
+            3.8404791405865526e-08,
+            4.921728407075297e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb2",
+          "pose": [
+            -3.7990017106820138,
+            -4.231773849329817,
+            0.001842402750193975
+          ],
+          "pose_stamp": 39.987,
+          "pose_source": "/tb2/odom + namespaced TF",
+          "velocity": [
+            1.644641458766692e-05,
+            3.0300953752158484e-08,
+            4.9448559542380174e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb3",
+          "pose": [
+            -3.0489816466043704,
+            -4.231773814076112,
+            0.0016718435544826487
+          ],
+          "pose_stamp": 39.966,
+          "pose_source": "/tb3/odom + namespaced TF",
+          "velocity": [
+            1.3735787631879485e-05,
+            2.2964109413465407e-08,
+            4.93601692535983e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        }
+      ],
+      "candidates": [
+        {
+          "index": 0,
+          "robot": "tb1",
+          "group_id": 1,
+          "position": [
+            -3.775,
+            -3.0249999999999995
+          ],
+          "frame": "merge_map",
+          "reachable": true,
+          "path_cost_estimate_m": 0.6949747468305832,
+          "information_gain_proxy_m2": 1.6775000000000004,
+          "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+          "traditional_score": 176.62237316136265,
+          "traditional_eligible": true,
+          "valid": true,
+          "local_map_valid": true,
+          "kind": "frontier",
+          "shared_frontier_position": [
+            -3.775,
+            -3.0249999999999995
+          ],
+          "remaining_shared_path_m": 0.0,
+          "unknown_boundary_cells": [],
+          "initial_route_prefix": [
+            [
+              -3.4240150819043573,
+              -3.581773874720909
+            ],
+            [
+              -3.425,
+              -3.5749999999999997
+            ],
+            [
+              -3.4749999999999996,
+              -3.5249999999999995
+            ],
+            [
+              -3.525,
+              -3.4749999999999996
+            ],
+            [
+              -3.5749999999999997,
+              -3.4249999999999994
+            ],
+            [
+              -3.5749999999999997,
+              -3.3749999999999996
+            ],
+            [
+              -3.5749999999999997,
+              -3.3249999999999997
+            ],
+            [
+              -3.5749999999999997,
+              -3.2749999999999995
+            ],
+            [
+              -3.5749999999999997,
+              -3.2249999999999996
+            ],
+            [
+              -3.591279621920405,
+              -3.208720378079594
+            ]
+          ]
+        },
+        {
+          "index": 1,
+          "robot": "tb1",
+          "group_id": 3,
+          "position": [
+            -4.324999999999999,
+            -3.9749999999999996
+          ],
+          "frame": "merge_map",
+          "reachable": true,
+          "path_cost_estimate_m": 1.1242640687119285,
+          "information_gain_proxy_m2": 0.0175,
+          "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+          "traditional_score": 0.24870211967271488,
+          "traditional_eligible": true,
+          "valid": true,
+          "local_map_valid": true,
+          "kind": "approach",
+          "shared_frontier_position": [
+            -2.925,
+            -4.875
+          ],
+          "remaining_shared_path_m": 2.2363961030678894,
+          "unknown_boundary_cells": [
+            [
+              31,
+              28
+            ]
+          ],
+          "initial_route_prefix": [
+            [
+              -3.4240150819043573,
+              -3.581773874720909
+            ],
+            [
+              -3.425,
+              -3.5749999999999997
+            ],
+            [
+              -3.4749999999999996,
+              -3.5749999999999997
+            ],
+            [
+              -3.525,
+              -3.5749999999999997
+            ],
+            [
+              -3.5749999999999997,
+              -3.5749999999999997
+            ],
+            [
+              -3.6249999999999996,
+              -3.5749999999999997
+            ],
+            [
+              -3.675,
+              -3.5749999999999997
+            ],
+            [
+              -3.7249999999999996,
+              -3.5749999999999997
+            ],
+            [
+              -3.775,
+              -3.5749999999999997
+            ],
+            [
+              -3.8249999999999997,
+              -3.5749999999999997
+            ],
+            [
+              -3.860154896466108,
+              -3.5749999999999997
+            ]
+          ]
+        },
+        {
+          "index": 2,
+          "robot": "tb1",
+          "group_id": 12,
+          "position": [
+            -4.5249999999999995,
+            -3.9749999999999996
+          ],
+          "frame": "merge_map",
+          "reachable": true,
+          "path_cost_estimate_m": 1.2949747468305834,
+          "information_gain_proxy_m2": 0.010000000000000002,
+          "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+          "traditional_score": 0.17325922522499387,
+          "traditional_eligible": true,
+          "valid": true,
+          "local_map_valid": true,
+          "kind": "frontier",
+          "shared_frontier_position": [
+            -4.5249999999999995,
+            -3.9749999999999996
+          ],
+          "remaining_shared_path_m": 0.0,
+          "unknown_boundary_cells": [],
+          "initial_route_prefix": [
+            [
+              -3.4240150819043573,
+              -3.581773874720909
+            ],
+            [
+              -3.425,
+              -3.5749999999999997
+            ],
+            [
+              -3.4749999999999996,
+              -3.5749999999999997
+            ],
+            [
+              -3.525,
+              -3.5749999999999997
+            ],
+            [
+              -3.5749999999999997,
+              -3.5749999999999997
+            ],
+            [
+              -3.6249999999999996,
+              -3.5749999999999997
+            ],
+            [
+              -3.675,
+              -3.5749999999999997
+            ],
+            [
+              -3.7249999999999996,
+              -3.5749999999999997
+            ],
+            [
+              -3.775,
+              -3.5749999999999997
+            ],
+            [
+              -3.8249999999999997,
+              -3.5749999999999997
+            ],
+            [
+              -3.860154896466108,
+              -3.5749999999999997
+            ]
+          ]
+        },
+        {
+          "index": 3,
+          "robot": "tb2",
+          "group_id": 1,
+          "position": [
+            -4.2749999999999995,
+            -3.5249999999999995
+          ],
+          "frame": "merge_map",
+          "reachable": true,
+          "path_cost_estimate_m": 0.9363961030678928,
+          "information_gain_proxy_m2": 1.6775000000000004,
+          "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+          "traditional_score": 60.20316056982188,
+          "traditional_eligible": true,
+          "valid": true,
+          "local_map_valid": true,
+          "kind": "frontier",
+          "shared_frontier_position": [
+            -4.2749999999999995,
+            -3.5249999999999995
+          ],
+          "remaining_shared_path_m": 0.0,
+          "unknown_boundary_cells": [],
+          "initial_route_prefix": [
+            [
+              -3.7990017106820138,
+              -4.231773849329817
+            ],
+            [
+              -3.775,
+              -4.225
+            ],
+            [
+              -3.8249999999999997,
+              -4.175
+            ],
+            [
+              -3.875,
+              -4.125
+            ],
+            [
+              -3.925,
+              -4.074999999999999
+            ],
+            [
+              -3.925,
+              -4.0249999999999995
+            ],
+            [
+              -3.925,
+              -3.9749999999999996
+            ],
+            [
+              -3.9749999999999996,
+              -3.925
+            ],
+            [
+              -3.9749999999999996,
+              -3.8907819817182463
+            ]
+          ]
+        },
+        {
+          "index": 4,
+          "robot": "tb2",
+          "group_id": 3,
+          "position": [
+            -3.4749999999999996,
+            -4.725
+          ],
+          "frame": "merge_map",
+          "reachable": true,
+          "path_cost_estimate_m": 0.6242640687119285,
+          "information_gain_proxy_m2": 0.0175,
+          "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+          "traditional_score": 0.3206795147938292,
+          "traditional_eligible": true,
+          "valid": true,
+          "local_map_valid": true,
+          "kind": "approach",
+          "shared_frontier_position": [
+            -2.925,
+            -4.875
+          ],
+          "remaining_shared_path_m": 0.6121320343559644,
+          "unknown_boundary_cells": [
+            [
+              16,
+              47
+            ]
+          ],
+          "initial_route_prefix": [
+            [
+              -3.7990017106820138,
+              -4.231773849329817
+            ],
+            [
+              -3.775,
+              -4.225
+            ],
+            [
+              -3.775,
+              -4.2749999999999995
+            ],
+            [
+              -3.775,
+              -4.324999999999999
+            ],
+            [
+              -3.7249999999999996,
+              -4.375
+            ],
+            [
+              -3.7249999999999996,
+              -4.425
+            ],
+            [
+              -3.7249999999999996,
+              -4.475
+            ],
+            [
+              -3.675,
+              -4.5249999999999995
+            ],
+            [
+              -3.6249999999999996,
+              -4.574999999999999
+            ],
+            [
+              -3.621514885352861,
+              -4.578485114647138
+            ]
+          ]
+        },
+        {
+          "index": 5,
+          "robot": "tb2",
+          "group_id": 4,
+          "position": [
+            -3.6249999999999996,
+            -4.925
+          ],
+          "frame": "merge_map",
+          "reachable": true,
+          "path_cost_estimate_m": 0.7914213562373095,
+          "information_gain_proxy_m2": 0.010000000000000002,
+          "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+          "traditional_score": 0.2998126531264362,
+          "traditional_eligible": true,
+          "valid": true,
+          "local_map_valid": true,
+          "kind": "frontier",
+          "shared_frontier_position": [
+            -3.6249999999999996,
+            -4.925
+          ],
+          "remaining_shared_path_m": 0.0,
+          "unknown_boundary_cells": [],
+          "initial_route_prefix": [
+            [
+              -3.7990017106820138,
+              -4.231773849329817
+            ],
+            [
+              -3.775,
+              -4.225
+            ],
+            [
+              -3.775,
+              -4.2749999999999995
+            ],
+            [
+              -3.775,
+              -4.324999999999999
+            ],
+            [
+              -3.775,
+              -4.375
+            ],
+            [
+              -3.775,
+              -4.425
+            ],
+            [
+              -3.775,
+              -4.475
+            ],
+            [
+              -3.775,
+              -4.5249999999999995
+            ],
+            [
+              -3.775,
+              -4.574999999999999
+            ],
+            [
+              -3.775,
+              -4.625
+            ],
+            [
+              -3.775,
+              -4.642060730756372
+            ]
+          ]
+        },
+        {
+          "index": 6,
+          "robot": "tb2",
+          "group_id": 12,
+          "position": [
+            -4.5249999999999995,
+            -3.9749999999999996
+          ],
+          "frame": "merge_map",
+          "reachable": true,
+          "path_cost_estimate_m": 0.8535533905932736,
+          "information_gain_proxy_m2": 0.010000000000000002,
+          "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+          "traditional_score": 0.2475937689103996,
+          "traditional_eligible": true,
+          "valid": true,
+          "local_map_valid": true,
+          "kind": "frontier",
+          "shared_frontier_position": [
+            -4.5249999999999995,
+            -3.9749999999999996
+          ],
+          "remaining_shared_path_m": 0.0,
+          "unknown_boundary_cells": [],
+          "initial_route_prefix": [
+            [
+              -3.7990017106820138,
+              -4.231773849329817
+            ],
+            [
+              -3.775,
+              -4.225
+            ],
+            [
+              -3.8249999999999997,
+              -4.225
+            ],
+            [
+              -3.875,
+              -4.225
+            ],
+            [
+              -3.925,
+              -4.225
+            ],
+            [
+              -3.9749999999999996,
+              -4.225
+            ],
+            [
+              -4.0249999999999995,
+              -4.225
+            ],
+            [
+              -4.074999999999999,
+              -4.225
+            ],
+            [
+              -4.125,
+              -4.225
+            ],
+            [
+              -4.175,
+              -4.225
+            ],
+            [
+              -4.192060730756372,
+              -4.225
+            ]
+          ]
+        },
+        {
+          "index": 7,
+          "robot": "tb3",
+          "group_id": 1,
+          "position": [
+            -2.7249999999999996,
+            -3.5249999999999995
+          ],
+          "frame": "merge_map",
+          "reachable": true,
+          "path_cost_estimate_m": 0.8242640687119286,
+          "information_gain_proxy_m2": 1.6775000000000004,
+          "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+          "traditional_score": 45.46427496954521,
+          "traditional_eligible": true,
+          "valid": true,
+          "local_map_valid": true,
+          "kind": "frontier",
+          "shared_frontier_position": [
+            -2.7249999999999996,
+            -3.5249999999999995
+          ],
+          "remaining_shared_path_m": 0.0,
+          "unknown_boundary_cells": [],
+          "initial_route_prefix": [
+            [
+              -3.0489816466043704,
+              -4.231773814076112
+            ],
+            [
+              -3.0249999999999995,
+              -4.225
+            ],
+            [
+              -2.9749999999999996,
+              -4.175
+            ],
+            [
+              -2.925,
+              -4.125
+            ],
+            [
+              -2.8749999999999996,
+              -4.074999999999999
+            ],
+            [
+              -2.8749999999999996,
+              -4.0249999999999995
+            ],
+            [
+              -2.8749999999999996,
+              -3.9749999999999996
+            ],
+            [
+              -2.8749999999999996,
+              -3.925
+            ],
+            [
+              -2.8749999999999996,
+              -3.8749999999999996
+            ],
+            [
+              -2.8715012249108876,
+              -3.8715012249108876
+            ]
+          ]
+        },
+        {
+          "index": 8,
+          "robot": "tb3",
+          "group_id": 3,
+          "position": [
+            -2.925,
+            -4.875
+          ],
+          "frame": "merge_map",
+          "reachable": true,
+          "path_cost_estimate_m": 0.7207106781186547,
+          "information_gain_proxy_m2": 0.0175,
+          "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+          "traditional_score": 0.5237422182692834,
+          "traditional_eligible": true,
+          "valid": true,
+          "local_map_valid": true,
+          "kind": "frontier",
+          "shared_frontier_position": [
+            -2.925,
+            -4.875
+          ],
+          "remaining_shared_path_m": 0.0,
+          "unknown_boundary_cells": [],
+          "initial_route_prefix": [
+            [
+              -3.0489816466043704,
+              -4.231773814076112
+            ],
+            [
+              -3.0249999999999995,
+              -4.225
+            ],
+            [
+              -3.0249999999999995,
+              -4.2749999999999995
+            ],
+            [
+              -3.0249999999999995,
+              -4.324999999999999
+            ],
+            [
+              -3.0249999999999995,
+              -4.375
+            ],
+            [
+              -3.0249999999999995,
+              -4.425
+            ],
+            [
+              -3.0249999999999995,
+              -4.475
+            ],
+            [
+              -3.0249999999999995,
+              -4.5249999999999995
+            ],
+            [
+              -3.0249999999999995,
+              -4.574999999999999
+            ],
+            [
+              -3.0249999999999995,
+              -4.625
+            ],
+            [
+              -3.0249999999999995,
+              -4.642080049538679
+            ]
+          ]
+        },
+        {
+          "index": 9,
+          "robot": "tb3",
+          "group_id": 2,
+          "position": [
+            -3.1249999999999996,
+            -4.925
+          ],
+          "frame": "merge_map",
+          "reachable": true,
+          "path_cost_estimate_m": 0.7414213562373095,
+          "information_gain_proxy_m2": 0.010000000000000002,
+          "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+          "traditional_score": 0.2849881796470715,
+          "traditional_eligible": true,
+          "valid": true,
+          "local_map_valid": true,
+          "kind": "frontier",
+          "shared_frontier_position": [
+            -3.1249999999999996,
+            -4.925
+          ],
+          "remaining_shared_path_m": 0.0,
+          "unknown_boundary_cells": [],
+          "initial_route_prefix": [
+            [
+              -3.0489816466043704,
+              -4.231773814076112
+            ],
+            [
+              -3.0249999999999995,
+              -4.225
+            ],
+            [
+              -3.0249999999999995,
+              -4.2749999999999995
+            ],
+            [
+              -3.0249999999999995,
+              -4.324999999999999
+            ],
+            [
+              -3.0249999999999995,
+              -4.375
+            ],
+            [
+              -3.0249999999999995,
+              -4.425
+            ],
+            [
+              -3.0249999999999995,
+              -4.475
+            ],
+            [
+              -3.0249999999999995,
+              -4.5249999999999995
+            ],
+            [
+              -3.0249999999999995,
+              -4.574999999999999
+            ],
+            [
+              -3.0249999999999995,
+              -4.625
+            ],
+            [
+              -3.0249999999999995,
+              -4.642080049538679
+            ]
+          ]
+        },
+        {
+          "index": 10,
+          "robot": "tb3",
+          "group_id": 4,
+          "position": [
+            -3.5749999999999997,
+            -4.875
+          ],
+          "frame": "merge_map",
+          "reachable": true,
+          "path_cost_estimate_m": 0.9363961030678928,
+          "information_gain_proxy_m2": 0.010000000000000002,
+          "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+          "traditional_score": 0.2260933547981366,
+          "traditional_eligible": true,
+          "valid": true,
+          "local_map_valid": true,
+          "kind": "frontier",
+          "shared_frontier_position": [
+            -3.5749999999999997,
+            -4.875
+          ],
+          "remaining_shared_path_m": 0.0,
+          "unknown_boundary_cells": [],
+          "initial_route_prefix": [
+            [
+              -3.0489816466043704,
+              -4.231773814076112
+            ],
+            [
+              -3.0249999999999995,
+              -4.225
+            ],
+            [
+              -3.0749999999999997,
+              -4.2749999999999995
+            ],
+            [
+              -3.1249999999999996,
+              -4.324999999999999
+            ],
+            [
+              -3.175,
+              -4.375
+            ],
+            [
+              -3.175,
+              -4.425
+            ],
+            [
+              -3.175,
+              -4.475
+            ],
+            [
+              -3.175,
+              -4.5249999999999995
+            ],
+            [
+              -3.175,
+              -4.574999999999999
+            ],
+            [
+              -3.178498775089112,
+              -4.578498775089112
+            ]
+          ]
+        }
+      ],
+      "action_mask": [
+        [
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true
+        ]
+      ],
+      "keep_mask": [
+        false,
+        false,
+        false
+      ],
+      "wait_mask": [
+        false,
+        false,
+        false
+      ],
+      "valid_counts": [
+        3,
+        4,
+        4
+      ],
+      "assigned": {
+        "tb1": null,
+        "tb2": null,
+        "tb3": null
+      },
+      "candidate_conflicts": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      "initial_route_rule": "first-idle-prefix-v1",
+      "initial_route_length_m": 0.442,
+      "initial_route_separation_m": 0.55,
+      "endpoint_candidate_conflicts": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      "initial_route_candidate_conflicts": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "history": [],
+      "halted": null,
+      "idle_body_goal_clearance_m": 0.55,
+      "idle_body_positions": {
+        "tb1": [
+          -3.4240150819043573,
+          -3.581773874720909,
+          0.0019561178221518603
+        ],
+        "tb2": [
+          -3.7990017106820138,
+          -4.231773849329817,
+          0.001842402750193975
+        ],
+        "tb3": [
+          -3.0489816466043704,
+          -4.231773814076112,
+          0.0016718435544826487
+        ]
+      },
+      "goal_separation_m": 0.8,
+      "joint_assignment_rule": "maximum-participation-v1"
+    },
+    "choices": [
+      0,
+      4,
+      7
+    ],
+    "raw_choices": [
+      0,
+      4,
+      7
+    ],
+    "input_npz": "/mnt/runs/rooms-common-6101-rl-fixed-dwb-01/controller/policy-trace/0001.npz",
+    "evidence_io_wall_s": 0.010501769,
+    "raw_frontier_reconstruction": "offline from saved received grids; unavailable before candidate filters",
+    "nn_forward_expected": 1,
+    "physical_stop_verified": false,
+    "inference_start_sim": 40.0,
+    "inference_wall_ns": 1794151828338048930,
+    "inference_wall_s": 0.023987597,
+    "inference_sequence": 1,
+    "value": 5.390738487243652,
+    "logprob": -1.4094427824020386,
+    "entropy": 1.9829678535461426,
+    "conditional_options": [
+      3,
+      3,
+      1
+    ],
+    "joint_assignment_rule": "maximum-participation-v1",
+    "original_conditional_masks": [
+      [
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    ],
+    "actual_conditional_masks": [
+      [
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    ],
+    "wall_ns": 1794151828374609936
+  },
+  "actual_goal_requests": [
+    {
+      "kind": "rl_actual_nav2_goal_request",
+      "sim": 40.0,
+      "robot": "tb1",
+      "token": 1,
+      "request_uuid": "a638da92aa274b8dba5f39f53b1aa731",
+      "decision_id": 1,
+      "merge_map_target": [
+        -3.775,
+        -3.0249999999999995
+      ],
+      "actual_goal_frame": "map",
+      "actual_goal_stamp": 40.0,
+      "actual_goal_position": [
+        -0.3512163526345433,
+        0.5567736494379765,
+        0.0
+      ],
+      "actual_goal_quaternion": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wall_ns": 1794151828390237909
+    },
+    {
+      "kind": "rl_actual_nav2_goal_request",
+      "sim": 40.0,
+      "robot": "tb2",
+      "token": 1,
+      "request_uuid": "ecf4a96cecc34f73ab155a8d5a35e9ac",
+      "decision_id": 1,
+      "merge_map_target": [
+        -3.4749999999999996,
+        -4.725
+      ],
+      "actual_goal_frame": "map",
+      "actual_goal_stamp": 40.0,
+      "actual_goal_position": [
+        0.32378364736545695,
+        -0.4932263505620238,
+        0.0
+      ],
+      "actual_goal_quaternion": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wall_ns": 1794151828393369902
+    },
+    {
+      "kind": "rl_actual_nav2_goal_request",
+      "sim": 40.0,
+      "robot": "tb3",
+      "token": 1,
+      "request_uuid": "f502ab4c7d014fc887fd637496379c52",
+      "decision_id": 1,
+      "merge_map_target": [
+        -2.7249999999999996,
+        -3.5249999999999995
+      ],
+      "actual_goal_frame": "map",
+      "actual_goal_stamp": 40.0,
+      "actual_goal_position": [
+        0.32378364736545695,
+        0.7067736494379764,
+        0.0
+      ],
+      "actual_goal_quaternion": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "wall_ns": 1794151828395994576
+    }
+  ],
+  "scope": "Original actual first decision metadata; no new inference or allocation"
+}

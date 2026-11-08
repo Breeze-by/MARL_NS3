@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.8)
+project(gz01_phase_probe)
+find_package(gazebo REQUIRED)
+add_library(gz01_phase_probe SHARED phase_probe.cpp)
+target_compile_features(gz01_phase_probe PRIVATE cxx_std_17)
+target_include_directories(gz01_phase_probe PRIVATE ${GAZEBO_INCLUDE_DIRS})
+target_link_directories(gz01_phase_probe PRIVATE ${GAZEBO_LIBRARY_DIRS})
+target_link_libraries(gz01_phase_probe ${GAZEBO_LIBRARIES})

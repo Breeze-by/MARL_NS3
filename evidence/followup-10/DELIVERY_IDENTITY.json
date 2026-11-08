@@ -1,0 +1,50 @@
+{
+  "document_commit": "ea377a179f9b1dfbe98f8059188a5846b89d56c3",
+  "document_commit_scope": [
+    "gz01/FOLLOWUP10_REPORT.md",
+    "gz01/FOLLOWUP10_DELIVERY_INDEX.json"
+  ],
+  "fixed_runtime_source_commit": "76fd91cf937bd8d662302901dad063affbea3c38",
+  "starting_document_HEAD": "77cb84760af9e096ffa3f7391904a8602bf86437",
+  "worktree": "/home/zhuyulab/ns3-workspace/gz-01-followup-10/workspace",
+  "worktree_clean_after_document_commit": true,
+  "runtime_source_changes_this_phase": 0,
+  "report": {
+    "phase_path": "FOLLOWUP_REPORT.md",
+    "git_path": "gz01/FOLLOWUP10_REPORT.md",
+    "sha256": "41ed4895f3e5f7330fc0254ef3b632a4f070dd83a020c3ec9c0e8580cda1bc35",
+    "archive_method": "Copied from exact original bytes without a duplicate hash pass"
+  },
+  "evidence_manifest": {
+    "path": "EVIDENCE_MANIFEST.json",
+    "sha256": "4922defe6814563318f8f6807de729c4be54195c1faed5938032c01a87853050",
+    "scope": "191 enumerated important new artifacts plus6prepared resource identities reused; no old source/model/history rehash"
+  },
+  "delivery_index": {
+    "path": "DELIVERY_INDEX.json",
+    "git_archive": "gz01/FOLLOWUP10_DELIVERY_INDEX.json",
+    "sha256": "02bedcdc07cbabf6ef45d46cf80b745908debd9aff75834b2b52a2d9a50d0f08",
+    "archive_method": "Copied same bytes, no second hash pass"
+  },
+  "actual_starts": 6,
+  "historical_starts": 77,
+  "combined_starts": 83,
+  "remaining_Gazebo": 0,
+  "actual_NN_forwards": 356,
+  "optimizer_calls": 0,
+  "training_or_weights_changes": 0,
+  "status": {
+    "current_bounded_three_map_quality95": "PASS all6, one pair per exposed layout",
+    "current_three_robot_participation": "PASS limited motion+success; exclusive overlap is not causal credit",
+    "original_stop_UUID_threepause_integrity": "PASS all6",
+    "RL_task_advantage": "MIXED, not broad/statistically stable superiority",
+    "natural_completion": "NOT VERIFIED; all600budget",
+    "unseen_geometry_generalization": "NOT DEMONSTRATED, all3exposed/Hardtraining",
+    "freeze": "NOT READY",
+    "NET": "NO-GO"
+  },
+  "PROJECT": "Root current10 completed6/6/83 updated; initial10/old history retained. evidence/PROJECT.before-followup10.md is unchanged original snapshot; delivery-snapshot captured during finalization.",
+  "independent_review": "Separate reviews/GZ-01/followup-10/, final reviewer identity not folded into sealed producer files",
+  "created_utc": "2026-11-08T16:30:36.362202+00:00",
+  "stopped": "All case-owned/unique metric/plot/identity stream computations exited; no new tests/source changes/Gazebo/training/ns3/hardware/freeze/push"
+}

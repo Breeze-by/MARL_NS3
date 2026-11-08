@@ -1,0 +1,63 @@
+{
+  "odometry_distance_m": {
+    "tb1": 6.346661775770651,
+    "tb2": 12.982013992931778,
+    "tb3": 4.727594580898761
+  },
+  "participating_robots": [
+    "tb1",
+    "tb2",
+    "tb3"
+  ],
+  "assignments": {
+    "tb1": 3,
+    "tb2": 5,
+    "tb3": 2
+  },
+  "feedback_counts": {
+    "tb1": 4977,
+    "tb2": 7953,
+    "tb3": 3886
+  },
+  "statuses": {
+    "tb1": {
+      "succeeded": 3
+    },
+    "tb2": {
+      "succeeded": 5
+    },
+    "tb3": {
+      "succeeded": 2
+    }
+  },
+  "nav_success_rate": 1.0,
+  "nav_failure_rate": 0.0,
+  "cancellations": 0,
+  "target_switches": 0,
+  "duplicate_assignments": 0,
+  "target_conflicts": 0,
+  "shared_known_area_m2": 128.63500383362177,
+  "reference_coverage": null,
+  "coverage_threshold_sim_s": {},
+  "stop_reason": null,
+  "reward_components": {
+    "new_shared_known_area_m2": 117.48250350125137,
+    "elapsed_sim_s": 178.10000000000002,
+    "navigation_distance_m": 24.05627034960119,
+    "duplicate_assignment_count": 0,
+    "target_switch_count": 0,
+    "target_conflict_count": 0
+  },
+  "repeated_exploration_area_m2": null,
+  "unavailable_reason": "Reference coverage needs independent fixed masks; repeated sensing area not identifiable from merged counts.",
+  "evaluation_interval_sim_s": [
+    21.7,
+    201.7
+  ],
+  "case_end_reason": "simulation_budget",
+  "evaluation_only_gazebo_distance_m": {
+    "tb1": 6.2740430257561695,
+    "tb2": 12.916049455697411,
+    "tb3": 4.666015583010196
+  }
+}

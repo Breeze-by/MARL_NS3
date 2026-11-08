@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-04T13:04:53.883402+00:00",
+  "kind": "base02_traditional_regression",
+  "commit": "4a0d5285523b9236e4ed7345d64680bc95869533",
+  "tree": "e01e7bb2ce8829f06a4c0d51510301b8cd0a8353",
+  "driver": "libbase01_diff_drive.so",
+  "runtime_underlay_commit": "12b366564842fbc98de57e0fc679a9b22d125543",
+  "runtime_mode": "read-only BASE-01 /project + central Python overlay /mnt",
+  "driver_sha256": "8d54d39a687de851c95137ddee4a7ebbab90c3373e07d96fad338870d4317fc0",
+  "tools": {
+    "apt-in-rootfs.sh": "6a2b517931b5ca99132350b2f1fe5d0efc2feec59f84403b71fc5919108609d7",
+    "run-baseline.sh": "b862a088922237dd6499828781072d06a3d2461ff839f3a2f711cd4327a85e56",
+    "check_source.py": "2fc7ce644cf52bf27b0962aad54da241cfa27c52a9bc624f1d869d2e9f9cd8bb",
+    "capture_case_identity.py": "988e91be6b358e0e8a04370f6264735285e5cb9cc6202c45214709d946525095",
+    "run_baseline.py": "49a4d7d9f4011d49ac5cf2b54dbf5a2e4332111b983e26a30e2768254ada59bb",
+    "fetch-suv.py": "43edb2dec2dd7ef0e8d5f08361f60fd59b6e257fddbe4df8cbabbd91d622ca9f",
+    "in-rootfs.sh": "338d463ab94bdbdf6bb44d9f06c51f8e3a476410918ac91802dc6cfdcc99e5c8"
+  },
+  "safety": {
+    "linear_mps": 0.01,
+    "angular_rps": 0.03,
+    "stable_wall_seconds": 1.5,
+    "stable_sim_seconds": 0.5,
+    "stop_window_wall_seconds": 12,
+    "min_pair_distance_m": 0.7
+  }
+}

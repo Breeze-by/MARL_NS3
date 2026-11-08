@@ -1,0 +1,125 @@
+{
+  "rmw": "rmw_fastrtps_cpp",
+  "results": [
+    {
+      "depth": 1,
+      "service_between_publications": false,
+      "reliable_acks": [
+        true,
+        true
+      ],
+      "received": [
+        [
+          [
+            "diag/merge_map",
+            "diag/map"
+          ]
+        ]
+      ],
+      "ready": false,
+      "debug": [
+        0,
+        "Invalid frame ID \"diag/base_scan\" passed to canTransform argument source_frame - frame does not exist"
+      ],
+      "frames": "diag/odom: \n  parent: 'diag/map'\n  broadcaster: 'fixture_dynamic'\n  rate: 10000.000\n  most_recent_transform: 1.000000\n  oldest_transform: 1.000000\n  buffer_length: 0.000\ndiag/map: \n  parent: 'diag/merge_map'\n  broadcaster: 'fixture_static'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\ndiag/foot: \n  parent: 'diag/odom'\n  broadcaster: 'fixture_dynamic'\n  rate: 10000.000\n  most_recent_transform: 1.000000\n  oldest_transform: 1.000000\n  buffer_length: 0.000\n"
+    },
+    {
+      "depth": 1,
+      "service_between_publications": true,
+      "reliable_acks": [
+        true,
+        true
+      ],
+      "received": [
+        [
+          [
+            "diag/foot",
+            "diag/base_link"
+          ],
+          [
+            "diag/base_link",
+            "diag/base_scan"
+          ]
+        ],
+        [
+          [
+            "diag/merge_map",
+            "diag/map"
+          ]
+        ]
+      ],
+      "ready": true,
+      "debug": [
+        1,
+        ""
+      ],
+      "frames": "diag/odom: \n  parent: 'diag/map'\n  broadcaster: 'fixture_dynamic'\n  rate: 10000.000\n  most_recent_transform: 1.000000\n  oldest_transform: 1.000000\n  buffer_length: 0.000\ndiag/map: \n  parent: 'diag/merge_map'\n  broadcaster: 'fixture_static'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\ndiag/foot: \n  parent: 'diag/odom'\n  broadcaster: 'fixture_dynamic'\n  rate: 10000.000\n  most_recent_transform: 1.000000\n  oldest_transform: 1.000000\n  buffer_length: 0.000\ndiag/base_link: \n  parent: 'diag/foot'\n  broadcaster: 'fixture_static'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\ndiag/base_scan: \n  parent: 'diag/base_link'\n  broadcaster: 'fixture_static'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\n"
+    },
+    {
+      "depth": 100,
+      "service_between_publications": false,
+      "reliable_acks": [
+        true,
+        true
+      ],
+      "received": [
+        [
+          [
+            "diag/foot",
+            "diag/base_link"
+          ],
+          [
+            "diag/base_link",
+            "diag/base_scan"
+          ]
+        ],
+        [
+          [
+            "diag/merge_map",
+            "diag/map"
+          ]
+        ]
+      ],
+      "ready": true,
+      "debug": [
+        1,
+        ""
+      ],
+      "frames": "diag/odom: \n  parent: 'diag/map'\n  broadcaster: 'fixture_dynamic'\n  rate: 10000.000\n  most_recent_transform: 1.000000\n  oldest_transform: 1.000000\n  buffer_length: 0.000\ndiag/map: \n  parent: 'diag/merge_map'\n  broadcaster: 'fixture_static'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\ndiag/foot: \n  parent: 'diag/odom'\n  broadcaster: 'fixture_dynamic'\n  rate: 10000.000\n  most_recent_transform: 1.000000\n  oldest_transform: 1.000000\n  buffer_length: 0.000\ndiag/base_link: \n  parent: 'diag/foot'\n  broadcaster: 'fixture_static'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\ndiag/base_scan: \n  parent: 'diag/base_link'\n  broadcaster: 'fixture_static'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\n",
+      "production_profile": "observer"
+    },
+    {
+      "depth": 100,
+      "service_between_publications": false,
+      "reliable_acks": [
+        true,
+        true
+      ],
+      "received": [
+        [
+          [
+            "diag/foot",
+            "diag/base_link"
+          ],
+          [
+            "diag/base_link",
+            "diag/base_scan"
+          ]
+        ],
+        [
+          [
+            "diag/merge_map",
+            "diag/map"
+          ]
+        ]
+      ],
+      "ready": true,
+      "debug": [
+        1,
+        ""
+      ],
+      "frames": "diag/odom: \n  parent: 'diag/map'\n  broadcaster: 'fixture_dynamic'\n  rate: 10000.000\n  most_recent_transform: 1.000000\n  oldest_transform: 1.000000\n  buffer_length: 0.000\ndiag/map: \n  parent: 'diag/merge_map'\n  broadcaster: 'fixture_static'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\ndiag/foot: \n  parent: 'diag/odom'\n  broadcaster: 'fixture_dynamic'\n  rate: 10000.000\n  most_recent_transform: 1.000000\n  oldest_transform: 1.000000\n  buffer_length: 0.000\ndiag/base_link: \n  parent: 'diag/foot'\n  broadcaster: 'fixture_static'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\ndiag/base_scan: \n  parent: 'diag/base_link'\n  broadcaster: 'fixture_static'\n  rate: 10000.000\n  most_recent_transform: 0.000000\n  oldest_transform: 0.000000\n  buffer_length: 0.000\n",
+      "production_profile": "controller"
+    }
+  ]
+}

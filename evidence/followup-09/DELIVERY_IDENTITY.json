@@ -1,0 +1,48 @@
+{
+  "document_commit": "77cb84760af9e096ffa3f7391904a8602bf86437",
+  "document_commit_scope": [
+    "gz01/FOLLOWUP09_REPORT.md",
+    "gz01/FOLLOWUP09_DELIVERY_INDEX.json"
+  ],
+  "runtime_source_commit": "76fd91cf937bd8d662302901dad063affbea3c38",
+  "worktree": "/home/zhuyulab/ns3-workspace/gz-01-followup-09/workspace",
+  "worktree_clean_after_document_commit": true,
+  "report": {
+    "phase_path": "FOLLOWUP_REPORT.md",
+    "git_path": "gz01/FOLLOWUP09_REPORT.md",
+    "sha256": "5d4ab6291425d987987a56c6c733244b46616a610ba0da8afb282652165b317f",
+    "archive_method": "Same original report bytes, no duplicate checksum pass"
+  },
+  "manifest": {
+    "path": "EVIDENCE_MANIFEST.json",
+    "sha256": "bf00d0478cdce0742172b95d3c506d632e0adc9578d2873a23a174d4fc100f64",
+    "scope": "162 explicitly enumerated important NEW09 artifacts, including first raw bag content identities; no inherited resource/history rehash"
+  },
+  "delivery_index": {
+    "path": "DELIVERY_INDEX.json",
+    "git_archive": "gz01/FOLLOWUP09_DELIVERY_INDEX.json",
+    "sha256": "9594063819ffde9b43beb26d6aeed83d0c99390e338779aed6c0abaebd7fdaf8",
+    "archive_method": "Written from same bytes, no second checksum pass"
+  },
+  "actual_Gazebo_starts": 6,
+  "historical_Gazebo_starts": 71,
+  "combined_Gazebo_starts": 77,
+  "remaining_current_budget": 0,
+  "actual_NN_forwards": 355,
+  "optimizer": 0,
+  "new_training": 0,
+  "source_or_model_changes_after_final_run": false,
+  "current_PROJECT": "Root PROJECT.md current followup09 completion entry, historical initial09 and earlier entries retained; initial snapshot evidence/PROJECT.before-followup09.md",
+  "status": {
+    "A_recording_boundary": "PASS limited",
+    "B_rotation_shim": "NOT ADOPTED as default; development combination regressed",
+    "RL_stable_task_advantage": "NOT DEMONSTRATED",
+    "historical_publisher_gap": "NOT REPRODUCED/UNRESOLVED",
+    "diagnostic_save": "2 FAIL preserved",
+    "freeze": "NOT READY",
+    "NET": "NO-GO"
+  },
+  "independent_review": "Separate /home/zhuyulab/ns3-workspace/reviews/GZ-01/followup-09/, final reviewer identity not merged into sealed producer files",
+  "created_utc": "2026-11-08T14:39:53.343962+00:00",
+  "stopped": "All case-owned runtime and unique metric processes exited; no additional Gazebo, tests, optimization, training, ns3, hardware, freeze or push"
+}

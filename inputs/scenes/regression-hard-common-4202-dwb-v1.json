@@ -1,0 +1,97 @@
+{
+  "id": "regression-hard-common-4202-dwb-v1",
+  "split": "EXPOSED_FIXED_MULTIMAP_RECHECK",
+  "category": "Corridors",
+  "world_relative_phase": "inputs/worlds/dev-hard-corridor.sdf",
+  "world_sha256": "d413637d8da921edfa10b3bede5edbbe176ec2c087d1644968d0d274d16de389",
+  "source_provenance": {
+    "kind": "existing unchanged generated SDF and original declared positions",
+    "path": "rl-03/evidence/new-test-qualification-01/branching_corridors-4202/world.sdf",
+    "sha256": "d413637d8da921edfa10b3bede5edbbe176ec2c087d1644968d0d274d16de389",
+    "map_seed": 4202,
+    "previous_split": "TRAIN",
+    "geometry_name": "branching_corridors-4202",
+    "exposure": {
+      "geometry_seen": true,
+      "history": "Historical Gazebo runs and prior public/development evaluation; original scene gz-01-followup-03/inputs/scenes/dev-hard-common-start-compact-tire-slip.json",
+      "note": "Fixed cross-map recheck, not unseen geometry/generalization; no outcome-based selection",
+      "training_geometry": true
+    }
+  },
+  "physics_seed": 2026110601,
+  "robots": [
+    {
+      "name": "tb1",
+      "x": 0.725,
+      "y": -2.125,
+      "yaw": 0.0
+    },
+    {
+      "name": "tb2",
+      "x": 0.35,
+      "y": -2.775,
+      "yaw": 0.0
+    },
+    {
+      "name": "tb3",
+      "x": 1.1,
+      "y": -2.775,
+      "yaw": 0.0
+    }
+  ],
+  "reference_bounds": [
+    -5.800000000000001,
+    -5.6000000000000005,
+    7.25,
+    5.300000000000001
+  ],
+  "reference_area_m2": 37.77750000000001,
+  "minimum_spawn_pair_m": 0.75,
+  "reference_boundary_connections": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "qualification": "PASS zero-Node/Gazebo static geometry, physical .25 envelope, actual peer .55 raster and scene TF calibration; all old/new spawns samecomponent and reference masks exactly equal15111cells; new common-start baseline not directly comparable with distributed starts",
+  "maximum_autonomy_sim_s": 600,
+  "maximum_decisions": 130,
+  "wheel_contact_slip": 1e-05,
+  "ode_solver_type": "quick",
+  "common_start": {
+    "kind": "compact triangular assembly area; three non-overlapping bodies, not identical xyz",
+    "anchor_original_tb1": [
+      0.725,
+      -2.125
+    ],
+    "centre_extent_m": [
+      0.75,
+      0.65
+    ],
+    "minimum_centre_spacing_m": 0.75,
+    "user_requirement": "All3 start from the same place interpreted as one adjacent assembly area with physical non-overlap",
+    "selection": "Geometric qualification only before any new policy run; no performance-based spawn selection"
+  },
+  "parent_distributed_position_seed": 502,
+  "position_rule": "common-start-triangle-v1; explicit geometry-only coordinates, no RNG or outcome selection",
+  "spawn_clearance_m": [
+    0.9000000000000002,
+    0.5250000000000002,
+    0.6426984557152814
+  ],
+  "rotation_shim": false,
+  "peer_timing": false,
+  "followup10_provenance": {
+    "source_scene_workspace_relative": "gz-01-followup-03/inputs/scenes/dev-hard-common-start-compact-tire-slip.json",
+    "historical_split": "FOLLOWUP03 NEW COMMON-START PUBLIC DEVELOPMENT",
+    "historical_exposure_metadata": null,
+    "modifications": [
+      "id",
+      "split",
+      "exposure metadata",
+      "rotation_shim=false",
+      "peer_timing=false"
+    ],
+    "runtime_source_fixed": "76fd91cf937bd8d662302901dad063affbea3c38"
+  }
+}

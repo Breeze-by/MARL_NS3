@@ -1,0 +1,822 @@
+{
+  "scope": "Only enumerated important NEW09 artifacts and first identity of six new raw bag storage files; old model/world/history identities reused without rereading/hashing them",
+  "files": [
+    {
+      "path": "PLAN.md",
+      "bytes": 1404,
+      "sha256": "b9627bf35503584e0dfbb40a33de4bb4d96230ce3a1ccc87dd273ce5cbd01193"
+    },
+    {
+      "path": "PROBLEM_MATRIX.md",
+      "bytes": 9128,
+      "sha256": "35e1c069037c3ba2db6421060fccfbfe12d045a7cda5c476fdda66f6819e77d3"
+    },
+    {
+      "path": "B_NAV2_SHIM_PLAN.md",
+      "bytes": 5086,
+      "sha256": "9a3f8be94fe829ea50406b7ee3520c0ab307cdad4e995e0eccf6a48b01f02d7e"
+    },
+    {
+      "path": "RUN_LEDGER.json",
+      "bytes": 3444,
+      "sha256": "495f65f4f8ce901896db98950f2e9bf29ba4e47d3b9005035bb2ef4384f09f38"
+    },
+    {
+      "path": "evidence/FINAL_SIX_RUN_SUMMARY.json",
+      "bytes": 31831,
+      "sha256": "9fcf0b58a5d14b424ddf7b32843a68fe158c974ce96a0e93d48c9b1fd3a65474"
+    },
+    {
+      "path": "evidence/FINAL_RUNTIME_CHANGES.diff",
+      "bytes": 20603,
+      "sha256": "6fdb66ab9637050b7eae990b2ce0b1bc1fda498c4d5389bc3d9a5d793c09d1d3"
+    },
+    {
+      "path": "evidence/A_CANDIDATE_SOURCE.diff",
+      "bytes": 12230,
+      "sha256": "e8e9453c1f5b532a8b3976a99e225064fd59d650d0d23d797008862906d22d09"
+    },
+    {
+      "path": "evidence/A_CANDIDATE_SOURCE_IDENTITY.json",
+      "bytes": 999,
+      "sha256": "61e48236b6f86a65c0fdb1f3a704da777608afff079c67da67de76f174253445"
+    },
+    {
+      "path": "evidence/B_CANDIDATE_SOURCE.diff",
+      "bytes": 1609,
+      "sha256": "cb511bc62d6c3a2cffda6ef997aa111a68a53d163349aef2711c90953bd2c32d"
+    },
+    {
+      "path": "evidence/B_CANDIDATE_SOURCE_IDENTITY.json",
+      "bytes": 766,
+      "sha256": "730173dfcb9713f3f6d5f21fec83259d85f8f59268485906199b7c3473603e8d"
+    },
+    {
+      "path": "evidence/PEER_DISPATCH_TIMING_SOURCE.diff",
+      "bytes": 8404,
+      "sha256": "3dc586ca943133cb0d4cc3badfef9e413870f90f40d3b687b8006e8d93328d87"
+    },
+    {
+      "path": "evidence/PEER_DISPATCH_TIMING_SOURCE_IDENTITY.json",
+      "bytes": 1218,
+      "sha256": "1e51397cc4cd259cecd108c7e6ba9dd91bcaadde3f99fb834807ed4cecc057af"
+    },
+    {
+      "path": "evidence/B_DIAGNOSTIC_RL_RECORDING_CLOSURE.json",
+      "bytes": 3502,
+      "sha256": "a0140ac1280632418dd2bb7378f5cd7df9557e46819be8ce6086bb04d69e94ed"
+    },
+    {
+      "path": "evidence/B_DIAGNOSTIC_TRAD_RECORDING_CLOSURE.json",
+      "bytes": 2429,
+      "sha256": "a8fb3e464d00d52771bbb2b3efd1c0750ffcf55c8dd3179f1b13768a11319163"
+    },
+    {
+      "path": "evidence/B_RL_EARLY_HEARTBEAT_TIMELINE.json",
+      "bytes": 40788,
+      "sha256": "f158658f68afc9e8f747e7c1b9892fdf6a835bee7da3e8bb7cffac0dc8a3ea7b"
+    },
+    {
+      "path": "evidence/B_EARLY_FAILURE_STOP_PHYSICS.json",
+      "bytes": 3428,
+      "sha256": "0b72a87929114b5a5f3076e015a052f5ac3948c377ba7e648c4e06affec8012f"
+    },
+    {
+      "path": "evidence/B_FIRST_PROGRESS_POINT_DIAGNOSIS.md",
+      "bytes": 6287,
+      "sha256": "2fc684ad7d14ec4b8f5075b08b853e0f2f3ba4d715a9f075ac9b428d2ef0f865"
+    },
+    {
+      "path": "evidence/B_FIRST_PROGRESS_POINT_01.json",
+      "bytes": 56817,
+      "sha256": "de954a58a222ec0aaa80875444d671be38c41ff8067da519e962482c999535df"
+    },
+    {
+      "path": "evidence/B_FIRST_PROGRESS_POINT_01.npz",
+      "bytes": 33343,
+      "sha256": "05468d1b1222f0203d2dda01fbb4b341c14353de00508aef9a0ebb2dd49aeaef"
+    },
+    {
+      "path": "evidence/B_FIRST_PROGRESS_CACHED_GEOMETRY_01.json",
+      "bytes": 13565,
+      "sha256": "a705e12f95c49eb371f10c8cc404578e9a535d18074cd13b207d8943bb425338"
+    },
+    {
+      "path": "evidence/B_FIRST10_ANGULAR_PROGRESS.json",
+      "bytes": 2015,
+      "sha256": "300fe90f6b13a7e30d5d17ffc9a3b7fd5c6d2be468c5503487813c4f539c46c9"
+    },
+    {
+      "path": "evidence/B_FIRST_TASK_MECHANISM_CORRESPONDENCE.json",
+      "bytes": 2703,
+      "sha256": "48d3ba73646450e2d6c4b2e108793fbe6cc6ba058d7ff39a136fe7ae566bc299"
+    },
+    {
+      "path": "evidence/B_FIRST_TASK_MECHANISM_CORRESPONDENCE_02.json",
+      "bytes": 2890,
+      "sha256": "2523d4a123cb0bbb945442df9ffd3f1f2ee649267e21e41e008bd14a7659d0e7"
+    },
+    {
+      "path": "evidence/B_NAV2_YAML_CHECK_02.json",
+      "bytes": 5683,
+      "sha256": "63e2a64db316805a64725b3ef9e399f3b38357a26b536791172a3fdf28b27031"
+    },
+    {
+      "path": "evidence/peer-dispatch-timing-direct-check-01.json",
+      "bytes": 1324,
+      "sha256": "65ebc10ef64343cd2ce4c5001d7ead5cc7f6a81624bac3381a30752788bc7b62"
+    },
+    {
+      "path": "evidence/peer-dispatch-timing-direct-check-01.process-exit.json",
+      "bytes": 142,
+      "sha256": "08b463ef19f00a3cb75a4a16ff03195efcd158b368cf06b43c62ab3d5d0cc4e5"
+    },
+    {
+      "path": "evidence/observer-records-direct-check-01.json",
+      "bytes": 816,
+      "sha256": "6ee79bc2dbce0e89afab6558d93d13eec05bda73014d6188904f44df87d2052b"
+    },
+    {
+      "path": "evidence/peer-records-direct-check-01.json",
+      "bytes": 590,
+      "sha256": "a615bc19ccdb427b4f91314fce1ce6c510848a394d461c12459c7782c54f222f"
+    },
+    {
+      "path": "evidence/PROJECT.delivery-snapshot.md",
+      "bytes": 71656,
+      "sha256": "bd6950f848c82e4e13be4eb16a8718372298fbdf350ffd0a143c055d5adfeb0d"
+    },
+    {
+      "path": "evidence/summarize_six_runs.py",
+      "bytes": 7174,
+      "sha256": "a02332011b564e356c0e824e4dbb4ef1212c964b2aa07e13507e675546e4f2d7"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/result.json",
+      "bytes": 15688,
+      "sha256": "30e3fa12b4db44e488ee03b56783a24f7132a421b8ff6c5367190b19e5cca833"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/events.jsonl",
+      "bytes": 7629814,
+      "sha256": "4178e3ce371240091f41cd36b7ba319b415ec06bc6190d4da4e8dd39aabe590b"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/drive_diagnostics.csv",
+      "bytes": 10188487,
+      "sha256": "14078a1ad008923bfac7841358ca74ee1828f086a8b11a2477c811e15423c878"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/trajectories.csv",
+      "bytes": 2507668,
+      "sha256": "f1861f3252a73bd3aa55216972b1af67c8d9093a4c1c737831e54f4c40cd2b99"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/launch.log",
+      "bytes": 7177626,
+      "sha256": "87dfdd26c1e8afa933c78f8454e6388c2c53282ab62107a3e8530955254a8775"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/control.log",
+      "bytes": 5560,
+      "sha256": "72e3756b45f252fd3ea68d79941feb2c33b832c44fc42e73377b6add99eb2c01"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/peer-keepout.jsonl",
+      "bytes": 14269496,
+      "sha256": "62480c487aaaf57791fd2db2d53c79e6c75904d90378b03e7561cf14bf8d5bd5"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/peer-recording-saved.json",
+      "bytes": 95,
+      "sha256": "cea55db26d2b9172d04555c6dc4fc0b2c349b3309efde57413ce8b7f4bb6b094"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/observer_timing.json",
+      "bytes": 1600629,
+      "sha256": "b6dd40afd431fa01b7f616584f7a39122bbb25f7c1cd0e3384dbfc337d2e1cb6"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/owned_processes.jsonl",
+      "bytes": 103,
+      "sha256": "6239bc8a14f69e3525296e87573a6e185e94ba2ea3943388d883bafa3e1f551d"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/loaded-driver.json",
+      "bytes": 939,
+      "sha256": "4e82c027a55e36125422269dcfced2d206bdff35f0af8c839ba6a2308d0f6d08"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/controller/allocation-events.jsonl",
+      "bytes": 12800526,
+      "sha256": "e5fdf3619053d07dbda77a51c4efc654a0b871e4bac468b0125178f1073ae7b9"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01.boot-exit.json",
+      "bytes": 176,
+      "sha256": "6e4484d3485bc3b032dbec0f43478443fe77770dfb03da03578730f2c38205aa"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01.admission-used.json",
+      "bytes": 310,
+      "sha256": "45863fd3d3cbf4d1f533311673059a65845035b4e7b17235f1ab958af4b76bd6"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/bag/bag_0.db3",
+      "bytes": 134225920,
+      "sha256": "55679907bfddb217043d44aee2fea98d3f408bfdf14ab7099115df2c99a69cf7"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/bag/bag_1.db3",
+      "bytes": 134234112,
+      "sha256": "0064ce27409d39dea2c7943d8835d60e8d40841ceb519ebf8bf3cb2797587d0f"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/bag/bag_2.db3",
+      "bytes": 134262784,
+      "sha256": "774728052be8b7518cb7b32f6c4154f3a82ff451076cba431268b81b96f344f4"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/bag/bag_3.db3",
+      "bytes": 20328448,
+      "sha256": "74e86b238f8b9914de63100585583b124bedfc3ea37b8a4d71317ed9d81afcb1"
+    },
+    {
+      "path": "runs/open-common-rl-critical-records-01/bag/metadata.yaml",
+      "bytes": 25801,
+      "sha256": "dabf46a1eace76de8e4945d1fdbc1722e4f10c1ccfb3be90b9affa34dada1ee7"
+    },
+    {
+      "path": "evidence/open-common-rl-critical-records-01-metric-v2/result.json",
+      "bytes": 380147,
+      "sha256": "d792360edb79820776fdd448600dbfc4bc740484f8b484108266d9ccb4812109"
+    },
+    {
+      "path": "evidence/open-common-rl-critical-records-01-metric-v2/coverage.csv",
+      "bytes": 56997,
+      "sha256": "9477138b15802a2e02547e5ff1e907338269f7f77eae0fb2c550e83b1ecbe53d"
+    },
+    {
+      "path": "evidence/open-common-rl-critical-records-01-metric-v2/reference-and-final.npz",
+      "bytes": 3977,
+      "sha256": "5ce74dc0cd42075aa3852fdff8202a847bdb24774d115f1fae5624c2e210746c"
+    },
+    {
+      "path": "evidence/open-common-rl-critical-records-01-metric-v2/coverage-and-trajectories.png",
+      "bytes": 120373,
+      "sha256": "47179e306b4939993acd64b56c5db0cd12704736fd800ca3664e888f31c949fb"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/result.json",
+      "bytes": 8239,
+      "sha256": "fc8ce81a09d32140c656cbff90156ec0a2cecb704a26ed52d6e7ae5aba15267c"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/events.jsonl",
+      "bytes": 7379500,
+      "sha256": "7d482dfbab42a02f1fdc9b91dfa21033be05a7150b00ef85ed661d9d7284dd86"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/drive_diagnostics.csv",
+      "bytes": 10135915,
+      "sha256": "bb4229ee8fe8f1e43379faa8ae00b6ada22c55149087fb7c144da696473b4966"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/trajectories.csv",
+      "bytes": 2515450,
+      "sha256": "04bbe259c975a314f57630cfd5e41d229e0d6bd01e11142ad389c54c315701a6"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/launch.log",
+      "bytes": 7171429,
+      "sha256": "e0b0c404aa9d98d9f307702ae3d03ea5e03eb5f86d0b4af36a82ca699dee7ca4"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/control.log",
+      "bytes": 4500,
+      "sha256": "738534751ec3a401959f32c51d0772cc466048bc5d7f8a61afa5116496cee2a8"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/peer-keepout.jsonl",
+      "bytes": 14308786,
+      "sha256": "cbff8239842db9e2a0e859c7ced5107ec74d48fadd3d4c45e431318b9e7df482"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/peer-recording-saved.json",
+      "bytes": 95,
+      "sha256": "dfd745ac4f7a981cdc7501861001c6354f27e3cdd85d2c035080cb55511a4c81"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/observer_timing.json",
+      "bytes": 1600433,
+      "sha256": "dc8fe77a261ce0d3195bb6695aa85b999b5503daea54752ea1fcf764ee7750cf"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/owned_processes.jsonl",
+      "bytes": 103,
+      "sha256": "de7829821a7d46185d54dc9979154f98f397c5970fcb9c196f278ad11a10e6cd"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/loaded-driver.json",
+      "bytes": 939,
+      "sha256": "5d3e12fa4e76d7c8ef60e421747efa48bec9f9009b073d35eba2c9953925a661"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/controller/allocation-events.jsonl",
+      "bytes": 11595117,
+      "sha256": "7f8c7acc3dbd25f297d69e0c320bfb2166339f960762167222f78f8dd27446ee"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01.boot-exit.json",
+      "bytes": 176,
+      "sha256": "785a89d25c5d1d5a11e6af25d890642ce959802633eb57bad712be053da07982"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01.admission-used.json",
+      "bytes": 328,
+      "sha256": "81a280dea1f188c9f13f6691abdc15e964cc999cab429f1e6680cac4a1200de7"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/bag/bag_0.db3",
+      "bytes": 134217728,
+      "sha256": "f0f71bbc03922dd243c682ec2199a5f5b7eb03e89e1562fd20adb39a807450c7"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/bag/bag_1.db3",
+      "bytes": 134221824,
+      "sha256": "1d663e57de93dfe39c5db8cce477b711ab3ddc7beac811bd0a6683569fcae308"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/bag/bag_2.db3",
+      "bytes": 134217728,
+      "sha256": "4535cef3b9b21324800d037f96a7b9ecf280abe6e5f123626d482c301280d9c7"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/bag/bag_3.db3",
+      "bytes": 21843968,
+      "sha256": "7104e154f172d47c3fc0cf5a49b32202b225f76427ac14af3280459becbc6ebd"
+    },
+    {
+      "path": "runs/open-common-traditional-critical-records-01/bag/metadata.yaml",
+      "bytes": 24895,
+      "sha256": "caad9afd8790bfe54fa769d3643232e0503e66236acdfdb4f1ad36d04c3cf65d"
+    },
+    {
+      "path": "evidence/open-common-traditional-critical-records-01-metric-v2/result.json",
+      "bytes": 383066,
+      "sha256": "74f93c297291b23556463788f597e2524ca73cdef2b9b4ba58f61a55d70b76cb"
+    },
+    {
+      "path": "evidence/open-common-traditional-critical-records-01-metric-v2/coverage.csv",
+      "bytes": 57824,
+      "sha256": "6f4368e7d0cb9274f6fa36f8ffa4156911ffb78ba14099fb633e58b48a2f2148"
+    },
+    {
+      "path": "evidence/open-common-traditional-critical-records-01-metric-v2/reference-and-final.npz",
+      "bytes": 3977,
+      "sha256": "08a5730ed7c0fdf2f5ff1d51fef008a44353f9abd6a50d21ee66f8b1c288d84d"
+    },
+    {
+      "path": "evidence/open-common-traditional-critical-records-01-metric-v2/coverage-and-trajectories.png",
+      "bytes": 111396,
+      "sha256": "833a1559c362357ba326fcb7601a87d3b7cb3de4bd5ddc17d90534098ff8de31"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/result.json",
+      "bytes": 4217,
+      "sha256": "df1a2985a35fde198af877ceaa4c5d353d657a7afefb8233c4a62ec90268fc18"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/events.jsonl",
+      "bytes": 728727,
+      "sha256": "351eb403b072cf31ecea5751e5cd7054872603018464fb8ec6ff36ff8a352b79"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/drive_diagnostics.csv",
+      "bytes": 551380,
+      "sha256": "d35588eaeb920bd282f8dd86106db0cc42912d5c8eea0688a7f58d21c0336d57"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/trajectories.csv",
+      "bytes": 176313,
+      "sha256": "f8330479e2c770750e615217389607ded6e51f05e395ce77db6c2480014d3f04"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/launch.log",
+      "bytes": 359355,
+      "sha256": "f923c746dbc211ac4220eb9188ca0375e295f37cb5da2dfd3cbd41087ceb0a25"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/control.log",
+      "bytes": 1134,
+      "sha256": "5c204350a2d670cc74139a1ed6d812997bef7e03f1e93a1c56ba53e87b432b1b"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/peer-keepout.jsonl",
+      "bytes": 1073578,
+      "sha256": "0e153dc3733b0361063857f776351b37d9b91683ed8f4fd2f94e604310edd043"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/peer-recording-saved.json",
+      "bytes": 93,
+      "sha256": "85179cfce6e5b72ef442b6f17e89636a7b9405d6c852f77a4523796066c1791b"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/observer_timing.json",
+      "bytes": 1579175,
+      "sha256": "ca4f7e97a11ab1aa13d06b886037b426fab1a1e0f4d162d949e0ffdaff8db047"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/owned_processes.jsonl",
+      "bytes": 103,
+      "sha256": "dc960d254143568f4af269007a19ebe4dc591319e9ff4a8d0cce53d6fd3a45f7"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/loaded-driver.json",
+      "bytes": 939,
+      "sha256": "90a4835a2b4006e92b0407c6db975bcb991dc7c22732122d7b1cdbfb94320ecd"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01.boot-exit.json",
+      "bytes": 176,
+      "sha256": "f765e71bfe56d951e1ecf3b275dfb673a61adde2166d6ff01167fbf2f21fa993"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01.admission-used.json",
+      "bytes": 312,
+      "sha256": "fa139853b95f27c259e157ad166814d087e590969f03a4d7953ed06bed5b3526"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/bag/bag_0.db3",
+      "bytes": 18898944,
+      "sha256": "ec46a151f097a8ef42a5b8502bda81be48966d657544d02563295a83e52cf0fc"
+    },
+    {
+      "path": "runs/open-common-rl-path-heading-shim-01/bag/metadata.yaml",
+      "bytes": 24888,
+      "sha256": "c9f73138d0d9dfee85955c75a7d89c416627e3f2782ded4e1dcadeddeda0c0b7"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/result.json",
+      "bytes": 17412,
+      "sha256": "640d008ef37b529d6d9c72245dade1fb17ebe8d9903c7d2159d55dbcc32095ed"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/events.jsonl",
+      "bytes": 9702713,
+      "sha256": "e5c1059009edb033800a1c8953a9cab2f81e984b6f2790c2a662e0f482637e8c"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/drive_diagnostics.csv",
+      "bytes": 10884984,
+      "sha256": "68737d12ad705ae8a2eda7e7d2a2685da8d5019175f3fbd672b285ba812bd6fd"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/trajectories.csv",
+      "bytes": 2494181,
+      "sha256": "e7779d00156aaac4f8f5621fc70f8c60eaa4740269b360f86e58a9a0888e40e6"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/launch.log",
+      "bytes": 7388821,
+      "sha256": "a4c1d381994c42e5977920cc15971413e2cea2cc1671891b40be43fb9417f947"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/control.log",
+      "bytes": 6068,
+      "sha256": "0686ee209d6f0ac45ece4e80f033acc203d95398db661eb0c71153af4ffa6507"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/peer-keepout.jsonl",
+      "bytes": 14262585,
+      "sha256": "68dde9ee29965adc390b58ebfacdba2af62e58d8e5a9437c096d0c472d45eaf3"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/peer-recording-saved.json",
+      "bytes": 95,
+      "sha256": "37e6bb5fd07fa683c6c565694dc6cf3c8f95f3856f8460930d18eca8e20c41f5"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/observer_timing.json",
+      "bytes": 1607192,
+      "sha256": "1ec785daf2f00d33f347c0b1665e99946012cae789f5a556a5e3a0a0b7da7c1a"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/owned_processes.jsonl",
+      "bytes": 103,
+      "sha256": "6f8213bdd87fbb6cac0df7e4decb9257379dd4726d7b2d483b2710cdf68642c6"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/loaded-driver.json",
+      "bytes": 939,
+      "sha256": "f946d49baf0e0a9e11c1c5361496184a197db75f30118ae33e8310a44ef1e912"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/peer_timing.json",
+      "bytes": 6846802,
+      "sha256": "510ca31713bde258834a9cca58a5704323f8c0f96d5206ca8e245e88d0f66c38"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/controller/allocation-events.jsonl",
+      "bytes": 15402253,
+      "sha256": "994d34e37434805aba0a3ea860e01c6d5f068b305bcfb455bfdd0091ce60e192"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01.boot-exit.json",
+      "bytes": 176,
+      "sha256": "95352a25feb209c7006a059b756010b98b0e86404a1cf2c433f03d0ff3230952"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01.admission-used.json",
+      "bytes": 326,
+      "sha256": "2a0818c3011dc10455a92ad3f0ccf4c917df6b1a7275e2e812a21f6d1281d165"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/bag/bag_0.db3",
+      "bytes": 134217728,
+      "sha256": "bba660da8a335fb2b088ed0db40fe1372b4fa1867643945d86700b8283b703c1"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/bag/bag_1.db3",
+      "bytes": 134250496,
+      "sha256": "f47a22035a7666ec7fbf8968ea1d2869c4640751572d7562776c062f6a273475"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/bag/bag_2.db3",
+      "bytes": 134217728,
+      "sha256": "17cf87a84b10710e39fbf660750e7770490e70e8e621c49e5eb549783dadaf77"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/bag/bag_3.db3",
+      "bytes": 47230976,
+      "sha256": "732a41d500deaf34f4341df705c6b2e5de1b9a82d1dfb17d95fe1bc821b93f4c"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-diagnostic-01/bag/metadata.yaml",
+      "bytes": 24895,
+      "sha256": "17406cd435e0ac6cae793902db753509746158d69059df5a60960c5adf53412b"
+    },
+    {
+      "path": "evidence/open-common-rl-peer-dispatch-diagnostic-01-metric-v2/result.json",
+      "bytes": 388616,
+      "sha256": "8c5347ae2aecfee13dfd3e94ee5ff9fd3513e3506f5094bc79f2bd5e1447f732"
+    },
+    {
+      "path": "evidence/open-common-rl-peer-dispatch-diagnostic-01-metric-v2/coverage.csv",
+      "bytes": 62073,
+      "sha256": "658bdecadb624927e47462c524c2e7c7af31fb5afc9b34c50119e172526c252b"
+    },
+    {
+      "path": "evidence/open-common-rl-peer-dispatch-diagnostic-01-metric-v2/reference-and-final.npz",
+      "bytes": 4769,
+      "sha256": "e69dc7f3847c2cf8b93d17550d3847e44afb3a571c3c53ec075968ca6f494560"
+    },
+    {
+      "path": "evidence/open-common-rl-peer-dispatch-diagnostic-01-metric-v2/coverage-and-trajectories.png",
+      "bytes": 110761,
+      "sha256": "a4cc3e5cb16f12f214a46e990475ba1604c9c36010a41f0a27dfeda025d44e65"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/result.json",
+      "bytes": 8739,
+      "sha256": "b2b5ccebf0a3b1d0d26d4dc2b9bc4353df03780df0948dfc19b724bb12f9a9f4"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/events.jsonl",
+      "bytes": 9065952,
+      "sha256": "3c87439eb7a32818ca007f604ef89a026d75b27891f6bda27e1617923c9eb7a4"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/drive_diagnostics.csv",
+      "bytes": 10842670,
+      "sha256": "3b0df1acb7151041d2123c949ef15f228be7438425eaf6096b1af0ec5d8b12ee"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/trajectories.csv",
+      "bytes": 2497549,
+      "sha256": "6420e8b2f0f13223e7aaf623bf98270968151b24be18bdafb964f21a7bd38431"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/launch.log",
+      "bytes": 7277142,
+      "sha256": "b7a87c373b533784a00e4a5972dbe3d67f4ba5cdf9c544e2a2e7f24708e642a3"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/control.log",
+      "bytes": 4696,
+      "sha256": "b31712accea46b6af4aa896f155d47ec20b4431c719bf423fdf3dc92e6a39b9a"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/peer-keepout.jsonl",
+      "bytes": 14240785,
+      "sha256": "4e74358ec37a6e9c68a6e3a5c9f00f698bf58656bab934596d5666f90f58d01b"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/peer-recording-saved.json",
+      "bytes": 95,
+      "sha256": "395f38a1d22d1b939442277a3b1dc6a13bf838bf78b71fcd1853fe32546b825f"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/observer_timing.json",
+      "bytes": 1604635,
+      "sha256": "dad6dcf288f5f53c22cab2e0749437df685513dc019844b9f33d2aa28d8b3e76"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/owned_processes.jsonl",
+      "bytes": 103,
+      "sha256": "6ce6fe058c942e24bd61b13528acec6f7ac586f7f11302b783bb8c8f84e23e60"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/loaded-driver.json",
+      "bytes": 939,
+      "sha256": "d33cd2eb93df41518dd8fe7e6118fbc330c91fd6472ed1a153542d7186e97f02"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/controller/allocation-events.jsonl",
+      "bytes": 15394066,
+      "sha256": "0fc41dfce15b700ac22bb15d8afa37aef587985e1674c10066ab072aabb5101b"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01.boot-exit.json",
+      "bytes": 176,
+      "sha256": "22e5a19691f1fd18cb7b0db6300d0182a7738c793f7e93ab850ae01300292e68"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01.admission-used.json",
+      "bytes": 344,
+      "sha256": "e4a19023d8fd227e63eeca348e834b244b53cfed016304fe71bdf1d351f1d9a5"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/bag/bag_0.db3",
+      "bytes": 134217728,
+      "sha256": "33bbdc74033af25da2da4d17ddeaf04ebdbd5a08b5fdd7bf2bb7d724e330525a"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/bag/bag_1.db3",
+      "bytes": 134225920,
+      "sha256": "99ca74ef658d9122b10b663ecda813edd51c7055805af77ca9647fdb8f7214f3"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/bag/bag_2.db3",
+      "bytes": 134225920,
+      "sha256": "a727959daf17a30987323c9ce67d9dc4603ab69eb620442a8a5fa828115a2e0e"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/bag/bag_3.db3",
+      "bytes": 26767360,
+      "sha256": "36d0b9db70eddb8466bac3e73b3562bf6c2aab5f852736dfe7029e856d7ffcbf"
+    },
+    {
+      "path": "runs/open-common-traditional-peer-dispatch-diagnostic-01/bag/metadata.yaml",
+      "bytes": 25498,
+      "sha256": "a351b9e68e91050d99673a2877119bccc56dc26b5e4b9c187e697fe8fd51c9cf"
+    },
+    {
+      "path": "evidence/open-common-traditional-peer-dispatch-diagnostic-01-metric-v2/result.json",
+      "bytes": 383787,
+      "sha256": "05e16149339e216dccf00e8447c21833bc09a0b643b60e44374daedede76b6cb"
+    },
+    {
+      "path": "evidence/open-common-traditional-peer-dispatch-diagnostic-01-metric-v2/coverage.csv",
+      "bytes": 60679,
+      "sha256": "729540cf0bbb43b7d900da9751a6bce2c5ae61877f5cf369ffdfd1f7fcaacc83"
+    },
+    {
+      "path": "evidence/open-common-traditional-peer-dispatch-diagnostic-01-metric-v2/reference-and-final.npz",
+      "bytes": 4974,
+      "sha256": "beb1ce675c094553ecfb186882b104c426dedf0015ece73ce8f1264d3e947988"
+    },
+    {
+      "path": "evidence/open-common-traditional-peer-dispatch-diagnostic-01-metric-v2/coverage-and-trajectories.png",
+      "bytes": 105914,
+      "sha256": "aad2160141ef8f27c58396049e80d558a5da21a3e980856082c07880f6cb1723"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/result.json",
+      "bytes": 12292,
+      "sha256": "a7859642495949662cd398933b509ec2c7af19cbad26ad6a7b0b415b76673e68"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/events.jsonl",
+      "bytes": 6440960,
+      "sha256": "17c76060b3d95e1d869825ca5258e2727cda82bea2c0b5555d98123ea01e9536"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/drive_diagnostics.csv",
+      "bytes": 9629302,
+      "sha256": "162288d28a408e4d7f25e5a770c29a914e77d3982d04344b62e421dc617c524e"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/trajectories.csv",
+      "bytes": 2497515,
+      "sha256": "9a7bf830d699f1392df8c2bed9feae8f204f489183d6335a6be0c180f8e56037"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/launch.log",
+      "bytes": 7146818,
+      "sha256": "35d3b10854d53d8605c62e7086f982de6f3ec4213349eef6799226fdd52d143e"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/control.log",
+      "bytes": 4028,
+      "sha256": "5ac863c066ff5951a728c3f35142e8273e006fcf4914dc408da74821b6f5d98f"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/peer-keepout.jsonl",
+      "bytes": 14269221,
+      "sha256": "456bd8ffacb01033df706b4e843083cb41ad844987dc10a7ac00306e25c08de3"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/peer-recording-saved.json",
+      "bytes": 95,
+      "sha256": "5b805b0416e7df5c5c0fbfd3717a492220a2c6bb9500a410a19c4b672696c3b2"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/observer_timing.json",
+      "bytes": 1600572,
+      "sha256": "654ef4a15f131cbb936a6359d04fb7572fa726c568839b0fc43fb79489635fb3"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/owned_processes.jsonl",
+      "bytes": 103,
+      "sha256": "35aa44cfcfaf911a3b3ff3af083fc0072184ee22d9816bd72bff0e0f9b4e4e97"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/loaded-driver.json",
+      "bytes": 939,
+      "sha256": "860fc577e0af19d7fde96f489b69ddc92672fd43c1476ccdf71fd837491f1da8"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/controller/allocation-events.jsonl",
+      "bytes": 10122024,
+      "sha256": "ba95f947fecfe58374d4d7fecd7b09e6e98f36fcd659fb0cb51277778605ce60"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01.boot-exit.json",
+      "bytes": 176,
+      "sha256": "2fb12bc8ffdafbc8a5d48b51a28af5b61a332692193bfe947559171fcfbc7a4a"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01.admission-used.json",
+      "bytes": 338,
+      "sha256": "9585f228f72bd4357423de4f1c7209e150f5d63f8b137eab02e9ce2459cd166f"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/bag/bag_0.db3",
+      "bytes": 134217728,
+      "sha256": "89c4d27cb701f0b120ccbf2a54037b317dc523720deaa6ffa5fd8b42034226ed"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/bag/bag_1.db3",
+      "bytes": 134230016,
+      "sha256": "fbcebef603d3531d0a3552bae16adcd2d5c9cd8853ef2e87fe2c926c890c252f"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/bag/bag_2.db3",
+      "bytes": 134217728,
+      "sha256": "ca777d833fbf6b6ccb6511a0d6e949862a142a34b32d8b26435b8854375359da"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/bag/bag_3.db3",
+      "bytes": 9445376,
+      "sha256": "01c982a5d9b1f671f191e902b9dd3b49b09ee54f1de32e896efabd5148569c4b"
+    },
+    {
+      "path": "runs/open-common-rl-peer-dispatch-shim-off-control-01/bag/metadata.yaml",
+      "bytes": 25195,
+      "sha256": "2fef6526d73012e442beb53f89a4099c89c4e2a9fce5b67eba83286b6568f14b"
+    },
+    {
+      "path": "evidence/open-common-rl-peer-dispatch-shim-off-control-01-metric-v2/result.json",
+      "bytes": 372462,
+      "sha256": "f28efabc68e270dc7d866c7c5c66a571b5c41a083c0af0d1e7e457ff9e43da79"
+    },
+    {
+      "path": "evidence/open-common-rl-peer-dispatch-shim-off-control-01-metric-v2/coverage.csv",
+      "bytes": 56024,
+      "sha256": "d34959335107a5ad1f813546e244ca8677dc2ad7acc2342567c9bd570a4928ac"
+    },
+    {
+      "path": "evidence/open-common-rl-peer-dispatch-shim-off-control-01-metric-v2/reference-and-final.npz",
+      "bytes": 4045,
+      "sha256": "d5695f5a7b18a608db384b21ffc2df020a91339c257556eff1443d749019bf4e"
+    },
+    {
+      "path": "evidence/open-common-rl-peer-dispatch-shim-off-control-01-metric-v2/coverage-and-trajectories.png",
+      "bytes": 114974,
+      "sha256": "e1958982ed79410481399a522cfbc2f736bc209ae9293448c801ace7b2ca0483"
+    },
+    {
+      "path": "FOLLOWUP_REPORT.md",
+      "bytes": 12890,
+      "sha256": "5d4ab6291425d987987a56c6c733244b46616a610ba0da8afb282652165b317f"
+    }
+  ],
+  "raw_originals_unchanged": true,
+  "inherited_identities": "INHERITED_INPUTS.json and ready/admission bindings, not recomputed",
+  "report_identity": "Report bytes hashed once; Git archive copied from these same bytes without a second digest. Manifest excludes itself/index/postcommit identity.",
+  "missing_diagnostic_artifacts": {
+    "actual5": "peer_timing.json SAVEFAIL",
+    "actual6": "peer_timing.json SAVEFAIL"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "id": "regression-rooms-common-6101-dwb-v1",
+  "split": "EXPOSED_FIXED_MULTIMAP_RECHECK",
+  "category": "partition_grid",
+  "world_relative_phase": "inputs/worlds/eval-rooms-common-6101.sdf",
+  "world_sha256": "fad70119bfec926ba397b37704a46286384ca31c5bafdf37b6050301b14e751d",
+  "source_provenance": {
+    "generator": "workspace/rl02/maps.py::layout/write_sdf",
+    "family": "partition_grid",
+    "map_seed": 6101,
+    "exposure": {
+      "geometry_seen": true,
+      "history": "Historical Gazebo runs and prior public/development evaluation; original scene gz-01-followup-07/inputs/scenes/eval-rooms-common-6101.json",
+      "note": "Fixed cross-map recheck, not unseen geometry/generalization; no outcome-based selection",
+      "training_geometry": false
+    }
+  },
+  "physics_seed": 2026110601,
+  "robots": [
+    {
+      "name": "tb1",
+      "x": -3.4237836473654566,
+      "y": -3.581773649437976,
+      "yaw": 0.0
+    },
+    {
+      "name": "tb2",
+      "x": -3.7987836473654566,
+      "y": -4.231773649437976,
+      "yaw": 0.0
+    },
+    {
+      "name": "tb3",
+      "x": -3.0487836473654566,
+      "y": -4.231773649437976,
+      "yaw": 0.0
+    }
+  ],
+  "wheel_contact_slip": 1e-05,
+  "ode_solver_type": "quick",
+  "reference_bounds": [
+    -5.800000000000001,
+    -5.6000000000000005,
+    7.25,
+    5.300000000000001
+  ],
+  "reference_area_m2": 100.19000000000003,
+  "reference_boundary_connections": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "maximum_autonomy_sim_s": 600,
+  "maximum_decisions": 130,
+  "common_start": {
+    "rule": "original declared first pose or fixed generator anchor; first static-clear compact triangle",
+    "anchor": [
+      -3.4237836473654566,
+      -3.581773649437976
+    ],
+    "offset_rotation_degrees": 0,
+    "robot_yaw": 0.0,
+    "minimum_centre_spacing_m": 0.75,
+    "selection": "Geometry only; no sensor/backend/policy/Gazebo trial or outcome selection"
+  },
+  "qualification": "Static .25 body-circle clearance/swept assembly, actual .55 peer raster, unchanged closed reachable component",
+  "rotation_shim": false,
+  "peer_timing": false,
+  "followup10_provenance": {
+    "source_scene_workspace_relative": "gz-01-followup-07/inputs/scenes/eval-rooms-common-6101.json",
+    "historical_split": "LOCKED_EVAL",
+    "historical_exposure_metadata": {
+      "geometry_seen": false,
+      "history": "Not in the three prior registered map catalogs",
+      "note": "New geometry in familiar generator family; fixed before optimization, no policy outcome selection"
+    },
+    "modifications": [
+      "id",
+      "split",
+      "exposure metadata",
+      "rotation_shim=false",
+      "peer_timing=false"
+    ],
+    "runtime_source_fixed": "76fd91cf937bd8d662302901dad063affbea3c38"
+  }
+}

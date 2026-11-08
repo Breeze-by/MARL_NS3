@@ -1,0 +1,84 @@
+{
+  "stop-original-02": {
+    "driver": {
+      "pid": 407198,
+      "library": "/project/workspace/install/base01_diff_drive/lib/libbase01_diff_drive_diagnostic.so",
+      "sha256": "cdafcf55c7438bbfa750996db92d2e2e64f5da62c1f64d5b2c59737001fc0e09",
+      "maps": [
+        "7163ad20e000-7163ad288000 r--p 00000000 08:03 71990769                   /project/workspace/build/base01_diff_drive/libbase01_diff_drive_diagnostic.so",
+        "7163ad288000-7163ad2db000 r-xp 0007a000 08:03 71990769                   /project/workspace/build/base01_diff_drive/libbase01_diff_drive_diagnostic.so",
+        "7163ad2db000-7163ad2f7000 r--p 000cd000 08:03 71990769                   /project/workspace/build/base01_diff_drive/libbase01_diff_drive_diagnostic.so",
+        "7163ad2f7000-7163ad2fc000 r--p 000e8000 08:03 71990769                   /project/workspace/build/base01_diff_drive/libbase01_diff_drive_diagnostic.so",
+        "7163ad2fc000-7163ad2fe000 rw-p 000ed000 08:03 71990769                   /project/workspace/build/base01_diff_drive/libbase01_diff_drive_diagnostic.so"
+      ]
+    },
+    "stop_pass": true,
+    "robots": {
+      "tb1": {
+        "zero_consumed_samples": 106,
+        "motor_exceeds_measured_rows": 7,
+        "last_internal": [
+          -0.040278898634628246,
+          0.04014506873111498
+        ]
+      },
+      "tb2": {
+        "zero_consumed_samples": 106,
+        "motor_exceeds_measured_rows": 7,
+        "last_internal": [
+          -0.04022903855735087,
+          0.04021454352966661
+        ]
+      },
+      "tb3": {
+        "zero_consumed_samples": 106,
+        "motor_exceeds_measured_rows": 7,
+        "last_internal": [
+          -0.04022507861872633,
+          0.04018996243749508
+        ]
+      }
+    }
+  },
+  "stop-fixed-01": {
+    "driver": {
+      "pid": 412737,
+      "library": "/project/workspace/install/base01_diff_drive/lib/libbase01_diff_drive.so",
+      "sha256": "8d54d39a687de851c95137ddee4a7ebbab90c3373e07d96fad338870d4317fc0",
+      "maps": [
+        "7a1d6280e000-7a1d62888000 r--p 00000000 08:03 71990771                   /project/workspace/build/base01_diff_drive/libbase01_diff_drive.so",
+        "7a1d62888000-7a1d628db000 r-xp 0007a000 08:03 71990771                   /project/workspace/build/base01_diff_drive/libbase01_diff_drive.so",
+        "7a1d628db000-7a1d628f7000 r--p 000cd000 08:03 71990771                   /project/workspace/build/base01_diff_drive/libbase01_diff_drive.so",
+        "7a1d628f7000-7a1d628fc000 r--p 000e8000 08:03 71990771                   /project/workspace/build/base01_diff_drive/libbase01_diff_drive.so",
+        "7a1d628fc000-7a1d628fe000 rw-p 000ed000 08:03 71990771                   /project/workspace/build/base01_diff_drive/libbase01_diff_drive.so"
+      ]
+    },
+    "stop_pass": true,
+    "robots": {
+      "tb1": {
+        "zero_consumed_samples": 65,
+        "motor_exceeds_measured_rows": 0,
+        "last_internal": [
+          0.0,
+          0.0
+        ]
+      },
+      "tb2": {
+        "zero_consumed_samples": 65,
+        "motor_exceeds_measured_rows": 0,
+        "last_internal": [
+          0.0,
+          0.0
+        ]
+      },
+      "tb3": {
+        "zero_consumed_samples": 65,
+        "motor_exceeds_measured_rows": 0,
+        "last_internal": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

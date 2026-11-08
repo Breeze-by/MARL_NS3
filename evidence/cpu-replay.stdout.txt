@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "runtime": {
+    "python": "3.10.12",
+    "torch": "2.12.0+cpu",
+    "numpy": "1.21.5",
+    "scipy": "1.8.0",
+    "threads": 1,
+    "device": "cpu"
+  },
+  "calls": {
+    "NN_forward": 3,
+    "optimizer": 0,
+    "Node": 0,
+    "env_reset": 0,
+    "env_step": 0,
+    "Action": 0,
+    "Gazebo": 0
+  },
+  "fixtures": [
+    {
+      "name": "corridor",
+      "choices": [
+        0,
+        4,
+        5
+      ],
+      "checks": {
+        "encoded_exact": true,
+        "masks_exact": true,
+        "slots_exact": true,
+        "choices_exact": true,
+        "raw_logits_match": true,
+        "value_match": true,
+        "logprob_match": true,
+        "entropy_match": true,
+        "tb1_recorded_goal_match": true,
+        "tb2_recorded_goal_match": true,
+        "tb3_recorded_goal_match": true
+      },
+      "wall_s": 0.0184101170161739
+    },
+    {
+      "name": "rooms",
+      "choices": [
+        0,
+        4,
+        7
+      ],
+      "checks": {
+        "encoded_exact": true,
+        "masks_exact": true,
+        "slots_exact": true,
+        "choices_exact": true,
+        "raw_logits_match": true,
+        "value_match": true,
+        "logprob_match": true,
+        "entropy_match": true,
+        "tb1_recorded_goal_match": true,
+        "tb2_recorded_goal_match": true,
+        "tb3_recorded_goal_match": true
+      },
+      "wall_s": 0.015703306009527296
+    },
+    {
+      "name": "hard",
+      "choices": [
+        0,
+        2,
+        4
+      ],
+      "checks": {
+        "encoded_exact": true,
+        "masks_exact": true,
+        "slots_exact": true,
+        "choices_exact": true,
+        "raw_logits_match": true,
+        "value_match": true,
+        "logprob_match": true,
+        "entropy_match": true,
+        "tb1_recorded_goal_match": true,
+        "tb2_recorded_goal_match": true,
+        "tb3_recorded_goal_match": true
+      },
+      "wall_s": 0.015029261994641274
+    }
+  ]
+}

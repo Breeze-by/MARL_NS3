@@ -1,0 +1,134 @@
+{
+  "status": "RL04 LIMITED ENGINEERING GO CANDIDATE; FORMAL POLICY FREEZE NOT EXECUTED",
+  "candidate_version": "rl04-512-approach-v2",
+  "formally_frozen": false,
+  "checkpoint": "rl-04/runs/formal-01/checkpoint-00512.pt",
+  "checkpoint_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+  "additional_training_joint": 512,
+  "additional_Adam_steps": 16,
+  "inherited_immediate_RL03_parent_Adam_steps": 64,
+  "formal_parent_completed_joint": 2048,
+  "formal_parent_Adam": 64,
+  "source_commits": {
+    "training_and_selection": "985158a3a0fd036177fb29fc62c3e41249d89ad3",
+    "public_regression_Mock_TEST": "9fe44e379e333409b228b3262f18c7f78ace3c85",
+    "real_Gazebo": "ed4ca13a7ba8d874b9e5cf5f06c8665868a30f95"
+  },
+  "policy": {
+    "algorithm": "central PPO; deterministic deployment argmax",
+    "input_features": 701,
+    "map_channels": 2,
+    "map_grid_side": 16,
+    "robot_features_each": 13,
+    "candidate_features_each": 10,
+    "hidden_layers": [
+      128,
+      128
+    ],
+    "activation": "Tanh",
+    "actor_heads": 3,
+    "slots_per_head": 17,
+    "candidate_mode": "rl04_approach_v2",
+    "observation_contract": "rl04-shared-frontier-approach-v2",
+    "task_roi": [
+      -5.8,
+      -5.6,
+      7.25,
+      5.3
+    ],
+    "projected_resolution_m": 0.05
+  },
+  "input_sources": {
+    "shared_map": "/merge_map received OccupancyGrid",
+    "local_maps": [
+      "/tb1/map",
+      "/tb2/map",
+      "/tb3/map"
+    ],
+    "poses": "namespaced odometry header stamps + exact-time TF; retain last success at original stamp, reject pose age>2s",
+    "task_state": "actual task ownership and Nav2 feedback/results",
+    "simulator_truth": "not policy input; only independent sensor/evaluation/safety roles"
+  },
+  "actions": {
+    "robot_order": [
+      "tb1",
+      "tb2",
+      "tb3"
+    ],
+    "maximum_candidates": 15,
+    "maximum_candidates_per_robot": 5,
+    "goal": "index resolves to observed shared-map navigation target; transformed to robot-local map for NavigateToPose",
+    "KEEP": -1,
+    "WAIT": -2,
+    "active_task": "KEEP only; no policy CANCEL action",
+    "idle_WAIT": "only if sampled conditional mask has no available work",
+    "low_level": "Nav2 planning, control and avoidance; policy has no cmd_vel publisher"
+  },
+  "candidate_rules": {
+    "shared_frontier_min_group": 3,
+    "original_score": "group_size/(centroid_distance_cells+1e-6)",
+    "selection": "observed local reachability/approach eligibility and dedup before top5",
+    "approach": "only if shared group has no own-known locally reachable endpoint; original shared path prefix stops at own unknown boundary",
+    "nontrivial_progress_m": 0.25,
+    "local_observed_path_budget_m": 23.400000000000002,
+    "history_visited_failed_exclusion_m": 0.2,
+    "last_success_exclusion_m": 0.5,
+    "active_and_joint_goal_separation_m": 0.7,
+    "inflation_cells": 7,
+    "navigation_timeout_sim_s": 90
+  },
+  "deployment_boundary": {
+    "robots": 3,
+    "platform": "TurtleBot3 Waffle / ROS2 Humble / custom SLAM Toolbox / Nav2",
+    "fixed_observations": "robot-obtainable LiDAR/SLAM/odometry/feedback only",
+    "actual_max_Gazebo_body_speed_m_s": 0.3355681859434193,
+    "nominal_velocity_scale_m_s": 0.26,
+    "nominal_scale_is_not_a_hard_body_speed_bound": true,
+    "actual_hardware_deployed": false,
+    "ns3_connected": false,
+    "communication_optimized": false
+  },
+  "evidence": {
+    "full_call_ledger": "workspace/rl04/CALL_LEDGER.json",
+    "selection": "runs/selection.json",
+    "test": "runs/test-01/comparison.json",
+    "Gazebo": "runs/gazebo-rl-smoke-01/result.json",
+    "P2_authoritative": "runs/gazebo-rl-smoke-01/state-availability-all-attempts.json",
+    "ROOT_raw_bag_audit": "../reviews/RL-04/gazebo-bag-audit.json"
+  },
+  "limits": [
+    "Only6new within-public-family geometries\u00d72poses and one180sim knownEconA engineering round.",
+    "No demonstrated extra PPO generalization advantage over46e-v2;time/path differences cross zero.",
+    "Public4202/502 remains incomplete at100;4203/501 has goals but short motion below1m.",
+    "No new moving active-cancel certificate;all10real goals already succeeded before end.",
+    "No full natural Gazebo exploration-task completion or real-robot safety/reliability certificate."
+  ],
+  "future_freeze_rule": "Only after explicit version acceptance: fix weights, feature processing/normalization, candidate/mask semantics, task/state rules and decision logic. Necessary change requires a new version and rebuilt comparison baselines; communication optimization cannot disguise a new allocator.",
+  "runtime_policy_source_sha256": {
+    "src/multi_robot_exploration/multi_robot_exploration/allocation.py": "e0c382ffa94e15f36f3990a028193b8ea2b3cd5ae5f681bc5a5d0270902244dc",
+    "src/multi_robot_exploration/multi_robot_exploration/frontier.py": "b9834b91f7f0baeb9ef97036197ac2b67d1aac49072944827daa61647607b2b8",
+    "src/multi_robot_exploration/multi_robot_exploration/joint.py": "279d59be09b39ce501af862991d7e88703f0b48cf08e6d1aab9ed0d3b97bc78a",
+    "src/multi_robot_exploration/multi_robot_exploration/observations.py": "54fd9395d2c0dd75def8ad07601005423df06f960060561de20a86ed52d0284c",
+    "src/multi_robot_exploration/multi_robot_exploration/ppo.py": "531a595922c7fd2c5c5fd5ef75e8e737a167c14af1ecd1880f5525c689bd5e9c",
+    "src/multi_robot_exploration/multi_robot_exploration/control.py": "2ef26eb5eb722deb03265a324c397dc3be0b369a56a610b61fb807ba6a1f8956",
+    "src/multi_robot_exploration/multi_robot_exploration/environment.py": "acd9b7ff104965067e68f16f6fb51d3a48a6c11122f71990a5f739037b906064",
+    "src/multi_robot_exploration/multi_robot_exploration/rl_env.py": "d03c93ffcf0fd2833ca213b811b46016fa5a38dc48bb55b6f0b3563d7df3feb4",
+    "rl01/ros_policy.py": "b17692e5c409e540b7fc66186703ee0a2302a319287de0a005ff059d3783d01b",
+    "rl04/ros_headquarters.py": "b11def034acf195d630d1183928e3ee8736a6ee2147348f440bee1108e46331a",
+    "rl04/train-config.json": "ccada263927da68f4724313313a7dec27a1150fb3b06788cf9ab0dcab3a056b3"
+  },
+  "delivery_identity": "FINAL_IDENTITY.json",
+  "decision_timing": {
+    "ROS_condition_period_sim_s": 5.0,
+    "feedback_consumption": "Nav2 callbacks update observed feedback/result/ownership asynchronously; the policy consumes that state in the next scheduled joint snapshot.",
+    "active_task_ownership": "KEEP only; retain existing token and accepted UUID, do not resend or replace the owned goal.",
+    "navigation_task_timeout_sim_s": 90.0
+  },
+  "encoding_authority": {
+    "function": "multi_robot_exploration.ppo.encode",
+    "source": "src/multi_robot_exploration/multi_robot_exploration/ppo.py",
+    "sha256": "531a595922c7fd2c5c5fd5ef75e8e737a167c14af1ecd1880f5525c689bd5e9c",
+    "semantics": "Exact ordering, normalization/scales and whitelisted fields are defined by this pinned source, not reinterpreted by this document."
+  },
+  "path_conventions": "checkpoint is workspace-root-relative; runtime_policy_source_sha256 keys are relative to rl-04/workspace; evidence and delivery_identity are relative to phase root rl-04 (../reviews points to workspace-root reviews)."
+}

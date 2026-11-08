@@ -1,0 +1,36 @@
+{
+  "baseline_commit": "12b366564842fbc98de57e0fc679a9b22d125543",
+  "upstream_commit": "9825c57f83c2bfb52790cb55b51d30009cbb346f",
+  "acceptance": "ACCEPT; bounded smoke only; no full-task or real-hardware acceptance",
+  "files": {
+    "base-01-econ/workspace/src/multi_robot_exploration/multi_robot_exploration/control.py": "8e9083377608911f06ce9022f0753069ffc0876e13ecd0ca6b1f76d69f062517",
+    "base-01-econ/workspace/src/multi_robot/launch/gazebo_multirobot_mapping_with_nav2.launch.py": "5d3b7ec01dbc2d3f7dda16babfff805d770d99bfe7aa28dbe73e817330e42d65",
+    "base-01-econ/workspace/src/multi_robot/worlds/my_world.world": "f9fb643594a8f0f0326fe1ba55b5389b91aa3f78dc08ba1f44a54228489f88bf",
+    "base-01-econ/workspace/src/multi_robot/models/turtlebot3_waffle/model.sdf": "e2659dd21d08a358da054898063b1378b6fa3c753668a1593a396b2c25cdaaf3",
+    "base-01-econ/workspace/src/merge_map/merge_map/merge_map.py": "780caa15e5ec49fe205be7bb9efe517b794e9cb52f70fb2125dd0c72aa857b4f",
+    "base-01-econ/workspace/src/base01_diff_drive/src/gazebo_ros_diff_drive.cpp": "b169cf6dcff76c3fb7b47a01449319ae31ad233ccbb74f78b624fe095eda0c74",
+    "base-01-econ/BASE01_FINAL_REPORT.md": "0dd58a76a9deb4e446d48dc410bfc04c3014e65bb20a8abb7a7e6b1965efeb67",
+    "base-01-econ/evidence/final/delivery-identity.json": "f4917ca938bfc449d5a2b9b4c5f1a91794e7873d20e16ee6830429335b506f3b",
+    "reviews/BASE-01-20261104-preliminary/final/REVIEW.md": "bf06eb4a8f595e7fa9701673f07c8e3aa83a0b4ffbc93b64dac0bc85733e4336",
+    "base-01-econ/workspace/src/multi_robot/params/nav2_params_tb3_0.yaml": "771a997ad5b930061139ca8c923f1eddd6154900394c61b4caccd4cb51e5e505",
+    "base-01-econ/workspace/src/multi_robot/params/nav2_params_tb1_0.yaml": "5e2076980517c410cce3c0a6e534201d6b28ec25f19074aef03e38f41c7acd54",
+    "base-01-econ/workspace/src/multi_robot/params/nav2_params_tb2_0.yaml": "de1b94b47cb0534a3103b68c879be01929365107bef054474f8dad9779e1291e",
+    "base-01-econ/workspace/src/multi_robot/urdf/turtlebot3_waffle.urdf": "584e58a31b306f714347f3db9b1c99d4dd5ee893cedb6f73d1cad8962ceb546e",
+    "base-01-econ/workspace/src/multi_robot/launch/nav2_bringup/bringup_launch.py": "79728af76b47b7dbd94d08809f4caffe38b3b6ae632000392a6efc787e4fb567",
+    "base-01-econ/workspace/src/multi_robot/launch/nav2_bringup/navigation_launch.py": "89cd1bdfddc91e8c353af9d40202a181d0c99baa87066ff4458be0a18d592aef",
+    "base-01-econ/workspace/src/multi_robot/launch/nav2_bringup/slam_launch.py": "83b8831b0fe2613e6e63b64c364fbac54fc0ef67fd7bb52edc6cc3cf0d55eb6b",
+    "base-01-econ/workspace/src/slam_toolbox/launch/online_async_multirobot_launch.py": "5a87151b80ed9724e7f74ba954fb216ac655e279c7e8016c56c7685942fe6b1e",
+    "base-01-econ/workspace/src/slam_toolbox/config/mapper_params_online_multi_async.yaml": "7effb11f85dc53bb2787f6785f28e396293da9f9efc2fdc0746d8d9276ddf2ff"
+  },
+  "clean": true,
+  "non_active_preserved_files": {
+    "base-01-econ/workspace/src/multi_robot/params/nav2_params_tb5_0.yaml": "22b03aff9d39c141a130162cc44046eb9bbe10e7bbc69c521c31db58383758f2",
+    "base-01-econ/workspace/src/multi_robot/params/nav2_params_tb6_0.yaml": "c736f2648ace3eba24bb5216ecf1e322de858dedbcc9cdf31f51cfe6689a4205",
+    "base-01-econ/workspace/src/multi_robot/params/nav2_params_tb4_0.yaml": "1bf3a20492d0b73b081ded49b4152499d8e1ac8b5cc24aebdfcf5e9e305c74f4"
+  },
+  "active_robots": [
+    "tb1",
+    "tb2",
+    "tb3"
+  ]
+}

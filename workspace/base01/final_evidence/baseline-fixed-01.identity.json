@@ -1,0 +1,25 @@
+{
+  "utc": "2026-11-04T11:31:12.018468+00:00",
+  "kind": "autonomous_smoke",
+  "commit": "de5b8a033f77338eb3524f8b0d21d1f006ef52b7",
+  "tree": "3e0df530d1469c1f22752527a58d9a5c623e9828",
+  "driver": "libbase01_diff_drive.so",
+  "driver_sha256": "8d54d39a687de851c95137ddee4a7ebbab90c3373e07d96fad338870d4317fc0",
+  "tools": {
+    "apt-in-rootfs.sh": "6a2b517931b5ca99132350b2f1fe5d0efc2feec59f84403b71fc5919108609d7",
+    "run-baseline.sh": "b0247f4abec080e2a9bb9c6a2c38efcd27d5400623acfdb63b1b25919a9f40cc",
+    "check_source.py": "2fc7ce644cf52bf27b0962aad54da241cfa27c52a9bc624f1d869d2e9f9cd8bb",
+    "capture_case_identity.py": "48e21130f8692854112e3d118707002e5ed600c4c9802fe943d907c23495f1f2",
+    "run_baseline.py": "b33bdc8c2df109808e777c899c60d2b34aa3f355b939341f704c715f9d1b1b27",
+    "fetch-suv.py": "43edb2dec2dd7ef0e8d5f08361f60fd59b6e257fddbe4df8cbabbd91d622ca9f",
+    "in-rootfs.sh": "5f6455da8f58dc66f532b67da649931cbf3de9e3a8c2c40d64b6ea60cc4d163d"
+  },
+  "safety": {
+    "linear_mps": 0.01,
+    "angular_rps": 0.03,
+    "stable_wall_seconds": 1.5,
+    "stable_sim_seconds": 0.5,
+    "stop_window_wall_seconds": 12,
+    "min_pair_distance_m": 0.7
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "checkpoint_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+  "fixture_selection": "Predeclared first real RL decision of each of the three fixed followup10 maps, not result selection",
+  "fixtures": [
+    {
+      "name": "corridor",
+      "npz": "evidence/fixtures/corridor.npz",
+      "event": "evidence/fixtures/corridor.json",
+      "source_case": "gz-01-followup-10/runs/corridor-common-6201-rl-fixed-dwb-01",
+      "source_npz": "gz-01-followup-10/runs/corridor-common-6201-rl-fixed-dwb-01/controller/policy-trace/0001.npz"
+    },
+    {
+      "name": "rooms",
+      "npz": "evidence/fixtures/rooms.npz",
+      "event": "evidence/fixtures/rooms.json",
+      "source_case": "gz-01-followup-10/runs/rooms-common-6101-rl-fixed-dwb-01",
+      "source_npz": "gz-01-followup-10/runs/rooms-common-6101-rl-fixed-dwb-01/controller/policy-trace/0001.npz"
+    },
+    {
+      "name": "hard",
+      "npz": "evidence/fixtures/hard.npz",
+      "event": "evidence/fixtures/hard.json",
+      "source_case": "gz-01-followup-10/runs/hard-common-4202-rl-fixed-dwb-01",
+      "source_npz": "gz-01-followup-10/runs/hard-common-4202-rl-fixed-dwb-01/controller/policy-trace/0001.npz"
+    }
+  ],
+  "atol": 1e-06,
+  "rtol": 1e-06,
+  "expected_forwards": 3
+}

@@ -1,0 +1,96 @@
+{
+  "training_seed": 2026110503,
+  "formal_joint_decisions": 2048,
+  "checkpoint_interval": 512,
+  "episode_decisions": 100,
+  "step_sim_seconds": 5.0,
+  "rollout": 256,
+  "minibatch": 128,
+  "epochs": 4,
+  "learning_rate": 0.0003,
+  "gamma": 0.99,
+  "gae_lambda": 0.95,
+  "clip": 0.2,
+  "value_coefficient": 0.5,
+  "entropy_coefficient": 0.01,
+  "gradient_clip": 0.5,
+  "hidden": 128,
+  "torch_threads": 1,
+  "task_roi": [
+    -5.8,
+    -5.6,
+    7.25,
+    5.3
+  ],
+  "reward": {
+    "new_free_m2": 0.1,
+    "sim_seconds": -0.005,
+    "path_m": -0.01,
+    "duplicate_new_m2": -0.01,
+    "stationary_no_progress_seconds": -0.02,
+    "first_complete": 2.0
+  },
+  "backend": {
+    "resolution": 0.05,
+    "physics_dt": 0.2,
+    "lidar_hz": 5,
+    "lidar_rays": 360,
+    "lidar_range_m": 10.0,
+    "lidar_x_offset_m": -0.064,
+    "lidar_height_m": 0.131,
+    "max_linear_m_s": 0.26,
+    "max_angular_rad_s": 1.0,
+    "radius_m": 0.25,
+    "min_pair_m": 0.7,
+    "xy_goal_tolerance_m": 0.25,
+    "yaw_goal_tolerance_rad": 0.25,
+    "navigation_timeout_sim_s": 90.0,
+    "initial_positions": [
+      [
+        5.0,
+        4.0
+      ],
+      [
+        -4.5,
+        4.0
+      ],
+      [
+        6.0,
+        -1.5
+      ]
+    ],
+    "seed_effect": "frozen per-map position table changes actual x/y and robot role assignment; seed also controls original fixed LiDAR angular offsets"
+  },
+  "run_seeds": [
+    2026110503
+  ],
+  "position_seeds": {
+    "TRAIN": [
+      101,
+      102,
+      103,
+      104
+    ],
+    "VAL": [
+      201
+    ],
+    "TEST": [
+      501,
+      502
+    ]
+  },
+  "diagnostic": {
+    "max_episodes": 6,
+    "max_joint_per_episode": 40,
+    "max_total_joint": 240,
+    "wall_seconds": 900,
+    "optimizer_updates": 0
+  },
+  "formal_wall_seconds_per_run": 7200,
+  "bootstrap_seed": 2026110599,
+  "bootstrap_replicates": 10000,
+  "training_phase_stop_on_any_run_fatal": true,
+  "candidate_mode": "rl03_local_v1",
+  "observation_contract": "rl03-local-reachable-v1",
+  "navigation_path_budget_m": 23.400000000000002
+}

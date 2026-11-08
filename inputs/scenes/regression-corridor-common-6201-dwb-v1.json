@@ -1,0 +1,87 @@
+{
+  "id": "regression-corridor-common-6201-dwb-v1",
+  "split": "EXPOSED_FIXED_MULTIMAP_RECHECK",
+  "category": "branching_corridors",
+  "world_relative_phase": "inputs/worlds/eval-corridor-common-6201.sdf",
+  "world_sha256": "01b0dfff13b09a6d98abc4dceb7803568af3764fa27296000423028dbf547f3b",
+  "source_provenance": {
+    "generator": "workspace/rl02/maps.py::layout/write_sdf",
+    "family": "branching_corridors",
+    "map_seed": 6201,
+    "exposure": {
+      "geometry_seen": true,
+      "history": "Historical Gazebo runs and prior public/development evaluation; original scene gz-01-followup-07/inputs/scenes/eval-corridor-common-6201.json",
+      "note": "Fixed cross-map recheck, not unseen geometry/generalization; no outcome-based selection",
+      "training_geometry": false
+    }
+  },
+  "physics_seed": 2026110601,
+  "robots": [
+    {
+      "name": "tb1",
+      "x": 0.7249999999999996,
+      "y": -0.1499999999999999,
+      "yaw": 0.0
+    },
+    {
+      "name": "tb2",
+      "x": 0.34999999999999964,
+      "y": -0.7999999999999999,
+      "yaw": 0.0
+    },
+    {
+      "name": "tb3",
+      "x": 1.0999999999999996,
+      "y": -0.7999999999999999,
+      "yaw": 0.0
+    }
+  ],
+  "wheel_contact_slip": 1e-05,
+  "ode_solver_type": "quick",
+  "reference_bounds": [
+    -5.800000000000001,
+    -5.6000000000000005,
+    7.25,
+    5.300000000000001
+  ],
+  "reference_area_m2": 38.89500000000001,
+  "reference_boundary_connections": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "maximum_autonomy_sim_s": 600,
+  "maximum_decisions": 130,
+  "common_start": {
+    "rule": "original declared first pose or fixed generator anchor; first static-clear compact triangle",
+    "anchor": [
+      0.7249999999999996,
+      -0.1499999999999999
+    ],
+    "offset_rotation_degrees": 0,
+    "robot_yaw": 0.0,
+    "minimum_centre_spacing_m": 0.75,
+    "selection": "Geometry only; no sensor/backend/policy/Gazebo trial or outcome selection"
+  },
+  "qualification": "Static .25 body-circle clearance/swept assembly, actual .55 peer raster, unchanged closed reachable component",
+  "rotation_shim": false,
+  "peer_timing": false,
+  "followup10_provenance": {
+    "source_scene_workspace_relative": "gz-01-followup-07/inputs/scenes/eval-corridor-common-6201.json",
+    "historical_split": "LOCKED_EVAL",
+    "historical_exposure_metadata": {
+      "geometry_seen": false,
+      "history": "Not in the three prior registered map catalogs",
+      "note": "New geometry in familiar generator family; fixed before optimization, no policy outcome selection"
+    },
+    "modifications": [
+      "id",
+      "split",
+      "exposure metadata",
+      "rotation_shim=false",
+      "peer_timing=false"
+    ],
+    "runtime_source_fixed": "76fd91cf937bd8d662302901dad063affbea3c38"
+  }
+}

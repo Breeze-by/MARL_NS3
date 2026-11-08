@@ -1,0 +1,111 @@
+{
+  "native_exit": 0,
+  "rows": {
+    "events": 29120,
+    "trajectory_rows": 18981,
+    "drive_rows": 56028,
+    "peer_rows": 6375
+  },
+  "rows_match": true,
+  "peer_marker": {
+    "saved": true,
+    "rows": 6375,
+    "last_sequence": 6376,
+    "phase": "after_peer_spin_exit"
+  },
+  "owned_live": [],
+  "original_stop": true,
+  "pause": true,
+  "integrity": true,
+  "closure": true,
+  "actual_slam_gate": [
+    {
+      "utc": "2026-11-08T15:43:00.226956+00:00",
+      "wall": 1794152580.2269769,
+      "sim": 18.6,
+      "kind": "slam_loop_gate_loaded",
+      "robot": "tb1",
+      "parameter": "loop_match_minimum_response_fine",
+      "parameter_type": 3,
+      "value": 0.75,
+      "expected": 0.75
+    },
+    {
+      "utc": "2026-11-08T15:43:00.244329+00:00",
+      "wall": 1794152580.244358,
+      "sim": 18.7,
+      "kind": "slam_loop_gate_loaded",
+      "robot": "tb2",
+      "parameter": "loop_match_minimum_response_fine",
+      "parameter_type": 3,
+      "value": 0.75,
+      "expected": 0.75
+    },
+    {
+      "utc": "2026-11-08T15:43:00.260029+00:00",
+      "wall": 1794152580.2600625,
+      "sim": 18.8,
+      "kind": "slam_loop_gate_loaded",
+      "robot": "tb3",
+      "parameter": "loop_match_minimum_response_fine",
+      "parameter_type": 3,
+      "value": 0.75,
+      "expected": 0.75
+    }
+  ],
+  "final_quality": true,
+  "last_invalid_elapsed": 5.899999999999999,
+  "metric": {
+    "coverage": 0.9986525601357421,
+    "thresholds": {
+      "0.5": {
+        "elapsed_sim_s": 44.6,
+        "receipt_sim": 74.2,
+        "initially_reached": false
+      },
+      "0.8": {
+        "elapsed_sim_s": 74.80000000000001,
+        "receipt_sim": 104.4,
+        "initially_reached": false
+      },
+      "0.9": {
+        "elapsed_sim_s": 96.9,
+        "receipt_sim": 126.5,
+        "initially_reached": false
+      },
+      "0.95": {
+        "elapsed_sim_s": 101.30000000000001,
+        "receipt_sim": 130.9,
+        "initially_reached": false
+      },
+      "0.98": {
+        "elapsed_sim_s": 140.8,
+        "receipt_sim": 170.4,
+        "initially_reached": false
+      }
+    },
+    "robots": {
+      "tb1": {
+        "path": 25.512718217179284,
+        "S": 6,
+        "A": 0,
+        "C": 0,
+        "high_fail": 0
+      },
+      "tb2": {
+        "path": 18.634258048670002,
+        "S": 5,
+        "A": 0,
+        "C": 1,
+        "high_fail": 1
+      },
+      "tb3": {
+        "path": 27.49693705925242,
+        "S": 7,
+        "A": 0,
+        "C": 0,
+        "high_fail": 0
+      }
+    }
+  }
+}

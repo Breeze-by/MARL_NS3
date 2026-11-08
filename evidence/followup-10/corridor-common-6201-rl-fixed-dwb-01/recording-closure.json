@@ -1,0 +1,111 @@
+{
+  "native_exit": 0,
+  "rows": {
+    "events": 22247,
+    "trajectory_rows": 18952,
+    "drive_rows": 55970,
+    "peer_rows": 6365
+  },
+  "rows_match": true,
+  "peer_marker": {
+    "saved": true,
+    "rows": 6365,
+    "last_sequence": 6366,
+    "phase": "after_peer_spin_exit"
+  },
+  "owned_live": [],
+  "original_stop": true,
+  "pause": true,
+  "integrity": true,
+  "closure": true,
+  "actual_slam_gate": [
+    {
+      "utc": "2026-11-08T15:03:10.791405+00:00",
+      "wall": 1794150190.7914252,
+      "sim": 18.0,
+      "kind": "slam_loop_gate_loaded",
+      "robot": "tb1",
+      "parameter": "loop_match_minimum_response_fine",
+      "parameter_type": 3,
+      "value": 0.75,
+      "expected": 0.75
+    },
+    {
+      "utc": "2026-11-08T15:03:10.815357+00:00",
+      "wall": 1794150190.815385,
+      "sim": 18.2,
+      "kind": "slam_loop_gate_loaded",
+      "robot": "tb2",
+      "parameter": "loop_match_minimum_response_fine",
+      "parameter_type": 3,
+      "value": 0.75,
+      "expected": 0.75
+    },
+    {
+      "utc": "2026-11-08T15:03:10.829798+00:00",
+      "wall": 1794150190.829831,
+      "sim": 18.3,
+      "kind": "slam_loop_gate_loaded",
+      "robot": "tb3",
+      "parameter": "loop_match_minimum_response_fine",
+      "parameter_type": 3,
+      "value": 0.75,
+      "expected": 0.75
+    }
+  ],
+  "final_quality": true,
+  "last_invalid_elapsed": 6.099999999999998,
+  "metric": {
+    "coverage": 0.9990358657925184,
+    "thresholds": {
+      "0.5": {
+        "elapsed_sim_s": 10.499999999999996,
+        "receipt_sim": 39.3,
+        "initially_reached": false
+      },
+      "0.8": {
+        "elapsed_sim_s": 36.2,
+        "receipt_sim": 65.0,
+        "initially_reached": false
+      },
+      "0.9": {
+        "elapsed_sim_s": 61.8,
+        "receipt_sim": 90.6,
+        "initially_reached": false
+      },
+      "0.95": {
+        "elapsed_sim_s": 61.8,
+        "receipt_sim": 90.6,
+        "initially_reached": false
+      },
+      "0.98": {
+        "elapsed_sim_s": 93.10000000000001,
+        "receipt_sim": 121.9,
+        "initially_reached": false
+      }
+    },
+    "robots": {
+      "tb1": {
+        "path": 18.811769136004983,
+        "S": 4,
+        "A": 0,
+        "C": 0,
+        "high_fail": 0
+      },
+      "tb2": {
+        "path": 15.716436740447254,
+        "S": 4,
+        "A": 0,
+        "C": 0,
+        "high_fail": 0
+      },
+      "tb3": {
+        "path": 13.063659762327257,
+        "S": 4,
+        "A": 0,
+        "C": 0,
+        "high_fail": 0
+      }
+    }
+  }
+}

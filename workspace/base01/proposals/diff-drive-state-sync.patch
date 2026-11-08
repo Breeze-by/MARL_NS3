@@ -1,0 +1,36 @@
+--- a/gazebo_plugins/src/gazebo_ros_diff_drive.cpp
++++ b/gazebo_plugins/src/gazebo_ros_diff_drive.cpp
+@@ -499,27 +499,29 @@
+       ((fabs(desired_wheel_speed_[2 * i + LEFT] - current_speed[2 * i + LEFT]) < 0.01) &&
+       (fabs(desired_wheel_speed_[2 * i + RIGHT] - current_speed[2 * i + RIGHT]) < 0.01)))
+     {
++      wheel_speed_instr_[2 * i + LEFT] = desired_wheel_speed_[2 * i + LEFT];
++      wheel_speed_instr_[2 * i + RIGHT] = desired_wheel_speed_[2 * i + RIGHT];
+       joints_[2 * i + LEFT]->SetParam(
+         "vel", 0, desired_wheel_speed_[2 * i + LEFT] / (wheel_diameter_[i] / 2.0));
+       joints_[2 * i + RIGHT]->SetParam(
+         "vel", 0, desired_wheel_speed_[2 * i + RIGHT] / (wheel_diameter_[i] / 2.0));
+     } else {
+       if (desired_wheel_speed_[2 * i + LEFT] >= current_speed[2 * i + LEFT]) {
+-        wheel_speed_instr_[2 * i + LEFT] += fmin(
++        wheel_speed_instr_[2 * i + LEFT] = current_speed[2 * i + LEFT] + fmin(
+           desired_wheel_speed_[2 * i + LEFT] -
+           current_speed[2 * i + LEFT], max_wheel_accel_ * seconds_since_last_update);
+       } else {
+-        wheel_speed_instr_[2 * i + LEFT] += fmax(
++        wheel_speed_instr_[2 * i + LEFT] = current_speed[2 * i + LEFT] + fmax(
+           desired_wheel_speed_[2 * i + LEFT] -
+           current_speed[2 * i + LEFT], -max_wheel_accel_ * seconds_since_last_update);
+       }
+ 
+       if (desired_wheel_speed_[2 * i + RIGHT] > current_speed[2 * i + RIGHT]) {
+-        wheel_speed_instr_[2 * i + RIGHT] += fmin(
++        wheel_speed_instr_[2 * i + RIGHT] = current_speed[2 * i + RIGHT] + fmin(
+           desired_wheel_speed_[2 * i + RIGHT] -
+           current_speed[2 * i + RIGHT], max_wheel_accel_ * seconds_since_last_update);
+       } else {
+-        wheel_speed_instr_[2 * i + RIGHT] += fmax(
++        wheel_speed_instr_[2 * i + RIGHT] = current_speed[2 * i + RIGHT] + fmax(
+           desired_wheel_speed_[2 * i + RIGHT] -
+           current_speed[2 * i + RIGHT], -max_wheel_accel_ * seconds_since_last_update);
+       }
