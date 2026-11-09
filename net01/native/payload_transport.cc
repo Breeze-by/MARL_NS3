@@ -18,11 +18,16 @@
 #include <set>
 #include <sstream>
 #include <vector>
+#include <unistd.h>
 
 using namespace ns3;
 static constexpr uint32_t WIRE_HEADER=36, CHUNK=1200-WIRE_HEADER;
 static std::ofstream ledger;
 static std::map<std::string,uint64_t> counts;
+static bool controlTrace=false;
+static int64_t activeHorizon=0;
+static uint64_t outputMessages=0,outputBytes=0;
+static int64_t outputWall=0,outputCpu=0;
 static int64_t mono() {
   return std::chrono::duration_cast<std::chrono::nanoseconds>(
       std::chrono::steady_clock::now().time_since_epoch()).count();
@@ -30,6 +35,13 @@ static int64_t mono() {
 static int64_t threadCpu() {
   timespec value;clock_gettime(CLOCK_THREAD_CPUTIME_ID,&value);
   return int64_t(value.tv_sec)*1000000000+value.tv_nsec;
+}
+static void controlBoundary(const std::string& kind,const std::string& fields="") {
+  if(!controlTrace)return;
+  const auto line="NET01_CONTROL {\"kind\":\""+kind+"\",\"monotonic_ns\":"+std::to_string(mono())+
+    ",\"thread_cpu_ns\":"+std::to_string(threadCpu())+",\"ns3_ns\":"+std::to_string(Simulator::Now().GetNanoSeconds())+
+    ",\"horizon_ns\":"+std::to_string(activeHorizon)+fields+"}\n";
+  NS_ABORT_MSG_IF(::write(STDERR_FILENO,line.data(),line.size())!=static_cast<ssize_t>(line.size()),"Diagnostic boundary write failed");
 }
 static void event(const std::string& kind,const std::string& fields="") {
   ++counts[kind];
@@ -96,8 +108,14 @@ static void receive(Ptr<Socket> socket) {
     packet->CopyData(m.data.data()+h.offset,h.length);m.pieces[index]=true;m.received+=h.length;
     if(m.received==h.total) {
       event("message_deliver",fields(h));
+      const bool detailed=controlTrace && m.data.size()>=16384;
+      const auto outputFields=",\"message_id\":"+std::to_string(h.id)+",\"bytes\":"+std::to_string(m.data.size());
+      if(detailed)controlBoundary("rx_output_begin",outputFields);
+      const auto outputBeginMono=controlTrace?mono():0,outputBeginCpu=controlTrace?threadCpu():0;
       std::cout<<"RX "<<unsigned(h.from)<<" "<<unsigned(h.to)<<" "<<h.flow<<" "<<h.id<<" "<<h.source<<" "<<Simulator::Now().GetNanoSeconds()<<" "<<m.data.size()<<"\n";
       std::cout.write(reinterpret_cast<const char*>(m.data.data()),m.data.size());std::cout<<"\n";std::cout.flush();
+      if(controlTrace) {++outputMessages;outputBytes+=m.data.size();outputWall+=mono()-outputBeginMono;outputCpu+=threadCpu()-outputBeginCpu;}
+      if(detailed)controlBoundary("rx_output_end",outputFields);
       completed.insert(h.id);pending.erase(it);
     }
   }
@@ -130,7 +148,6 @@ static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identit
 
 int main(int argc,char** argv) {
   std::string directory,profile="B";
-  bool controlTrace=false;
   struct StepTrace {int64_t horizon,beginMono,beginCpu,beginNs3,endMono,endCpu,endNs3;};
   std::vector<StepTrace> controlSteps;
   CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);cmd.Parse(argc,argv);
@@ -224,7 +241,12 @@ int main(int argc,char** argv) {
       NS_ABORT_MSG_IF(!in || horizon<Simulator::Now().GetNanoSeconds() || horizon-Simulator::Now().GetNanoSeconds()>100000000,"Invalid/nonmonotonic/>.1s horizon");
       StepTrace trace{};
       if(controlTrace)trace={horizon,mono(),threadCpu(),Simulator::Now().GetNanoSeconds(),0,0,0};
+      activeHorizon=horizon;
+      outputMessages=outputBytes=0;outputWall=outputCpu=0;
+      controlBoundary("step_begin");
       Simulator::Stop(NanoSeconds(horizon-Simulator::Now().GetNanoSeconds()));Simulator::Run();
+      controlBoundary("step_end",",\"output_messages\":"+std::to_string(outputMessages)+",\"output_bytes\":"+std::to_string(outputBytes)+
+        ",\"output_wall_ns\":"+std::to_string(outputWall)+",\"output_cpu_ns\":"+std::to_string(outputCpu));
       if(controlTrace) {
         trace.endCpu=threadCpu();trace.endMono=mono();trace.endNs3=Simulator::Now().GetNanoSeconds();controlSteps.push_back(trace);
       }

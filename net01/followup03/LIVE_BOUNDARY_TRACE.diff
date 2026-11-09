@@ -1,0 +1,140 @@
+diff --git a/net01/native/payload_transport.cc b/net01/native/payload_transport.cc
+index 4f3a1e2..234d4b8 100644
+--- a/net01/native/payload_transport.cc
++++ b/net01/native/payload_transport.cc
+@@ -18,11 +18,16 @@
+ #include <set>
+ #include <sstream>
+ #include <vector>
++#include <unistd.h>
+ 
+ using namespace ns3;
+ static constexpr uint32_t WIRE_HEADER=36, CHUNK=1200-WIRE_HEADER;
+ static std::ofstream ledger;
+ static std::map<std::string,uint64_t> counts;
++static bool controlTrace=false;
++static int64_t activeHorizon=0;
++static uint64_t outputMessages=0,outputBytes=0;
++static int64_t outputWall=0,outputCpu=0;
+ static int64_t mono() {
+   return std::chrono::duration_cast<std::chrono::nanoseconds>(
+       std::chrono::steady_clock::now().time_since_epoch()).count();
+@@ -31,6 +36,13 @@ static int64_t threadCpu() {
+   timespec value;clock_gettime(CLOCK_THREAD_CPUTIME_ID,&value);
+   return int64_t(value.tv_sec)*1000000000+value.tv_nsec;
+ }
++static void controlBoundary(const std::string& kind,const std::string& fields="") {
++  if(!controlTrace)return;
++  const auto line="NET01_CONTROL {\"kind\":\""+kind+"\",\"monotonic_ns\":"+std::to_string(mono())+
++    ",\"thread_cpu_ns\":"+std::to_string(threadCpu())+",\"ns3_ns\":"+std::to_string(Simulator::Now().GetNanoSeconds())+
++    ",\"horizon_ns\":"+std::to_string(activeHorizon)+fields+"}\n";
++  NS_ABORT_MSG_IF(::write(STDERR_FILENO,line.data(),line.size())!=static_cast<ssize_t>(line.size()),"Diagnostic boundary write failed");
++}
+ static void event(const std::string& kind,const std::string& fields="") {
+   ++counts[kind];
+   ledger<<"{\"kind\":\""<<kind<<"\",\"ns3_ns\":"<<Simulator::Now().GetNanoSeconds()
+@@ -96,8 +108,14 @@ static void receive(Ptr<Socket> socket) {
+     packet->CopyData(m.data.data()+h.offset,h.length);m.pieces[index]=true;m.received+=h.length;
+     if(m.received==h.total) {
+       event("message_deliver",fields(h));
++      const bool detailed=controlTrace && m.data.size()>=16384;
++      const auto outputFields=",\"message_id\":"+std::to_string(h.id)+",\"bytes\":"+std::to_string(m.data.size());
++      if(detailed)controlBoundary("rx_output_begin",outputFields);
++      const auto outputBeginMono=controlTrace?mono():0,outputBeginCpu=controlTrace?threadCpu():0;
+       std::cout<<"RX "<<unsigned(h.from)<<" "<<unsigned(h.to)<<" "<<h.flow<<" "<<h.id<<" "<<h.source<<" "<<Simulator::Now().GetNanoSeconds()<<" "<<m.data.size()<<"\n";
+       std::cout.write(reinterpret_cast<const char*>(m.data.data()),m.data.size());std::cout<<"\n";std::cout.flush();
++      if(controlTrace) {++outputMessages;outputBytes+=m.data.size();outputWall+=mono()-outputBeginMono;outputCpu+=threadCpu()-outputBeginCpu;}
++      if(detailed)controlBoundary("rx_output_end",outputFields);
+       completed.insert(h.id);pending.erase(it);
+     }
+   }
+@@ -130,7 +148,6 @@ static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identit
+ 
+ int main(int argc,char** argv) {
+   std::string directory,profile="B";
+-  bool controlTrace=false;
+   struct StepTrace {int64_t horizon,beginMono,beginCpu,beginNs3,endMono,endCpu,endNs3;};
+   std::vector<StepTrace> controlSteps;
+   CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);cmd.Parse(argc,argv);
+@@ -224,7 +241,12 @@ int main(int argc,char** argv) {
+       NS_ABORT_MSG_IF(!in || horizon<Simulator::Now().GetNanoSeconds() || horizon-Simulator::Now().GetNanoSeconds()>100000000,"Invalid/nonmonotonic/>.1s horizon");
+       StepTrace trace{};
+       if(controlTrace)trace={horizon,mono(),threadCpu(),Simulator::Now().GetNanoSeconds(),0,0,0};
++      activeHorizon=horizon;
++      outputMessages=outputBytes=0;outputWall=outputCpu=0;
++      controlBoundary("step_begin");
+       Simulator::Stop(NanoSeconds(horizon-Simulator::Now().GetNanoSeconds()));Simulator::Run();
++      controlBoundary("step_end",",\"output_messages\":"+std::to_string(outputMessages)+",\"output_bytes\":"+std::to_string(outputBytes)+
++        ",\"output_wall_ns\":"+std::to_string(outputWall)+",\"output_cpu_ns\":"+std::to_string(outputCpu));
+       if(controlTrace) {
+         trace.endCpu=threadCpu();trace.endMono=mono();trace.endNs3=Simulator::Now().GetNanoSeconds();controlSteps.push_back(trace);
+       }
+diff --git a/net01/tools/packet_hub.py b/net01/tools/packet_hub.py
+index ab02ec8..9474057 100644
+--- a/net01/tools/packet_hub.py
++++ b/net01/tools/packet_hub.py
+@@ -29,7 +29,7 @@ async def main(args):
+     command = [str(args.native.resolve()), f"--output={native_output.resolve()}", f"--profile={args.profile}"]
+     if args.control_trace:command.append('--controlTrace=1')
+     process = await asyncio.create_subprocess_exec(*command, stdin=asyncio.subprocess.PIPE,
+-        stdout=asyncio.subprocess.PIPE, stderr=stderr)
++        stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE if args.control_trace else stderr)
+     result = dict(argv=command, scope="Unix IPC to actual ns3 full-payload transport", status="FAIL")
+     server = None
+     owner = None
+@@ -41,26 +41,44 @@ async def main(args):
+     next_message = 0
+     known_horizon = 0
+     control_trace=[]
++    native_boundaries=[]
++    native_stderr=[]
+     def control_event(kind,**fields):
+         if args.control_trace:control_trace.append(dict(kind=kind,monotonic_ns=time.monotonic_ns(),**fields))
+ 
++    async def native_diagnostics():
++        while line := await process.stderr.readline():
++            received=time.monotonic_ns()
++            native_stderr.append(line)
++            if line.startswith(b'NET01_CONTROL '):
++                row=json.loads(line[len(b'NET01_CONTROL '):])
++                row['hub_receive_monotonic_ns']=received
++                native_boundaries.append(row)
++
++    diagnostics_task=asyncio.create_task(native_diagnostics()) if args.control_trace else None
++
+     async def native_rx():
+         try:
+             while line := await process.stdout.readline():
+                 words = line.decode().split()
+                 if words[0] == "RX":
+                     sender, receiver, flow, mid, source, stamp, size = map(int, words[1:])
++                    detailed=args.control_trace and size>=16384
++                    if detailed:control_event('hub_payload_read_begin',message_id=mid,bytes=size)
+                     payload = await process.stdout.readexactly(size)
+                     if await process.stdout.readexactly(1) != b"\n":
+                         raise ValueError("Native body framing mismatch")
++                    if detailed:control_event('hub_payload_read_end',message_id=mid,bytes=size)
+                     meta = dict(kind="delivered", sender=sender, receiver=receiver, flow=flow,
+                         message_id=mid, source_stamp_ns=source, ns3_rx_ns=stamp,
+                         hub_receive_monotonic_ns=time.monotonic_ns(), bytes=size)
+                     deliveries.append(meta)
+                     if owner is None:
+                         raise RuntimeError("Native delivery without an owned endpoint session")
++                    if detailed:control_event('hub_owner_output_begin',message_id=mid,bytes=size)
+                     owner.write(json.dumps(meta).encode()+b"\n"+payload)
+                     await owner.drain()
++                    if detailed:control_event('hub_owner_output_end',message_id=mid,bytes=size)
+                 elif words[0] == "STEP":
+                     control_event('hub_native_STEP_received',horizon_ns=int(words[1]))
+                     await received_steps.put(int(words[1]))
+@@ -164,6 +182,10 @@ async def main(args):
+             await process.wait()
+         if owner is not None:
+             owner.close()
++        if diagnostics_task is not None:
++            await diagnostics_task
++            stderr.writelines(native_stderr)
++            (args.output/'native-control-boundaries.json').write_text(json.dumps(native_boundaries,indent=2)+'\n')
+         stderr.close()
+         (args.output/"hub-ingress.json").write_text(json.dumps(ingress, indent=2)+"\n")
+         (args.output/"hub-deliveries.json").write_text(json.dumps(deliveries, indent=2)+"\n")

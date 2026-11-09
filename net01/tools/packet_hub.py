@@ -29,7 +29,7 @@ async def main(args):
     command = [str(args.native.resolve()), f"--output={native_output.resolve()}", f"--profile={args.profile}"]
     if args.control_trace:command.append('--controlTrace=1')
     process = await asyncio.create_subprocess_exec(*command, stdin=asyncio.subprocess.PIPE,
-        stdout=asyncio.subprocess.PIPE, stderr=stderr)
+        stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE if args.control_trace else stderr)
     result = dict(argv=command, scope="Unix IPC to actual ns3 full-payload transport", status="FAIL")
     server = None
     owner = None
@@ -41,8 +41,21 @@ async def main(args):
     next_message = 0
     known_horizon = 0
     control_trace=[]
+    native_boundaries=[]
+    native_stderr=[]
     def control_event(kind,**fields):
         if args.control_trace:control_trace.append(dict(kind=kind,monotonic_ns=time.monotonic_ns(),**fields))
+
+    async def native_diagnostics():
+        while line := await process.stderr.readline():
+            received=time.monotonic_ns()
+            native_stderr.append(line)
+            if line.startswith(b'NET01_CONTROL '):
+                row=json.loads(line[len(b'NET01_CONTROL '):])
+                row['hub_receive_monotonic_ns']=received
+                native_boundaries.append(row)
+
+    diagnostics_task=asyncio.create_task(native_diagnostics()) if args.control_trace else None
 
     async def native_rx():
         try:
@@ -50,17 +63,22 @@ async def main(args):
                 words = line.decode().split()
                 if words[0] == "RX":
                     sender, receiver, flow, mid, source, stamp, size = map(int, words[1:])
+                    detailed=args.control_trace and size>=16384
+                    if detailed:control_event('hub_payload_read_begin',message_id=mid,bytes=size)
                     payload = await process.stdout.readexactly(size)
                     if await process.stdout.readexactly(1) != b"\n":
                         raise ValueError("Native body framing mismatch")
+                    if detailed:control_event('hub_payload_read_end',message_id=mid,bytes=size)
                     meta = dict(kind="delivered", sender=sender, receiver=receiver, flow=flow,
                         message_id=mid, source_stamp_ns=source, ns3_rx_ns=stamp,
                         hub_receive_monotonic_ns=time.monotonic_ns(), bytes=size)
                     deliveries.append(meta)
                     if owner is None:
                         raise RuntimeError("Native delivery without an owned endpoint session")
+                    if detailed:control_event('hub_owner_output_begin',message_id=mid,bytes=size)
                     owner.write(json.dumps(meta).encode()+b"\n"+payload)
                     await owner.drain()
+                    if detailed:control_event('hub_owner_output_end',message_id=mid,bytes=size)
                 elif words[0] == "STEP":
                     control_event('hub_native_STEP_received',horizon_ns=int(words[1]))
                     await received_steps.put(int(words[1]))
@@ -164,6 +182,10 @@ async def main(args):
             await process.wait()
         if owner is not None:
             owner.close()
+        if diagnostics_task is not None:
+            await diagnostics_task
+            stderr.writelines(native_stderr)
+            (args.output/'native-control-boundaries.json').write_text(json.dumps(native_boundaries,indent=2)+'\n')
         stderr.close()
         (args.output/"hub-ingress.json").write_text(json.dumps(ingress, indent=2)+"\n")
         (args.output/"hub-deliveries.json").write_text(json.dumps(deliveries, indent=2)+"\n")

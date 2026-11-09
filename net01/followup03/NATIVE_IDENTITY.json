@@ -1,0 +1,28 @@
+{
+  "scope": "Independent live-boundary diagnostic ELF; no ns3/core/network/clock algorithm change",
+  "base_commit": "15b53b7675446deab7e7d2ddba1b77162113606d",
+  "binary": {
+    "path": "/home/zhuyulab/ns3-workspace/net-01/build/followup03-boundaries/net01-payload",
+    "bytes": 360352,
+    "sha256": "dee4a4c23d95cbfc14515c046b5a712992b039c67d0b6cc3ea25efcb41b0b6e9"
+  },
+  "source": {
+    "path": "net01/native/payload_transport.cc",
+    "sha256": "dfdef698b52af8f5bf99defaef47c6453d7eec3bfbffeb98af2061c07b3923f7"
+  },
+  "reused_generated_header": {
+    "relative_phase": "build/network-full-payload/network_config.h",
+    "bytes": 4545,
+    "sha256": "66e64adf26c3d712ab149fe2d828ae8858d00c7172ef8adfacfc5bd7c2ff73a2"
+  },
+  "configure": "cmake -S net-01/workspace/net01/native -B net-01/build/followup03-boundaries -DCMAKE_BUILD_TYPE=Release -DNS3_DIR=/home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40 -DCONFIG_HEADER_DIR=/home/zhuyulab/ns3-workspace/net-01/build/network-full-payload",
+  "build": "cmake --build net-01/build/followup03-boundaries -j2",
+  "configure_exit": 0,
+  "build_exit": 0,
+  "diagnostic_default": false,
+  "boundary_channel": "Dedicated stderr pipe; one short native write per STEP or large payload edge; parent async drain captures original mono/CPU and parent receipt mono",
+  "payload_threshold_bytes": 16384,
+  "old_binary_unchanged": "build/control-trace/net01-payload",
+  "requested_once": "rtk proxy python3 -B net-01/workspace/net01/followup01/continuous_dds.py --name continuous-dds-15-wifi --mode B --feedback-hz 100 --control-trace --native /home/zhuyulab/ns3-workspace/net-01/build/followup03-boundaries/net01-payload",
+  "runtime_scope": "8wall source / original20wall hard total; synthetic clock; CPUprofileoff; no GZ/Nav2/Goal/arm/NN; awaiting root admission"
+}
