@@ -135,7 +135,8 @@ def popen(command,*args,**kwargs):
         log=(observer.directory/"network-gateway.log").open("x")
         gateway=subprocess.Popen([sys.executable,"-B",str(HERE/"gateway.py"),
             "--mode",os.environ["NET01_MODE"],"--socket",os.environ["NET01_SOCKET"],
-            "--session-id",os.environ["NET01_SESSION_ID"],"--directory",str(observer.directory)],
+            "--session-id",os.environ["NET01_SESSION_ID"],"--directory",str(observer.directory)]+
+            (['--control-trace'] if os.environ['NET01_CONTROL_TRACE']=='1' else []),
             stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
         original.record_process(observer.directory,"network_gateway",gateway.pid)
     elif len(command)>2 and command[:2]==["python3","-B"] and command[2]==str(FROZEN/"gz01/headquarters.py"):

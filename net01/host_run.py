@@ -46,15 +46,16 @@ def main():
     case.parent.mkdir(parents=True,exist_ok=True)
     socket=REPO/net["socket_relative_repo"]
     evidence=REPO/net["hub_output_relative_repo"]
-    native=PHASE/"build/network-full-payload/net01-payload"
+    native=PHASE/net["native_identity"]["binary"]["relative_phase"]
     # Check the actual executable/header before any native model is started.
-    for key,path in (("binary",native),("generated_header",native.with_name("network_config.h"))):
+    for key,path in (("binary",native),("generated_header",PHASE/net["native_identity"]["generated_header"]["relative_phase"])):
         actual=hashlib.sha256(path.read_bytes()).hexdigest()
         if actual!=net["native_identity"][key]["sha256"]:
             raise ValueError("Reviewed native "+key+" changed")
     command=[sys.executable,"-B",str(HERE/"tools/packet_hub.py"),"--socket",str(socket),
         "--native",str(native),"--output",str(evidence),"--profile",("C" if net["mode"]=="C" else "B"),
         "--wall","1000","--clock-source","gazebo"]
+    if net.get('control_trace',False):command.append('--control-trace')
     result=dict(start_utc=datetime.now(timezone.utc).isoformat(),hub_argv=command,runner_exit=None)
     hub=runner=None
     hub_log=case.with_name(case.name+".hub.log").open("x")

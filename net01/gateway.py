@@ -409,8 +409,9 @@ def main():
     parser.add_argument("--socket",type=Path,required=True)
     parser.add_argument("--directory",type=Path,required=True)
     parser.add_argument("--session-id",type=int,required=True)
+    parser.add_argument('--control-trace',action='store_true')
     args=parser.parse_args()
-    node=Gateway(args.mode,args.socket,args.directory,args.session_id)
+    node=Gateway(args.mode,args.socket,args.directory,args.session_id,control_trace=args.control_trace)
     stopping=False
     def stop(signum,frame):
         nonlocal stopping
