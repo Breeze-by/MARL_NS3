@@ -168,9 +168,9 @@
   "purpose": "New matched controlled-time IDEAL-DIRECT-ADAPTER120sim reference; real paused Step/clock/ACK/HOLD preflight before any Policy/Goal. Not WiFi qualification.",
   "protocol_relative_phase": "net01/followup04/A09_PLAN.md",
   "runtime_base_source_commit": "76fd91cf937bd8d662302901dad063affbea3c38",
-  "authorized_gz01_execution": false,
-  "authorized_net01_execution": false,
-  "status": "ROOT REVIEW PENDING: source and new control artifacts bound, both authorizations false; no execution",
+  "authorized_gz01_execution": true,
+  "authorized_net01_execution": true,
+  "status": "ROOT LIMITED ACCEPT: unique A09 direct controlled-time reference, one attempt only; WiFi B/C NOT ADMITTED",
   "network": {
     "mode": "A",
     "label": "IDEAL-DIRECT-ADAPTER",
@@ -298,5 +298,14 @@
     "B": "NOT ADMITTED",
     "C": "NOT ADMITTED",
     "no_automatic_retry": true
+  },
+  "independent_admission": {
+    "reviewed_runtime_commit": "1144b99b692c45e10180e3c6624e3ad06ae74e1e",
+    "root_and_second_reviewer": "LIMITED ACCEPT for this unique modeA only",
+    "scope": "120sim/420wall engineering reference, original frozen policy and all original freshness/physical-stop limits; not180sim/WiFi/NETWORK SAFETY PASS",
+    "startup": "Real plugin completed steps/actual R clock/native ACK and C Peer timers before autonomy; original five scans/Nav2/SLAM/physical-stop preflight unchanged",
+    "clock_witness_boundary": "Process readiness is not receipt ACK. Independent R/C samples and first sample versus first Goal are checked afterwards; missing actual samples do not pass this diagnostic",
+    "failure": "Preserve first cause and all raw logs, original fail-closed stop, no automatic retry or B/C admission",
+    "user_authorization": "Continue fixing and testing NET-01; parallel producers under independent review"
   }
 }
