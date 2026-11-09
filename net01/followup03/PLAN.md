@@ -7,3 +7,7 @@
 新ELF独立build/followup03-boundaries，旧ELF/ns3/header保持。先给diff与构建身份，由root审唯一完整modeB连续8wall源/20wall总界/100HzFB/controltraceon/CPUprofileoff诊断；尚未运行。任何首fault按原门限锁存，不catchup/重戳/降低负载。fault后Gateway停止业务poll所致后续背压不得倒认为首fault原因。
 
 测量只区分Run整体wall/CPU、其中真实stdout输出、hub读/转发与clock链；trace本身额外少量syscall/解析开销记录为观察扰动，不以未知间隔唯一归因。没有实现同步coordinator/FIFO线程或新调度优化。后续方案据实际证据再审。
+
+## 唯一实际诊断15结果
+
+c97f830独立ELF按已审modeB/原8源20wall实际执行一次，11.756wall全owned退出，clockFAIL。失败STEP .9真实入口已收到；37.565ms后原lagguard触发；首大payload输出在STEP入口后54.926wall/54.927CPU ms，晚于首fault。主要首段是native真实无线事件处理CPU，不能把故障后hub owner.drain/最终native stdout阻塞倒作第一原因。原始边界已由父进程在异常路径保存，详见MEASUREMENT_15.json及runs/continuous-dds-15-wifi。没有自行重试/修改时间协调/门限/负载/网络，等待根审下一方案。

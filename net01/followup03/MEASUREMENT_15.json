@@ -1,0 +1,297 @@
+{
+  "scope": "One real WiFi full-payload synthetic-clock diagnostic; no GZ/Nav2/Goal/arm/NN",
+  "source_commit": "c97f830bc9feffd4ae661fe86d08550e24ad8e03",
+  "raw": "runs/continuous-dds-15-wifi",
+  "process": {
+    "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+    "error": null,
+    "wall_s": 11.755717709020246,
+    "hard_wall_s": 20,
+    "exits": {
+      "hub": 1,
+      "peer": 0,
+      "gateway": 1,
+      "source": 0
+    },
+    "Gazebo": 0,
+    "NN": 0,
+    "wrapper_pids": {
+      "hub": 1735090,
+      "peer": 1735099,
+      "gateway": 1735100,
+      "source": 1735101
+    },
+    "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior"
+  },
+  "status": "FAIL",
+  "failure": "mapped_ns3_clock_lag_above_0.12sim",
+  "source_wall_s": 8.022676050954033,
+  "source_counts": [
+    {
+      "kind": "synthetic_clock",
+      "robot": 0,
+      "count": 94
+    },
+    {
+      "kind": "static",
+      "robot": 1,
+      "count": 1
+    },
+    {
+      "kind": "synthetic_map",
+      "robot": 1,
+      "count": 2
+    },
+    {
+      "kind": "synthetic_action_status",
+      "robot": 1,
+      "count": 9
+    },
+    {
+      "kind": "static",
+      "robot": 2,
+      "count": 1
+    },
+    {
+      "kind": "synthetic_map",
+      "robot": 2,
+      "count": 2
+    },
+    {
+      "kind": "synthetic_action_status",
+      "robot": 2,
+      "count": 9
+    },
+    {
+      "kind": "static",
+      "robot": 3,
+      "count": 1
+    },
+    {
+      "kind": "synthetic_map",
+      "robot": 3,
+      "count": 2
+    },
+    {
+      "kind": "synthetic_action_status",
+      "robot": 3,
+      "count": 8
+    },
+    {
+      "kind": "map->odom",
+      "robot": 1,
+      "count": 401
+    },
+    {
+      "kind": "odom",
+      "robot": 1,
+      "count": 241
+    },
+    {
+      "kind": "odom->base_footprint",
+      "robot": 1,
+      "count": 241
+    },
+    {
+      "kind": "base_link->wheel_left_link",
+      "robot": 1,
+      "count": 161
+    },
+    {
+      "kind": "exact_zero_cmd",
+      "robot": 1,
+      "count": 161
+    },
+    {
+      "kind": "synthetic_action_feedback",
+      "robot": 1,
+      "count": 800
+    },
+    {
+      "kind": "synthetic_action_feedback",
+      "robot": 2,
+      "count": 800
+    },
+    {
+      "kind": "map->odom",
+      "robot": 2,
+      "count": 400
+    },
+    {
+      "kind": "synthetic_action_feedback",
+      "robot": 3,
+      "count": 799
+    },
+    {
+      "kind": "map->odom",
+      "robot": 3,
+      "count": 400
+    },
+    {
+      "kind": "odom",
+      "robot": 2,
+      "count": 240
+    },
+    {
+      "kind": "odom->base_footprint",
+      "robot": 2,
+      "count": 240
+    },
+    {
+      "kind": "odom",
+      "robot": 3,
+      "count": 240
+    },
+    {
+      "kind": "odom->base_footprint",
+      "robot": 3,
+      "count": 240
+    },
+    {
+      "kind": "base_link->wheel_left_link",
+      "robot": 2,
+      "count": 160
+    },
+    {
+      "kind": "exact_zero_cmd",
+      "robot": 2,
+      "count": 160
+    },
+    {
+      "kind": "base_link->wheel_left_link",
+      "robot": 3,
+      "count": 160
+    },
+    {
+      "kind": "exact_zero_cmd",
+      "robot": 3,
+      "count": 160
+    },
+    {
+      "kind": "synthetic_costmap",
+      "robot": 1,
+      "count": 16
+    },
+    {
+      "kind": "synthetic_costmap",
+      "robot": 2,
+      "count": 16
+    },
+    {
+      "kind": "synthetic_costmap",
+      "robot": 3,
+      "count": 16
+    }
+  ],
+  "first_transport_fault": {
+    "kind": "transport_latched_INVALID",
+    "monotonic_ns": 423514781946144,
+    "gz_ns": 1500000000,
+    "reason": "mapped_ns3_clock_lag_above_0.12sim"
+  },
+  "failed_step_begin": {
+    "kind": "step_begin",
+    "monotonic_ns": 423514744381597,
+    "thread_cpu_ns": 150194831,
+    "ns3_ns": 800000000,
+    "horizon_ns": 900000000,
+    "hub_receive_monotonic_ns": 423514744603775
+  },
+  "first_large_output_begin": {
+    "kind": "rx_output_begin",
+    "monotonic_ns": 423514799307354,
+    "thread_cpu_ns": 205121702,
+    "ns3_ns": 805340047,
+    "horizon_ns": 900000000,
+    "message_id": 20,
+    "bytes": 55112,
+    "hub_receive_monotonic_ns": 423514799565771
+  },
+  "begin_to_fault_wall_ms": 37.564547,
+  "begin_to_first_large_wall_ms": 54.925757,
+  "begin_to_first_large_thread_cpu_ms": 54.926871,
+  "large_output_spans": [
+    {
+      "message_id": 20,
+      "bytes": 55112,
+      "begin_monotonic_ns": 423514799307354,
+      "end_monotonic_ns": 423514799380633,
+      "wall_ms": 0.073279,
+      "cpu_ms": 0.073978
+    },
+    {
+      "message_id": 17,
+      "bytes": 55112,
+      "begin_monotonic_ns": 423514816012917,
+      "end_monotonic_ns": 423514816079616,
+      "wall_ms": 0.066699,
+      "cpu_ms": 0.080493
+    },
+    {
+      "message_id": 14,
+      "bytes": 55112,
+      "begin_monotonic_ns": 423514847044267,
+      "end_monotonic_ns": 423514847116717,
+      "wall_ms": 0.07245,
+      "cpu_ms": 0.073061
+    },
+    {
+      "message_id": 10,
+      "bytes": 160611,
+      "begin_monotonic_ns": 423514850959957,
+      "end_monotonic_ns": 423514851374230,
+      "wall_ms": 0.414273,
+      "cpu_ms": 0.15968
+    },
+    {
+      "message_id": 11,
+      "bytes": 160611,
+      "begin_monotonic_ns": 423514869050440,
+      "end_monotonic_ns": 423514869448116,
+      "wall_ms": 0.397676,
+      "cpu_ms": 0.158502
+    },
+    {
+      "message_id": 12,
+      "bytes": 160611,
+      "begin_monotonic_ns": 423514887022489,
+      "end_monotonic_ns": null,
+      "wall_ms": null,
+      "cpu_ms": null
+    }
+  ],
+  "hub_blocked_owner_output_begin": {
+    "kind": "hub_owner_output_begin",
+    "monotonic_ns": 423514851985530,
+    "message_id": 10,
+    "bytes": 160611
+  },
+  "native_boundary_rows": 28,
+  "first_fault_before_large_output": true,
+  "pre_fault_deliveries": "6 HELLO/ACK + 1 filter_info; no bound mask",
+  "gateway_complete": 7,
+  "R_bound_masks": 0,
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": false,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 1,
+      "2": 1,
+      "3": 1
+    }
+  },
+  "conclusions": [
+    "First fault occurred while native was processing real WiFi events, before any >=16KiB output began; large-output blocking cannot be its cause",
+    "Native STEP start to first large output: approximately equal wall and threadCPU; includes ns3 model/event/trace bookkeeping, not uniquely a WiFi model algorithm attribution",
+    "After first fault Gateway stops normal transport polls; hub owner.drain and subsequent native stdout block are confirmed consequences, not the initial fault",
+    "No healthy full-load delivery/time qualification. No clock/gate/model/network parameter change or new coordinator implemented"
+  ],
+  "observer_effect": "Low-volume independent stderr diagnostic lines and parent parsing add measurement overhead; small messages only STEP counters; no payload copied into diagnostic channel"
+}
