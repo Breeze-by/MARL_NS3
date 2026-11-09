@@ -17,9 +17,10 @@ def main():
         s.begin_step(eligible(s));s.complete_step(dict(before_ns=before,after_ns=before+QUANTUM_NS,
             before_iterations=iteration,after_iterations=iteration+10,completed_steps=10))
     s=TimeControlState();assert not can(s);s.native('ready',0)
+    assert not can(s);s.gateway_clock_ready=True
     finish(s,5_000_000);finish(s,15_000_000,10)
     assert not can(s) and s.bootstrap_tokens==2
-    checks['preanchor_at_most_two_physical_quanta']=True
+    checks['preanchor_requires_actual_gateway_clock_readiness_then_at_most_two_quanta']=True
     s.set_anchor(10_000_000);s.clock(20_000_000)
     assert not can(s);s.native('step',10_000_000);assert can(s)
     finish(s,25_000_000,20);assert s.physical_ns==35_000_000 and not can(s)
@@ -40,18 +41,19 @@ def main():
     assert not can(s)  # No native credit; normal stop cannot run freely.
     checks['normal_stop_observe_preserves_actual_native_credit']=True
     s.fail('actual_transport_failure');assert not s.run() and not s.stop_observe(False)
+    s.gateway_clock_ready=False
     assert s.stop_observe(True) and s.mode=='FAULT_STOP_OBSERVE' and can(s)
     finish(s,45_000_000,40);assert s.native_ns==20_000_000
     checks['failed_stop_requires_authority_exit_and_never_fakes_native_ACK']=True
     s.hold(expected_shutdown=True);s.hold();assert s.expected_shutdown and not can(s) and not s.run() and not s.stop_observe(True)
     s.native('closed',s.native_ns);assert s.failure=='actual_transport_failure'
     checks['expected_shutdown_does_not_resume_or_overwrite_firstfault']=True
-    bad=TimeControlState();bad.native('ready',0);bad.begin_step(eligible(bad))
+    bad=TimeControlState();bad.native('ready',0);bad.gateway_clock_ready=True;bad.begin_step(eligible(bad))
     bad.complete_step(dict(before_ns=0,after_ns=9_000_000,
         before_iterations=0,after_iterations=9,completed_steps=9))
     assert bad.failure=='post_physics_token_mismatch' and not can(bad) and not bad.stop_observe(True)
     checks['incomplete_actual_physics_is_not_ACKed_as_a_full_token']=True
-    paced=TimeControlState();paced.native('ready',0);paced.run()
+    paced=TimeControlState();paced.native('ready',0);paced.gateway_clock_ready=True;paced.run()
     paced.begin_step(100);paced.complete_step(dict(before_ns=0,after_ns=QUANTUM_NS,before_iterations=0,after_iterations=10,completed_steps=10))
     prior_deadline=paced.next_wall_ns;assert paced.run() and paced.next_wall_ns==prior_deadline
     assert not paced.can_step(100+TOKEN_WALL_PERIOD_NS-1) and paced.can_step(100+TOKEN_WALL_PERIOD_NS)

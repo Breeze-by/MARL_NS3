@@ -12,6 +12,7 @@ class TimeControlState:
     def __init__(self):
         self.mode='RUN';self.failure=None;self.expected_shutdown=False;self.physics_failed=False
         self.native_ready=False;self.native_ns=0;self.anchor=None;self.clock_ns=None
+        self.gateway_clock_ready=False
         self.physical_ns=None;self.iterations=None;self.inflight=False
         self.bootstrap_tokens=0;self.authority_exited=False
         self.next_wall_ns=None;self.last_planned_wall_ns=None;self.last_lateness_ns=0
@@ -64,7 +65,7 @@ class TimeControlState:
         if self.inflight or self.physics_failed or self.expected_shutdown or self.mode=='HOLD':return False
         if self.mode=='FAULT_STOP_OBSERVE':return True
         if not self.native_ready:return False
-        if self.anchor is None:return self.bootstrap_tokens<2
+        if self.anchor is None:return self.gateway_clock_ready and self.bootstrap_tokens<2
         # Hub admits STEP only through its own known actual /clock horizon.
         # This independent best-effort reader is observation, not a second ACK:
         # a missing terminal sample must not deadlock physical credit.

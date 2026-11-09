@@ -42,6 +42,7 @@ def main():
     try:
         coordinator=launch('coordinator',wrapper+['/mnt/net01/time_controller.py',
             '--ack-socket',prefix+'/step.sock','--output',prefix+'/time-controller.json',
+            '--session-id','2026110912',
             '--hold-file',prefix+'/HOLD','--stop-file',prefix+'/COORDINATOR_STOP'],True)
         ready(coordinator,'TIME_CONTROL_READY '+prefix+'/step.sock')
         hub=launch('hub',[sys.executable,'-B',str(HERE/'tools/packet_hub.py'),

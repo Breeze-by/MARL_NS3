@@ -24,9 +24,10 @@ from time_control_state import TimeControlState,TOKEN_WALL_PERIOD_NS
 
 
 class TimeController(Node):
-    def __init__(self,ack_socket,output):
+    def __init__(self,ack_socket,output,session_id):
         super().__init__('net01_time_controller')
         self.state=TimeControlState();self.output=Path(output);self.records=[]
+        self.session_id=session_id;self.gateway_prerequisite=None
         self.ack_socket=Path(ack_socket)
         self.socket=socket.socket(socket.AF_UNIX,socket.SOCK_DGRAM)
         self.socket.bind(str(self.ack_socket));self.socket.setblocking(False)
@@ -55,6 +56,7 @@ class TimeController(Node):
             physical_ns=self.state.physical_ns,iterations=self.state.iterations,
             actual_clock_ns=self.state.clock_ns,native_ACK_ns=self.state.native_ns,
             fixed_offset_ns=self.state.anchor,physical_RPC_inflight=self.state.inflight,
+            session_id=self.session_id,gateway_clock_ready=self.state.gateway_clock_ready,
             pending_holds=self.pending_holds,
             token_wall_period_ns=TOKEN_WALL_PERIOD_NS,next_earliest_wall_ns=self.state.next_wall_ns,
             max_token_lateness_ns=self.state.max_lateness_ns,late_tokens=self.state.late_tokens)
@@ -67,6 +69,12 @@ class TimeController(Node):
 
     def gateway(self,message):
         data=json.loads(message.data)
+        if data['session_id']!=self.session_id:return
+        prerequisite=(data['clock_reader_ready'],data['clock_writer_discovered'],data['clock_publishers'])
+        if prerequisite!=self.gateway_prerequisite:
+            self.record('actual_gateway_clock_prerequisite',self.session_id,*prerequisite,data['gateway_monotonic_ns'])
+            self.gateway_prerequisite=prerequisite
+        self.state.gateway_clock_ready=prerequisite[0] and prerequisite[1]
         if data['anchor'] is not None:self.state.set_anchor(data['anchor']['offset_ns'])
         if data['failure']:self.observed_failure('gateway:'+data['failure'])
 
@@ -140,11 +148,12 @@ class TimeController(Node):
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--ack-socket',type=Path,required=True)
     parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--session-id',type=int,required=True)
     parser.add_argument('--stop-file',type=Path,help='Isolated fixture resource teardown only')
     parser.add_argument('--hold-file',type=Path,help='Isolated fixture expected-shutdown request only')
     args=parser.parse_args()
     rclpy.init(domain_id=92,signal_handler_options=SignalHandlerOptions.NO)
-    node=TimeController(args.ack_socket,args.output);executor=SingleThreadedExecutor();executor.add_node(node)
+    node=TimeController(args.ack_socket,args.output,args.session_id);executor=SingleThreadedExecutor();executor.add_node(node)
     stopping=False;held=False
     def stop(signum,frame):
         nonlocal stopping

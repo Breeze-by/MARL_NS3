@@ -269,9 +269,13 @@ class Gateway:
         return response
 
     def status(self):
+        clock_publishers=self.r.count_publishers('/clock')
         data=dict(mode=self.mode,session_id=self.session_id,connected=self.connected,
             failure=self.failure,anchor=self.anchor,gz_ns=self.gz,ns3_ns=self.hub.horizon_ns,
             gateway_monotonic_ns=time.monotonic_ns(),
+            # This existing R executor timer runs after complete construction.
+            clock_reader_ready=True,clock_publishers=clock_publishers,
+            clock_writer_discovered=clock_publishers>0,
             guards={str(r):dict(armed=g.guard.armed,fault=g.guard.fault,reason=g.guard.reason())
                 for r,g in self.guards.items()})
         self.health_status.publish(String(data=json.dumps(data)))

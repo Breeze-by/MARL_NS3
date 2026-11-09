@@ -22,6 +22,7 @@ async def check():
     actual=ast.ClassDef(name='ActualMethods',bases=[],keywords=[],body=methods,decorator_list=[])
     namespace={'json':json};exec(compile(ast.fix_missing_locations(ast.Module(body=[actual],type_ignores=[])),str(HERE/'time_controller.py'),'exec'),namespace)
     node=namespace['ActualMethods']();node.state=TimeControlState();node.state.native('ready',0)
+    node.state.gateway_clock_ready=True
     node.state.begin_step(0);node.pending_holds=0;node.records=[]
     node.record=lambda *values:node.records.append(values)
     node.snapshot=lambda:dict(mode=node.state.mode,inflight=node.state.inflight)
