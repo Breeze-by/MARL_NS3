@@ -1,0 +1,198 @@
+{
+  "case": "net01-b-corridor-6201-01",
+  "status": "FAIL / NET01 BLOCKED / NO-GO NET02",
+  "actual_Gazebo_slot": 3,
+  "cumulative_actual_Gazebo": 95,
+  "runtime_source": "b7f5e92353d2580e90881d0b39342c840c56694f",
+  "root_admission_commit": "45bdfdbf468ab7a222fb5cd6e0a659eb9a6fa47c",
+  "scope": "Actual Gazebo, real ns3 WiFi MODE B, 120sim/420autonomywall engineering window; no retry",
+  "autonomy": {
+    "t0_sim": 15.76,
+    "duration_sim": 87.57,
+    "duration_wall_s": 186.854519,
+    "requested_duration_sim": 120,
+    "complete": false,
+    "policy_forwards": 17,
+    "decision_attempts": 18
+  },
+  "metrics": {
+    "source": "offline-metrics/net01-b-corridor-6201-01/result.json",
+    "original_evaluator_invocations": 1,
+    "quality_valid_samples": 104,
+    "samples": 112,
+    "covered_cells": 8935,
+    "ROI_cells": 15558,
+    "coverage_percent": 57.43026095899,
+    "T90": null,
+    "T95": null,
+    "T98": null,
+    "threshold_status": "NOT REACHED, not zero",
+    "p95_m": 0.05,
+    "free_precision_percent": 98.2383419689,
+    "task_paths_m": [
+      0.002591404760770478,
+      0.25101115676863717,
+      0.9644165908186356
+    ]
+  },
+  "Action": {
+    "requests": 4,
+    "actual_accepted": 2,
+    "succeeded": 1,
+    "aborted": 1,
+    "unconfirmed_requests": 2,
+    "ownership_closed": false,
+    "unknown": [
+      {
+        "robot": 1,
+        "UUID": "d0f0f07af4ef4822a32bb57afd2096b4",
+        "native_message_id": 12874,
+        "flow": 220
+      },
+      {
+        "robot": 3,
+        "UUID": "5bfac829d999453a8692a5aed7238052",
+        "native_message_id": 23962,
+        "flow": 260
+      }
+    ],
+    "first_gap": "Both original105B requests reached ipc_ingress/udp_tx; no complete R delivery or R Nav2 acceptance/response. PHY versus queue loss not uniquely determined.",
+    "adapter_gap": "C sends once and indefinitely awaits its response; R duplicate RPC cache alone does not ensure delivery. Do not synthesize rejection, acceptance, terminal result or closure."
+  },
+  "first_heartbeat": {
+    "old_seq": 1032,
+    "old_receipt_bracket_mono_s": [
+      458207.993268882,
+      458207.994296621
+    ],
+    "first_tb1_guard_mono_s": 458208.327175423,
+    "old_receipt_age_lower_s": 0.332878802,
+    "new_seq": 1033,
+    "Peer_health_publish_return_mono_s": 458208.186454543,
+    "C_capture_mono_s": 458208.324384468,
+    "publish_return_to_capture_s": 0.137929925,
+    "hub_ingress_mono_s": 458208.329918123,
+    "R_destination_mono_s": 458208.330829963,
+    "status": "Real original .3wall violation. Main observed extra interval is Peer publish-return to C capture; DDS/CPU unique underlying cause NOT VERIFIED. New packet arrived after guard and cannot reverse FAIL."
+  },
+  "time_correspondence": {
+    "status": "LIMITED PASS within observed failed episode, not completed120sim qualification",
+    "fixed_offset_sim_s": 0.01,
+    "physical_final_sim": 109.51,
+    "native_final_ACK_sim": 109.5,
+    "postfault_real_physics_ACKs": 618,
+    "postfault_sim_interval": [
+      103.33,
+      109.51
+    ],
+    "physics_failed": false,
+    "final_inflight": false,
+    "full_run_max_lag": "not newly recomputed; no inference of clock drift from heartbeat failure"
+  },
+  "stop": {
+    "observed_stop": false,
+    "certificate": "FAIL: two unconfirmed UUIDs prevent ownership closure/stable-window admission",
+    "authority_exit": 0,
+    "three_PAUSE": true,
+    "physical_evidence": "Original CSV low-speed/new-zero observations and618 real postfault physics ACKs are independent positive facts; do not call this uncontrolled motion or certified stopping.",
+    "seal": "Not expected-sealed; generic seal hazard is not evidence of collision.",
+    "independent_CSV_check": {
+      "source": "root narrow read of original CSV, no new evaluation",
+      "window_sim": [
+        103.33,
+        109.51
+      ],
+      "poses_per_robot": [
+        62,
+        62,
+        62
+      ],
+      "max_linear_speed_m_s": [
+        7e-05,
+        7.6e-05,
+        7e-05
+      ],
+      "max_abs_angular_speed_rad_s_upper": 5e-05,
+      "new_zero_drive_records": [
+        181,
+        182,
+        182
+      ],
+      "consumed_sequence_ranges": [
+        [
+          426,
+          1247
+        ],
+        [
+          695,
+          1070
+        ],
+        [
+          838,
+          1644
+        ]
+      ],
+      "certificate_still_FAIL": true
+    }
+  },
+  "transport": {
+    "Gateway_failure": null,
+    "shared_map_flow89_capture": 138,
+    "shared_map_flow89_complete": 137,
+    "journal_flow95_capture": 9,
+    "journal_flow95_complete": 8,
+    "claim": "Real full CDR business crossed WiFi; not all delivered and not reliable Action PASS."
+  },
+  "cleanup": {
+    "host_exit": 1,
+    "runner_exit": 1,
+    "hub_exit": 0,
+    "native_exit": 0,
+    "gzserver": "clean exit with actual a49 plugin",
+    "Peer_merge": "SIGINT -2 at spin; finally evidence saved",
+    "Gateway_executor_shutdown": [
+      false,
+      true
+    ],
+    "unresolved_C_RPC": 2,
+    "retired_C_services": 2,
+    "R_pending": 0,
+    "local_cleanup_pending": 0,
+    "END_frame_flushed": true,
+    "Gateway_persist_wall_s": 6.622540718,
+    "Gateway_SIGINT_to_exit_wall_s": 8.8866,
+    "coordinator_exit": 1,
+    "clock_R_exit": 0,
+    "clock_C_exit": 0,
+    "owned_remaining": [],
+    "owned_daemon_cleanup": "One exact case-environment/domain92/ownedPGID daemon PID2274402 received SIGINT and disappeared; no other domains signalled. See B01_OWNED_EXIT.json."
+  },
+  "archive": {
+    "native_files": 9,
+    "native_bytes": 3942740394,
+    "copy_wall_s": 5.116442776,
+    "copy_complete": true,
+    "RAM_original": "/dev/shm/net01-native-evidence-b-corridor-6201-01",
+    "RAM_retained": true,
+    "clock_R_samples": 10951,
+    "clock_C_samples": 10943,
+    "clock_first_samples_before_first_Goal_s_approx": 48.17,
+    "clock_scope": "Actual nonempty raw CSV, source DDS timestamps calibrated on17 received calibration samples. Eight C BE observations missing; no zero-loss assertion."
+  },
+  "comparison_limits": "A10 used Disk and e224 plugin; B used RAM and a49 lifetime fix plus poststop persistence changes. These are not a perfect scientific hardware pair or evidence of a communication-optimization advantage.",
+  "raw_references": [
+    "../../runs/net01-b-corridor-6201-01/result.json",
+    "../../runs/net01-b-corridor-6201-01/OWNED_EXIT.json",
+    "../../runs/net01-b-corridor-6201-01.network/",
+    "../../runs/net01-b-corridor-6201-01.time-control/"
+  ],
+  "next_minimal_work_not_implemented": [
+    "Bounded reliable same-session/flow/RPC/UUID delivery and confirmation with existing R idempotence and explicit unconfirmed ownership handling.",
+    "Locate and repair real Peer-publish to central-capture timing without relaxing original source/receipt/heartbeat limits.",
+    "Validate real ownership/stop certification only under a separately authorized future budget."
+  ],
+  "remaining_Gazebo_budget": 0,
+  "C": "NOT RUN",
+  "new_runs_after_B": 0,
+  "training_NET02_push": false
+}

@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "bash",
+    "net01/ros-python.sh",
+    "/mnt/workspace/gz01/analyze_recorded.py",
+    "--case",
+    "/mnt/runs/net01-b-corridor-6201-01",
+    "--world",
+    "/mnt/inputs/worlds/eval-corridor-common-6201.sdf",
+    "--assets",
+    "/project/assets/gazebo_models",
+    "--positions",
+    "0.7249999999999996,-0.1499999999999999;0.34999999999999964,-0.7999999999999999;1.0999999999999996,-0.7999999999999999",
+    "--output",
+    "/mnt/net01/followup04/offline-metrics/net01-b-corridor-6201-01"
+  ],
+  "native_exit": 0,
+  "wall_s": 7.032798851956613,
+  "evaluations": 1,
+  "scope": "Original immutable metric tool once on sealed failedB only; sameROI15558/quality/fatalwindow,0Node/GZ/NN/training/no standards change"
+}

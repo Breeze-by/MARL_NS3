@@ -1,0 +1,47 @@
+{
+  "scope": "Original unchanged plotting tool on existing metric/CSV only;0newbagreads/Node/GZ/NN, no recomputed metrics",
+  "runs": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "workspace/gz01/plot_recorded.py",
+        "net01/followup04/offline-metrics/net01-a-corridor-6201-09",
+        "--case",
+        "runs/net01-a-corridor-6201-09"
+      ],
+      "native_exit": 0,
+      "wall_s": 2.2930327889625914,
+      "stdout": "{\"status\": \"PASS\", \"rendered\": \"net01/followup04/offline-metrics/net01-a-corridor-6201-09/coverage-and-trajectories.png\", \"new_bag_reads\": 0, \"NN\": 0, \"Node\": 0, \"Gazebo\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "workspace/gz01/plot_recorded.py",
+        "net01/followup04/offline-metrics/net01-a-corridor-6201-10",
+        "--case",
+        "runs/net01-a-corridor-6201-10"
+      ],
+      "native_exit": 0,
+      "wall_s": 2.2005432790028863,
+      "stdout": "{\"status\": \"PASS\", \"rendered\": \"net01/followup04/offline-metrics/net01-a-corridor-6201-10/coverage-and-trajectories.png\", \"new_bag_reads\": 0, \"NN\": 0, \"Node\": 0, \"Gazebo\": 0}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "workspace/gz01/plot_recorded.py",
+        "net01/followup04/offline-metrics/net01-b-corridor-6201-01",
+        "--case",
+        "runs/net01-b-corridor-6201-01"
+      ],
+      "native_exit": 0,
+      "wall_s": 2.225284291023854,
+      "stdout": "{\"status\": \"PASS\", \"rendered\": \"net01/followup04/offline-metrics/net01-b-corridor-6201-01/coverage-and-trajectories.png\", \"new_bag_reads\": 0, \"NN\": 0, \"Node\": 0, \"Gazebo\": 0}\n",
+      "stderr": ""
+    }
+  ]
+}

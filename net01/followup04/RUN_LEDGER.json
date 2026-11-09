@@ -1,12 +1,12 @@
 {
-  "status": "INTERIM DRAFT, through26 waiting diagnosis; not final delivery",
+  "status": "FINAL: NET01 BLOCKED / NO-GO NET02; real B failed, no further runs",
   "source_documentation_base": "b8d5ca54b17c9c84b3c9f028f5acbf3b73ec300c",
   "Gazebo_budget": {
     "maximum": 3,
-    "used": 2,
-    "remaining_unadmitted": 1,
+    "used": 3,
+    "remaining_unadmitted": 0,
     "cumulative_before": 92,
-    "cumulative_current": 94,
+    "cumulative_current": 95,
     "cumulative_max": 95
   },
   "runs": [
@@ -88,16 +88,30 @@
       "cumulative_actual_Gazebo": null
     },
     {
-      "case": "B",
-      "scope": "Actual controlled GZ/realWiFi",
-      "status": "NOT RUN / NOT ADMITTED",
-      "evidence": null,
+      "case": "continuous-dds-27-controlled-wifi-ram",
+      "scope": "MOCK_PHYSICS legacy overspec pressure, actualWiFi/RAM evidence",
+      "status": "FAIL original mask/health .3wall; RAM complete copy and offCPU improvement are subitems only",
+      "evidence": "CONTINUOUS27_SUMMARY.json",
       "cumulative_actual_Gazebo": null
     },
     {
+      "case": "continuous-dds-28-frozen-source-clock-wifi",
+      "scope": "MOCK_PHYSICS calibrated frozen mixed source clocks, actualWiFi; missing flows89/95",
+      "status": "LIMITED PASS16wall calibration; configured active ticks237/79/39 skip0;99 messages not complete; not full-system/armed/physics acceptance",
+      "evidence": "CONTINUOUS28_SUMMARY.json",
+      "cumulative_actual_Gazebo": null
+    },
+    {
+      "case": "net01-b-corridor-6201-01",
+      "scope": "Actual controlled Gazebo, realWiFi MODE B",
+      "status": "FAIL87.57/120sim heartbeat;2 unconfirmed SendGoal requests; ownership/stop certification FAIL; archive complete and new gzserver clean exit are separate facts",
+      "evidence": "B01_EVIDENCE_SUMMARY.json",
+      "cumulative_actual_Gazebo": 95
+    },
+    {
       "case": "C",
-      "scope": "Actual controlled GZ/realWiFi nonideal",
-      "status": "NOT RUN; originalslot2 reallocated prospectively toA10",
+      "scope": "Actual controlled Gazebo, nonidealWiFi",
+      "status": "NOT RUN; no fourth actual launch",
       "evidence": null,
       "cumulative_actual_Gazebo": null
     }
@@ -105,9 +119,11 @@
   "offline_metrics": {
     "A09": "offline-metrics/net01-a-corridor-6201-09, one original evaluator invocation",
     "A10": "offline-metrics/net01-a-corridor-6201-10, one original evaluator invocation",
-    "new_Node_GZ_NN_for_metrics": 0
+    "new_Node_GZ_NN_for_metrics": 0,
+    "B01": "offline-metrics/net01-b-corridor-6201-01, one original evaluator invocation, exit0",
+    "plots": "PLOT_EXISTING_METRICS.json: original plot tool once each on existing A09/A10/B extracted data; no new bag evaluation"
   },
-  "retention": "All oldraw/reports/READY/tag/model preserved. No retry to replace FAIL, no newsource rates/TTL/network tune; noNET02/training/push.",
+  "retention": "All old raw/reports/READY/tag/model retained, including20–27 original failures and calibration missing samples/oracle errors. No retry replacing a FAIL. Mixed source-clock correction was fixture-only and prospectively reviewed. Budget3/3 exhausted; C NOT RUN; no NET02/training/push.",
   "tool_and_component_evidence": [
     "bootstrap-01:3ownedPath/exclusivehandoff checks,0Node",
     "clock-witness-build-01/02:initialpublicAPIprobe andtwo-observation refinement,0Node",
@@ -117,7 +133,7 @@
     "time-sidecar-close-01:actualstdlibbwrapchildfinally/monitor0,notROS/GZ",
     "time-launch-close-static-01:actual0Node methodstub,notrealsignal/GZ",
     "bound-peer-gc-01:originalTrue/False/persistfailure scope,notendurance/timing",
-    "PLUGIN_LIFETIME_IDENTITY.json:newa49b built,notloaded; oldA10e224preserved",
+    "PLUGIN_LIFETIME_IDENTITY.json:newa49b built; actual B loaded and gzserver clean exit, old A10e224 preserved; oldA10e224preserved",
     "gateway-persist-fast-01:oneactual194MBvalue/text equivalence,9.127s; poststopextraRSSnotproductionbound",
     "grid-cdr-cpu-01:helper0Nodeisolatedcomponentcost; no productionrawCDRchange",
     "native-wait-tool-01:installedstraceown/bin/truechild only"
