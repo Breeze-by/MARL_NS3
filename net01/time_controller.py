@@ -20,7 +20,7 @@ from rclpy.signals import SignalHandlerOptions
 from rosgraph_msgs.msg import Clock as ClockMessage
 from std_msgs.msg import String
 from std_srvs.srv import Trigger,SetBool
-from time_control_state import TimeControlState
+from time_control_state import TimeControlState,TOKEN_WALL_PERIOD_NS
 
 
 class TimeController(Node):
@@ -30,7 +30,7 @@ class TimeController(Node):
         self.ack_socket=Path(ack_socket)
         self.socket=socket.socket(socket.AF_UNIX,socket.SOCK_DGRAM)
         self.socket.bind(str(self.ack_socket));self.socket.setblocking(False)
-        self.future=None;self.group=ReentrantCallbackGroup()
+        self.future=None;self.pending_holds=0;self.group=ReentrantCallbackGroup()
         self.step=self.create_client(Trigger,'/net01/physics_step',callback_group=self.group)
         self.subscriptions_kept=[
             self.create_subscription(ClockMessage,'/clock',self.clock,qos_profile_sensor_data),
@@ -54,7 +54,10 @@ class TimeController(Node):
             expected_shutdown=self.state.expected_shutdown,physics_failed=self.state.physics_failed,
             physical_ns=self.state.physical_ns,iterations=self.state.iterations,
             actual_clock_ns=self.state.clock_ns,native_ACK_ns=self.state.native_ns,
-            fixed_offset_ns=self.state.anchor,physical_RPC_inflight=self.state.inflight)
+            fixed_offset_ns=self.state.anchor,physical_RPC_inflight=self.state.inflight,
+            pending_holds=self.pending_holds,
+            token_wall_period_ns=TOKEN_WALL_PERIOD_NS,next_earliest_wall_ns=self.state.next_wall_ns,
+            max_token_lateness_ns=self.state.max_lateness_ns,late_tokens=self.state.late_tokens)
 
     def publish_state(self):self.publisher.publish(String(data=json.dumps(self.snapshot())))
 
@@ -74,24 +77,28 @@ class TimeController(Node):
         if not self.state.expected_shutdown:self.state.fail(reason)
 
     async def hold(self,request,response):
-        self.state.hold();self.record('HOLD_requested',request.data)
-        pending=self.future
-        if pending is not None:
-            await pending
-            self.finish_step()
-        response.success=not self.state.physics_failed
-        if response.success and request.data:self.state.hold(expected_shutdown=True)
-        self.record('HOLD_completed',response.success,self.state.expected_shutdown)
-        response.message=json.dumps(self.snapshot());return response
+        self.pending_holds+=1
+        try:
+            self.state.hold();self.record('HOLD_requested',request.data)
+            pending=self.future
+            if pending is not None:
+                await pending
+                self.finish_step()
+            response.success=(not self.state.physics_failed and self.state.mode=='HOLD'
+                and not self.state.inflight)
+            if response.success and request.data:self.state.hold(expected_shutdown=True)
+            self.record('HOLD_completed',response.success,self.state.expected_shutdown)
+            response.message=json.dumps(self.snapshot());return response
+        finally:self.pending_holds-=1
 
     def run(self,request,response):
-        response.success=self.state.run();self.record('RUN',response.success)
+        response.success=not self.pending_holds and self.state.run();self.record('RUN',response.success)
         response.message=json.dumps(self.snapshot());return response
 
     def stop_observe(self,request,response):
         # The real supervisor supplies its already-established authority exit;
         # this is simulation/safety control, never a policy input or new goal.
-        response.success=self.state.stop_observe(request.data)
+        response.success=not self.pending_holds and self.state.stop_observe(request.data)
         self.record('STOP_OBSERVE',request.data,response.success,self.state.mode)
         response.message=json.dumps(self.snapshot());return response
 
@@ -117,9 +124,10 @@ class TimeController(Node):
             self.state.native(row['kind'],row['horizon_ns'])
             self.record('actual_native_progress',row['kind'],row['horizon_ns'],row['monotonic_ns'])
         self.finish_step()
-        if self.state.can_step() and self.step.service_is_ready():
-            self.state.begin_step();self.record('physical_token',self.state.mode,
-                self.state.physical_ns,self.state.native_ns,self.state.anchor)
+        if self.state.can_step(time.monotonic_ns()) and self.step.service_is_ready():
+            self.state.begin_step(time.monotonic_ns());self.record('physical_token',self.state.mode,
+                self.state.physical_ns,self.state.native_ns,self.state.anchor,
+                self.state.last_planned_wall_ns,self.state.last_lateness_ns)
             self.future=self.step.call_async(Trigger.Request())
 
     def close(self):

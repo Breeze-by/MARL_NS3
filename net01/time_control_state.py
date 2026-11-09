@@ -5,6 +5,7 @@ ns3 STEP target. The native owner still advances only to actual observed clock.
 """
 QUANTUM_NS=10_000_000
 LOOKAHEAD_NS=2*QUANTUM_NS
+TOKEN_WALL_PERIOD_NS=20_000_000  # One preregistered .5RTF target, no scan.
 
 
 class TimeControlState:
@@ -13,6 +14,8 @@ class TimeControlState:
         self.native_ready=False;self.native_ns=0;self.anchor=None;self.clock_ns=None
         self.physical_ns=None;self.iterations=None;self.inflight=False
         self.bootstrap_tokens=0;self.authority_exited=False
+        self.next_wall_ns=None;self.last_planned_wall_ns=None;self.last_lateness_ns=0
+        self.max_lateness_ns=0;self.late_tokens=0
 
     def fail(self,reason,physics=False):
         if self.failure is None:self.failure=reason
@@ -46,26 +49,35 @@ class TimeControlState:
 
     def run(self):
         if self.failure is not None or self.expected_shutdown:return False
+        if self.mode!='RUN':self.next_wall_ns=None
         self.mode='RUN';self.authority_exited=False;return True
 
     def stop_observe(self,authority_exited):
         if not authority_exited or self.physics_failed or self.expected_shutdown:return False
+        if self.mode=='HOLD':self.next_wall_ns=None
         self.authority_exited=True
         self.mode='FAULT_STOP_OBSERVE' if self.failure else 'STOP_COUPLED'
         return True
 
-    def can_step(self):
+    def can_step(self,now_ns):
+        if self.next_wall_ns is not None and now_ns<self.next_wall_ns:return False
         if self.inflight or self.physics_failed or self.expected_shutdown or self.mode=='HOLD':return False
         if self.mode=='FAULT_STOP_OBSERVE':return True
         if not self.native_ready:return False
         if self.anchor is None:return self.bootstrap_tokens<2
-        if self.clock_ns is None or self.anchor+self.native_ns>self.clock_ns:
-            return False  # Observe the real sample, never manufacture one.
+        # Hub admits STEP only through its own known actual /clock horizon.
+        # This independent best-effort reader is observation, not a second ACK:
+        # a missing terminal sample must not deadlock physical credit.
         return (self.physical_ns is None or
             self.physical_ns+QUANTUM_NS<=self.anchor+self.native_ns+LOOKAHEAD_NS)
 
-    def begin_step(self):
-        if not self.can_step():raise RuntimeError('Unlicensed physical token')
+    def begin_step(self,now_ns):
+        if not self.can_step(now_ns):raise RuntimeError('Unlicensed physical token')
+        planned=now_ns if self.next_wall_ns is None else self.next_wall_ns
+        self.last_planned_wall_ns=planned;self.last_lateness_ns=now_ns-planned
+        self.max_lateness_ns=max(self.max_lateness_ns,self.last_lateness_ns)
+        self.late_tokens+=int(self.last_lateness_ns>0)
+        self.next_wall_ns=planned+TOKEN_WALL_PERIOD_NS
         self.inflight=True
 
     def complete_step(self,response):

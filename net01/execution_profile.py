@@ -5,6 +5,7 @@ from pathlib import Path
 PROFILE_FILES={
     "pace500-clock100-q10ms":"EXECUTION_PROFILE_PACE500_CLOCK100_Q10MS.json",
     "original1000-clock100-q10ms":"EXECUTION_PROFILE_ORIGINAL1000_CLOCK100_Q10MS.json",
+    "controlled1000-clock100-q10ms":"EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS.json",
 }
 
 def load_profile(identifier):

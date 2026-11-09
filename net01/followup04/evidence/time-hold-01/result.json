@@ -1,0 +1,44 @@
+{
+  "scope": "Actual AST-extracted async methods; controlled Future; 0Node/ROS/GZ",
+  "status": "PASS",
+  "checks": {
+    "HOLD_await_rejects_RUN_and_STOP": true,
+    "original_RPC_completes_without_second_token": true,
+    "successful_HOLD_has_no_inflight": true,
+    "expected_shutdown_only_after_completion": true
+  },
+  "events": [
+    [
+      "HOLD_requested",
+      true
+    ],
+    [
+      "RUN",
+      false
+    ],
+    [
+      "STOP_OBSERVE",
+      true,
+      false,
+      "HOLD"
+    ],
+    [
+      "post_physics_ACK",
+      true,
+      0,
+      10000000,
+      0,
+      10,
+      10
+    ],
+    [
+      "HOLD_completed",
+      true,
+      true
+    ],
+    [
+      "RUN",
+      false
+    ]
+  ]
+}

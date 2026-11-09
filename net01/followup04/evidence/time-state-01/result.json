@@ -1,0 +1,14 @@
+{
+  "scope": "Pure actual coordinator-state methods; 0ROS/GZ/native/Goal/NN",
+  "status": "PASS",
+  "checks": {
+    "preanchor_at_most_two_physical_quanta": true,
+    "nonterminal_clock_phase_and_actual20ms_lead_bound": true,
+    "ACK_does_not_fabricate_a_missing_real_clock": true,
+    "HOLD_preempts_new_tokens_allows_only_original_inflight_completion": true,
+    "normal_stop_observe_preserves_actual_native_credit": true,
+    "failed_stop_requires_authority_exit_and_never_fakes_native_ACK": true,
+    "expected_shutdown_does_not_resume_or_overwrite_firstfault": true,
+    "incomplete_actual_physics_is_not_ACKed_as_a_full_token": true
+  }
+}

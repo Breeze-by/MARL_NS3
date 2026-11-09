@@ -24,8 +24,7 @@ def source(directory,feedback_hz,execution_profile=None):
     clock_increment=100_000_000 if qualification is None else qualification["clock_increment_ns"]
     clock_period=.1 if qualification is None else qualification["clock_period_wall_s"]
     source_window=8 if qualification is None else qualification["source_wall_s"]
-    costmap_shape=((60,60) if profile is None or profile['id']!='original1000-clock100-q10ms'
-        else tuple(qualification['local_costmap_cells']))
+    costmap_shape=tuple(qualification['local_costmap_cells']) if qualification and 'local_costmap_cells' in qualification else (60,60)
     import rclpy
     from rclpy.clock import Clock,ClockType
     from rclpy.node import Node
@@ -41,7 +40,7 @@ def source(directory,feedback_hz,execution_profile=None):
     node=Node('net01_synthetic_continuous_source')
     steady=Clock(clock_type=ClockType.STEADY_TIME)
     records=[];timers=[];publishers=[];services=[];clock_ns=clock_increment
-    cp=node.create_publisher(ClockMessage,'/clock',qos_profile_sensor_data)
+    controlled=bool(profile and profile.get('controlled_physics'))
     def stamp(header,value):header.stamp.sec=value//1_000_000_000;header.stamp.nanosec=value%1_000_000_000
     def emit(pub,message,robot,kind,header=None):
         row=dict(robot=robot,kind=kind,source_header_ns=header,
@@ -51,8 +50,17 @@ def source(directory,feedback_hz,execution_profile=None):
         nonlocal clock_ns
         m=ClockMessage();m.clock.sec=clock_ns//1_000_000_000;m.clock.nanosec=clock_ns%1_000_000_000
         emit(cp,m,0,'synthetic_clock',clock_ns);clock_ns+=clock_increment
-    publish_clock()
-    timers.append(node.create_timer(clock_period,publish_clock,clock=steady))
+    if controlled:
+        def actual_mock_clock(message):
+            nonlocal clock_ns
+            clock_ns=message.clock.sec*1_000_000_000+message.clock.nanosec+clock_increment
+            records.append(dict(robot=0,kind='MOCK_PHYSICS_clock_received',
+                source_header_ns=clock_ns-clock_increment,before_monotonic_ns=time.monotonic_ns()))
+        clock_subscription=node.create_subscription(ClockMessage,'/clock',actual_mock_clock,qos_profile_sensor_data)
+    else:
+        cp=node.create_publisher(ClockMessage,'/clock',qos_profile_sensor_data)
+        publish_clock()
+        timers.append(node.create_timer(clock_period,publish_clock,clock=steady))
     qualified=False
     def state(message):
         nonlocal qualified
