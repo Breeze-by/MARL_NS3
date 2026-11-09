@@ -1,0 +1,287 @@
+{
+  "scope": "0init/0Node serialization only; no DDS publisher, transport, Native, Gazebo or physical validation",
+  "fixed_iterations": 10,
+  "sizes": [
+    {
+      "side": 200,
+      "cells": 40000,
+      "cdr_bytes": 40112,
+      "header": {
+        "sec": 12,
+        "nanosec": 345678901,
+        "frame_id": "tb2/odom"
+      },
+      "full_grid_all_typed_fields_exact": true,
+      "data_bytes_exact": true,
+      "serialize_full": {
+        "samples": 10,
+        "warmups": 1,
+        "wall_ns": [
+          60934,
+          52035,
+          45797,
+          43862,
+          35287,
+          71833,
+          78116,
+          105349,
+          59896,
+          41668
+        ],
+        "thread_cpu_ns": [
+          53937,
+          49896,
+          44023,
+          41972,
+          33281,
+          69157,
+          74532,
+          101589,
+          57245,
+          39919
+        ],
+        "median_wall_ns": 55965.5,
+        "median_thread_cpu_ns": 51916.5,
+        "max_wall_ns": 105349
+      },
+      "deserialize_full": {
+        "samples": 10,
+        "warmups": 1,
+        "wall_ns": [
+          161670,
+          157695,
+          151301,
+          146527,
+          158790,
+          156940,
+          150483,
+          160708,
+          157109,
+          151707
+        ],
+        "thread_cpu_ns": [
+          158628,
+          155477,
+          149123,
+          144058,
+          156492,
+          154445,
+          148284,
+          158203,
+          154352,
+          149602
+        ],
+        "median_wall_ns": 157024.5,
+        "median_thread_cpu_ns": 154398.5,
+        "max_wall_ns": 161670
+      },
+      "full_decode_then_header": {
+        "samples": 10,
+        "warmups": 1,
+        "wall_ns": [
+          157417,
+          155951,
+          174897,
+          151999,
+          156506,
+          156184,
+          152627,
+          151008,
+          250446,
+          162938
+        ],
+        "thread_cpu_ns": [
+          154861,
+          153402,
+          171761,
+          149320,
+          154217,
+          153934,
+          150390,
+          148297,
+          247191,
+          160627
+        ],
+        "median_wall_ns": 156345.0,
+        "median_thread_cpu_ns": 154075.5,
+        "max_wall_ns": 250446
+      },
+      "header_prefix_supported": true,
+      "prefix_all_header_fields_exact": true,
+      "prefix_decode_then_header": {
+        "samples": 10,
+        "warmups": 1,
+        "wall_ns": [
+          30483,
+          32803,
+          28132,
+          27687,
+          27145,
+          27093,
+          25305,
+          26872,
+          26774,
+          30254
+        ],
+        "thread_cpu_ns": [
+          27364,
+          30850,
+          26351,
+          25339,
+          25079,
+          25193,
+          23424,
+          24752,
+          24692,
+          27903
+        ],
+        "median_wall_ns": 27416.0,
+        "median_thread_cpu_ns": 25266.0,
+        "max_wall_ns": 32803
+      }
+    },
+    {
+      "side": 400,
+      "cells": 160000,
+      "cdr_bytes": 160112,
+      "header": {
+        "sec": 12,
+        "nanosec": 345678901,
+        "frame_id": "tb2/odom"
+      },
+      "full_grid_all_typed_fields_exact": true,
+      "data_bytes_exact": true,
+      "serialize_full": {
+        "samples": 10,
+        "warmups": 1,
+        "wall_ns": [
+          89889,
+          84839,
+          65521,
+          70589,
+          89862,
+          66767,
+          67086,
+          78596,
+          70995,
+          82138
+        ],
+        "thread_cpu_ns": [
+          82505,
+          82290,
+          63224,
+          68653,
+          87319,
+          64453,
+          64835,
+          76235,
+          68084,
+          79465
+        ],
+        "median_wall_ns": 74795.5,
+        "median_thread_cpu_ns": 72444.0,
+        "max_wall_ns": 89889
+      },
+      "deserialize_full": {
+        "samples": 10,
+        "warmups": 1,
+        "wall_ns": [
+          240442,
+          202554,
+          176508,
+          210157,
+          188232,
+          180785,
+          178937,
+          187139,
+          174262,
+          282832
+        ],
+        "thread_cpu_ns": [
+          236756,
+          199800,
+          173895,
+          207670,
+          185164,
+          178315,
+          176736,
+          184972,
+          171604,
+          265234
+        ],
+        "median_wall_ns": 187685.5,
+        "median_thread_cpu_ns": 185068.0,
+        "max_wall_ns": 282832
+      },
+      "full_decode_then_header": {
+        "samples": 10,
+        "warmups": 1,
+        "wall_ns": [
+          193148,
+          185939,
+          186184,
+          193773,
+          184526,
+          176923,
+          175577,
+          188677,
+          342864,
+          319828
+        ],
+        "thread_cpu_ns": [
+          189410,
+          183357,
+          183789,
+          191241,
+          181588,
+          174271,
+          173094,
+          186351,
+          336167,
+          316177
+        ],
+        "median_wall_ns": 187430.5,
+        "median_thread_cpu_ns": 185070.0,
+        "max_wall_ns": 342864
+      },
+      "header_prefix_supported": true,
+      "prefix_all_header_fields_exact": true,
+      "prefix_decode_then_header": {
+        "samples": 10,
+        "warmups": 1,
+        "wall_ns": [
+          30371,
+          26627,
+          27012,
+          25757,
+          27170,
+          26728,
+          26707,
+          25272,
+          25752,
+          25548
+        ],
+        "thread_cpu_ns": [
+          27826,
+          24847,
+          25358,
+          23567,
+          24842,
+          25024,
+          24972,
+          23527,
+          23717,
+          23789
+        ],
+        "median_wall_ns": 26667.0,
+        "median_thread_cpu_ns": 24844.5,
+        "max_wall_ns": 30371
+      }
+    }
+  ],
+  "forbidden_calls": [],
+  "status": "PASS",
+  "Node": 0,
+  "rclpy_init": 0,
+  "Gazebo": 0
+}
