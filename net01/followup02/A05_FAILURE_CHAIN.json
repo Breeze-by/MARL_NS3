@@ -1,0 +1,491 @@
+{
+  "scope": "A05 sealed existing Gateway/Peer records only; no new bag/Node/GZ/NN",
+  "first_guard": {
+    "kind": "latched_INVALID",
+    "reason": "health_original_sources_stale",
+    "robot": "tb1",
+    "session_id": 2026110915,
+    "sim": 40.3,
+    "monotonic": 417192.80851827
+  },
+  "first_cause": "Old seq400 odom age .418/.417/.414 exceeds original.4; correction ages still within.55",
+  "source_chain": {
+    "tb1": {
+      "source_stamp_ns": 39882000000,
+      "R_capture": {
+        "flow": 22,
+        "robot": 1,
+        "bytes": 724,
+        "cdr_sha256": "cb1624db8b7dea3b5e53413c3ac80cfb989fa7ab09bdee51d1f277473eaa52a6",
+        "source_stamp_ns": 39882000000,
+        "source_stamp_available": true,
+        "endpoint_capture_monotonic_ns": 417192487238798,
+        "capture_node_sim_ns": 40000000000
+      },
+      "C_publish": {
+        "sender": 1,
+        "receiver": 0,
+        "flow": 22,
+        "native_id": 20223,
+        "source_stamp_ns": 39882000000,
+        "bytes": 732,
+        "backend": "IDEAL-DIRECT-ADAPTER",
+        "endpoint_capture_monotonic_ns": 417192487459335,
+        "endpoint_receive_monotonic_ns": 417192487504967,
+        "cdr_bytes": 724,
+        "cdr_sha256": "cb1624db8b7dea3b5e53413c3ac80cfb989fa7ab09bdee51d1f277473eaa52a6",
+        "destination_node_sim_ns": 39800000000,
+        "publisher_returned": true,
+        "endpoint_publish_monotonic_ns": 417192487803377,
+        "publish_before_thread_cpu_ns": 53104675678,
+        "publish_after_monotonic_ns": 417192488760058,
+        "publish_after_thread_cpu_ns": 53104909544
+      },
+      "Peer_original_receipt_monotonic_bounds": [
+        417192.559764945,
+        417192.55982059904
+      ],
+      "Peer_receipt_limit": "Derived interval from original stored receipt age measured between timer entry/snapshot; not a new callback ACK",
+      "held_in_seq": 400,
+      "health_state_age_at_guard_sim40_3": {
+        "odom": 0.41799999999999926,
+        "correction": 0.4789999999999992
+      }
+    },
+    "tb2": {
+      "source_stamp_ns": 39883000000,
+      "R_capture": {
+        "flow": 42,
+        "robot": 2,
+        "bytes": 724,
+        "cdr_sha256": "9bd41d12bb108f26694888396d0070761adc9960e9470cb839b23c1523488058",
+        "source_stamp_ns": 39883000000,
+        "source_stamp_available": true,
+        "endpoint_capture_monotonic_ns": 417192490409706,
+        "capture_node_sim_ns": 40000000000
+      },
+      "C_publish": {
+        "sender": 2,
+        "receiver": 0,
+        "flow": 42,
+        "native_id": 20226,
+        "source_stamp_ns": 39883000000,
+        "bytes": 732,
+        "backend": "IDEAL-DIRECT-ADAPTER",
+        "endpoint_capture_monotonic_ns": 417192490524083,
+        "endpoint_receive_monotonic_ns": 417192490565860,
+        "cdr_bytes": 724,
+        "cdr_sha256": "9bd41d12bb108f26694888396d0070761adc9960e9470cb839b23c1523488058",
+        "destination_node_sim_ns": 39800000000,
+        "publisher_returned": true,
+        "endpoint_publish_monotonic_ns": 417192490813830,
+        "publish_before_thread_cpu_ns": 53106962756,
+        "publish_after_monotonic_ns": 417192490929514,
+        "publish_after_thread_cpu_ns": 53107076964
+      },
+      "Peer_original_receipt_monotonic_bounds": [
+        417192.5608612,
+        417192.560916854
+      ],
+      "Peer_receipt_limit": "Derived interval from original stored receipt age measured between timer entry/snapshot; not a new callback ACK",
+      "held_in_seq": 400,
+      "health_state_age_at_guard_sim40_3": {
+        "odom": 0.4169999999999945,
+        "correction": 0.3919999999999959
+      }
+    },
+    "tb3": {
+      "source_stamp_ns": 39886000000,
+      "R_capture": {
+        "flow": 62,
+        "robot": 3,
+        "bytes": 724,
+        "cdr_sha256": "8411b5f96d69ead170a8d49d2732651387d8859622e27775d2b41d8eff4a9a4d",
+        "source_stamp_ns": 39886000000,
+        "source_stamp_available": true,
+        "endpoint_capture_monotonic_ns": 417192492375425,
+        "capture_node_sim_ns": 40000000000
+      },
+      "C_publish": {
+        "sender": 3,
+        "receiver": 0,
+        "flow": 62,
+        "native_id": 20229,
+        "source_stamp_ns": 39886000000,
+        "bytes": 732,
+        "backend": "IDEAL-DIRECT-ADAPTER",
+        "endpoint_capture_monotonic_ns": 417192492485178,
+        "endpoint_receive_monotonic_ns": 417192492528964,
+        "cdr_bytes": 724,
+        "cdr_sha256": "8411b5f96d69ead170a8d49d2732651387d8859622e27775d2b41d8eff4a9a4d",
+        "destination_node_sim_ns": 39800000000,
+        "publisher_returned": true,
+        "endpoint_publish_monotonic_ns": 417192492785995,
+        "publish_before_thread_cpu_ns": 53108934779,
+        "publish_after_monotonic_ns": 417192492897124,
+        "publish_after_thread_cpu_ns": 53109044513
+      },
+      "Peer_original_receipt_monotonic_bounds": [
+        417192.561697752,
+        417192.561753406
+      ],
+      "Peer_receipt_limit": "Derived interval from original stored receipt age measured between timer entry/snapshot; not a new callback ACK",
+      "held_in_seq": 400,
+      "health_state_age_at_guard_sim40_3": {
+        "odom": 0.4139999999999944,
+        "correction": 0.46399999999999864
+      }
+    }
+  },
+  "Peer_snapshots": [
+    {
+      "sequence": 398,
+      "generated_sim": 39.800000000000004,
+      "ready": true,
+      "odom_stamps": {
+        "tb1": 39.78,
+        "tb2": 39.781,
+        "tb3": 39.784
+      },
+      "correction_stamps": {
+        "tb1": 39.821,
+        "tb2": 39.908,
+        "tb3": 39.836
+      },
+      "delivery_timing": {
+        "entry_monotonic": 417192.236799508,
+        "masks": {
+          "tb1": {
+            "begin": 417192.236917465,
+            "built": 417192.258665662,
+            "before_publish": 417192.258768431,
+            "after_publish": 417192.259240379
+          },
+          "tb2": {
+            "begin": 417192.259245461,
+            "built": 417192.280229767,
+            "before_publish": 417192.280320066,
+            "after_publish": 417192.280797645
+          },
+          "tb3": {
+            "begin": 417192.280801164,
+            "built": 417192.301042576,
+            "before_publish": 417192.301131974,
+            "after_publish": 417192.301502448
+          }
+        },
+        "snapshot_monotonic": 417192.236916684,
+        "health_publish_before_monotonic": 417192.301710533,
+        "health_publish_after_monotonic": 417192.306303328
+      }
+    },
+    {
+      "sequence": 399,
+      "generated_sim": 39.900000000000006,
+      "ready": true,
+      "odom_stamps": {
+        "tb1": 39.848,
+        "tb2": 39.849,
+        "tb3": 39.852
+      },
+      "correction_stamps": {
+        "tb1": 39.821,
+        "tb2": 39.908,
+        "tb3": 39.836
+      },
+      "delivery_timing": {
+        "entry_monotonic": 417192.487510757,
+        "masks": {
+          "tb1": {
+            "begin": 417192.487583466,
+            "built": 417192.508594335,
+            "before_publish": 417192.508685284,
+            "after_publish": 417192.509082557
+          },
+          "tb2": {
+            "begin": 417192.509085754,
+            "built": 417192.528946798,
+            "before_publish": 417192.529052651,
+            "after_publish": 417192.529503099
+          },
+          "tb3": {
+            "begin": 417192.529506808,
+            "built": 417192.552034232,
+            "before_publish": 417192.552132485,
+            "after_publish": 417192.552574136
+          }
+        },
+        "snapshot_monotonic": 417192.487582827,
+        "health_publish_before_monotonic": 417192.552800212,
+        "health_publish_after_monotonic": 417192.557757465
+      }
+    },
+    {
+      "sequence": 400,
+      "generated_sim": 40.0,
+      "ready": true,
+      "odom_stamps": {
+        "tb1": 39.882,
+        "tb2": 39.883,
+        "tb3": 39.886
+      },
+      "correction_stamps": {
+        "tb1": 39.821,
+        "tb2": 39.908,
+        "tb3": 39.836
+      },
+      "delivery_timing": {
+        "entry_monotonic": 417192.563290298,
+        "masks": {
+          "tb1": {
+            "begin": 417192.563346482,
+            "built": 417192.585582405,
+            "before_publish": 417192.585679526,
+            "after_publish": 417192.586099184
+          },
+          "tb2": {
+            "begin": 417192.586103651,
+            "built": 417192.605734985,
+            "before_publish": 417192.605819271,
+            "after_publish": 417192.606228147
+          },
+          "tb3": {
+            "begin": 417192.606230913,
+            "built": 417192.624383406,
+            "before_publish": 417192.624464108,
+            "after_publish": 417192.624837679
+          }
+        },
+        "snapshot_monotonic": 417192.563345952,
+        "health_publish_before_monotonic": 417192.625077071,
+        "health_publish_after_monotonic": 417192.62981619
+      }
+    },
+    {
+      "sequence": 401,
+      "generated_sim": 40.1,
+      "ready": true,
+      "odom_stamps": {
+        "tb1": 39.95,
+        "tb2": 39.951,
+        "tb3": 39.954
+      },
+      "correction_stamps": {
+        "tb1": 40.021,
+        "tb2": 39.908,
+        "tb3": 40.036
+      },
+      "delivery_timing": {
+        "entry_monotonic": 417192.639199503,
+        "masks": {
+          "tb1": {
+            "begin": 417192.639263685,
+            "built": 417192.660515565,
+            "before_publish": 417192.660610629,
+            "after_publish": 417192.661055098
+          },
+          "tb2": {
+            "begin": 417192.661062052,
+            "built": 417192.681414983,
+            "before_publish": 417192.681518098,
+            "after_publish": 417192.682070017
+          },
+          "tb3": {
+            "begin": 417192.682075587,
+            "built": 417192.703313224,
+            "before_publish": 417192.703417271,
+            "after_publish": 417192.703886554
+          }
+        },
+        "snapshot_monotonic": 417192.639263142,
+        "health_publish_before_monotonic": 417192.704091289,
+        "health_publish_after_monotonic": 417192.708805087
+      }
+    },
+    {
+      "sequence": 402,
+      "generated_sim": 40.2,
+      "ready": true,
+      "odom_stamps": {
+        "tb1": 40.018,
+        "tb2": 40.019,
+        "tb3": 40.022
+      },
+      "correction_stamps": {
+        "tb1": 40.021,
+        "tb2": 39.908,
+        "tb3": 40.036
+      },
+      "delivery_timing": {
+        "entry_monotonic": 417192.717276139,
+        "masks": {
+          "tb1": {
+            "begin": 417192.717327103,
+            "built": 417192.737253177,
+            "before_publish": 417192.737361156,
+            "after_publish": 417192.73775813
+          },
+          "tb2": {
+            "begin": 417192.737761414,
+            "built": 417192.757537039,
+            "before_publish": 417192.757610969,
+            "after_publish": 417192.758086819
+          },
+          "tb3": {
+            "begin": 417192.758091086,
+            "built": 417192.776452711,
+            "before_publish": 417192.776534662,
+            "after_publish": 417192.776919521
+          }
+        },
+        "snapshot_monotonic": 417192.717326504,
+        "health_publish_before_monotonic": 417192.777117305,
+        "health_publish_after_monotonic": 417192.781769876
+      }
+    },
+    {
+      "sequence": 403,
+      "generated_sim": 40.300000000000004,
+      "ready": true,
+      "odom_stamps": {
+        "tb1": 40.29,
+        "tb2": 40.291,
+        "tb3": 40.294
+      },
+      "correction_stamps": {
+        "tb1": 40.021,
+        "tb2": 40.108,
+        "tb3": 40.036
+      },
+      "delivery_timing": {
+        "entry_monotonic": 417192.812694869,
+        "masks": {
+          "tb1": {
+            "begin": 417192.812783772,
+            "built": 417192.833611138,
+            "before_publish": 417192.83373412,
+            "after_publish": 417192.834210823
+          },
+          "tb2": {
+            "begin": 417192.834215533,
+            "built": 417192.854754102,
+            "before_publish": 417192.854880189,
+            "after_publish": 417192.855389439
+          },
+          "tb3": {
+            "begin": 417192.855392336,
+            "built": 417192.874879121,
+            "before_publish": 417192.874962115,
+            "after_publish": 417192.875387109
+          }
+        },
+        "snapshot_monotonic": 417192.812782647,
+        "health_publish_before_monotonic": 417192.875562204,
+        "health_publish_after_monotonic": 417192.880079772
+      }
+    }
+  ],
+  "C_health_capture_gap_ms": 121.496846,
+  "seq401_missing_C_capture": true,
+  "seq401_health_publish_before": 417192.704091289,
+  "seq402_health_publish_before": 417192.777117305,
+  "seq402_C_capture": 417192.80817293,
+  "seq402_R_health_receive": [
+    417192.808342674,
+    417192.809908654,
+    417192.811045055
+  ],
+  "window_monotonic_ns": [
+    417192690000000,
+    417192808518270
+  ],
+  "R_capture_flow_counts": {
+    "23": 11,
+    "43": 11,
+    "62": 4,
+    "63": 11,
+    "46": 3,
+    "66": 2,
+    "22": 3,
+    "26": 2,
+    "42": 3
+  },
+  "R_action_capture_counts": {
+    "(1, 226)": 11,
+    "(2, 246)": 11,
+    "(3, 266)": 11,
+    "(1, 228)": 1,
+    "(2, 248)": 1,
+    "(3, 268)": 1
+  },
+  "published_topic_calls_over20ms_in_window": [],
+  "global_dispatch": {
+    "C": {
+      "batches": 8496,
+      "callbacks": 5842,
+      "cap_hits": 0,
+      "max_wall_s": 0.23588776896940544,
+      "max_cpu_s": 0.03617542500000326
+    },
+    "R": {
+      "batches": 8496,
+      "callbacks": 32026,
+      "cap_hits": 46,
+      "max_wall_s": 0.27753867901628837,
+      "max_cpu_s": 0.27597227700000104
+    },
+    "guard_timers": {
+      "1": {
+        "calls": 2922,
+        "max_gap_wall_s": 0.24129665800137445,
+        "last": 417198.553669338
+      },
+      "2": {
+        "calls": 2920,
+        "max_gap_wall_s": 0.23961103899637237,
+        "last": 417198.555839424
+      },
+      "3": {
+        "calls": 2924,
+        "max_gap_wall_s": 0.25449778500478715,
+        "last": 417198.559985433
+      }
+    },
+    "max_poll_gap_wall_s": 0.41675860504619777
+  },
+  "dispatch_limit": "Global maxima have no per-poll timestamp and are not attributed to the fatal interval. Main C subscription gap coincides with sustained R callbacks; spans also include transport progress and are not pure source callback CPU.",
+  "gateway_failure": null,
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      false,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [
+      {
+        "robot": 1,
+        "flow_offset": 3,
+        "rpc_id": 8702080117993635844
+      },
+      {
+        "robot": 2,
+        "flow_offset": 3,
+        "rpc_id": 8702080117993635845
+      },
+      {
+        "robot": 3,
+        "flow_offset": 3,
+        "rpc_id": 8702080117993635846
+      }
+    ],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "interpretation": "C/R whole-domain callback block starves C health capture despite new original health already published. Not a slow-SLAM/TF first cause; do not delay guard or refresh source stamps."
+}

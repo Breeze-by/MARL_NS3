@@ -1,0 +1,225 @@
+{
+  "scope": "NET01 followup02 complete ledger; previous immutable 337/d4eb and original NET ledgers retained",
+  "new_Gazebo_budget": 3,
+  "new_Gazebo_actual": 2,
+  "historical_before": 87,
+  "historical_after": 89,
+  "unused_slot": 1,
+  "unused_reason": "WiFi full-load clock prerequisite FAIL; no further run admitted",
+  "robot_B": "NOT RUN",
+  "robot_C": "NOT RUN",
+  "actual": [
+    {
+      "case": "net01-a-corridor-6201-05",
+      "slot": 1,
+      "cumulative": 88,
+      "mode": "A IDEAL-DIRECT-ADAPTER",
+      "runtime": "1bb7d55bae985d8bff495a46dd9448be06f11534",
+      "status": "FAIL",
+      "autonomy_sim_s": 10.699999999999996,
+      "NN": 1,
+      "accepted": 3,
+      "coverage": 0.529245404293611,
+      "thresholds": {
+        "0.5": {
+          "elapsed_sim_s": 9.899999999999999,
+          "receipt_sim": 39.5,
+          "initially_reached": false
+        },
+        "0.8": null,
+        "0.9": null,
+        "0.95": null,
+        "0.98": null
+      },
+      "autonomy_path_m": {
+        "tb1": 0.8788553855437087,
+        "tb2": 0.7543297245503242,
+        "tb3": 0.8929173029585848
+      },
+      "runtime_allphase_path_m": {
+        "tb1": 0.8822318841706663,
+        "tb2": 0.792222347018421,
+        "tb3": 0.9093818048179673
+      },
+      "observed_stop": true,
+      "three_pause": true,
+      "UUID_closed": true,
+      "run_integrity": false,
+      "raw": "runs/net01-a-corridor-6201-05"
+    },
+    {
+      "case": "net01-a-corridor-6201-06",
+      "slot": 2,
+      "cumulative": 89,
+      "mode": "A IDEAL-DIRECT-ADAPTER",
+      "runtime": "685f5a3d06d3a1d953030a1cfb508cc6f62e9d9b",
+      "status": "STARTUP_FAIL",
+      "first_cause": "gzserver exit -11 before later spawn service timeout; no source stack",
+      "autonomy_start": null,
+      "autonomy_sim_s": null,
+      "NN": 0,
+      "accepted": 0,
+      "coverage": null,
+      "thresholds": null,
+      "metric_status": "NOT MEASURED: no autonomy t0",
+      "runtime_startup_path_m": {
+        "tb1": 0.00034098905628086336,
+        "tb2": 0.0,
+        "tb3": 0.0
+      },
+      "observed_stop": false,
+      "three_pause": false,
+      "UUID_closed": true,
+      "run_integrity": false,
+      "raw": "runs/net01-a-corridor-6201-06"
+    }
+  ],
+  "isolated": [
+    {
+      "case": "continuous-dds-06",
+      "mode": "A",
+      "assessment": "FAIL clock; first STEP never issued",
+      "wall_s": 10.988596216018777,
+      "exits": {
+        "hub": 0,
+        "peer": 0,
+        "gateway": 1,
+        "source": 0
+      },
+      "gateway_failure": "mapped_ns3_clock_lag_above_0.12sim",
+      "raw": "runs/continuous-dds-06",
+      "scope": "Synthetic clock; no Gazebo/Nav2/Goal/arm/NN; exit0 is not a freshness pass"
+    },
+    {
+      "case": "continuous-dds-07",
+      "mode": "A",
+      "assessment": "LIMITED direct fixture PASS; pre-capture FB deficit retained",
+      "wall_s": 11.74751728499541,
+      "exits": {
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "source": 0
+      },
+      "gateway_failure": null,
+      "raw": "runs/continuous-dds-07",
+      "scope": "Synthetic clock; no Gazebo/Nav2/Goal/arm/NN; exit0 is not a freshness pass"
+    },
+    {
+      "case": "continuous-dds-08",
+      "mode": "A",
+      "assessment": "FAIL throughput/freshness despite exit0",
+      "wall_s": 11.188315221981611,
+      "exits": {
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "source": 0
+      },
+      "gateway_failure": null,
+      "raw": "runs/continuous-dds-08",
+      "scope": "Synthetic clock; no Gazebo/Nav2/Goal/arm/NN; exit0 is not a freshness pass"
+    },
+    {
+      "case": "continuous-dds-09",
+      "mode": "A",
+      "assessment": "FAIL throughput/freshness despite exit0",
+      "wall_s": 11.892549401032738,
+      "exits": {
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "source": 0
+      },
+      "gateway_failure": null,
+      "raw": "runs/continuous-dds-09",
+      "scope": "Synthetic clock; no Gazebo/Nav2/Goal/arm/NN; exit0 is not a freshness pass"
+    },
+    {
+      "case": "continuous-dds-10",
+      "mode": "A",
+      "assessment": "MEASUREMENT valid; load FAIL",
+      "wall_s": 11.489266225020401,
+      "exits": {
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "source": 0
+      },
+      "gateway_failure": null,
+      "raw": "runs/continuous-dds-10",
+      "scope": "Synthetic clock; no Gazebo/Nav2/Goal/arm/NN; exit0 is not a freshness pass"
+    },
+    {
+      "case": "continuous-dds-11",
+      "mode": "A",
+      "assessment": "raw CPU improvement; load FAIL",
+      "wall_s": 11.890833051991649,
+      "exits": {
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "source": 0
+      },
+      "gateway_failure": null,
+      "raw": "runs/continuous-dds-11",
+      "scope": "Synthetic clock; no Gazebo/Nav2/Goal/arm/NN; exit0 is not a freshness pass"
+    },
+    {
+      "case": "continuous-dds-12",
+      "mode": "A",
+      "assessment": "FAIL clock lag",
+      "wall_s": 11.342208316957112,
+      "exits": {
+        "hub": 0,
+        "peer": 0,
+        "gateway": 1,
+        "source": 0
+      },
+      "gateway_failure": "mapped_ns3_clock_lag_above_0.12sim",
+      "raw": "runs/continuous-dds-12",
+      "scope": "Synthetic clock; no Gazebo/Nav2/Goal/arm/NN; exit0 is not a freshness pass"
+    },
+    {
+      "case": "continuous-dds-13",
+      "mode": "A",
+      "assessment": "LIMITED direct fixture PASS; pre-capture FB4/3/3 deficit; old delay NOT REPRODUCED",
+      "wall_s": 12.056486188957933,
+      "exits": {
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "source": 0
+      },
+      "gateway_failure": null,
+      "raw": "runs/continuous-dds-13",
+      "scope": "Synthetic clock; no Gazebo/Nav2/Goal/arm/NN; exit0 is not a freshness pass"
+    },
+    {
+      "case": "continuous-dds-14-wifi",
+      "mode": "B",
+      "assessment": "FAIL real WiFi full-load clock gate",
+      "wall_s": 11.892902865016367,
+      "exits": {
+        "hub": 1,
+        "peer": 0,
+        "gateway": 1,
+        "source": 0
+      },
+      "gateway_failure": "mapped_ns3_clock_lag_above_0.12sim",
+      "raw": "runs/continuous-dds-14-wifi",
+      "scope": "Synthetic clock; no Gazebo/Nav2/Goal/arm/NN; exit0 is not a freshness pass"
+    }
+  ],
+  "other_checks": [
+    "PRODUCTIVE_REFILL_CHECK.json",
+    "DOMAIN_ROUND_ROBIN_CHECK.json",
+    "DOMAIN_QUANTUM4_CHECK.json",
+    "DISPATCH_PROFILE_CHECK.json",
+    "DOMAIN_EMPTY_RECHECK_CHECK.json",
+    "action-raw-cdr-01/result.json"
+  ],
+  "training": 0,
+  "push": false,
+  "NET02": "NO GO"
+}

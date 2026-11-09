@@ -1,0 +1,247 @@
+{
+  "case": "runs/continuous-dds-14-wifi",
+  "mode": "B actual WiFi",
+  "scope": "Synthetic clock; no GZ/Nav2/Goal/arm/NN",
+  "status": "FAIL",
+  "process": {
+    "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+    "error": null,
+    "wall_s": 11.892902865016367,
+    "hard_wall_s": 20,
+    "exits": {
+      "hub": 1,
+      "peer": 0,
+      "gateway": 1,
+      "source": 0
+    },
+    "Gazebo": 0,
+    "NN": 0,
+    "wrapper_pids": {
+      "hub": 1643972,
+      "peer": 1643981,
+      "gateway": 1643982,
+      "source": 1643983
+    },
+    "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior"
+  },
+  "source_window_wall_s": 8.022253299015574,
+  "source_counts": [
+    {
+      "kind": "synthetic_clock",
+      "robot": 0,
+      "count": 95
+    },
+    {
+      "kind": "static",
+      "robot": 1,
+      "count": 1
+    },
+    {
+      "kind": "synthetic_map",
+      "robot": 1,
+      "count": 2
+    },
+    {
+      "kind": "synthetic_action_status",
+      "robot": 1,
+      "count": 9
+    },
+    {
+      "kind": "static",
+      "robot": 2,
+      "count": 1
+    },
+    {
+      "kind": "synthetic_map",
+      "robot": 2,
+      "count": 2
+    },
+    {
+      "kind": "synthetic_action_status",
+      "robot": 2,
+      "count": 9
+    },
+    {
+      "kind": "static",
+      "robot": 3,
+      "count": 1
+    },
+    {
+      "kind": "synthetic_map",
+      "robot": 3,
+      "count": 2
+    },
+    {
+      "kind": "synthetic_action_status",
+      "robot": 3,
+      "count": 8
+    },
+    {
+      "kind": "map->odom",
+      "robot": 1,
+      "count": 401
+    },
+    {
+      "kind": "odom",
+      "robot": 1,
+      "count": 241
+    },
+    {
+      "kind": "odom->base_footprint",
+      "robot": 1,
+      "count": 241
+    },
+    {
+      "kind": "base_link->wheel_left_link",
+      "robot": 1,
+      "count": 161
+    },
+    {
+      "kind": "exact_zero_cmd",
+      "robot": 1,
+      "count": 161
+    },
+    {
+      "kind": "synthetic_action_feedback",
+      "robot": 1,
+      "count": 800
+    },
+    {
+      "kind": "synthetic_action_feedback",
+      "robot": 2,
+      "count": 800
+    },
+    {
+      "kind": "map->odom",
+      "robot": 2,
+      "count": 400
+    },
+    {
+      "kind": "synthetic_action_feedback",
+      "robot": 3,
+      "count": 799
+    },
+    {
+      "kind": "map->odom",
+      "robot": 3,
+      "count": 400
+    },
+    {
+      "kind": "odom",
+      "robot": 2,
+      "count": 240
+    },
+    {
+      "kind": "odom->base_footprint",
+      "robot": 2,
+      "count": 240
+    },
+    {
+      "kind": "odom",
+      "robot": 3,
+      "count": 240
+    },
+    {
+      "kind": "odom->base_footprint",
+      "robot": 3,
+      "count": 240
+    },
+    {
+      "kind": "base_link->wheel_left_link",
+      "robot": 2,
+      "count": 160
+    },
+    {
+      "kind": "exact_zero_cmd",
+      "robot": 2,
+      "count": 160
+    },
+    {
+      "kind": "base_link->wheel_left_link",
+      "robot": 3,
+      "count": 160
+    },
+    {
+      "kind": "exact_zero_cmd",
+      "robot": 3,
+      "count": 160
+    },
+    {
+      "kind": "synthetic_costmap",
+      "robot": 1,
+      "count": 16
+    },
+    {
+      "kind": "synthetic_costmap",
+      "robot": 2,
+      "count": 16
+    },
+    {
+      "kind": "synthetic_costmap",
+      "robot": 3,
+      "count": 16
+    }
+  ],
+  "first_transport_fault_monotonic_ns": 420802125480723,
+  "first_guard_monotonic_ns": 420802125523814,
+  "first_fault_sim": 1.6,
+  "failure": "mapped_ns3_clock_lag_above_0.12sim",
+  "last_return_horizon_ns": 800000000,
+  "failed_step_horizon_ns": 900000000,
+  "step_control_chain": [
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 420802079408533,
+      "horizon_ns": 900000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 420802079414398,
+      "horizon_ns": 900000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 420802079426796,
+      "horizon_ns": 900000000
+    }
+  ],
+  "gateway_before_fault_complete": 7,
+  "description": "6 HELLO/ACK and 1 filter_info; no bound mask",
+  "native_message_deliver_prefix": 19,
+  "hub_complete": 18,
+  "gateway_complete": 7,
+  "R_bound_masks": 0,
+  "ledger_complete_rows": 7903,
+  "ledger_partial_lines": [
+    7904
+  ],
+  "native_completion_is_ROS_consumption": false,
+  "first_big_mask": {
+    "bytes": 160626,
+    "native_completion_monotonic_ns": 420802177740228,
+    "hub_read_monotonic_ns": 420802178829299,
+    "before_fault": false
+  },
+  "peer_ready": 0,
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": false,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 1,
+      "2": 1,
+      "3": 1
+    }
+  },
+  "limitations": [
+    "Native RAM STEP-end trace absent after forced cleanup; Run CPU/scheduling/output backpressure not uniquely separated",
+    "Post-fault native reassembly and captures do not prove pre-fault delivery or sustained goodput",
+    "Unresolved local PAUSE futures: no Nav2 servers; not network physical safety PASS"
+  ]
+}

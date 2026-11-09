@@ -1,0 +1,83 @@
+{
+  "scope": "Important new followup02 delivery identity; no historical-tree rehash",
+  "previous_delivery": "33765d3fa5dff5d62eeb8f03faa511a29f4ba95e",
+  "previous_metric_addendum": "d4eb93fd4c4aa1551eacb462a0ddeac0a6e2b6ed",
+  "frozen_release": "a014ef11d4b77fe45832268467993dfdeb4398f6",
+  "core_runtime": "76fd91cf937bd8d662302901dad063affbea3c38",
+  "checkpoint_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+  "A05_runtime": "1bb7d55bae985d8bff495a46dd9448be06f11534",
+  "A06_runtime": "685f5a3d06d3a1d953030a1cfb508cc6f62e9d9b",
+  "WiFi14_source": "685f5a3 plus only fixture mode pass-through, archived in delivery commit",
+  "native_identity_reused_from": "CONTROL_TRACE_NATIVE_IDENTITY.json",
+  "important_new_files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 10161,
+      "sha256": "0813d4c5379592b09b8ea38e0f709abd1e58cf008ddacc462f46195f331126ea"
+    },
+    {
+      "path": "RUN_LEDGER.json",
+      "bytes": 6565,
+      "sha256": "37ed941075c6d8bc94ecfe8d24e8f4bdc1d48e047ecbdb8af151bf1bdc0ebcfd"
+    },
+    {
+      "path": "WIFI14_SUMMARY.json",
+      "bytes": 5221,
+      "sha256": "51820bdfd85f4a60582f28874d3f2a1a85bbe251ac93f6fb0583363a7a33548c"
+    },
+    {
+      "path": "SOURCE_CONFIG.diff",
+      "bytes": 35949,
+      "sha256": "134439f104aa41ff2955095bb98152d7039b633c75f09576ad9970c8caa5d7db"
+    },
+    {
+      "path": "CONTROL_TRACE_13_SUMMARY.json",
+      "bytes": 3722,
+      "sha256": "cf96a3d76dd4f489b6a643520092b3332dca5f22fd1c9b9b34ba5c502a0f3e5b"
+    },
+    {
+      "path": "CONTROL_TRACE_NATIVE_IDENTITY.json",
+      "bytes": 1583,
+      "sha256": "b55e5d8e1f90af869e6c52edadd2e1277f2c23a8d7a76890425598ffcd00e978"
+    },
+    {
+      "path": "A05_FAILURE_CHAIN.json",
+      "bytes": 15040,
+      "sha256": "2fca90f18bc60bca992b27f9f045de7e1628553ba4752e0a608be360e91d1584"
+    },
+    {
+      "path": "A06_ADAPTER_BINDING.json",
+      "bytes": 2181,
+      "sha256": "6cfbc6c26a8c3cbcb6bb688612dd4189d403cf9a3f440bce72d44bb5e2815932"
+    },
+    {
+      "path": "PLAN_ADDENDUM_A06.md",
+      "bytes": 3147,
+      "sha256": "c3afd33f118d5fac6b2f32ef8fb6157b79b274c4185ddd8f271dad3673eaedc6"
+    },
+    {
+      "path": "offline-metrics/A05/result.json",
+      "bytes": 18562,
+      "sha256": "6567d5d68b2ad36143c9f6f08a662dc5fb0f30e20fc6bdb38ec57da947bc1bad"
+    },
+    {
+      "path": "offline-metrics/A05/coverage.csv",
+      "bytes": 1669,
+      "sha256": "5950434361a8f64032bf456113faa7b43be72df0b35a21c6c7e2756435005a03"
+    }
+  ],
+  "raw_runs": [
+    "runs/net01-a-corridor-6201-05",
+    "runs/net01-a-corridor-6201-06",
+    "runs/continuous-dds-06 through continuous-dds-14-wifi"
+  ],
+  "raw_artifacts_policy": "Retained in-place, not copied/rehashed; prior history unchanged",
+  "new_Gazebo_actual": 2,
+  "historical_Gazebo_total": 89,
+  "remaining_unused": 1,
+  "NN": 1,
+  "training": 0,
+  "NET02": "NO GO",
+  "push": false,
+  "delivery_commit_semantics": "The local Git commit containing this identity is the final delivery; full SHA also recorded externally after commit."
+}
