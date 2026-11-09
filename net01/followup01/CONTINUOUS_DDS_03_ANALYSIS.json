@@ -1,0 +1,479 @@
+{
+  "scope": "Existing continuous03 saved metadata only; synthetic no-control DDS, no Gazebo TIME certificate",
+  "wall_s": 11.196693718025927,
+  "source_window_wall_s": 8.015890137990937,
+  "stages": {
+    "tb1": {
+      "source_count": 400,
+      "capture_count": 295,
+      "C_publish_count": 295,
+      "Peer_receive_count": 295,
+      "source_to_capture_wall_ms_lower": {
+        "n": 295,
+        "min": 2.098244,
+        "median": 954.133992,
+        "max": 995.596868
+      },
+      "source_to_capture_wall_ms_upper": {
+        "n": 295,
+        "min": 9.355349,
+        "median": 1034.011769,
+        "max": 1087.483745
+      },
+      "C_publish_call_wall_ms": {
+        "n": 295,
+        "min": 0.089629,
+        "median": 0.129665,
+        "max": 0.412732
+      },
+      "C_publish_call_cpu_ms": {
+        "n": 295,
+        "min": 0.088987,
+        "median": 0.127122,
+        "max": 0.409117
+      },
+      "C_publish_return_to_Peer_receive_ms_lower": {
+        "n": 295,
+        "min": 0.441052,
+        "median": 0.806686,
+        "max": 59.137002
+      },
+      "C_publish_return_to_Peer_receive_ms_upper": {
+        "n": 295,
+        "min": 0.487374,
+        "median": 32.753479,
+        "max": 260.210351
+      },
+      "last_source": {
+        "robot": 1,
+        "kind": "map->odom",
+        "source_header_ns": 8700000000,
+        "before_monotonic_ns": 410812610210768,
+        "after_monotonic_ns": 410812610389251
+      },
+      "last_capture": {
+        "flow": 23,
+        "robot": 1,
+        "bytes": 92,
+        "cdr_sha256": "a7d3fc4b443102e8bc2df193cf261c50bc27cc2f2cb23d464642839686ce3e2a",
+        "source_stamp_ns": 0,
+        "source_stamp_available": false,
+        "endpoint_capture_monotonic_ns": 410812968782278,
+        "capture_node_sim_ns": 8500000000,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 8100000000
+          }
+        ]
+      },
+      "last_C_publish": {
+        "sender": 1,
+        "receiver": 0,
+        "flow": 23,
+        "native_id": 3558,
+        "source_stamp_ns": 0,
+        "bytes": 100,
+        "backend": "IDEAL-DIRECT-ADAPTER",
+        "endpoint_capture_monotonic_ns": 410812968968155,
+        "endpoint_receive_monotonic_ns": 410812969081154,
+        "cdr_bytes": 92,
+        "cdr_sha256": "a7d3fc4b443102e8bc2df193cf261c50bc27cc2f2cb23d464642839686ce3e2a",
+        "destination_node_sim_ns": 8500000000,
+        "publisher_returned": true,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 8100000000
+          }
+        ],
+        "endpoint_publish_monotonic_ns": 410812969383825,
+        "publish_before_thread_cpu_ns": 9202046104,
+        "publish_after_monotonic_ns": 410812969539860,
+        "publish_after_thread_cpu_ns": 9202197979
+      },
+      "last_Peer_receive": {
+        "robot": "tb1",
+        "static": false,
+        "before_monotonic_ns": 410812970332409,
+        "before_node_sim_ns": 8500000000,
+        "held_correction_stamp_before": 8.1,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 8100000000
+          }
+        ],
+        "original_returned": true,
+        "after_monotonic_ns": 410812970640283,
+        "after_node_sim_ns": 8500000000,
+        "held_correction_stamp_after": 8.1
+      }
+    },
+    "tb2": {
+      "source_count": 400,
+      "capture_count": 309,
+      "C_publish_count": 309,
+      "Peer_receive_count": 309,
+      "source_to_capture_wall_ms_lower": {
+        "n": 309,
+        "min": 6.573968,
+        "median": 938.06606,
+        "max": 993.993794
+      },
+      "source_to_capture_wall_ms_upper": {
+        "n": 309,
+        "min": 11.582692,
+        "median": 1018.238958,
+        "max": 1073.890481
+      },
+      "C_publish_call_wall_ms": {
+        "n": 309,
+        "min": 0.077739,
+        "median": 0.118101,
+        "max": 0.181447
+      },
+      "C_publish_call_cpu_ms": {
+        "n": 309,
+        "min": 0.076691,
+        "median": 0.115905,
+        "max": 0.177198
+      },
+      "C_publish_return_to_Peer_receive_ms_lower": {
+        "n": 309,
+        "min": 0.441527,
+        "median": 0.803172,
+        "max": 64.20962
+      },
+      "C_publish_return_to_Peer_receive_ms_upper": {
+        "n": 309,
+        "min": 0.520442,
+        "median": 51.944531,
+        "max": 205.818437
+      },
+      "last_source": {
+        "robot": 2,
+        "kind": "map->odom",
+        "source_header_ns": 8700000000,
+        "before_monotonic_ns": 410812615093597,
+        "after_monotonic_ns": 410812615220504
+      },
+      "last_capture": {
+        "flow": 43,
+        "robot": 2,
+        "bytes": 92,
+        "cdr_sha256": "ad6ed5cb505ba676b2f32856c7a2831bf7a577de486d649a8520ff1acc6c3ea7",
+        "source_stamp_ns": 0,
+        "source_stamp_available": false,
+        "endpoint_capture_monotonic_ns": 410812971031756,
+        "capture_node_sim_ns": 8500000000,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 8100000000
+          }
+        ]
+      },
+      "last_C_publish": {
+        "sender": 2,
+        "receiver": 0,
+        "flow": 43,
+        "native_id": 3559,
+        "source_stamp_ns": 0,
+        "bytes": 100,
+        "backend": "IDEAL-DIRECT-ADAPTER",
+        "endpoint_capture_monotonic_ns": 410812971169542,
+        "endpoint_receive_monotonic_ns": 410812971225893,
+        "cdr_bytes": 92,
+        "cdr_sha256": "ad6ed5cb505ba676b2f32856c7a2831bf7a577de486d649a8520ff1acc6c3ea7",
+        "destination_node_sim_ns": 8500000000,
+        "publisher_returned": true,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 8100000000
+          }
+        ],
+        "endpoint_publish_monotonic_ns": 410812971417570,
+        "publish_before_thread_cpu_ns": 9204036237,
+        "publish_after_monotonic_ns": 410812971549738,
+        "publish_after_thread_cpu_ns": 9204166187
+      },
+      "last_Peer_receive": {
+        "robot": "tb2",
+        "static": false,
+        "before_monotonic_ns": 410812972345055,
+        "before_node_sim_ns": 8500000000,
+        "held_correction_stamp_before": 8.1,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 8100000000
+          }
+        ],
+        "original_returned": true,
+        "after_monotonic_ns": 410812972628337,
+        "after_node_sim_ns": 8500000000,
+        "held_correction_stamp_after": 8.1
+      }
+    },
+    "tb3": {
+      "source_count": 400,
+      "capture_count": 301,
+      "C_publish_count": 301,
+      "Peer_receive_count": 301,
+      "source_to_capture_wall_ms_lower": {
+        "n": 301,
+        "min": 5.918332,
+        "median": 936.102723,
+        "max": 992.761701
+      },
+      "source_to_capture_wall_ms_upper": {
+        "n": 301,
+        "min": 10.486401,
+        "median": 1016.378025,
+        "max": 1073.221629
+      },
+      "C_publish_call_wall_ms": {
+        "n": 301,
+        "min": 0.078947,
+        "median": 0.114673,
+        "max": 0.182575
+      },
+      "C_publish_call_cpu_ms": {
+        "n": 301,
+        "min": 0.077596,
+        "median": 0.112662,
+        "max": 0.178366
+      },
+      "C_publish_return_to_Peer_receive_ms_lower": {
+        "n": 301,
+        "min": 0.376535,
+        "median": 0.734521,
+        "max": 63.871894
+      },
+      "C_publish_return_to_Peer_receive_ms_upper": {
+        "n": 301,
+        "min": 0.440715,
+        "median": 53.384744,
+        "max": 202.58144
+      },
+      "last_source": {
+        "robot": 3,
+        "kind": "map->odom",
+        "source_header_ns": 8700000000,
+        "before_monotonic_ns": 410812619533704,
+        "after_monotonic_ns": 410812619665622
+      },
+      "last_capture": {
+        "flow": 63,
+        "robot": 3,
+        "bytes": 92,
+        "cdr_sha256": "ad6ed5cb505ba676b2f32856c7a2831bf7a577de486d649a8520ff1acc6c3ea7",
+        "source_stamp_ns": 0,
+        "source_stamp_available": false,
+        "endpoint_capture_monotonic_ns": 410812964119561,
+        "capture_node_sim_ns": 8500000000,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 8100000000
+          }
+        ]
+      },
+      "last_C_publish": {
+        "sender": 3,
+        "receiver": 0,
+        "flow": 63,
+        "native_id": 3557,
+        "source_stamp_ns": 0,
+        "bytes": 100,
+        "backend": "IDEAL-DIRECT-ADAPTER",
+        "endpoint_capture_monotonic_ns": 410812964245632,
+        "endpoint_receive_monotonic_ns": 410812964307479,
+        "cdr_bytes": 92,
+        "cdr_sha256": "ad6ed5cb505ba676b2f32856c7a2831bf7a577de486d649a8520ff1acc6c3ea7",
+        "destination_node_sim_ns": 8500000000,
+        "publisher_returned": true,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 8100000000
+          }
+        ],
+        "endpoint_publish_monotonic_ns": 410812964508657,
+        "publish_before_thread_cpu_ns": 9197256988,
+        "publish_after_monotonic_ns": 410812964647718,
+        "publish_after_thread_cpu_ns": 9197393786
+      },
+      "last_Peer_receive": {
+        "robot": "tb3",
+        "static": false,
+        "before_monotonic_ns": 410812965406460,
+        "before_node_sim_ns": 8500000000,
+        "held_correction_stamp_before": 8.1,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 8100000000
+          }
+        ],
+        "original_returned": true,
+        "after_monotonic_ns": 410812965622238,
+        "after_node_sim_ns": 8500000000,
+        "held_correction_stamp_after": 8.1
+      }
+    }
+  },
+  "last_health": {
+    "time_contract": "peer-e2e-time-v1",
+    "generated_sim": 8.5,
+    "ready": false,
+    "sequence": 82,
+    "poses": {
+      "tb1": [
+        0.7249999999999996,
+        -0.1499999999999999
+      ],
+      "tb2": [
+        0.34999999999999964,
+        -0.7999999999999999
+      ],
+      "tb3": [
+        1.0999999999999996,
+        -0.7999999999999999
+      ]
+    },
+    "origins": {
+      "tb1": [
+        -9.75,
+        -8.85
+      ],
+      "tb2": [
+        -9.35,
+        -8.200000000000001
+      ],
+      "tb3": [
+        -10.100000000000001,
+        -8.200000000000001
+      ]
+    },
+    "mask_contract": "owner-odom-lattice-v1",
+    "mask_from_common": {
+      "tb1": [
+        -0.7249999999999996,
+        0.1499999999999999,
+        -0.0
+      ],
+      "tb2": [
+        -0.34999999999999964,
+        0.7999999999999999,
+        -0.0
+      ],
+      "tb3": [
+        -1.0999999999999996,
+        0.7999999999999999,
+        -0.0
+      ]
+    },
+    "mask_frames": {
+      "tb1": "odom",
+      "tb2": "odom",
+      "tb3": "odom"
+    },
+    "radius_m": 0.55,
+    "resolution": 0.05,
+    "ages": {
+      "tb1": {
+        "source": 0.09999999999999964,
+        "receipt": 0.031040751026012003,
+        "correction": 0.9000000000000004,
+        "correction_receipt": 0.029031248996034265
+      },
+      "tb2": {
+        "source": 0.09999999999999964,
+        "receipt": 0.016388891031965613,
+        "correction": 0.7999999999999998,
+        "correction_receipt": 0.026416576001793146
+      },
+      "tb3": {
+        "source": 0.09999999999999964,
+        "receipt": 0.011484553979244083,
+        "correction": 0.7999999999999998,
+        "correction_receipt": 0.024512036005035043
+      }
+    },
+    "failures": {
+      "tb1": "stale_localization_correction",
+      "tb2": "stale_localization_correction",
+      "tb3": "stale_localization_correction"
+    },
+    "pending_tf": {},
+    "odom_stamps": {
+      "tb1": 8.4,
+      "tb2": 8.4,
+      "tb3": 8.4
+    },
+    "correction_stamps": {
+      "tb1": 7.6,
+      "tb2": 7.7,
+      "tb3": 7.7
+    },
+    "localization_contract": "loop-confidence-v2-latched-correction-guard",
+    "localization_invalid": {},
+    "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+    "delivery_timing": {
+      "entry_monotonic": 410812.550966518,
+      "masks": {
+        "tb1": {
+          "begin": 410812.551083257,
+          "built": 410812.55137045,
+          "before_publish": 410812.551475025,
+          "after_publish": 410812.551817702
+        },
+        "tb2": {
+          "begin": 410812.551819521,
+          "built": 410812.551973017,
+          "before_publish": 410812.552036646,
+          "after_publish": 410812.552253247
+        },
+        "tb3": {
+          "begin": 410812.552254875,
+          "built": 410812.552371112,
+          "before_publish": 410812.55240259,
+          "after_publish": 410812.552637382
+        }
+      },
+      "snapshot_monotonic": 410812.551082819,
+      "health_publish_before_monotonic": 410812.55283778,
+      "health_publish_after_monotonic": 410812.557027824
+    }
+  },
+  "ready_frames": 15,
+  "health_frames": 82,
+  "gateway_failure": null,
+  "note": "Repeated same header has indistinguishable duplicates: source/Peer matching gives lower/upper delay bounds, not invented per-packet unique receipt ACK. CDR equality only same captured body.",
+  "stop_overhead": {
+    "peer": {
+      "checks": 154,
+      "total_wall_ms": 8.844112,
+      "max_wall_ms": 0.1409,
+      "total_cpu_ms": 8.504905
+    },
+    "gateway": {
+      "checks": 167,
+      "total_wall_ms": 8.748544,
+      "max_wall_ms": 0.085108,
+      "total_cpu_ms": 8.685832
+    }
+  }
+}
