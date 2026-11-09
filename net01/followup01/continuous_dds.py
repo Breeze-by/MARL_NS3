@@ -163,7 +163,10 @@ def peer(directory,stop_file):
                 next_check=time.monotonic()+.05
             rclpy.spin_once(node,timeout_sec=.01)
     finally:
-        node.persist_records();node.destroy_node();rclpy.shutdown()
+        try:
+            node.restore_runtime_gc()
+            node.persist_records()
+        finally:node.destroy_node();rclpy.try_shutdown()
         (directory/'fixture-stop-overhead.json').write_text(json.dumps(checks))
 
 
