@@ -1,0 +1,186 @@
+{
+  "case": "runs/net01-a-corridor-6201-09",
+  "status": "FAIL",
+  "runtime_source": "1144b99b692c45e10180e3c6624e3ad06ae74e1e",
+  "admitted_root_commit": "3c1673e",
+  "mode": "A IDEAL-DIRECT-ADAPTER, no WiFi business",
+  "budget": {
+    "slot": 1,
+    "maximum": 3,
+    "cumulative_actual": 93,
+    "requested_sim": 120,
+    "actual_sim": 119.19999999999999,
+    "autonomous_wall_s": 238.5142082690145,
+    "right_censored": true
+  },
+  "first_error": "Network guardian INVALID: {\"robot\": 1, \"session_id\": 2026110924, \"reason\": \"health_heartbeat_stale\"}",
+  "first_gap": {
+    "layer": "C Peer timer/clock consumption dispatch, not GW/R downstream or Native CPU",
+    "prior_peer_sequence": 1391,
+    "next_peer_sequence": 1392,
+    "prior_entry_mono": 448235.188505333,
+    "next_entry_mono": 448235.522423292,
+    "prior_health_actual_publish_before_mono": 448235.2505699,
+    "next_health_actual_publish_before_mono": 448235.585151124,
+    "earliest_guard_robot": "tb2",
+    "earliest_guard_mono": 448235.56849823,
+    "three_guard_reasons": "health_heartbeat_stale; result lasttb1 string is not sole faulty robot",
+    "R_clock_original_observer": "Clock139.19..139.29 continuous roughly20mswall callbacks, actualDDS publishwall unavailable without missing witnesses",
+    "GW_C_clock139_2_publish_return_mono": 448235.387739076,
+    "after_C_clock_publish_to_peer_entry_ms": 134.684216,
+    "native21_step_window": {
+      "H_first": 139.08,
+      "H_last": 139.28,
+      "Run_wall_ms": 2.356592,
+      "Run_thread_CPU_ms": 2.3583,
+      "max_single_wall_ms": 1.015972
+    },
+    "limitations": "Peer own /clock callback receipt and GC not recorded; TF metadata truncated at74.46 and witnesses missing. Do not uniquely claim historical GC or upstream DDS timing."
+  },
+  "exploration": {
+    "reference_cells": 15558,
+    "quality_valid_samples": 131,
+    "samples": 145,
+    "final_valid_coverage": 0.9885589407378841,
+    "final_valid_receipt_elapsed": 118.82,
+    "final_quality_valid": true,
+    "final_occupied_alignment_p95_m": 0.05,
+    "final_free_precision": 0.9904989173184852,
+    "quality_valid_thresholds": {
+      "0.5": {
+        "elapsed_sim_s": 10.879999999999999,
+        "receipt_sim": 30.97,
+        "initially_reached": false
+      },
+      "0.8": {
+        "elapsed_sim_s": 33.370000000000005,
+        "receipt_sim": 53.46,
+        "initially_reached": false
+      },
+      "0.9": {
+        "elapsed_sim_s": 63.81999999999999,
+        "receipt_sim": 83.91,
+        "initially_reached": false
+      },
+      "0.95": {
+        "elapsed_sim_s": 71.32,
+        "receipt_sim": 91.41,
+        "initially_reached": false
+      },
+      "0.98": {
+        "elapsed_sim_s": 71.32,
+        "receipt_sim": 91.41,
+        "initially_reached": false
+      }
+    },
+    "natural_completion_verified": false,
+    "actual_NN": 23,
+    "robot": {
+      "tb1": {
+        "path_m": 12.3224628574251,
+        "succeeded": 3,
+        "aborted": 0,
+        "canceled": 0,
+        "high_level_failure_count": 0,
+        "timeout_terminal_failures": 0
+      },
+      "tb2": {
+        "path_m": 5.440220595093188,
+        "succeeded": 2,
+        "aborted": 0,
+        "canceled": 0,
+        "high_level_failure_count": 0,
+        "timeout_terminal_failures": 0
+      },
+      "tb3": {
+        "path_m": 11.464170425920605,
+        "succeeded": 3,
+        "aborted": 0,
+        "canceled": 0,
+        "high_level_failure_count": 0,
+        "timeout_terminal_failures": 0
+      }
+    },
+    "all8UUID_status4": true,
+    "last_terminal_absolute_sim": 92.48
+  },
+  "stop": {
+    "observed_stop": true,
+    "three_PAUSE": true,
+    "ownership": {
+      "closed": true,
+      "authority_stopped": true,
+      "requests": 8,
+      "unresolved_requests": [],
+      "owned_goals": {
+        "tb1": [
+          "4e7fc92e90d54603acac9b66582383e3",
+          "7895b0d7678b4c228f2ea3c1a0d3297a",
+          "fed7098df4534ea79537dce27a8e28cc"
+        ],
+        "tb2": [
+          "38e68720c85249bfa2ae29062bd83e0c",
+          "aa70d0f8aee341b98f932c2e6380c3fe"
+        ],
+        "tb3": [
+          "5b54538eceab49bc8fffcdb40d75b58f",
+          "7e328e5b1f174eaaa84e1c8621687133",
+          "b5ebab8086f34c3caf071865e33c9aac"
+        ]
+      },
+      "unterminated_UUIDs": {
+        "tb1": [],
+        "tb2": [],
+        "tb3": []
+      },
+      "record_errors": []
+    },
+    "moving_active_cancel_test": false,
+    "scope": "Actual original physical stop/authority/UUID proof holds; all goals had already succeeded, not active cancellation experiment"
+  },
+  "save_failures": {
+    "sidecars": {
+      "exits": {
+        "coordinator": -2,
+        "clock_R": -2,
+        "clock_C": -2
+      },
+      "signals": {
+        "coordinator": [
+          "SIGINT"
+        ],
+        "clock_R": [
+          "SIGINT"
+        ],
+        "clock_C": [
+          "SIGINT"
+        ]
+      },
+      "forced_owned_groups": [],
+      "remaining_owned_groups": [],
+      "scope": "Resource cleanup after actual Hub END/exit; no stopping certificate",
+      "coordinator_final": null,
+      "coordinator_record_error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+      "saved_clocks": {
+        "R": false,
+        "C": false
+      },
+      "integrity": false
+    },
+    "BoundPeer_aux_saved_marker_missing": true,
+    "BoundPeer_TF_last_saved_absolute_sim": 74.46,
+    "launch_double_interrupt_evidence": "launch.log9156 parentSIGINT;9215 parent forwards to peer;9371..9384 firstKeyboardInterrupt inrclpy.wait;9388..9399 second insidepersist/json.dumps. processes.txt shows launch2083880/peer2084019 samePG2083880.",
+    "raw_seal_hazard": "Controlled-time seal failed: RuntimeError('Expected seal lacks final physical stop/authority/RPC closure')",
+    "scope": "Known guard failure refuses expectedseal; generic marker is not a collision or proof physical stop failed. Later SIGINT/save failures do not replace firstcause."
+  },
+  "metric": {
+    "evaluations": 1,
+    "native_exit": 0,
+    "path": "offline-metrics/net01-a-corridor-6201-09/result.json",
+    "Node": 0,
+    "Gazebo": 0,
+    "NN": 0,
+    "standard_unchanged": true
+  },
+  "pending": "B/C NOT ADMITTED; root prospectively considers slot2 A10 for explicit bounded PeerGC hypothesis and proven shutdown fixes, no score-based retry or automatic run. Offer-wide extra statistics paused perroot."
+}
