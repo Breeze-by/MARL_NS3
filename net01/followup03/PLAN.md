@@ -11,3 +11,9 @@
 ## 唯一实际诊断15结果
 
 c97f830独立ELF按已审modeB/原8源20wall实际执行一次，11.756wall全owned退出，clockFAIL。失败STEP .9真实入口已收到；37.565ms后原lagguard触发；首大payload输出在STEP入口后54.926wall/54.927CPU ms，晚于首fault。主要首段是native真实无线事件处理CPU，不能把故障后hub owner.drain/最终native stdout阻塞倒作第一原因。原始边界已由父进程在异常路径保存，详见MEASUREMENT_15.json及runs/continuous-dds-15-wifi。没有自行重试/修改时间协调/门限/负载/网络，等待根审下一方案。
+
+## 原因分解与独立修补（均不追认首clock故障已修）
+
+fault后IPC排空修补44c2c63保留firstfault、继续读实际ACK/bytes但在Link/Topic/Action副作用前discard，通道IO关闭仅记一次且不再poll；本机R清理继续。根审已读，尚未在后续连续夹具运行验证。
+
+CPU诊断9c44000使用独立followup03-cpu ELF，原V3/ns3库不改。唯一native-cpu-burst-01在18wall native界内0.352wall结束，0ROS/GZ/Goal/NN；3×160611+3×55112B初始burst最后1.0→1.1sim STEP为目标。177.681wall/166.469CPU ms，自有7类exclusive51.501ms/30.94%，余114.968ms/69.06%未归属，不能全叫PHY/PCAP。输出647169B仅.886wall/.681CPU ms。详见CPU_BURST_SUMMARY.json和CPU_NATIVE_IDENTITY.json；inclusive不相加，测量开销未扣除，不称容量PASS。不自动追加运行或改时钟/模型。
