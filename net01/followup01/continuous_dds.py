@@ -174,6 +174,8 @@ def source(directory,feedback_hz,execution_profile=None,source_clock_contract='l
             timers.append(node.create_timer(1.,lambda p=sp,r=robot:emit(p,GoalStatusArray(),r,'synthetic_action_status'),clock=steady))
     start=time.monotonic()
     start_sim_ns=clock_ns-clock_increment
+    if frozen_source:
+        cadence_baseline=dict(ticks=dict(source_clock.ticks),skipped_configured_ticks=dict(source_clock.skipped_configured_ticks))
     try:
         while time.monotonic()-start<source_window:rclpy.spin_once(node,timeout_sec=.001)
     finally:
@@ -187,6 +189,8 @@ def source(directory,feedback_hz,execution_profile=None,source_clock_contract='l
             sim_span=(end_sim_ns-start_sim_ns)/1e9
             data.update(source_clock_contract=source_clock_contract,active_source_wall_s=active_wall,
                 begin_sim_ns=start_sim_ns,end_sim_ns=end_sim_ns,
+                sim_cadence_counters=dict(active_baseline=cadence_baseline,
+                    active_end=dict(ticks=dict(source_clock.ticks),skipped_configured_ticks=dict(source_clock.skipped_configured_ticks))),
                 count_rates=[dict(robot=r,kind=k,count=n,per_wall_s=n/active_wall,
                     per_sim_s=None if sim_span==0 else n/sim_span)
                     for (r,k),n in sorted(counts.items())],

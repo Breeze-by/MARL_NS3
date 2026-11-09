@@ -5,6 +5,7 @@ class FrozenSourceClock:
     def __init__(self):
         self.sim_ns = self.origin_ns = self.scan_header_ns = None
         self.ticks = dict(odom=0, wheel=0, scan=0)
+        self.skipped_configured_ticks = dict(odom=0, wheel=0, scan=0)
         self.last_costmap_ns = {robot: 0 for robot in (1, 2, 3)}
 
     def advance(self, sim_ns):
@@ -18,6 +19,7 @@ class FrozenSourceClock:
         for kind, hz in (('odom', 30), ('wheel', 10), ('scan', 5)):
             tick = (sim_ns - self.origin_ns) * hz // 1_000_000_000
             if tick > self.ticks[kind]:
+                self.skipped_configured_ticks[kind] += tick - self.ticks[kind] - 1
                 self.ticks[kind] = tick  # Skip missed ticks; never replay old samples.
                 due.add(kind)
         if 'scan' in due:

@@ -1,5 +1,5 @@
 diff --git a/net01/followup01/continuous_dds.py b/net01/followup01/continuous_dds.py
-index b2bfe15..16e87f8 100644
+index b2bfe15..e21c0e4 100644
 --- a/net01/followup01/continuous_dds.py
 +++ b/net01/followup01/continuous_dds.py
 @@ -18,7 +18,7 @@ sys.path.insert(0,str(HERE))
@@ -130,11 +130,13 @@ index b2bfe15..16e87f8 100644
          if feedback_hz:
              from nav2_msgs.action import NavigateToPose
              from action_msgs.msg import GoalStatusArray
-@@ -132,12 +173,25 @@ def source(directory,feedback_hz,execution_profile=None):
+@@ -132,12 +173,29 @@ def source(directory,feedback_hz,execution_profile=None):
              timers.append(node.create_timer(1/feedback_hz,feedback,clock=steady))
              timers.append(node.create_timer(1.,lambda p=sp,r=robot:emit(p,GoalStatusArray(),r,'synthetic_action_status'),clock=steady))
      start=time.monotonic()
 +    start_sim_ns=clock_ns-clock_increment
++    if frozen_source:
++        cadence_baseline=dict(ticks=dict(source_clock.ticks),skipped_configured_ticks=dict(source_clock.skipped_configured_ticks))
      try:
          while time.monotonic()-start<source_window:rclpy.spin_once(node,timeout_sec=.001)
      finally:
@@ -150,6 +152,8 @@ index b2bfe15..16e87f8 100644
 +            sim_span=(end_sim_ns-start_sim_ns)/1e9
 +            data.update(source_clock_contract=source_clock_contract,active_source_wall_s=active_wall,
 +                begin_sim_ns=start_sim_ns,end_sim_ns=end_sim_ns,
++                sim_cadence_counters=dict(active_baseline=cadence_baseline,
++                    active_end=dict(ticks=dict(source_clock.ticks),skipped_configured_ticks=dict(source_clock.skipped_configured_ticks))),
 +                count_rates=[dict(robot=r,kind=k,count=n,per_wall_s=n/active_wall,
 +                    per_sim_s=None if sim_span==0 else n/sim_span)
 +                    for (r,k),n in sorted(counts.items())],
@@ -158,7 +162,7 @@ index b2bfe15..16e87f8 100644
  
  
  def stop_check(stop_file,records):
-@@ -249,6 +303,7 @@ if __name__=='__main__':
+@@ -249,6 +307,7 @@ if __name__=='__main__':
      parser.add_argument('--native',type=Path)
      parser.add_argument('--mode',choices=['A','B'],default='A')
      parser.add_argument('--execution-profile')
@@ -201,3 +205,58 @@ index d4453bd..169feb9 100644
          source.wait(timeout=max(.01,deadline-time.monotonic()-6))
      except BaseException as exc:error=repr(exc)
      finally:
+diff --git a/net01/followup04/frozen_source_clock.py b/net01/followup04/frozen_source_clock.py
+new file mode 100644
+index 0000000..34ec87b
+--- /dev/null
++++ b/net01/followup04/frozen_source_clock.py
+@@ -0,0 +1,49 @@
++"""Fixture timing only: configured sim-rate ceilings, not a robot/SLAM model."""
++
++
++class FrozenSourceClock:
++    def __init__(self):
++        self.sim_ns = self.origin_ns = self.scan_header_ns = None
++        self.ticks = dict(odom=0, wheel=0, scan=0)
++        self.skipped_configured_ticks = dict(odom=0, wheel=0, scan=0)
++        self.last_costmap_ns = {robot: 0 for robot in (1, 2, 3)}
++
++    def advance(self, sim_ns):
++        if self.sim_ns is None:
++            self.sim_ns = self.origin_ns = self.scan_header_ns = sim_ns
++            return set()
++        if sim_ns < self.sim_ns:
++            raise ValueError('Actual source clock rollback')
++        self.sim_ns = sim_ns
++        due = set()
++        for kind, hz in (('odom', 30), ('wheel', 10), ('scan', 5)):
++            tick = (sim_ns - self.origin_ns) * hz // 1_000_000_000
++            if tick > self.ticks[kind]:
++                self.skipped_configured_ticks[kind] += tick - self.ticks[kind] - 1
++                self.ticks[kind] = tick  # Skip missed ticks; never replay old samples.
++                due.add(kind)
++        if 'scan' in due:
++            self.scan_header_ns = sim_ns
++        return due
++
++    def costmap_due(self, robot, node_sim_ns):
++        # Nav2 checks this strict ROS-time predicate in its 5Hz wall update loop.
++        if node_sim_ns > self.last_costmap_ns[robot] + 500_000_000:
++            self.last_costmap_ns[robot] = node_sim_ns
++            return True
++        return False
++
++
++def wheel_message(stamp_ns):
++    from geometry_msgs.msg import TransformStamped
++    from tf2_msgs.msg import TFMessage
++    transforms = []
++    for child in ('wheel_left_link', 'wheel_right_link'):
++        transform = TransformStamped()
++        transform.header.frame_id = 'base_link'
++        transform.child_frame_id = child
++        transform.header.stamp.sec = stamp_ns // 1_000_000_000
++        transform.header.stamp.nanosec = stamp_ns % 1_000_000_000
++        transform.transform.rotation.w = 1.
++        transforms.append(transform)
++    return TFMessage(transforms=transforms)
