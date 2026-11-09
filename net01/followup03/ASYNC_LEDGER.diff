@@ -1,0 +1,350 @@
+diff --git a/net01/followup03/profile_native_burst.py b/net01/followup03/profile_native_burst.py
+index 3aa7895..6cab5b3 100644
+--- a/net01/followup03/profile_native_burst.py
++++ b/net01/followup03/profile_native_burst.py
+@@ -3,6 +3,7 @@
+ import argparse
+ import json
+ import os
++import resource
+ from pathlib import Path
+ import signal
+ import subprocess
+@@ -18,6 +19,9 @@ def main():
+     parser=argparse.ArgumentParser()
+     parser.add_argument("--native",type=Path,required=True)
+     parser.add_argument("--output",type=Path,required=True)
++    parser.add_argument("--no-cpu-profile",action="store_true")
++    parser.add_argument("--async-ledger",action="store_true")
++    parser.add_argument("--compare",type=Path)
+     args=parser.parse_args()
+     args.output.mkdir(exist_ok=False)
+     native_dir=args.output/"native";native_dir.mkdir()
+@@ -44,7 +48,9 @@ def main():
+         messages=[dict(id=k,**{key:value for key,value in m.items() if key!="payload"}) for k,m in messages.items()],
+         no_ROS=True,no_Gazebo=True,no_Goal=True,no_NN=True,
+         purpose="CPU hotspots only; no real-time, AoI, safety or sustained load PASS"),indent=2)+"\n")
+-    argv=[str(args.native.resolve()),f"--output={native_dir.resolve()}","--profile=B","--controlTrace=1","--cpuProfile=1"]
++    argv=[str(args.native.resolve()),f"--output={native_dir.resolve()}","--profile=B","--controlTrace=1",
++        f"--cpuProfile={int(not args.no_cpu_profile)}",f"--asyncLedger={int(args.async_ledger)}"]
++    usage_before=resource.getrusage(resource.RUSAGE_CHILDREN)
+     start=time.monotonic();process=subprocess.Popen(argv,stdin=subprocess.PIPE,stdout=subprocess.PIPE,
+         stderr=subprocess.PIPE,start_new_session=True)
+     error=None
+@@ -52,17 +58,33 @@ def main():
+     except subprocess.TimeoutExpired:
+         error="native measurement exceeded18wall; owned group killed"
+         os.killpg(process.pid,signal.SIGKILL);stdout,stderr=process.communicate()
++    usage_after=resource.getrusage(resource.RUSAGE_CHILDREN)
+     (args.output/"native-output.bin").write_bytes(stdout)
+     (args.output/"native.stderr.txt").write_bytes(stderr)
+     boundaries=[json.loads(line[len(b"NET01_CONTROL "):]) for line in stderr.splitlines() if line.startswith(b"NET01_CONTROL ")]
+     (args.output/"native-boundaries.json").write_text(json.dumps(boundaries,indent=2)+"\n")
+     result=dict(argv=argv,native_exit=process.returncode,error=error,wall_s=time.monotonic()-start,
++        total_process_cpu_s=(usage_after.ru_utime+usage_after.ru_stime)-(usage_before.ru_utime+usage_before.ru_stime),
+         status="MEASURED" if process.returncode==0 and error is None else "FAIL",
+         scope="Native CPU diagnostic ONLY; no ROS, real-time qualification, policy or safety validation")
+     if process.returncode==0:
+         ready,received,steps=parse_output(stdout)
+         result.update(ready=ready,received=list(received),missing=sorted(set(messages)-set(received)),steps=steps,
+             received_exact=all(r["payload"]==messages[i]["payload"] and (r["sender"],r["receiver"])==(messages[i]["sender"],messages[i]["receiver"]) for i,r in received.items()))
++        if result['missing'] or not result['received_exact']:
++            result['status']='FAIL';error='Actual whole-payload receipt differs from fixed input'
++        result["ledger"]=json.loads((native_dir/"ledger-status.json").read_text())
++        if args.compare is not None:
++            def events(path):
++                return [{k:v for k,v in json.loads(line).items() if k!="monotonic_ns"}
++                    for line in path.read_text().splitlines()]
++            reference=args.compare/"native"
++            pcaps={p.name:p for p in native_dir.glob('*.pcap')}
++            result['comparison']=dict(ledger_events_except_mono_equal=events(native_dir/'packet-ledger.jsonl')==events(reference/'packet-ledger.jsonl'),
++                stdout_protocol_and_payload_exact=stdout==(args.compare/'native-output.bin').read_bytes(),
++                pcap_bytes_equal=set(pcaps)=={p.name for p in reference.glob('*.pcap')} and all(p.read_bytes()==(reference/name).read_bytes() for name,p in pcaps.items()))
++            if not all(result['comparison'].values()):result['status']='FAIL';error='Reference event/payload/PCAP mismatch'
++    result['error']=error
+     (args.output/"result.json").write_text(json.dumps(result,indent=2)+"\n")
+     print(json.dumps(result),flush=True)
+     return 0 if process.returncode==0 and error is None else 1
+diff --git a/net01/native/CMakeLists.txt b/net01/native/CMakeLists.txt
+index 38096ad..12aa187 100644
+--- a/net01/native/CMakeLists.txt
++++ b/net01/native/CMakeLists.txt
+@@ -6,6 +6,8 @@ if(NOT NS3_DIR OR NOT CONFIG_HEADER_DIR)
+   message(FATAL_ERROR "Explicit existing NS3_DIR and generated CONFIG_HEADER_DIR required")
+ endif()
+ add_executable(net01-payload payload_transport.cc)
++find_package(Threads REQUIRED)
++target_link_libraries(net01-payload PRIVATE Threads::Threads)
+ target_include_directories(net01-payload PRIVATE "${NS3_DIR}/build/include" "${CONFIG_HEADER_DIR}")
+ foreach(module wifi internet csma mobility propagation spectrum antenna energy network core traffic-control bridge)
+   find_library(ns3_${module} NAMES ns3.40-${module}-default PATHS "${NS3_DIR}/build/lib" NO_DEFAULT_PATH REQUIRED)
+diff --git a/net01/native/event_ledger.h b/net01/native/event_ledger.h
+new file mode 100644
+index 0000000..31c14ed
+--- /dev/null
++++ b/net01/native/event_ledger.h
+@@ -0,0 +1,122 @@
++#pragma once
++// NET01 diagnostic ledger only. No simulator objects or payload bytes cross threads.
++#include <algorithm>
++#include <condition_variable>
++#include <cstdint>
++#include <deque>
++#include <exception>
++#include <fstream>
++#include <iomanip>
++#include <mutex>
++#include <sstream>
++#include <stdexcept>
++#include <string>
++#include <thread>
++#include <time.h>
++
++struct LedgerRecord {
++  enum Layout {Raw,Packet,Sniff,Drop,Node} layout=Raw;
++  uint64_t sequence=0,packetUid=0;
++  int64_t ns3=0,monotonic=0;
++  uint32_t node=0,packetBytes=0,frequency=0,reason=0;
++  double signal=0,noise=0;
++  std::string kind,fields;
++};
++
++class EventLedger {
++  static constexpr uint64_t capacity=16384;
++  std::ofstream stream;
++  std::thread writer;
++  std::mutex mutex;
++  std::condition_variable changed;
++  std::deque<LedgerRecord> pending;
++  bool asynchronous=false,stopping=false;
++  std::exception_ptr writeError;
++  uint64_t attempted=0,captured=0,written=0,flushed=0,flushTarget=0,peak=0,maxOwnedBytes=0;
++  int64_t writerCpu=0;
++  static int64_t cpu() {timespec t;clock_gettime(CLOCK_THREAD_CPUTIME_ID,&t);return int64_t(t.tv_sec)*1000000000+t.tv_nsec;}
++  void write(const LedgerRecord& r) {
++    stream<<"{\"kind\":\""<<r.kind<<"\",\"ns3_ns\":"<<r.ns3<<",\"monotonic_ns\":"<<r.monotonic;
++    if(r.layout==LedgerRecord::Raw)stream<<r.fields;
++    else {
++      stream<<",\"node\":"<<r.node;
++      if(r.layout!=LedgerRecord::Node)stream<<",\"packet_uid\":"<<r.packetUid<<",\"packet_bytes\":"<<r.packetBytes;
++      if(r.layout==LedgerRecord::Drop)stream<<",\"reason\":"<<r.reason;
++      if(r.layout==LedgerRecord::Sniff) {
++        std::ostringstream fields;fields<<std::setprecision(12)<<",\"frequency_mhz\":"<<r.frequency
++          <<",\"signal_dbm\":"<<r.signal<<",\"noise_dbm\":"<<r.noise<<",\"snr_db\":"<<r.signal-r.noise;
++        stream<<fields.str();
++      }
++    }
++    stream<<"}\n";
++  }
++  void work() {
++    const auto start=cpu();
++    try {
++      for(;;) {
++        LedgerRecord row;uint64_t mark=0;
++        {
++          std::unique_lock<std::mutex> lock(mutex);
++          changed.wait(lock,[&]{return stopping || !pending.empty() || flushTarget>flushed;});
++          if(written>=flushTarget && flushTarget>flushed)mark=written;
++          else if(!pending.empty()) {row=std::move(pending.front());pending.pop_front();}
++          else if(stopping)break;
++        }
++        if(mark) {
++          stream.flush();std::lock_guard<std::mutex> lock(mutex);flushed=mark;changed.notify_all();
++        } else {
++          if(row.sequence!=written+1)throw std::runtime_error("Ledger sequence mismatch");
++          write(row);std::lock_guard<std::mutex> lock(mutex);++written;
++        }
++      }
++      stream.flush();std::lock_guard<std::mutex> lock(mutex);flushed=written;
++    } catch(...) {std::lock_guard<std::mutex> lock(mutex);writeError=std::current_exception();}
++    writerCpu=cpu()-start;changed.notify_all();
++  }
++public:
++  void open(const std::string& path,bool enabled) {
++    asynchronous=enabled;stream.exceptions(std::ios::badbit|std::ios::failbit);stream.open(path);
++    if(asynchronous)writer=std::thread([this]{work();});
++  }
++  void raw(const std::string& kind,int64_t ns3,int64_t monotonic,const std::string& fields) {
++    if(!asynchronous) {
++      ++attempted;++captured;
++      stream<<"{\"kind\":\""<<kind<<"\",\"ns3_ns\":"<<ns3<<",\"monotonic_ns\":"<<monotonic<<fields<<"}\n";
++      ++written;return;
++    }
++    LedgerRecord row;row.kind=kind;row.ns3=ns3;row.monotonic=monotonic;row.fields=fields;capture(std::move(row));
++  }
++  void capture(LedgerRecord row) {
++    std::lock_guard<std::mutex> lock(mutex);++attempted;
++    if(writeError)std::rethrow_exception(writeError);
++    // captured-written includes the writer's inflight row, not just deque size.
++    if(captured-written>=capacity)throw std::runtime_error("Ledger pending capacity16384 exceeded");
++    row.sequence=++captured;
++    maxOwnedBytes=std::max<uint64_t>(maxOwnedBytes,sizeof(row)+row.kind.capacity()+row.fields.capacity());
++    pending.push_back(std::move(row));peak=std::max(peak,captured-written);changed.notify_one();
++  }
++  uint64_t barrier() {
++    if(!asynchronous)return captured; // Original serial buffering is unchanged.
++    std::unique_lock<std::mutex> lock(mutex);const auto target=captured;flushTarget=target;changed.notify_one();
++    changed.wait(lock,[&]{return flushed>=target || writeError;});
++    if(writeError)std::rethrow_exception(writeError);
++    return target;
++  }
++  void finish() {
++    if(writer.joinable()) {
++      {std::lock_guard<std::mutex> lock(mutex);stopping=true;changed.notify_one();}
++      writer.join();
++    }
++    if(writeError)std::rethrow_exception(writeError);
++    stream.flush();
++    if(attempted!=captured || captured!=written)throw std::runtime_error("Ledger captured/written mismatch");
++  }
++  void status(const std::string& path,int64_t finalNs3,int64_t modelCpu,const std::string& error) {
++    std::ofstream out(path);out.exceptions(std::ios::badbit|std::ios::failbit);
++    out<<"{\"async\":"<<(asynchronous?"true":"false")<<",\"captured\":"<<captured<<",\"written\":"<<written
++      <<",\"attempted\":"<<attempted<<",\"pending_capacity_records\":"<<capacity<<",\"peak_pending_including_inflight\":"<<peak
++      <<",\"max_record_owned_bytes\":"<<maxOwnedBytes<<",\"writer_cpu_ns\":"<<writerCpu
++      <<",\"model_cpu_ns\":"<<modelCpu<<",\"final_ns3_ns\":"<<finalNs3<<",\"failed\":"<<(error.empty()?"false":"true")<<"}\n";
++    out.close();
++  }
++};
+diff --git a/net01/native/payload_transport.cc b/net01/native/payload_transport.cc
+index bfd119f..5f6e527 100644
+--- a/net01/native/payload_transport.cc
++++ b/net01/native/payload_transport.cc
+@@ -7,6 +7,7 @@
+ #include "ns3/mobility-module.h"
+ #include "ns3/propagation-module.h"
+ #include "network_config.h"
++#include "event_ledger.h"
+ #include <array>
+ #include <cmath>
+ #include <chrono>
+@@ -22,7 +23,10 @@
+ 
+ using namespace ns3;
+ static constexpr uint32_t WIRE_HEADER=36, CHUNK=1200-WIRE_HEADER;
+-static std::ofstream ledger;
++static EventLedger ledger;
++static bool asyncLedger=false,simulatorDestroyed=false;
++static std::string outputDirectory;
++static int64_t finalNs3=0,modelCpuStart=0;
+ static std::map<std::string,uint64_t> counts;
+ static bool controlTrace=false;
+ static bool cpuProfile=false;
+@@ -78,8 +82,11 @@ static void cpuBoundary(const std::string& kind) {
+ static void event(const std::string& kind,const std::string& fields="") {
+   CpuScope measure(EventCpu);
+   ++counts[kind];
+-  ledger<<"{\"kind\":\""<<kind<<"\",\"ns3_ns\":"<<Simulator::Now().GetNanoSeconds()
+-        <<",\"monotonic_ns\":"<<mono()<<fields<<"}\n";
++  ledger.raw(kind,Simulator::Now().GetNanoSeconds(),mono(),fields);
++}
++static LedgerRecord primitiveRecord(const std::string& kind,LedgerRecord::Layout layout) {
++  ++counts[kind];LedgerRecord row;row.kind=kind;row.layout=layout;
++  row.ns3=Simulator::Now().GetNanoSeconds();row.monotonic=mono();return row;
+ }
+ class Fragment : public Header {
+ public:
+@@ -158,23 +165,39 @@ static void receive(Ptr<Socket> socket) {
+ }
+ static void simpleTrace(std::string kind,uint32_t node,Ptr<const Packet> packet) {
+   CpuScope measure(TraceCpu);
++  if(asyncLedger) {
++    auto row=primitiveRecord(kind,LedgerRecord::Packet);row.node=node;row.packetUid=packet->GetUid();row.packetBytes=packet->GetSize();
++    ledger.capture(std::move(row));return;
++  }
+   event(kind,",\"node\":"+std::to_string(node)+",\"packet_uid\":"+std::to_string(packet->GetUid())+",\"packet_bytes\":"+std::to_string(packet->GetSize()));
+ }
+ static void rxDrop(uint32_t node,Ptr<const Packet> packet,WifiPhyRxfailureReason reason) {
+   CpuScope measure(DropCpu);
++  if(asyncLedger) {
++    auto row=primitiveRecord("phy_rx_drop",LedgerRecord::Drop);row.node=node;row.packetUid=packet->GetUid();row.packetBytes=packet->GetSize();row.reason=static_cast<unsigned>(reason);
++    ledger.capture(std::move(row));return;
++  }
+   event("phy_rx_drop",",\"node\":"+std::to_string(node)+",\"packet_uid\":"+
+       std::to_string(packet->GetUid())+",\"packet_bytes\":"+std::to_string(packet->GetSize())+
+       ",\"reason\":"+std::to_string(static_cast<unsigned>(reason)));
+ }
+ static void sniff(uint32_t node,Ptr<const Packet> packet,uint16_t freq,WifiTxVector tx,MpduInfo mpdu,SignalNoiseDbm power,uint16_t sta) {
+   CpuScope measure(SniffCpu);
++  if(asyncLedger) {
++    auto row=primitiveRecord("wifi_sniffer_rx",LedgerRecord::Sniff);row.node=node;row.packetUid=packet->GetUid();row.packetBytes=packet->GetSize();row.frequency=freq;row.signal=power.signal;row.noise=power.noise;
++    ledger.capture(std::move(row));return;
++  }
+   std::ostringstream s;s<<std::setprecision(12)<<",\"node\":"<<node<<",\"packet_uid\":"<<packet->GetUid()
+     <<",\"packet_bytes\":"<<packet->GetSize()<<",\"frequency_mhz\":"<<freq<<",\"signal_dbm\":"<<power.signal
+     <<",\"noise_dbm\":"<<power.noise<<",\"snr_db\":"<<power.signal-power.noise;
+   event("wifi_sniffer_rx",s.str());
+ }
+-static void retry(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);event("mac_data_retry",",\"node\":"+std::to_string(node));}
+-static void finalDrop(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);event("mac_final_data_drop",",\"node\":"+std::to_string(node));}
++static void nodeEvent(const std::string& kind,uint32_t node) {
++  if(asyncLedger) {auto row=primitiveRecord(kind,LedgerRecord::Node);row.node=node;ledger.capture(std::move(row));}
++  else event(kind,",\"node\":"+std::to_string(node));
++}
++static void retry(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);nodeEvent("mac_data_retry",node);}
++static void finalDrop(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);nodeEvent("mac_final_data_drop",node);}
+ static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identity,std::vector<uint8_t> body) {
+   CpuScope measure(TransmitCpu);
+   for(uint32_t offset=0;offset<body.size();offset+=CHUNK) {
+@@ -186,15 +209,16 @@ static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identit
+   }
+ }
+ 
+-int main(int argc,char** argv) {
++static int modelMain(int argc,char** argv) {
+   std::string directory,profile="B";
+   struct StepTrace {int64_t horizon,beginMono,beginCpu,beginNs3,endMono,endCpu,endNs3;};
+   std::vector<StepTrace> controlSteps;
+   CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);
+-  cmd.AddValue("cpuProfile","Diagnostic own-callback cumulative CPU only; use with controlTrace",cpuProfile);cmd.Parse(argc,argv);
++  cmd.AddValue("cpuProfile","Diagnostic own-callback cumulative CPU only; use with controlTrace",cpuProfile);
++  cmd.AddValue("asyncLedger","Move diagnostic formatting to one bounded writer",asyncLedger);cmd.Parse(argc,argv);
++  // asyncLedger remains opt-in; the reference keeps serial formatting/buffering.
+   NS_ABORT_MSG_IF(directory.empty() || (profile!="B" && profile!="C"),"Explicit output and locked profile needed");
+-  ledger.open(directory+"/packet-ledger.jsonl");
+-  NS_ABORT_MSG_IF(!ledger,"Cannot open packet ledger");
++  outputDirectory=directory;ledger.open(directory+"/packet-ledger.jsonl",asyncLedger);
+   std::ofstream(directory+"/configured-lock.json")<<kRawConfig;
+   RngSeedManager::SetSeed(kSeed);RngSeedManager::SetRun(kRun);
+   Config::SetDefault("ns3::WifiMacQueue::MaxSize",QueueSizeValue(QueueSize(std::to_string(kQueuePackets)+"p")));
+@@ -294,6 +318,9 @@ int main(int argc,char** argv) {
+       }
+       cpuBoundary("cpu_step_end");
+       event("horizon_return",",\"requested_horizon_ns\":"+std::to_string(horizon));
++      controlBoundary("ledger_barrier_begin");
++      ledger.barrier();
++      controlBoundary("ledger_barrier_end");
+       std::cout<<"STEP "<<Simulator::Now().GetNanoSeconds()<<"\n"<<std::flush;
+     } else if(op=="RADIO") {
+       int enabled;in>>enabled;
+@@ -312,6 +339,28 @@ int main(int argc,char** argv) {
+       <<",\"begin_thread_cpu_ns\":"<<t.beginCpu<<",\"begin_ns3_ns\":"<<t.beginNs3<<",\"end_monotonic_ns\":"<<t.endMono
+       <<",\"end_thread_cpu_ns\":"<<t.endCpu<<",\"end_ns3_ns\":"<<t.endNs3<<"}\n";
+   }
+-  std::ofstream summary(directory+"/native-summary.json");summary<<"{\"counts\":{";bool first=true;for(auto& [name,n]:counts){if(!first)summary<<",";first=false;summary<<"\""<<name<<"\":"<<n;}summary<<"},\"pending_incomplete\":"<<pending.size()<<",\"completed_messages\":"<<completed.size()<<",\"ns3_ns\":"<<Simulator::Now().GetNanoSeconds()<<"}\n";
+-  Simulator::Destroy();return 0;
++  finalNs3=Simulator::Now().GetNanoSeconds();
++  Simulator::Destroy();simulatorDestroyed=true;
++  ledger.finish();
++  ledger.status(directory+"/ledger-status.json",finalNs3,threadCpu()-modelCpuStart,"");
++  std::ofstream summary(directory+"/native-summary.json");summary<<"{\"counts\":{";bool first=true;for(auto& [name,n]:counts){if(!first)summary<<",";first=false;summary<<"\""<<name<<"\":"<<n;}summary<<"},\"pending_incomplete\":"<<pending.size()<<",\"completed_messages\":"<<completed.size()<<",\"ns3_ns\":"<<finalNs3<<"}\n";
++  return 0;
++}
++
++int main(int argc,char** argv) {
++  modelCpuStart=threadCpu();
++  try {return modelMain(argc,argv);}
++  catch(const std::exception& error) {
++    const std::string firstError=error.what();
++    std::cerr<<"NET01 ledger/model failure: "<<firstError<<"\n";
++    if(!simulatorDestroyed) {
++      finalNs3=Simulator::Now().GetNanoSeconds();
++      try {Simulator::Destroy();simulatorDestroyed=true;}
++      catch(const std::exception& cleanup) {std::cerr<<"Simulator cleanup: "<<cleanup.what()<<"\n";}
++    }
++    try {ledger.finish();}catch(const std::exception& cleanup) {std::cerr<<"Ledger cleanup: "<<cleanup.what()<<"\n";}
++    try {ledger.status(outputDirectory+"/ledger-status.json",finalNs3,threadCpu()-modelCpuStart,firstError);}
++    catch(const std::exception& save) {std::cerr<<"Ledger status save failed: "<<save.what()<<"\n";}
++    return 1;
++  }
+ }

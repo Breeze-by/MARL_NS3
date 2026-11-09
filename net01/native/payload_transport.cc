@@ -7,6 +7,7 @@
 #include "ns3/mobility-module.h"
 #include "ns3/propagation-module.h"
 #include "network_config.h"
+#include "event_ledger.h"
 #include <array>
 #include <cmath>
 #include <chrono>
@@ -22,7 +23,10 @@
 
 using namespace ns3;
 static constexpr uint32_t WIRE_HEADER=36, CHUNK=1200-WIRE_HEADER;
-static std::ofstream ledger;
+static EventLedger ledger;
+static bool asyncLedger=false,simulatorDestroyed=false;
+static std::string outputDirectory;
+static int64_t finalNs3=0,modelCpuStart=0;
 static std::map<std::string,uint64_t> counts;
 static bool controlTrace=false;
 static bool cpuProfile=false;
@@ -78,8 +82,11 @@ static void cpuBoundary(const std::string& kind) {
 static void event(const std::string& kind,const std::string& fields="") {
   CpuScope measure(EventCpu);
   ++counts[kind];
-  ledger<<"{\"kind\":\""<<kind<<"\",\"ns3_ns\":"<<Simulator::Now().GetNanoSeconds()
-        <<",\"monotonic_ns\":"<<mono()<<fields<<"}\n";
+  ledger.raw(kind,Simulator::Now().GetNanoSeconds(),mono(),fields);
+}
+static LedgerRecord primitiveRecord(const std::string& kind,LedgerRecord::Layout layout) {
+  ++counts[kind];LedgerRecord row;row.kind=kind;row.layout=layout;
+  row.ns3=Simulator::Now().GetNanoSeconds();row.monotonic=mono();return row;
 }
 class Fragment : public Header {
 public:
@@ -158,23 +165,39 @@ static void receive(Ptr<Socket> socket) {
 }
 static void simpleTrace(std::string kind,uint32_t node,Ptr<const Packet> packet) {
   CpuScope measure(TraceCpu);
+  if(asyncLedger) {
+    auto row=primitiveRecord(kind,LedgerRecord::Packet);row.node=node;row.packetUid=packet->GetUid();row.packetBytes=packet->GetSize();
+    ledger.capture(std::move(row));return;
+  }
   event(kind,",\"node\":"+std::to_string(node)+",\"packet_uid\":"+std::to_string(packet->GetUid())+",\"packet_bytes\":"+std::to_string(packet->GetSize()));
 }
 static void rxDrop(uint32_t node,Ptr<const Packet> packet,WifiPhyRxfailureReason reason) {
   CpuScope measure(DropCpu);
+  if(asyncLedger) {
+    auto row=primitiveRecord("phy_rx_drop",LedgerRecord::Drop);row.node=node;row.packetUid=packet->GetUid();row.packetBytes=packet->GetSize();row.reason=static_cast<unsigned>(reason);
+    ledger.capture(std::move(row));return;
+  }
   event("phy_rx_drop",",\"node\":"+std::to_string(node)+",\"packet_uid\":"+
       std::to_string(packet->GetUid())+",\"packet_bytes\":"+std::to_string(packet->GetSize())+
       ",\"reason\":"+std::to_string(static_cast<unsigned>(reason)));
 }
 static void sniff(uint32_t node,Ptr<const Packet> packet,uint16_t freq,WifiTxVector tx,MpduInfo mpdu,SignalNoiseDbm power,uint16_t sta) {
   CpuScope measure(SniffCpu);
+  if(asyncLedger) {
+    auto row=primitiveRecord("wifi_sniffer_rx",LedgerRecord::Sniff);row.node=node;row.packetUid=packet->GetUid();row.packetBytes=packet->GetSize();row.frequency=freq;row.signal=power.signal;row.noise=power.noise;
+    ledger.capture(std::move(row));return;
+  }
   std::ostringstream s;s<<std::setprecision(12)<<",\"node\":"<<node<<",\"packet_uid\":"<<packet->GetUid()
     <<",\"packet_bytes\":"<<packet->GetSize()<<",\"frequency_mhz\":"<<freq<<",\"signal_dbm\":"<<power.signal
     <<",\"noise_dbm\":"<<power.noise<<",\"snr_db\":"<<power.signal-power.noise;
   event("wifi_sniffer_rx",s.str());
 }
-static void retry(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);event("mac_data_retry",",\"node\":"+std::to_string(node));}
-static void finalDrop(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);event("mac_final_data_drop",",\"node\":"+std::to_string(node));}
+static void nodeEvent(const std::string& kind,uint32_t node) {
+  if(asyncLedger) {auto row=primitiveRecord(kind,LedgerRecord::Node);row.node=node;ledger.capture(std::move(row));}
+  else event(kind,",\"node\":"+std::to_string(node));
+}
+static void retry(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);nodeEvent("mac_data_retry",node);}
+static void finalDrop(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);nodeEvent("mac_final_data_drop",node);}
 static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identity,std::vector<uint8_t> body) {
   CpuScope measure(TransmitCpu);
   for(uint32_t offset=0;offset<body.size();offset+=CHUNK) {
@@ -186,15 +209,16 @@ static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identit
   }
 }
 
-int main(int argc,char** argv) {
+static int modelMain(int argc,char** argv) {
   std::string directory,profile="B";
   struct StepTrace {int64_t horizon,beginMono,beginCpu,beginNs3,endMono,endCpu,endNs3;};
   std::vector<StepTrace> controlSteps;
   CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);
-  cmd.AddValue("cpuProfile","Diagnostic own-callback cumulative CPU only; use with controlTrace",cpuProfile);cmd.Parse(argc,argv);
+  cmd.AddValue("cpuProfile","Diagnostic own-callback cumulative CPU only; use with controlTrace",cpuProfile);
+  cmd.AddValue("asyncLedger","Move diagnostic formatting to one bounded writer",asyncLedger);cmd.Parse(argc,argv);
+  // asyncLedger remains opt-in; the reference keeps serial formatting/buffering.
   NS_ABORT_MSG_IF(directory.empty() || (profile!="B" && profile!="C"),"Explicit output and locked profile needed");
-  ledger.open(directory+"/packet-ledger.jsonl");
-  NS_ABORT_MSG_IF(!ledger,"Cannot open packet ledger");
+  outputDirectory=directory;ledger.open(directory+"/packet-ledger.jsonl",asyncLedger);
   std::ofstream(directory+"/configured-lock.json")<<kRawConfig;
   RngSeedManager::SetSeed(kSeed);RngSeedManager::SetRun(kRun);
   Config::SetDefault("ns3::WifiMacQueue::MaxSize",QueueSizeValue(QueueSize(std::to_string(kQueuePackets)+"p")));
@@ -294,6 +318,9 @@ int main(int argc,char** argv) {
       }
       cpuBoundary("cpu_step_end");
       event("horizon_return",",\"requested_horizon_ns\":"+std::to_string(horizon));
+      controlBoundary("ledger_barrier_begin");
+      ledger.barrier();
+      controlBoundary("ledger_barrier_end");
       std::cout<<"STEP "<<Simulator::Now().GetNanoSeconds()<<"\n"<<std::flush;
     } else if(op=="RADIO") {
       int enabled;in>>enabled;
@@ -312,6 +339,28 @@ int main(int argc,char** argv) {
       <<",\"begin_thread_cpu_ns\":"<<t.beginCpu<<",\"begin_ns3_ns\":"<<t.beginNs3<<",\"end_monotonic_ns\":"<<t.endMono
       <<",\"end_thread_cpu_ns\":"<<t.endCpu<<",\"end_ns3_ns\":"<<t.endNs3<<"}\n";
   }
-  std::ofstream summary(directory+"/native-summary.json");summary<<"{\"counts\":{";bool first=true;for(auto& [name,n]:counts){if(!first)summary<<",";first=false;summary<<"\""<<name<<"\":"<<n;}summary<<"},\"pending_incomplete\":"<<pending.size()<<",\"completed_messages\":"<<completed.size()<<",\"ns3_ns\":"<<Simulator::Now().GetNanoSeconds()<<"}\n";
-  Simulator::Destroy();return 0;
+  finalNs3=Simulator::Now().GetNanoSeconds();
+  Simulator::Destroy();simulatorDestroyed=true;
+  ledger.finish();
+  ledger.status(directory+"/ledger-status.json",finalNs3,threadCpu()-modelCpuStart,"");
+  std::ofstream summary(directory+"/native-summary.json");summary<<"{\"counts\":{";bool first=true;for(auto& [name,n]:counts){if(!first)summary<<",";first=false;summary<<"\""<<name<<"\":"<<n;}summary<<"},\"pending_incomplete\":"<<pending.size()<<",\"completed_messages\":"<<completed.size()<<",\"ns3_ns\":"<<finalNs3<<"}\n";
+  return 0;
+}
+
+int main(int argc,char** argv) {
+  modelCpuStart=threadCpu();
+  try {return modelMain(argc,argv);}
+  catch(const std::exception& error) {
+    const std::string firstError=error.what();
+    std::cerr<<"NET01 ledger/model failure: "<<firstError<<"\n";
+    if(!simulatorDestroyed) {
+      finalNs3=Simulator::Now().GetNanoSeconds();
+      try {Simulator::Destroy();simulatorDestroyed=true;}
+      catch(const std::exception& cleanup) {std::cerr<<"Simulator cleanup: "<<cleanup.what()<<"\n";}
+    }
+    try {ledger.finish();}catch(const std::exception& cleanup) {std::cerr<<"Ledger cleanup: "<<cleanup.what()<<"\n";}
+    try {ledger.status(outputDirectory+"/ledger-status.json",finalNs3,threadCpu()-modelCpuStart,firstError);}
+    catch(const std::exception& save) {std::cerr<<"Ledger status save failed: "<<save.what()<<"\n";}
+    return 1;
+  }
 }
