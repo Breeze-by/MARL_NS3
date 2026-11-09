@@ -34,23 +34,30 @@ from link_session import LinkSession
 from topic_wire import TopicWire
 
 
-def drain_current_ready(executor,node):
-    """One bounded public ready batch, in original SingleThreaded order.
+def drain_current_ready(executor,node,ready_set,after_handler=None):
+    """Bounded productive ready sets, in original SingleThreaded order.
 
     Keep the executor's cached iterator across cap hits. Do not wait/rebuild an
     empty waitset for every other-domain callback or favor any topic/timer.
+    Timeout0 also ends a productive set; it does not mean readers are empty.
     """
     cap=sum(len(tuple(getattr(node,name))) for name in
         ('subscriptions','timers','clients','services','guards','waitables'))
     completed=[]
-    for _ in range(cap):
+    while len(completed)<cap:
         try:handler,entity,_=executor.wait_for_ready_callbacks(timeout_sec=0)
-        except (TimeoutException,ShutdownException):break
+        except TimeoutException:
+            if not ready_set['productive']:break
+            ready_set['productive']=False
+            continue
+        except ShutdownException:break
         began=time.monotonic()
         handler()
         if handler.exception() is not None:raise handler.exception()
         handler.result()
         completed.append((entity,began))
+        ready_set['productive']=True
+        if after_handler is not None:after_handler()
     return completed,cap
 
 
@@ -59,6 +66,7 @@ class Gateway:
         self.mode,self.directory,self.session_id=mode,Path(directory),session_id
         self.records=[];self.direct=deque();self.direct_sequence=0
         self.contexts=[];self.nodes=[];self.executors=[]
+        self.ready_sets={side:dict(productive=False) for side in ('C','R')}
         self.dispatch_stats=dict(C=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
             R=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
             guard_timers={},max_poll_gap_wall_s=0.)
@@ -205,7 +213,7 @@ class Gateway:
         self.last_poll=now
         for side,executor,node in zip(('C','R'),self.executors,self.nodes):
             before=time.monotonic();cpu=time.thread_time()
-            completed,cap=drain_current_ready(executor,node)
+            completed,cap=drain_current_ready(executor,node,self.ready_sets[side],self.progress_transport)
             stat=self.dispatch_stats[side];stat['batches']+=1;stat['callbacks']+=len(completed)
             stat['cap_hits']+=int(len(completed)==cap)
             stat['max_wall_s']=max(stat['max_wall_s'],time.monotonic()-before)
@@ -216,6 +224,11 @@ class Gateway:
                         timer=self.dispatch_stats['guard_timers'].setdefault(str(robot),dict(calls=0,max_gap_wall_s=0.,last=None))
                         if timer['last'] is not None:timer['max_gap_wall_s']=max(timer['max_gap_wall_s'],began-timer['last'])
                         timer['calls']+=1;timer['last']=began
+        self.progress_transport()
+
+    def progress_transport(self):
+        # Called between completed ROS handlers as well as at the outer boundary.
+        # Never wait for native progress or replace actual receipts with a cache.
         if self.failure:return
         self.hub.poll()
         if self.anchor is None or not self.hub.ready:return
