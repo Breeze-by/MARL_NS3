@@ -23,7 +23,7 @@ A06原launch第216行记录gzserver PID1626389 exit−11，早于tb3 `/spawn_ent
 
 1. **比较分支纠正。** 旧夹具约.3ms是未ready全100分支。就绪Peer原数学在夹具中17–19ms/张，A03/A04约20ms/张；实际容器测量wall≈threadCPU，未证NumPy/线程环境不一致，也未证磁盘是该段主因。没有修改mask数学、源戳或发布顺序。[分层证据](MASK_BUILD_STRATIFIED.json)、[实测](MASK_COMPUTE_OBSERVATION.json)。
 2. **ready集合与clockpump。** timeout0是一轮ready集合结束，不代表DDS reader队列空；productive refill保留公开cached cursor、原handler异常/result语义及初始总cap。每handler后及外层尾服务原非阻塞transport，避免整轮ROS处理期间clock完全得不到进度。06首STEP未执行而FAIL；07受控负载改善，不代表真实平台实时性通过。
-3. **A05域级饥饿。** 新health401在首fatal前已发布，C约121.497ms未捕获，R却继续处理TF/feedback。R最后持有400，odom年龄.414–.418>.4，而correction年龄均<.55；首因不是本次SLAM校正过期。原health402虽在fatal附近到达，旧源检查先触发仍有效，不追认误报。见[A05时间链](A05_FAILURE_CHAIN.json)。
+3. **A05域级饥饿。** 新health401在首fatal前已发布，C约121.497ms未捕获，R却继续处理TF/feedback。Rguard最后已接受的health为seq400（不表示R原odom reader无更新），该health绑定odom年龄.414–.418>.4，而correction年龄均<.55；首因不是本次SLAM校正过期。原health402虽在fatal附近到达，旧源检查先触发仍有效，不追认误报。见[A05时间链](A05_FAILURE_CHAIN.json)。
 4. **有界公平调度。** 整域cap改为C/R固定4-handler小批轮转；任何一端用完本poll原cap则pair后返外层，不让另一端尾部独占。逐handler方案08、q4单项09仍吞吐不足，否定结果保留，未扫quantum或增加线程。
 5. **真实CPU主项。** profile10空C查询1507次耗1.388CPU秒，ready等待、TF和feedback转换也有显著成本；不能把全部成本唯一归空probe。原Action feedback/status使用实际raw CDR输入与原typed publisher原生bytes发布，0Goal真实DDS验证bytes、字段、UUID/status一致。profile11 FB合计CPU约.834→.184秒，但单项仍不足。只在C真实空集合后固定10ms抑制重复空probe，无sleep/延期guard/刷新deadline；所有组同适配规则。
 6. **时钟诊断。** 12的KNOWN→return约168ms没有STEP入口，不能称Simulator::Run耗时。独立ELF低频RAM控制trace区分queued/socket实际send/hub接收与STEP/Run；13最慢排队→ACK10.904ms、Run8.583wall/8.542CPU，12异常NOT REPRODUCED，不称已根治或硬实时保证。见[13摘要](CONTROL_TRACE_13_SUMMARY.json)。
@@ -57,14 +57,16 @@ Hub最终等STEP超时，END未flush，native被有界清理终止；native RAM 
 
 每次原件、退出码和失败在[RUN_LEDGER](RUN_LEDGER.json)保留；01–05及旧接口失败仍按旧账本引用，不删除或池化成成功率。raw DDS单测、调度/计时语义检查只签各自受控机制，不替代真实Action/Nav2/网络停机。
 
-|正式门禁|本轮等级|
+|正式门禁|本轮等级与范围|
 |---|---|
 |FROZEN POLICY|PASS：核心/权重未改；非新任务性能PASS|
-|NS3 MODEL / BIDIRECTIONAL|既有独立子测PASS；本轮全负载交付不足|
-|NO BYPASS / ACTION MESSAGE|受控原件有限PASS；真实网络Nav2完整闭环BLOCKED|
-|TIME|FAIL：14真实WiFi负载触发原lag保护|
-|NETWORK SAFETY|BLOCKED：无运动子测不等于网络断链物理安全；A05原停机另列|
-|GZ LOOP|FAIL真实回归 / BLOCKED网络闭环：A05中断，A06启动崩溃|
+|NS3 WIFI MODEL|PASS：真实WiFi MAC/PHY、完整payload分片/重组及PCAP可核；不代表满负载时效通过|
+|BIDIRECTIONAL TRANSPORT|FAIL：14虽双向握手成立，当前完整双向业务/持续mask交付未达；旧小规模子测仅其范围PASS|
+|NO DDS BYPASS|BLOCKED：既有受控隔离正负例有限PASS；本候选真实网络机器人整组未运行，不能签完整部署验收|
+|TIME SYNCHRONIZATION|FAIL：14真实WiFi满负载触发原lag保护；13只为synthetic direct限定通过|
+|ACTION AND MESSAGE INTEGRITY|BLOCKED：既有真实ROS/WiFi受控五端点子测PASS，完整真实Nav2过网/终态闭环未到|
+|NETWORK SAFETY|BLOCKED：无运动子测不等于网络断链物理安全；A05原停机另列，14有未决PAUSE futures|
+|GAZEBO NS3 CLOSED LOOP|BLOCKED：A05直接适配参考中断，A06启动崩溃；机器人B/C NOT RUN|
 |PERFORMANCE|INSUFFICIENT：无健康180sim参考/无线配对|
 |OVERALL|BLOCKED，NO-GO NET-02|
 
