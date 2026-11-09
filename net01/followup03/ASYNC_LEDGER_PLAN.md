@@ -11,3 +11,7 @@
 预定两入口（根审实际diff后执行）：
 `rtk proxy python3 -B net-01/workspace/net01/followup03/profile_native_burst.py --native /home/zhuyulab/ns3-workspace/net-01/build/followup03-async-ledger/net01-payload --output /home/zhuyulab/ns3-workspace/net-01/workspace/runs/native-ledger-serial-01 --no-cpu-profile`
 `rtk proxy python3 -B net-01/workspace/net01/followup03/profile_native_burst.py --native /home/zhuyulab/ns3-workspace/net-01/build/followup03-async-ledger/net01-payload --output /home/zhuyulab/ns3-workspace/net-01/workspace/runs/native-ledger-async-01 --no-cpu-profile --async-ledger --compare /home/zhuyulab/ns3-workspace/net-01/workspace/runs/native-ledger-serial-01`
+
+## 已执行唯一对照
+
+a90d67a独立build/两入口均native0，7883条attempted/captured/written逐条无欠账，ledger除mono/完整stdout及payload/全部PCAP bytes相等。async queue峰37，记录max-owned279B。RunCPU118.963→114.882ms，含barrier wall119.249→115.291ms，但整段modelCPU206.067→205.067ms，总processCPU259.746→306.589ms，总wall265.117→265.371ms。机制等价不等于性能有用；生产者建议不晋升默认/不自动追加fullB资格。详见ASYNC_LEDGER_PAIR_SUMMARY.json与ASYNC_NATIVE_IDENTITY.json。没有扫参数或追加测量。
