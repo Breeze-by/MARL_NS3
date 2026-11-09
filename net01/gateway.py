@@ -1,0 +1,249 @@
+"""NET-01 two-domain composition. Only delivery backend differs in A/B/C.
+
+The R executor is never run by the ns-3/hub process. Native IPC is polled
+without waiting; its EOF latches all local stops and does not stop R callbacks.
+All records are RAM captures, persisted only after the owned loop exits.
+"""
+import argparse
+from collections import deque
+import hashlib
+import json
+from pathlib import Path
+import signal
+import time
+
+import rclpy
+from rclpy.clock import Clock, ClockType
+from rclpy.context import Context
+from rclpy.executors import SingleThreadedExecutor
+from rclpy.node import Node
+from rclpy.parameter import Parameter
+from rclpy.qos import QoSProfile, DurabilityPolicy, qos_profile_sensor_data
+from rclpy.serialization import deserialize_message
+from rclpy.signals import SignalHandlerOptions
+from rosgraph_msgs.msg import Clock as ClockMessage
+from gazebo_msgs.msg import ModelStates
+from std_msgs.msg import String
+from std_srvs.srv import Trigger
+
+from action_wire import ActionWire
+from bound_mask_wire import BoundMaskWire
+from delivery_guard import LocalStop
+from hub_client import HubClient
+from link_session import LinkSession
+from topic_wire import TopicWire
+
+
+class Gateway:
+    def __init__(self, mode, socket, directory, session_id):
+        self.mode,self.directory,self.session_id=mode,Path(directory),session_id
+        self.records=[];self.direct=deque();self.direct_sequence=0
+        self.contexts=[];self.nodes=[];self.executors=[]
+        for domain,side in ((91,"C"),(92,"R")):
+            context=Context()
+            rclpy.init(context=context,domain_id=domain,signal_handler_options=SignalHandlerOptions.NO)
+            node=Node("net01_gateway_"+side.lower(),context=context,
+                parameter_overrides=[Parameter("use_sim_time",value=True)])
+            executor=SingleThreadedExecutor(context=context);executor.add_node(node)
+            self.contexts.append(context);self.nodes.append(node);self.executors.append(executor)
+        self.c,self.r=self.nodes
+        self.hub=HubClient(socket);self.hub.receive=self.receive
+        self.link=LinkSession(self,session_id)
+        self.guards={r:LocalStop(self.r,r,session_id) for r in (1,2,3)}
+        self.anchor=None;self.gz=None;self.previous_clock=None;self.step_pending=None
+        self.connected=False;self.failure=None;self.wires=None
+        self.health_status=self.r.create_publisher(String,"/net01/gateway_state",
+            QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
+        self.clock_pub=self.c.create_publisher(ClockMessage,"/clock",qos_profile_sensor_data)
+        self.clock_sub=self.r.create_subscription(ClockMessage,"/clock",self.clock,qos_profile_sensor_data)
+        self.models_sub=self.r.create_subscription(ModelStates,"/gazebo/model_states",self.models,qos_profile_sensor_data)
+        self.arm_services=[self.r.create_service(Trigger,f"/net01/tb{r}/arm",
+            lambda req,resp,r=r:self.arm(r,resp)) for r in (1,2,3)]
+        self.status_timer=self.r.create_timer(.05,self.status,clock=Clock(clock_type=ClockType.STEADY_TIME))
+        self.journal_position=0
+        self.journal_pub=self.c.create_publisher(String,"/net01/controller_records",100)
+        self.journal_timer=self.c.create_timer(.02,self.export_controller_records,
+            clock=Clock(clock_type=ClockType.STEADY_TIME))
+
+    def record(self,kind,**fields):
+        self.records.append(dict(dict(kind=kind,monotonic_ns=time.monotonic_ns(),gz_ns=self.gz),**fields))
+
+    def clock(self,message):
+        gz=message.clock.sec*1_000_000_000+message.clock.nanosec
+        self.clock_pub.publish(message)  # Independent simulation control, no business fields.
+        if self.anchor is None:
+            self.anchor=dict(gazebo_ns=gz,ns3_ns=0,offset_ns=gz,monotonic_ns=time.monotonic_ns())
+            self.record("fixed_clock_anchor",**self.anchor)
+        if self.previous_clock is not None and gz<self.previous_clock:
+            self.fail("gazebo_clock_rollback")
+        self.previous_clock=self.gz=gz
+        if self.failure is None:self.hub.observed_clock(gz-self.anchor["offset_ns"])
+        self.record("actual_R_clock_relayed_C",gazebo_ns=gz)
+
+    def models(self,message):
+        if self.anchor is None or self.failure:return
+        for robot in (1,2,3):
+            name=f"tb{robot}"
+            if name in message.name:
+                p=message.pose[message.name.index(name)].position
+                self.hub.network_position(robot,p.x,p.y,.15)
+        # These positions only update ns-3 MobilityModel; no C policy publisher.
+
+    def send(self,sender,receiver,flow,body,rpc_id=0,source_stamp_ns=0):
+        if self.failure:return
+        if self.anchor is None:raise RuntimeError("Business injection before actual clock anchor")
+        if 200<=flow<300:
+            self.record("action_CDR_capture",sender=sender,receiver=receiver,flow=flow,rpc_id=rpc_id,
+                cdr_bytes=len(body),cdr_sha256=hashlib.sha256(body).hexdigest(),source_stamp_available=False)
+        if self.mode=="A":
+            self.direct_sequence+=1
+            meta=dict(sender=sender,receiver=receiver,flow=flow,native_id=self.direct_sequence,
+                source_stamp_ns=source_stamp_ns,bytes=len(body)+8,backend="IDEAL-DIRECT-ADAPTER",
+                endpoint_capture_monotonic_ns=time.monotonic_ns())
+            self.direct.append((meta,bytes(body),rpc_id))
+        else:
+            self.hub.send(sender,receiver,flow,body,rpc_id,source_stamp_ns,
+                admission_ns=self.gz-self.anchor["offset_ns"])
+
+    def install_wires(self):
+        self.wires={}
+        for side,node in (("C",self.c),("R",self.r)):
+            self.wires[side]=TopicWire(node,side,self.send,bound_masks=True,runtime=True)
+        self.bound_c=BoundMaskWire(self.c,"C",self.send,self.session_id,None)
+        self.bound_r=BoundMaskWire(self.r,"R",self.send,self.session_id,
+            lambda robot,binding,meta:self.guards[robot].guard.receive_bound(binding,meta))
+        self.action_c=ActionWire(self.c,lambda peer,flow,body,rpc:self.send(0,peer,flow,body,rpc),
+            session_id=self.session_id)
+        self.action_r={r:ActionWire(self.r,
+            lambda peer,flow,body,rpc,r=r:self.send(r,peer,flow,body,rpc),
+            robot=r,session_id=self.session_id,guardian=self.guards[r]) for r in (1,2,3)}
+        self.record("business_subscriptions_created",actual_wifi_handshake=self.mode!="A")
+
+    def receive(self,meta,body,rpc):
+        self.record("destination_complete_message",meta=meta,rpc_id=rpc,cdr_bytes=len(body))
+        if self.link.receive(meta,body,rpc):return
+        if self.wires is None:raise RuntimeError("Business received before link qualification")
+        flow=meta["flow"]
+        if flow>=200:
+            self.record("action_CDR_actual_destination",meta=meta,rpc_id=rpc,
+                cdr_sha256=hashlib.sha256(body).hexdigest())
+            if meta["receiver"]==0:self.action_c.receive(meta["sender"],flow,body,rpc)
+            else:self.action_r[meta["receiver"]].receive(meta["sender"],flow,body,rpc)
+        elif flow in (30,50,70):self.bound_r.receive(meta,body,rpc)
+        else:
+            side="C" if meta["receiver"]==0 else "R"
+            if side=="R" and flow in (31,51,71):
+                state=json.loads(deserialize_message(body,String).data)
+                self.guards[meta["receiver"]].guard.receive_health(state)
+            self.wires[side].receive(meta,body,rpc)
+
+    def arm(self,robot,response):
+        response.success=self.failure is None and self.connected and self.guards[robot].guard.arm()
+        response.message=json.dumps(dict(robot=robot,fault=self.guards[robot].guard.fault,
+            reason=self.guards[robot].guard.reason()))
+        self.record("real_R_arm_response",robot=robot,success=response.success)
+        return response
+
+    def status(self):
+        data=dict(mode=self.mode,session_id=self.session_id,connected=self.connected,
+            failure=self.failure,anchor=self.anchor,gz_ns=self.gz,ns3_ns=self.hub.horizon_ns,
+            guards={str(r):dict(armed=g.guard.armed,fault=g.guard.fault,reason=g.guard.reason())
+                for r,g in self.guards.items()})
+        self.health_status.publish(String(data=json.dumps(data)))
+
+    def export_controller_records(self):
+        # This is a C-side source. Only actual delivered flow95 reaches R runtime.
+        path=self.directory/"controller/allocation-events.jsonl"
+        if not path.exists() or self.wires is None:return
+        with path.open() as stream:
+            stream.seek(self.journal_position)
+            while True:
+                position=stream.tell();line=stream.readline()
+                if not line or not line.endswith("\n"):
+                    self.journal_position=position;return
+                row=json.loads(line)
+                if row.get("kind") in ("rl_actual_nav2_goal_request","rl_actual_nav2_goal_response","rl_actual_nav2_goal_result","rl_halt_requested"):
+                    self.journal_pub.publish(String(data=line.rstrip("\n")))
+
+    def fail(self,reason):
+        if self.failure is not None:return
+        self.failure=reason;self.record("transport_latched_INVALID",reason=reason)
+        for guard in self.guards.values():guard.guard.trip(reason)
+        if self.wires is not None:
+            for robot in tuple(self.action_c.endpoints):self.action_c._set_ready(robot,False)
+        # Stay alive to spin real R Cancel/GetResult/PAUSE and zero publishers.
+
+    def poll(self):
+        for executor in self.executors:executor.spin_once(timeout_sec=0)
+        if self.failure:return
+        self.hub.poll()
+        if self.anchor is None or not self.hub.ready:return
+        latest=self.gz-self.anchor["offset_ns"]
+        if latest-self.hub.horizon_ns>120_000_000:
+            self.fail("mapped_ns3_clock_lag_above_0.12sim");return
+        if self.step_pending is not None and self.hub.horizon_ns>=self.step_pending:self.step_pending=None
+        if self.step_pending is None and latest>self.hub.horizon_ns:
+            self.step_pending=min(latest,self.hub.horizon_ns+100_000_000)
+            self.hub.clock(self.step_pending)
+        if self.mode=="A":
+            if not self.connected:
+                self.connected=True;self.install_wires()
+            # Fixed current batch only; responses enqueue for a later loop turn.
+            for _ in range(len(self.direct)):
+                meta,body,rpc=self.direct.popleft()
+                meta["endpoint_receive_monotonic_ns"]=time.monotonic_ns()
+                self.receive(meta,body,rpc)
+        else:
+            if not self.link.sent and self.hub.horizon_ns>=600_000_000:self.link.begin()
+            if self.link.ready and not self.connected:
+                self.connected=True;self.install_wires()
+
+    def persist(self):
+        data=dict(mode=self.mode,anchor=self.anchor,failure=self.failure,
+            records=self.records,link=self.link.events,
+            guards={str(r):dict(events=g.guard.events,actions=g.records,
+                owned_unknown_or_active=sorted(g.owned),terminals=g.terminals) for r,g in self.guards.items()},
+            hub_deliveries=self.hub.deliveries)
+        if self.wires is not None:
+            data["topics"]={side:dict(captured=w.captured,delivered=w.delivered) for side,w in self.wires.items()}
+            data["bound_masks"]=self.bound_r.received
+        with (self.directory/"network-gateway.json").open("x") as stream:json.dump(data,stream)
+        (self.directory/"network-gateway-saved.json").write_text(json.dumps(dict(saved=True,
+            mode=self.mode,records=len(self.records),failure=self.failure))+"\n")
+
+    def close(self):
+        self.hub.end()
+        # This bounded flush is after stop/owned launch cleanup, never a guard
+        # delay in the active loop. A failed END remains a separate hub failure.
+        until=time.monotonic()+3
+        try:
+            while self.hub.outgoing and time.monotonic()<until:self.hub.poll()
+            if self.hub.outgoing:self.record("owned_END_not_fully_flushed")
+        except (EOFError,ConnectionError,OSError) as error:self.record("owned_END_failed",error=repr(error))
+        self.persist()
+        self.hub.close()
+        for executor,node,context in zip(self.executors,self.nodes,self.contexts):
+            executor.remove_node(node);executor.shutdown();node.destroy_node();context.shutdown()
+
+
+def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--mode",choices=("A","B","C"),required=True)
+    parser.add_argument("--socket",type=Path,required=True)
+    parser.add_argument("--directory",type=Path,required=True)
+    parser.add_argument("--session-id",type=int,required=True)
+    args=parser.parse_args()
+    node=Gateway(args.mode,args.socket,args.directory,args.session_id)
+    stopping=False
+    def stop(signum,frame):
+        nonlocal stopping
+        stopping=True
+    signal.signal(signal.SIGINT,stop);signal.signal(signal.SIGTERM,stop)
+    try:
+        while not stopping:
+            try:node.poll()
+            except Exception as error:node.fail(repr(error))
+    finally:node.close()
+
+
+if __name__=="__main__":main()

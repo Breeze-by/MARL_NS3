@@ -1,0 +1,60 @@
+"""NET domain placement over the original frozen scene launch, without a fork.
+
+The NET runner must set enable_exploration:=false and enable_drive:=false;
+the separate original headquarters runs in C. NET01_SESSION_ID and the frozen
+GZ01_PEER_GUARD profile are required. This file does not authorize a launch.
+"""
+import importlib.util
+from pathlib import Path
+
+from launch import LaunchDescription
+from launch.actions import ExecuteProcess, GroupAction, OpaqueFunction, SetEnvironmentVariable
+from launch.utilities import perform_substitutions
+
+HERE=Path(__file__).resolve().parent
+FROZEN_PATH=HERE.parent/'workspace/gz01/scene_launch.py'
+_spec=importlib.util.spec_from_file_location('net01_frozen_scene_launch',FROZEN_PATH)
+_frozen=importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_frozen)
+
+
+def launch_setup(context):
+    original=_frozen.launch_setup(context)
+    merge_script=str(_frozen.PHASE/'workspace/src/merge_map/merge_map/merge_map.py')
+    peer_script=str(FROZEN_PATH.with_name('peer_keepout.py'))
+    session_id=context.environment['NET01_SESSION_ID']
+    placed=[];counts={'merge':0,'peer':0}
+    for action in original:
+        # Only the original plain ExecuteProcess commands are inspected. Node
+        # command substitutions remain deferred to their original execution.
+        if type(action) is ExecuteProcess:
+            command=[perform_substitutions(context,part) for part in action.cmd]
+            if len(command)>2 and command[2] in (merge_script,peer_script):
+                if command[2]==merge_script:
+                    counts['merge']+=1
+                else:
+                    counts['peer']+=1
+                    command[2]=str(HERE/'bound_peer.py')
+                    index=command.index('--ros-args')
+                    command[index:index]=['--session-id',session_id]
+                    action=ExecuteProcess(cmd=command,output='screen')
+                placed.append(GroupAction(actions=[
+                    SetEnvironmentVariable('ROS_DOMAIN_ID','91'),action],
+                    scoped=True,forwarding=True))
+                continue
+        placed.append(action)
+    if counts!={'merge':1,'peer':1}:
+        raise RuntimeError(f'Expected original merge and peer launch points, got {counts}')
+    return placed
+
+
+def generate_launch_description():
+    original=_frozen.generate_launch_description()
+    entities=list(original.entities)
+    if sum(isinstance(action,OpaqueFunction) for action in entities)!=1:
+        raise RuntimeError('Expected one original scene launch_setup OpaqueFunction')
+    # A persistent R default also covers delayed OnProcessExit child actions;
+    # an outer scoped group could pop before those callbacks are dispatched.
+    return LaunchDescription([SetEnvironmentVariable('ROS_DOMAIN_ID','92'),*[
+        OpaqueFunction(function=launch_setup) if isinstance(action,OpaqueFunction) else action
+        for action in entities]])

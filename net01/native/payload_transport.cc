@@ -8,6 +8,7 @@
 #include "ns3/propagation-module.h"
 #include "network_config.h"
 #include <array>
+#include <cmath>
 #include <chrono>
 #include <fstream>
 #include <iomanip>
@@ -83,14 +84,14 @@ static void receive(Ptr<Socket> socket) {
     auto [it,newMessage]=pending.try_emplace(h.id);
     auto& m=it->second;
     if(newMessage) {m.h=h;m.data.resize(h.total);m.pieces.resize((h.total+CHUNK-1)/CHUNK);Simulator::Schedule(Seconds(kReassemblyDeadline),&expire,h.id);}
-    NS_ABORT_MSG_IF(m.h.total!=h.total || m.h.from!=h.from || m.h.to!=h.to || m.h.source!=h.source,"Identity changed within message");
+    NS_ABORT_MSG_IF(m.h.total!=h.total || m.h.from!=h.from || m.h.to!=h.to || m.h.flow!=h.flow || m.h.source!=h.source,"Identity changed within message");
     auto index=h.offset/CHUNK;
     if(m.pieces[index]) {event("duplicate_fragment",fields(h));continue;}
     // The only message data write uses bytes copied from a real ns3 socket receive.
     packet->CopyData(m.data.data()+h.offset,h.length);m.pieces[index]=true;m.received+=h.length;
     if(m.received==h.total) {
       event("message_deliver",fields(h));
-      std::cout<<"RX "<<unsigned(h.from)<<" "<<unsigned(h.to)<<" "<<h.id<<" "<<Simulator::Now().GetNanoSeconds()<<" "<<m.data.size()<<"\n";
+      std::cout<<"RX "<<unsigned(h.from)<<" "<<unsigned(h.to)<<" "<<h.flow<<" "<<h.id<<" "<<h.source<<" "<<Simulator::Now().GetNanoSeconds()<<" "<<m.data.size()<<"\n";
       std::cout.write(reinterpret_cast<const char*>(m.data.data()),m.data.size());std::cout<<"\n";std::cout.flush();
       completed.insert(h.id);pending.erase(it);
     }
@@ -112,6 +113,15 @@ static void sniff(uint32_t node,Ptr<const Packet> packet,uint16_t freq,WifiTxVec
 }
 static void retry(uint32_t node,Mac48Address address) {event("mac_data_retry",",\"node\":"+std::to_string(node));}
 static void finalDrop(uint32_t node,Mac48Address address) {event("mac_final_data_drop",",\"node\":"+std::to_string(node));}
+static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identity,std::vector<uint8_t> body) {
+  for(uint32_t offset=0;offset<body.size();offset+=CHUNK) {
+    auto h=identity;h.offset=offset;h.length=std::min(CHUNK,static_cast<uint32_t>(body.size())-offset);
+    auto packet=Create<Packet>(body.data()+offset,h.length);packet->AddHeader(h);
+    event("udp_tx",fields(h)+",\"packet_uid\":"+std::to_string(packet->GetUid()));
+    int sent=socket->SendTo(packet,0,InetSocketAddress(destination,19001));
+    if(sent<0)event("udp_send_error",fields(h)+",\"socket_errno\":"+std::to_string(socket->GetErrno()));
+  }
+}
 
 int main(int argc,char** argv) {
   std::string directory,profile="B";
@@ -128,6 +138,10 @@ int main(int argc,char** argv) {
   MobilityHelper mobility;mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");mobility.Install(nodes);
   for(uint32_t i=0;i<5;++i)nodes.Get(i)->GetObject<MobilityModel>()->SetPosition(Vector(kPositions[i][0],kPositions[i][1],kPositions[i][2]));
   auto loss=CreateObject<LogDistancePropagationLossModel>();loss->SetAttribute("Exponent",DoubleValue(profile=="B"?kExponentB:kExponentC));loss->SetReference(1.0,kReferenceLoss);
+  // Normal mode is exactly transparent. Only the independent no-motion fault
+  // command blocks the real channel; do not force an already-OFF STA PHY off.
+  auto faultGate=CreateObject<RangePropagationLossModel>();
+  faultGate->SetAttribute("MaxRange",DoubleValue(1e9));loss->SetNext(faultGate);
   auto channel=CreateObject<YansWifiChannel>();channel->SetPropagationLossModel(loss);channel->SetPropagationDelayModel(CreateObject<ConstantSpeedPropagationDelayModel>());
   YansWifiPhyHelper phy;phy.SetChannel(channel);phy.SetErrorRateModel("ns3::NistErrorRateModel");
   phy.Set("ChannelSettings",StringValue("{42, 80, BAND_5GHZ, 0}"));
@@ -169,24 +183,34 @@ int main(int argc,char** argv) {
   for(int i=0;i<4;++i) {sockets[i]=Socket::CreateSocket(nodes.Get(i==0?4:i),UdpSocketFactory::GetTypeId());NS_ABORT_MSG_IF(sockets[i]->Bind(InetSocketAddress(Ipv4Address::GetAny(),19001))<0,"UDP bind failed");sockets[i]->SetIpTos(0);sockets[i]->SetRecvCallback(MakeCallback(&receive));}
   event("model_ready",",\"profile\":\""+profile+"\",\"host_network_changed\":false,\"ROS_Node\":0");
   std::cout<<"READY\n"<<std::flush;
+  int64_t knownHorizon=0;
   std::string line;
   while(std::getline(std::cin,line)) {
     std::istringstream in(line);std::string op;in>>op;
-    if(op=="SEND") {
+    if(op=="SEND" || op=="SENDAT") {
       unsigned from,to,flow;uint64_t id,source;uint32_t size;
       in>>from>>to>>flow>>id>>source>>size;
+      int64_t admission=Simulator::Now().GetNanoSeconds();
+      if(op=="SENDAT")in>>admission;
       NS_ABORT_MSG_IF(!in || from>3 || to>3 || from==to || !size,"Invalid SEND command");
+      NS_ABORT_MSG_IF(admission<Simulator::Now().GetNanoSeconds() || (op=="SENDAT" && admission>knownHorizon),"Injection outside current/actually observed horizon");
       std::vector<uint8_t> body(size);std::cin.read(reinterpret_cast<char*>(body.data()),size);
       NS_ABORT_MSG_IF(std::cin.gcount()!=size || std::cin.get()!='\n',"Truncated IPC body");
-      event("ipc_ingress",",\"from\":"+std::to_string(from)+",\"to\":"+std::to_string(to)+",\"message_id\":"+std::to_string(id)+",\"body_bytes\":"+std::to_string(size)+",\"source_stamp_ns\":"+std::to_string(source));
-      for(uint32_t offset=0;offset<size;offset+=CHUNK) {
-        Fragment h;h.id=id;h.from=from;h.to=to;h.flow=flow;h.offset=offset;h.total=size;h.length=std::min(CHUNK,size-offset);h.source=source;
-        auto packet=Create<Packet>(body.data()+offset,h.length);packet->AddHeader(h);
-        event("udp_tx",fields(h)+",\"packet_uid\":"+std::to_string(packet->GetUid()));
-        int sent=sockets[from]->SendTo(packet,0,InetSocketAddress(addresses[to],19001));
-        if(sent<0)event("udp_send_error",fields(h)+",\"socket_errno\":"+std::to_string(sockets[from]->GetErrno()));
-      }
+      event("ipc_ingress",",\"from\":"+std::to_string(from)+",\"to\":"+std::to_string(to)+",\"flow\":"+std::to_string(flow)+",\"message_id\":"+std::to_string(id)+",\"body_bytes\":"+std::to_string(size)+",\"source_stamp_ns\":"+std::to_string(source)+",\"admission_ns\":"+std::to_string(admission));
+      Fragment h;h.id=id;h.from=from;h.to=to;h.flow=flow;h.total=size;h.source=source;
+      if(admission==Simulator::Now().GetNanoSeconds())transmit(sockets[from],addresses[to],h,std::move(body));
+      else Simulator::Schedule(NanoSeconds(admission-Simulator::Now().GetNanoSeconds()),&transmit,sockets[from],addresses[to],h,std::move(body));
       // body is discarded here: receive reconstruction has no access to source bytes.
+    } else if(op=="KNOWN") {
+      int64_t latest;in>>latest;
+      NS_ABORT_MSG_IF(!in || latest<knownHorizon || latest<Simulator::Now().GetNanoSeconds(),"Observed clock moved backwards");
+      knownHorizon=latest;event("actual_clock_horizon_known",",\"latest_ns\":"+std::to_string(latest));
+    } else if(op=="POSITION") {
+      uint32_t robot;double x,y,z;in>>robot>>x>>y>>z;
+      NS_ABORT_MSG_IF(!in || robot<1 || robot>3 || !std::isfinite(x) || !std::isfinite(y) || !std::isfinite(z),"Invalid network-only mobility input");
+      nodes.Get(robot)->GetObject<MobilityModel>()->SetPosition(Vector(x,y,z));
+      std::ostringstream s;s<<std::setprecision(15)<<",\"robot\":"<<robot<<",\"xyz\":["<<x<<","<<y<<","<<z<<"],\"source\":\"GT_NETWORK_CONTROL_ONLY\"";
+      event("network_mobility_control",s.str());
     } else if(op=="STEP") {
       int64_t horizon;in>>horizon;
       NS_ABORT_MSG_IF(!in || horizon<Simulator::Now().GetNanoSeconds() || horizon-Simulator::Now().GetNanoSeconds()>100000000,"Invalid/nonmonotonic/>.1s horizon");
@@ -195,8 +219,8 @@ int main(int argc,char** argv) {
       std::cout<<"STEP "<<Simulator::Now().GetNanoSeconds()<<"\n"<<std::flush;
     } else if(op=="RADIO") {
       int enabled;in>>enabled;
-      for(uint32_t i=0;i<4;++i) {auto ph=DynamicCast<WifiNetDevice>(allWifi.Get(i))->GetPhy();if(enabled)ph->ResumeFromOff();else ph->SetOffMode();}
-      event(enabled?"radio_on":"radio_off");
+      faultGate->SetAttribute("MaxRange",DoubleValue(enabled?1e9:0.));
+      event(enabled?"channel_restored":"channel_blackout",",\"fault_definition\":\"transparent-range-gate-v1\"");
     } else if(op=="DISCARD") {
       in>>discardId>>discardOffset;
       event("test_fault_configured",",\"message_id\":"+std::to_string(discardId)+",\"offset\":"+std::to_string(discardOffset));

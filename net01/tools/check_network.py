@@ -104,7 +104,7 @@ def parse_output(raw):
         elif words[0] == "STEP":
             steps.append(int(words[1]))
         elif words[0] == "RX":
-            sender, receiver, message_id, stamp, size = map(int, words[1:])
+            sender, receiver, flow, message_id, source, stamp, size = map(int, words[1:])
             if message_id in received:
                 raise AssertionError("Duplicate whole-message output")
             payload = raw[pos:pos+size]

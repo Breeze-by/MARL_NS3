@@ -1,4 +1,8 @@
-# NET-01：固定策略的真实 Wi-Fi 业务路径（P0/设计待审）
+# NET-01：固定策略的真实 Wi-Fi 业务路径
+
+## 当前组合交审（2026-11-09）
+
+真实独立网络03、静态双域ROS04、WiFi受控Action03、同批mask无Node02、本地受控guard01分别在限定范围通过；所有首失败保留。已落两域外部组合/owned启动清理、固定真实clock anchor、每机独立守护和三份未签180sim草稿；见 [DEPLOYMENT.md](DEPLOYMENT.md)。8个组合Python模块compile、现有ns3库增量build通过，无新的网络/ROS组合运行；Gazebo0/3，TIME/NETWORKSAFETY/GZ仍未证，首A必须具体独审后执行。下列初始设计与早期失败为历史记录，当前配置以原首包前NETWORK_LOCK_V3及已审CHANNEL_FAULT_V1为准。
 
 ## 本次范围与当前事实
 
@@ -56,3 +60,11 @@ R域三STA的mask/health各自需独立交付证据，不能三份health重复pu
 | P8 研究边界 | 本轮不优化网络、不训模型、不NET02；仅报告瓶颈与后续独立建议 |
 
 最终分列FROZEN_POLICY / NS3MODEL / BIDIRECTIONAL / NOBYPASS / TIME / ACTIONMSG / NETWORKSAFETY / GZLOOP / PERFORMANCE。不因CPU回放、ROS Mock或历史stop写OVERALL PASS。保存实际build/argv/config、pcap/packetledger/clocks、实际GZ曲线/轨迹和失败/预算/独立Git diff与提交；只清本轮owned隔离资源，无push。
+
+## 2026-11-09当前前置执行（不替代原提案/首失败）
+
+- 独立网络03真实全payload PASS，03 PCAP每个udp_rx片的完整header/内容均对应，无新网络重复运行；前01编译缺include/02 trace接口失败保留。03源固定本地88e84a2。
+- 首包前锁 `config/NETWORK_LOCK_V3.json`：原100p初稿不足已静态改1024p/500ms，80211ac必要QoS=true且所有业务TOS0/BE，有线同1024p；V1/V2原提案保留，无跑后调网。
+- 静态DDS01字段int/float工具错保留；02真实921入网/860完整native且860真实DDS消费，61初期丢失含初始TF/filterinfo，FAIL。后wireid70..921全交付。只收3片的大消息与默认ARP PendingQueueSize3相容，缺直接ARP Drop hook，不夸唯一归因；UDP端到端TL/reliable未证，未自动暖cache重跑。
+- Action接口02真实FastRTPS/generated17检查PASS（controlled无运动server+内存wire，仅接口）；尚非ns3/真实Nav2/网络安全PASS。
+- 正式Gazebo0/3，TIME/NETWORKSAFETY/GZLOOP尚阻断；无训练/NET02/远推。
