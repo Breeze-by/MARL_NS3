@@ -42,6 +42,8 @@ ActionWire 真实 R 转发在 SendGoal 前调用 observe_send_goal；真实 acce
 
 A的同一次有预算Gazebo启动中，原 readiness 后/目标前实际调用 pause_physics，持续 .35wall（计startup180）并记录两域clock/ns3 horizon及固定anchor，恢复后在原startup截止前要求原源新鲜。暂停允许至多一个已经观察的 .1sim horizon在途，不将其误称持续推进；旧health/mask不改戳，guard尚未授权。随后原 Nav2 startup、fine参数实读、原零速度/物理稳定/三pause preflight，再resume/逐机arm/原HQ。真实clock与物理停稳是否成立只能由该首A原件判断，合成测试不是 TIME/GZ/NETWORKSAFETY PASS。
 
+暂停基线以实际 pause RPC 成功后新发布的 gateway monotonic 状态确认，才开始固定 .35wall 观察；请求、RPC完成、基线与观察时刻分列记录。发现服务或RPC等待期间的合法物理推进不计入暂停失效；仍不延长原startup截止、不重锚或扩大 .1sim 容差。
+
 ns3延迟为实际同模型Tx/Rx差；外部IPC/ROS调度/量化wall开销分别记录。source没有generation header时保留0与capture元数据，不能虚构sensor AoI或把wall时延当sim时延。
 
 ## 启动/停止与证据
@@ -51,5 +53,7 @@ ns3延迟为实际同模型Tx/Rx差；外部IPC/ROS调度/量化wall开销分别
 冻结runner的原loop/ready/source gate/检查顺序/stop/UUID闭合保留。外部层只替换scene launch域放置、HQ进程域、运行期controller_end数据来源和前置clock/arm gate。C/R实际节点图必须记录，不能伪造R图补中央节点。cleanup先原HQ退出、原停稳/UUID/3pause认证、bag和launch退出，再终止gateway/内存落盘，最后END native。外部outer失败只依精确case marker和记录PGID清本轮owner，绝不广域pgrep/清其他环境。
 
 原 `result.json` 不冒充网络完整性；另 `network-integrity.json` 要求原runner成功、hub/native成功、Observer/Peer/BoundPeer/Gateway保存标记有效。保留捕获字段/原时间/顺序；marker只表示保存，不表示DDS ACK。主要输出：原bag、runtime/closure、唯一metric/覆盖轨迹、observer_timing、peer原JSONL、bound发布、gateway全链路/clock/guard、hub ingress/delivery、native PCAP/MAC/PHY ledger。故障同样原样封存。
+
+Gateway资源清理只在监督者原停机/owned清理尝试之后发生；executor.shutdown(timeout_sec=0)不会等待永久unknown的C服务回调。原未决RPC身份/本地cleanup future和逐executor是否完成如实保存，不补accept/reject/terminal。节点/context销毁完成后才写saved marker，另核实际gateway退出码；END未完全送出独立失败，不能因记录保存成功而被覆盖。实际native ELF和生成header首次身份见 `config/NATIVE_IDENTITY.json`；host在启动它之前核两者与具体draft一致，未重扫旧ns3树。
 
 目前已证实：独立网络03、静态ROS04、真实WiFi+受控Action03、bound无Node02、受控本地guard01各自有限范围通过；首次工具/接口/ARP/CDR-padding oracle/长PHY-off故障原件均保留。真实Nav2/实际clock/物理网络安全/有界GZ还未运行，不能据这些夹具签OVERALL PASS。无新增全面回归/压力测试或旧历史重新hash。

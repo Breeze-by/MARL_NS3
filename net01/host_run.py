@@ -6,6 +6,7 @@ interface/route/capability changes; no retries; only its own process groups end.
 import argparse
 from datetime import datetime,timezone
 import json
+import hashlib
 import os
 from pathlib import Path
 import select
@@ -46,6 +47,11 @@ def main():
     socket=REPO/net["socket_relative_repo"]
     evidence=REPO/net["hub_output_relative_repo"]
     native=PHASE/"build/network-full-payload/net01-payload"
+    # Check the actual executable/header before any native model is started.
+    for key,path in (("binary",native),("generated_header",native.with_name("network_config.h"))):
+        actual=hashlib.sha256(path.read_bytes()).hexdigest()
+        if actual!=net["native_identity"][key]["sha256"]:
+            raise ValueError("Reviewed native "+key+" changed")
     command=[sys.executable,"-B",str(HERE/"tools/packet_hub.py"),"--socket",str(socket),
         "--native",str(native),"--output",str(evidence),"--profile",("C" if net["mode"]=="C" else "B"),
         "--wall","1000","--clock-source","gazebo"]
@@ -90,9 +96,14 @@ def main():
     for name in ("network-gateway-saved.json","bound-mask-recording-saved.json","peer-recording-saved.json"):
         path=case/name
         saved[name]=json.loads(path.read_text()) if path.exists() else dict(saved=False,reason="missing")
-    integrity=all(row["saved"] for row in saved.values()) and result["runner_exit"]==0 and result["hub_exit"]==0
+    path=case/"network-gateway-exit.json"
+    gateway_exit=json.loads(path.read_text()) if path.exists() else dict(native_exit=None)
+    cleanup=saved["network-gateway-saved.json"].get("cleanup",{})
+    integrity=(all(row["saved"] for row in saved.values()) and result["runner_exit"]==0
+        and result["hub_exit"]==0 and gateway_exit["native_exit"]==0
+        and cleanup.get("resources_destroyed") is True and cleanup.get("end_frame_flushed") is True)
     case.with_name(case.name+".network-integrity.json").write_text(json.dumps(dict(
-        record_saves=saved,network_run_integrity=integrity,
+        record_saves=saved,gateway_exit=gateway_exit,network_run_integrity=integrity,
         scope="Runtime/source/stop remain separately in original result; no metric PASS implied"),indent=2))
     return 0 if integrity else 1
 

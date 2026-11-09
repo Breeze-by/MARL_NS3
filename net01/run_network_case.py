@@ -63,12 +63,20 @@ class NetworkObserver(original.Observer):
 
     def startup_navigation(self,deadline):
         # One real, no-goal clock/pause test inside this admitted Gazebo start.
-        before=dict(self.network_state)
+        request_ns=time.monotonic_ns()
         self.call(Empty,"/pause_physics",Empty.Request())
-        until=time.monotonic()+.35
-        while time.monotonic()<until:rclpy.spin_once(self,timeout_sec=.01)
-        paused=dict(self.network_state)
-        self.call(Empty,"/unpause_physics",Empty.Request())
+        completed_ns=time.monotonic_ns()
+        try:
+            while time.monotonic()<deadline:
+                rclpy.spin_once(self,timeout_sec=.01)
+                if self.network_state["gateway_monotonic_ns"]>completed_ns:break
+            else:raise RuntimeError("Original startup deadline: no post-pause gateway clock baseline")
+            before=dict(self.network_state);baseline_ns=time.monotonic_ns();baseline_R_sim=self.sim
+            until=time.monotonic()+.35
+            if until>deadline:raise RuntimeError("Original startup deadline leaves no pause observation window")
+            while time.monotonic()<until:rclpy.spin_once(self,timeout_sec=.01)
+            paused=dict(self.network_state);observed_ns=time.monotonic_ns();observed_R_sim=self.sim
+        finally:self.call(Empty,"/unpause_physics",Empty.Request())
         anchor=before["anchor"]
         if not anchor or paused["anchor"]!=anchor:raise RuntimeError("Network clock anchor changed")
         if paused["gz_ns"]-before["gz_ns"]>100_000_000:
@@ -78,6 +86,9 @@ class NetworkObserver(original.Observer):
         if paused["ns3_ns"]-before["ns3_ns"]>100_000_000:
             raise RuntimeError("ns-3 progressed during Gazebo pause beyond one admitted horizon")
         self.event("real_clock_no_goal_pause_resume",before=before,paused=paused,
+            pause_request_monotonic_ns=request_ns,pause_completed_monotonic_ns=completed_ns,
+            baseline_monotonic_ns=baseline_ns,observed_monotonic_ns=observed_ns,
+            baseline_R_sim=baseline_R_sim,observed_R_sim=observed_R_sim,
             test_wall_s=.35,quantum_sim_s=.1,max_lag_sim_s=.12)
         while time.monotonic()<deadline:
             rclpy.spin_once(self,timeout_sec=.01)
@@ -95,6 +106,9 @@ class NetworkObserver(original.Observer):
     def persist_observer_records(self):
         # Original caller has already stopped controller, bag and launch here.
         if gateway is not None:original.end_process(gateway,self,"network_gateway")
+        (self.directory/"network-gateway-exit.json").write_text(json.dumps(dict(
+            native_exit=None if gateway is None else gateway.poll(),
+            phase="after_original_stop_and_owned_launch_cleanup_attempts")))
         (self.directory/"received-controller-records.json").write_text(json.dumps(self.received_controller))
         super().persist_observer_records()
 

@@ -147,6 +147,7 @@ class Gateway:
     def status(self):
         data=dict(mode=self.mode,session_id=self.session_id,connected=self.connected,
             failure=self.failure,anchor=self.anchor,gz_ns=self.gz,ns3_ns=self.hub.horizon_ns,
+            gateway_monotonic_ns=time.monotonic_ns(),
             guards={str(r):dict(armed=g.guard.armed,fault=g.guard.fault,reason=g.guard.reason())
                 for r,g in self.guards.items()})
         self.health_status.publish(String(data=json.dumps(data)))
@@ -200,6 +201,7 @@ class Gateway:
 
     def persist(self):
         data=dict(mode=self.mode,anchor=self.anchor,failure=self.failure,
+            cleanup=self.cleanup,
             records=self.records,link=self.link.events,
             guards={str(r):dict(events=g.guard.events,actions=g.records,
                 owned_unknown_or_active=sorted(g.owned),terminals=g.terminals) for r,g in self.guards.items()},
@@ -209,21 +211,39 @@ class Gateway:
             data["bound_masks"]=self.bound_r.received
         with (self.directory/"network-gateway.json").open("x") as stream:json.dump(data,stream)
         (self.directory/"network-gateway-saved.json").write_text(json.dumps(dict(saved=True,
-            mode=self.mode,records=len(self.records),failure=self.failure))+"\n")
+            mode=self.mode,records=len(self.records),failure=self.failure,
+            cleanup=self.cleanup))+"\n")
 
     def close(self):
+        self.cleanup=dict(phase="after_supervisor_stop_and_owned_cleanup_attempts",
+            end_frame_flushed=False,executor_shutdown=[],resources_destroyed=False,
+            unresolved_C_RPC=[],unresolved_R_RPC=[],unresolved_local_cleanup_futures={})
+        if self.wires is not None:
+            self.cleanup["unresolved_C_RPC"]=[dict(robot=r,flow_offset=f,rpc_id=i)
+                for (r,f,i),(future,typ,generation) in self.action_c.pending.items() if not future.done()]
+            self.cleanup["unresolved_R_RPC"]=[dict(robot=r,flow=f,rpc_id=i)
+                for r,action in self.action_r.items() for (f,i),response in action.requests.items() if response is None]
+        self.cleanup["unresolved_local_cleanup_futures"]={str(r):sum(not f.done() for f in guard.futures)
+            for r,guard in self.guards.items()}
         self.hub.end()
         # This bounded flush is after stop/owned launch cleanup, never a guard
         # delay in the active loop. A failed END remains a separate hub failure.
         until=time.monotonic()+3
         try:
             while self.hub.outgoing and time.monotonic()<until:self.hub.poll()
+            self.cleanup["end_frame_flushed"]=not self.hub.outgoing
             if self.hub.outgoing:self.record("owned_END_not_fully_flushed")
         except (EOFError,ConnectionError,OSError) as error:self.record("owned_END_failed",error=repr(error))
-        self.persist()
         self.hub.close()
         for executor,node,context in zip(self.executors,self.nodes,self.contexts):
-            executor.remove_node(node);executor.shutdown();node.destroy_node();context.shutdown()
+            executor.remove_node(node)
+            self.cleanup["executor_shutdown"].append(executor.shutdown(timeout_sec=0))
+            node.destroy_node();context.shutdown()
+        self.cleanup["resources_destroyed"]=True
+        # Saved means successful persistence after bounded teardown, not a
+        # synthetic response/terminal for any unresolved callback above.
+        self.persist()
+        return self.cleanup["end_frame_flushed"] and self.failure is None
 
 
 def main():
@@ -243,7 +263,8 @@ def main():
         while not stopping:
             try:node.poll()
             except Exception as error:node.fail(repr(error))
-    finally:node.close()
+    finally:clean=node.close()
+    return 0 if clean else 1
 
 
-if __name__=="__main__":main()
+if __name__=="__main__":raise SystemExit(main())
