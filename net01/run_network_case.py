@@ -22,6 +22,7 @@ import run_case as original
 import rclpy
 from std_msgs.msg import String
 from std_srvs.srv import Trigger,Empty
+from rcl_interfaces.srv import GetParameters
 from rclpy.qos import QoSProfile,DurabilityPolicy
 from execution_profile import load_profile
 
@@ -66,6 +67,13 @@ class NetworkObserver(original.Observer):
         # One real, no-goal clock/pause test inside this admitted Gazebo start.
         profile=load_profile(os.environ.get('NET01_EXECUTION_PROFILE') or None)
         quantum_sim_s=.1 if profile is None else profile['native_step_quantum_ns']/1e9
+        if profile is not None:
+            response=self.call(GetParameters,'/gazebo/get_parameters',GetParameters.Request(names=['publish_rate']))
+            actual=response.values[0].double_value
+            self.event('network_execution_clock_parameter',node='/gazebo',parameter='publish_rate',
+                expected=profile['clock_publish_rate_sim_hz'],actual=actual,profile=profile['id'])
+            if actual!=profile['clock_publish_rate_sim_hz']:
+                raise RuntimeError('Actual gazebo publish_rate differs from admitted execution profile')
         def reject_latched_failure():
             if self.network_fault:raise RuntimeError('Network guardian INVALID: '+self.network_fault)
             state=self.network_state
