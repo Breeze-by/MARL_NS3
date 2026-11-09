@@ -1,0 +1,71 @@
+{
+  "scope": "Only important new followup03 delivery files; no historical raw data or whole-tree rehash",
+  "previous_delivery": "15b53b7675446deab7e7d2ddba1b77162113606d",
+  "frozen_release": "a014ef11d4b77fe45832268467993dfdeb4398f6",
+  "frozen_runtime": "76fd91cf937bd8d662302901dad063affbea3c38",
+  "checkpoint_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+  "final_runtime_candidate": "5401af455156b0371ba2d440f3a439149c6faf08",
+  "final_runtime_actual_scope": "Only continuous19 synthetic direct16wall/30wall, no GZ regression of GC deferral",
+  "A07_runtime": "6a9232522b3e2d71f3fd367639ab63b2bcf1501f",
+  "A08_runtime": "d21e20632736bf7bab4257e9faed5c148884ae08",
+  "ELF_identity_reused_from": "RELEASE_NATIVE_IDENTITY.json",
+  "ELF_sha256": "82bc8ecff7d1e88d826931be534335fac21971fa8e6a23731af805f291c7e184",
+  "generated_header_sha256": "66e64adf26c3d712ab149fe2d828ae8858d00c7172ef8adfacfc5bd7c2ff73a2",
+  "dependency_identity_commit": "d5528e2",
+  "important_new_files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 12925,
+      "sha256": "54bfd2f62bda818c06dc89625a580f107e0b16a7ce97be3e602bedc74f4cf0a0"
+    },
+    {
+      "path": "RUN_LEDGER.json",
+      "bytes": 6338,
+      "sha256": "ccbddc1277c2b4c14248038ac3e5504e8e887fefdc45ce73d5315568be984d5a"
+    },
+    {
+      "path": "SOURCE_CONFIG.diff",
+      "bytes": 54558,
+      "sha256": "c4b754fe2b3337ef2f4f1b415335fd775dd61e5fa0bec612184ce51a300bb956"
+    },
+    {
+      "path": "CONTINUOUS19_SUMMARY.json",
+      "bytes": 5915,
+      "sha256": "3b8e230a2041ac8bfbe306fe91bb11b4e0728ee787ddfd30f3f272ecdcf5cae8"
+    },
+    {
+      "path": "A08_FIRSTFAULT_TIMELINE.json",
+      "bytes": 16684,
+      "sha256": "ca5bb36b0006aae80bbf5e78527686ab3c28bc6e54a0ee5c546a07d9a861e57d"
+    },
+    {
+      "path": "BOUNDED_GATEWAY_GC.diff",
+      "bytes": 2435,
+      "sha256": "0d55826ce8bd9ec93165c46687860bb7c4f0a3776910c205ca50477ed43f25df"
+    },
+    {
+      "path": "offline-metrics/net01-a-corridor-6201-07/result.json",
+      "bytes": 23730,
+      "sha256": "a3ae32461599efb123cdf4257ec896c528499ae8744847eb53ddd57349d220a7"
+    },
+    {
+      "path": "offline-metrics/net01-a-corridor-6201-07/coverage.csv",
+      "bytes": 2289,
+      "sha256": "585971c995c86731c4d79dff15806b5d52b992375d1ee7dfd804d2d44cbddba3"
+    }
+  ],
+  "raw_data_policy": "Retained in place, no raw-bag copying or rehash. Prior reports/identities/failures unchanged.",
+  "budget": {
+    "historical_before": 89,
+    "new_Gazebo": 3,
+    "total": 92,
+    "remaining": 0,
+    "B": "NOT RUN",
+    "C": "NOT RUN"
+  },
+  "NN": 1,
+  "training": 0,
+  "NET02": "NO GO",
+  "push": false,
+  "delivery_commit_semantics": "The local commit containing this identity is the documentation delivery. Full commit SHA is recorded externally after commit; final backup bundle is root-owned."
+}

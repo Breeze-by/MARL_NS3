@@ -1,0 +1,201 @@
+{
+  "scope": "One candidate controlled no-motion direct diagnostic, not actual GZ/heartbeat/safety acceptance",
+  "runtime_commit": "5401af455156b0371ba2d440f3a439149c6faf08",
+  "raw_case": "runs/continuous-dds-19-bounded-gc-direct",
+  "process": {
+    "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+    "error": null,
+    "wall_s": 20.861856192990672,
+    "hard_wall_s": 30,
+    "execution_profile": {
+      "id": "pace500-clock100-q10ms",
+      "world_real_time_update_rate": 500,
+      "physics_max_step_size_unchanged": 0.001,
+      "clock_publish_rate_sim_hz": 100.0,
+      "native_step_quantum_ns": 10000000,
+      "qualification": {
+        "source_wall_s": 16,
+        "hard_wall_s": 30,
+        "clock_period_wall_s": 0.02,
+        "clock_increment_ns": 10000000,
+        "other_sources": "Original per-wall TF/odom/FB rates retained; conservatively denser per simulated second",
+        "peer": "Original 10Hz simulation-time timer"
+      },
+      "scope": "New matched execution profile; WallRate and sim-time frequencies differ; not pointwise equivalent to v1.1.0 runtime"
+    },
+    "exits": {
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "source": 0
+    },
+    "Gazebo": 0,
+    "NN": 0,
+    "wrapper_pids": {
+      "hub": 1832619,
+      "peer": 1832629,
+      "gateway": 1832630,
+      "source": 1832631
+    },
+    "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior"
+  },
+  "actual_source_wall_s": 16.02375138096977,
+  "gateway_failure": null,
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "gc_runtime": {
+    "original_enabled": true,
+    "original_thresholds": [
+      700,
+      10,
+      10
+    ],
+    "scope": "Only this supervisor-bounded Gateway; deferred cycles can increase RAM, not a long-lived-service policy",
+    "disabled_monotonic_ns": 431576248494778,
+    "processing_start_enabled": false,
+    "processing_end_monotonic_ns": 431592927545694,
+    "processing_end_enabled": false,
+    "restored_enabled": true,
+    "restored_thresholds": [
+      700,
+      10,
+      10
+    ],
+    "restored_monotonic_ns": 431592983996006,
+    "peak_rss_KiB": 115840
+  },
+  "automatic_GC_events_during_disabled_interval": [],
+  "counts": [
+    {
+      "robot": 1,
+      "odom_generated": 481,
+      "odom_R_capture": 481,
+      "odom_C_publish": 481,
+      "TF_mapodom_generated": 801,
+      "TF_mapodom_R_capture": 801,
+      "feedback_generated": 1600,
+      "feedback_R_capture": 1600
+    },
+    {
+      "robot": 2,
+      "odom_generated": 480,
+      "odom_R_capture": 480,
+      "odom_C_publish": 480,
+      "TF_mapodom_generated": 800,
+      "TF_mapodom_R_capture": 800,
+      "feedback_generated": 1600,
+      "feedback_R_capture": 1600
+    },
+    {
+      "robot": 3,
+      "odom_generated": 480,
+      "odom_R_capture": 480,
+      "odom_C_publish": 480,
+      "TF_mapodom_generated": 800,
+      "TF_mapodom_R_capture": 800,
+      "feedback_generated": 1600,
+      "feedback_R_capture": 1600
+    }
+  ],
+  "topic_CDR_comparison": [
+    {
+      "direction": "R->C",
+      "captured": 7316,
+      "delivered": 7316,
+      "exact_full_CDR_multiset_equal": true
+    },
+    {
+      "direction": "C->R",
+      "captured": 246,
+      "delivered": 246,
+      "exact_full_CDR_multiset_equal": true
+    }
+  ],
+  "action_CDR_comparison": {
+    "captured": 5090,
+    "delivered": 5090,
+    "exact_complete_CDR_multiset_equal": true
+  },
+  "max_alltopic_R_capture_gap": {
+    "wall_ms": 52.988968,
+    "before": [
+      431576331710723,
+      24
+    ],
+    "after": [
+      431576384699691,
+      44
+    ]
+  },
+  "non_poll_longspans": [
+    {
+      "stage": "progress_inclusive",
+      "begin_monotonic_ns": 431576256731713,
+      "end_monotonic_ns": 431576303944057,
+      "begin_thread_cpu_ns": 887695398,
+      "end_thread_cpu_ns": 934281000
+    }
+  ],
+  "peer": {
+    "total": 82,
+    "ready": 80,
+    "max_ready_ages": {
+      "tb1": {
+        "source": 0.02000000000000135,
+        "receipt": 0.03962330595823005,
+        "correction": -0.16999999999999993,
+        "correction_receipt": 0.08329462504480034
+      },
+      "tb2": {
+        "source": 0.020000000000000462,
+        "receipt": 0.04477898002369329,
+        "correction": -0.17999999999999972,
+        "correction_receipt": 0.03419787297025323
+      },
+      "tb3": {
+        "source": 0.02000000000000135,
+        "receipt": 0.03075594099937007,
+        "correction": -0.16999999999999993,
+        "correction_receipt": 0.07985623402055353
+      }
+    }
+  },
+  "guard_timer_stats": {
+    "1": {
+      "calls": 830,
+      "max_gap_wall_s": 0.055939161975402385,
+      "last": 431592.866524618
+    },
+    "2": {
+      "calls": 823,
+      "max_gap_wall_s": 0.05282511800760403,
+      "last": 431592.873393911
+    },
+    "3": {
+      "calls": 824,
+      "max_gap_wall_s": 0.03947149502346292,
+      "last": 431592.877499945
+    }
+  },
+  "conclusion": "PASS only bounded-Gateway GC deferral/restore and captured-CDR semantics in this16wall synthetic no-goal fixture. No new GZ acceptance. A08 finalheartbeat308ms mechanism remains unresolved.",
+  "limits": [
+    "18 RSS NOT MEASURED; no memory pairing or180sim memory guarantee. ru_maxrss measured once at close before persistence.",
+    "Refcounts continue; cycles retained until originalGC restored. This is not a long-lived-service policy.",
+    "Source generation and DDS capture may differ; exact captured->destination does not prove every offered message delivered.",
+    "No attempt to rewrite A07/A08 failure, missingjournal closure, source TTL or heartbeat."
+  ]
+}
