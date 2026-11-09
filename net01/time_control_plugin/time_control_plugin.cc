@@ -53,8 +53,8 @@ public:
   }
 
 private:
-  gazebo_ros::Node::SharedPtr node_;
   rclcpp::CallbackGroup::SharedPtr group_;
+  gazebo_ros::Node::SharedPtr node_;
   rclcpp::Service<std_srvs::srv::Trigger>::SharedPtr service_;
 };
 
