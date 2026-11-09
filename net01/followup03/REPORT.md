@@ -71,10 +71,10 @@ A08末heartbeat链与前述GC是两个问题：seq164/165的Peer entry间隔309.
 | NS3 WIFI MODEL | PASS（限定模型/包路径） | 同源V3真实MAC/PHY/PCAP，Release固定burst全等；不代表机器人闭环 |
 | BIDIRECTIONAL TRANSPORT | BLOCKED | 17真实WiFi有限满载关键流通过、仍324不完整；19是direct，真实B/C未运行 |
 | NO DDS BYPASS | BLOCKED（部署总验收） | 两域/真实完整CDR受控路径证据保留；没有实际WiFi–GZ业务闭环可签完整部署 |
-| TIME SYNCHRONIZATION | FAIL | 15/16原clockFAIL；新17有限通过，但实际A07/A08原receipt/heartbeat仍超线 |
+| TIME SYNCHRONIZATION | BLOCKED | 15/16是旧候选clockFAIL；最终5401只有synthetic验证。A07 receipt/A08 heartbeat超线不能混称maxlag超限，实际完整时间验收未过 |
 | ACTION AND MESSAGE INTEGRITY | BLOCKED | A07 direct真实3UUID闭合；A08缺journal，实际WiFi Nav2未验证，受控旧子测不升级 |
 | NETWORK SAFETY | BLOCKED / A08认证FAIL | 本机停机事实与认证分列；没有本轮运动中WiFi断链物理停止证书 |
-| GAZEBO NS3 CLOSED LOOP | FAIL / B-C NOT RUN | 两次direct自主均中断，无新健康180sim，更无新真实WiFi机器人结果 |
+| GAZEBO NS3 CLOSED LOOP | BLOCKED（B/C NOT RUN） | direct A07/A08各FAIL，无新健康180sim；未执行真实WiFi机器人闭环，不宣称该闭环已实测FAIL |
 | PERFORMANCE | INSUFFICIENT | CPU工程收益不等于RL探索收益；无健康匹配A/B，不作优劣结论 |
 | OVERALL / NET-02 | BLOCKED / NO-GO | 原失败不追认，3/3预算结束 |
 
