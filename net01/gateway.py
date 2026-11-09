@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 import signal
 import time
+from execution_profile import load_profile
 
 import rclpy
 from rclpy.clock import Clock, ClockType
@@ -85,8 +86,10 @@ def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limi
 
 
 class Gateway:
-    def __init__(self, mode, socket, directory, session_id, *, dispatch_profile=False,control_trace=False):
+    def __init__(self, mode, socket, directory, session_id, *, dispatch_profile=False,control_trace=False,execution_profile=None):
         self.mode,self.directory,self.session_id=mode,Path(directory),session_id
+        self.execution_profile=load_profile(execution_profile)
+        self.step_quantum_ns=100_000_000 if self.execution_profile is None else self.execution_profile['native_step_quantum_ns']
         self.records=[];self.direct=deque();self.direct_sequence=0
         self.contexts=[];self.nodes=[];self.executors=[]
         self.ready_sets={side:dict(productive=False) for side in ('C','R')}
@@ -340,7 +343,7 @@ class Gateway:
             self.fail("mapped_ns3_clock_lag_above_0.12sim");return
         if self.step_pending is not None and self.hub.horizon_ns>=self.step_pending:self.step_pending=None
         if self.step_pending is None and latest>self.hub.horizon_ns:
-            self.step_pending=min(latest,self.hub.horizon_ns+100_000_000)
+            self.step_pending=min(latest,self.hub.horizon_ns+self.step_quantum_ns)
             self.hub.clock(self.step_pending)
         if self.mode=="A":
             if not self.connected:
@@ -361,6 +364,7 @@ class Gateway:
 
     def persist(self):
         data=dict(mode=self.mode,anchor=self.anchor,failure=self.failure,
+            execution_profile=self.execution_profile,
             transport_poll_closed=self.hub_poll_closed,
             dispatch_stats=self.dispatch_stats,
             cleanup=self.cleanup,
@@ -426,8 +430,9 @@ def main():
     parser.add_argument("--directory",type=Path,required=True)
     parser.add_argument("--session-id",type=int,required=True)
     parser.add_argument('--control-trace',action='store_true')
+    parser.add_argument('--execution-profile')
     args=parser.parse_args()
-    node=Gateway(args.mode,args.socket,args.directory,args.session_id,control_trace=args.control_trace)
+    node=Gateway(args.mode,args.socket,args.directory,args.session_id,control_trace=args.control_trace,execution_profile=args.execution_profile)
     stopping=False
     def stop(signum,frame):
         nonlocal stopping

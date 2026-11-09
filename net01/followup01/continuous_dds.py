@@ -1,6 +1,6 @@
-"""One <=20wall isolated continuous DDS diagnostic, never Gazebo/Policy/Nav2.
+"""One preregistered20wall or paced30wall DDS diagnostic, never Gazebo/Policy/Nav2.
 
-Actual Gateway A/BoundPeer/native clock model; synthetic continuous R sources.
+Actual Gateway A/B/BoundPeer/native clock model; synthetic continuous R sources.
 The reserved C91/R92 domains must have no other NET owner before invocation.
 """
 import argparse
@@ -14,9 +14,16 @@ import sys
 import time
 
 HERE=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(HERE))
+from execution_profile import load_profile
 
 
-def source(directory,feedback_hz):
+def source(directory,feedback_hz,execution_profile=None):
+    profile=load_profile(execution_profile)
+    qualification=None if profile is None else profile["qualification"]
+    clock_increment=100_000_000 if qualification is None else qualification["clock_increment_ns"]
+    clock_period=.1 if qualification is None else qualification["clock_period_wall_s"]
+    source_window=8 if qualification is None else qualification["source_wall_s"]
     import rclpy
     from rclpy.clock import Clock,ClockType
     from rclpy.node import Node
@@ -31,7 +38,7 @@ def source(directory,feedback_hz):
     rclpy.init(domain_id=92,signal_handler_options=SignalHandlerOptions.NO)
     node=Node('net01_synthetic_continuous_source')
     steady=Clock(clock_type=ClockType.STEADY_TIME)
-    records=[];timers=[];publishers=[];services=[];clock_ns=100_000_000
+    records=[];timers=[];publishers=[];services=[];clock_ns=clock_increment
     cp=node.create_publisher(ClockMessage,'/clock',qos_profile_sensor_data)
     def stamp(header,value):header.stamp.sec=value//1_000_000_000;header.stamp.nanosec=value%1_000_000_000
     def emit(pub,message,robot,kind,header=None):
@@ -41,9 +48,9 @@ def source(directory,feedback_hz):
     def publish_clock():
         nonlocal clock_ns
         m=ClockMessage();m.clock.sec=clock_ns//1_000_000_000;m.clock.nanosec=clock_ns%1_000_000_000
-        emit(cp,m,0,'synthetic_clock',clock_ns);clock_ns+=100_000_000
+        emit(cp,m,0,'synthetic_clock',clock_ns);clock_ns+=clock_increment
     publish_clock()
-    timers.append(node.create_timer(.1,publish_clock,clock=steady))
+    timers.append(node.create_timer(clock_period,publish_clock,clock=steady))
     qualified=False
     def state(message):
         nonlocal qualified
@@ -69,13 +76,13 @@ def source(directory,feedback_hz):
         emit(static_pub,TFMessage(transforms=[t]),robot,'static',0)
         def transform(pub,frame,child,robot=robot,future=0):
             t=TransformStamped();t.header.frame_id=frame;t.child_frame_id=child;t.transform.rotation.w=1.
-            value=clock_ns-100_000_000+future;stamp(t.header,value)
+            value=clock_ns-clock_increment+future;stamp(t.header,value)
             emit(pub,TFMessage(transforms=[t]),robot,frame+'->'+child,value)
         timers.append(node.create_timer(.02,lambda p=tf_pubs[0],r=robot:
             transform(p,'map','odom',r,200_000_000),clock=steady))
         def odom(p=odom_pub,tfp=tf_pubs[1],robot=robot):
             m=Odometry();m.header.frame_id='odom';m.child_frame_id='base_footprint';m.pose.pose.orientation.w=1.
-            value=clock_ns-100_000_000;stamp(m.header,value)
+            value=clock_ns-clock_increment;stamp(m.header,value)
             emit(p,m,robot,'odom',value);transform(tfp,'odom','base_footprint',robot)
         timers.append(node.create_timer(1/30,odom,clock=steady))
         timers.append(node.create_timer(.05,lambda p=tf_pubs[2],r=robot:
@@ -86,10 +93,10 @@ def source(directory,feedback_hz):
         lp=node.create_publisher(OccupancyGrid,prefix+'/local_costmap/costmap',QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
         publishers.extend([mp,lp])
         def grid(pub,width,height,kind,robot=robot):
-            m=OccupancyGrid();m.header.frame_id='map';stamp(m.header,clock_ns-100_000_000)
+            m=OccupancyGrid();m.header.frame_id='map';stamp(m.header,clock_ns-clock_increment)
             m.info.resolution=.05;m.info.width=width;m.info.height=height;m.info.origin.orientation.w=1.
             m.data=array('b',[0])*(width*height)
-            emit(pub,m,robot,kind,clock_ns-100_000_000)
+            emit(pub,m,robot,kind,clock_ns-clock_increment)
         grid(mp,250,220,'synthetic_map')
         timers.append(node.create_timer(5.,lambda p=mp,r=robot:grid(p,250,220,'synthetic_map',r),clock=steady))
         timers.append(node.create_timer(.5,lambda p=lp,r=robot:grid(p,60,60,'synthetic_costmap',r),clock=steady))
@@ -108,7 +115,7 @@ def source(directory,feedback_hz):
             def feedback(pub=fp,robot=robot):
                 m=NavigateToPose.Impl.FeedbackMessage();m.goal_id.uuid=[robot]*16
                 m.feedback.current_pose.header.frame_id='map'
-                value=clock_ns-100_000_000;stamp(m.feedback.current_pose.header,value)
+                value=clock_ns-clock_increment;stamp(m.feedback.current_pose.header,value)
                 m.feedback.current_pose.pose.orientation.w=1.;m.feedback.distance_remaining=2.
                 emit(pub,m,robot,'synthetic_action_feedback',value)
             emit(sp,GoalStatusArray(),robot,'synthetic_action_status')
@@ -116,11 +123,11 @@ def source(directory,feedback_hz):
             timers.append(node.create_timer(1.,lambda p=sp,r=robot:emit(p,GoalStatusArray(),r,'synthetic_action_status'),clock=steady))
     start=time.monotonic()
     try:
-        while time.monotonic()-start<8:rclpy.spin_once(node,timeout_sec=.001)
+        while time.monotonic()-start<source_window:rclpy.spin_once(node,timeout_sec=.001)
     finally:
         node.destroy_node();rclpy.shutdown()
         (directory/'source.json').write_text(json.dumps(dict(scope='SYNTHETIC continuous isolated DDS; no GZ/Nav2/NN/nonzero motion',
-            requested_window_wall_s=8,feedback_hz=feedback_hz,actual_window_wall_s=time.monotonic()-start,records=records)))
+            requested_window_wall_s=source_window,execution_profile=profile,feedback_hz=feedback_hz,actual_window_wall_s=time.monotonic()-start,records=records)))
 
 
 def stop_check(stop_file,records):
@@ -150,11 +157,11 @@ def peer(directory,stop_file):
         (directory/'fixture-stop-overhead.json').write_text(json.dumps(checks))
 
 
-def gateway(directory,stop_file,dispatch_profile,control_trace,mode):
+def gateway(directory,stop_file,dispatch_profile,control_trace,mode,execution_profile=None):
     sys.path.insert(0,str(HERE))
     from gateway import Gateway
     node=Gateway(mode,directory.parent/'wire.sock',directory,2026110912,
-        dispatch_profile=dispatch_profile,control_trace=control_trace)
+        dispatch_profile=dispatch_profile,control_trace=control_trace,execution_profile=execution_profile)
     checks=[];next_check=0
     try:
         while True:
@@ -168,13 +175,17 @@ def gateway(directory,stop_file,dispatch_profile,control_trace,mode):
     return 0 if clean else 1
 
 
-def host(name,feedback_hz,dispatch_profile,control_trace,native,mode):
+def host(name,feedback_hz,dispatch_profile,control_trace,native,mode,execution_profile=None):
+    profile=load_profile(execution_profile)
+    hard_wall=20 if profile is None else profile["qualification"]["hard_wall_s"]
+    source_window=8 if profile is None else profile["qualification"]["source_wall_s"]
+    profile_args=[] if execution_profile is None else ["--execution-profile",execution_profile]
     repo=HERE.parent;phase=repo.parent
     base=repo/'runs'/name;base.mkdir(exist_ok=False)
     for role_name in ('source','peer','gateway'):(base/role_name).mkdir()
     (base/'scope.json').write_text(json.dumps(dict(scope='Synthetic-clock continuous DDS diagnostic; NOT GZ TIME/NET safety',
-        hard_wall_s=20,source_wall_s=8,feedback_hz=feedback_hz,dispatch_profile=dispatch_profile,control_trace=control_trace,native=None if native is None else str(native),domains=dict(C=91,R=92),mode=mode,Gazebo=0,Nav2=0,ActionServer=0,NN=0)))
-    start=time.monotonic();deadline=start+19.5;processes={};logs=[];error=None
+        hard_wall_s=hard_wall,source_wall_s=source_window,execution_profile=profile,feedback_hz=feedback_hz,dispatch_profile=dispatch_profile,control_trace=control_trace,native=None if native is None else str(native),domains=dict(C=91,R=92),mode=mode,Gazebo=0,Nav2=0,ActionServer=0,NN=0)))
+    start=time.monotonic();deadline=start+hard_wall-.5;processes={};logs=[];error=None
     def launch(role,args,pipe=False):
         log=(base/(role+'.stderr.txt')).open('x');logs.append(log)
         out=subprocess.PIPE if pipe else (base/(role+'.stdout.txt')).open('x')
@@ -188,13 +199,13 @@ def host(name,feedback_hz,dispatch_profile,control_trace,native,mode):
         if control_trace and native is None:raise ValueError('Control trace requires explicit independent diagnostic native')
         hub=launch('hub',[sys.executable,'-B',str(HERE/'tools/packet_hub.py'),'--socket',str(socket),
             '--native',str(native if native is not None else phase/'build/network-full-payload/net01-payload'),'--output',str(base/'hub'),
-            '--profile','B','--wall','19','--clock-source','gazebo']+(['--control-trace'] if control_trace else []),pipe=True)
+            '--profile','B','--wall',str(hard_wall-1),'--clock-source','gazebo']+(['--control-trace'] if control_trace else []),pipe=True)
         readable,_,_=select.select([hub.stdout],[],[],min(5,deadline-time.monotonic()))
         if not readable or hub.stdout.readline().strip()!='IPC_LISTENING '+str(socket):raise RuntimeError('Native IPC startup failed')
         stop='/mnt/runs/'+name+'/STOP'
         launch('peer',wrapper+[sub,'--role','peer','--directory','/mnt/runs/'+name+'/peer','--stop-file',stop])
-        launch('gateway',wrapper+[sub,'--role','gateway','--directory','/mnt/runs/'+name+'/gateway','--stop-file',stop,'--mode',mode]+(['--dispatch-profile'] if dispatch_profile else [])+(['--control-trace'] if control_trace else []))
-        src=launch('source',wrapper+[sub,'--role','source','--directory','/mnt/runs/'+name+'/source','--feedback-hz',str(feedback_hz)])
+        launch('gateway',wrapper+[sub,'--role','gateway','--directory','/mnt/runs/'+name+'/gateway','--stop-file',stop,'--mode',mode]+profile_args+(['--dispatch-profile'] if dispatch_profile else [])+(['--control-trace'] if control_trace else []))
+        src=launch('source',wrapper+[sub,'--role','source','--directory','/mnt/runs/'+name+'/source','--feedback-hz',str(feedback_hz)]+profile_args)
         src.wait(timeout=max(.01,deadline-time.monotonic()-3))
     except BaseException as exc:error=repr(exc)
     finally:
@@ -205,7 +216,7 @@ def host(name,feedback_hz,dispatch_profile,control_trace,native,mode):
             try:p.wait(timeout=max(.01,deadline-time.monotonic()))
             except subprocess.TimeoutExpired:os.killpg(p.pid,signal.SIGKILL);p.wait()
         result=dict(scope='One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety',
-            error=error,wall_s=time.monotonic()-start,hard_wall_s=20,
+            error=error,wall_s=time.monotonic()-start,hard_wall_s=hard_wall,execution_profile=profile,
             exits={role:p.returncode for role,p in processes.items()},Gazebo=0,NN=0,
             wrapper_pids={role:p.pid for role,p in processes.items()},
             stop_control='fixture stop-file polled at most20Hz; exact overhead saved, not production behavior')
@@ -224,6 +235,7 @@ if __name__=='__main__':
     parser.add_argument('--control-trace',action='store_true')
     parser.add_argument('--native',type=Path)
     parser.add_argument('--mode',choices=['A','B'],default='A')
+    parser.add_argument('--execution-profile')
     a=parser.parse_args()
-    raise SystemExit(host(a.name,a.feedback_hz,a.dispatch_profile,a.control_trace,a.native,a.mode) if a.role=='host' else source(a.directory,a.feedback_hz) if a.role=='source' else
-        gateway(a.directory,a.stop_file,a.dispatch_profile,a.control_trace,a.mode) if a.role=='gateway' else peer(a.directory,a.stop_file))
+    raise SystemExit(host(a.name,a.feedback_hz,a.dispatch_profile,a.control_trace,a.native,a.mode,a.execution_profile) if a.role=='host' else source(a.directory,a.feedback_hz,a.execution_profile) if a.role=='source' else
+        gateway(a.directory,a.stop_file,a.dispatch_profile,a.control_trace,a.mode,a.execution_profile) if a.role=='gateway' else peer(a.directory,a.stop_file))

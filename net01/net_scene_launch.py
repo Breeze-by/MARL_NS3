@@ -5,11 +5,13 @@ the separate original headquarters runs in C. NET01_SESSION_ID and the frozen
 GZ01_PEER_GUARD profile are required. This file does not authorize a launch.
 """
 import importlib.util
+import json
 from pathlib import Path
 
 from launch import LaunchDescription
-from launch.actions import ExecuteProcess, GroupAction, OpaqueFunction, SetEnvironmentVariable
+from launch.actions import ExecuteProcess, GroupAction, IncludeLaunchDescription, OpaqueFunction, SetEnvironmentVariable
 from launch.utilities import perform_substitutions
+from execution_profile import load_profile
 
 HERE=Path(__file__).resolve().parent
 FROZEN_PATH=HERE.parent/'workspace/gz01/scene_launch.py'
@@ -20,11 +22,26 @@ _spec.loader.exec_module(_frozen)
 
 def launch_setup(context):
     original=_frozen.launch_setup(context)
+    profile=load_profile(context.environment.get('NET01_EXECUTION_PROFILE') or None)
+    if profile is not None:
+        directory=Path(context.environment['BASE01_RUN_DIR'])
+        world=directory/'effective_world.sdf'
+        original_rate='<real_time_update_rate>1000</real_time_update_rate>'
+        world_text=world.read_text()
+        if world_text.count(original_rate)!=1:raise RuntimeError('Expected one original world wall update rate')
+        world.write_text(world_text.replace(original_rate,
+            f"<real_time_update_rate>{profile['world_real_time_update_rate']}</real_time_update_rate>"))
+        params=directory/'net01-clock-params.yaml'
+        params.write_text(f"/gazebo:\n  ros__parameters:\n    publish_rate: {profile['clock_publish_rate_sim_hz']}\n")
+        (directory/'execution-profile.json').write_text(json.dumps(profile,indent=2)+'\n')
     merge_script=str(_frozen.PHASE/'workspace/src/merge_map/merge_map/merge_map.py')
     peer_script=str(FROZEN_PATH.with_name('peer_keepout.py'))
     session_id=context.environment['NET01_SESSION_ID']
     placed=[];counts={'merge':0,'peer':0}
     for action in original:
+        if profile is not None and isinstance(action,IncludeLaunchDescription) and 'world' in dict(action.launch_arguments):
+            action=IncludeLaunchDescription(action.launch_description_source,
+                launch_arguments=[*action.launch_arguments,('params_file',str(params))])
         # Only the original plain ExecuteProcess commands are inspected. Node
         # command substitutions remain deferred to their original execution.
         if type(action) is ExecuteProcess:

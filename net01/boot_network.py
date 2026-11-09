@@ -36,6 +36,7 @@ def main():
         PYTHONDONTWRITEBYTECODE="1",GZ01_CASE=str(case),NET01_MODE=net["mode"],
         NET01_SESSION_ID=str(net["session_id"]),NET01_SOCKET=net["socket_container"])
     os.environ['NET01_CONTROL_TRACE']='1' if net.get('control_trace',False) else '0'
+    os.environ['NET01_EXECUTION_PROFILE']=net.get('execution_profile','')
     os.environ["GAZEBO_MODEL_PATH"]="/project/assets/gazebo_models:"+os.environ.get("GAZEBO_MODEL_PATH","")
     os.environ.pop("GZ01_BATCH_GDB",None);os.environ.pop("GZ01_HOST_GDB",None)
     result=dict(start_utc=datetime.now(timezone.utc).isoformat(),native_exit=None,outer_timeout=False,cleanup_timeout=False)
