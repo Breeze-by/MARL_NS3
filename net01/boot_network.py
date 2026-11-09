@@ -35,6 +35,7 @@ def main():
         DISPLAY=":92",QT_QPA_PLATFORM="offscreen",LIBGL_ALWAYS_SOFTWARE="1",
         PYTHONDONTWRITEBYTECODE="1",GZ01_CASE=str(case),NET01_MODE=net["mode"],
         NET01_SESSION_ID=str(net["session_id"]),NET01_SOCKET=net["socket_container"])
+    os.environ['NET01_DISPATCH_PROFILE']='1' if net.get('dispatch_profile',False) else '0'
     os.environ['NET01_CONTROL_TRACE']='1' if net.get('control_trace',False) else '0'
     os.environ['NET01_EXECUTION_PROFILE']=net.get('execution_profile','')
     os.environ["GAZEBO_MODEL_PATH"]="/project/assets/gazebo_models:"+os.environ.get("GAZEBO_MODEL_PATH","")

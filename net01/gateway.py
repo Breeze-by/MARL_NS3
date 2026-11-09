@@ -6,6 +6,7 @@ All records are RAM captures, persisted only after the owned loop exits.
 """
 import argparse
 from collections import deque
+import gc
 import hashlib
 import json
 from pathlib import Path
@@ -110,6 +111,7 @@ class Gateway:
         self.profile_longspans=[] if dispatch_profile else None
         self.profile_labels={}
         self.last_poll=None
+        self.gc_events=[];self.gc_callback=None
         for domain,side in ((91,"C"),(92,"R")):
             context=Context()
             rclpy.init(context=context,domain_id=domain,signal_handler_options=SignalHandlerOptions.NO)
@@ -136,6 +138,14 @@ class Gateway:
         self.journal_pub=self.c.create_publisher(String,"/net01/controller_records",100)
         self.journal_timer=self.c.create_timer(.02,self.export_controller_records,
             clock=Clock(clock_type=ClockType.STEADY_TIME))
+        if dispatch_profile:
+            self.gc_callback=self.observe_gc
+            gc.callbacks.append(self.gc_callback)
+
+    def observe_gc(self,phase,info):
+        self.gc_events.append(dict(phase=phase,generation=info['generation'],
+            monotonic_ns=time.monotonic_ns(),thread_cpu_ns=time.thread_time_ns(),
+            collected=info.get('collected'),uncollectable=info.get('uncollectable')))
 
     def record(self,kind,**fields):
         self.records.append(dict(dict(kind=kind,monotonic_ns=time.monotonic_ns(),gz_ns=self.gz),**fields))
@@ -400,7 +410,7 @@ class Gateway:
             data["topics"]={side:dict(captured=w.captured,delivered=w.delivered) for side,w in self.wires.items()}
             data["bound_masks"]=self.bound_r.received
         if self.cpu_profile is not None:
-            data['dispatch_cpu_profile']=dict(aggregates=self.cpu_profile,longspans=self.profile_longspans,
+            data['dispatch_cpu_profile']=dict(aggregates=self.cpu_profile,longspans=self.profile_longspans,gc_events=self.gc_events,
                 longspan_semantics='RAM spans >=10ms; end-order append. Poll includes all work; handler includes journal_call; progress total includes hub/direct. Inclusive parents and children must not be summed. Diagnostic timing overhead, not capacity proof.',
                 semantics='wait and handler totals exclude progress; progress total_inclusive contains hub_poll/direct_batch; do not sum parent and children. Async handler measures executing step only, not pending Future time. RAM only, diagnostic opt-in.')
         if self.hub.control_trace is not None:
@@ -412,6 +422,13 @@ class Gateway:
             cleanup=self.cleanup))+"\n")
 
     def close(self):
+        try:clean=self._close()
+        finally:
+            if self.gc_callback is not None:gc.callbacks.remove(self.gc_callback)
+        self.persist()
+        return clean
+
+    def _close(self):
         self.cleanup=dict(phase="after_supervisor_stop_and_owned_cleanup_attempts",
             end_frame_flushed=False,executor_shutdown=[],resources_destroyed=False,
             unresolved_C_RPC=[],unresolved_R_RPC=[],unresolved_local_cleanup_futures={})
@@ -444,7 +461,6 @@ class Gateway:
         self.cleanup["resources_destroyed"]=True
         # Saved means successful persistence after bounded teardown, not a
         # synthetic response/terminal for any unresolved callback above.
-        self.persist()
         return self.cleanup["end_frame_flushed"] and self.failure is None
 
 
@@ -455,9 +471,10 @@ def main():
     parser.add_argument("--directory",type=Path,required=True)
     parser.add_argument("--session-id",type=int,required=True)
     parser.add_argument('--control-trace',action='store_true')
+    parser.add_argument('--dispatch-profile',action='store_true')
     parser.add_argument('--execution-profile')
     args=parser.parse_args()
-    node=Gateway(args.mode,args.socket,args.directory,args.session_id,control_trace=args.control_trace,execution_profile=args.execution_profile)
+    node=Gateway(args.mode,args.socket,args.directory,args.session_id,dispatch_profile=args.dispatch_profile,control_trace=args.control_trace,execution_profile=args.execution_profile)
     stopping=False
     def stop(signum,frame):
         nonlocal stopping
