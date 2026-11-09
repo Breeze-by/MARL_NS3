@@ -10,7 +10,16 @@
     "clock_period_wall_s": 0.01,
     "clock_increment_ns": 10000000,
     "other_sources": "Same original per-wall TF/odom/feedback, never reduced; synthetic clock .01sim/.01wall",
-    "peer": "Original10Hz simulation-time timer, nominal10Hz wall at this synthetic1x clock; full3mask raw4.8MB/s"
+    "peer": "Original10Hz simulation-time timer, nominal10Hz wall at this synthetic1x clock; full3mask raw4.8MB/s",
+    "local_costmap_cells": [
+      200,
+      200
+    ],
+    "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
+    "not_generated_flows": [
+      "89 C merge_map",
+      "95 C controller journal"
+    ]
   },
   "scope": "Restore original1000 wall update/dt unchanged, retain100Hz simclock and10ms native quantum; explicit new common A/B execution profile, not network or RL optimization"
 }

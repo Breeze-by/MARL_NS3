@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/mnt/net01/followup04/calibrate_clock_witness.py", line 71, in <module>
+    if __name__=='__main__':main()
+  File "/mnt/net01/followup04/calibrate_clock_witness.py", line 44, in main
+    assert len(rows)==20 and {int(x['clock_ns']) for x in rows}=={x['clock_ns'] for x in records}
+AssertionError

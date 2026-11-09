@@ -24,6 +24,8 @@ def source(directory,feedback_hz,execution_profile=None):
     clock_increment=100_000_000 if qualification is None else qualification["clock_increment_ns"]
     clock_period=.1 if qualification is None else qualification["clock_period_wall_s"]
     source_window=8 if qualification is None else qualification["source_wall_s"]
+    costmap_shape=((60,60) if profile is None or profile['id']!='original1000-clock100-q10ms'
+        else tuple(qualification['local_costmap_cells']))
     import rclpy
     from rclpy.clock import Clock,ClockType
     from rclpy.node import Node
@@ -99,7 +101,7 @@ def source(directory,feedback_hz,execution_profile=None):
             emit(pub,m,robot,kind,clock_ns-clock_increment)
         grid(mp,250,220,'synthetic_map')
         timers.append(node.create_timer(5.,lambda p=mp,r=robot:grid(p,250,220,'synthetic_map',r),clock=steady))
-        timers.append(node.create_timer(.5,lambda p=lp,r=robot:grid(p,60,60,'synthetic_costmap',r),clock=steady))
+        timers.append(node.create_timer(.5,lambda p=lp,r=robot:grid(p,costmap_shape[0],costmap_shape[1],'synthetic_costmap',r),clock=steady))
         if feedback_hz:
             from nav2_msgs.action import NavigateToPose
             from action_msgs.msg import GoalStatusArray
