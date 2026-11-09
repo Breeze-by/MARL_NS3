@@ -1,0 +1,24 @@
+{
+  "scope": "Installed strace tracing a newly spawned own /bin/true child only; no ROS/native/network/Gazebo workload",
+  "command": [
+    "/usr/bin/strace",
+    "-f",
+    "-ttt",
+    "-T",
+    "-yy",
+    "-s0",
+    "-e",
+    "trace=write,writev,pwrite64,fsync,fdatasync,futex,read,pread64,nanosleep,clock_nanosleep,sched_yield",
+    "-o",
+    "net01/followup04/evidence/native-wait-tool-01/child-probe.strace.txt",
+    "/bin/true"
+  ],
+  "exit_code": 0,
+  "elapsed_wall_s": 0.087248691,
+  "trace_exists": true,
+  "trace_bytes": 574,
+  "strace_version": "strace -- version 5.16",
+  "uid": 1000,
+  "permissions_changed": false,
+  "packages_installed": false
+}

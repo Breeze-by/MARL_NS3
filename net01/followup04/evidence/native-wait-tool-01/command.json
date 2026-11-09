@@ -1,0 +1,13 @@
+[
+  "/usr/bin/strace",
+  "-f",
+  "-ttt",
+  "-T",
+  "-yy",
+  "-s0",
+  "-e",
+  "trace=write,writev,pwrite64,fsync,fdatasync,futex,read,pread64,nanosleep,clock_nanosleep,sched_yield",
+  "-o",
+  "net01/followup04/evidence/native-wait-tool-01/child-probe.strace.txt",
+  "/bin/true"
+]
