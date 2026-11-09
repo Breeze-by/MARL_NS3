@@ -1,0 +1,36 @@
+{
+  "source_commit": "df73d2750c6241e77fa173df26156bbb40814a50",
+  "binary": {
+    "path": "/home/zhuyulab/ns3-workspace/net-01/build/followup03-release-portable-native/net01-payload",
+    "bytes": 394928,
+    "sha256": "82bc8ecff7d1e88d826931be534335fac21971fa8e6a23731af805f291c7e184"
+  },
+  "NS3_DIR": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/src",
+  "NS3_BUILD_DIR": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build",
+  "NS3_LIBRARY_SUFFIX": "",
+  "dependency_build_identity_commit": "d5528e2",
+  "configure_exit": 0,
+  "build_exit": 0,
+  "build_command": "cmake --build net-01/build/followup03-release-portable-native -j2",
+  "ldd_exit": 0,
+  "all_ns3_libraries_new_root_no_default": true,
+  "ns3_libraries": [
+    "\tlibns3.40-wifi.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-wifi.so (0x000071f754200000)",
+    "\tlibns3.40-internet.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-internet.so (0x000071f753c00000)",
+    "\tlibns3.40-csma.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-csma.so (0x000071f754aba000)",
+    "\tlibns3.40-mobility.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-mobility.so (0x000071f754a16000)",
+    "\tlibns3.40-propagation.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-propagation.so (0x000071f75498e000)",
+    "\tlibns3.40-network.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-network.so (0x000071f753a74000)",
+    "\tlibns3.40-core.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-core.so (0x000071f7538ed000)",
+    "\tlibns3.40-energy.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-energy.so (0x000071f75387f000)",
+    "\tlibns3.40-spectrum.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-spectrum.so (0x000071f7534e0000)",
+    "\tlibns3.40-antenna.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-antenna.so (0x000071f7540d0000)",
+    "\tlibns3.40-bridge.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-bridge.so (0x000071f753861000)",
+    "\tlibns3.40-traffic-control.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-traffic-control.so (0x000071f753100000)",
+    "\tlibns3.40-stats.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-stats.so (0x000071f753429000)"
+  ],
+  "scope": "Same ns3.40 source; official Release-portable O3/ASSERT LOG OFF/nativeISA OFF, no LTO/fastmath; model params/V3 unchanged. Old O2 default/assert-log libs unchanged",
+  "async_ledger": false,
+  "cpu_profile": false,
+  "control_trace": true
+}
