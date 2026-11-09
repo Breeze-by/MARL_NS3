@@ -168,6 +168,7 @@ def popen(command,*args,**kwargs):
             stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
         original.record_process(observer.directory,"network_gateway",gateway.pid)
     elif len(command)>2 and command[:2]==["python3","-B"] and command[2]==str(FROZEN/"gz01/headquarters.py"):
+        command[2]=str(HERE/"controller_bootstrap.py")
         kwargs["env"]=dict(os.environ,ROS_DOMAIN_ID="91")
     elif command[:3]==["ros2","bag","record"]:
         index=command.index("--qos-profile-overrides-path")

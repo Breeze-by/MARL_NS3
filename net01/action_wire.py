@@ -37,6 +37,7 @@ class ActionWire:
         self.ready={r:False for r in self.robots}
         self.ready_received={};self.ready_sequence={}
         self.endpoints={};self.generation={r:0 for r in self.robots}
+        self.service_states={};self.retired_services={r:[] for r in self.robots}
         self.pending={};self.requests={}
         self.clients={};self.subscriptions=[]
         self.forwarded_requests=0;self.duplicate_requests=0;self.blocked_requests=0
@@ -95,32 +96,52 @@ class ActionWire:
                     self._set_ready(robot,False)
 
     def _set_ready(self,robot,ready):
+        # Do not advertise duplicate servers while an old accepted callback is
+        # still waiting for its real response on the original service handle.
+        if ready and self.retired_services[robot]:return
         if self.ready[robot]==ready:return
         self.ready[robot]=ready
         self.generation[robot]+=1
         if ready:
-            name=self.name(robot);services=[]
+            name=self.name(robot);services=[];states=[]
             generation=self.generation[robot]
             for offset,typ,suffix in SERVICES:
-                async def forward(request,response,offset=offset,typ=typ,robot=robot,generation=generation):
+                state=dict(inflight=0,retired=False,offset=offset)
+                async def forward(request,response,offset=offset,typ=typ,robot=robot,generation=generation,state=state):
                     future=Future()
                     if not self.ready[robot] or self.generation[robot]!=generation:
                         self.blocked_requests+=1
                         return await future  # unknown, no synthetic rejection
+                    state['inflight']+=1
                     rpc_id=self.next_id()
                     self.pending[(robot,offset+1,rpc_id)]=(future,typ.Response,generation)
                     self.send(robot,self.flow(robot,offset),serialize_message(request),rpc_id)
                     return await future
-                services.append(self.node.create_service(typ,name+'/_action/'+suffix,forward,callback_group=self.group))
+                service=self.node.create_service(typ,name+'/_action/'+suffix,forward,callback_group=self.group)
+                state['service']=service;send_response=service.send_response
+                def sent(response,header,state=state,send_response=send_response,robot=robot):
+                    # The executor calls this after await forward; returning a
+                    # real result from the coroutine alone is not a ROS reply.
+                    send_response(response,header)
+                    state['inflight']-=1
+                    if state['retired'] and state['inflight']==0:
+                        self.node.destroy_service(state['service'])
+                        self.retired_services[robot].remove(state)
+                service.send_response=sent
+                services.append(service);states.append(state)
+            self.service_states[robot]=states
             self.endpoints[robot]=(services,
                 self.node.create_publisher(NavigateToPose.Impl.FeedbackMessage,name+'/_action/feedback',10),
                 self.node.create_publisher(GoalStatusArray,name+'/_action/status',qos_profile_action_status_default))
         else:
             services,feedback,status=self.endpoints.pop(robot)
-            for service in services:self.node.destroy_service(service)
+            for state in self.service_states.pop(robot):
+                state['retired']=True
+                if state['inflight']:self.retired_services[robot].append(state)
+                else:self.node.destroy_service(state['service'])
             self.node.destroy_publisher(feedback);self.node.destroy_publisher(status)
-            # Outstanding callbacks stay unknown, without fake responses from
-            # retired services. Reconnection does not silently resubmit goals.
+            # Already admitted RPCs keep their original service until the real
+            # response has actually been sent. No goal is resubmitted.
 
     def receive(self,peer,flow,body,rpc_id):
         robot,offset=divmod(flow-200,20)
@@ -137,9 +158,8 @@ class ActionWire:
                 if item is None:
                     self.unknown_responses+=1;return
                 future,typ,generation=item
-                if self.ready[robot] and self.generation[robot]==generation:
-                    self.pending.pop((robot,offset,rpc_id))
-                    future.set_result(deserialize_message(body,typ))
+                self.pending.pop((robot,offset,rpc_id))
+                future.set_result(deserialize_message(body,typ))
             elif offset in (6,7):
                 endpoints=self.endpoints.get(robot)
                 if endpoints is not None:
@@ -176,6 +196,8 @@ class ActionWire:
         self.node.destroy_timer(self.timer)
         if self.robot is None:
             for robot in tuple(self.endpoints):self._set_ready(robot,False)
+            for states in self.retired_services.values():
+                for state in states:self.node.destroy_service(state['service'])
         else:
             for subscription in self.subscriptions:self.node.destroy_subscription(subscription)
             for client in self.clients.values():self.node.destroy_client(client)

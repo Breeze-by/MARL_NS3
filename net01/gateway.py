@@ -452,6 +452,8 @@ class Gateway:
         if self.wires is not None:
             self.cleanup["unresolved_C_RPC"]=[dict(robot=r,flow_offset=f,rpc_id=i)
                 for (r,f,i),(future,typ,generation) in self.action_c.pending.items() if not future.done()]
+            self.cleanup["retired_C_services"]={str(r):[dict(flow_offset=s['offset'],inflight=s['inflight']) for s in states]
+                for r,states in self.action_c.retired_services.items()}
             self.cleanup["unresolved_R_RPC"]=[dict(robot=r,flow=f,rpc_id=i)
                 for r,action in self.action_r.items() for (f,i),response in action.requests.items() if response is None]
         self.cleanup["unresolved_local_cleanup_futures"]={str(r):sum(not f.done() for f in guard.futures)

@@ -1,0 +1,16 @@
+{
+  "id": "original1000-clock100-q10ms",
+  "world_real_time_update_rate": 1000,
+  "physics_max_step_size_unchanged": 0.001,
+  "clock_publish_rate_sim_hz": 100.0,
+  "native_step_quantum_ns": 10000000,
+  "qualification": {
+    "source_wall_s": 16,
+    "hard_wall_s": 30,
+    "clock_period_wall_s": 0.01,
+    "clock_increment_ns": 10000000,
+    "other_sources": "Same original per-wall TF/odom/feedback, never reduced; synthetic clock .01sim/.01wall",
+    "peer": "Original10Hz simulation-time timer, nominal10Hz wall at this synthetic1x clock; full3mask raw4.8MB/s"
+  },
+  "scope": "Restore original1000 wall update/dt unchanged, retain100Hz simclock and10ms native quantum; explicit new common A/B execution profile, not network or RL optimization"
+}
