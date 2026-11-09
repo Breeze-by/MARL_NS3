@@ -1,0 +1,14 @@
+{
+  "scope": "Read-only exact NET runner/Gateway/continuous-role/world argv inventory; no ROS/CLI node/network mutation or domain69 action",
+  "own_old_actors": [
+    {
+      "pid": 1799319,
+      "argv": [
+        "/bin/bash",
+        "-lc",
+        "rtk proxy python3 -B - <<'PY'\nimport json,os\nfrom pathlib import Path\nready=Path('net01/followup03/requests/net01-a-corridor-6201-07.ready.json');d=json.loads(ready.read_text());print('exact_requested_command',d['requested_command']);print('authorized',d['authorized_gz01_execution'],d['authorized_net01_execution'])\nowned=[]\nscript_names={b'/mnt/net01/gateway.py',b'/mnt/net01/run_network_case.py',b'/mnt/net01/boot_network.py',b'/mnt/net01/followup01/continuous_dds.py'}\nfor p in Path('/proc').iterdir():\n if not p.name.isdigit() or int(p.name)==os.getpid():continue\n try:\n  argv=p.joinpath('cmdline').read_bytes().split(b'\\0')\n  if any(a in script_names for a in argv) or any(b'/mnt/runs/net01-' in a and b'effective_world.sdf' in a for a in argv):\n   owned.append(dict(pid=int(p.name),argv=[v.decode(errors='replace') for v in argv if v]))\n except (FileNotFoundError,PermissionError,ProcessLookupError):pass\nresult=dict(scope='Read-only exact NET runner/Gateway/continuous-role/world argv inventory; no ROS/CLI node/network mutation or domain69 action',own_old_actors=owned,clear=not owned)\nPath('net01/followup03/A07_PRESTART_OWNED.json').write_text(json.dumps(result,indent=2)+'\\n');print(json.dumps(result))\nif owned:raise SystemExit(1)\nPY"
+      ]
+    }
+  ],
+  "clear": false
+}
