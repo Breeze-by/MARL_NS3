@@ -1,0 +1,36 @@
+{
+  "scope": "Only launch description generation; 0Node/0LaunchService/0GZ/0Goal/0NN",
+  "checks": {
+    "world_only_wall_rate_changed": true,
+    "original_rate_present_once": true,
+    "metadata_rate_matches": true,
+    "metadata_dt_unchanged": true,
+    "metadata_profile": true,
+    "metadata_clock_source": true,
+    "scoped_clock_yaml": true,
+    "one_gzserver": true,
+    "gzserver_params_scoped": true,
+    "other_includes_no_clock_params": true,
+    "original_nav2_slam_yamls_unchanged": true,
+    "original_three_nav2_configs": true
+  },
+  "all_pass": true,
+  "gzserver_arguments": [
+    {
+      "world": "/mnt/runs/pace-launch-generation-01/effective_world.sdf",
+      "seed": "2026110601",
+      "params_file": "/mnt/runs/pace-launch-generation-01/net01-clock-params.yaml"
+    }
+  ],
+  "unchanged_yaml_names": [
+    "peer_nav2_tb1.yaml",
+    "peer_nav2_tb2.yaml",
+    "peer_nav2_tb3.yaml",
+    "slam_tb1.yaml",
+    "slam_tb2.yaml",
+    "slam_tb3.yaml"
+  ],
+  "native_exit": 0,
+  "requested_command": "rtk proxy bash net-01/workspace/net01/ros-python.sh /mnt/net01/followup03/check_pacing_launch.py --output /mnt/runs/pace-launch-generation-01",
+  "raw": "runs/pace-launch-generation-01/result.json"
+}

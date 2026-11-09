@@ -276,7 +276,7 @@ index 4a637b8..27540be 100644
      def stop(signum,frame):
          nonlocal stopping
 diff --git a/net01/net_scene_launch.py b/net01/net_scene_launch.py
-index 5880cf7..5154a20 100644
+index 5880cf7..3f53c3d 100644
 --- a/net01/net_scene_launch.py
 +++ b/net01/net_scene_launch.py
 @@ -5,11 +5,13 @@ the separate original headquarters runs in C. NET01_SESSION_ID and the frozen
@@ -294,7 +294,7 @@ index 5880cf7..5154a20 100644
  
  HERE=Path(__file__).resolve().parent
  FROZEN_PATH=HERE.parent/'workspace/gz01/scene_launch.py'
-@@ -20,11 +22,26 @@ _spec.loader.exec_module(_frozen)
+@@ -20,11 +22,32 @@ _spec.loader.exec_module(_frozen)
  
  def launch_setup(context):
      original=_frozen.launch_setup(context)
@@ -309,6 +309,12 @@ index 5880cf7..5154a20 100644
 +            f"<real_time_update_rate>{profile['world_real_time_update_rate']}</real_time_update_rate>"))
 +        params=directory/'net01-clock-params.yaml'
 +        params.write_text(f"/gazebo:\n  ros__parameters:\n    publish_rate: {profile['clock_publish_rate_sim_hz']}\n")
++        adaptation=world.with_suffix('.adaptation.json')
++        metadata=json.loads(adaptation.read_text())
++        metadata.update(ode_update_hz=profile['world_real_time_update_rate'],
++            execution_profile=profile['id'],clock_source=dict(node='/gazebo',parameter='publish_rate',
++                value=profile['clock_publish_rate_sim_hz'],params_file=str(params)))
++        adaptation.write_text(json.dumps(metadata,indent=2)+'\n')
 +        (directory/'execution-profile.json').write_text(json.dumps(profile,indent=2)+'\n')
      merge_script=str(_frozen.PHASE/'workspace/src/merge_map/merge_map/merge_map.py')
      peer_script=str(FROZEN_PATH.with_name('peer_keepout.py'))

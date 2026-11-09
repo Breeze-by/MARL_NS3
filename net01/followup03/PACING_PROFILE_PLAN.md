@@ -7,3 +7,5 @@
 唯一无运动资格先预定：原连续夹具modeB/V3，CPUprofileoff/controltraceon，真实DDS合成clock增量.01sim/周期.02wall；其余原每wall TF/odom/100Hz FB/costmap等不降低（保守overspec，非真实Nav2发布频率证明）。源连续16wall约8sim，原BoundPeer10Hzsim不改，预定总30wall含收尾，qualification失败不延长。0GZ/Nav2/Goal/arm/NN，未授权机器人运行。根审实际diff/具体入口后仅一次，不重试或改TTL求通过。
 
 预定入口：`rtk proxy python3 -B net-01/workspace/net01/followup01/continuous_dds.py --name continuous-dds-16-paced-wifi --mode B --feedback-hz 100 --execution-profile pace500-clock100-q10ms --control-trace --native /home/zhuyulab/ns3-workspace/net-01/build/followup03-cpu/net01-payload`。采用现成已固定ELF，cpuProfile默认off，不新构建旧库。当前仅实现接线，尚未运行。
+
+资格范围限制：保留每wall源频率对CPU负载是保守overspec，但不能证明真实GZ按较低每wall odom/TF频率时的最大receipt-gap；合成源更密可能更易满足freshness。实际A/B仍须独立按原源龄/receipt/health .3wall门限验收，不以此资格替代真实clock与源间隔。新case adaptation metadata须真实写ode_update_hz500，并指明execution_profile及/gazebo启动clock参数来源；旧case metadata不改。

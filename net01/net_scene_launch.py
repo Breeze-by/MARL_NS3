@@ -33,6 +33,12 @@ def launch_setup(context):
             f"<real_time_update_rate>{profile['world_real_time_update_rate']}</real_time_update_rate>"))
         params=directory/'net01-clock-params.yaml'
         params.write_text(f"/gazebo:\n  ros__parameters:\n    publish_rate: {profile['clock_publish_rate_sim_hz']}\n")
+        adaptation=world.with_suffix('.adaptation.json')
+        metadata=json.loads(adaptation.read_text())
+        metadata.update(ode_update_hz=profile['world_real_time_update_rate'],
+            execution_profile=profile['id'],clock_source=dict(node='/gazebo',parameter='publish_rate',
+                value=profile['clock_publish_rate_sim_hz'],params_file=str(params)))
+        adaptation.write_text(json.dumps(metadata,indent=2)+'\n')
         (directory/'execution-profile.json').write_text(json.dumps(profile,indent=2)+'\n')
     merge_script=str(_frozen.PHASE/'workspace/src/merge_map/merge_map/merge_map.py')
     peer_script=str(FROZEN_PATH.with_name('peer_keepout.py'))
