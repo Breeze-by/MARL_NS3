@@ -1,0 +1,46 @@
+{
+  "scope": "0 ROS init / 0 Node / 0 ns3 / 0 GZ; one controlled stdlib child",
+  "checks": {
+    "ast_parses": true,
+    "actual_exit7": true,
+    "binary_stdin_stdout_exact": true,
+    "stderr_exact": false,
+    "argv_exact": false,
+    "start_and_end": true,
+    "samples_present": true,
+    "stat_and_schedstat_fields": true,
+    "clocks_and_proc_read_span": true,
+    "single_direct_child_pid": true,
+    "rusage_and_exit": true,
+    "no_wrapper_error": true
+  },
+  "pass_": false,
+  "samples": 28,
+  "syscall_permission_errors": 0,
+  "actual_wrapper_exit": 7,
+  "wrapper_end": {
+    "kind": "wrapper_end",
+    "monotonic_ns": 453680708190920,
+    "realtime_ns": 1794236639225836243,
+    "actual_child_exit": 7,
+    "samples": 28,
+    "elapsed_wall_ns": 144948402,
+    "max_proc_read_wall_ns": 564970,
+    "wrapper_user_s": 0.01934199999999999,
+    "wrapper_system_s": 0.00027899999999999973,
+    "wrapper_total_user_s": 0.06713899999999999,
+    "wrapper_total_system_s": 0.013224,
+    "child_rusage": {
+      "ru_utime": 0.035186999999999996,
+      "ru_stime": 0.008041999999999999,
+      "ru_maxrss": 11520,
+      "ru_minflt": 952,
+      "ru_majflt": 0,
+      "ru_inblock": 0,
+      "ru_oublock": 0,
+      "ru_nvcsw": 2,
+      "ru_nivcsw": 0
+    }
+  },
+  "actual_ram_trace": "/dev/shm/net01-native-wait-wrapper-check-01/trace.jsonl"
+}
