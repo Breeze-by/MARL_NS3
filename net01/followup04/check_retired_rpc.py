@@ -28,7 +28,7 @@ def main():
     out=parser.parse_args().output;out.mkdir(parents=True, exist_ok=False)
     result=dict(scope='Actual DDS typed clients and controlled ActionServer; full-CDR memory wire only',
         domains=[104,105], Gazebo=0,Nav2=0,NN=0,motion_publishers=0,checks={})
-    queue=deque();held=[];packets=[];bridges={};contexts=[];nodes=[];executors=[];clients=[]
+    queue=deque();held=[];packets=[];deliveries=[];bridges={};contexts=[];nodes=[];executors=[];clients=[]
     hold_accept=True;deliver_readiness=True;server=None;deadline=time.monotonic()+20
     def check(name,value):
         assert value,name
@@ -44,6 +44,7 @@ def main():
         for _ in range(len(queue)):
             sender,destination,flow,body,rpc=queue.popleft()
             bridges[destination].receive(sender,flow,body,rpc)
+            deliveries.append(dict(sender=sender,destination=destination,flow=flow,rpc_id=rpc,monotonic_ns=time.monotonic_ns()))
     def until(predicate):
         while not predicate():pump()
     try:
@@ -70,8 +71,10 @@ def main():
         c.receive(1,223,serialize_message(synthetic),((2400<<32)|(key[2]&0xffffffff)))
         c.receive(1,223,serialize_message(synthetic),(2401<<32)|0x7fffffff)
         check('old_session_and_unknown_rpc_do_not_complete_original_client',not outcome.done() and key in c.pending)
+        r._publish_wire(1,8,Bool(data=False));withdraw_rpc=packets[-1][4]
         deliver_readiness=False
-        r._publish_wire(1,8,Bool(data=False));until(lambda:not c.ready[1])
+        until(lambda:not c.ready[1])
+        check('actual_False_readiness_CDR_received_before_retirement',any(d['flow']==228 and d['rpc_id']==withdraw_rpc for d in deliveries))
         check('withdrawn_ready_retains_only_admitted_original_handles',sorted(x['inflight'] for x in c.retired_services[1])==[1,1])
         before=r.forwarded_requests;blocked=c.blocked_requests
         late=NavigateToPose.Impl.SendGoalService.Request();late.goal_id=UUID(uuid=[32]*16)
@@ -97,13 +100,14 @@ def main():
         result.update(status='FAIL',error=repr(error));raise
     finally:
         if server is not None:server.close()
-        for client in clients:client.destroy()
+        for client in clients:cnode.destroy_client(client)
         for bridge in bridges.values():bridge.close()
         result['executor_shutdown']=[executor.shutdown(timeout_sec=0) for executor in executors]
         result['cleanup_scope']='Deliberately unadmitted unknown C callback may keep work_tracker pending; not fake cleanup PASS'
         for node in nodes:node.destroy_node()
         for context in contexts:context.shutdown()
         (out/'result.json').write_text(json.dumps(result,indent=2)+'\n')
+        (out/'wire-deliveries.json').write_text(json.dumps(deliveries,indent=2)+'\n')
         (out/'wire-packets.json').write_text(json.dumps([dict(sender=a,destination=b,flow=f,rpc_id=i,body_hex=body.hex())
             for a,b,f,body,i in packets],indent=2)+'\n')
     print(json.dumps(result),flush=True)
