@@ -1,0 +1,132 @@
+diff --git a/net01/gateway.py b/net01/gateway.py
+index 27540be..250d6c3 100644
+--- a/net01/gateway.py
++++ b/net01/gateway.py
+@@ -35,15 +35,19 @@ from link_session import LinkSession
+ from topic_wire import TopicWire
+ 
+ 
+-def record_cpu_span(table,key,wall,cpu):
+-    elapsed=time.monotonic_ns()-wall;used=time.thread_time_ns()-cpu
++def record_cpu_span(table,key,wall,cpu,longspans=None,label=None):
++    end=time.monotonic_ns();cpu_end=time.thread_time_ns()
++    elapsed=end-wall;used=cpu_end-cpu
++    if longspans is not None and elapsed>=10_000_000:
++        longspans.append(dict(stage=label or key,begin_monotonic_ns=wall,end_monotonic_ns=end,
++            begin_thread_cpu_ns=cpu,end_thread_cpu_ns=cpu_end))
+     row=table.setdefault(key,dict(calls=0,wall_ns=0,thread_cpu_ns=0,max_wall_ns=0))
+     row['calls']+=1;row['wall_ns']+=elapsed;row['thread_cpu_ns']+=used
+     row['max_wall_ns']=max(row['max_wall_ns'],elapsed)
+ 
+ 
+ def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limit=None,
+-                        profile=None,entity_label=None):
++                        profile=None,entity_label=None,longspans=None,side=None):
+     """Bounded productive ready sets, in original SingleThreaded order.
+ 
+     Keep the executor's cached iterator across cap hits. Do not wait/rebuild an
+@@ -70,7 +74,8 @@ def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limi
+             ready_set['shutdown']=True
+             break
+         finally:
+-            if profile is not None:record_cpu_span(profile['wait'],wait_kind,wait_wall,wait_cpu)
++            if profile is not None:record_cpu_span(profile['wait'],wait_kind,wait_wall,wait_cpu,
++                    longspans,f'{side}:wait:{wait_kind}')
+         began=time.monotonic()
+         if profile is not None:handler_wall=time.monotonic_ns();handler_cpu=time.thread_time_ns()
+         try:
+@@ -78,7 +83,8 @@ def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limi
+             if handler.exception() is not None:raise handler.exception()
+             handler.result()
+         finally:
+-            if profile is not None:record_cpu_span(profile['handlers'],entity_label(entity),handler_wall,handler_cpu)
++            if profile is not None:record_cpu_span(profile['handlers'],entity_label(entity),handler_wall,handler_cpu,
++                    longspans,f'{side}:handler:{entity_label(entity)}')
+         completed.append((entity,began))
+         ready_set['productive']=True
+         if after_handler is not None:after_handler()
+@@ -101,6 +107,7 @@ class Gateway:
+             side_span_semantics='max_wall/cpu are accumulated side service time per poll, including pump; not contiguous batches or single-callback spans')
+         self.cpu_profile=(dict(C=dict(wait={},handlers={}),R=dict(wait={},handlers={}),progress={})
+             if dispatch_profile else None)
++        self.profile_longspans=[] if dispatch_profile else None
+         self.profile_labels={}
+         self.last_poll=None
+         for domain,side in ((91,"C"),(92,"R")):
+@@ -246,6 +253,13 @@ class Gateway:
+         self.health_status.publish(String(data=json.dumps(data)))
+ 
+     def export_controller_records(self):
++        if self.cpu_profile is None:return self._export_controller_records()
++        wall=time.monotonic_ns();cpu=time.thread_time_ns()
++        try:return self._export_controller_records()
++        finally:record_cpu_span(self.cpu_profile['progress'],'journal_call_inclusive',wall,cpu,
++            self.profile_longspans,'C:journal_call_inclusive')
++
++    def _export_controller_records(self):
+         # This is a C-side source. Only actual delivered flow95 reaches R runtime.
+         path=self.directory/"controller/allocation-events.jsonl"
+         if not path.exists() or self.wires is None:return
+@@ -268,6 +282,13 @@ class Gateway:
+         # Stay alive to spin real R Cancel/GetResult/PAUSE and zero publishers.
+ 
+     def poll(self):
++        if self.cpu_profile is None:return self._poll()
++        wall=time.monotonic_ns();cpu=time.thread_time_ns()
++        try:return self._poll()
++        finally:record_cpu_span(self.cpu_profile['progress'],'poll_inclusive',wall,cpu,
++            self.profile_longspans,'poll_inclusive')
++
++    def _poll(self):
+         now=time.monotonic()
+         if self.last_poll is not None:self.dispatch_stats['max_poll_gap_wall_s']=max(
+             self.dispatch_stats['max_poll_gap_wall_s'],now-self.last_poll)
+@@ -289,7 +310,7 @@ class Gateway:
+                 completed,_=drain_current_ready(executor,node,self.ready_sets[side],
+                     self.progress_transport,callback_limit=min(4,caps[side]-used[side]),
+                     profile=None if self.cpu_profile is None else self.cpu_profile[side],
+-                    entity_label=self.profile_entity)
++                    entity_label=self.profile_entity,longspans=self.profile_longspans,side=side)
+                 if side=='C':
+                     if completed:self.c_empty_until=0.
+                     elif not self.ready_sets[side]['shutdown']:
+@@ -322,7 +343,8 @@ class Gateway:
+         if self.cpu_profile is None:return self._progress_transport()
+         wall=time.monotonic_ns();cpu=time.thread_time_ns()
+         try:return self._progress_transport()
+-        finally:record_cpu_span(self.cpu_profile['progress'],'total_inclusive',wall,cpu)
++        finally:record_cpu_span(self.cpu_profile['progress'],'total_inclusive',wall,cpu,
++            self.profile_longspans,'progress_inclusive')
+ 
+     def _progress_transport(self):
+         # Called between completed ROS handlers as well as at the outer boundary.
+@@ -335,7 +357,8 @@ class Gateway:
+                 self.record("owned_transport_poll_closed",error=repr(error))
+                 self.fail(repr(error))
+             finally:
+-                if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'hub_poll',wall,cpu)
++                if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'hub_poll',wall,cpu,
++                    self.profile_longspans,'progress:hub_poll')
+         if self.failure:return
+         if self.anchor is None or not self.hub.ready:return
+         latest=self.gz-self.anchor["offset_ns"]
+@@ -356,7 +379,8 @@ class Gateway:
+                     meta["endpoint_receive_monotonic_ns"]=time.monotonic_ns()
+                     self.receive(meta,body,rpc)
+             finally:
+-                if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'direct_batch',wall,cpu)
++                if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'direct_batch',wall,cpu,
++                    self.profile_longspans,'progress:direct_batch')
+         else:
+             if not self.link.sent and self.hub.horizon_ns>=600_000_000:self.link.begin()
+             if self.link.ready and not self.connected:
+@@ -376,7 +400,8 @@ class Gateway:
+             data["topics"]={side:dict(captured=w.captured,delivered=w.delivered) for side,w in self.wires.items()}
+             data["bound_masks"]=self.bound_r.received
+         if self.cpu_profile is not None:
+-            data['dispatch_cpu_profile']=dict(aggregates=self.cpu_profile,
++            data['dispatch_cpu_profile']=dict(aggregates=self.cpu_profile,longspans=self.profile_longspans,
++                longspan_semantics='RAM spans >=10ms; end-order append. Poll includes all work; handler includes journal_call; progress total includes hub/direct. Inclusive parents and children must not be summed. Diagnostic timing overhead, not capacity proof.',
+                 semantics='wait and handler totals exclude progress; progress total_inclusive contains hub_poll/direct_batch; do not sum parent and children. Async handler measures executing step only, not pending Future time. RAM only, diagnostic opt-in.')
+         if self.hub.control_trace is not None:
+             data['clock_control_trace']=dict(events=self.hub.control_trace,
