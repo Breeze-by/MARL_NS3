@@ -1,0 +1,145 @@
+{
+  "case": "runs/net01-a-corridor-6201-10",
+  "status": "LIMITED DIRECT ENGINEERING PASS; post-stop orderly-child-exit limitation",
+  "runtime_source": "c61703d63d6c09fe83848bbc51f33771a4fc18b7",
+  "mode": "A IDEAL-DIRECT-ADAPTER, no WiFi business",
+  "budget": {
+    "slot": 2,
+    "maximum": 3,
+    "cumulative_actual": 94,
+    "requested_sim": 120,
+    "actual_sim": 120.0,
+    "autonomous_wall_s": 239.99359203100903
+  },
+  "error": null,
+  "end_reason": "simulation_budget",
+  "exploration": {
+    "metric_raw": "net01/followup04/offline-metrics/net01-a-corridor-6201-10",
+    "evaluation_count": 1,
+    "reference_cells": 15558,
+    "quality_valid_samples": 135,
+    "samples": 145,
+    "final_metrics": {
+      "receipt_sim": 138.58,
+      "source_stamp": 138.288,
+      "elapsed_sim_s": 119.45000000000002,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 15541,
+      "coverage": 0.998907314564854,
+      "correct_free_area_m2": 38.852500000000006,
+      "unknown_reachable_area_m2": 0.0,
+      "false_occupied_reachable_area_m2": 0.04250000000000001,
+      "false_free_physical_area_m2": 0.9625000000000001,
+      "free_precision_physical": 0.9831921767222562,
+      "predicted_occupied_cells": 2360,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.05,
+      "known_truth_obstacle_cells": 2078,
+      "known_obstacle_recall_within_0_10m": 0.9894128970163619,
+      "map_quality_warnings": [],
+      "map_quality_valid": true,
+      "alignment_assessment": "within_predeclared_diagnostics"
+    },
+    "quality_valid_thresholds": {
+      "0.5": {
+        "elapsed_sim_s": 9.45,
+        "receipt_sim": 28.58,
+        "initially_reached": false
+      },
+      "0.8": {
+        "elapsed_sim_s": 39.230000000000004,
+        "receipt_sim": 58.36,
+        "initially_reached": false
+      },
+      "0.9": {
+        "elapsed_sim_s": 74.26,
+        "receipt_sim": 93.39,
+        "initially_reached": false
+      },
+      "0.95": {
+        "elapsed_sim_s": 76.73,
+        "receipt_sim": 95.86,
+        "initially_reached": false
+      },
+      "0.98": {
+        "elapsed_sim_s": 91.74000000000001,
+        "receipt_sim": 110.87,
+        "initially_reached": false
+      }
+    },
+    "natural_completion_verified": false,
+    "actual_NN": 23,
+    "robot": {
+      "tb1": {
+        "path_m": 20.173154387335508,
+        "goals": 5,
+        "succeeded": 5,
+        "aborted": 0,
+        "canceled": 0
+      },
+      "tb2": {
+        "path_m": 5.6250605418506225,
+        "goals": 2,
+        "succeeded": 2,
+        "aborted": 0,
+        "canceled": 0
+      },
+      "tb3": {
+        "path_m": 17.379778937294752,
+        "goals": 5,
+        "succeeded": 5,
+        "aborted": 0,
+        "canceled": 0
+      }
+    }
+  },
+  "primary_runtime_evidence": {
+    "health_fatal": null,
+    "guard_fault_count": 0,
+    "mask_armed_to_seal_gap_upper_wall_s": [
+      0.26804,
+      0.27058,
+      0.27055
+    ],
+    "health_armed_to_seal_max_gap_wall_s": [
+      0.27397,
+      0.27385,
+      0.2698
+    ],
+    "Peer_live_ready_frames": 1200,
+    "Peer_live_odom_receipt_max_wall_s": [
+      0.09981,
+      0.08848,
+      0.07412
+    ],
+    "actual10ms10iteration_physical_ACKs": 14322,
+    "physical_credit_max_ns": 20000000,
+    "native_actual_ACK_count": 14321,
+    "witness_samples_each": 14322,
+    "witness_first_samples_before_first_goal_wall_s_approx": 52,
+    "TF_callback_rows_saved": 58923,
+    "binding_rows_saved": 4296,
+    "RPC_pending_cleanup": 0,
+    "END_flushed": true,
+    "physical_stop": true,
+    "three_PAUSE": true,
+    "all12UUID_closed_succeeded": true,
+    "stop_CSV_duration_wall_s": 1.60033,
+    "stop_CSV_duration_sim_s": 0.8,
+    "Peer_GC_restored": true,
+    "Peer_peak_RSS_KiB": 135424,
+    "Gateway_peak_pre_persist_RSS_KiB": 506756
+  },
+  "orderly_exit_limit": {
+    "gzserver_exit": -6,
+    "poststop_error": "std::runtime_error: Callback group needs to be associated with executor.",
+    "timing": "After physical stop/three PAUSE/ExpectedHOLD; primary runtime evidence is separate.",
+    "Peer_exit": -2,
+    "Peer_exit_scope": "One expected ownedSIGINT KeyboardInterrupt at spin; all finally persist/markers saved, unlike A09 double interruption inside persist.",
+    "old_plugin": "e22425f8a862a6bbe7c3a13217ea21a408f42fc2435efb14f54e1ae330bed5f1",
+    "new_lifetime_candidate": "a49b00dedab1f6c2352bdef1e9eb849dcdba2662a7990f9e15ebe75428941ecf; built only, not loaded in A10",
+    "unique_native_stack_cause": "NOT VERIFIED"
+  },
+  "limits": "Single direct bounded120sim execution; no new WiFi Gazebo validation, natural terminal, statistical advantage, or all-child orderly exit claim. Original A09/23/24 failures retained. No B admission implied."
+}

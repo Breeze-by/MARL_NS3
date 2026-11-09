@@ -1,0 +1,351 @@
+{
+  "scope": "A10 observed Gateway-captured offered business, direct backend; not independent DDS publisher frequency. Among fully-contained autonomous 16wall windows, choose maximum sum ceil((body_bytes+8 RPC bytes)/1164). Ties earliest. Complete-message source timestamps recorded in direct metadata; no network delivery inference. Native fragment estimate only, no MAC overhead/retry.",
+  "raw": "runs/net01-a-corridor-6201-10",
+  "autonomous_monotonic_ns": [
+    450078322269221,
+    450318317966360
+  ],
+  "selected_window_monotonic_ns": [
+    450141347999775,
+    450157347999775
+  ],
+  "selected_window_gazebo_nearby": [
+    50640000000,
+    58630000000
+  ],
+  "estimated_fragments": 46810,
+  "total_messages": 10595,
+  "flows": {
+    "21": {
+      "robot": 1,
+      "name": "map",
+      "messages": 4,
+      "Hz_wall": 0.25,
+      "max_body_bytes": 52814,
+      "estimated_fragments": 184,
+      "fixture_Hz_wall": 0.2,
+      "actual_over_fixture_ratio": 1.25,
+      "fixture_note": "Nominal .2wallHz plus initial source sample (24 generated4 perrobot over16wall)",
+      "fixture24_max_captured_CDR_bytes": 55104
+    },
+    "22": {
+      "robot": 1,
+      "name": "odom",
+      "messages": 235,
+      "Hz_wall": 14.6875,
+      "max_body_bytes": 724,
+      "estimated_fragments": 235,
+      "fixture_Hz_wall": 30,
+      "actual_over_fixture_ratio": 0.4895833333333333,
+      "fixture24_max_captured_CDR_bytes": 724
+    },
+    "23": {
+      "robot": 1,
+      "name": "mixed_tf",
+      "messages": 1114,
+      "Hz_wall": 69.625,
+      "max_body_bytes": 212,
+      "estimated_fragments": 1114,
+      "fixture_Hz_wall": 100,
+      "actual_over_fixture_ratio": 0.69625,
+      "fixture24_max_captured_CDR_bytes": 108
+    },
+    "25": {
+      "robot": 1,
+      "name": "costmap",
+      "messages": 14,
+      "Hz_wall": 0.875,
+      "max_body_bytes": 40104,
+      "estimated_fragments": 490,
+      "fixture_Hz_wall": 2,
+      "actual_over_fixture_ratio": 0.4375,
+      "fixture24_max_captured_CDR_bytes": 40104
+    },
+    "26": {
+      "robot": 1,
+      "name": "cmd_vel",
+      "messages": 320,
+      "Hz_wall": 20.0,
+      "max_body_bytes": 52,
+      "estimated_fragments": 320,
+      "fixture_Hz_wall": 20,
+      "actual_over_fixture_ratio": 1.0,
+      "fixture24_max_captured_CDR_bytes": 52
+    },
+    "30": {
+      "robot": 1,
+      "name": "bound_mask",
+      "messages": 81,
+      "Hz_wall": 5.0625,
+      "max_body_bytes": 160694,
+      "estimated_fragments": 11259,
+      "fixture_Hz_wall": 5,
+      "actual_over_fixture_ratio": 1.0125
+    },
+    "31": {
+      "robot": 1,
+      "name": "health",
+      "messages": 81,
+      "Hz_wall": 5.0625,
+      "max_body_bytes": 1635,
+      "estimated_fragments": 162,
+      "fixture_Hz_wall": 5,
+      "actual_over_fixture_ratio": 1.0125,
+      "fixture24_max_captured_CDR_bytes": 1603
+    },
+    "41": {
+      "robot": 2,
+      "name": "map",
+      "messages": 4,
+      "Hz_wall": 0.25,
+      "max_body_bytes": 52563,
+      "estimated_fragments": 182,
+      "fixture_Hz_wall": 0.2,
+      "actual_over_fixture_ratio": 1.25,
+      "fixture_note": "Nominal .2wallHz plus initial source sample (24 generated4 perrobot over16wall)",
+      "fixture24_max_captured_CDR_bytes": 55104
+    },
+    "42": {
+      "robot": 2,
+      "name": "odom",
+      "messages": 235,
+      "Hz_wall": 14.6875,
+      "max_body_bytes": 724,
+      "estimated_fragments": 235,
+      "fixture_Hz_wall": 30,
+      "actual_over_fixture_ratio": 0.4895833333333333,
+      "fixture24_max_captured_CDR_bytes": 724
+    },
+    "43": {
+      "robot": 2,
+      "name": "mixed_tf",
+      "messages": 1114,
+      "Hz_wall": 69.625,
+      "max_body_bytes": 212,
+      "estimated_fragments": 1114,
+      "fixture_Hz_wall": 100,
+      "actual_over_fixture_ratio": 0.69625,
+      "fixture24_max_captured_CDR_bytes": 108
+    },
+    "45": {
+      "robot": 2,
+      "name": "costmap",
+      "messages": 13,
+      "Hz_wall": 0.8125,
+      "max_body_bytes": 40104,
+      "estimated_fragments": 455,
+      "fixture_Hz_wall": 2,
+      "actual_over_fixture_ratio": 0.40625,
+      "fixture24_max_captured_CDR_bytes": 40104
+    },
+    "46": {
+      "robot": 2,
+      "name": "cmd_vel",
+      "messages": 320,
+      "Hz_wall": 20.0,
+      "max_body_bytes": 52,
+      "estimated_fragments": 320,
+      "fixture_Hz_wall": 20,
+      "actual_over_fixture_ratio": 1.0,
+      "fixture24_max_captured_CDR_bytes": 52
+    },
+    "50": {
+      "robot": 2,
+      "name": "bound_mask",
+      "messages": 81,
+      "Hz_wall": 5.0625,
+      "max_body_bytes": 160694,
+      "estimated_fragments": 11259,
+      "fixture_Hz_wall": 5,
+      "actual_over_fixture_ratio": 1.0125
+    },
+    "51": {
+      "robot": 2,
+      "name": "health",
+      "messages": 81,
+      "Hz_wall": 5.0625,
+      "max_body_bytes": 1635,
+      "estimated_fragments": 162,
+      "fixture_Hz_wall": 5,
+      "actual_over_fixture_ratio": 1.0125,
+      "fixture24_max_captured_CDR_bytes": 1603
+    },
+    "61": {
+      "robot": 3,
+      "name": "map",
+      "messages": 4,
+      "Hz_wall": 0.25,
+      "max_body_bytes": 52814,
+      "estimated_fragments": 184,
+      "fixture_Hz_wall": 0.2,
+      "actual_over_fixture_ratio": 1.25,
+      "fixture_note": "Nominal .2wallHz plus initial source sample (24 generated4 perrobot over16wall)",
+      "fixture24_max_captured_CDR_bytes": 55104
+    },
+    "62": {
+      "robot": 3,
+      "name": "odom",
+      "messages": 235,
+      "Hz_wall": 14.6875,
+      "max_body_bytes": 724,
+      "estimated_fragments": 235,
+      "fixture_Hz_wall": 30,
+      "actual_over_fixture_ratio": 0.4895833333333333,
+      "fixture24_max_captured_CDR_bytes": 724
+    },
+    "63": {
+      "robot": 3,
+      "name": "mixed_tf",
+      "messages": 1115,
+      "Hz_wall": 69.6875,
+      "max_body_bytes": 212,
+      "estimated_fragments": 1115,
+      "fixture_Hz_wall": 100,
+      "actual_over_fixture_ratio": 0.696875,
+      "fixture24_max_captured_CDR_bytes": 108
+    },
+    "65": {
+      "robot": 3,
+      "name": "costmap",
+      "messages": 13,
+      "Hz_wall": 0.8125,
+      "max_body_bytes": 40104,
+      "estimated_fragments": 455,
+      "fixture_Hz_wall": 2,
+      "actual_over_fixture_ratio": 0.40625,
+      "fixture24_max_captured_CDR_bytes": 40104
+    },
+    "66": {
+      "robot": 3,
+      "name": "cmd_vel",
+      "messages": 320,
+      "Hz_wall": 20.0,
+      "max_body_bytes": 52,
+      "estimated_fragments": 320,
+      "fixture_Hz_wall": 20,
+      "actual_over_fixture_ratio": 1.0,
+      "fixture24_max_captured_CDR_bytes": 52
+    },
+    "70": {
+      "robot": 3,
+      "name": "bound_mask",
+      "messages": 81,
+      "Hz_wall": 5.0625,
+      "max_body_bytes": 160694,
+      "estimated_fragments": 11259,
+      "fixture_Hz_wall": 5,
+      "actual_over_fixture_ratio": 1.0125
+    },
+    "71": {
+      "robot": 3,
+      "name": "health",
+      "messages": 81,
+      "Hz_wall": 5.0625,
+      "max_body_bytes": 1635,
+      "estimated_fragments": 162,
+      "fixture_Hz_wall": 5,
+      "actual_over_fixture_ratio": 1.0125,
+      "fixture24_max_captured_CDR_bytes": 1603
+    },
+    "89": {
+      "robot": 1,
+      "name": "merge_map",
+      "messages": 12,
+      "Hz_wall": 0.75,
+      "max_body_bytes": 53284,
+      "estimated_fragments": 552,
+      "fixture_Hz_wall": null,
+      "actual_over_fixture_ratio": null,
+      "fixture_coverage": "NOT GENERATED"
+    },
+    "226": {
+      "robot": 1,
+      "name": "action_feedback",
+      "messages": 1599,
+      "Hz_wall": 99.9375,
+      "max_body_bytes": 116,
+      "estimated_fragments": 1599,
+      "fixture_Hz_wall": 100,
+      "actual_over_fixture_ratio": 0.999375
+    },
+    "228": {
+      "robot": 1,
+      "name": "readiness",
+      "messages": 80,
+      "Hz_wall": 5.0,
+      "max_body_bytes": 8,
+      "estimated_fragments": 80,
+      "fixture_Hz_wall": null,
+      "actual_over_fixture_ratio": null,
+      "fixture_cadence": "10/sim from original timer; wall depends on actual coupled RTF"
+    },
+    "246": {
+      "robot": 2,
+      "name": "action_feedback",
+      "messages": 1599,
+      "Hz_wall": 99.9375,
+      "max_body_bytes": 116,
+      "estimated_fragments": 1599,
+      "fixture_Hz_wall": 100,
+      "actual_over_fixture_ratio": 0.999375
+    },
+    "248": {
+      "robot": 2,
+      "name": "readiness",
+      "messages": 80,
+      "Hz_wall": 5.0,
+      "max_body_bytes": 8,
+      "estimated_fragments": 80,
+      "fixture_Hz_wall": null,
+      "actual_over_fixture_ratio": null,
+      "fixture_cadence": "10/sim from original timer; wall depends on actual coupled RTF"
+    },
+    "266": {
+      "robot": 3,
+      "name": "action_feedback",
+      "messages": 1599,
+      "Hz_wall": 99.9375,
+      "max_body_bytes": 116,
+      "estimated_fragments": 1599,
+      "fixture_Hz_wall": 100,
+      "actual_over_fixture_ratio": 0.999375
+    },
+    "268": {
+      "robot": 3,
+      "name": "readiness",
+      "messages": 80,
+      "Hz_wall": 5.0,
+      "max_body_bytes": 8,
+      "estimated_fragments": 80,
+      "fixture_Hz_wall": null,
+      "actual_over_fixture_ratio": null,
+      "fixture_cadence": "10/sim from original timer; wall depends on actual coupled RTF"
+    }
+  },
+  "tf_edge_counts_same_window": {
+    "3": {
+      "map->odom": 800,
+      "odom->base_footprint": 235,
+      "base_link->wheel_left_link": 80,
+      "base_link->wheel_right_link": 80
+    },
+    "1": {
+      "map->odom": 799,
+      "odom->base_footprint": 235,
+      "base_link->wheel_left_link": 80,
+      "base_link->wheel_right_link": 80
+    },
+    "2": {
+      "map->odom": 799,
+      "odom->base_footprint": 235,
+      "base_link->wheel_left_link": 80,
+      "base_link->wheel_right_link": 80
+    }
+  },
+  "tf_edge_comparison": {
+    "map_to_odom": "A10 ~50wallHz vs fixture50wallHz",
+    "odom_to_base": "A10 14.6875wallHz vs fixture30wallHz",
+    "wheel": "A10 both-wheel edges in80 messages=5wallHz; fixture singleleft20wallHz; packet/edge counts are not interchangeable"
+  },
+  "limits": "Window selection uses total estimated full-business fragments including masks, merge, Action and topics. Gateway capture can undercount actual DDS publications; original source publisher rates cannot be uniquely reconstructed from captures. Payload weights exclude MAC overhead/retry. This highest-load A10 interval does not prove WiFi qualification; 24 pressure rates are not identical to real A10. flow95 not generated by fixture and absent in selected A10 interval, not globally unneeded."
+}
