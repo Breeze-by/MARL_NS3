@@ -1,0 +1,30 @@
+{
+  "scope": "One actual bwrap controlled stdlib child using production start_sidecar/close; not ROS/witness/coordinator/physics validation",
+  "Node": 0,
+  "Gazebo": 0,
+  "status": "PASS",
+  "checks": {
+    "info_api_pid_matches_actual_child": true,
+    "monitor_separate_from_child": true,
+    "actual_child_handled_SIGINT": true,
+    "actual_final_file_flushed": true,
+    "monitor_normal_exit": true,
+    "exact_child_signal": true,
+    "no_forced_groups": true,
+    "no_remaining_owned_groups": true
+  },
+  "monitor_pid": 2108751,
+  "actual_info": {
+    "child-pid": 2108752,
+    "mnt-namespace": 4026533096
+  },
+  "actual_child_final": {
+    "flushed": true,
+    "pid": 2108752,
+    "handled_signal": 2,
+    "final_monotonic_ns": 448677852086679
+  },
+  "shutdown_exit": 0,
+  "wall_seconds": 0.13522578199626878,
+  "note": "Production integrity=false in process-exit.json is expected for this single non-ROS fixture: it deliberately has no coordinator/clock CSVs."
+}

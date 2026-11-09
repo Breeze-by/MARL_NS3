@@ -31,7 +31,7 @@ class ControlledRuntime:
     def __init__(self,ready,repo,case):
         self.config=controlled_config(ready);self.repo=Path(repo);self.case=Path(case)
         self.phase=self.repo.parent;self.baseline=self.phase.parent/'base-01-econ'
-        self.session=ready['network']['session_id'];self.processes={};self.logs=[]
+        self.session=ready['network']['session_id'];self.processes={};self.child_pids={};self.logs=[]
         self.directory=self.case.with_name(self.case.name+'.time-control')
         self.relative=self.directory.relative_to(self.repo)
         self.container=Path('/mnt')/self.relative
@@ -82,20 +82,36 @@ class ControlledRuntime:
             str(self.container/f'clock-{side}.csv')],domain),'CLOCK_WITNESS_READY')
             for side,domain in (('R',92),('C',91))]
         for role,command,expected in commands:
-            log=(self.directory/(role+'.log')).open('x');self.logs.append(log)
-            process=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=log,text=True,start_new_session=True)
-            self.processes[role]=process
-            with (self.directory/'owned.jsonl').open('a') as stream:
-                stream.write(json.dumps(dict(role=role,pid=process.pid,pgid=process.pid,argv=command))+'\n')
-            readable,_,_=select.select([process.stdout],[],[],max(0.,deadline-time.monotonic()))
-            if not readable:raise TimeoutError('Controlled sidecar startup exceeded existing IPC startup bound: '+role)
-            line=process.stdout.readline();log.write(line);log.flush()
-            if line.strip()!=expected:raise RuntimeError('Controlled sidecar failed before Hub: '+role)
+            self.start_sidecar(role,command,expected,deadline)
+
+    def start_sidecar(self,role,command,expected,deadline):
+        log=(self.directory/(role+'.log')).open('x');self.logs.append(log)
+        info_path=self.directory/(role+'.bwrap-info.json')
+        # Native bwrap metadata, not a child-written pidfile. No PID namespace
+        # is unshared, so child-pid is the host-visible exec child PID.
+        with info_path.open('x') as info:
+            command=[command[0],'--info-fd',str(info.fileno()),*command[1:]]
+            process=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=log,text=True,
+                pass_fds=(info.fileno(),),start_new_session=True)
+        self.processes[role]=process
+        with (self.directory/'owned.jsonl').open('a') as stream:
+            stream.write(json.dumps(dict(role=role,pid=process.pid,pgid=process.pid,argv=command))+'\n')
+        readable,_,_=select.select([process.stdout],[],[],max(0.,deadline-time.monotonic()))
+        if not readable:raise TimeoutError('Controlled sidecar startup exceeded existing IPC startup bound: '+role)
+        line=process.stdout.readline();log.write(line);log.flush()
+        self.child_pids[role]=json.loads(info_path.read_text())['child-pid']
+        with (self.directory/'owned.jsonl').open('a') as stream:
+            stream.write(json.dumps(dict(role=role,bwrap_pid=process.pid,child_pid=self.child_pids[role],
+                source='bwrap --info-fd',info=str(info_path)))+'\n')
+        if line.strip()!=expected:raise RuntimeError('Controlled sidecar failed before Hub: '+role)
 
     def close(self):
         signals={role:[] for role in self.processes};forced=[]
         for role,process in self.processes.items():
-            try:os.killpg(process.pid,signal.SIGINT);signals[role].append('SIGINT')
+            # Keep the bwrap monitor alive: killing it would activate
+            # --die-with-parent before the ROS child finishes its RAM flush.
+            if process.poll() is not None or role not in self.child_pids:continue
+            try:os.kill(self.child_pids[role],signal.SIGINT);signals[role].append('SIGINT_CHILD')
             except ProcessLookupError:pass
         deadline=time.monotonic()+5
         def remaining_groups():
@@ -112,6 +128,7 @@ class ControlledRuntime:
             except ProcessLookupError:pass
         for process in self.processes.values():process.wait(timeout=1)
         rows=dict(exits={role:p.returncode for role,p in self.processes.items()},signals=signals,
+            actual_bwrap_child_pids=self.child_pids,
             forced_owned_groups=forced,remaining_owned_groups=remaining_groups(),
             scope='Resource cleanup after actual Hub END/exit; no stopping certificate')
         final=self.directory/'coordinator.json'
