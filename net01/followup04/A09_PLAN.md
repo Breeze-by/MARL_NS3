@@ -13,3 +13,7 @@ HOLD must suppressnewtokens, wait the actual current physicsRPC, then still atte
 The external bootstrap creates this run's real exclusive requestjournal before heavyimports and hands the exact ownedpath/handle once to the unchanged core. No oldA08 journal is fabricated. Any earlyfailure before an actualcontroller creation may still lackrequestjournal and remainsuncertified;0Goals is not defaultclosure.
 
 A09 DRAFT: requests/net01-a-corridor-6201-09.draft.json. Final ROOT READY must supply actualsourcebindings, not the pending emptyadapterdict. Its command will target the new .ready.json and execute once only; firstcritical failure retains scene/stop evidence and pauses remainingcases. No training/NET02/network tuning/push or automaticretry.
+
+## Independent witness evidence boundary
+
+Witness READY is construction only, never a first-sample ACK; no extra startup wait/tool is introduced. Startup causal evidence uses original Observer R clock, actual Gateway anchor/nativeACK and C Peer real simulation-time/source timer. Afterward inspect actual raw R/C rows and compare each first callback mono with the first real Goal. Missing/late samples do not certify that independent publication-vs-reader evidence; CSV existence never substitutes for actual samples or TIME PASS. This does not add a policy input or bypass original startup/safety checks.

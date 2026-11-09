@@ -272,7 +272,7 @@
       "witness_relative_phase": "workspace/build/clock-witness-followup04/net01-clock-witness",
       "witness_sha256": "2560e229ab99b3cc9d7031aca4f0ce01795713e7f01b8bf08fcd049f67bd5a06"
     },
-    "clock_evidence": "R/C read-only DDS witness must each save actual nonempty samples; savedexists alone is not clock evidence PASS. Compare actual matchedclock values/sourceDDS timestamps; received_timestamp earliestarrival not proven."
+    "clock_evidence": "Startup clock causality uses actual original Observer R /clock, Gateway fixed anchor/actual nativeACK and C Peer simulation-time/source timer. Independent witness READY means construction, never first-sample ACK; no new wait/tool. Afterward verify raw nonempty R/C samples and each first callback mono versus first actual Goal. Missing/late samples cannot certify independent source-vs-reader evidence; CSV existence is not a sample or TIME PASS. DDS received_timestamp earliest-arrival meaning remains unverified."
   },
   "requested_command": "rtk proxy python3 -B net-01/workspace/net01/host_run.py --ready net-01/workspace/net01/followup04/requests/net01-a-corridor-6201-09.ready.json",
   "prerequisites": "Root must independently sign this exact READY after source review. Both flags remainfalse until then. Actual startup no-goal Step/clock/HOLD/normalNav2 preflight remains mandatory. No automaticB/C or rerun after criticalfailure.",
