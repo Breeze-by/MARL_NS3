@@ -1,0 +1,125 @@
+{
+  "status": "INTERIM DRAFT, through25; not final delivery",
+  "source_documentation_base": "b8d5ca54b17c9c84b3c9f028f5acbf3b73ec300c",
+  "Gazebo_budget": {
+    "maximum": 3,
+    "used": 2,
+    "remaining_unadmitted": 1,
+    "cumulative_before": 92,
+    "cumulative_current": 94,
+    "cumulative_max": 95
+  },
+  "runs": [
+    {
+      "case": "clock-calibration-01",
+      "scope": "DDS calibration",
+      "status": "FAIL,17/20 received;17source timestamps usable for limited observation",
+      "evidence": "evidence/clock-calibration-01/result.json",
+      "cumulative_actual_Gazebo": null
+    },
+    {
+      "case": "retired-rpc-01",
+      "scope": "Actual DDS controlled ActionServer/memory wire",
+      "status": "PASS within8checks; deliberate unadmitted unknown leaves Cexecutor shutdownfalse",
+      "evidence": "evidence/retired-rpc-01/result.json",
+      "cumulative_actual_Gazebo": null
+    },
+    {
+      "case": "continuous-dds-20-original1000-wifi",
+      "scope": "Free-running synthetic actualWiFi",
+      "status": "FAIL native lag.13>.12; no boundmask acceptance before fault",
+      "evidence": "CONTINUOUS20_SUMMARY.json",
+      "cumulative_actual_Gazebo": null
+    },
+    {
+      "case": "continuous-dds-21-controlled-wifi",
+      "scope": "MOCK_PHYSICS actualWiFi",
+      "status": "FAIL startup two clock samples before Gatewayreader construction; no16wall business",
+      "evidence": "CONTINUOUS21_SUMMARY.json",
+      "cumulative_actual_Gazebo": null
+    },
+    {
+      "case": "continuous-dds-22-controlled-wifi",
+      "scope": "MOCK_PHYSICS actualWiFi",
+      "status": "FAIL original180/420 RTF floor; exactmaskgap NOTVERIFIED;69ready perrobot",
+      "evidence": "CONTINUOUS22_SUMMARY.json",
+      "cumulative_actual_Gazebo": null
+    },
+    {
+      "case": "continuous-dds-23-controlled-wifi",
+      "scope": "MOCK_PHYSICS actualWiFi",
+      "status": "FAIL acceptedmaskgap lower.493/.488/.509>.3wall",
+      "evidence": "CONTINUOUS23_SUMMARY.json",
+      "cumulative_actual_Gazebo": null
+    },
+    {
+      "case": "net01-a-corridor-6201-09",
+      "scope": "Actual controlled GZ, direct A",
+      "status": "FAIL119.2/120sim heartbeat; physicalstop/8S closure independent; sidecar/TF SAVEFAIL",
+      "evidence": "A09_EVIDENCE_SUMMARY.json",
+      "cumulative_actual_Gazebo": 93
+    },
+    {
+      "case": "net01-a-corridor-6201-10",
+      "scope": "Actual controlled GZ, direct A regression",
+      "status": "Primary direct120sim PASS; poststopgzserver-6 remains; no realWiFi business",
+      "evidence": "A10_EVIDENCE_SUMMARY.json",
+      "cumulative_actual_Gazebo": 94
+    },
+    {
+      "case": "continuous-dds-24-controlled-wifi",
+      "scope": "MOCK_PHYSICS actualWiFi, boundedPeerGC",
+      "status": "FAIL maskgap lower.420/.468/.481>.3; allroles0 not acceptance",
+      "evidence": "CONTINUOUS24_SUMMARY.json",
+      "cumulative_actual_Gazebo": null
+    },
+    {
+      "case": "continuous-dds-25-native-wait-diagnostic",
+      "scope": "Same synthetic pressure under strace",
+      "status": "DIAGNOSTIC FAIL hardhubSIGKILL; actualnative/tracer absent; incompleteEND/StepCPU",
+      "evidence": "CONTINUOUS25_SUMMARY.json",
+      "cumulative_actual_Gazebo": null
+    },
+    {
+      "case": "native-wait26",
+      "scope": "Potential low-overhead diagnostic",
+      "status": "NOT RUN; helper/root review pending, no permission inferred",
+      "evidence": null,
+      "cumulative_actual_Gazebo": null
+    },
+    {
+      "case": "B",
+      "scope": "Actual controlled GZ/realWiFi",
+      "status": "NOT RUN / NOT ADMITTED",
+      "evidence": null,
+      "cumulative_actual_Gazebo": null
+    },
+    {
+      "case": "C",
+      "scope": "Actual controlled GZ/realWiFi nonideal",
+      "status": "NOT RUN; originalslot2 reallocated prospectively toA10",
+      "evidence": null,
+      "cumulative_actual_Gazebo": null
+    }
+  ],
+  "offline_metrics": {
+    "A09": "offline-metrics/net01-a-corridor-6201-09, one original evaluator invocation",
+    "A10": "offline-metrics/net01-a-corridor-6201-10, one original evaluator invocation",
+    "new_Node_GZ_NN_for_metrics": 0
+  },
+  "retention": "All oldraw/reports/READY/tag/model preserved. No retry to replace FAIL, no newsource rates/TTL/network tune; noNET02/training/push.",
+  "tool_and_component_evidence": [
+    "bootstrap-01:3ownedPath/exclusivehandoff checks,0Node",
+    "clock-witness-build-01/02:initialpublicAPIprobe andtwo-observation refinement,0Node",
+    "time-state-01/02/03 andtime-hold-01:boundedstate/asynccontrolledFuture scope",
+    "bound-envelope-01:20exactoriginalfield/envelope checks,0Node",
+    "time-runtime-static-01:recordedtooltranscripts, finalAST includeslaterpredicate changes; earliermethodstub not fullcurrentbehavior retest",
+    "time-sidecar-close-01:actualstdlibbwrapchildfinally/monitor0,notROS/GZ",
+    "time-launch-close-static-01:actual0Node methodstub,notrealsignal/GZ",
+    "bound-peer-gc-01:originalTrue/False/persistfailure scope,notendurance/timing",
+    "PLUGIN_LIFETIME_IDENTITY.json:newa49b built,notloaded; oldA10e224preserved",
+    "gateway-persist-fast-01:oneactual194MBvalue/text equivalence,9.127s; poststopextraRSSnotproductionbound",
+    "grid-cdr-cpu-01:helper0Nodeisolatedcomponentcost; no productionrawCDRchange",
+    "native-wait-tool-01:installedstraceown/bin/truechild only"
+  ]
+}
