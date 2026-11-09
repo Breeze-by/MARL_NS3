@@ -1,0 +1,342 @@
+{
+  "scope": "One admitted actual WiFi synthetic full-load qualification, original1000; FAIL, no GZ or navigation",
+  "source_commit": "ca6941913a7834d5634320c08e4f9258bf98e27a",
+  "raw_case": "runs/continuous-dds-20-original1000-wifi",
+  "process": {
+    "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+    "error": null,
+    "wall_s": 19.80524841399165,
+    "hard_wall_s": 30,
+    "execution_profile": {
+      "id": "original1000-clock100-q10ms",
+      "world_real_time_update_rate": 1000,
+      "physics_max_step_size_unchanged": 0.001,
+      "clock_publish_rate_sim_hz": 100.0,
+      "native_step_quantum_ns": 10000000,
+      "qualification": {
+        "source_wall_s": 16,
+        "hard_wall_s": 30,
+        "clock_period_wall_s": 0.01,
+        "clock_increment_ns": 10000000,
+        "other_sources": "Same original per-wall TF/odom/feedback, never reduced; synthetic clock .01sim/.01wall",
+        "peer": "Original10Hz simulation-time timer, nominal10Hz wall at this synthetic1x clock; full3mask raw4.8MB/s",
+        "local_costmap_cells": [
+          200,
+          200
+        ],
+        "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
+        "not_generated_flows": [
+          "89 C merge_map",
+          "95 C controller journal"
+        ]
+      },
+      "scope": "Restore original1000 wall update/dt unchanged, retain100Hz simclock and10ms native quantum; explicit new common A/B execution profile, not network or RL optimization"
+    },
+    "exits": {
+      "hub": 0,
+      "peer": 0,
+      "gateway": 1,
+      "source": 0
+    },
+    "Gazebo": 0,
+    "NN": 0,
+    "wrapper_pids": {
+      "hub": 1940344,
+      "peer": 1940347,
+      "gateway": 1940348,
+      "source": 1940349
+    },
+    "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior"
+  },
+  "actual_source_wall_s": 16.021339042985346,
+  "source_counts": [
+    {
+      "robot": 0,
+      "kind": "synthetic_clock",
+      "count": 1700
+    },
+    {
+      "robot": 1,
+      "kind": "base_link->wheel_left_link",
+      "count": 321
+    },
+    {
+      "robot": 1,
+      "kind": "exact_zero_cmd",
+      "count": 321
+    },
+    {
+      "robot": 1,
+      "kind": "map->odom",
+      "count": 800
+    },
+    {
+      "robot": 1,
+      "kind": "odom",
+      "count": 480
+    },
+    {
+      "robot": 1,
+      "kind": "odom->base_footprint",
+      "count": 480
+    },
+    {
+      "robot": 1,
+      "kind": "static",
+      "count": 1
+    },
+    {
+      "robot": 1,
+      "kind": "synthetic_action_feedback",
+      "count": 1596
+    },
+    {
+      "robot": 1,
+      "kind": "synthetic_action_status",
+      "count": 17
+    },
+    {
+      "robot": 1,
+      "kind": "synthetic_costmap",
+      "count": 32
+    },
+    {
+      "robot": 1,
+      "kind": "synthetic_map",
+      "count": 4
+    },
+    {
+      "robot": 2,
+      "kind": "base_link->wheel_left_link",
+      "count": 320
+    },
+    {
+      "robot": 2,
+      "kind": "exact_zero_cmd",
+      "count": 320
+    },
+    {
+      "robot": 2,
+      "kind": "map->odom",
+      "count": 799
+    },
+    {
+      "robot": 2,
+      "kind": "odom",
+      "count": 480
+    },
+    {
+      "robot": 2,
+      "kind": "odom->base_footprint",
+      "count": 480
+    },
+    {
+      "robot": 2,
+      "kind": "static",
+      "count": 1
+    },
+    {
+      "robot": 2,
+      "kind": "synthetic_action_feedback",
+      "count": 1595
+    },
+    {
+      "robot": 2,
+      "kind": "synthetic_action_status",
+      "count": 17
+    },
+    {
+      "robot": 2,
+      "kind": "synthetic_costmap",
+      "count": 32
+    },
+    {
+      "robot": 2,
+      "kind": "synthetic_map",
+      "count": 4
+    },
+    {
+      "robot": 3,
+      "kind": "base_link->wheel_left_link",
+      "count": 320
+    },
+    {
+      "robot": 3,
+      "kind": "exact_zero_cmd",
+      "count": 320
+    },
+    {
+      "robot": 3,
+      "kind": "map->odom",
+      "count": 799
+    },
+    {
+      "robot": 3,
+      "kind": "odom",
+      "count": 480
+    },
+    {
+      "robot": 3,
+      "kind": "odom->base_footprint",
+      "count": 480
+    },
+    {
+      "robot": 3,
+      "kind": "static",
+      "count": 1
+    },
+    {
+      "robot": 3,
+      "kind": "synthetic_action_feedback",
+      "count": 1595
+    },
+    {
+      "robot": 3,
+      "kind": "synthetic_action_status",
+      "count": 16
+    },
+    {
+      "robot": 3,
+      "kind": "synthetic_costmap",
+      "count": 32
+    },
+    {
+      "robot": 3,
+      "kind": "synthetic_map",
+      "count": 4
+    }
+  ],
+  "failure": "mapped_ns3_clock_lag_above_0.12sim",
+  "first_fault": {
+    "kind": "transport_latched_INVALID",
+    "monotonic_ns": 440801651055849,
+    "gz_ns": 1250000000,
+    "reason": "mapped_ns3_clock_lag_above_0.12sim"
+  },
+  "anchor": {
+    "gazebo_ns": 340000000,
+    "ns3_ns": 0,
+    "offset_ns": 340000000,
+    "monotonic_ns": 440800639016860
+  },
+  "mapped_fault_ns": 910000000,
+  "last_ACK": {
+    "kind": "clock_return_received",
+    "horizon_ns": 780000000,
+    "monotonic_ns": 440801631788005
+  },
+  "next_native_STEP": [
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 440801632417832,
+      "thread_cpu_ns": 382417979,
+      "ns3_ns": 780000000,
+      "horizon_ns": 790000000,
+      "hub_receive_monotonic_ns": 440801632568843
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 440801663139432,
+      "thread_cpu_ns": 412539251,
+      "ns3_ns": 790000000,
+      "horizon_ns": 790000000,
+      "output_messages": 14,
+      "output_bytes": 324268,
+      "output_wall_ns": 1102345,
+      "output_cpu_ns": 496217,
+      "hub_receive_monotonic_ns": 440801663278740
+    }
+  ],
+  "prefault_complete_messages": 103,
+  "prefault_complete_flow_counts": {
+    "65535": 3,
+    "65534": 3,
+    "32": 1,
+    "52": 1,
+    "72": 1,
+    "30": 3,
+    "50": 3,
+    "70": 2,
+    "21": 1,
+    "24": 1,
+    "31": 2,
+    "51": 2,
+    "71": 2,
+    "64": 1,
+    "61": 1,
+    "227": 1,
+    "23": 10,
+    "22": 4,
+    "26": 3,
+    "226": 9,
+    "267": 1,
+    "41": 1,
+    "44": 1,
+    "247": 1,
+    "42": 3,
+    "43": 8,
+    "246": 8,
+    "63": 8,
+    "266": 8,
+    "62": 3,
+    "46": 2,
+    "248": 1,
+    "228": 1,
+    "268": 1,
+    "66": 2
+  },
+  "bound_R_complete": 8,
+  "bound_R_accepted": 0,
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "retired_C_services": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+  "gc_runtime": {
+    "original_enabled": true,
+    "original_thresholds": [
+      700,
+      10,
+      10
+    ],
+    "scope": "Only this supervisor-bounded Gateway; deferred cycles can increase RAM, not a long-lived-service policy",
+    "disabled_monotonic_ns": 440800636989681,
+    "processing_start_enabled": false,
+    "processing_end_monotonic_ns": 440817882578603,
+    "processing_end_enabled": false,
+    "restored_enabled": true,
+    "restored_thresholds": [
+      700,
+      10,
+      10
+    ],
+    "restored_monotonic_ns": 440817896971647,
+    "peak_rss_KiB": 86720
+  },
+  "uncovered_flows": [
+    "89 merged map",
+    "95 controller journal"
+  ],
+  "conclusion": "FAIL original.12simclock lag; raw source continued16wall at original rates. Firstfault within real nativeRun, not delayed socket STEP delivery. No further frequency scan/retry/GZ; does not assess RL/Nav2 or physical safety.",
+  "limits": [
+    "Nativecomplete is not ROS consumption or acceptedmask; zeroaccepted in this qualification.",
+    "3 unresolved localPAUSE futures: no real Nav2 in fixture; do not write network-safety/cleanupall PASS.",
+    "Restore-original1000 candidate not qualified for A09. Full-GZbudget still0/3 in followup04."
+  ]
+}
