@@ -161,8 +161,10 @@ class Gateway:
         self.records.append(dict(dict(kind=kind,monotonic_ns=time.monotonic_ns(),gz_ns=self.gz),**fields))
 
     def clock(self,message):
+        capture_monotonic_ns=time.monotonic_ns()
         gz=message.clock.sec*1_000_000_000+message.clock.nanosec
         self.clock_pub.publish(message)  # Independent simulation control, no business fields.
+        publish_return_monotonic_ns=time.monotonic_ns()
         if self.anchor is None:
             self.anchor=dict(gazebo_ns=gz,ns3_ns=0,offset_ns=gz,monotonic_ns=time.monotonic_ns())
             self.record("fixed_clock_anchor",**self.anchor)
@@ -170,7 +172,9 @@ class Gateway:
             self.fail("gazebo_clock_rollback")
         self.previous_clock=self.gz=gz
         if self.failure is None:self.hub.observed_clock(gz-self.anchor["offset_ns"])
-        self.record("actual_R_clock_relayed_C",gazebo_ns=gz)
+        self.record("actual_R_clock_relayed_C",gazebo_ns=gz,
+            R_callback_capture_monotonic_ns=capture_monotonic_ns,
+            C_publish_return_monotonic_ns=publish_return_monotonic_ns)
 
     def models(self,message):
         if self.anchor is None or self.failure:return

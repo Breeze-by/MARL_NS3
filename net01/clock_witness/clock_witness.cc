@@ -21,7 +21,8 @@ uint64_t clock_ns(clockid_t clock) {
 }
 
 struct Row {
-  uint64_t sim, source, received, mono, realtime;
+  uint64_t sim, mono, realtime, mono_after;
+  int64_t source, received;
   std::array<uint8_t, RMW_GID_STORAGE_SIZE> gid;
 };
 
@@ -31,15 +32,17 @@ int main(int argc, char **argv) {
   std::vector<Row> rows;
   rclcpp::init(argc, argv);
   auto node = std::make_shared<rclcpp::Node>("net01_clock_witness",
-    rclcpp::NodeOptions().enable_rosout(false).start_parameter_services(false));
+    rclcpp::NodeOptions().enable_rosout(false).start_parameter_services(false)
+      .start_parameter_event_publisher(false));
   auto subscription = node->create_subscription<rosgraph_msgs::msg::Clock>(
     "/clock", rclcpp::SensorDataQoS(),
     [&rows](const rosgraph_msgs::msg::Clock &message, const rclcpp::MessageInfo &info) {
       const auto mono = clock_ns(CLOCK_MONOTONIC);
       const auto realtime = clock_ns(CLOCK_REALTIME);
+      const auto mono_after = clock_ns(CLOCK_MONOTONIC);
       const auto &rmw = info.get_rmw_message_info();
       Row row{uint64_t(message.clock.sec) * 1000000000ULL + message.clock.nanosec,
-        rmw.source_timestamp, rmw.received_timestamp, mono, realtime, {}};
+        mono, realtime, mono_after, rmw.source_timestamp, rmw.received_timestamp, {}};
       std::copy(std::begin(rmw.publisher_gid.data), std::end(rmw.publisher_gid.data), row.gid.begin());
       rows.push_back(row);
     });
@@ -53,11 +56,12 @@ int main(int argc, char **argv) {
   if (fd < 0) throw std::system_error(errno, std::generic_category());
   FILE *stream = fdopen(fd, "w");
   if (!stream) { close(fd); throw std::system_error(errno, std::generic_category()); }
-  fputs("clock_ns,dds_source_timestamp_ns,dds_received_timestamp_ns,callback_monotonic_ns,callback_realtime_ns,publisher_gid\n", stream);
+  fputs("clock_ns,dds_source_timestamp_ns,dds_received_timestamp_ns,callback_monotonic_ns,callback_realtime_ns,callback_monotonic_after_ns,publisher_gid\n", stream);
   for (const auto &row : rows) {
-    fprintf(stream, "%llu,%llu,%llu,%llu,%llu,", (unsigned long long)row.sim,
-      (unsigned long long)row.source, (unsigned long long)row.received,
-      (unsigned long long)row.mono, (unsigned long long)row.realtime);
+    fprintf(stream, "%llu,%lld,%lld,%llu,%llu,%llu,", (unsigned long long)row.sim,
+      (long long)row.source, (long long)row.received,
+      (unsigned long long)row.mono, (unsigned long long)row.realtime,
+      (unsigned long long)row.mono_after);
     for (auto byte : row.gid) fprintf(stream, "%02x", byte);
     fputc('\n', stream);
   }

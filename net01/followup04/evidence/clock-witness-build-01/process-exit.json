@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "bash",
+    "net01/ros-python.sh",
+    "-c",
+    "import subprocess; subprocess.run(['cmake','-S','/mnt/net01/clock_witness','-B','/mnt/build/clock-witness-followup04','-DCMAKE_BUILD_TYPE=Release'],check=True); subprocess.run(['cmake','--build','/mnt/build/clock-witness-followup04','-j2'],check=True)"
+  ],
+  "native_exit": 0,
+  "wall_s": 26.136068885040004,
+  "Node": 0,
+  "Gazebo": 0,
+  "NN": 0
+}
