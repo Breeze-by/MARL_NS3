@@ -1,0 +1,64 @@
+{
+  "scope": "Existing saved A startup only; no new run, metric or bag decode",
+  "actual_source_commit": "be01d8a7bb2e7546ee42586257f25f8b3885ca6f",
+  "anchor": {
+    "gazebo_ns": 100000000,
+    "ns3_ns": 0,
+    "offset_ns": 100000000,
+    "monotonic_ns": 405725765269598
+  },
+  "actual_clock_messages": 107,
+  "complete_direct_messages": 4617,
+  "complete_direct_CDR_bytes": 52531168,
+  "direct_endpoint_latency_wall_ms": {
+    "min": 0.032922,
+    "median": 0.06873,
+    "max": 8.928738
+  },
+  "topics": {
+    "C": {
+      "captured": 319,
+      "delivered": 3662
+    },
+    "R": {
+      "captured": 3662,
+      "delivered": 319
+    }
+  },
+  "guards": {
+    "1": {
+      "events": [],
+      "owned": [],
+      "terminals": {}
+    },
+    "2": {
+      "events": [],
+      "owned": [],
+      "terminals": {}
+    },
+    "3": {
+      "events": [],
+      "owned": [],
+      "terminals": {}
+    }
+  },
+  "observed_stop": true,
+  "lifecycle_pause_healthy": false,
+  "run_integrity": false,
+  "scan_counts": {
+    "tb1": 53,
+    "tb2": 35,
+    "tb3": 21
+  },
+  "map_counts": {
+    "tb1": 3,
+    "tb2": 2,
+    "tb3": 1
+  },
+  "coverage": null,
+  "T90": null,
+  "T95": null,
+  "T98": null,
+  "threshold_scope": "Not measured: no autonomy or bag; never encode as zero",
+  "safety_scope": "Physical stationary startup/teardown fact only; no network-disconnect or active-goal safety certificate"
+}

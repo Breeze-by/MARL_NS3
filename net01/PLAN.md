@@ -1,6 +1,10 @@
 # NET-01：固定策略的真实 Wi-Fi 业务路径
 
-## 当前组合交审（2026-11-09）
+## 本批收束（2026-11-09，实际1/3）
+
+OVERALL BLOCKED。唯一获准A已真实启动Gazebo但因发布选材漏带原bag-qos.yaml，在自主前失败，0NN/0goal；原observed_stoptrue但三pausefalse/完整性false，不能签网络停机。B/C未准入、未运行，不重试/移作A。仅NET外部补原76fd配置并做一次argv静态检查，未复测Gazebo。完整分级/全部失败账本见 [REPORT.md](REPORT.md) 和 [RUN_LEDGER.json](RUN_LEDGER.json)，实际A源be01d8a、最终未运行静态补件源5d5fcd5分开记录。当前停止，不进入NET-02；下方组合交审及初始提案保留。
+
+## 当时组合交审（2026-11-09）
 
 真实独立网络03、静态双域ROS04、WiFi受控Action03、同批mask无Node02、本地受控guard01分别在限定范围通过；所有首失败保留。已落两域外部组合/owned启动清理、固定真实clock anchor、每机独立守护和三份未签180sim草稿；见 [DEPLOYMENT.md](DEPLOYMENT.md)。8个组合Python模块compile、现有ns3库增量build通过，无新的网络/ROS组合运行；Gazebo0/3，TIME/NETWORKSAFETY/GZ仍未证，首A必须具体独审后执行。下列初始设计与早期失败为历史记录，当前配置以原首包前NETWORK_LOCK_V3及已审CHANNEL_FAULT_V1为准。
 

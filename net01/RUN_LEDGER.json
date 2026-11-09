@@ -1,0 +1,160 @@
+{
+  "Gazebo_budget": 3,
+  "actual_Gazebo_starts": 1,
+  "historical_actual_Gazebo_starts_before": 83,
+  "combined_actual_Gazebo_starts": 84,
+  "remaining_budget_used": 0,
+  "automatic_retry": false,
+  "NN_forwards": 0,
+  "optimizer_steps": 0,
+  "host_network_changes": 0,
+  "entries": [
+    {
+      "id": "network-full-payload-01",
+      "status": "FAIL",
+      "facts": "CMake configure0/build2: missing propagation include; no packets",
+      "evidence": "evidence/network-full-payload-01/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "network-full-payload-02",
+      "status": "FAIL",
+      "facts": "Build0/native abort: PhyRxDrop callback lacks reason argument; preserved",
+      "evidence": "evidence/network-full-payload-02/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "network-full-payload-03",
+      "status": "PASS_LIMITED",
+      "facts": "44 inputs/37 expected complete, 2104 actual RX fragments and exact saved PCAP correlation; synthetic clock",
+      "evidence": "evidence/network-full-payload-03/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "static-topics-01",
+      "status": "TOOL_FAIL",
+      "facts": "ROS typed Point assigned int instead of float; no business native input",
+      "evidence": "evidence/static-topics-01.ros/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "static-topics-02",
+      "status": "FAIL",
+      "facts": "921 capture/860 native+consumer; 61 initial losses include TL static inputs, cold ARP queue compatible not uniquely proven",
+      "evidence": "evidence/static-topics-02.ros/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "static-topics-03",
+      "status": "ORACLE_FAIL",
+      "facts": "921 normal business complete after real HELLO/ACK; cross-DDS CDR padding oracle failed although typed fields equal",
+      "evidence": "evidence/static-topics-03.ros/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "static-topics-04",
+      "status": "PASS_LIMITED",
+      "facts": "923 actual DDS messages, full captured-wire bytes exact and all normalized typed fields exact; short PHY blackout/recovery",
+      "evidence": "evidence/static-topics-04.ros/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "action-wire-interface-01",
+      "status": "TOOL_FAIL",
+      "facts": "Missing /evidence bwrap mount point before ROS init",
+      "evidence": "evidence/action-wire-interface-01.stderr.txt",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "action-wire-interface-02",
+      "status": "PASS_LIMITED",
+      "facts": "17 real-DDS/generated Action checks; memory wire controlled servers, not WiFi",
+      "evidence": "evidence/action-wire-interface-02/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "action-wifi-01.hub",
+      "status": "TOOL_TIMEOUT",
+      "facts": "No client/0ROS: helper completed and send_message did not trigger a new turn; native hub timeout retained",
+      "evidence": "evidence/action-wifi-01.hub/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "action-wifi-02",
+      "status": "FAIL",
+      "facts": "12 WiFi/Action positives before native repeated SetOff/beacon-watchdog fatal at 3.799148005sim; ROS EOF consequence",
+      "evidence": "evidence/action-wifi-02.ros/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "action-wifi-03",
+      "status": "PASS_LIMITED",
+      "facts": "21 real-WiFi/generated Action checks; post-LogDistance transparent Range gate blackout/recovery, controlled servers",
+      "evidence": "evidence/action-wifi-03.ros/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "bound-peer-check-01",
+      "status": "ORACLE_FAIL",
+      "facts": "Cross-serialization undefined CDR padding compared; no Node or network",
+      "evidence": "evidence/bound-peer-check-01/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "bound-peer-check-02",
+      "status": "PASS_LIMITED",
+      "facts": "17 no-Node publish-order/actual captured mask CDR/batch-binding identity checks",
+      "evidence": "evidence/bound-peer-check-02/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "local-guard-01.ros",
+      "status": "PASS_LIMITED",
+      "facts": "14 real-DDS controlled late-accept/owned cancel/zero/spy PAUSE/steady clock checks; no physical effect",
+      "evidence": "evidence/local-guard-01.ros/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "composition-build",
+      "status": "PASS_BUILD",
+      "facts": "New native KNOWN/SENDAT/POSITION linked existing ns3, 8 modules compile; no new native execution",
+      "evidence": "evidence/COMPOSITION_BUILD.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "composition-cleanup-01",
+      "status": "PASS_LIMITED",
+      "facts": "9 checks: actual suspended Empty DDS callback bounded shutdown; controlled pause-method AST; no robot control",
+      "evidence": "workspace/runs/composition-cleanup-01/result.json",
+      "Gazebo_start": 0
+    },
+    {
+      "id": "NET-A",
+      "status": "FAIL_STARTUP",
+      "facts": "Actual Gazebo start1; recorder QoS file missing; no autonomy/NN/goals; stop true but 3pausefalse/integrityfalse",
+      "evidence": "workspace/runs/net01-a-corridor-6201-01/result.json",
+      "Gazebo_start": 1
+    },
+    {
+      "id": "NET-B",
+      "status": "NOT_RUN",
+      "facts": "A prerequisite failed; not admitted, no replacement or retry",
+      "evidence": null,
+      "Gazebo_start": 0
+    },
+    {
+      "id": "NET-C",
+      "status": "NOT_RUN",
+      "facts": "A prerequisite failed; not admitted, no replacement or retry",
+      "evidence": null,
+      "Gazebo_start": 0
+    },
+    {
+      "id": "recorder-qos-static-repair",
+      "status": "PASS_STATIC_ONLY",
+      "facts": "Fixed76fd 698B original restored externally and actual bag argv only path changed; no rerun",
+      "evidence": "evidence/RECORDER_QOS_STATIC_REPAIR.json",
+      "Gazebo_start": 0
+    }
+  ]
+}
