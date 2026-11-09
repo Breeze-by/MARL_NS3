@@ -1,0 +1,505 @@
+{
+  "scope": "Once-only productive refill + per-handler nonblocking transport progress; original controlled8wall source100HzFB, no GZ/Nav2/arm/goal/NN/C actual policy",
+  "source_window_wall_s": 8.026866184023675,
+  "source_cadence": {
+    "0:synthetic_clock": {
+      "count": 86,
+      "median_interval_ms": 100.003557
+    },
+    "1:base_link->wheel_left_link": {
+      "count": 161,
+      "median_interval_ms": 49.942156
+    },
+    "1:exact_zero_cmd": {
+      "count": 161,
+      "median_interval_ms": 50.0413705
+    },
+    "1:map->odom": {
+      "count": 401,
+      "median_interval_ms": 20.0087625
+    },
+    "1:odom": {
+      "count": 241,
+      "median_interval_ms": 33.3521975
+    },
+    "1:odom->base_footprint": {
+      "count": 241,
+      "median_interval_ms": 33.354284
+    },
+    "1:static": {
+      "count": 1,
+      "median_interval_ms": null
+    },
+    "1:synthetic_action_feedback": {
+      "count": 801,
+      "median_interval_ms": 10.07531
+    },
+    "1:synthetic_action_status": {
+      "count": 9,
+      "median_interval_ms": 1000.275231
+    },
+    "1:synthetic_costmap": {
+      "count": 16,
+      "median_interval_ms": 499.868355
+    },
+    "1:synthetic_map": {
+      "count": 2,
+      "median_interval_ms": 5002.474981
+    },
+    "2:base_link->wheel_left_link": {
+      "count": 160,
+      "median_interval_ms": 49.871465
+    },
+    "2:exact_zero_cmd": {
+      "count": 160,
+      "median_interval_ms": 49.972693
+    },
+    "2:map->odom": {
+      "count": 400,
+      "median_interval_ms": 19.991622
+    },
+    "2:odom": {
+      "count": 240,
+      "median_interval_ms": 33.405298
+    },
+    "2:odom->base_footprint": {
+      "count": 240,
+      "median_interval_ms": 33.443371
+    },
+    "2:static": {
+      "count": 1,
+      "median_interval_ms": null
+    },
+    "2:synthetic_action_feedback": {
+      "count": 800,
+      "median_interval_ms": 10.115296
+    },
+    "2:synthetic_action_status": {
+      "count": 9,
+      "median_interval_ms": 1000.1604975
+    },
+    "2:synthetic_costmap": {
+      "count": 16,
+      "median_interval_ms": 500.096206
+    },
+    "2:synthetic_map": {
+      "count": 2,
+      "median_interval_ms": 5003.174703
+    },
+    "3:base_link->wheel_left_link": {
+      "count": 160,
+      "median_interval_ms": 49.97527
+    },
+    "3:exact_zero_cmd": {
+      "count": 160,
+      "median_interval_ms": 50.041961
+    },
+    "3:map->odom": {
+      "count": 400,
+      "median_interval_ms": 20.007391
+    },
+    "3:odom": {
+      "count": 240,
+      "median_interval_ms": 33.378873
+    },
+    "3:odom->base_footprint": {
+      "count": 240,
+      "median_interval_ms": 33.335911
+    },
+    "3:static": {
+      "count": 1,
+      "median_interval_ms": null
+    },
+    "3:synthetic_action_feedback": {
+      "count": 800,
+      "median_interval_ms": 10.116947
+    },
+    "3:synthetic_action_status": {
+      "count": 8,
+      "median_interval_ms": 1000.278976
+    },
+    "3:synthetic_costmap": {
+      "count": 16,
+      "median_interval_ms": 500.069998
+    },
+    "3:synthetic_map": {
+      "count": 2,
+      "median_interval_ms": 5003.649377
+    }
+  },
+  "failure": null,
+  "stages": {
+    "tb1": {
+      "correction": {
+        "source": 401,
+        "R_capture": 401,
+        "C_publish": 401,
+        "Peer_receive": 401
+      },
+      "source_to_capture_wall_ms_lower": {
+        "n": 401,
+        "min": 0.331426,
+        "median": 7.017632,
+        "max": 137.048731
+      },
+      "source_to_capture_wall_ms_upper": {
+        "n": 401,
+        "min": 1.890416,
+        "median": 63.074666,
+        "max": 216.815631
+      },
+      "C_publish_call_ms": {
+        "n": 401,
+        "min": 0.069178,
+        "median": 0.112489,
+        "max": 0.209435
+      },
+      "feedback": {
+        "source": 801,
+        "R_capture": 797,
+        "C_actual_destination": 797,
+        "captured_destination_CDR_rpc_exact": true
+      },
+      "odom": {
+        "source": 241,
+        "R_capture": 241,
+        "C_delivered": 241
+      },
+      "feedback_deficit_timing": {
+        "first_source_before_ns": 416551996707509,
+        "first_capture_ns": 416552000881627,
+        "source_emissions_completed_before_first_capture": 2,
+        "last_source_after_ns": 416559988665027,
+        "last_capture_ns": 416560057905926,
+        "last_capture_after_last_source_ms": 69.240899,
+        "source_minus_capture": 4,
+        "max_possible_initial_missing": 1,
+        "minimum_interior_or_tail_missing": 3,
+        "limit": "Source payload header repeats at10Hz; source emit records lack per-feedback transmitted sequence/CDR identity, cannot uniquely locate interior vs tail. At least one completed source emission must cause first capture; timing bounds rule out attributing entire deficit only to initial discovery. Captured RPC/CDR all actually delivered."
+      }
+    },
+    "tb2": {
+      "correction": {
+        "source": 400,
+        "R_capture": 400,
+        "C_publish": 400,
+        "Peer_receive": 400
+      },
+      "source_to_capture_wall_ms_lower": {
+        "n": 400,
+        "min": 0.187182,
+        "median": 7.5716895,
+        "max": 141.384908
+      },
+      "source_to_capture_wall_ms_upper": {
+        "n": 400,
+        "min": 3.603979,
+        "median": 62.210698,
+        "max": 221.259997
+      },
+      "C_publish_call_ms": {
+        "n": 400,
+        "min": 0.067118,
+        "median": 0.0943855,
+        "max": 0.175066
+      },
+      "feedback": {
+        "source": 800,
+        "R_capture": 795,
+        "C_actual_destination": 795,
+        "captured_destination_CDR_rpc_exact": true
+      },
+      "odom": {
+        "source": 240,
+        "R_capture": 240,
+        "C_delivered": 240
+      },
+      "feedback_deficit_timing": {
+        "first_source_before_ns": 416551999024273,
+        "first_capture_ns": 416552008201764,
+        "source_emissions_completed_before_first_capture": 2,
+        "last_source_after_ns": 416559987018422,
+        "last_capture_ns": 416560035552697,
+        "last_capture_after_last_source_ms": 48.534275,
+        "source_minus_capture": 5,
+        "max_possible_initial_missing": 1,
+        "minimum_interior_or_tail_missing": 4,
+        "limit": "Source payload header repeats at10Hz; source emit records lack per-feedback transmitted sequence/CDR identity, cannot uniquely locate interior vs tail. At least one completed source emission must cause first capture; timing bounds rule out attributing entire deficit only to initial discovery. Captured RPC/CDR all actually delivered."
+      }
+    },
+    "tb3": {
+      "correction": {
+        "source": 400,
+        "R_capture": 400,
+        "C_publish": 400,
+        "Peer_receive": 400
+      },
+      "source_to_capture_wall_ms_lower": {
+        "n": 400,
+        "min": 0.006626,
+        "median": 8.53147,
+        "max": 141.374978
+      },
+      "source_to_capture_wall_ms_upper": {
+        "n": 400,
+        "min": 1.945324,
+        "median": 66.0404015,
+        "max": 221.749578
+      },
+      "C_publish_call_ms": {
+        "n": 400,
+        "min": 0.065934,
+        "median": 0.08649899999999999,
+        "max": 0.164457
+      },
+      "feedback": {
+        "source": 800,
+        "R_capture": 795,
+        "C_actual_destination": 795,
+        "captured_destination_CDR_rpc_exact": true
+      },
+      "odom": {
+        "source": 240,
+        "R_capture": 240,
+        "C_delivered": 240
+      },
+      "feedback_deficit_timing": {
+        "first_source_before_ns": 416552005157909,
+        "first_capture_ns": 416552013243984,
+        "source_emissions_completed_before_first_capture": 1,
+        "last_source_after_ns": 416559995444567,
+        "last_capture_ns": 416560058472053,
+        "last_capture_after_last_source_ms": 63.027486,
+        "source_minus_capture": 5,
+        "max_possible_initial_missing": 0,
+        "minimum_interior_or_tail_missing": 5,
+        "limit": "Source payload header repeats at10Hz; source emit records lack per-feedback transmitted sequence/CDR identity, cannot uniquely locate interior vs tail. At least one completed source emission must cause first capture; timing bounds rule out attributing entire deficit only to initial discovery. Captured RPC/CDR all actually delivered."
+      }
+    }
+  },
+  "dispatch": {
+    "C": {
+      "batches": 194,
+      "callbacks": 748,
+      "cap_hits": 0,
+      "max_wall_s": 0.03303570399293676,
+      "max_cpu_s": 0.03304140500000052
+    },
+    "R": {
+      "batches": 194,
+      "callbacks": 7905,
+      "cap_hits": 69,
+      "max_wall_s": 0.129709939006716,
+      "max_cpu_s": 0.12970662799999988
+    },
+    "guard_timers": {
+      "1": {
+        "calls": 409,
+        "max_gap_wall_s": 0.06636959296884015,
+        "last": 416560.333793767
+      },
+      "2": {
+        "calls": 408,
+        "max_gap_wall_s": 0.06641132599906996,
+        "last": 416560.333944535
+      },
+      "3": {
+        "calls": 409,
+        "max_gap_wall_s": 0.05882510601077229,
+        "last": 416560.338281646
+      }
+    },
+    "max_poll_gap_wall_s": 0.1574563350295648
+  },
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "peer_ready": {
+    "total": 83,
+    "ready": 80,
+    "last": {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 8.600000000000001,
+      "ready": true,
+      "sequence": 83,
+      "poses": {
+        "tb1": [
+          0.7249999999999996,
+          -0.1499999999999999
+        ],
+        "tb2": [
+          0.34999999999999964,
+          -0.7999999999999999
+        ],
+        "tb3": [
+          1.0999999999999996,
+          -0.7999999999999999
+        ]
+      },
+      "origins": {
+        "tb1": [
+          -9.75,
+          -8.85
+        ],
+        "tb2": [
+          -9.35,
+          -8.200000000000001
+        ],
+        "tb3": [
+          -10.100000000000001,
+          -8.200000000000001
+        ]
+      },
+      "mask_contract": "owner-odom-lattice-v1",
+      "mask_from_common": {
+        "tb1": [
+          -0.7249999999999996,
+          0.1499999999999999,
+          -0.0
+        ],
+        "tb2": [
+          -0.34999999999999964,
+          0.7999999999999999,
+          -0.0
+        ],
+        "tb3": [
+          -1.0999999999999996,
+          0.7999999999999999,
+          -0.0
+        ]
+      },
+      "mask_frames": {
+        "tb1": "odom",
+        "tb2": "odom",
+        "tb3": "odom"
+      },
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb1": {
+          "source": 0.10000000000000142,
+          "receipt": 0.018000147014390677,
+          "correction": 1.7763568394002505e-15,
+          "correction_receipt": 0.008718681987375021
+        },
+        "tb2": {
+          "source": 0.10000000000000142,
+          "receipt": 0.007081102987285703,
+          "correction": 1.7763568394002505e-15,
+          "correction_receipt": 0.006358786020427942
+        },
+        "tb3": {
+          "source": 0.10000000000000142,
+          "receipt": 0.004875307029578835,
+          "correction": 1.7763568394002505e-15,
+          "correction_receipt": 0.013070364017039537
+        }
+      },
+      "failures": {},
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb1": 8.5,
+        "tb2": 8.5,
+        "tb3": 8.5
+      },
+      "correction_stamps": {
+        "tb1": 8.6,
+        "tb2": 8.6,
+        "tb3": 8.6
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 416559.9691319,
+        "masks": {
+          "tb1": {
+            "begin": 416559.969217249,
+            "built": 416559.987214809,
+            "before_publish": 416559.987325556,
+            "after_publish": 416559.987817472
+          },
+          "tb2": {
+            "begin": 416559.987821113,
+            "built": 416560.006926495,
+            "before_publish": 416560.00704733,
+            "after_publish": 416560.007526463
+          },
+          "tb3": {
+            "begin": 416560.007530514,
+            "built": 416560.0272333,
+            "before_publish": 416560.027330054,
+            "after_publish": 416560.027783197
+          }
+        },
+        "snapshot_monotonic": 416559.969216575,
+        "health_publish_before_monotonic": 416560.027996813,
+        "health_publish_after_monotonic": 416560.032491373
+      }
+    }
+  },
+  "process": {
+    "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+    "error": null,
+    "wall_s": 11.74751728499541,
+    "hard_wall_s": 20,
+    "exits": {
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "source": 0
+    },
+    "Gazebo": 0,
+    "NN": 0,
+    "wrapper_pids": {
+      "hub": 1587369,
+      "peer": 1587379,
+      "gateway": 1587380,
+      "source": 1587381
+    },
+    "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior"
+  },
+  "clock": {
+    "anchor": {
+      "gazebo_ns": 500000000,
+      "ns3_ns": 0,
+      "offset_ns": 500000000,
+      "monotonic_ns": 416551860585069
+    },
+    "first_observed": [
+      416551860663176,
+      "clock",
+      0
+    ],
+    "first_actual_native_STEP_return": {
+      "kind": "horizon_return",
+      "ns3_ns": 100000000,
+      "monotonic_ns": 416552002315156,
+      "requested_horizon_ns": 100000000
+    },
+    "native_STEP_returns": 81,
+    "last_actual_native_STEP_return": {
+      "kind": "horizon_return",
+      "ns3_ns": 8100000000,
+      "monotonic_ns": 416559970553955,
+      "requested_horizon_ns": 8100000000
+    },
+    "max_mapped_observed_to_native_event_lag_s": 0.1,
+    "min_mapped_observed_to_native_event_lag_s": 0.0,
+    "limits": "Event-time envelope uses actual Rclock callback and native horizon-return mono, not exact Gateway ACK receipt/check samples. Subsequent STEP requires prior real Gateway horizon ACK; guard<=.12 held by no-fault, no strict undocumented ACK latency claimed."
+  },
+  "limits": "Repeated TF headers produce lower/upper ranges, not unique private ACK; unchanged original message/QoS/math/stamps/guard. A full CDR direct backend, not business WiFi or real Gazebo clock/physical safety."
+}

@@ -1,0 +1,40 @@
+--- gateway.py productive-refill06
++++ gateway.py proposed callback progress
+@@ -34,7 +34,7 @@
+ from topic_wire import TopicWire
+ 
+ 
+-def drain_current_ready(executor,node,ready_set):
++def drain_current_ready(executor,node,ready_set,after_handler=None):
+     """Bounded productive ready sets, in original SingleThreaded order.
+ 
+     Keep the executor's cached iterator across cap hits. Do not wait/rebuild an
+@@ -57,6 +57,7 @@
+         handler.result()
+         completed.append((entity,began))
+         ready_set['productive']=True
++        if after_handler is not None:after_handler()
+     return completed,cap
+ 
+ 
+@@ -212,7 +213,7 @@
+         self.last_poll=now
+         for side,executor,node in zip(('C','R'),self.executors,self.nodes):
+             before=time.monotonic();cpu=time.thread_time()
+-            completed,cap=drain_current_ready(executor,node,self.ready_sets[side])
++            completed,cap=drain_current_ready(executor,node,self.ready_sets[side],self.progress_transport)
+             stat=self.dispatch_stats[side];stat['batches']+=1;stat['callbacks']+=len(completed)
+             stat['cap_hits']+=int(len(completed)==cap)
+             stat['max_wall_s']=max(stat['max_wall_s'],time.monotonic()-before)
+@@ -223,6 +224,11 @@
+                         timer=self.dispatch_stats['guard_timers'].setdefault(str(robot),dict(calls=0,max_gap_wall_s=0.,last=None))
+                         if timer['last'] is not None:timer['max_gap_wall_s']=max(timer['max_gap_wall_s'],began-timer['last'])
+                         timer['calls']+=1;timer['last']=began
++        self.progress_transport()
++
++    def progress_transport(self):
++        # Called between completed ROS handlers as well as at the outer boundary.
++        # Never wait for native progress or replace actual receipts with a cache.
+         if self.failure:return
+         self.hub.poll()
+         if self.anchor is None or not self.hub.ready:return

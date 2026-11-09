@@ -1,0 +1,429 @@
+{
+  "scope": "No ROS init/Node/Publish/GZ/NN; current isolated frozen computation, not historical CPU profiling",
+  "python": "/usr/bin/python3",
+  "python_version": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "numpy_version": "1.21.5",
+  "numpy_file": "/usr/lib/python3/dist-packages/numpy/__init__.py",
+  "peer_module": "/mnt/workspace/gz01/peer_keepout.py",
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "PYTHONPATH": "/mnt/net01:/mnt/workspace/gz01:/mnt/workspace/rl04:/mnt/workspace/rl02:/mnt/workspace/rl01:/mnt/workspace/src/multi_robot_exploration:/tmp/rl02-python:/project/workspace/install/slam_toolbox/local/lib/python3.10/dist-packages:/project/workspace/build/multi_robot_exploration:/project/workspace/install/multi_robot_exploration/lib/python3.10/site-packages:/project/workspace/build/merge_map:/project/workspace/install/merge_map/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages"
+  },
+  "source_case": "net01-a-corridor-6201-04",
+  "source_sequence": 383,
+  "spans": [
+    {
+      "repeat": 0,
+      "robot": "tb1",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 231864,
+          "thread_cpu_ns": 210849
+        },
+        "mask_poses": {
+          "wall_ns": 53227,
+          "thread_cpu_ns": 52826
+        },
+        "peer_mask": {
+          "wall_ns": 20221321,
+          "thread_cpu_ns": 20225903
+        },
+        "grid_data": {
+          "wall_ns": 103650,
+          "thread_cpu_ns": 97894
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 832
+    },
+    {
+      "repeat": 0,
+      "robot": "tb2",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 234226,
+          "thread_cpu_ns": 234139
+        },
+        "mask_poses": {
+          "wall_ns": 41419,
+          "thread_cpu_ns": 41553
+        },
+        "peer_mask": {
+          "wall_ns": 14720911,
+          "thread_cpu_ns": 14724989
+        },
+        "grid_data": {
+          "wall_ns": 109503,
+          "thread_cpu_ns": 104352
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 857
+    },
+    {
+      "repeat": 0,
+      "robot": "tb3",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 182985,
+          "thread_cpu_ns": 183070
+        },
+        "mask_poses": {
+          "wall_ns": 33938,
+          "thread_cpu_ns": 33708
+        },
+        "peer_mask": {
+          "wall_ns": 16614081,
+          "thread_cpu_ns": 16617823
+        },
+        "grid_data": {
+          "wall_ns": 93841,
+          "thread_cpu_ns": 89366
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 824
+    },
+    {
+      "repeat": 1,
+      "robot": "tb1",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 170149,
+          "thread_cpu_ns": 169860
+        },
+        "mask_poses": {
+          "wall_ns": 28761,
+          "thread_cpu_ns": 29058
+        },
+        "peer_mask": {
+          "wall_ns": 16104246,
+          "thread_cpu_ns": 16107486
+        },
+        "grid_data": {
+          "wall_ns": 115275,
+          "thread_cpu_ns": 111217
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 832
+    },
+    {
+      "repeat": 1,
+      "robot": "tb2",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 168523,
+          "thread_cpu_ns": 168470
+        },
+        "mask_poses": {
+          "wall_ns": 27332,
+          "thread_cpu_ns": 26988
+        },
+        "peer_mask": {
+          "wall_ns": 17087652,
+          "thread_cpu_ns": 17094914
+        },
+        "grid_data": {
+          "wall_ns": 123572,
+          "thread_cpu_ns": 115755
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 857
+    },
+    {
+      "repeat": 1,
+      "robot": "tb3",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 170998,
+          "thread_cpu_ns": 171013
+        },
+        "mask_poses": {
+          "wall_ns": 35876,
+          "thread_cpu_ns": 35728
+        },
+        "peer_mask": {
+          "wall_ns": 16578705,
+          "thread_cpu_ns": 16582463
+        },
+        "grid_data": {
+          "wall_ns": 107172,
+          "thread_cpu_ns": 103489
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 824
+    },
+    {
+      "repeat": 2,
+      "robot": "tb1",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 185125,
+          "thread_cpu_ns": 184900
+        },
+        "mask_poses": {
+          "wall_ns": 27048,
+          "thread_cpu_ns": 26936
+        },
+        "peer_mask": {
+          "wall_ns": 17177998,
+          "thread_cpu_ns": 17181784
+        },
+        "grid_data": {
+          "wall_ns": 97269,
+          "thread_cpu_ns": 92790
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 832
+    },
+    {
+      "repeat": 2,
+      "robot": "tb2",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 157516,
+          "thread_cpu_ns": 157729
+        },
+        "mask_poses": {
+          "wall_ns": 33958,
+          "thread_cpu_ns": 33364
+        },
+        "peer_mask": {
+          "wall_ns": 16216497,
+          "thread_cpu_ns": 16220032
+        },
+        "grid_data": {
+          "wall_ns": 125097,
+          "thread_cpu_ns": 121006
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 857
+    },
+    {
+      "repeat": 2,
+      "robot": "tb3",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 194174,
+          "thread_cpu_ns": 194080
+        },
+        "mask_poses": {
+          "wall_ns": 37768,
+          "thread_cpu_ns": 37751
+        },
+        "peer_mask": {
+          "wall_ns": 16579646,
+          "thread_cpu_ns": 16583207
+        },
+        "grid_data": {
+          "wall_ns": 107946,
+          "thread_cpu_ns": 103757
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 824
+    },
+    {
+      "repeat": 3,
+      "robot": "tb1",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 158847,
+          "thread_cpu_ns": 158478
+        },
+        "mask_poses": {
+          "wall_ns": 25574,
+          "thread_cpu_ns": 25532
+        },
+        "peer_mask": {
+          "wall_ns": 17793950,
+          "thread_cpu_ns": 17798942
+        },
+        "grid_data": {
+          "wall_ns": 119113,
+          "thread_cpu_ns": 113570
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 832
+    },
+    {
+      "repeat": 3,
+      "robot": "tb2",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 167250,
+          "thread_cpu_ns": 166582
+        },
+        "mask_poses": {
+          "wall_ns": 25734,
+          "thread_cpu_ns": 25712
+        },
+        "peer_mask": {
+          "wall_ns": 18159730,
+          "thread_cpu_ns": 18165301
+        },
+        "grid_data": {
+          "wall_ns": 219902,
+          "thread_cpu_ns": 214164
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 857
+    },
+    {
+      "repeat": 3,
+      "robot": "tb3",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 257341,
+          "thread_cpu_ns": 257057
+        },
+        "mask_poses": {
+          "wall_ns": 59406,
+          "thread_cpu_ns": 59270
+        },
+        "peer_mask": {
+          "wall_ns": 16690055,
+          "thread_cpu_ns": 16694627
+        },
+        "grid_data": {
+          "wall_ns": 109605,
+          "thread_cpu_ns": 104429
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 824
+    },
+    {
+      "repeat": 4,
+      "robot": "tb1",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 158141,
+          "thread_cpu_ns": 157935
+        },
+        "mask_poses": {
+          "wall_ns": 26558,
+          "thread_cpu_ns": 26415
+        },
+        "peer_mask": {
+          "wall_ns": 16669362,
+          "thread_cpu_ns": 16672853
+        },
+        "grid_data": {
+          "wall_ns": 105523,
+          "thread_cpu_ns": 101542
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 832
+    },
+    {
+      "repeat": 4,
+      "robot": "tb2",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 152845,
+          "thread_cpu_ns": 152389
+        },
+        "mask_poses": {
+          "wall_ns": 27942,
+          "thread_cpu_ns": 27869
+        },
+        "peer_mask": {
+          "wall_ns": 16607084,
+          "thread_cpu_ns": 16611975
+        },
+        "grid_data": {
+          "wall_ns": 122295,
+          "thread_cpu_ns": 117069
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 857
+    },
+    {
+      "repeat": 4,
+      "robot": "tb3",
+      "stages": {
+        "grid_metadata": {
+          "wall_ns": 183059,
+          "thread_cpu_ns": 182925
+        },
+        "mask_poses": {
+          "wall_ns": 27682,
+          "thread_cpu_ns": 27497
+        },
+        "peer_mask": {
+          "wall_ns": 16991681,
+          "thread_cpu_ns": 16997921
+        },
+        "grid_data": {
+          "wall_ns": 122200,
+          "thread_cpu_ns": 115634
+        }
+      },
+      "shape": [
+        400,
+        400
+      ],
+      "occupied_cells": 824
+    }
+  ],
+  "calls": {
+    "Node": 0,
+    "Gazebo": 0,
+    "NN": 0,
+    "publish": 0
+  }
+}
