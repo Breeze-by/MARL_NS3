@@ -21,7 +21,9 @@ from execution_profile import load_profile
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--name',required=True)
     parser.add_argument('--native',type=Path,required=True)
-    parser.add_argument('--native-evidence-ram',type=Path);args=parser.parse_args()
+    parser.add_argument('--native-evidence-ram',type=Path)
+    parser.add_argument('--source-clock-contract',choices=['legacy-steady','frozen-source-clock'],default='legacy-steady')
+    args=parser.parse_args()
     profile_id='controlled1000-clock100-q10ms';profile=load_profile(profile_id)
     repo=HERE.parent;base=repo/'runs'/args.name;base.mkdir(exist_ok=False)
     for role in ('source','peer','gateway'):(base/role).mkdir()
@@ -30,6 +32,7 @@ def main():
     (base/'scope.json').write_text(json.dumps(dict(scope='MOCK_PHYSICS + actual native WiFi, not Gazebo/Policy/physical safety',
         profile=profile,native=str(args.native),source_wall_s=16,hard_wall_s=30,
         native_evidence_ram=None if args.native_evidence_ram is None else str(args.native_evidence_ram),
+        source_clock_contract=args.source_clock_contract,
         mode='B',domains=dict(C=91,R=92),Gazebo=0,Nav2=0,Goal=0,NN=0,arm=False),indent=2))
     def launch(role,argv,pipe=False):
         err=(base/(role+'.stderr.txt')).open('x');logs.append(err)
@@ -62,7 +65,9 @@ def main():
             '--output',prefix+'/mock-physics.json','--stop-file',prefix+'/STOP'],True)
         ready(mock,'MOCK_PHYSICS_READY')
         source=launch('source',wrapper+[common,'--role','source','--directory',prefix+'/source',
-            '--feedback-hz','100','--execution-profile',profile_id])
+            '--feedback-hz','100','--execution-profile',profile_id]+
+            ([] if args.source_clock_contract=='legacy-steady' else
+                ['--source-clock-contract',args.source_clock_contract]))
         source.wait(timeout=max(.01,deadline-time.monotonic()-6))
     except BaseException as exc:error=repr(exc)
     finally:

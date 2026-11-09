@@ -1,0 +1,203 @@
+diff --git a/net01/followup01/continuous_dds.py b/net01/followup01/continuous_dds.py
+index b2bfe15..16e87f8 100644
+--- a/net01/followup01/continuous_dds.py
++++ b/net01/followup01/continuous_dds.py
+@@ -18,7 +18,7 @@ sys.path.insert(0,str(HERE))
+ from execution_profile import load_profile
+ 
+ 
+-def source(directory,feedback_hz,execution_profile=None):
++def source(directory,feedback_hz,execution_profile=None,source_clock_contract='legacy-steady'):
+     profile=load_profile(execution_profile)
+     qualification=None if profile is None else profile["qualification"]
+     clock_increment=100_000_000 if qualification is None else qualification["clock_increment_ns"]
+@@ -28,6 +28,7 @@ def source(directory,feedback_hz,execution_profile=None):
+     import rclpy
+     from rclpy.clock import Clock,ClockType
+     from rclpy.node import Node
++    from rclpy.parameter import Parameter
+     from rclpy.qos import QoSProfile,DurabilityPolicy,qos_profile_sensor_data
+     from rclpy.signals import SignalHandlerOptions
+     from rosgraph_msgs.msg import Clock as ClockMessage
+@@ -37,14 +38,26 @@ def source(directory,feedback_hz,execution_profile=None):
+     from std_msgs.msg import String
+     from array import array
+     rclpy.init(domain_id=92,signal_handler_options=SignalHandlerOptions.NO)
+-    node=Node('net01_synthetic_continuous_source')
++    frozen_source=source_clock_contract=='frozen-source-clock'
++    node=Node('net01_synthetic_continuous_source',**({'parameter_overrides':
++        [Parameter('use_sim_time',value=True)]} if frozen_source else {}))
+     steady=Clock(clock_type=ClockType.STEADY_TIME)
+     records=[];timers=[];publishers=[];services=[];clock_ns=clock_increment
+     controlled=bool(profile and profile.get('controlled_physics'))
++    sim_callbacks=[];source_clock=None
++    if frozen_source:
++        if not controlled:raise ValueError('Frozen source contract needs actual controlled clock')
++        from followup04.frozen_source_clock import FrozenSourceClock,wheel_message
++        from rclpy.serialization import serialize_message
++        source_clock=FrozenSourceClock()
+     def stamp(header,value):header.stamp.sec=value//1_000_000_000;header.stamp.nanosec=value%1_000_000_000
+     def emit(pub,message,robot,kind,header=None):
+         row=dict(robot=robot,kind=kind,source_header_ns=header,
+             before_monotonic_ns=time.monotonic_ns())
++        if frozen_source:
++            row.update(observed_clock_ns=clock_ns-clock_increment,
++                node_sim_ns=node.get_clock().now().nanoseconds,
++                complete_CDR_bytes=len(serialize_message(message)))
+         pub.publish(message);row['after_monotonic_ns']=time.monotonic_ns();records.append(row)
+     def publish_clock():
+         nonlocal clock_ns
+@@ -56,6 +69,13 @@ def source(directory,feedback_hz,execution_profile=None):
+             clock_ns=message.clock.sec*1_000_000_000+message.clock.nanosec+clock_increment
+             records.append(dict(robot=0,kind='MOCK_PHYSICS_clock_received',
+                 source_header_ns=clock_ns-clock_increment,before_monotonic_ns=time.monotonic_ns()))
++            if frozen_source:
++                due=source_clock.advance(clock_ns-clock_increment)
++                if 'scan' in due:
++                    records.append(dict(robot=0,kind='synthetic_scan_header_holder',
++                        source_header_ns=source_clock.scan_header_ns,before_monotonic_ns=time.monotonic_ns()))
++                for kind,callback in sim_callbacks:
++                    if kind in due:callback()
+         clock_subscription=node.create_subscription(ClockMessage,'/clock',actual_mock_clock,qos_profile_sensor_data)
+     else:
+         cp=node.create_publisher(ClockMessage,'/clock',qos_profile_sensor_data)
+@@ -69,8 +89,11 @@ def source(directory,feedback_hz,execution_profile=None):
+     qualification=node.create_subscription(String,'/net01/gateway_state',state,
+         QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
+     until=time.monotonic()+2
+-    while not qualified and time.monotonic()<until:rclpy.spin_once(node,timeout_sec=.001)
++    while (not qualified or (frozen_source and source_clock.sim_ns is None)) and time.monotonic()<until:
++        rclpy.spin_once(node,timeout_sec=.001)
+     if not qualified:raise RuntimeError('Real gateway did not establish clock anchor before synthetic business')
++    if frozen_source and source_clock.sim_ns is None:
++        raise RuntimeError('Actual source clock was not received before synthetic business')
+     scene=json.loads((HERE.parent/'inputs/scenes/regression-corridor-common-6201-dwb-v1.json').read_text())
+     latched=QoSProfile(depth=100,durability=DurabilityPolicy.TRANSIENT_LOCAL)
+     for robot in (1,2,3):
+@@ -86,7 +109,8 @@ def source(directory,feedback_hz,execution_profile=None):
+         emit(static_pub,TFMessage(transforms=[t]),robot,'static',0)
+         def transform(pub,frame,child,robot=robot,future=0):
+             t=TransformStamped();t.header.frame_id=frame;t.child_frame_id=child;t.transform.rotation.w=1.
+-            value=clock_ns-clock_increment+future;stamp(t.header,value)
++            value=(source_clock.scan_header_ns if frozen_source and frame=='map' else clock_ns-clock_increment)+future
++            stamp(t.header,value)
+             emit(pub,TFMessage(transforms=[t]),robot,frame+'->'+child,value)
+         timers.append(node.create_timer(.02,lambda p=tf_pubs[0],r=robot:
+             transform(p,'map','odom',r,200_000_000),clock=steady))
+@@ -94,22 +118,39 @@ def source(directory,feedback_hz,execution_profile=None):
+             m=Odometry();m.header.frame_id='odom';m.child_frame_id='base_footprint';m.pose.pose.orientation.w=1.
+             value=clock_ns-clock_increment;stamp(m.header,value)
+             emit(p,m,robot,'odom',value);transform(tfp,'odom','base_footprint',robot)
+-        timers.append(node.create_timer(1/30,odom,clock=steady))
+-        timers.append(node.create_timer(.05,lambda p=tf_pubs[2],r=robot:
+-            transform(p,'base_link','wheel_left_link',r),clock=steady))
++        if frozen_source:
++            sim_callbacks.append(('odom',odom))
++            def wheels(p=tf_pubs[2],r=robot):
++                value=clock_ns-clock_increment
++                emit(p,wheel_message(value),r,'both_wheel_TF',value)
++            sim_callbacks.append(('wheel',wheels))
++        else:
++            timers.append(node.create_timer(1/30,odom,clock=steady))
++            timers.append(node.create_timer(.05,lambda p=tf_pubs[2],r=robot:
++                transform(p,'base_link','wheel_left_link',r),clock=steady))
+         timers.append(node.create_timer(.05,lambda p=zero_pub,r=robot:emit(p,Twist(),r,'exact_zero_cmd'),clock=steady))
+         # Original map/costmap input sizes, but synthetic and never used by policy.
+         mp=node.create_publisher(OccupancyGrid,prefix+'/map',QoSProfile(depth=10,durability=DurabilityPolicy.TRANSIENT_LOCAL))
+         lp=node.create_publisher(OccupancyGrid,prefix+'/local_costmap/costmap',QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
+         publishers.extend([mp,lp])
+         def grid(pub,width,height,kind,robot=robot):
+-            m=OccupancyGrid();m.header.frame_id='map';stamp(m.header,clock_ns-clock_increment)
++            value=clock_ns-clock_increment
++            if frozen_source:
++                value=source_clock.scan_header_ns if kind=='synthetic_map' else node.get_clock().now().nanoseconds
++            m=OccupancyGrid();m.header.frame_id='odom' if frozen_source and kind=='synthetic_costmap' else 'map'
++            stamp(m.header,value)
+             m.info.resolution=.05;m.info.width=width;m.info.height=height;m.info.origin.orientation.w=1.
+             m.data=array('b',[0])*(width*height)
+-            emit(pub,m,robot,kind,clock_ns-clock_increment)
++            emit(pub,m,robot,kind,value)
+         grid(mp,250,220,'synthetic_map')
+         timers.append(node.create_timer(5.,lambda p=mp,r=robot:grid(p,250,220,'synthetic_map',r),clock=steady))
+-        timers.append(node.create_timer(.5,lambda p=lp,r=robot:grid(p,costmap_shape[0],costmap_shape[1],'synthetic_costmap',r),clock=steady))
++        if frozen_source:
++            def costmap_poll(p=lp,r=robot):
++                if source_clock.costmap_due(r,node.get_clock().now().nanoseconds):
++                    grid(p,costmap_shape[0],costmap_shape[1],'synthetic_costmap',r)
++            timers.append(node.create_timer(.2,costmap_poll,clock=steady))
++        else:
++            timers.append(node.create_timer(.5,lambda p=lp,r=robot:grid(p,costmap_shape[0],costmap_shape[1],'synthetic_costmap',r),clock=steady))
+         if feedback_hz:
+             from nav2_msgs.action import NavigateToPose
+             from action_msgs.msg import GoalStatusArray
+@@ -132,12 +173,25 @@ def source(directory,feedback_hz,execution_profile=None):
+             timers.append(node.create_timer(1/feedback_hz,feedback,clock=steady))
+             timers.append(node.create_timer(1.,lambda p=sp,r=robot:emit(p,GoalStatusArray(),r,'synthetic_action_status'),clock=steady))
+     start=time.monotonic()
++    start_sim_ns=clock_ns-clock_increment
+     try:
+         while time.monotonic()-start<source_window:rclpy.spin_once(node,timeout_sec=.001)
+     finally:
++        end_sim_ns=clock_ns-clock_increment;active_wall=time.monotonic()-start
+         node.destroy_node();rclpy.shutdown()
+-        (directory/'source.json').write_text(json.dumps(dict(scope='SYNTHETIC continuous isolated DDS; no GZ/Nav2/NN/nonzero motion',
+-            requested_window_wall_s=source_window,execution_profile=profile,feedback_hz=feedback_hz,actual_window_wall_s=time.monotonic()-start,records=records)))
++        data=dict(scope='SYNTHETIC continuous isolated DDS; no GZ/Nav2/NN/nonzero motion',
++            requested_window_wall_s=source_window,execution_profile=profile,feedback_hz=feedback_hz,actual_window_wall_s=time.monotonic()-start,records=records)
++        if frozen_source:
++            from collections import Counter
++            counts=Counter((r['robot'],r['kind']) for r in records if r['robot'])
++            sim_span=(end_sim_ns-start_sim_ns)/1e9
++            data.update(source_clock_contract=source_clock_contract,active_source_wall_s=active_wall,
++                begin_sim_ns=start_sim_ns,end_sim_ns=end_sim_ns,
++                count_rates=[dict(robot=r,kind=k,count=n,per_wall_s=n/active_wall,
++                    per_sim_s=None if sim_span==0 else n/sim_span)
++                    for (r,k),n in sorted(counts.items())],
++                timing_scope='30sim configured ceiling with100Hz clock quantization, not exact1ms driver waveform;5Hz scanheader cadence only, not SLAM. Missing89/95 retained.')
++        (directory/'source.json').write_text(json.dumps(data))
+ 
+ 
+ def stop_check(stop_file,records):
+@@ -249,6 +303,7 @@ if __name__=='__main__':
+     parser.add_argument('--native',type=Path)
+     parser.add_argument('--mode',choices=['A','B'],default='A')
+     parser.add_argument('--execution-profile')
++    parser.add_argument('--source-clock-contract',choices=['legacy-steady','frozen-source-clock'],default='legacy-steady')
+     a=parser.parse_args()
+-    raise SystemExit(host(a.name,a.feedback_hz,a.dispatch_profile,a.control_trace,a.native,a.mode,a.execution_profile) if a.role=='host' else source(a.directory,a.feedback_hz,a.execution_profile) if a.role=='source' else
++    raise SystemExit(host(a.name,a.feedback_hz,a.dispatch_profile,a.control_trace,a.native,a.mode,a.execution_profile) if a.role=='host' else source(a.directory,a.feedback_hz,a.execution_profile,a.source_clock_contract) if a.role=='source' else
+         gateway(a.directory,a.stop_file,a.dispatch_profile,a.control_trace,a.mode,a.execution_profile) if a.role=='gateway' else peer(a.directory,a.stop_file))
+diff --git a/net01/followup04/check_controlled_wifi.py b/net01/followup04/check_controlled_wifi.py
+index d4453bd..169feb9 100644
+--- a/net01/followup04/check_controlled_wifi.py
++++ b/net01/followup04/check_controlled_wifi.py
+@@ -21,7 +21,9 @@ from execution_profile import load_profile
+ def main():
+     parser=argparse.ArgumentParser();parser.add_argument('--name',required=True)
+     parser.add_argument('--native',type=Path,required=True)
+-    parser.add_argument('--native-evidence-ram',type=Path);args=parser.parse_args()
++    parser.add_argument('--native-evidence-ram',type=Path)
++    parser.add_argument('--source-clock-contract',choices=['legacy-steady','frozen-source-clock'],default='legacy-steady')
++    args=parser.parse_args()
+     profile_id='controlled1000-clock100-q10ms';profile=load_profile(profile_id)
+     repo=HERE.parent;base=repo/'runs'/args.name;base.mkdir(exist_ok=False)
+     for role in ('source','peer','gateway'):(base/role).mkdir()
+@@ -30,6 +32,7 @@ def main():
+     (base/'scope.json').write_text(json.dumps(dict(scope='MOCK_PHYSICS + actual native WiFi, not Gazebo/Policy/physical safety',
+         profile=profile,native=str(args.native),source_wall_s=16,hard_wall_s=30,
+         native_evidence_ram=None if args.native_evidence_ram is None else str(args.native_evidence_ram),
++        source_clock_contract=args.source_clock_contract,
+         mode='B',domains=dict(C=91,R=92),Gazebo=0,Nav2=0,Goal=0,NN=0,arm=False),indent=2))
+     def launch(role,argv,pipe=False):
+         err=(base/(role+'.stderr.txt')).open('x');logs.append(err)
+@@ -62,7 +65,9 @@ def main():
+             '--output',prefix+'/mock-physics.json','--stop-file',prefix+'/STOP'],True)
+         ready(mock,'MOCK_PHYSICS_READY')
+         source=launch('source',wrapper+[common,'--role','source','--directory',prefix+'/source',
+-            '--feedback-hz','100','--execution-profile',profile_id])
++            '--feedback-hz','100','--execution-profile',profile_id]+
++            ([] if args.source_clock_contract=='legacy-steady' else
++                ['--source-clock-contract',args.source_clock_contract]))
+         source.wait(timeout=max(.01,deadline-time.monotonic()-6))
+     except BaseException as exc:error=repr(exc)
+     finally:
