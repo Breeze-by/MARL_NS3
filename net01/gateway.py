@@ -270,12 +270,27 @@ class Gateway:
 
     def status(self):
         clock_publishers=self.r.count_publishers('/clock')
+        rpc_cleanup=dict(C_pending=0,R_pending=0,C_service_inflight=0,
+            C_retired_services=0,C_unadmitted_unknown_total=0,
+            local_cleanup_pending=sum(not future.done() for guard in self.guards.values()
+                for future in guard.futures))
+        if self.wires is not None:
+            rpc_cleanup.update(
+                C_pending=sum(not future.done() for future,typ,generation in self.action_c.pending.values()),
+                R_pending=sum(response is None for action in self.action_r.values()
+                    for response in action.requests.values()),
+                C_service_inflight=sum(state['inflight'] for states in
+                    [*self.action_c.service_states.values(),*self.action_c.retired_services.values()]
+                    for state in states),
+                C_retired_services=sum(len(states) for states in self.action_c.retired_services.values()),
+                C_unadmitted_unknown_total=self.action_c.blocked_requests)
         data=dict(mode=self.mode,session_id=self.session_id,connected=self.connected,
             failure=self.failure,anchor=self.anchor,gz_ns=self.gz,ns3_ns=self.hub.horizon_ns,
             gateway_monotonic_ns=time.monotonic_ns(),
             # This existing R executor timer runs after complete construction.
             clock_reader_ready=True,clock_publishers=clock_publishers,
             clock_writer_discovered=clock_publishers>0,
+            actual_rpc_cleanup=rpc_cleanup,
             guards={str(r):dict(armed=g.guard.armed,fault=g.guard.fault,reason=g.guard.reason())
                 for r,g in self.guards.items()})
         self.health_status.publish(String(data=json.dumps(data)))
