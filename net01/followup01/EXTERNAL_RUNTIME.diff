@@ -1,0 +1,256 @@
+diff --git a/net01/action_wire.py b/net01/action_wire.py
+index 0795aec..98e6854 100644
+--- a/net01/action_wire.py
++++ b/net01/action_wire.py
+@@ -12,9 +12,8 @@ import time
+ from action_msgs.msg import GoalStatusArray
+ from action_msgs.srv import CancelGoal
+ from nav2_msgs.action import NavigateToPose
+-from rclpy.action import ActionClient
+ from rclpy.callback_groups import ReentrantCallbackGroup
+-from rclpy.qos import QoSProfile, qos_profile_action_status_default
++from rclpy.qos import QoSProfile, qos_profile_action_status_default, qos_check_compatible, QoSCompatibility
+ from rclpy.serialization import serialize_message, deserialize_message
+ from rclpy.task import Future
+ from std_msgs.msg import Bool
+@@ -39,12 +38,11 @@ class ActionWire:
+         self.ready_received={};self.ready_sequence={}
+         self.endpoints={};self.generation={r:0 for r in self.robots}
+         self.pending={};self.requests={}
+-        self.clients={};self.probes={};self.subscriptions=[]
++        self.clients={};self.subscriptions=[]
+         self.forwarded_requests=0;self.duplicate_requests=0;self.blocked_requests=0
+         self.unknown_responses=0
+         if robot is not None:
+             name=self.name(robot)
+-            self.probes[robot]=ActionClient(node,NavigateToPose,name,callback_group=self.group)
+             for offset,typ,suffix in SERVICES:
+                 self.clients[offset]=node.create_client(typ,name+'/_action/'+suffix,callback_group=self.group)
+             self.subscriptions=[
+@@ -67,9 +65,23 @@ class ActionWire:
+     def _publish_wire(self,robot,offset,message):
+         self.send(0,self.flow(robot,offset),serialize_message(message),self.next_id())
+ 
++    def backend_is_ready(self):
++        # Reuse the actual typed business endpoints. A second ActionClient just
++        # for discovery also consumes feedback/status and duplicates hot work.
++        if not all(client.service_is_ready() for client in self.clients.values()):return False
++        for subscription,expected_type in zip(self.subscriptions,
++                ('nav2_msgs/action/NavigateToPose_FeedbackMessage','action_msgs/msg/GoalStatusArray')):
++            publishers=self.node.get_publishers_info_by_topic(subscription.topic_name)
++            # Graph SYSTEM_DEFAULT warnings are not proven incompatibility;
++            # the installed native ActionClient oracle accepts these defaults.
++            if not any(info.topic_type==expected_type and qos_check_compatible(
++                    info.qos_profile,subscription.qos_profile)[0]!=QoSCompatibility.ERROR
++                    for info in publishers):return False
++        return True
++
+     def poll_readiness(self):
+         if self.robot is not None:
+-            ready=self.probes[self.robot].server_is_ready()
++            ready=self.backend_is_ready()
+             if self.guardian is not None:ready=ready and self.guardian.guard.may_send_goal()
+             self.ready[self.robot]=ready
+             self._publish_wire(self.robot,8,Bool(data=ready))
+@@ -142,7 +154,7 @@ class ActionWire:
+                 return
+             # A latched goal gate must still permit real GetResult/CancelGoal cleanup.
+             admission=self.ready[robot] if self.guardian is None or offset==0 else True
+-            if not admission or not self.probes[robot].server_is_ready():
++            if not admission or not self.backend_is_ready():
+                 self.blocked_requests+=1;return
+             request=deserialize_message(body,typ.Request)
+             if self.guardian is not None and offset==0 and not self.guardian.observe_send_goal(request):
+@@ -165,4 +177,3 @@ class ActionWire:
+         else:
+             for subscription in self.subscriptions:self.node.destroy_subscription(subscription)
+             for client in self.clients.values():self.node.destroy_client(client)
+-            for probe in self.probes.values():probe.destroy()
+diff --git a/net01/bound_peer.py b/net01/bound_peer.py
+index e00ea88..9ad1598 100644
+--- a/net01/bound_peer.py
++++ b/net01/bound_peer.py
+@@ -89,6 +89,7 @@ def decode_bound(packet, robot, session_id):
+ 
+ class BoundPeer(frozen.PeerKeepout):
+     def __init__(self, scene, directory, *, session_id):
++        self.tf_input_records=[]
+         super().__init__(scene,directory,timing=False)
+         qos = QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)
+         self.bound_publishers = {r:self.create_publisher(UInt8MultiArray,
+@@ -99,6 +100,25 @@ class BoundPeer(frozen.PeerKeepout):
+                 lambda message,r=robot:self.binding.mask(r,message))
+         self.health = ObservedPublisher(self.health,self.binding.health)
+ 
++    def receive_tf(self,message,robot,static):
++        # Observe the actual original callback exactly once. No new Buffer
++        # query, input queue, subscription, filtering or stamp adjustment.
++        row=dict(robot=robot,static=static,before_monotonic_ns=time.monotonic_ns(),
++            before_node_sim_ns=self.get_clock().now().nanoseconds,
++            held_correction_stamp_before=self.correction_stamps.get(robot),
++            tf_edges=[dict(frame_id=t.header.frame_id,child_frame_id=t.child_frame_id,
++                stamp_ns=t.header.stamp.sec*1_000_000_000+t.header.stamp.nanosec)
++                for t in message.transforms],original_returned=False)
++        try:
++            value=super().receive_tf(message,robot,static)
++            row["original_returned"]=True
++            return value
++        finally:
++            row.update(after_monotonic_ns=time.monotonic_ns(),
++                after_node_sim_ns=self.get_clock().now().nanoseconds,
++                held_correction_stamp_after=self.correction_stamps.get(robot))
++            self.tf_input_records.append(row)
++
+     def publish_bound(self, robot, packet):
+         self.bound_publishers[robot].publish(UInt8MultiArray(data=array("B",packet)))
+ 
+@@ -107,8 +127,11 @@ class BoundPeer(frozen.PeerKeepout):
+         with (self.directory/"bound-mask-publications.jsonl").open("x") as stream:
+             for record in self.binding.records:
+                 stream.write(json.dumps(record)+"\n")
++        with (self.directory/"bound-peer-tf-calls.jsonl").open("x") as stream:
++            for record in self.tf_input_records:stream.write(json.dumps(record)+"\n")
+         (self.directory/"bound-mask-recording-saved.json").write_text(json.dumps(dict(
+-            saved=True,mask_records=len(self.binding.records),pending_undelimited_masks=len(self.binding.pending)))+"\n")
++            saved=True,mask_records=len(self.binding.records),tf_callback_records=len(self.tf_input_records),
++            pending_undelimited_masks=len(self.binding.pending)))+"\n")
+ 
+ 
+ def main():
+diff --git a/net01/gateway.py b/net01/gateway.py
+index 8cc3431..0a63b92 100644
+--- a/net01/gateway.py
++++ b/net01/gateway.py
+@@ -15,7 +15,7 @@ import time
+ import rclpy
+ from rclpy.clock import Clock, ClockType
+ from rclpy.context import Context
+-from rclpy.executors import SingleThreadedExecutor
++from rclpy.executors import SingleThreadedExecutor,TimeoutException,ShutdownException
+ from rclpy.node import Node
+ from rclpy.parameter import Parameter
+ from rclpy.qos import QoSProfile, DurabilityPolicy, qos_profile_sensor_data
+@@ -34,11 +34,35 @@ from link_session import LinkSession
+ from topic_wire import TopicWire
+ 
+ 
++def drain_current_ready(executor,node):
++    """One bounded public ready batch, in original SingleThreaded order.
++
++    Keep the executor's cached iterator across cap hits. Do not wait/rebuild an
++    empty waitset for every other-domain callback or favor any topic/timer.
++    """
++    cap=sum(len(tuple(getattr(node,name))) for name in
++        ('subscriptions','timers','clients','services','guards','waitables'))
++    completed=[]
++    for _ in range(cap):
++        try:handler,entity,_=executor.wait_for_ready_callbacks(timeout_sec=0)
++        except (TimeoutException,ShutdownException):break
++        began=time.monotonic()
++        handler()
++        if handler.exception() is not None:raise handler.exception()
++        handler.result()
++        completed.append((entity,began))
++    return completed,cap
++
++
+ class Gateway:
+     def __init__(self, mode, socket, directory, session_id):
+         self.mode,self.directory,self.session_id=mode,Path(directory),session_id
+         self.records=[];self.direct=deque();self.direct_sequence=0
+         self.contexts=[];self.nodes=[];self.executors=[]
++        self.dispatch_stats=dict(C=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
++            R=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
++            guard_timers={},max_poll_gap_wall_s=0.)
++        self.last_poll=None
+         for domain,side in ((91,"C"),(92,"R")):
+             context=Context()
+             rclpy.init(context=context,domain_id=domain,signal_handler_options=SignalHandlerOptions.NO)
+@@ -175,7 +199,23 @@ class Gateway:
+         # Stay alive to spin real R Cancel/GetResult/PAUSE and zero publishers.
+ 
+     def poll(self):
+-        for executor in self.executors:executor.spin_once(timeout_sec=0)
++        now=time.monotonic()
++        if self.last_poll is not None:self.dispatch_stats['max_poll_gap_wall_s']=max(
++            self.dispatch_stats['max_poll_gap_wall_s'],now-self.last_poll)
++        self.last_poll=now
++        for side,executor,node in zip(('C','R'),self.executors,self.nodes):
++            before=time.monotonic();cpu=time.thread_time()
++            completed,cap=drain_current_ready(executor,node)
++            stat=self.dispatch_stats[side];stat['batches']+=1;stat['callbacks']+=len(completed)
++            stat['cap_hits']+=int(len(completed)==cap)
++            stat['max_wall_s']=max(stat['max_wall_s'],time.monotonic()-before)
++            stat['max_cpu_s']=max(stat['max_cpu_s'],time.thread_time()-cpu)
++            for entity,began in completed:
++                for robot,guard in self.guards.items():
++                    if entity is guard.timer:
++                        timer=self.dispatch_stats['guard_timers'].setdefault(str(robot),dict(calls=0,max_gap_wall_s=0.,last=None))
++                        if timer['last'] is not None:timer['max_gap_wall_s']=max(timer['max_gap_wall_s'],began-timer['last'])
++                        timer['calls']+=1;timer['last']=began
+         if self.failure:return
+         self.hub.poll()
+         if self.anchor is None or not self.hub.ready:return
+@@ -201,6 +241,7 @@ class Gateway:
+ 
+     def persist(self):
+         data=dict(mode=self.mode,anchor=self.anchor,failure=self.failure,
++            dispatch_stats=self.dispatch_stats,
+             cleanup=self.cleanup,
+             records=self.records,link=self.link.events,
+             guards={str(r):dict(events=g.guard.events,actions=g.records,
+diff --git a/net01/topic_wire.py b/net01/topic_wire.py
+index 79b33dc..7421cd9 100644
+--- a/net01/topic_wire.py
++++ b/net01/topic_wire.py
+@@ -51,6 +51,13 @@ def qos(spec):
+         if spec["transient"] else DurabilityPolicy.VOLATILE))
+ 
+ 
++def tf_headers(message):
++    """Value-only provenance; never replace or reserialize a transform."""
++    return [dict(frame_id=t.header.frame_id,child_frame_id=t.child_frame_id,
++        stamp_ns=t.header.stamp.sec*1_000_000_000+t.header.stamp.nanosec)
++        for t in message.transforms]
++
++
+ class TopicWire:
+     def __init__(self, node, side, send, *, bound_masks=False, runtime=False):
+         if side not in ("R", "C"):
+@@ -76,10 +83,13 @@ class TopicWire:
+         spec = self.specs[flow]
+         header = getattr(message, "header", None)
+         stamp = 0 if header is None else header.stamp.sec*1_000_000_000+header.stamp.nanosec
+-        self.captured.append(dict(flow=flow, robot=spec["robot"], bytes=len(body),
++        row=dict(flow=flow, robot=spec["robot"], bytes=len(body),
+             cdr_sha256=hashlib.sha256(body).hexdigest(),
+             source_stamp_ns=stamp, source_stamp_available=header is not None,
+-            endpoint_capture_monotonic_ns=now))
++            endpoint_capture_monotonic_ns=now,
++            capture_node_sim_ns=self.node.get_clock().now().nanoseconds)
++        if spec["cls"] is TFMessage:row["tf_edges"]=tf_headers(message)
++        self.captured.append(row)
+         sender, receiver = (spec["robot"], 0) if self.side == "R" else (0, spec["robot"])
+         self.send(sender, receiver, flow, body, 0, stamp)
+ 
+@@ -90,7 +100,17 @@ class TopicWire:
+         if (meta["sender"], meta["receiver"]) != (expected_sender, expected_receiver) or rpc_id != 0 or flow not in self.publishers:
+             raise ValueError("Cross-robot/direction/topic identity violation")
+         message = deserialize_message(cdr, spec["cls"])
+-        self.delivered.append(dict(meta, cdr_bytes=len(cdr),
++        row=dict(meta, cdr_bytes=len(cdr),
+             cdr_sha256=hashlib.sha256(cdr).hexdigest(),
+-            endpoint_publish_monotonic_ns=time.monotonic_ns()))
+-        self.publishers[flow].publish(message)
++            destination_node_sim_ns=self.node.get_clock().now().nanoseconds,
++            publisher_returned=False)
++        if spec["cls"] is TFMessage:row["tf_edges"]=tf_headers(message)
++        self.delivered.append(row)
++        row["endpoint_publish_monotonic_ns"]=time.monotonic_ns()
++        row["publish_before_thread_cpu_ns"]=time.thread_time_ns()
++        try:
++            self.publishers[flow].publish(message)
++            row["publisher_returned"]=True
++        finally:
++            row["publish_after_monotonic_ns"]=time.monotonic_ns()
++            row["publish_after_thread_cpu_ns"]=time.thread_time_ns()

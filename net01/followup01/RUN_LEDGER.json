@@ -1,0 +1,332 @@
+{
+  "scope": "NET01 followup01 only; old original ledger unchanged",
+  "Gazebo_budget": 3,
+  "actual_Gazebo": 3,
+  "combined_actual": 87,
+  "B": "NOT RUN",
+  "C": "NOT RUN",
+  "old_A01": "Preserved separately, cumulative84",
+  "Gazebo_cases": [
+    {
+      "case": "net01-a-corridor-6201-02",
+      "actual_followup_start": 1,
+      "combined_actual_start": 85,
+      "source": "1c56a8909eb77da01ef61fae3902d39dc1f590b0",
+      "mode": "IDEAL-DIRECT-ADAPTER (not WiFi)",
+      "Gazebo": true,
+      "NN": 0,
+      "goal_requests": 0,
+      "autonomy_t0_sim": null,
+      "autonomy_elapsed_sim": 0.0,
+      "error": "Actual STA guard refused arm: 1",
+      "hazard": null,
+      "coverage": null,
+      "T90": null,
+      "T95": null,
+      "T98": null,
+      "metric_status": "NOT MEASURED; no healthy complete180sim case; no empty/old metric substituted",
+      "path_m": {
+        "tb1": 0.004799433046612886,
+        "tb2": 0.004742751276985677,
+        "tb3": 0.004688077907572752
+      },
+      "observed_stop": true,
+      "three_pause": true,
+      "ownership_closed": true,
+      "run_integrity": false,
+      "gateway_failure": null,
+      "gateway_cleanup": {
+        "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+        "end_frame_flushed": true,
+        "executor_shutdown": [
+          true,
+          true
+        ],
+        "resources_destroyed": true,
+        "unresolved_C_RPC": [],
+        "unresolved_R_RPC": [],
+        "unresolved_local_cleanup_futures": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        }
+      },
+      "runner_exit": 1,
+      "hub_exit": 0,
+      "native_result": "net-01/workspace/runs/net01-a-corridor-6201-02.network/result.json",
+      "runtime_result": "runs/net01-a-corridor-6201-02/result.json"
+    },
+    {
+      "case": "net01-a-corridor-6201-03",
+      "actual_followup_start": 2,
+      "combined_actual_start": 86,
+      "source": "29c7cbba2f2e3775fd3c368eb03d315c258e802f",
+      "mode": "IDEAL-DIRECT-ADAPTER (not WiFi)",
+      "Gazebo": true,
+      "NN": 1,
+      "goal_requests": 3,
+      "autonomy_t0_sim": 31.0,
+      "autonomy_elapsed_sim": 12.0,
+      "error": "Network guardian INVALID: {\"robot\": 3, \"session_id\": 2026110913, \"reason\": \"health_original_sources_stale\"}",
+      "hazard": null,
+      "coverage": null,
+      "T90": null,
+      "T95": null,
+      "T98": null,
+      "metric_status": "NOT MEASURED; no healthy complete180sim case; no empty/old metric substituted",
+      "path_m": {
+        "tb1": 0.4486888721539079,
+        "tb2": 0.23181320799192537,
+        "tb3": 0.3750184575717246
+      },
+      "observed_stop": true,
+      "three_pause": true,
+      "ownership_closed": true,
+      "run_integrity": false,
+      "gateway_failure": null,
+      "gateway_cleanup": {
+        "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+        "end_frame_flushed": true,
+        "executor_shutdown": [
+          false,
+          true
+        ],
+        "resources_destroyed": true,
+        "unresolved_C_RPC": [
+          {
+            "robot": 1,
+            "flow_offset": 3,
+            "rpc_id": 8702080109403701252
+          },
+          {
+            "robot": 2,
+            "flow_offset": 3,
+            "rpc_id": 8702080109403701253
+          },
+          {
+            "robot": 3,
+            "flow_offset": 3,
+            "rpc_id": 8702080109403701254
+          }
+        ],
+        "unresolved_R_RPC": [],
+        "unresolved_local_cleanup_futures": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        }
+      },
+      "runner_exit": 1,
+      "hub_exit": 0,
+      "native_result": "net-01/workspace/runs/net01-a-corridor-6201-03.network/result.json",
+      "runtime_result": "runs/net01-a-corridor-6201-03/result.json"
+    },
+    {
+      "case": "net01-a-corridor-6201-04",
+      "actual_followup_start": 3,
+      "combined_actual_start": 87,
+      "source": "a41a5216e95217cdbf63bf4023957699ec3a6978",
+      "mode": "IDEAL-DIRECT-ADAPTER (not WiFi)",
+      "Gazebo": true,
+      "NN": 1,
+      "goal_requests": 3,
+      "autonomy_t0_sim": 30.4,
+      "autonomy_elapsed_sim": 8.100000000000001,
+      "error": "peer odom/source-time TF not fresh: {'sequence': 383, 'generated_sim': 38.300000000000004, 'observer_sim': 38.5, 'heartbeat_wall_age': 0.07325603498611599, 'consumer_ages': {'tb1': {'source': 0.22800000000000153, 'correction': 0.49799999999999756}, 'tb2': {'source': 0.2430000000000021, 'correction': 0.5840000000000032}, 'tb3': {'source': 0.2220000000000013, 'correction': 0.5120000000000005}}, 'ages': {'tb1': {'source': 0.028000000000005798, 'receipt': 0.02432769601000473, 'correction': 0.2980000000000018, 'correction_receipt': 0.0075797089957632124}, 'tb2': {'source': 0.043000000000006366, 'receipt': 0.035891343955881894, 'correction': 0.38400000000000745, 'correction_receipt': 0.022782396990805864}, 'tb3': {'source': 0.02200000000000557, 'receipt': 0.005050431005656719, 'correction': 0.3120000000000047, 'correction_receipt': 0.004478604008909315}}, 'failures': {}}",
+      "hazard": null,
+      "coverage": null,
+      "T90": null,
+      "T95": null,
+      "T98": null,
+      "metric_status": "NOT MEASURED; no healthy complete180sim case; no empty/old metric substituted",
+      "path_m": {
+        "tb1": 0.5836007702068795,
+        "tb2": 0.38758546995975324,
+        "tb3": 0.5023471370615664
+      },
+      "observed_stop": true,
+      "three_pause": true,
+      "ownership_closed": true,
+      "run_integrity": false,
+      "gateway_failure": "mapped_ns3_clock_lag_above_0.12sim",
+      "gateway_cleanup": {
+        "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+        "end_frame_flushed": true,
+        "executor_shutdown": [
+          false,
+          true
+        ],
+        "resources_destroyed": true,
+        "unresolved_C_RPC": [
+          {
+            "robot": 1,
+            "flow_offset": 3,
+            "rpc_id": 8702080113698668548
+          },
+          {
+            "robot": 2,
+            "flow_offset": 3,
+            "rpc_id": 8702080113698668549
+          },
+          {
+            "robot": 3,
+            "flow_offset": 3,
+            "rpc_id": 8702080113698668550
+          }
+        ],
+        "unresolved_R_RPC": [],
+        "unresolved_local_cleanup_futures": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        }
+      },
+      "runner_exit": 1,
+      "hub_exit": 0,
+      "native_result": "net-01/workspace/runs/net01-a-corridor-6201-04.network/result.json",
+      "runtime_result": "runs/net01-a-corridor-6201-04/result.json"
+    }
+  ],
+  "isolated_attempts": [
+    {
+      "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+      "error": null,
+      "wall_s": 10.482412949961144,
+      "hard_wall_s": 20,
+      "exits": {
+        "hub": 1,
+        "peer": -2,
+        "gateway": -2,
+        "source": 0
+      },
+      "Gazebo": 0,
+      "NN": 0,
+      "case": "continuous-dds-01",
+      "status": "TOOL FAIL"
+    },
+    {
+      "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+      "error": null,
+      "wall_s": 19.50104529998498,
+      "hard_wall_s": 20,
+      "exits": {
+        "hub": 1,
+        "peer": -9,
+        "gateway": 1,
+        "source": 1
+      },
+      "Gazebo": 0,
+      "NN": 0,
+      "wrapper_pids": {
+        "hub": 1360341,
+        "peer": 1360351,
+        "gateway": 1360352,
+        "source": 1360353
+      },
+      "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior",
+      "case": "continuous-dds-02",
+      "status": "TOOL FAIL"
+    },
+    {
+      "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+      "error": null,
+      "wall_s": 11.196693718025927,
+      "hard_wall_s": 20,
+      "exits": {
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "source": 0
+      },
+      "Gazebo": 0,
+      "NN": 0,
+      "wrapper_pids": {
+        "hub": 1365858,
+        "peer": 1365866,
+        "gateway": 1365867,
+        "source": 1365868
+      },
+      "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior",
+      "case": "continuous-dds-03",
+      "status": "COMPLETED limited synthetic DDS"
+    },
+    {
+      "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+      "error": null,
+      "wall_s": 11.64084632101003,
+      "hard_wall_s": 20,
+      "exits": {
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "source": 0
+      },
+      "Gazebo": 0,
+      "NN": 0,
+      "wrapper_pids": {
+        "hub": 1383028,
+        "peer": 1383043,
+        "gateway": 1383044,
+        "source": 1383045
+      },
+      "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior",
+      "case": "continuous-dds-04",
+      "status": "COMPLETED limited synthetic DDS"
+    },
+    {
+      "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+      "error": null,
+      "wall_s": 12.102068780048285,
+      "hard_wall_s": 20,
+      "exits": {
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "source": 0
+      },
+      "Gazebo": 0,
+      "NN": 0,
+      "wrapper_pids": {
+        "hub": 1468449,
+        "peer": 1468460,
+        "gateway": 1468462,
+        "source": 1468463
+      },
+      "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior",
+      "case": "continuous-dds-05",
+      "status": "COMPLETED limited synthetic DDS"
+    },
+    {
+      "case": "readiness-endpoints-01.json",
+      "status": "FAIL",
+      "error": "RuntimeError('Actual readiness mismatch: all_actual_typed_endpoints_true')",
+      "scope": "Real generated typed endpoints and native ActionClient discovery oracle only; no goal/ActionServer/Nav2/GZ/NN/WiFi, no wait after runtime source stale",
+      "service_requests": 0
+    },
+    {
+      "case": "readiness-endpoints-02.json",
+      "status": "FAIL",
+      "error": "RuntimeError('Actual readiness mismatch: all_actual_typed_endpoints_true')",
+      "scope": "Real generated typed endpoints and native ActionClient discovery oracle only; no goal/ActionServer/Nav2/GZ/NN/WiFi, no wait after runtime source stale",
+      "service_requests": 0
+    },
+    {
+      "case": "readiness-endpoints-03.json",
+      "status": "PASS",
+      "error": null,
+      "scope": "Real generated typed endpoints and native ActionClient discovery oracle only; no goal/ActionServer/Nav2/GZ/NN/WiFi, no wait after runtime source stale",
+      "service_requests": 0
+    },
+    {
+      "case": "startup-reference-check-01",
+      "status": "PASS6",
+      "scope": "Actual container RecordVerb parse/required references readable;0Node/GZ/NN"
+    },
+    {
+      "case": "tf-metadata-direct-check-01",
+      "status": "PASS14",
+      "scope": "No Node, original one-call/field/return/exception semantics"
+    }
+  ],
+  "prior_ledger": "../RUN_LEDGER.json"
+}
