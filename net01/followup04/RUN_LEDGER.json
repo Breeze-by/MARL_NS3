@@ -1,5 +1,5 @@
 {
-  "status": "INTERIM DRAFT, through25; not final delivery",
+  "status": "INTERIM DRAFT, through26 waiting diagnosis; not final delivery",
   "source_documentation_base": "b8d5ca54b17c9c84b3c9f028f5acbf3b73ec300c",
   "Gazebo_budget": {
     "maximum": 3,
@@ -81,10 +81,10 @@
       "cumulative_actual_Gazebo": null
     },
     {
-      "case": "native-wait26",
-      "scope": "Potential low-overhead diagnostic",
-      "status": "NOT RUN; helper/root review pending, no permission inferred",
-      "evidence": null,
+      "case": "continuous-dds-26-native-wait-diagnostic",
+      "scope": "Same full-pressure native with5ms own-child proc observation;0Robot",
+      "status": "TARGETED WAIT OBSERVED, notqualification; completeRun D/writev PCAP/ledger",
+      "evidence": "CONTINUOUS26_SUMMARY.json",
       "cumulative_actual_Gazebo": null
     },
     {

@@ -1,6 +1,6 @@
-# NET01 followup04 — 中间报告草稿（截至25，尚未最终交付）
+# NET01 followup04 — 中间报告草稿（截至26，尚未最终交付）
 
-当前已得到一次120仿真秒的**直接适配参考**A10：12个真实Nav2目标全部成功，原时效、物理停稳、3PAUSE、UUID与RPC闭合和独立clock记录成立。但真实WiFi合成压力资格24仍违反原300ms心跳/mask间隔，尚无本轮真实WiFi Gazebo回合，NET01仍BLOCKED。A10收尾gzserver退出−6也未抹去。26仅待审诊断，本稿不宣称任务完成或自动开始B。
+当前已得到一次120仿真秒的**直接适配参考**A10：12个真实Nav2目标全部成功，原时效、物理停稳、3PAUSE、UUID与RPC闭合和独立clock记录成立。但真实WiFi合成压力资格24仍违反原300ms心跳/mask间隔，尚无本轮真实WiFi Gazebo回合，NET01仍BLOCKED。A10收尾gzserver退出−6也未抹去。26定向观察已定位本次native同步文件页等待，但尚未修复；本稿不宣称任务完成或自动开始B。
 
 ## 实际机器人结果
 
@@ -39,11 +39,13 @@ A10gzserver−6发生在原物理stop/3PAUSE/ExpectedHOLD之后，原错误“Ca
 | 23 controlled |seq43→44真实maskgap下界.493/.488/.509>.3，FAIL；约183wall/11CPU的Run等待不等于唯一IO/OS根因|
 | 24 controlled PeerGC |三机60accepted但seq54→55下界.420/.468/.481，health亦>.3，FAIL；GC已false，不能再归唯一GC|
 | 25 strace |原16/30压力不减；29.272wall硬界hub−9，余5角色0；真实native/tracer已精确确认退出。缺完整END/STEP CPU，诊断FAIL，不解锁B|
-| 26 low-overhead |尚待helper固定与root具体准入；NOT RUN，不是资格重试|
+| 26 proc观察 |六role0/22.906wall；完整Run中观测到PCAP/ledger同步writev页等待，不作资格PASS|
 
 24窄链：Peer54→55真正health调用间隔283.959ms，Cclock5.50到Peerentry仅1.414ms；nativeH5.52 Run199.061wall/33.831CPU，首大输出前192.099wall/29.183CPU。tb1mask先入Hub，tb2/3约205ms等该STEP后才入，最终RX→accept仅8.34/18.72/3.71ms。额外空隙主要在模型Run及后续Hub接入，不能把全部称无线传播或源Peer独迟。23/24只能定位offCPU，不能唯一归scheduler/文件IO。[24时间链](CONTINUOUS24_SUMMARY.json)。
 
 25实际采到80899writev/15043write，仅1futex，无fsync/fdatasync/sleep/yield；最长非read为PCAPwritev4.787ms、ledger3.803ms，无百毫秒阻塞写。stdin长read为等命令，非Run。完整StepTrace RAM随Hub硬杀丢失，-s0不保存JSONbody；以Run内相邻ledger事件间隔作有限替代，最大10.491ms。不能声称重现/解决24等待或唯一排除未跟踪活动。原16MBtrace保留/dev/shm并已持久复制，旧原件不覆盖。[25证据与限制](CONTINUOUS25_SUMMARY.json)。
+
+26已完整END，3813样本/proc读取错误0，原wrapper/native精确PID均退出。最大采样间隔7.854ms，四文件非原子跨度最高1.226ms，采样器CPU2.757s/19.632wall（约14%单核，非零扰动）。完整H5.43 Run137.387wall/52.356CPUms，offCPU85.031ms；16个连续样本跨76.945ms恒D/folio_wait_bit_common/writev fd5=wifi-1-0.pcap，running/runqueue/majorfault不变。H5.55 Run61.405wall/7.485CPUms，offCPU53.920ms；10样本跨46.182ms同D/writev fd3=packet-ledger.jsonl，计数亦不变。由此具体识别本26同步记录文件页等待，而不是只猜scheduler/后续stdout；不唯一追认24底层原因或硬件故障，也不据诊断exit0解锁B。[26完整边界与样本](CONTINUOUS26_SUMMARY.json)。目前没有实施记录路径修复或追加实验，待主审下一明确决策。
 
 A10按预定“自主期最大Σceil((完整body+8)/1164)”选最繁忙连续16wall，窗口约50.64–58.63sim。实际Gateway捕获odom14.69wallHz/724B（夹具30）、mixedTF69.63Hz（夹具100；map→odom约50相同，odomTF约14.69，双wheel同包5Hz而夹具单left20）、costmap.81–.875Hz/40104B（夹具2）、feedback99.94Hz/116B（夹具100）。另真实merge89约.75Hz/53284B，夹具缺89/95。因此24为部分上游更保守的混合压力负例，不能直接等同真实任务网络合同必然失败，也不能删原压力失败。捕获不等于独立证明DDS全源发布无漏。[固定选窗与每flow表](A10_OFFER_CONTRACT.json)。
 
@@ -55,7 +57,7 @@ A10按预定“自主期最大Σceil((完整body+8)/1164)”选最繁忙连续16
 | NS3 WIFI MODEL |PASS限定：实际模型/PCAP/full-byte既有证据，非硬实时承诺|
 | BIDIRECTIONAL TRANSPORT |FAIL当前合成满压力时效；有限静态内容/双向子测PASS不覆盖此失败|
 | NO DDS BYPASS |LIMITED PASS受控路由证据；A直接明确非WiFi，尚无本轮真实GZ WiFi复核|
-| TIME SYNCHRONIZATION |BLOCKED整体验收：A10 actualclock/token/ACK成立；24原wall门限失败、25等待原因未闭合|
+| TIME SYNCHRONIZATION |BLOCKED整体验收：A10 actualclock/token/ACK成立；24原wall门限失败、26定位同步记录等待尚未修复|
 | ACTION AND MESSAGE INTEGRITY |PARTIAL：真实DDS撤权后原RPC、A10十二真实UUID/RPC闭合成立；真实WiFi Nav2未运行|
 | NETWORK SAFETY |BLOCKED：direct原停机有实证；无运动/未arm资格不等于运动中网络失联安全|
 | GAZEBO NS3 CLOSED LOOP |BLOCKED：A10是直接参考，B/C NOT RUN，且gzserverpoststop−6未真实回归|
