@@ -140,6 +140,11 @@ def popen(command,*args,**kwargs):
         original.record_process(observer.directory,"network_gateway",gateway.pid)
     elif len(command)>2 and command[:2]==["python3","-B"] and command[2]==str(FROZEN/"gz01/headquarters.py"):
         kwargs["env"]=dict(os.environ,ROS_DOMAIN_ID="91")
+    elif command[:3]==["ros2","bag","record"]:
+        index=command.index("--qos-profile-overrides-path")
+        if command[index+1]!=str(FROZEN/"rl02/bag-qos.yaml"):
+            raise RuntimeError("Unexpected frozen recorder QoS path")
+        command[index+1]=str(HERE/"config/recorder-qos.yaml")
     return subprocess.Popen(command,*args,**kwargs)
 
 
