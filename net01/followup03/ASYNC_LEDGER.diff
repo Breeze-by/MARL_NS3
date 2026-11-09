@@ -207,7 +207,7 @@ index 0000000..31c14ed
 +  }
 +};
 diff --git a/net01/native/payload_transport.cc b/net01/native/payload_transport.cc
-index bfd119f..5f6e527 100644
+index bfd119f..c47b134 100644
 --- a/net01/native/payload_transport.cc
 +++ b/net01/native/payload_transport.cc
 @@ -7,6 +7,7 @@
@@ -224,7 +224,7 @@ index bfd119f..5f6e527 100644
  static constexpr uint32_t WIRE_HEADER=36, CHUNK=1200-WIRE_HEADER;
 -static std::ofstream ledger;
 +static EventLedger ledger;
-+static bool asyncLedger=false,simulatorDestroyed=false;
++static bool asyncLedger=false,simulatorDestroyAttempted=false;
 +static std::string outputDirectory;
 +static int64_t finalNs3=0,modelCpuStart=0;
  static std::map<std::string,uint64_t> counts;
@@ -324,7 +324,7 @@ index bfd119f..5f6e527 100644
 -  std::ofstream summary(directory+"/native-summary.json");summary<<"{\"counts\":{";bool first=true;for(auto& [name,n]:counts){if(!first)summary<<",";first=false;summary<<"\""<<name<<"\":"<<n;}summary<<"},\"pending_incomplete\":"<<pending.size()<<",\"completed_messages\":"<<completed.size()<<",\"ns3_ns\":"<<Simulator::Now().GetNanoSeconds()<<"}\n";
 -  Simulator::Destroy();return 0;
 +  finalNs3=Simulator::Now().GetNanoSeconds();
-+  Simulator::Destroy();simulatorDestroyed=true;
++  simulatorDestroyAttempted=true;Simulator::Destroy();
 +  ledger.finish();
 +  ledger.status(directory+"/ledger-status.json",finalNs3,threadCpu()-modelCpuStart,"");
 +  std::ofstream summary(directory+"/native-summary.json");summary<<"{\"counts\":{";bool first=true;for(auto& [name,n]:counts){if(!first)summary<<",";first=false;summary<<"\""<<name<<"\":"<<n;}summary<<"},\"pending_incomplete\":"<<pending.size()<<",\"completed_messages\":"<<completed.size()<<",\"ns3_ns\":"<<finalNs3<<"}\n";
@@ -337,9 +337,9 @@ index bfd119f..5f6e527 100644
 +  catch(const std::exception& error) {
 +    const std::string firstError=error.what();
 +    std::cerr<<"NET01 ledger/model failure: "<<firstError<<"\n";
-+    if(!simulatorDestroyed) {
++    if(!simulatorDestroyAttempted) {
 +      finalNs3=Simulator::Now().GetNanoSeconds();
-+      try {Simulator::Destroy();simulatorDestroyed=true;}
++      try {simulatorDestroyAttempted=true;Simulator::Destroy();}
 +      catch(const std::exception& cleanup) {std::cerr<<"Simulator cleanup: "<<cleanup.what()<<"\n";}
 +    }
 +    try {ledger.finish();}catch(const std::exception& cleanup) {std::cerr<<"Ledger cleanup: "<<cleanup.what()<<"\n";}

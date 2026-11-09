@@ -24,7 +24,7 @@
 using namespace ns3;
 static constexpr uint32_t WIRE_HEADER=36, CHUNK=1200-WIRE_HEADER;
 static EventLedger ledger;
-static bool asyncLedger=false,simulatorDestroyed=false;
+static bool asyncLedger=false,simulatorDestroyAttempted=false;
 static std::string outputDirectory;
 static int64_t finalNs3=0,modelCpuStart=0;
 static std::map<std::string,uint64_t> counts;
@@ -340,7 +340,7 @@ static int modelMain(int argc,char** argv) {
       <<",\"end_thread_cpu_ns\":"<<t.endCpu<<",\"end_ns3_ns\":"<<t.endNs3<<"}\n";
   }
   finalNs3=Simulator::Now().GetNanoSeconds();
-  Simulator::Destroy();simulatorDestroyed=true;
+  simulatorDestroyAttempted=true;Simulator::Destroy();
   ledger.finish();
   ledger.status(directory+"/ledger-status.json",finalNs3,threadCpu()-modelCpuStart,"");
   std::ofstream summary(directory+"/native-summary.json");summary<<"{\"counts\":{";bool first=true;for(auto& [name,n]:counts){if(!first)summary<<",";first=false;summary<<"\""<<name<<"\":"<<n;}summary<<"},\"pending_incomplete\":"<<pending.size()<<",\"completed_messages\":"<<completed.size()<<",\"ns3_ns\":"<<finalNs3<<"}\n";
@@ -353,9 +353,9 @@ int main(int argc,char** argv) {
   catch(const std::exception& error) {
     const std::string firstError=error.what();
     std::cerr<<"NET01 ledger/model failure: "<<firstError<<"\n";
-    if(!simulatorDestroyed) {
+    if(!simulatorDestroyAttempted) {
       finalNs3=Simulator::Now().GetNanoSeconds();
-      try {Simulator::Destroy();simulatorDestroyed=true;}
+      try {simulatorDestroyAttempted=true;Simulator::Destroy();}
       catch(const std::exception& cleanup) {std::cerr<<"Simulator cleanup: "<<cleanup.what()<<"\n";}
     }
     try {ledger.finish();}catch(const std::exception& cleanup) {std::cerr<<"Ledger cleanup: "<<cleanup.what()<<"\n";}
