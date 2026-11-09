@@ -13,6 +13,8 @@ import select
 import signal
 import subprocess
 import sys
+import time
+from time_control_runtime import ControlledRuntime,controlled_config
 
 HERE=Path(__file__).resolve().parent
 REPO=HERE.parent
@@ -58,17 +60,26 @@ def main():
     if net.get('control_trace',False):command.append('--control-trace')
     result=dict(start_utc=datetime.now(timezone.utc).isoformat(),hub_argv=command,runner_exit=None)
     hub=runner=None
+    controlled=ControlledRuntime(ready,REPO,case) if controlled_config(ready) is not None else None
     hub_log=case.with_name(case.name+".hub.log").open("x")
     try:
-        hub=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=hub_log,text=True,start_new_session=True)
-        readable,_,_=select.select([hub.stdout],[],[],10)
+        startup_deadline=time.monotonic()+10
+        if controlled is not None:
+            controlled.start(startup_deadline)
+            command += ['--step-observer',str(controlled.ack_relative)]
+        hub=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=hub_log,text=True,start_new_session=True,
+            **({'cwd':str(REPO)} if controlled is not None else {}))
+        readable,_,_=select.select([hub.stdout],[],[],
+            10 if controlled is None else max(0.,startup_deadline-time.monotonic()))
         if not readable:raise TimeoutError("Owned native IPC startup did not complete in 10wall")
         line=hub.stdout.readline();hub_log.write(line);hub_log.flush()
         if line.strip()!="IPC_LISTENING "+str(socket):raise RuntimeError("Owned native hub failed before ROS/Gazebo")
         relative=args.ready.resolve().relative_to(REPO)
         with case.with_name(case.name+".native.log").open("x") as log:
-            runner=subprocess.Popen(["bash",str(HERE/"ros-python.sh"),"/mnt/net01/boot_network.py",
-                "--ready","/mnt/"+str(relative)],stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+            runner_command=(["bash",str(HERE/"ros-python.sh"),"/mnt/net01/boot_network.py",
+                "--ready","/mnt/"+str(relative)] if controlled is None else
+                controlled.python_command(['/mnt/net01/boot_network.py','--ready','/mnt/'+str(relative)]))
+            runner=subprocess.Popen(runner_command,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
             try:result["runner_exit"]=runner.wait(timeout=1000)
             except subprocess.TimeoutExpired:
                 result["host_timeout"]=True;os.killpg(runner.pid,signal.SIGINT)
@@ -91,6 +102,7 @@ def main():
                 os.killpg(process.pid,signal.SIGTERM)
                 try:process.wait(timeout=5)
                 except subprocess.TimeoutExpired:os.killpg(process.pid,signal.SIGKILL);process.wait()
+        if controlled is not None and controlled.directory.exists():result['controlled_time']=controlled.close()
         hub_log.close();result["end_utc"]=datetime.now(timezone.utc).isoformat()
         outcome.write_text(json.dumps(result,indent=2))
     saved={}
@@ -103,6 +115,7 @@ def main():
     integrity=(all(row["saved"] for row in saved.values()) and result["runner_exit"]==0
         and result["hub_exit"]==0 and gateway_exit["native_exit"]==0
         and cleanup.get("resources_destroyed") is True and cleanup.get("end_frame_flushed") is True)
+    if controlled is not None:integrity=integrity and result['controlled_time']['integrity']
     case.with_name(case.name+".network-integrity.json").write_text(json.dumps(dict(
         record_saves=saved,gateway_exit=gateway_exit,network_run_integrity=integrity,
         scope="Runtime/source/stop remain separately in original result; no metric PASS implied"),indent=2))

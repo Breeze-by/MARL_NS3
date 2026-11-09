@@ -31,6 +31,15 @@ def launch_setup(context):
         if world_text.count(original_rate)!=1:raise RuntimeError('Expected one original world wall update rate')
         world.write_text(world_text.replace(original_rate,
             f"<real_time_update_rate>{profile['world_real_time_update_rate']}</real_time_update_rate>"))
+        if profile.get('controlled_physics',False):
+            if context.environment.get('NET01_TIME_CONTROL')!='1':
+                raise RuntimeError('Controlled physics requires its owned host sidecars')
+            plugin=Path(context.environment['NET01_TIME_CONTROL_PLUGIN'])
+            if not plugin.is_file():raise FileNotFoundError(plugin)
+            world_text=world.read_text()
+            if world_text.count('</world>')!=1:raise RuntimeError('Expected one derived world')
+            world.write_text(world_text.replace('</world>',
+                f'<plugin name="net01_time_control" filename="{plugin}"/></world>'))
         params=directory/'net01-clock-params.yaml'
         params.write_text(f"/gazebo:\n  ros__parameters:\n    publish_rate: {profile['clock_publish_rate_sim_hz']}\n")
         adaptation=world.with_suffix('.adaptation.json')
@@ -38,6 +47,9 @@ def launch_setup(context):
         metadata.update(ode_update_hz=profile['world_real_time_update_rate'],
             execution_profile=profile['id'],clock_source=dict(node='/gazebo',parameter='publish_rate',
                 value=profile['clock_publish_rate_sim_hz'],params_file=str(params)))
+        if profile.get('controlled_physics',False):
+            metadata['controlled_time']=dict(plugin=str(plugin),initial_pause=True,
+                physical_step_service='/net01/physics_step',token_steps=10)
         adaptation.write_text(json.dumps(metadata,indent=2)+'\n')
         (directory/'execution-profile.json').write_text(json.dumps(profile,indent=2)+'\n')
     merge_script=str(_frozen.PHASE/'workspace/src/merge_map/merge_map/merge_map.py')
@@ -47,7 +59,8 @@ def launch_setup(context):
     for action in original:
         if profile is not None and isinstance(action,IncludeLaunchDescription) and 'world' in dict(action.launch_arguments):
             action=IncludeLaunchDescription(action.launch_description_source,
-                launch_arguments=[*action.launch_arguments,('params_file',str(params))])
+                launch_arguments=[*action.launch_arguments,('params_file',str(params)),
+                    *([('pause','true')] if profile.get('controlled_physics',False) else [])])
         # Only the original plain ExecuteProcess commands are inspected. Node
         # command substitutions remain deferred to their original execution.
         if type(action) is ExecuteProcess:

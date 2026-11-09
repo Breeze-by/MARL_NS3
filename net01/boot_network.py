@@ -8,6 +8,7 @@ from pathlib import Path
 import signal
 import subprocess
 import sys
+from time_control_runtime import controlled_config
 
 HERE=Path(__file__).resolve().parent
 sys.path[:0]=[str(HERE.parent/"workspace/gz01"),str(HERE.parent/"workspace/src/multi_robot_exploration")]
@@ -20,7 +21,8 @@ def main():
     ready=frozen.validate_ready(args.ready)
     net=ready["network"]
     if ready.get("authorized_net01_execution") is not True:raise ValueError("No NET-01 root admission")
-    if (ready["sim_budget"],ready["startup_wall"],ready["autonomous_wall"],ready["outer_wall"],ready["cleanup_wall"])!=(180,180,420,900,90):
+    controlled=controlled_config(ready)
+    if (ready["sim_budget"],ready["startup_wall"],ready["autonomous_wall"],ready["outer_wall"],ready["cleanup_wall"])!=((120 if controlled is not None else 180),180,420,900,90):
         raise ValueError("NET-01 fixed bounds changed")
     if net["mode"] not in ("A","B","C") or ready["arm"]!="rl":raise ValueError("Only fixed A/B/C RL")
     for relative,expected in net["adapter_sha256"].items():
@@ -38,6 +40,9 @@ def main():
     os.environ['NET01_DISPATCH_PROFILE']='1' if net.get('dispatch_profile',False) else '0'
     os.environ['NET01_CONTROL_TRACE']='1' if net.get('control_trace',False) else '0'
     os.environ['NET01_EXECUTION_PROFILE']=net.get('execution_profile','')
+    if controlled is not None:
+        if os.environ.get('NET01_TIME_CONTROL')!='1' or not Path(os.environ['NET01_TIME_CONTROL_PLUGIN']).is_file():
+            raise ValueError('Controlled host artifact mounts/sidecars missing')
     os.environ["GAZEBO_MODEL_PATH"]="/project/assets/gazebo_models:"+os.environ.get("GAZEBO_MODEL_PATH","")
     os.environ.pop("GZ01_BATCH_GDB",None);os.environ.pop("GZ01_HOST_GDB",None)
     result=dict(start_utc=datetime.now(timezone.utc).isoformat(),native_exit=None,outer_timeout=False,cleanup_timeout=False)
