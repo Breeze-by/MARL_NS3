@@ -1,0 +1,207 @@
+{
+  "scope": "One root-admitted synthetic direct DDS diagnostic, not Nav2/Gazebo/physical safety/network performance acceptance",
+  "runtime_commit": "92a54ac2a48b128d6c1485ca38429534b21f66a7",
+  "raw_case": "runs/continuous-dds-18-direct-dispatchprofile",
+  "result": {
+    "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+    "error": null,
+    "wall_s": 20.706963487959,
+    "hard_wall_s": 30,
+    "execution_profile": {
+      "id": "pace500-clock100-q10ms",
+      "world_real_time_update_rate": 500,
+      "physics_max_step_size_unchanged": 0.001,
+      "clock_publish_rate_sim_hz": 100.0,
+      "native_step_quantum_ns": 10000000,
+      "qualification": {
+        "source_wall_s": 16,
+        "hard_wall_s": 30,
+        "clock_period_wall_s": 0.02,
+        "clock_increment_ns": 10000000,
+        "other_sources": "Original per-wall TF/odom/FB rates retained; conservatively denser per simulated second",
+        "peer": "Original 10Hz simulation-time timer"
+      },
+      "scope": "New matched execution profile; WallRate and sim-time frequencies differ; not pointwise equivalent to v1.1.0 runtime"
+    },
+    "exits": {
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "source": 0
+    },
+    "Gazebo": 0,
+    "NN": 0,
+    "wrapper_pids": {
+      "hub": 1802189,
+      "peer": 1802192,
+      "gateway": 1802193,
+      "source": 1802194
+    },
+    "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior"
+  },
+  "gateway_failure": null,
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "actual_source_wall_s": 16.022531848982908,
+  "counts": [
+    {
+      "robot": 1,
+      "odom_source": 481,
+      "odom_R_capture": 481,
+      "odom_C_publish": 481,
+      "map_odom_source": 801,
+      "map_odom_R_capture": 796,
+      "feedback_source": 1601,
+      "feedback_R_capture": 1484,
+      "feedback_C_destination": 1484
+    },
+    {
+      "robot": 2,
+      "odom_source": 480,
+      "odom_R_capture": 480,
+      "odom_C_publish": 480,
+      "map_odom_source": 800,
+      "map_odom_R_capture": 788,
+      "feedback_source": 1600,
+      "feedback_R_capture": 1483,
+      "feedback_C_destination": 1483
+    },
+    {
+      "robot": 3,
+      "odom_source": 480,
+      "odom_R_capture": 480,
+      "odom_C_publish": 480,
+      "map_odom_source": 800,
+      "map_odom_R_capture": 796,
+      "feedback_source": 1599,
+      "feedback_R_capture": 1483,
+      "feedback_C_destination": 1483
+    }
+  ],
+  "peer": {
+    "total": 82,
+    "ready": 80,
+    "not_ready": [
+      {
+        "sequence": 1,
+        "failures": {
+          "tb1": "missing_odom",
+          "tb2": "missing_odom",
+          "tb3": "missing_odom"
+        }
+      },
+      {
+        "sequence": 2,
+        "failures": {
+          "tb1": "missing_odom",
+          "tb2": "missing_odom",
+          "tb3": "missing_odom"
+        }
+      }
+    ],
+    "max_ready_ages": {
+      "tb1": {
+        "source": 0.010000000000001563,
+        "receipt": 0.022166614013258368,
+        "correction": 0.31000000000000005,
+        "correction_receipt": 0.0320033339667134
+      },
+      "tb2": {
+        "source": 0.02000000000000135,
+        "receipt": 0.03567748999921605,
+        "correction": 0.3100000000000005,
+        "correction_receipt": 0.031723683001473546
+      },
+      "tb3": {
+        "source": 0.02000000000000135,
+        "receipt": 0.024815823999233544,
+        "correction": 0.31000000000000005,
+        "correction_receipt": 0.02729407697916031
+      }
+    }
+  },
+  "longspan_count": 149,
+  "non_poll_longspans": [
+    {
+      "stage": "R:wait:ready",
+      "begin_monotonic_ns": 430603585241437,
+      "end_monotonic_ns": 430603651233565,
+      "begin_thread_cpu_ns": 1379702055,
+      "end_thread_cpu_ns": 1445693456
+    },
+    {
+      "stage": "progress_inclusive",
+      "begin_monotonic_ns": 430603083352830,
+      "end_monotonic_ns": 430603135299856,
+      "begin_thread_cpu_ns": 879876026,
+      "end_thread_cpu_ns": 931254542
+    }
+  ],
+  "longest_poll": {
+    "stage": "poll_inclusive",
+    "begin_monotonic_ns": 430603557461853,
+    "end_monotonic_ns": 430603746853045,
+    "begin_thread_cpu_ns": 1352000621,
+    "end_thread_cpu_ns": 1541106729
+  },
+  "dispatch_stats": {
+    "C": {
+      "batches": 153,
+      "callbacks": 2165,
+      "cap_hits": 1,
+      "max_wall_s": 0.06098929204745218,
+      "max_cpu_s": 0.06072598200000079,
+      "empty_recheck_started": 748,
+      "empty_recheck_skips": 2308
+    },
+    "R": {
+      "batches": 153,
+      "callbacks": 16357,
+      "cap_hits": 144,
+      "max_wall_s": 0.14554574788780883,
+      "max_cpu_s": 0.14560947400000046
+    },
+    "guard_timers": {
+      "1": {
+        "calls": 811,
+        "max_gap_wall_s": 0.08285234199138358,
+        "last": 430619.684963843
+      },
+      "2": {
+        "calls": 801,
+        "max_gap_wall_s": 0.08290100598242134,
+        "last": 430619.689367957
+      },
+      "3": {
+        "calls": 805,
+        "max_gap_wall_s": 0.0763888259534724,
+        "last": 430619.690979255
+      }
+    },
+    "max_poll_gap_wall_s": 0.18946334900101647,
+    "schedule": "C/R cached handlers alternate in fixed quantum4; stop after a pair when either initial cap is used",
+    "side_span_semantics": "max_wall/cpu are accumulated side service time per poll, including pump; not contiguous batches or single-callback spans"
+  },
+  "conclusion": "A07 175.647ms capture gap NOT REPRODUCED. Largest all-topic R gap88.898ms contains R ready-query65.992ms (65.991ms threadCPU). No >=10ms individual ROS handler/direct-batch/hub-poll/journal in this fixture. Aggregate CPU proves costs in this diagnostic only; cannot uniquely attribute historical A07. Main poll189.391ms includes interleaved callbacks and pump; not one non-preemptible callback.",
+  "limits": [
+    "RAM timing adds diagnostic overhead; source fixture has no real C policy/journal data or Nav2 actions.",
+    "Poll/handler/journal/progress nesting is inclusive; never sum parent and child totals.",
+    "Ready wait records do not identify returned entity; no retrospective claim of which A07 handler blocked.",
+    "No new GZ/Goal/arm/NN; B remains paused.",
+    "Generated feedback1601/1600/1599 vs captured1484/1483/1483; this profile diagnostic is not zero-loss. Missing captures do not prove network loss in modeA."
+  ]
+}
