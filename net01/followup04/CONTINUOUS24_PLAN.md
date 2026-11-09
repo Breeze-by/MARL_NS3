@@ -15,3 +15,9 @@ Criticalacceptance uses originalgates: Peerodomreceipt<=.2wall, sourceodom/corre
 Report actualsourcecounts/intervals, realinjections/completeRx/acceptedmask perSTA,healthgap/heldsourceages andRTF. Original180/420=.428571 qualification remainsFAILED at22; futureallA/B/C scopeis preregistered120/420=.285714 engineering. Passingnewfloor neverexcuses wall/sourcegatefailures or proves180sim. A10positive finiteexecution doesnotretroactivelyproveA09uniquelyGC orhardRT.
 
 Onlyone24 afterspecificrootapproval, noautomaticretry/rate/queue/pacer/TTL changes onfailure. NoGazebo/B/C permission is implied; root separately reviews this result and actualA10 evidence before decidinganyremaining slot3. No NET02/training/push/systemnetwork change.
+
+## Final source fixation before admission
+
+Active transport/PeerGC remainsc617; fullproductioncode is582f2b238828fb6b8b0832e000cb3757bdc10ae5. Its additionalGateway change is post-resource-destruction persistence only: identical defaultJSON is encoded once, with savedmarker persisttime/peakRSS fields. One194,104,625B actualA10 old-file check found exacttext equality/native0,9.12698s encode+write (read/parse excluded), not a productionmemorybound. Evidence90d5fd7, no slowdump replay. Fixture finally mirror remainsa928299. Noactivecallback/order/clock/mask/RNG/networkcondition changes were bundled.
+
+The separateaabba39 physical-plugin memberlifetime repair/newa49b artifact applies only to future realGZshutdown;24 usesMOCK_PHYSICS and doesnotloadthisDSO. OldA10 usede224 and its poststop-6 remains recorded. AllCPU validation/buildwork hasended before24. C hasno remainingGazebo allocation thisround; the lastslot3 couldonlybe separatelyroot-admittedB afterall24criticalgates, never a fourthstart orautomaticcontinuation.
