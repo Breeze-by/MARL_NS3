@@ -51,6 +51,13 @@ def qos(spec):
         if spec["transient"] else DurabilityPolicy.VOLATILE))
 
 
+def tf_headers(message):
+    """Value-only provenance; never replace or reserialize a transform."""
+    return [dict(frame_id=t.header.frame_id,child_frame_id=t.child_frame_id,
+        stamp_ns=t.header.stamp.sec*1_000_000_000+t.header.stamp.nanosec)
+        for t in message.transforms]
+
+
 class TopicWire:
     def __init__(self, node, side, send, *, bound_masks=False, runtime=False):
         if side not in ("R", "C"):
@@ -76,10 +83,13 @@ class TopicWire:
         spec = self.specs[flow]
         header = getattr(message, "header", None)
         stamp = 0 if header is None else header.stamp.sec*1_000_000_000+header.stamp.nanosec
-        self.captured.append(dict(flow=flow, robot=spec["robot"], bytes=len(body),
+        row=dict(flow=flow, robot=spec["robot"], bytes=len(body),
             cdr_sha256=hashlib.sha256(body).hexdigest(),
             source_stamp_ns=stamp, source_stamp_available=header is not None,
-            endpoint_capture_monotonic_ns=now))
+            endpoint_capture_monotonic_ns=now,
+            capture_node_sim_ns=self.node.get_clock().now().nanoseconds)
+        if spec["cls"] is TFMessage:row["tf_edges"]=tf_headers(message)
+        self.captured.append(row)
         sender, receiver = (spec["robot"], 0) if self.side == "R" else (0, spec["robot"])
         self.send(sender, receiver, flow, body, 0, stamp)
 
@@ -90,7 +100,17 @@ class TopicWire:
         if (meta["sender"], meta["receiver"]) != (expected_sender, expected_receiver) or rpc_id != 0 or flow not in self.publishers:
             raise ValueError("Cross-robot/direction/topic identity violation")
         message = deserialize_message(cdr, spec["cls"])
-        self.delivered.append(dict(meta, cdr_bytes=len(cdr),
+        row=dict(meta, cdr_bytes=len(cdr),
             cdr_sha256=hashlib.sha256(cdr).hexdigest(),
-            endpoint_publish_monotonic_ns=time.monotonic_ns()))
-        self.publishers[flow].publish(message)
+            destination_node_sim_ns=self.node.get_clock().now().nanoseconds,
+            publisher_returned=False)
+        if spec["cls"] is TFMessage:row["tf_edges"]=tf_headers(message)
+        self.delivered.append(row)
+        row["endpoint_publish_monotonic_ns"]=time.monotonic_ns()
+        row["publish_before_thread_cpu_ns"]=time.thread_time_ns()
+        try:
+            self.publishers[flow].publish(message)
+            row["publisher_returned"]=True
+        finally:
+            row["publish_after_monotonic_ns"]=time.monotonic_ns()
+            row["publish_after_thread_cpu_ns"]=time.thread_time_ns()

@@ -15,7 +15,7 @@ import time
 import rclpy
 from rclpy.clock import Clock, ClockType
 from rclpy.context import Context
-from rclpy.executors import SingleThreadedExecutor
+from rclpy.executors import SingleThreadedExecutor,TimeoutException,ShutdownException
 from rclpy.node import Node
 from rclpy.parameter import Parameter
 from rclpy.qos import QoSProfile, DurabilityPolicy, qos_profile_sensor_data
@@ -34,11 +34,35 @@ from link_session import LinkSession
 from topic_wire import TopicWire
 
 
+def drain_current_ready(executor,node):
+    """One bounded public ready batch, in original SingleThreaded order.
+
+    Keep the executor's cached iterator across cap hits. Do not wait/rebuild an
+    empty waitset for every other-domain callback or favor any topic/timer.
+    """
+    cap=sum(len(tuple(getattr(node,name))) for name in
+        ('subscriptions','timers','clients','services','guards','waitables'))
+    completed=[]
+    for _ in range(cap):
+        try:handler,entity,_=executor.wait_for_ready_callbacks(timeout_sec=0)
+        except (TimeoutException,ShutdownException):break
+        began=time.monotonic()
+        handler()
+        if handler.exception() is not None:raise handler.exception()
+        handler.result()
+        completed.append((entity,began))
+    return completed,cap
+
+
 class Gateway:
     def __init__(self, mode, socket, directory, session_id):
         self.mode,self.directory,self.session_id=mode,Path(directory),session_id
         self.records=[];self.direct=deque();self.direct_sequence=0
         self.contexts=[];self.nodes=[];self.executors=[]
+        self.dispatch_stats=dict(C=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
+            R=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
+            guard_timers={},max_poll_gap_wall_s=0.)
+        self.last_poll=None
         for domain,side in ((91,"C"),(92,"R")):
             context=Context()
             rclpy.init(context=context,domain_id=domain,signal_handler_options=SignalHandlerOptions.NO)
@@ -175,7 +199,23 @@ class Gateway:
         # Stay alive to spin real R Cancel/GetResult/PAUSE and zero publishers.
 
     def poll(self):
-        for executor in self.executors:executor.spin_once(timeout_sec=0)
+        now=time.monotonic()
+        if self.last_poll is not None:self.dispatch_stats['max_poll_gap_wall_s']=max(
+            self.dispatch_stats['max_poll_gap_wall_s'],now-self.last_poll)
+        self.last_poll=now
+        for side,executor,node in zip(('C','R'),self.executors,self.nodes):
+            before=time.monotonic();cpu=time.thread_time()
+            completed,cap=drain_current_ready(executor,node)
+            stat=self.dispatch_stats[side];stat['batches']+=1;stat['callbacks']+=len(completed)
+            stat['cap_hits']+=int(len(completed)==cap)
+            stat['max_wall_s']=max(stat['max_wall_s'],time.monotonic()-before)
+            stat['max_cpu_s']=max(stat['max_cpu_s'],time.thread_time()-cpu)
+            for entity,began in completed:
+                for robot,guard in self.guards.items():
+                    if entity is guard.timer:
+                        timer=self.dispatch_stats['guard_timers'].setdefault(str(robot),dict(calls=0,max_gap_wall_s=0.,last=None))
+                        if timer['last'] is not None:timer['max_gap_wall_s']=max(timer['max_gap_wall_s'],began-timer['last'])
+                        timer['calls']+=1;timer['last']=began
         if self.failure:return
         self.hub.poll()
         if self.anchor is None or not self.hub.ready:return
@@ -201,6 +241,7 @@ class Gateway:
 
     def persist(self):
         data=dict(mode=self.mode,anchor=self.anchor,failure=self.failure,
+            dispatch_stats=self.dispatch_stats,
             cleanup=self.cleanup,
             records=self.records,link=self.link.events,
             guards={str(r):dict(events=g.guard.events,actions=g.records,

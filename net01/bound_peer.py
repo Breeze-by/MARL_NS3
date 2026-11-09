@@ -89,6 +89,7 @@ def decode_bound(packet, robot, session_id):
 
 class BoundPeer(frozen.PeerKeepout):
     def __init__(self, scene, directory, *, session_id):
+        self.tf_input_records=[]
         super().__init__(scene,directory,timing=False)
         qos = QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)
         self.bound_publishers = {r:self.create_publisher(UInt8MultiArray,
@@ -99,6 +100,25 @@ class BoundPeer(frozen.PeerKeepout):
                 lambda message,r=robot:self.binding.mask(r,message))
         self.health = ObservedPublisher(self.health,self.binding.health)
 
+    def receive_tf(self,message,robot,static):
+        # Observe the actual original callback exactly once. No new Buffer
+        # query, input queue, subscription, filtering or stamp adjustment.
+        row=dict(robot=robot,static=static,before_monotonic_ns=time.monotonic_ns(),
+            before_node_sim_ns=self.get_clock().now().nanoseconds,
+            held_correction_stamp_before=self.correction_stamps.get(robot),
+            tf_edges=[dict(frame_id=t.header.frame_id,child_frame_id=t.child_frame_id,
+                stamp_ns=t.header.stamp.sec*1_000_000_000+t.header.stamp.nanosec)
+                for t in message.transforms],original_returned=False)
+        try:
+            value=super().receive_tf(message,robot,static)
+            row["original_returned"]=True
+            return value
+        finally:
+            row.update(after_monotonic_ns=time.monotonic_ns(),
+                after_node_sim_ns=self.get_clock().now().nanoseconds,
+                held_correction_stamp_after=self.correction_stamps.get(robot))
+            self.tf_input_records.append(row)
+
     def publish_bound(self, robot, packet):
         self.bound_publishers[robot].publish(UInt8MultiArray(data=array("B",packet)))
 
@@ -107,8 +127,11 @@ class BoundPeer(frozen.PeerKeepout):
         with (self.directory/"bound-mask-publications.jsonl").open("x") as stream:
             for record in self.binding.records:
                 stream.write(json.dumps(record)+"\n")
+        with (self.directory/"bound-peer-tf-calls.jsonl").open("x") as stream:
+            for record in self.tf_input_records:stream.write(json.dumps(record)+"\n")
         (self.directory/"bound-mask-recording-saved.json").write_text(json.dumps(dict(
-            saved=True,mask_records=len(self.binding.records),pending_undelimited_masks=len(self.binding.pending)))+"\n")
+            saved=True,mask_records=len(self.binding.records),tf_callback_records=len(self.tf_input_records),
+            pending_undelimited_masks=len(self.binding.pending)))+"\n")
 
 
 def main():
