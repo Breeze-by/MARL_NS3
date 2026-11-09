@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "checks": {
+    "defaultoff_original_handler_result_pump_order": true,
+    "profile_handler_error_original_propagation": true,
+    "profile_wait_error_original_propagation": true,
+    "defaultoff_progress_returns_original_value": true,
+    "profile_hub_error_original_propagation": true,
+    "profile_categories_do_not_merge_handler_and_progress": true
+  },
+  "scope": "Exact diagnostic function AST; no Node/ROS/Gazebo/NN, no throughput claim",
+  "calls": {
+    "Node": 0,
+    "Gazebo": 0,
+    "NN": 0
+  }
+}

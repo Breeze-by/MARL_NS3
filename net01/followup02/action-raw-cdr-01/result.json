@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "checks": {
+    "real_R_subscriptions_are_raw_original_types": true,
+    "matched_real_DDS_source_published": true,
+    "R_native_raw_capture_is_bytes": true,
+    "feedback_capture_to_C_DDS_raw_bytes_exact": true,
+    "status_capture_to_C_DDS_raw_bytes_exact": true,
+    "all_feedback_typed_fields_and_original_UUID_exact": true,
+    "all_statuses_UUIDs_and_stamps_exact": true,
+    "readiness_Bool_timer_remains_typed_false": true,
+    "no_goal_or_other_business_RPC": true
+  },
+  "error": null,
+  "domains": {
+    "R": 96,
+    "C": 97
+  },
+  "wire": "Complete original Action CDR plus original flow/rpc in local queue, not WiFi",
+  "source_raw_bytes": {
+    "226": 116,
+    "227": 61
+  },
+  "scope": "Real DDS publisher\u2192R raw ActionWire\u2192complete local wire\u2192C original typed publisher publish(bytes)\u2192actual typed+raw DDS consumers; explicit controlled facade and canceled C expiry timer only for this data check, no native Nav2 readiness claim",
+  "calls": {
+    "Gazebo": 0,
+    "NN": 0,
+    "Goal": 0,
+    "Nav2": 0,
+    "Node": 2
+  }
+}

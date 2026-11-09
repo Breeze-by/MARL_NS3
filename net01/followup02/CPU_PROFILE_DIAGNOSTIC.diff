@@ -1,0 +1,233 @@
+diff --git a/net01/followup01/continuous_dds.py b/net01/followup01/continuous_dds.py
+index a926531..363e82e 100644
+--- a/net01/followup01/continuous_dds.py
++++ b/net01/followup01/continuous_dds.py
+@@ -150,10 +150,11 @@ def peer(directory,stop_file):
+         (directory/'fixture-stop-overhead.json').write_text(json.dumps(checks))
+ 
+ 
+-def gateway(directory,stop_file):
++def gateway(directory,stop_file,dispatch_profile):
+     sys.path.insert(0,str(HERE))
+     from gateway import Gateway
+-    node=Gateway('A',directory.parent/'wire.sock',directory,2026110912)
++    node=Gateway('A',directory.parent/'wire.sock',directory,2026110912,
++        dispatch_profile=dispatch_profile)
+     checks=[];next_check=0
+     try:
+         while True:
+@@ -167,12 +168,12 @@ def gateway(directory,stop_file):
+     return 0 if clean else 1
+ 
+ 
+-def host(name,feedback_hz):
++def host(name,feedback_hz,dispatch_profile):
+     repo=HERE.parent;phase=repo.parent
+     base=repo/'runs'/name;base.mkdir(exist_ok=False)
+     for role_name in ('source','peer','gateway'):(base/role_name).mkdir()
+     (base/'scope.json').write_text(json.dumps(dict(scope='Synthetic-clock continuous DDS diagnostic; NOT GZ TIME/NET safety',
+-        hard_wall_s=20,source_wall_s=8,feedback_hz=feedback_hz,domains=dict(C=91,R=92),mode='A direct',Gazebo=0,Nav2=0,ActionServer=0,NN=0)))
++        hard_wall_s=20,source_wall_s=8,feedback_hz=feedback_hz,dispatch_profile=dispatch_profile,domains=dict(C=91,R=92),mode='A direct',Gazebo=0,Nav2=0,ActionServer=0,NN=0)))
+     start=time.monotonic();deadline=start+19.5;processes={};logs=[];error=None
+     def launch(role,args,pipe=False):
+         log=(base/(role+'.stderr.txt')).open('x');logs.append(log)
+@@ -191,7 +192,7 @@ def host(name,feedback_hz):
+         if not readable or hub.stdout.readline().strip()!='IPC_LISTENING '+str(socket):raise RuntimeError('Native IPC startup failed')
+         stop='/mnt/runs/'+name+'/STOP'
+         launch('peer',wrapper+[sub,'--role','peer','--directory','/mnt/runs/'+name+'/peer','--stop-file',stop])
+-        launch('gateway',wrapper+[sub,'--role','gateway','--directory','/mnt/runs/'+name+'/gateway','--stop-file',stop])
++        launch('gateway',wrapper+[sub,'--role','gateway','--directory','/mnt/runs/'+name+'/gateway','--stop-file',stop]+(['--dispatch-profile'] if dispatch_profile else []))
+         src=launch('source',wrapper+[sub,'--role','source','--directory','/mnt/runs/'+name+'/source','--feedback-hz',str(feedback_hz)])
+         src.wait(timeout=max(.01,deadline-time.monotonic()-3))
+     except BaseException as exc:error=repr(exc)
+@@ -218,6 +219,7 @@ if __name__=='__main__':
+     parser.add_argument('--directory',type=Path)
+     parser.add_argument('--name',default='continuous-dds-02');parser.add_argument('--stop-file',type=Path)
+     parser.add_argument('--feedback-hz',type=int,default=0)
++    parser.add_argument('--dispatch-profile',action='store_true')
+     a=parser.parse_args()
+-    raise SystemExit(host(a.name,a.feedback_hz) if a.role=='host' else source(a.directory,a.feedback_hz) if a.role=='source' else
+-        gateway(a.directory,a.stop_file) if a.role=='gateway' else peer(a.directory,a.stop_file))
++    raise SystemExit(host(a.name,a.feedback_hz,a.dispatch_profile) if a.role=='host' else source(a.directory,a.feedback_hz) if a.role=='source' else
++        gateway(a.directory,a.stop_file,a.dispatch_profile) if a.role=='gateway' else peer(a.directory,a.stop_file))
+diff --git a/net01/gateway.py b/net01/gateway.py
+index e96a5d1..9b1aa81 100644
+--- a/net01/gateway.py
++++ b/net01/gateway.py
+@@ -34,7 +34,15 @@ from link_session import LinkSession
+ from topic_wire import TopicWire
+ 
+ 
+-def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limit=None):
++def record_cpu_span(table,key,wall,cpu):
++    elapsed=time.monotonic_ns()-wall;used=time.thread_time_ns()-cpu
++    row=table.setdefault(key,dict(calls=0,wall_ns=0,thread_cpu_ns=0,max_wall_ns=0))
++    row['calls']+=1;row['wall_ns']+=elapsed;row['thread_cpu_ns']+=used
++    row['max_wall_ns']=max(row['max_wall_ns'],elapsed)
++
++
++def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limit=None,
++                        profile=None,entity_label=None):
+     """Bounded productive ready sets, in original SingleThreaded order.
+ 
+     Keep the executor's cached iterator across cap hits. Do not wait/rebuild an
+@@ -46,18 +54,30 @@ def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limi
+         ('subscriptions','timers','clients','services','guards','waitables'))
+     completed=[]
+     while len(completed)<cap:
+-        try:handler,entity,_=executor.wait_for_ready_callbacks(timeout_sec=0)
++        if profile is not None:wait_wall=time.monotonic_ns();wait_cpu=time.thread_time_ns()
++        wait_kind='error'
++        try:
++            handler,entity,_=executor.wait_for_ready_callbacks(timeout_sec=0)
++            wait_kind='ready'
+         except TimeoutException:
++            wait_kind='productive_set_end' if ready_set['productive'] else 'empty_set'
+             if not ready_set['productive']:break
+             ready_set['productive']=False
+             continue
+         except ShutdownException:
++            wait_kind='shutdown'
+             ready_set['shutdown']=True
+             break
++        finally:
++            if profile is not None:record_cpu_span(profile['wait'],wait_kind,wait_wall,wait_cpu)
+         began=time.monotonic()
+-        handler()
+-        if handler.exception() is not None:raise handler.exception()
+-        handler.result()
++        if profile is not None:handler_wall=time.monotonic_ns();handler_cpu=time.thread_time_ns()
++        try:
++            handler()
++            if handler.exception() is not None:raise handler.exception()
++            handler.result()
++        finally:
++            if profile is not None:record_cpu_span(profile['handlers'],entity_label(entity),handler_wall,handler_cpu)
+         completed.append((entity,began))
+         ready_set['productive']=True
+         if after_handler is not None:after_handler()
+@@ -65,7 +85,7 @@ def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limi
+ 
+ 
+ class Gateway:
+-    def __init__(self, mode, socket, directory, session_id):
++    def __init__(self, mode, socket, directory, session_id, *, dispatch_profile=False):
+         self.mode,self.directory,self.session_id=mode,Path(directory),session_id
+         self.records=[];self.direct=deque();self.direct_sequence=0
+         self.contexts=[];self.nodes=[];self.executors=[]
+@@ -73,8 +93,11 @@ class Gateway:
+         self.dispatch_stats=dict(C=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
+             R=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
+             guard_timers={},max_poll_gap_wall_s=0.,
+-            schedule='C/R cached handlers alternate; stop after a pair when either initial cap is used',
++            schedule='C/R cached handlers alternate in fixed quantum4; stop after a pair when either initial cap is used',
+             side_span_semantics='max_wall/cpu are accumulated side service time per poll, including pump; not contiguous batches or single-callback spans')
++        self.cpu_profile=(dict(C=dict(wait={},handlers={}),R=dict(wait={},handlers={}),progress={})
++            if dispatch_profile else None)
++        self.profile_labels={}
+         self.last_poll=None
+         for domain,side in ((91,"C"),(92,"R")):
+             context=Context()
+@@ -154,8 +177,32 @@ class Gateway:
+         self.action_r={r:ActionWire(self.r,
+             lambda peer,flow,body,rpc,r=r:self.send(r,peer,flow,body,rpc),
+             robot=r,session_id=self.session_id,guardian=self.guards[r]) for r in (1,2,3)}
++        if self.cpu_profile is not None:
++            for side,wire in self.wires.items():
++                outgoing=[flow for flow,spec in wire.specs.items()
++                    if (side=='R')==(spec['direction']=='up')]
++                for subscription,flow in zip(wire.subscriptions,outgoing):
++                    self.profile_labels[subscription]=f'flow{flow}:{subscription.topic_name}'
++            for robot,subscription in enumerate(self.bound_c.subscriptions,1):
++                self.profile_labels[subscription]=f'flow{robot*20+10}:{subscription.topic_name}'
++            for robot,action in self.action_r.items():
++                self.profile_labels[action.timer]=f'action_readiness_tb{robot}'
++                for offset,subscription in zip((6,7),action.subscriptions):
++                    self.profile_labels[subscription]=f'flow{action.flow(robot,offset)}:{subscription.topic_name}'
++            self.profile_labels[self.action_c.timer]='central_readiness_expiry'
+         self.record("business_subscriptions_created",actual_wifi_handshake=self.mode!="A")
+ 
++    def profile_entity(self,entity):
++        if entity in self.profile_labels:return self.profile_labels[entity]
++        if entity is self.clock_sub:return 'control_clock'
++        if entity is self.status_timer:return 'gateway_status_timer'
++        if entity is self.journal_timer:return 'journal_timer'
++        for robot,guard in self.guards.items():
++            if entity is guard.timer:return f'guard_timer_tb{robot}'
++        if hasattr(entity,'topic_name'):return 'subscription:'+entity.topic_name
++        if hasattr(entity,'srv_name'):return type(entity).__name__+':'+entity.srv_name
++        return type(entity).__name__
++
+     def receive(self,meta,body,rpc):
+         self.record("destination_complete_message",meta=meta,rpc_id=rpc,cdr_bytes=len(body))
+         if self.link.receive(meta,body,rpc):return
+@@ -228,7 +275,9 @@ class Gateway:
+                 if self.ready_sets[side]['shutdown']:continue
+                 before=time.monotonic();cpu=time.thread_time()
+                 completed,_=drain_current_ready(executor,node,self.ready_sets[side],
+-                    self.progress_transport,callback_limit=1)
++                    self.progress_transport,callback_limit=min(4,caps[side]-used[side]),
++                    profile=None if self.cpu_profile is None else self.cpu_profile[side],
++                    entity_label=self.profile_entity)
+                 spans[side]['wall']+=time.monotonic()-before
+                 spans[side]['cpu']+=time.thread_time()-cpu
+                 used[side]+=len(completed)
+@@ -239,7 +288,7 @@ class Gateway:
+                             timer=self.dispatch_stats['guard_timers'].setdefault(str(robot),dict(calls=0,max_gap_wall_s=0.,last=None))
+                             if timer['last'] is not None:timer['max_gap_wall_s']=max(timer['max_gap_wall_s'],began-timer['last'])
+                             timer['calls']+=1;timer['last']=began
+-            # An empty side is tried again after the other side does work.
++            # An empty side is tried again after at most four other-side handlers.
+             # Once either cap is used, defer all remaining work to the next poll.
+             if not productive or any(used[side]>=caps[side] for side in ('C','R')):break
+         for side in ('C','R'):
+@@ -250,10 +299,19 @@ class Gateway:
+         self.progress_transport()
+ 
+     def progress_transport(self):
++        if self.cpu_profile is None:return self._progress_transport()
++        wall=time.monotonic_ns();cpu=time.thread_time_ns()
++        try:return self._progress_transport()
++        finally:record_cpu_span(self.cpu_profile['progress'],'total_inclusive',wall,cpu)
++
++    def _progress_transport(self):
+         # Called between completed ROS handlers as well as at the outer boundary.
+         # Never wait for native progress or replace actual receipts with a cache.
+         if self.failure:return
+-        self.hub.poll()
++        if self.cpu_profile is not None:wall=time.monotonic_ns();cpu=time.thread_time_ns()
++        try:self.hub.poll()
++        finally:
++            if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'hub_poll',wall,cpu)
+         if self.anchor is None or not self.hub.ready:return
+         latest=self.gz-self.anchor["offset_ns"]
+         if latest-self.hub.horizon_ns>120_000_000:
+@@ -266,10 +324,14 @@ class Gateway:
+             if not self.connected:
+                 self.connected=True;self.install_wires()
+             # Fixed current batch only; responses enqueue for a later loop turn.
+-            for _ in range(len(self.direct)):
+-                meta,body,rpc=self.direct.popleft()
+-                meta["endpoint_receive_monotonic_ns"]=time.monotonic_ns()
+-                self.receive(meta,body,rpc)
++            if self.cpu_profile is not None:wall=time.monotonic_ns();cpu=time.thread_time_ns()
++            try:
++                for _ in range(len(self.direct)):
++                    meta,body,rpc=self.direct.popleft()
++                    meta["endpoint_receive_monotonic_ns"]=time.monotonic_ns()
++                    self.receive(meta,body,rpc)
++            finally:
++                if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'direct_batch',wall,cpu)
+         else:
+             if not self.link.sent and self.hub.horizon_ns>=600_000_000:self.link.begin()
+             if self.link.ready and not self.connected:
+@@ -286,6 +348,9 @@ class Gateway:
+         if self.wires is not None:
+             data["topics"]={side:dict(captured=w.captured,delivered=w.delivered) for side,w in self.wires.items()}
+             data["bound_masks"]=self.bound_r.received
++        if self.cpu_profile is not None:
++            data['dispatch_cpu_profile']=dict(aggregates=self.cpu_profile,
++                semantics='wait and handler totals exclude progress; progress total_inclusive contains hub_poll/direct_batch; do not sum parent and children. Async handler measures executing step only, not pending Future time. RAM only, diagnostic opt-in.')
+         with (self.directory/"network-gateway.json").open("x") as stream:json.dump(data,stream)
+         (self.directory/"network-gateway-saved.json").write_text(json.dumps(dict(saved=True,
+             mode=self.mode,records=len(self.records),failure=self.failure,

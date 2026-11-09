@@ -47,9 +47,9 @@ class ActionWire:
                 self.clients[offset]=node.create_client(typ,name+'/_action/'+suffix,callback_group=self.group)
             self.subscriptions=[
                 node.create_subscription(NavigateToPose.Impl.FeedbackMessage,name+'/_action/feedback',
-                    partial(self._publish_wire,robot,6),QoSProfile(depth=10),callback_group=self.group),
+                    partial(self._publish_raw_wire,robot,6),QoSProfile(depth=10),callback_group=self.group,raw=True),
                 node.create_subscription(GoalStatusArray,name+'/_action/status',
-                    partial(self._publish_wire,robot,7),qos_profile_action_status_default,callback_group=self.group)]
+                    partial(self._publish_raw_wire,robot,7),qos_profile_action_status_default,callback_group=self.group,raw=True)]
         self.timer=node.create_timer(readiness_period_s,self.poll_readiness,callback_group=self.group)
 
     @staticmethod
@@ -64,6 +64,9 @@ class ActionWire:
 
     def _publish_wire(self,robot,offset,message):
         self.send(0,self.flow(robot,offset),serialize_message(message),self.next_id())
+
+    def _publish_raw_wire(self,robot,offset,body):
+        self.send(0,self.flow(robot,offset),body,self.next_id())
 
     def backend_is_ready(self):
         # Reuse the actual typed business endpoints. A second ActionClient just
@@ -140,8 +143,7 @@ class ActionWire:
             elif offset in (6,7):
                 endpoints=self.endpoints.get(robot)
                 if endpoints is not None:
-                    typ=NavigateToPose.Impl.FeedbackMessage if offset==6 else GoalStatusArray
-                    endpoints[1 if offset==6 else 2].publish(deserialize_message(body,typ))
+                    endpoints[1 if offset==6 else 2].publish(body)
             else:raise ValueError('Unexpected robot-to-central Action flow')
         else:
             typ=next((typ for index,typ,_ in SERVICES if index==offset),None)
