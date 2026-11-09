@@ -1,0 +1,278 @@
+{
+  "status": "PASS",
+  "checks": {
+    "installed_recorder_parser_accepts_original_flags": true,
+    "actual_external_qos_path_readable": true,
+    "original_tf_static_depth100": true,
+    "original_map_TL": true,
+    "direct_launch_refs_readable": true,
+    "installed_executables_present": true
+  },
+  "recorder_argv": [
+    "ros2",
+    "bag",
+    "record",
+    "--use-sim-time",
+    "--include-hidden-topics",
+    "--storage",
+    "sqlite3",
+    "--max-bag-size",
+    "134217728",
+    "--max-cache-size",
+    "10485760",
+    "--qos-profile-overrides-path",
+    "/mnt/net01/config/recorder-qos.yaml",
+    "--output",
+    "/mnt/runs/net01-a-corridor-6201-01/bag",
+    "/clock",
+    "/gazebo/model_states",
+    "/gazebo/link_states",
+    "/merge_map",
+    "/peer_keepout_state",
+    "/tb1/scan",
+    "/tb1/odom",
+    "/tb1/map",
+    "/tb1/tf",
+    "/tb1/tf_static",
+    "/tb1/cmd_vel",
+    "/tb1/drive_diagnostics",
+    "/tb1/navigate_to_pose/_action/status",
+    "/tb1/navigate_to_pose/_action/feedback",
+    "/tb1/plan",
+    "/tb1/local_plan",
+    "/tb1/local_costmap/costmap",
+    "/tb1/global_costmap/costmap",
+    "/tb1/peer_keepout_filter_info",
+    "/tb2/scan",
+    "/tb2/odom",
+    "/tb2/map",
+    "/tb2/tf",
+    "/tb2/tf_static",
+    "/tb2/cmd_vel",
+    "/tb2/drive_diagnostics",
+    "/tb2/navigate_to_pose/_action/status",
+    "/tb2/navigate_to_pose/_action/feedback",
+    "/tb2/plan",
+    "/tb2/local_plan",
+    "/tb2/local_costmap/costmap",
+    "/tb2/global_costmap/costmap",
+    "/tb2/peer_keepout_filter_info",
+    "/tb3/scan",
+    "/tb3/odom",
+    "/tb3/map",
+    "/tb3/tf",
+    "/tb3/tf_static",
+    "/tb3/cmd_vel",
+    "/tb3/drive_diagnostics",
+    "/tb3/navigate_to_pose/_action/status",
+    "/tb3/navigate_to_pose/_action/feedback",
+    "/tb3/plan",
+    "/tb3/local_plan",
+    "/tb3/local_costmap/costmap",
+    "/tb3/global_costmap/costmap",
+    "/tb3/peer_keepout_filter_info"
+  ],
+  "recorder_topics": [
+    "/clock",
+    "/gazebo/model_states",
+    "/gazebo/link_states",
+    "/merge_map",
+    "/peer_keepout_state",
+    "/tb1/scan",
+    "/tb1/odom",
+    "/tb1/map",
+    "/tb1/tf",
+    "/tb1/tf_static",
+    "/tb1/cmd_vel",
+    "/tb1/drive_diagnostics",
+    "/tb1/navigate_to_pose/_action/status",
+    "/tb1/navigate_to_pose/_action/feedback",
+    "/tb1/plan",
+    "/tb1/local_plan",
+    "/tb1/local_costmap/costmap",
+    "/tb1/global_costmap/costmap",
+    "/tb1/peer_keepout_filter_info",
+    "/tb2/scan",
+    "/tb2/odom",
+    "/tb2/map",
+    "/tb2/tf",
+    "/tb2/tf_static",
+    "/tb2/cmd_vel",
+    "/tb2/drive_diagnostics",
+    "/tb2/navigate_to_pose/_action/status",
+    "/tb2/navigate_to_pose/_action/feedback",
+    "/tb2/plan",
+    "/tb2/local_plan",
+    "/tb2/local_costmap/costmap",
+    "/tb2/global_costmap/costmap",
+    "/tb2/peer_keepout_filter_info",
+    "/tb3/scan",
+    "/tb3/odom",
+    "/tb3/map",
+    "/tb3/tf",
+    "/tb3/tf_static",
+    "/tb3/cmd_vel",
+    "/tb3/drive_diagnostics",
+    "/tb3/navigate_to_pose/_action/status",
+    "/tb3/navigate_to_pose/_action/feedback",
+    "/tb3/plan",
+    "/tb3/local_plan",
+    "/tb3/local_costmap/costmap",
+    "/tb3/global_costmap/costmap",
+    "/tb3/peer_keepout_filter_info"
+  ],
+  "references": [
+    {
+      "path": "/mnt/net01/config/recorder-qos.yaml",
+      "resolved": "/mnt/net01/config/recorder-qos.yaml",
+      "readable": true
+    },
+    {
+      "path": "/mnt/inputs/scenes/regression-corridor-common-6201-dwb-v1.json",
+      "resolved": "/mnt/inputs/scenes/regression-corridor-common-6201-dwb-v1.json",
+      "readable": true
+    },
+    {
+      "path": "/mnt/inputs/worlds/eval-corridor-common-6201.sdf",
+      "resolved": "/mnt/inputs/worlds/eval-corridor-common-6201.sdf",
+      "readable": true
+    },
+    {
+      "path": "/mnt/net01/net_scene_launch.py",
+      "resolved": "/mnt/net01/net_scene_launch.py",
+      "readable": true
+    },
+    {
+      "path": "/mnt/net01/gateway.py",
+      "resolved": "/mnt/net01/gateway.py",
+      "readable": true
+    },
+    {
+      "path": "/mnt/net01/bound_peer.py",
+      "resolved": "/mnt/net01/bound_peer.py",
+      "readable": true
+    },
+    {
+      "path": "/mnt/workspace/gz01/headquarters.py",
+      "resolved": "/mnt/workspace/gz01/headquarters.py",
+      "readable": true
+    },
+    {
+      "path": "/mnt/workspace/src/merge_map/merge_map/merge_map.py",
+      "resolved": "/mnt/workspace/src/merge_map/merge_map/merge_map.py",
+      "readable": true
+    },
+    {
+      "path": "/mnt/runs/selection.json",
+      "resolved": "/mnt/runs/selection.json",
+      "readable": true
+    },
+    {
+      "path": "/mnt/runs/formal-01/checkpoint-00512.pt",
+      "resolved": "/mnt/policy/checkpoint-00512.pt",
+      "readable": true
+    },
+    {
+      "path": "/mnt/runs/formal-01/summary.json",
+      "resolved": "/mnt/runs/formal-01/summary.json",
+      "readable": true
+    },
+    {
+      "path": "/mnt/runs/formal-01/process-exit.json",
+      "resolved": "/mnt/runs/formal-01/process-exit.json",
+      "readable": true
+    },
+    {
+      "path": "/opt/ros/humble/share/gazebo_ros/launch/gzserver.launch.py",
+      "resolved": "/opt/ros/humble/share/gazebo_ros/launch/gzserver.launch.py",
+      "readable": true
+    },
+    {
+      "path": "/project/workspace/install/multi_robot/share/multi_robot/launch/nav2_bringup/bringup_launch.py",
+      "resolved": "/project/workspace/src/multi_robot/launch/nav2_bringup/bringup_launch.py",
+      "readable": true
+    },
+    {
+      "path": "/project/workspace/install/multi_robot/share/multi_robot/urdf/turtlebot3_waffle.urdf",
+      "resolved": "/project/workspace/src/multi_robot/urdf/turtlebot3_waffle.urdf",
+      "readable": true
+    },
+    {
+      "path": "/project/workspace/install/multi_robot/share/multi_robot/models/turtlebot3_waffle/model.sdf",
+      "resolved": "/project/workspace/src/multi_robot/models/turtlebot3_waffle/model.sdf",
+      "readable": true
+    },
+    {
+      "path": "/project/workspace/install/multi_robot/share/multi_robot/../../../../src/multi_robot/maps/turtlebot3_world.yaml",
+      "resolved": "/project/workspace/src/multi_robot/maps/turtlebot3_world.yaml",
+      "readable": true
+    },
+    {
+      "path": "/project/workspace/install/multi_robot/share/multi_robot/params/nav2_params_tb1_0.yaml",
+      "resolved": "/project/workspace/src/multi_robot/params/nav2_params_tb1_0.yaml",
+      "readable": true
+    },
+    {
+      "path": "/project/workspace/install/multi_robot/share/multi_robot/params/nav2_params_tb2_0.yaml",
+      "resolved": "/project/workspace/src/multi_robot/params/nav2_params_tb2_0.yaml",
+      "readable": true
+    },
+    {
+      "path": "/project/workspace/install/multi_robot/share/multi_robot/params/nav2_params_tb3_0.yaml",
+      "resolved": "/project/workspace/src/multi_robot/params/nav2_params_tb3_0.yaml",
+      "readable": true
+    },
+    {
+      "path": "/project/workspace/install/slam_toolbox/share/slam_toolbox/config/mapper_params_online_multi_async.yaml",
+      "resolved": "/project/workspace/src/slam_toolbox/config/mapper_params_online_multi_async.yaml",
+      "readable": true
+    },
+    {
+      "path": "/opt/ros/humble/share/nav2_bt_navigator/behavior_trees/navigate_to_pose_w_replanning_and_recovery.xml",
+      "resolved": "/opt/ros/humble/share/nav2_bt_navigator/behavior_trees/navigate_to_pose_w_replanning_and_recovery.xml",
+      "readable": true
+    }
+  ],
+  "executables": [
+    {
+      "path": "/opt/ros/humble/lib/gazebo_ros/spawn_entity.py",
+      "executable": true
+    },
+    {
+      "path": "/opt/ros/humble/lib/robot_state_publisher/robot_state_publisher",
+      "executable": true
+    },
+    {
+      "path": "/opt/ros/humble/lib/joint_state_publisher/joint_state_publisher",
+      "executable": true
+    },
+    {
+      "path": "/project/workspace/install/slam_toolbox/lib/slam_toolbox/multirobot_slam_toolbox_node",
+      "executable": true
+    },
+    {
+      "path": "/opt/ros/humble/lib/tf2_ros/static_transform_publisher",
+      "executable": true
+    },
+    {
+      "path": "/opt/ros/humble/bin/ros2",
+      "executable": true
+    },
+    {
+      "path": "/usr/bin/python3",
+      "executable": true
+    },
+    {
+      "path": "/usr/bin/gzserver",
+      "executable": true
+    },
+    {
+      "path": "/usr/bin/Xvfb",
+      "executable": true
+    }
+  ],
+  "scope": "Actual ros-python.sh/rootfs installed CLI parsing and direct file references only; recorder.main/rclpy.init/Node/GZ/NN not invoked",
+  "Gazebo_starts": 0,
+  "ROS_Node": 0,
+  "NN": 0
+}
