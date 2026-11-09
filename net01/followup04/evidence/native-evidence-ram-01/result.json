@@ -1,0 +1,119 @@
+{
+  "scope": "Actual helpers, tiny explicitly synthetic files only; 0Node/native/ROS/GZ, not model equality or timing qualification",
+  "checks": {
+    "non_dev_shm_path_rejected": true,
+    "insufficient_space_rejected_before_mkdir": true,
+    "owned_RAM_is_exclusive": true,
+    "live_child_not_copied": true,
+    "every_small_file_exact_after_exit": true,
+    "existing_destination_not_overwritten_and_error_recorded": true,
+    "missing_required_artifact_FAIL_retains_partial_copy_and_RAM": true
+  },
+  "status": "PASS",
+  "success": {
+    "backend": "owned_tmpfs_then_copy_after_native_exit",
+    "source": "/dev/shm/net01-native-evidence-small-01",
+    "destination": "net01/followup04/evidence/native-evidence-ram-01/native-copy",
+    "available_tmpfs_bytes": 67173806080,
+    "MemAvailable_bytes": 115444920320,
+    "source_retained": true,
+    "native_exit": 0,
+    "source_files": {
+      "native-summary.json": 32,
+      "ledger-status.json": 62,
+      "control-step-trace.jsonl": 17,
+      "packet-ledger.jsonl": 25,
+      "configured-lock.json": 2,
+      "wifi-3-0.pcap": 27,
+      "wifi-2-0.pcap": 27,
+      "wifi-1-0.pcap": 27,
+      "wifi-0-0.pcap": 27
+    },
+    "source_bytes": 246,
+    "copied_files": {
+      "wifi-1-0.pcap": 27,
+      "packet-ledger.jsonl": 25,
+      "control-step-trace.jsonl": 17,
+      "configured-lock.json": 2,
+      "ledger-status.json": 62,
+      "wifi-3-0.pcap": 27,
+      "wifi-2-0.pcap": 27,
+      "native-summary.json": 32,
+      "wifi-0-0.pcap": 27
+    },
+    "copied_bytes": 246,
+    "complete": true,
+    "copy_wall_s": 0.0030122839962132275
+  },
+  "copy_failure": {
+    "backend": "owned_tmpfs_then_copy_after_native_exit",
+    "source": "/dev/shm/net01-native-evidence-small-01",
+    "destination": "net01/followup04/evidence/native-evidence-ram-01/native-copy",
+    "available_tmpfs_bytes": 67173806080,
+    "MemAvailable_bytes": 115444920320,
+    "source_retained": true,
+    "native_exit": 0,
+    "source_files": {
+      "native-summary.json": 32,
+      "ledger-status.json": 62,
+      "control-step-trace.jsonl": 17,
+      "packet-ledger.jsonl": 25,
+      "configured-lock.json": 2,
+      "wifi-3-0.pcap": 27,
+      "wifi-2-0.pcap": 27,
+      "wifi-1-0.pcap": 27,
+      "wifi-0-0.pcap": 27
+    },
+    "source_bytes": 246,
+    "copied_files": {
+      "wifi-1-0.pcap": 27,
+      "packet-ledger.jsonl": 25,
+      "control-step-trace.jsonl": 17,
+      "configured-lock.json": 2,
+      "ledger-status.json": 62,
+      "wifi-3-0.pcap": 27,
+      "wifi-2-0.pcap": 27,
+      "native-summary.json": 32,
+      "wifi-0-0.pcap": 27
+    },
+    "copied_bytes": 246,
+    "complete": false,
+    "copy_wall_s": 0.0005386780248954892,
+    "error": "FileExistsError(17, 'File exists')"
+  },
+  "incomplete": {
+    "backend": "owned_tmpfs_then_copy_after_native_exit",
+    "source": "/dev/shm/net01-native-evidence-small-01",
+    "destination": "net01/followup04/evidence/native-evidence-ram-01/incomplete-copy",
+    "available_tmpfs_bytes": 67173806080,
+    "MemAvailable_bytes": 115444920320,
+    "source_retained": true,
+    "native_exit": 0,
+    "source_files": {
+      "native-summary.json": 32,
+      "ledger-status.json": 62,
+      "packet-ledger.jsonl": 25,
+      "configured-lock.json": 2,
+      "wifi-3-0.pcap": 27,
+      "wifi-2-0.pcap": 27,
+      "wifi-1-0.pcap": 27,
+      "wifi-0-0.pcap": 27
+    },
+    "source_bytes": 229,
+    "copied_files": {
+      "wifi-1-0.pcap": 27,
+      "packet-ledger.jsonl": 25,
+      "configured-lock.json": 2,
+      "ledger-status.json": 62,
+      "wifi-3-0.pcap": 27,
+      "wifi-2-0.pcap": 27,
+      "native-summary.json": 32,
+      "wifi-0-0.pcap": 27
+    },
+    "copied_bytes": 229,
+    "complete": false,
+    "copy_wall_s": 0.0021556299761869013,
+    "error": "RuntimeError('Native evidence is incomplete')"
+  },
+  "RAM_source_preserved": "/dev/shm/net01-native-evidence-small-01"
+}

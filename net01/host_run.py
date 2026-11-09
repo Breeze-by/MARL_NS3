@@ -58,6 +58,8 @@ def main():
         "--native",str(native),"--output",str(evidence),"--profile",("C" if net["mode"]=="C" else "B"),
         "--wall","1000","--clock-source","gazebo"]
     if net.get('control_trace',False):command.append('--control-trace')
+    if net.get('native_evidence_ram') is not None:
+        command += ['--native-evidence-ram',net['native_evidence_ram']]
     result=dict(start_utc=datetime.now(timezone.utc).isoformat(),hub_argv=command,runner_exit=None)
     hub=runner=None
     controlled=ControlledRuntime(ready,REPO,case) if controlled_config(ready) is not None else None

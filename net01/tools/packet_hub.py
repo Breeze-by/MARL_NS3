@@ -9,6 +9,7 @@ import asyncio
 import json
 import os
 from pathlib import Path
+import shutil
 import socket
 import time
 
@@ -22,16 +23,78 @@ async def read_frame(reader):
     return meta, body
 
 
+def prepare_native_evidence(ram, destination):
+    if not ram.is_absolute() or ram.parent != Path('/dev/shm'):
+        raise ValueError('Native RAM evidence must be an exclusive direct /dev/shm child')
+    space = os.statvfs('/dev/shm')
+    available = space.f_bavail * space.f_frsize
+    memory = next(int(line.split()[1]) * 1024 for line in
+        Path('/proc/meminfo').read_text().splitlines() if line.startswith('MemAvailable:'))
+    if available < 16 * 1024**3 or memory < 24 * 1024**3:
+        raise RuntimeError('Native RAM evidence requires 16GiB tmpfs and 24GiB MemAvailable')
+    ram.mkdir(mode=0o700, exist_ok=False)
+    return dict(backend='owned_tmpfs_then_copy_after_native_exit', source=str(ram),
+        destination=str(destination), available_tmpfs_bytes=available,
+        MemAvailable_bytes=memory, source_retained=True)
+
+
+def copy_native_evidence(storage, native_exit, control_trace):
+    started = time.monotonic()
+    storage['native_exit'] = native_exit
+    try:
+        if native_exit is None:
+            raise RuntimeError('Cannot copy evidence while actual native child is alive')
+        source, destination = Path(storage['source']), Path(storage['destination'])
+        files = {str(path.relative_to(source)): path.stat().st_size
+            for path in source.rglob('*') if path.is_file()}
+        storage.update(source_files=files, source_bytes=sum(files.values()))
+        shutil.copytree(source, destination)  # New destination only; retain RAM even on failure.
+        copied = {str(path.relative_to(destination)): path.stat().st_size
+            for path in destination.rglob('*') if path.is_file()}
+        storage.update(copied_files=copied, copied_bytes=sum(copied.values()))
+        if files != copied:
+            raise RuntimeError('Native evidence copied file/size set differs')
+        required = {'configured-lock.json', 'packet-ledger.jsonl', 'ledger-status.json',
+            'native-summary.json', *(f'wifi-{node}-0.pcap' for node in range(4))}
+        if control_trace:
+            required.add('control-step-trace.jsonl')
+        if not required.issubset(files) or any(files[name] == 0 for name in required):
+            raise RuntimeError('Native evidence is incomplete')
+        ledger = json.loads((destination/'ledger-status.json').read_text())
+        summary = json.loads((destination/'native-summary.json').read_text())
+        if (native_exit != 0 or ledger['failed'] or
+                not (ledger['attempted'] == ledger['captured'] == ledger['written']) or
+                summary['counts'].get('transport_end') != 1):
+            raise RuntimeError('Native evidence lacks successful END/complete ledger')
+        storage['complete'] = True
+    except Exception as error:
+        storage.update(complete=False, error=repr(error))
+        raise
+    finally:
+        storage['copy_wall_s'] = time.monotonic() - started
+
+
 async def main(args):
     args.output.mkdir(parents=True, exist_ok=False)
-    stderr = (args.output / "native.stderr.txt").open("xb")
     native_output = args.output / "native"
-    native_output.mkdir()
+    storage = None
+    if args.native_evidence_ram is None:
+        native_output.mkdir()
+    else:
+        try:
+            storage = prepare_native_evidence(args.native_evidence_ram, native_output)
+        except Exception as error:
+            (args.output/'result.json').write_text(json.dumps(dict(status='FAIL',
+                phase='before_native_start', error=repr(error)), indent=2)+'\n')
+            raise
+        native_output = args.native_evidence_ram
+    stderr = (args.output / "native.stderr.txt").open("xb")
     command = [str(args.native.resolve()), f"--output={native_output.resolve()}", f"--profile={args.profile}"]
     if args.control_trace:command.append('--controlTrace=1')
     process = await asyncio.create_subprocess_exec(*command, stdin=asyncio.subprocess.PIPE,
         stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE if args.control_trace else stderr)
     result = dict(argv=command, scope="Unix IPC to actual ns3 full-payload transport", status="FAIL")
+    if storage is not None:result['native_evidence_storage'] = storage
     server = None
     owner = None
     finished = asyncio.Event()
@@ -211,12 +274,22 @@ async def main(args):
         stderr.close()
         (args.output/"hub-ingress.json").write_text(json.dumps(ingress, indent=2)+"\n")
         (args.output/"hub-deliveries.json").write_text(json.dumps(deliveries, indent=2)+"\n")
-        (args.output/"result.json").write_text(json.dumps(result, indent=2)+"\n")
         if args.control_trace:(args.output/'hub-clock-control.json').write_text(json.dumps(control_trace,indent=2)+'\n')
         if args.socket.exists():
             args.socket.unlink()
+        copy_error = None
+        if storage is not None:
+            try:copy_native_evidence(storage, process.returncode, args.control_trace)
+            except Exception as error:
+                copy_error = error
+                result['native_evidence_error'] = repr(error)
+                result.setdefault('error', repr(error))  # Keep the first runtime error.
+                result['status'] = 'FAIL'
+        (args.output/"result.json").write_text(json.dumps(result, indent=2)+"\n")
         if late_observer_error is not None and not primary_failed:
             raise late_observer_error
+        if copy_error is not None and not primary_failed:
+            raise copy_error
 
 
 if __name__ == "__main__":
@@ -229,6 +302,8 @@ if __name__ == "__main__":
     parser.add_argument("--allow-radio-fault", action="store_true", help="Independent no-motion negative fixture only")
     parser.add_argument("--clock-source", choices=("synthetic","gazebo"), default="synthetic")
     parser.add_argument('--control-trace',action='store_true')
+    parser.add_argument('--native-evidence-ram',type=Path,
+        help='Explicit owned /dev/shm directory; copy all native evidence after actual exit')
     parser.add_argument('--step-observer',type=Path,
         help='Explicit independent controlled-time receiver; only real native progress, no business data')
     asyncio.run(main(parser.parse_args()))

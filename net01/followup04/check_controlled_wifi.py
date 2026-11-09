@@ -20,7 +20,8 @@ from execution_profile import load_profile
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--name',required=True)
-    parser.add_argument('--native',type=Path,required=True);args=parser.parse_args()
+    parser.add_argument('--native',type=Path,required=True)
+    parser.add_argument('--native-evidence-ram',type=Path);args=parser.parse_args()
     profile_id='controlled1000-clock100-q10ms';profile=load_profile(profile_id)
     repo=HERE.parent;base=repo/'runs'/args.name;base.mkdir(exist_ok=False)
     for role in ('source','peer','gateway'):(base/role).mkdir()
@@ -28,6 +29,7 @@ def main():
     prefix='/mnt/runs/'+args.name
     (base/'scope.json').write_text(json.dumps(dict(scope='MOCK_PHYSICS + actual native WiFi, not Gazebo/Policy/physical safety',
         profile=profile,native=str(args.native),source_wall_s=16,hard_wall_s=30,
+        native_evidence_ram=None if args.native_evidence_ram is None else str(args.native_evidence_ram),
         mode='B',domains=dict(C=91,R=92),Gazebo=0,Nav2=0,Goal=0,NN=0,arm=False),indent=2))
     def launch(role,argv,pipe=False):
         err=(base/(role+'.stderr.txt')).open('x');logs.append(err)
@@ -48,7 +50,9 @@ def main():
         hub=launch('hub',[sys.executable,'-B',str(HERE/'tools/packet_hub.py'),
             '--socket',str(base/'wire.sock'),'--native',str(args.native),'--output',str(base/'hub'),
             '--profile','B','--wall','29','--clock-source','gazebo','--control-trace',
-            '--step-observer',str(base/'step.sock')],True)
+            '--step-observer',str(base/'step.sock')]+
+            ([] if args.native_evidence_ram is None else
+                ['--native-evidence-ram',str(args.native_evidence_ram)]),True)
         ready(hub,'IPC_LISTENING '+str(base/'wire.sock'))
         common='/mnt/net01/followup01/continuous_dds.py'
         launch('peer',wrapper+[common,'--role','peer','--directory',prefix+'/peer','--stop-file',prefix+'/STOP'])
