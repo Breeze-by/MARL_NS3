@@ -276,6 +276,25 @@ controller_process=None
 frozen_end_process=original.end_process
 
 
+def end_controlled_launch(process,observer):
+    if process is None or process.poll() is not None:return
+    for sig,timeout in ((signal.SIGINT,20),(signal.SIGTERM,5),(signal.SIGKILL,5)):
+        target='owned_launch_parent_pid' if sig==signal.SIGINT else 'owned_launch_process_group'
+        observer.event('process_signal',process='launch',pid=process.pid,signal=sig.name,
+            signal_target=target,timeout_wall_s=timeout)
+        # ROSlaunch forwards the first SIGINT itself. Sending it to the whole
+        # group as well would interrupt each child's finally/persistence twice.
+        if sig==signal.SIGINT:os.kill(process.pid,sig)
+        else:os.killpg(process.pid,sig)
+        until=time.monotonic()+timeout
+        while process.poll() is None and time.monotonic()<until:
+            observer.stop_zeros()
+            rclpy.spin_once(observer,timeout_sec=.02)
+        if process.poll() is not None:
+            observer.event('process_exit',process='launch',code=process.returncode)
+            return
+
+
 def end_process(process,observer,name):
     if name=='exploration':observer.final_stop_phase=True
     if name=='launch' and process is not None and observer.controlled_time:
@@ -288,6 +307,7 @@ def end_process(process,observer,name):
         frozen_end_process(gateway,observer,'network_gateway')
         observer.event('network_gateway_before_launch_exit',
             native_exit=None if gateway is None else gateway.poll())
+        return end_controlled_launch(process,observer)
     return frozen_end_process(process,observer,name)
 
 
