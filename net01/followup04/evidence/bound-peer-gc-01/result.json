@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "scope": "Actual AST constructor GC tail/restore/main finally, real CPython GC; stub persist/Node/try_shutdown. 0ROS/GZ/NN; not timing/memory endurance or actual ROS shutdown PASS",
+  "checks": {
+    "initial_GC_True": true,
+    "initial_GC_False": true,
+    "persist_failure_visible": true
+  },
+  "states": [
+    {
+      "case": "initial_GC_True",
+      "gc_runtime": {
+        "original_enabled": true,
+        "original_thresholds": [
+          700,
+          10,
+          10
+        ],
+        "scope": "Bounded NET BoundPeer processing only; refcounting unchanged",
+        "disabled_monotonic_ns": 449592503641949,
+        "processing_start_enabled": false,
+        "processing_end_monotonic_ns": 449592503657082,
+        "processing_end_enabled": false,
+        "peak_rss_KiB": 12800,
+        "restored_enabled": true,
+        "restored_thresholds": [
+          700,
+          10,
+          10
+        ],
+        "restored_monotonic_ns": 449592503673251
+      },
+      "order": [
+        "persist",
+        "destroy",
+        "try_shutdown"
+      ]
+    },
+    {
+      "case": "initial_GC_False",
+      "gc_runtime": {
+        "original_enabled": false,
+        "original_thresholds": [
+          700,
+          10,
+          10
+        ],
+        "scope": "Bounded NET BoundPeer processing only; refcounting unchanged",
+        "disabled_monotonic_ns": 449592503697613,
+        "processing_start_enabled": false,
+        "processing_end_monotonic_ns": 449592503702637,
+        "processing_end_enabled": false,
+        "peak_rss_KiB": 12800,
+        "restored_enabled": false,
+        "restored_thresholds": [
+          700,
+          10,
+          10
+        ],
+        "restored_monotonic_ns": 449592503706823
+      },
+      "order": [
+        "persist",
+        "destroy",
+        "try_shutdown"
+      ]
+    },
+    {
+      "case": "persist_failure_visible",
+      "gc_runtime": {
+        "original_enabled": true,
+        "original_thresholds": [
+          700,
+          10,
+          10
+        ],
+        "scope": "Bounded NET BoundPeer processing only; refcounting unchanged",
+        "disabled_monotonic_ns": 449592503715323,
+        "processing_start_enabled": false,
+        "processing_end_monotonic_ns": 449592503719402,
+        "processing_end_enabled": false,
+        "peak_rss_KiB": 12800,
+        "restored_enabled": true,
+        "restored_thresholds": [
+          700,
+          10,
+          10
+        ],
+        "restored_monotonic_ns": 449592503723167
+      },
+      "order": [
+        "persist",
+        "destroy",
+        "try_shutdown"
+      ]
+    }
+  ]
+}

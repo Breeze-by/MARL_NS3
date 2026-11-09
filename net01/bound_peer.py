@@ -5,9 +5,11 @@ external adapter adds transport provenance, never recomputes a mask or pose.
 """
 import argparse
 from array import array
+import gc
 import hashlib
 import json
 from pathlib import Path
+import resource
 import struct
 import sys
 import time
@@ -104,6 +106,23 @@ class BoundPeer(frozen.PeerKeepout):
             self.maps[robot] = ObservedPublisher(self.maps[robot],
                 lambda message,r=robot:self.binding.mask(r,message))
         self.health = ObservedPublisher(self.health,self.binding.health)
+        # Only this externally wall-bounded NET process. Refcounting remains;
+        # deferred cycles can increase RAM, not a long-lived-service setting.
+        self.gc_original_enabled=gc.isenabled()
+        self.gc_runtime=dict(original_enabled=self.gc_original_enabled,
+            original_thresholds=gc.get_threshold(),scope='Bounded NET BoundPeer processing only; refcounting unchanged')
+        gc.disable()
+        self.gc_runtime.update(disabled_monotonic_ns=time.monotonic_ns(),
+            processing_start_enabled=gc.isenabled())
+
+    def restore_runtime_gc(self):
+        self.gc_runtime.update(processing_end_monotonic_ns=time.monotonic_ns(),
+            processing_end_enabled=gc.isenabled(),
+            peak_rss_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+        if self.gc_original_enabled:gc.enable()
+        else:gc.disable()
+        self.gc_runtime.update(restored_enabled=gc.isenabled(),
+            restored_thresholds=gc.get_threshold(),restored_monotonic_ns=time.monotonic_ns())
 
     def receive_tf(self,message,robot,static):
         # Observe the actual original callback exactly once. No new Buffer
@@ -136,7 +155,7 @@ class BoundPeer(frozen.PeerKeepout):
             for record in self.tf_input_records:stream.write(json.dumps(record)+"\n")
         (self.directory/"bound-mask-recording-saved.json").write_text(json.dumps(dict(
             saved=True,mask_records=len(self.binding.records),tf_callback_records=len(self.tf_input_records),
-            pending_undelimited_masks=len(self.binding.pending)))+"\n")
+            pending_undelimited_masks=len(self.binding.pending),gc_runtime=self.gc_runtime))+"\n")
 
 
 def main():
@@ -149,8 +168,10 @@ def main():
     node=BoundPeer(json.loads(args.scene.read_text()),args.directory,session_id=args.session_id)
     try:rclpy.spin(node)
     finally:
-        try:node.persist_records()
-        finally:node.destroy_node();rclpy.shutdown()
+        try:
+            node.restore_runtime_gc()
+            node.persist_records()
+        finally:node.destroy_node();rclpy.try_shutdown()
 
 
 if __name__=="__main__":main()
