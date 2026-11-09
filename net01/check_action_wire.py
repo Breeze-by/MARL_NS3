@@ -118,7 +118,7 @@ def main():
         check('no_remote_server_means_no_C_Action_endpoints',not central.endpoints and not any(c.server_is_ready() for c in clients.values()))
         for robot in (1,2,3):servers[robot]=ControlledServer(rnode,robot)
         until(lambda:all(c.server_is_ready() for c in clients.values()))
-        check('real_five_endpoint_discovery_then_delivered_readiness',all(bridges[r].probes[r].server_is_ready() and central.ready[r] for r in (1,2,3)))
+        check('real_five_endpoint_discovery_then_delivered_readiness',all(bridges[r].backend_is_ready() and central.ready[r] for r in (1,2,3)))
 
         def send_goal(robot,number):
             goal=NavigateToPose.Goal();goal.pose.header.frame_id='map'
@@ -181,7 +181,7 @@ def main():
         result['accepted_per_robot']={r:len(s.accepted) for r,s in servers.items()}
         for server in servers.values():server.close()
         servers.clear()
-        until(lambda:not any(b.probes[peer].server_is_ready() for peer,b in bridges.items() if peer))
+        until(lambda:not any(b.backend_is_ready() for peer,b in bridges.items() if peer))
         until(lambda:not central.endpoints and not any(c.server_is_ready() for c in clients.values()))
         check('actual_server_destruction_withdraws_facade',True)
         check('all_nine_wire_flow_kinds_have_full_generated_CDR',all(any(p['flow']%20==offset and p['bytes']>=5 for p in packets) for offset in range(9)))

@@ -12,9 +12,8 @@ import time
 from action_msgs.msg import GoalStatusArray
 from action_msgs.srv import CancelGoal
 from nav2_msgs.action import NavigateToPose
-from rclpy.action import ActionClient
 from rclpy.callback_groups import ReentrantCallbackGroup
-from rclpy.qos import QoSProfile, qos_profile_action_status_default
+from rclpy.qos import QoSProfile, qos_profile_action_status_default, qos_check_compatible, QoSCompatibility
 from rclpy.serialization import serialize_message, deserialize_message
 from rclpy.task import Future
 from std_msgs.msg import Bool
@@ -39,12 +38,11 @@ class ActionWire:
         self.ready_received={};self.ready_sequence={}
         self.endpoints={};self.generation={r:0 for r in self.robots}
         self.pending={};self.requests={}
-        self.clients={};self.probes={};self.subscriptions=[]
+        self.clients={};self.subscriptions=[]
         self.forwarded_requests=0;self.duplicate_requests=0;self.blocked_requests=0
         self.unknown_responses=0
         if robot is not None:
             name=self.name(robot)
-            self.probes[robot]=ActionClient(node,NavigateToPose,name,callback_group=self.group)
             for offset,typ,suffix in SERVICES:
                 self.clients[offset]=node.create_client(typ,name+'/_action/'+suffix,callback_group=self.group)
             self.subscriptions=[
@@ -67,9 +65,23 @@ class ActionWire:
     def _publish_wire(self,robot,offset,message):
         self.send(0,self.flow(robot,offset),serialize_message(message),self.next_id())
 
+    def backend_is_ready(self):
+        # Reuse the actual typed business endpoints. A second ActionClient just
+        # for discovery also consumes feedback/status and duplicates hot work.
+        if not all(client.service_is_ready() for client in self.clients.values()):return False
+        for subscription,expected_type in zip(self.subscriptions,
+                ('nav2_msgs/action/NavigateToPose_FeedbackMessage','action_msgs/msg/GoalStatusArray')):
+            publishers=self.node.get_publishers_info_by_topic(subscription.topic_name)
+            # Graph SYSTEM_DEFAULT warnings are not proven incompatibility;
+            # the installed native ActionClient oracle accepts these defaults.
+            if not any(info.topic_type==expected_type and qos_check_compatible(
+                    info.qos_profile,subscription.qos_profile)[0]!=QoSCompatibility.ERROR
+                    for info in publishers):return False
+        return True
+
     def poll_readiness(self):
         if self.robot is not None:
-            ready=self.probes[self.robot].server_is_ready()
+            ready=self.backend_is_ready()
             if self.guardian is not None:ready=ready and self.guardian.guard.may_send_goal()
             self.ready[self.robot]=ready
             self._publish_wire(self.robot,8,Bool(data=ready))
@@ -142,7 +154,7 @@ class ActionWire:
                 return
             # A latched goal gate must still permit real GetResult/CancelGoal cleanup.
             admission=self.ready[robot] if self.guardian is None or offset==0 else True
-            if not admission or not self.probes[robot].server_is_ready():
+            if not admission or not self.backend_is_ready():
                 self.blocked_requests+=1;return
             request=deserialize_message(body,typ.Request)
             if self.guardian is not None and offset==0 and not self.guardian.observe_send_goal(request):
@@ -165,4 +177,3 @@ class ActionWire:
         else:
             for subscription in self.subscriptions:self.node.destroy_subscription(subscription)
             for client in self.clients.values():self.node.destroy_client(client)
-            for probe in self.probes.values():probe.destroy()

@@ -117,7 +117,7 @@ def main():
         check('absent_real_server_no_WiFi_fabricated_C_endpoints',not central.endpoints and not any(c.server_is_ready() for c in clients.values()))
         for robot in (1,2,3):servers[robot]=ControlledServer(rnode,robot)
         until(lambda:all(c.server_is_ready() for c in clients.values()))
-        check('actual_remote_five_endpoints_and_WiFi_readiness',all(bridges[r].probes[r].server_is_ready() and central.ready[r] for r in (1,2,3)))
+        check('actual_remote_five_endpoints_and_WiFi_readiness',all(bridges[r].backend_is_ready() and central.ready[r] for r in (1,2,3)))
 
         def send_goal(robot,number):
             request,uuid=goal(robot,number)
