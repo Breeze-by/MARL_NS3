@@ -1,5 +1,6 @@
 """Read sealed A02 four topics in 145..150sim only; no Node or replay."""
 from collections import defaultdict,deque
+import argparse
 import json
 from pathlib import Path
 import sqlite3
@@ -11,13 +12,17 @@ from rosgraph_msgs.msg import Clock
 
 
 def main():
-    case=Path('/mnt/runs/net01-a-corridor-6201-02')
-    out=Path(__file__).with_name('TF_CHAIN_145_150.json')
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--case',type=Path,default=Path('/mnt/runs/net01-a-corridor-6201-02'))
+    parser.add_argument('--start',type=float,default=145.)
+    parser.add_argument('--end',type=float,default=150.)
+    parser.add_argument('--output',type=Path,default=Path(__file__).with_name('TF_CHAIN_145_150.json'))
+    args=parser.parse_args();case=args.case;out=args.output
     names=['/clock']+[f'/tb{r}/tf' for r in (1,2,3)]
     con=sqlite3.connect('file:'+str(case/'bag/bag_0.db3')+'?mode=ro',uri=True)
     ids={n:i for i,n in con.execute('SELECT id,name FROM topics') if n in names}
     selected=list(con.execute('SELECT topic_id,timestamp,data FROM messages WHERE timestamp BETWEEN ? AND ? AND topic_id IN (?,?,?,?) ORDER BY timestamp,id',
-        (145_000_000_000,150_000_000_000,*ids.values())))
+        (round(args.start*1e9),round(args.end*1e9),*ids.values())))
     if len(selected)>2500:raise RuntimeError('Explicit narrow decode cap2500 exceeded; do not expand automatically')
     by_id={i:n for n,i in ids.items()};clock=[];corrections=defaultdict(list)
     for topic,receipt,data in selected:
@@ -35,7 +40,7 @@ def main():
                         quaternion=[t.transform.rotation.x,t.transform.rotation.y,t.transform.rotation.z,t.transform.rotation.w]))
     con.close()
     peer=[json.loads(x) for x in (case/'peer-keepout.jsonl').read_text().splitlines()]
-    peer=[p for p in peer if 145<=p['generated_sim']<=150]
+    peer=[p for p in peer if args.start<=p['generated_sim']<=args.end]
     comparisons=[]
     for p in peer:
         if round(p['generated_sim']*10)%5 and abs(p['generated_sim']-149.3)>1e-5:continue
@@ -60,7 +65,8 @@ def main():
         if lo<=stamp<=hi:
             if capture is None:unmatched.append(row)
             else:delays[str(row['flow'])].append((stamp-capture['endpoint_capture_monotonic_ns'])/1e6)
-    result=dict(scope='One sealed A02 bag 145..150sim /clock and three /tf only; no Node/NN/replay/GZ',
+    result=dict(scope='One sealed bag selected /clock and three /tf only; no Node/NN/replay/GZ',
+        case=str(case),window_sim=[args.start,args.end],
         decoded_messages=len(selected),decode_cap=2500,clock=clock,raw_R_corrections=dict(corrections),
         sampled_header_comparisons=comparisons,
         actual_capture_to_C_publish_wall_ms={f:dict(n=len(v),min=min(v),median=statistics.median(v),max=max(v)) for f,v in delays.items()},

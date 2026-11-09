@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "error": null,
+  "checks": {
+    "absent_five_endpoints_false": true,
+    "all_actual_typed_endpoints_true": true,
+    "missing_endpoint_0_false": true,
+    "restored_endpoint_0_true": true,
+    "missing_endpoint_2_false": true,
+    "restored_endpoint_2_true": true,
+    "missing_endpoint_4_false": true,
+    "restored_endpoint_4_true": true,
+    "missing_endpoint_6_false": true,
+    "restored_endpoint_6_true": true,
+    "missing_endpoint_7_false": true,
+    "restored_endpoint_7_true": true,
+    "no_business_service_requests_or_goals": true,
+    "production_wire_has_no_probe_action_client": true
+  },
+  "samples": [
+    {
+      "stage": "absent_five_endpoints_false",
+      "monotonic": 413154.347727219,
+      "replacement": false,
+      "native_oracle": false
+    },
+    {
+      "stage": "all_actual_typed_endpoints_true",
+      "monotonic": 413154.352878467,
+      "replacement": true,
+      "native_oracle": true
+    },
+    {
+      "stage": "missing_endpoint_0_false",
+      "monotonic": 413154.355176242,
+      "replacement": false,
+      "native_oracle": false
+    },
+    {
+      "stage": "restored_endpoint_0_true",
+      "monotonic": 413154.357686419,
+      "replacement": true,
+      "native_oracle": true
+    },
+    {
+      "stage": "missing_endpoint_2_false",
+      "monotonic": 413154.359643972,
+      "replacement": false,
+      "native_oracle": false
+    },
+    {
+      "stage": "restored_endpoint_2_true",
+      "monotonic": 413154.362155174,
+      "replacement": true,
+      "native_oracle": true
+    },
+    {
+      "stage": "missing_endpoint_4_false",
+      "monotonic": 413154.364074415,
+      "replacement": false,
+      "native_oracle": false
+    },
+    {
+      "stage": "restored_endpoint_4_true",
+      "monotonic": 413154.366627271,
+      "replacement": true,
+      "native_oracle": true
+    },
+    {
+      "stage": "missing_endpoint_6_false",
+      "monotonic": 413154.368401332,
+      "replacement": false,
+      "native_oracle": false
+    },
+    {
+      "stage": "restored_endpoint_6_true",
+      "monotonic": 413154.370861122,
+      "replacement": true,
+      "native_oracle": true
+    },
+    {
+      "stage": "missing_endpoint_7_false",
+      "monotonic": 413154.372866709,
+      "replacement": false,
+      "native_oracle": false
+    },
+    {
+      "stage": "restored_endpoint_7_true",
+      "monotonic": 413154.375248635,
+      "replacement": true,
+      "native_oracle": true
+    }
+  ],
+  "details": {},
+  "service_requests": [],
+  "domain": 96,
+  "scope": "Real generated typed endpoints and native ActionClient discovery oracle only; no goal/ActionServer/Nav2/GZ/NN/WiFi, no wait after runtime source stale",
+  "match_window_wall_s": 15
+}

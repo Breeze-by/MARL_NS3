@@ -16,7 +16,7 @@ import time
 HERE=Path(__file__).resolve().parents[1]
 
 
-def source(directory):
+def source(directory,feedback_hz):
     import rclpy
     from rclpy.clock import Clock,ClockType
     from rclpy.node import Node
@@ -31,7 +31,7 @@ def source(directory):
     rclpy.init(domain_id=92,signal_handler_options=SignalHandlerOptions.NO)
     node=Node('net01_synthetic_continuous_source')
     steady=Clock(clock_type=ClockType.STEADY_TIME)
-    records=[];timers=[];publishers=[];clock_ns=100_000_000
+    records=[];timers=[];publishers=[];services=[];clock_ns=100_000_000
     cp=node.create_publisher(ClockMessage,'/clock',qos_profile_sensor_data)
     def stamp(header,value):header.stamp.sec=value//1_000_000_000;header.stamp.nanosec=value%1_000_000_000
     def emit(pub,message,robot,kind,header=None):
@@ -93,13 +93,34 @@ def source(directory):
         grid(mp,250,220,'synthetic_map')
         timers.append(node.create_timer(5.,lambda p=mp,r=robot:grid(p,250,220,'synthetic_map',r),clock=steady))
         timers.append(node.create_timer(.5,lambda p=lp,r=robot:grid(p,60,60,'synthetic_costmap',r),clock=steady))
+        if feedback_hz:
+            from nav2_msgs.action import NavigateToPose
+            from action_msgs.msg import GoalStatusArray
+            from rclpy.qos import qos_profile_action_status_default
+            from action_wire import SERVICES
+            action=prefix+'/navigate_to_pose/_action/'
+            def no_request(request,response):
+                raise RuntimeError('Continuous no-goal fixture received an unexpected business request')
+            for _,typ,suffix in SERVICES:services.append(node.create_service(typ,action+suffix,no_request))
+            fp=node.create_publisher(NavigateToPose.Impl.FeedbackMessage,action+'feedback',10)
+            sp=node.create_publisher(GoalStatusArray,action+'status',qos_profile_action_status_default)
+            publishers.extend([fp,sp])
+            def feedback(pub=fp,robot=robot):
+                m=NavigateToPose.Impl.FeedbackMessage();m.goal_id.uuid=[robot]*16
+                m.feedback.current_pose.header.frame_id='map'
+                value=clock_ns-100_000_000;stamp(m.feedback.current_pose.header,value)
+                m.feedback.current_pose.pose.orientation.w=1.;m.feedback.distance_remaining=2.
+                emit(pub,m,robot,'synthetic_action_feedback',value)
+            emit(sp,GoalStatusArray(),robot,'synthetic_action_status')
+            timers.append(node.create_timer(1/feedback_hz,feedback,clock=steady))
+            timers.append(node.create_timer(1.,lambda p=sp,r=robot:emit(p,GoalStatusArray(),r,'synthetic_action_status'),clock=steady))
     start=time.monotonic()
     try:
         while time.monotonic()-start<8:rclpy.spin_once(node,timeout_sec=.001)
     finally:
         node.destroy_node();rclpy.shutdown()
         (directory/'source.json').write_text(json.dumps(dict(scope='SYNTHETIC continuous isolated DDS; no GZ/Nav2/NN/nonzero motion',
-            requested_window_wall_s=8,actual_window_wall_s=time.monotonic()-start,records=records)))
+            requested_window_wall_s=8,feedback_hz=feedback_hz,actual_window_wall_s=time.monotonic()-start,records=records)))
 
 
 def stop_check(stop_file,records):
@@ -146,12 +167,12 @@ def gateway(directory,stop_file):
     return 0 if clean else 1
 
 
-def host(name):
+def host(name,feedback_hz):
     repo=HERE.parent;phase=repo.parent
     base=repo/'runs'/name;base.mkdir(exist_ok=False)
     for role_name in ('source','peer','gateway'):(base/role_name).mkdir()
     (base/'scope.json').write_text(json.dumps(dict(scope='Synthetic-clock continuous DDS diagnostic; NOT GZ TIME/NET safety',
-        hard_wall_s=20,source_wall_s=8,domains=dict(C=91,R=92),mode='A direct',Gazebo=0,Nav2=0,ActionServer=0,NN=0)))
+        hard_wall_s=20,source_wall_s=8,feedback_hz=feedback_hz,domains=dict(C=91,R=92),mode='A direct',Gazebo=0,Nav2=0,ActionServer=0,NN=0)))
     start=time.monotonic();deadline=start+19.5;processes={};logs=[];error=None
     def launch(role,args,pipe=False):
         log=(base/(role+'.stderr.txt')).open('x');logs.append(log)
@@ -171,7 +192,7 @@ def host(name):
         stop='/mnt/runs/'+name+'/STOP'
         launch('peer',wrapper+[sub,'--role','peer','--directory','/mnt/runs/'+name+'/peer','--stop-file',stop])
         launch('gateway',wrapper+[sub,'--role','gateway','--directory','/mnt/runs/'+name+'/gateway','--stop-file',stop])
-        src=launch('source',wrapper+[sub,'--role','source','--directory','/mnt/runs/'+name+'/source'])
+        src=launch('source',wrapper+[sub,'--role','source','--directory','/mnt/runs/'+name+'/source','--feedback-hz',str(feedback_hz)])
         src.wait(timeout=max(.01,deadline-time.monotonic()-3))
     except BaseException as exc:error=repr(exc)
     finally:
@@ -196,6 +217,7 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--role',choices=['host','source','peer','gateway'],default='host')
     parser.add_argument('--directory',type=Path)
     parser.add_argument('--name',default='continuous-dds-02');parser.add_argument('--stop-file',type=Path)
+    parser.add_argument('--feedback-hz',type=int,default=0)
     a=parser.parse_args()
-    raise SystemExit(host(a.name) if a.role=='host' else source(a.directory) if a.role=='source' else
+    raise SystemExit(host(a.name,a.feedback_hz) if a.role=='host' else source(a.directory,a.feedback_hz) if a.role=='source' else
         gateway(a.directory,a.stop_file) if a.role=='gateway' else peer(a.directory,a.stop_file))

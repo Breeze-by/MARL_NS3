@@ -1,0 +1,458 @@
+{
+  "scope": "Controlled continuous DDS load with actual generated Action feedback/status and 3 typed endpoints, no Nav2/arm/goal/C Policy/WiFi/Gazebo; not unique historical causality proof",
+  "source_window_wall_s": 8.026126272045076,
+  "source_cadence": {
+    "0:synthetic_clock": {
+      "count": 90,
+      "median_interval_ms": 100.039973
+    },
+    "1:base_link->wheel_left_link": {
+      "count": 161,
+      "median_interval_ms": 50.021164999999996
+    },
+    "1:exact_zero_cmd": {
+      "count": 161,
+      "median_interval_ms": 49.991239
+    },
+    "1:map->odom": {
+      "count": 401,
+      "median_interval_ms": 20.024462999999997
+    },
+    "1:odom": {
+      "count": 241,
+      "median_interval_ms": 33.296765
+    },
+    "1:odom->base_footprint": {
+      "count": 241,
+      "median_interval_ms": 33.2872675
+    },
+    "1:static": {
+      "count": 1,
+      "median_interval_ms": null
+    },
+    "1:synthetic_action_feedback": {
+      "count": 800,
+      "median_interval_ms": 9.977133
+    },
+    "1:synthetic_action_status": {
+      "count": 9,
+      "median_interval_ms": 1000.269099
+    },
+    "1:synthetic_costmap": {
+      "count": 16,
+      "median_interval_ms": 499.892861
+    },
+    "1:synthetic_map": {
+      "count": 2,
+      "median_interval_ms": 5003.051001
+    },
+    "2:base_link->wheel_left_link": {
+      "count": 160,
+      "median_interval_ms": 50.18498
+    },
+    "2:exact_zero_cmd": {
+      "count": 160,
+      "median_interval_ms": 50.084212
+    },
+    "2:map->odom": {
+      "count": 400,
+      "median_interval_ms": 20.077322
+    },
+    "2:odom": {
+      "count": 240,
+      "median_interval_ms": 33.359944
+    },
+    "2:odom->base_footprint": {
+      "count": 240,
+      "median_interval_ms": 33.363683
+    },
+    "2:static": {
+      "count": 1,
+      "median_interval_ms": null
+    },
+    "2:synthetic_action_feedback": {
+      "count": 799,
+      "median_interval_ms": 9.998596
+    },
+    "2:synthetic_action_status": {
+      "count": 9,
+      "median_interval_ms": 1000.2719215
+    },
+    "2:synthetic_costmap": {
+      "count": 16,
+      "median_interval_ms": 500.126032
+    },
+    "2:synthetic_map": {
+      "count": 2,
+      "median_interval_ms": 5003.090538
+    },
+    "3:base_link->wheel_left_link": {
+      "count": 160,
+      "median_interval_ms": 50.380359
+    },
+    "3:exact_zero_cmd": {
+      "count": 160,
+      "median_interval_ms": 50.210987
+    },
+    "3:map->odom": {
+      "count": 400,
+      "median_interval_ms": 19.998451
+    },
+    "3:odom": {
+      "count": 240,
+      "median_interval_ms": 33.322472
+    },
+    "3:odom->base_footprint": {
+      "count": 240,
+      "median_interval_ms": 33.338002
+    },
+    "3:static": {
+      "count": 1,
+      "median_interval_ms": null
+    },
+    "3:synthetic_action_feedback": {
+      "count": 799,
+      "median_interval_ms": 10.004395500000001
+    },
+    "3:synthetic_action_status": {
+      "count": 8,
+      "median_interval_ms": 1000.298483
+    },
+    "3:synthetic_costmap": {
+      "count": 16,
+      "median_interval_ms": 500.261224
+    },
+    "3:synthetic_map": {
+      "count": 2,
+      "median_interval_ms": 5002.473702
+    }
+  },
+  "stages": {
+    "tb1": {
+      "source_correction_count": 401,
+      "R_capture_correction_count": 401,
+      "C_publish_correction_count": 401,
+      "Peer_receive_correction_count": 401,
+      "source_to_capture_wall_ms_lower": {
+        "n": 401,
+        "min": 0.0714,
+        "median": 15.720619,
+        "max": 93.701047
+      },
+      "source_to_capture_wall_ms_upper": {
+        "n": 401,
+        "min": 4.001698,
+        "median": 73.107152,
+        "max": 173.30291
+      },
+      "C_publish_call_ms": {
+        "n": 401,
+        "min": 0.068318,
+        "median": 0.106693,
+        "max": 0.275566
+      },
+      "C_publish_return_to_Peer_receive_ms_lower": {
+        "n": 401,
+        "min": -0.042658,
+        "median": 17.781029,
+        "max": 66.140311
+      },
+      "C_publish_return_to_Peer_receive_ms_upper": {
+        "n": 401,
+        "min": 0.63491,
+        "median": 55.790684,
+        "max": 175.237772
+      },
+      "feedback_source_count": 800,
+      "feedback_R_CDR_capture": 800,
+      "feedback_C_actual_destination": 800,
+      "captured_to_destination_rpc_and_CDR_identity_exact": true,
+      "odom_source_count": 241,
+      "odom_R_capture": 241,
+      "odom_C_delivered": 241
+    },
+    "tb2": {
+      "source_correction_count": 400,
+      "R_capture_correction_count": 400,
+      "C_publish_correction_count": 400,
+      "Peer_receive_correction_count": 400,
+      "source_to_capture_wall_ms_lower": {
+        "n": 400,
+        "min": 0.02564,
+        "median": 13.179967999999999,
+        "max": 80.68867
+      },
+      "source_to_capture_wall_ms_upper": {
+        "n": 400,
+        "min": 6.498327,
+        "median": 74.1866085,
+        "max": 160.363754
+      },
+      "C_publish_call_ms": {
+        "n": 400,
+        "min": 0.059531,
+        "median": 0.07452049999999999,
+        "max": 0.154836
+      },
+      "C_publish_return_to_Peer_receive_ms_lower": {
+        "n": 400,
+        "min": 0.158354,
+        "median": 16.7770745,
+        "max": 66.957084
+      },
+      "C_publish_return_to_Peer_receive_ms_upper": {
+        "n": 400,
+        "min": 1.641029,
+        "median": 58.21834200000001,
+        "max": 171.890521
+      },
+      "feedback_source_count": 799,
+      "feedback_R_CDR_capture": 799,
+      "feedback_C_actual_destination": 799,
+      "captured_to_destination_rpc_and_CDR_identity_exact": true,
+      "odom_source_count": 240,
+      "odom_R_capture": 240,
+      "odom_C_delivered": 240
+    },
+    "tb3": {
+      "source_correction_count": 400,
+      "R_capture_correction_count": 400,
+      "C_publish_correction_count": 400,
+      "Peer_receive_correction_count": 400,
+      "source_to_capture_wall_ms_lower": {
+        "n": 400,
+        "min": 0.12059,
+        "median": 15.6319175,
+        "max": 82.033275
+      },
+      "source_to_capture_wall_ms_upper": {
+        "n": 400,
+        "min": 11.967257,
+        "median": 71.181815,
+        "max": 161.350694
+      },
+      "C_publish_call_ms": {
+        "n": 400,
+        "min": 0.055597,
+        "median": 0.07195599999999999,
+        "max": 0.200498
+      },
+      "C_publish_return_to_Peer_receive_ms_lower": {
+        "n": 400,
+        "min": 0.385189,
+        "median": 22.634964500000002,
+        "max": 74.77659
+      },
+      "C_publish_return_to_Peer_receive_ms_upper": {
+        "n": 400,
+        "min": 2.170793,
+        "median": 59.9154195,
+        "max": 176.251962
+      },
+      "feedback_source_count": 799,
+      "feedback_R_CDR_capture": 799,
+      "feedback_C_actual_destination": 799,
+      "captured_to_destination_rpc_and_CDR_identity_exact": true,
+      "odom_source_count": 240,
+      "odom_R_capture": 240,
+      "odom_C_delivered": 240
+    }
+  },
+  "failure": null,
+  "dispatch": {
+    "C": {
+      "batches": 1073,
+      "callbacks": 1083,
+      "cap_hits": 0,
+      "max_wall_s": 0.05425263097276911,
+      "max_cpu_s": 0.05425356800000003
+    },
+    "R": {
+      "batches": 1073,
+      "callbacks": 7971,
+      "cap_hits": 0,
+      "max_wall_s": 0.011624292994383723,
+      "max_cpu_s": 0.011628850999999774
+    },
+    "guard_timers": {
+      "1": {
+        "calls": 427,
+        "max_gap_wall_s": 0.07340162101900205,
+        "last": 413480.159621576
+      },
+      "2": {
+        "calls": 427,
+        "max_gap_wall_s": 0.06994119903538376,
+        "last": 413480.162087102
+      },
+      "3": {
+        "calls": 426,
+        "max_gap_wall_s": 0.0751478670281358,
+        "last": 413480.164567207
+      }
+    },
+    "max_poll_gap_wall_s": 0.06865482503781095
+  },
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "peer_ready": {
+    "total": 83,
+    "ready": 80,
+    "last": {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 9.0,
+      "ready": true,
+      "sequence": 83,
+      "poses": {
+        "tb1": [
+          0.7249999999999996,
+          -0.1499999999999999
+        ],
+        "tb2": [
+          0.34999999999999964,
+          -0.7999999999999999
+        ],
+        "tb3": [
+          1.0999999999999996,
+          -0.7999999999999999
+        ]
+      },
+      "origins": {
+        "tb1": [
+          -9.75,
+          -8.85
+        ],
+        "tb2": [
+          -9.35,
+          -8.200000000000001
+        ],
+        "tb3": [
+          -10.100000000000001,
+          -8.200000000000001
+        ]
+      },
+      "mask_contract": "owner-odom-lattice-v1",
+      "mask_from_common": {
+        "tb1": [
+          -0.7249999999999996,
+          0.1499999999999999,
+          -0.0
+        ],
+        "tb2": [
+          -0.34999999999999964,
+          0.7999999999999999,
+          -0.0
+        ],
+        "tb3": [
+          -1.0999999999999996,
+          0.7999999999999999,
+          -0.0
+        ]
+      },
+      "mask_frames": {
+        "tb1": "odom",
+        "tb2": "odom",
+        "tb3": "odom"
+      },
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb1": {
+          "source": 0.09999999999999964,
+          "receipt": 0.012849706981796771,
+          "correction": -0.09999999999999964,
+          "correction_receipt": 0.01135421299841255
+        },
+        "tb2": {
+          "source": 0.09999999999999964,
+          "receipt": 0.022867530002258718,
+          "correction": -0.09999999999999964,
+          "correction_receipt": 0.0028631450259126723
+        },
+        "tb3": {
+          "source": 0.09999999999999964,
+          "receipt": 0.010156390024349093,
+          "correction": -0.09999999999999964,
+          "correction_receipt": 0.009751966048497707
+        }
+      },
+      "failures": {},
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb1": 8.9,
+        "tb2": 8.9,
+        "tb3": 8.9
+      },
+      "correction_stamps": {
+        "tb1": 9.1,
+        "tb2": 9.1,
+        "tb3": 9.1
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 413479.737042261,
+        "masks": {
+          "tb1": {
+            "begin": 413479.737107341,
+            "built": 413479.756642022,
+            "before_publish": 413479.756717617,
+            "after_publish": 413479.757255177
+          },
+          "tb2": {
+            "begin": 413479.757259712,
+            "built": 413479.778480463,
+            "before_publish": 413479.778560079,
+            "after_publish": 413479.779072999
+          },
+          "tb3": {
+            "begin": 413479.779078228,
+            "built": 413479.798182175,
+            "before_publish": 413479.798363174,
+            "after_publish": 413479.798789183
+          }
+        },
+        "snapshot_monotonic": 413479.737106708,
+        "health_publish_before_monotonic": 413479.798987871,
+        "health_publish_after_monotonic": 413479.803501336
+      }
+    }
+  },
+  "process": {
+    "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+    "error": null,
+    "wall_s": 12.102068780048285,
+    "hard_wall_s": 20,
+    "exits": {
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "source": 0
+    },
+    "Gazebo": 0,
+    "NN": 0,
+    "wrapper_pids": {
+      "hub": 1468449,
+      "peer": 1468460,
+      "gateway": 1468462,
+      "source": 1468463
+    },
+    "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior"
+  },
+  "bounds_caveat": "Repeated header values mean ranges, not unique DDS ACK. Peer can receive before publisher returns; a slightly negative lower bound is overlap/ambiguity, not negative transport latency. Source DDS fields were not reserialized for cross-DDS padding comparisons."
+}
