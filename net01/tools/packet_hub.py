@@ -27,6 +27,7 @@ async def main(args):
     native_output = args.output / "native"
     native_output.mkdir()
     command = [str(args.native.resolve()), f"--output={native_output.resolve()}", f"--profile={args.profile}"]
+    if args.control_trace:command.append('--controlTrace=1')
     process = await asyncio.create_subprocess_exec(*command, stdin=asyncio.subprocess.PIPE,
         stdout=asyncio.subprocess.PIPE, stderr=stderr)
     result = dict(argv=command, scope="Unix IPC to actual ns3 full-payload transport", status="FAIL")
@@ -39,6 +40,9 @@ async def main(args):
     ingress = []
     next_message = 0
     known_horizon = 0
+    control_trace=[]
+    def control_event(kind,**fields):
+        if args.control_trace:control_trace.append(dict(kind=kind,monotonic_ns=time.monotonic_ns(),**fields))
 
     async def native_rx():
         try:
@@ -58,6 +62,7 @@ async def main(args):
                     owner.write(json.dumps(meta).encode()+b"\n"+payload)
                     await owner.drain()
                 elif words[0] == "STEP":
+                    control_event('hub_native_STEP_received',horizon_ns=int(words[1]))
                     await received_steps.put(int(words[1]))
                 else:
                     raise ValueError("Unexpected native output")
@@ -103,13 +108,17 @@ async def main(args):
                     process.stdin.write(f"POSITION {robot} {x:.17g} {y:.17g} {z:.17g}\n".encode());await process.stdin.drain()
                 elif op == "clock":
                     horizon = meta["horizon_ns"]
+                    control_event('hub_clock_frame_received',horizon_ns=horizon)
                     if args.clock_source=="gazebo" and horizon>known_horizon:raise ValueError("Network attempted to lead real /clock")
+                    control_event('hub_native_STEP_write',horizon_ns=horizon)
                     process.stdin.write(f"STEP {horizon}\n".encode())
                     await process.stdin.drain()
+                    control_event('hub_native_stdin_drain_returned',horizon_ns=horizon)
                     returned = await asyncio.wait_for(received_steps.get(), timeout=2)
                     writer.write(json.dumps(dict(kind="clock_return", horizon_ns=returned,
                         hub_clock_return_monotonic_ns=time.monotonic_ns(), bytes=0)).encode()+b"\n")
                     await writer.drain()
+                    control_event('hub_clock_response_drain_returned',horizon_ns=returned)
                 elif op == "radio_fault" and args.allow_radio_fault:
                     process.stdin.write(f"RADIO {int(meta['enabled'])}\n".encode())
                     await process.stdin.drain()
@@ -159,6 +168,7 @@ async def main(args):
         (args.output/"hub-ingress.json").write_text(json.dumps(ingress, indent=2)+"\n")
         (args.output/"hub-deliveries.json").write_text(json.dumps(deliveries, indent=2)+"\n")
         (args.output/"result.json").write_text(json.dumps(result, indent=2)+"\n")
+        if args.control_trace:(args.output/'hub-clock-control.json').write_text(json.dumps(control_trace,indent=2)+'\n')
         if args.socket.exists():
             args.socket.unlink()
 
@@ -172,4 +182,5 @@ if __name__ == "__main__":
     parser.add_argument("--wall", type=float, default=120)
     parser.add_argument("--allow-radio-fault", action="store_true", help="Independent no-motion negative fixture only")
     parser.add_argument("--clock-source", choices=("synthetic","gazebo"), default="synthetic")
+    parser.add_argument('--control-trace',action='store_true')
     asyncio.run(main(parser.parse_args()))

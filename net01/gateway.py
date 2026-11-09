@@ -85,12 +85,13 @@ def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limi
 
 
 class Gateway:
-    def __init__(self, mode, socket, directory, session_id, *, dispatch_profile=False):
+    def __init__(self, mode, socket, directory, session_id, *, dispatch_profile=False,control_trace=False):
         self.mode,self.directory,self.session_id=mode,Path(directory),session_id
         self.records=[];self.direct=deque();self.direct_sequence=0
         self.contexts=[];self.nodes=[];self.executors=[]
         self.ready_sets={side:dict(productive=False) for side in ('C','R')}
-        self.dispatch_stats=dict(C=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
+        self.c_empty_until=0.
+        self.dispatch_stats=dict(C=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.,empty_recheck_started=0,empty_recheck_skips=0),
             R=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
             guard_timers={},max_poll_gap_wall_s=0.,
             schedule='C/R cached handlers alternate in fixed quantum4; stop after a pair when either initial cap is used',
@@ -107,7 +108,7 @@ class Gateway:
             executor=SingleThreadedExecutor(context=context);executor.add_node(node)
             self.contexts.append(context);self.nodes.append(node);self.executors.append(executor)
         self.c,self.r=self.nodes
-        self.hub=HubClient(socket);self.hub.receive=self.receive
+        self.hub=HubClient(socket,control_trace=control_trace);self.hub.receive=self.receive
         self.link=LinkSession(self,session_id)
         self.guards={r:LocalStop(self.r,r,session_id) for r in (1,2,3)}
         self.anchor=None;self.gz=None;self.previous_clock=None;self.step_pending=None
@@ -274,10 +275,20 @@ class Gateway:
             for side,executor,node in zip(('C','R'),self.executors,self.nodes):
                 if self.ready_sets[side]['shutdown']:continue
                 before=time.monotonic();cpu=time.thread_time()
+                if side=='C' and before<self.c_empty_until:
+                    self.dispatch_stats['C']['empty_recheck_skips']+=1
+                    continue
                 completed,_=drain_current_ready(executor,node,self.ready_sets[side],
                     self.progress_transport,callback_limit=min(4,caps[side]-used[side]),
                     profile=None if self.cpu_profile is None else self.cpu_profile[side],
                     entity_label=self.profile_entity)
+                if side=='C':
+                    if completed:self.c_empty_until=0.
+                    elif not self.ready_sets[side]['shutdown']:
+                        # Only an actually empty public query starts this fixed
+                        # deadline; skipped probes never extend it. No sleep.
+                        self.c_empty_until=time.monotonic()+.010
+                        self.dispatch_stats['C']['empty_recheck_started']+=1
                 spans[side]['wall']+=time.monotonic()-before
                 spans[side]['cpu']+=time.thread_time()-cpu
                 used[side]+=len(completed)
@@ -288,7 +299,8 @@ class Gateway:
                             timer=self.dispatch_stats['guard_timers'].setdefault(str(robot),dict(calls=0,max_gap_wall_s=0.,last=None))
                             if timer['last'] is not None:timer['max_gap_wall_s']=max(timer['max_gap_wall_s'],began-timer['last'])
                             timer['calls']+=1;timer['last']=began
-            # An empty side is tried again after at most four other-side handlers.
+            # Once an empty retry deadline is eligible, try that side again
+            # after at most four other-side handlers.
             # Once either cap is used, defer all remaining work to the next poll.
             if not productive or any(used[side]>=caps[side] for side in ('C','R')):break
         for side in ('C','R'):
@@ -351,6 +363,9 @@ class Gateway:
         if self.cpu_profile is not None:
             data['dispatch_cpu_profile']=dict(aggregates=self.cpu_profile,
                 semantics='wait and handler totals exclude progress; progress total_inclusive contains hub_poll/direct_batch; do not sum parent and children. Async handler measures executing step only, not pending Future time. RAM only, diagnostic opt-in.')
+        if self.hub.control_trace is not None:
+            data['clock_control_trace']=dict(events=self.hub.control_trace,
+                semantics='Socket frame flushed means all its bytes accepted by kernel, not hub/native ACK. Offsets count the entire ordered stream, including non-clock frames.')
         with (self.directory/"network-gateway.json").open("x") as stream:json.dump(data,stream)
         (self.directory/"network-gateway-saved.json").write_text(json.dumps(dict(saved=True,
             mode=self.mode,records=len(self.records),failure=self.failure,

@@ -1,0 +1,35 @@
+diff --git a/net01/gateway.py b/net01/gateway.py
+index 9b1aa81..59930aa 100644
+--- a/net01/gateway.py
++++ b/net01/gateway.py
+@@ -90,7 +90,8 @@ class Gateway:
+         self.records=[];self.direct=deque();self.direct_sequence=0
+         self.contexts=[];self.nodes=[];self.executors=[]
+         self.ready_sets={side:dict(productive=False) for side in ('C','R')}
+-        self.dispatch_stats=dict(C=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
++        self.c_empty_until=0.
++        self.dispatch_stats=dict(C=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.,empty_recheck_started=0,empty_recheck_skips=0),
+             R=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
+             guard_timers={},max_poll_gap_wall_s=0.,
+             schedule='C/R cached handlers alternate in fixed quantum4; stop after a pair when either initial cap is used',
+@@ -274,10 +275,20 @@ class Gateway:
+             for side,executor,node in zip(('C','R'),self.executors,self.nodes):
+                 if self.ready_sets[side]['shutdown']:continue
+                 before=time.monotonic();cpu=time.thread_time()
++                if side=='C' and before<self.c_empty_until:
++                    self.dispatch_stats['C']['empty_recheck_skips']+=1
++                    continue
+                 completed,_=drain_current_ready(executor,node,self.ready_sets[side],
+                     self.progress_transport,callback_limit=min(4,caps[side]-used[side]),
+                     profile=None if self.cpu_profile is None else self.cpu_profile[side],
+                     entity_label=self.profile_entity)
++                if side=='C':
++                    if completed:self.c_empty_until=0.
++                    elif not self.ready_sets[side]['shutdown']:
++                        # Only an actually empty public query starts this fixed
++                        # deadline; skipped probes never extend it. No sleep.
++                        self.c_empty_until=time.monotonic()+.010
++                        self.dispatch_stats['C']['empty_recheck_started']+=1
+                 spans[side]['wall']+=time.monotonic()-before
+                 spans[side]['cpu']+=time.thread_time()-cpu
+                 used[side]+=len(completed)

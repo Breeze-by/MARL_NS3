@@ -150,11 +150,11 @@ def peer(directory,stop_file):
         (directory/'fixture-stop-overhead.json').write_text(json.dumps(checks))
 
 
-def gateway(directory,stop_file,dispatch_profile):
+def gateway(directory,stop_file,dispatch_profile,control_trace):
     sys.path.insert(0,str(HERE))
     from gateway import Gateway
     node=Gateway('A',directory.parent/'wire.sock',directory,2026110912,
-        dispatch_profile=dispatch_profile)
+        dispatch_profile=dispatch_profile,control_trace=control_trace)
     checks=[];next_check=0
     try:
         while True:
@@ -168,12 +168,12 @@ def gateway(directory,stop_file,dispatch_profile):
     return 0 if clean else 1
 
 
-def host(name,feedback_hz,dispatch_profile):
+def host(name,feedback_hz,dispatch_profile,control_trace,native):
     repo=HERE.parent;phase=repo.parent
     base=repo/'runs'/name;base.mkdir(exist_ok=False)
     for role_name in ('source','peer','gateway'):(base/role_name).mkdir()
     (base/'scope.json').write_text(json.dumps(dict(scope='Synthetic-clock continuous DDS diagnostic; NOT GZ TIME/NET safety',
-        hard_wall_s=20,source_wall_s=8,feedback_hz=feedback_hz,dispatch_profile=dispatch_profile,domains=dict(C=91,R=92),mode='A direct',Gazebo=0,Nav2=0,ActionServer=0,NN=0)))
+        hard_wall_s=20,source_wall_s=8,feedback_hz=feedback_hz,dispatch_profile=dispatch_profile,control_trace=control_trace,native=None if native is None else str(native),domains=dict(C=91,R=92),mode='A direct',Gazebo=0,Nav2=0,ActionServer=0,NN=0)))
     start=time.monotonic();deadline=start+19.5;processes={};logs=[];error=None
     def launch(role,args,pipe=False):
         log=(base/(role+'.stderr.txt')).open('x');logs.append(log)
@@ -185,14 +185,15 @@ def host(name,feedback_hz,dispatch_profile):
     sub='/mnt/net01/followup01/continuous_dds.py'
     socket=base/'wire.sock'
     try:
+        if control_trace and native is None:raise ValueError('Control trace requires explicit independent diagnostic native')
         hub=launch('hub',[sys.executable,'-B',str(HERE/'tools/packet_hub.py'),'--socket',str(socket),
-            '--native',str(phase/'build/network-full-payload/net01-payload'),'--output',str(base/'hub'),
-            '--profile','B','--wall','19','--clock-source','gazebo'],pipe=True)
+            '--native',str(native if native is not None else phase/'build/network-full-payload/net01-payload'),'--output',str(base/'hub'),
+            '--profile','B','--wall','19','--clock-source','gazebo']+(['--control-trace'] if control_trace else []),pipe=True)
         readable,_,_=select.select([hub.stdout],[],[],min(5,deadline-time.monotonic()))
         if not readable or hub.stdout.readline().strip()!='IPC_LISTENING '+str(socket):raise RuntimeError('Native IPC startup failed')
         stop='/mnt/runs/'+name+'/STOP'
         launch('peer',wrapper+[sub,'--role','peer','--directory','/mnt/runs/'+name+'/peer','--stop-file',stop])
-        launch('gateway',wrapper+[sub,'--role','gateway','--directory','/mnt/runs/'+name+'/gateway','--stop-file',stop]+(['--dispatch-profile'] if dispatch_profile else []))
+        launch('gateway',wrapper+[sub,'--role','gateway','--directory','/mnt/runs/'+name+'/gateway','--stop-file',stop]+(['--dispatch-profile'] if dispatch_profile else [])+(['--control-trace'] if control_trace else []))
         src=launch('source',wrapper+[sub,'--role','source','--directory','/mnt/runs/'+name+'/source','--feedback-hz',str(feedback_hz)])
         src.wait(timeout=max(.01,deadline-time.monotonic()-3))
     except BaseException as exc:error=repr(exc)
@@ -220,6 +221,8 @@ if __name__=='__main__':
     parser.add_argument('--name',default='continuous-dds-02');parser.add_argument('--stop-file',type=Path)
     parser.add_argument('--feedback-hz',type=int,default=0)
     parser.add_argument('--dispatch-profile',action='store_true')
+    parser.add_argument('--control-trace',action='store_true')
+    parser.add_argument('--native',type=Path)
     a=parser.parse_args()
-    raise SystemExit(host(a.name,a.feedback_hz,a.dispatch_profile) if a.role=='host' else source(a.directory,a.feedback_hz) if a.role=='source' else
-        gateway(a.directory,a.stop_file,a.dispatch_profile) if a.role=='gateway' else peer(a.directory,a.stop_file))
+    raise SystemExit(host(a.name,a.feedback_hz,a.dispatch_profile,a.control_trace,a.native) if a.role=='host' else source(a.directory,a.feedback_hz) if a.role=='source' else
+        gateway(a.directory,a.stop_file,a.dispatch_profile,a.control_trace) if a.role=='gateway' else peer(a.directory,a.stop_file))

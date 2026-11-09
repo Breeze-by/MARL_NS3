@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "checks": {
+    "both_busy_fixed_four_preserves_side_order": true,
+    "handler_pump_and_empty_tail_preserved": true,
+    "cap_cursor_and_productive_tail_resume": true,
+    "original_real_callback_counts": true,
+    "empty_C_reprobed_after_fixed_deadline_while_R_continues": true,
+    "skips_do_not_extend_deadline": true,
+    "short_C_cap_ends_pair_without_R_tail_monopoly": true,
+    "unused_R_budget_is_deferred_not_added": true,
+    "last_pair_respects_each_remaining_cap": true,
+    "shutdown_stops_only_that_side_this_poll": true,
+    "shutdown_does_not_start_empty_cooldown": true,
+    "both_empty_return_without_busy_retry": true,
+    "handler_exception_propagates_before_other_side": true,
+    "caps_fixed_once_at_poll_entry": true,
+    "guard_stats_keep_actual_handler_begin": true,
+    "C_defer_skips_only_C_R_still_probed": true,
+    "deadline_expiry_requeries_and_success_has_no_throttle": true,
+    "deadline_starts_after_actual_empty_query_returns": true
+  },
+  "scope": "Actual Gateway poll/drain AST, controlled public executor interface; no Node/ROS/GZ/NN/transport test",
+  "calls": {
+    "Node": 0,
+    "Gazebo": 0,
+    "NN": 0
+  }
+}

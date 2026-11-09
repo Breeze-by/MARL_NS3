@@ -10,6 +10,7 @@
 #include <array>
 #include <cmath>
 #include <chrono>
+#include <ctime>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -25,6 +26,10 @@ static std::map<std::string,uint64_t> counts;
 static int64_t mono() {
   return std::chrono::duration_cast<std::chrono::nanoseconds>(
       std::chrono::steady_clock::now().time_since_epoch()).count();
+}
+static int64_t threadCpu() {
+  timespec value;clock_gettime(CLOCK_THREAD_CPUTIME_ID,&value);
+  return int64_t(value.tv_sec)*1000000000+value.tv_nsec;
 }
 static void event(const std::string& kind,const std::string& fields="") {
   ++counts[kind];
@@ -125,7 +130,10 @@ static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identit
 
 int main(int argc,char** argv) {
   std::string directory,profile="B";
-  CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.Parse(argc,argv);
+  bool controlTrace=false;
+  struct StepTrace {int64_t horizon,beginMono,beginCpu,beginNs3,endMono,endCpu,endNs3;};
+  std::vector<StepTrace> controlSteps;
+  CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);cmd.Parse(argc,argv);
   NS_ABORT_MSG_IF(directory.empty() || (profile!="B" && profile!="C"),"Explicit output and locked profile needed");
   ledger.open(directory+"/packet-ledger.jsonl");
   NS_ABORT_MSG_IF(!ledger,"Cannot open packet ledger");
@@ -214,7 +222,12 @@ int main(int argc,char** argv) {
     } else if(op=="STEP") {
       int64_t horizon;in>>horizon;
       NS_ABORT_MSG_IF(!in || horizon<Simulator::Now().GetNanoSeconds() || horizon-Simulator::Now().GetNanoSeconds()>100000000,"Invalid/nonmonotonic/>.1s horizon");
+      StepTrace trace{};
+      if(controlTrace)trace={horizon,mono(),threadCpu(),Simulator::Now().GetNanoSeconds(),0,0,0};
       Simulator::Stop(NanoSeconds(horizon-Simulator::Now().GetNanoSeconds()));Simulator::Run();
+      if(controlTrace) {
+        trace.endCpu=threadCpu();trace.endMono=mono();trace.endNs3=Simulator::Now().GetNanoSeconds();controlSteps.push_back(trace);
+      }
       event("horizon_return",",\"requested_horizon_ns\":"+std::to_string(horizon));
       std::cout<<"STEP "<<Simulator::Now().GetNanoSeconds()<<"\n"<<std::flush;
     } else if(op=="RADIO") {
@@ -228,6 +241,12 @@ int main(int argc,char** argv) {
     else NS_ABORT_MSG("Unknown IPC command: "<<op);
   }
   event("transport_end");
+  if(controlTrace) {
+    std::ofstream timing(directory+"/control-step-trace.jsonl");
+    for(const auto& t:controlSteps)timing<<"{\"horizon_ns\":"<<t.horizon<<",\"begin_monotonic_ns\":"<<t.beginMono
+      <<",\"begin_thread_cpu_ns\":"<<t.beginCpu<<",\"begin_ns3_ns\":"<<t.beginNs3<<",\"end_monotonic_ns\":"<<t.endMono
+      <<",\"end_thread_cpu_ns\":"<<t.endCpu<<",\"end_ns3_ns\":"<<t.endNs3<<"}\n";
+  }
   std::ofstream summary(directory+"/native-summary.json");summary<<"{\"counts\":{";bool first=true;for(auto& [name,n]:counts){if(!first)summary<<",";first=false;summary<<"\""<<name<<"\":"<<n;}summary<<"},\"pending_incomplete\":"<<pending.size()<<",\"completed_messages\":"<<completed.size()<<",\"ns3_ns\":"<<Simulator::Now().GetNanoSeconds()<<"}\n";
   Simulator::Destroy();return 0;
 }

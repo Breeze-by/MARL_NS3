@@ -4,10 +4,11 @@ import select
 import socket
 import struct
 import time
+from collections import deque
 
 
 class HubClient:
-    def __init__(self, path):
+    def __init__(self, path, *, control_trace=False):
         self.socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         self.socket.connect(str(path))
         self.socket.setblocking(False)
@@ -17,9 +18,19 @@ class HubClient:
         self.horizon_ns = 0
         self.deliveries = []
         self.receive = None
+        self.control_trace=[] if control_trace else None
+        self.control_frames=deque()
+        self.tx_queued=0;self.tx_flushed=0
 
     def frame(self, meta, body=b""):
-        self.outgoing.extend(json.dumps(dict(meta, bytes=len(body))).encode()+b"\n"+body)
+        frame=json.dumps(dict(meta, bytes=len(body))).encode()+b"\n"+body
+        self.outgoing.extend(frame)
+        if self.control_trace is not None:
+            begin=self.tx_queued;self.tx_queued+=len(frame)
+            if meta['kind'] in ('clock','observed_clock'):
+                row=dict(kind='clock_frame',operation=meta['kind'],horizon_ns=meta['horizon_ns'],
+                    queued_monotonic_ns=time.monotonic_ns(),begin_byte_offset=begin,end_byte_offset=self.tx_queued)
+                self.control_trace.append(row);self.control_frames.append(row)
 
     def send(self, sender, receiver, flow, cdr, rpc_id=0, source_stamp_ns=0, admission_ns=None):
         # RPC identity is transmitted, never reconstructed from a source-side table.
@@ -42,8 +53,15 @@ class HubClient:
     def poll(self):
         readable, writable, _ = select.select([self.socket], [self.socket] if self.outgoing else [], [], 0)
         if writable:
+            if self.control_trace is not None:before=time.monotonic_ns()
             size = self.socket.send(self.outgoing)
             del self.outgoing[:size]
+            if self.control_trace is not None:
+                after=time.monotonic_ns();self.tx_flushed+=size
+                while self.control_frames and self.control_frames[0]['end_byte_offset']<=self.tx_flushed:
+                    row=self.control_frames.popleft()
+                    row.update(socket_send_before_monotonic_ns=before,socket_frame_flushed_monotonic_ns=after,
+                        cumulative_socket_bytes=self.tx_flushed)
         if readable:
             data = self.socket.recv(1024*1024)
             if not data:
@@ -63,6 +81,8 @@ class HubClient:
                 self.ready = True
             elif meta["kind"] == "clock_return":
                 self.horizon_ns = meta["horizon_ns"]
+                if self.control_trace is not None:self.control_trace.append(dict(
+                    kind='clock_return_received',horizon_ns=self.horizon_ns,monotonic_ns=time.monotonic_ns()))
             elif meta["kind"] == "delivered":
                 if len(body) < 8:
                     raise ValueError("Missing transmitted RPC identity")
