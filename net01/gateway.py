@@ -430,6 +430,7 @@ class Gateway:
                 self.connected=True;self.install_wires()
 
     def persist(self):
+        persist_begin=time.monotonic()
         data=dict(mode=self.mode,anchor=self.anchor,failure=self.failure,
             execution_profile=self.execution_profile,
             transport_poll_closed=self.hub_poll_closed,
@@ -449,10 +450,11 @@ class Gateway:
         if self.hub.control_trace is not None:
             data['clock_control_trace']=dict(events=self.hub.control_trace,
                 semantics='Socket frame flushed means all its bytes accepted by kernel, not hub/native ACK. Offsets count the entire ordered stream, including non-clock frames.')
-        with (self.directory/"network-gateway.json").open("x") as stream:json.dump(data,stream)
+        with (self.directory/"network-gateway.json").open("x") as stream:stream.write(json.dumps(data))
         (self.directory/"network-gateway-saved.json").write_text(json.dumps(dict(saved=True,
             mode=self.mode,records=len(self.records),failure=self.failure,
-            cleanup=self.cleanup))+"\n")
+            cleanup=self.cleanup,persist_wall_s=time.monotonic()-persist_begin,
+            peak_afterpersist_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss))+"\n")
 
     def close(self):
         try:clean=self._close()
