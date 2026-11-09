@@ -1,0 +1,915 @@
+{
+  "scope": "One pre-registered synthetic paced full-payload WiFi qualification; 0GZ/Nav2/Goal/arm/NN",
+  "runtime": "8943be89ca3e7d4725abc3865c2315d541a11ec9",
+  "profile": "pace500-clock100-q10ms",
+  "raw": "runs/continuous-dds-16-paced-wifi",
+  "result": "FAIL",
+  "process": {
+    "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+    "error": null,
+    "wall_s": 20.572479643044062,
+    "hard_wall_s": 30,
+    "execution_profile": {
+      "id": "pace500-clock100-q10ms",
+      "world_real_time_update_rate": 500,
+      "physics_max_step_size_unchanged": 0.001,
+      "clock_publish_rate_sim_hz": 100.0,
+      "native_step_quantum_ns": 10000000,
+      "qualification": {
+        "source_wall_s": 16,
+        "hard_wall_s": 30,
+        "clock_period_wall_s": 0.02,
+        "clock_increment_ns": 10000000,
+        "other_sources": "Original per-wall TF/odom/FB rates retained; conservatively denser per simulated second",
+        "peer": "Original 10Hz simulation-time timer"
+      },
+      "scope": "New matched execution profile; WallRate and sim-time frequencies differ; not pointwise equivalent to v1.1.0 runtime"
+    },
+    "exits": {
+      "hub": 0,
+      "peer": 0,
+      "gateway": 1,
+      "source": 0
+    },
+    "Gazebo": 0,
+    "NN": 0,
+    "wrapper_pids": {
+      "hub": 1789158,
+      "peer": 1789161,
+      "gateway": 1789162,
+      "source": 1789163
+    },
+    "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior"
+  },
+  "source_window_wall_s": 16.02021746902028,
+  "source_rates": [
+    {
+      "robot": 1,
+      "kind": "map->odom",
+      "count": 801,
+      "observed_interval_wall_s": 15.990513202,
+      "observed_interval_header_sim_s": 7.99,
+      "offered_Hz_wall": 50.02966383217398,
+      "offered_Hz_sim": 100.12515644555694
+    },
+    {
+      "robot": 1,
+      "kind": "odom",
+      "count": 481,
+      "observed_interval_wall_s": 15.995260744,
+      "observed_interval_header_sim_s": 8.0,
+      "offered_Hz_wall": 30.00888873787527,
+      "offered_Hz_sim": 60.0
+    },
+    {
+      "robot": 1,
+      "kind": "synthetic_action_feedback",
+      "count": 1601,
+      "observed_interval_wall_s": 15.992872363,
+      "observed_interval_header_sim_s": 8.0,
+      "offered_Hz_wall": 100.04456758509804,
+      "offered_Hz_sim": 200.0
+    },
+    {
+      "robot": 2,
+      "kind": "map->odom",
+      "count": 800,
+      "observed_interval_wall_s": 15.980937344,
+      "observed_interval_header_sim_s": 7.99,
+      "offered_Hz_wall": 49.99706730594137,
+      "offered_Hz_sim": 100.0
+    },
+    {
+      "robot": 2,
+      "kind": "odom",
+      "count": 480,
+      "observed_interval_wall_s": 15.96758623,
+      "observed_interval_header_sim_s": 7.98,
+      "offered_Hz_wall": 29.998272318708498,
+      "offered_Hz_sim": 60.0250626566416
+    },
+    {
+      "robot": 2,
+      "kind": "synthetic_action_feedback",
+      "count": 1600,
+      "observed_interval_wall_s": 15.989091828,
+      "observed_interval_header_sim_s": 8.0,
+      "offered_Hz_wall": 100.00567994736518,
+      "offered_Hz_sim": 199.875
+    },
+    {
+      "robot": 3,
+      "kind": "map->odom",
+      "count": 800,
+      "observed_interval_wall_s": 15.981040476,
+      "observed_interval_header_sim_s": 7.99,
+      "offered_Hz_wall": 49.99674465501304,
+      "offered_Hz_sim": 100.0
+    },
+    {
+      "robot": 3,
+      "kind": "odom",
+      "count": 480,
+      "observed_interval_wall_s": 15.966483501,
+      "observed_interval_header_sim_s": 7.99,
+      "offered_Hz_wall": 30.00034415655768,
+      "offered_Hz_sim": 59.94993742177722
+    },
+    {
+      "robot": 3,
+      "kind": "synthetic_action_feedback",
+      "count": 1598,
+      "observed_interval_wall_s": 15.98134353,
+      "observed_interval_header_sim_s": 7.99,
+      "offered_Hz_wall": 99.92902017293662,
+      "offered_Hz_sim": 199.87484355444306
+    }
+  ],
+  "source_counts": [
+    {
+      "kind": "synthetic_clock",
+      "robot": 0,
+      "count": 886
+    },
+    {
+      "kind": "static",
+      "robot": 1,
+      "count": 1
+    },
+    {
+      "kind": "synthetic_map",
+      "robot": 1,
+      "count": 4
+    },
+    {
+      "kind": "synthetic_action_status",
+      "robot": 1,
+      "count": 17
+    },
+    {
+      "kind": "static",
+      "robot": 2,
+      "count": 1
+    },
+    {
+      "kind": "synthetic_map",
+      "robot": 2,
+      "count": 4
+    },
+    {
+      "kind": "synthetic_action_status",
+      "robot": 2,
+      "count": 17
+    },
+    {
+      "kind": "static",
+      "robot": 3,
+      "count": 1
+    },
+    {
+      "kind": "synthetic_map",
+      "robot": 3,
+      "count": 4
+    },
+    {
+      "kind": "synthetic_action_status",
+      "robot": 3,
+      "count": 16
+    },
+    {
+      "kind": "map->odom",
+      "robot": 1,
+      "count": 801
+    },
+    {
+      "kind": "odom",
+      "robot": 1,
+      "count": 481
+    },
+    {
+      "kind": "odom->base_footprint",
+      "robot": 1,
+      "count": 481
+    },
+    {
+      "kind": "base_link->wheel_left_link",
+      "robot": 1,
+      "count": 321
+    },
+    {
+      "kind": "exact_zero_cmd",
+      "robot": 1,
+      "count": 321
+    },
+    {
+      "kind": "synthetic_action_feedback",
+      "robot": 1,
+      "count": 1601
+    },
+    {
+      "kind": "synthetic_action_feedback",
+      "robot": 2,
+      "count": 1600
+    },
+    {
+      "kind": "map->odom",
+      "robot": 2,
+      "count": 800
+    },
+    {
+      "kind": "synthetic_action_feedback",
+      "robot": 3,
+      "count": 1598
+    },
+    {
+      "kind": "map->odom",
+      "robot": 3,
+      "count": 800
+    },
+    {
+      "kind": "odom",
+      "robot": 2,
+      "count": 480
+    },
+    {
+      "kind": "odom->base_footprint",
+      "robot": 2,
+      "count": 480
+    },
+    {
+      "kind": "odom",
+      "robot": 3,
+      "count": 480
+    },
+    {
+      "kind": "odom->base_footprint",
+      "robot": 3,
+      "count": 480
+    },
+    {
+      "kind": "base_link->wheel_left_link",
+      "robot": 2,
+      "count": 320
+    },
+    {
+      "kind": "exact_zero_cmd",
+      "robot": 2,
+      "count": 320
+    },
+    {
+      "kind": "base_link->wheel_left_link",
+      "robot": 3,
+      "count": 320
+    },
+    {
+      "kind": "exact_zero_cmd",
+      "robot": 3,
+      "count": 320
+    },
+    {
+      "kind": "synthetic_costmap",
+      "robot": 1,
+      "count": 32
+    },
+    {
+      "kind": "synthetic_costmap",
+      "robot": 2,
+      "count": 32
+    },
+    {
+      "kind": "synthetic_costmap",
+      "robot": 3,
+      "count": 32
+    }
+  ],
+  "first_fault": {
+    "kind": "transport_latched_INVALID",
+    "monotonic_ns": 426400918110501,
+    "gz_ns": 1570000000,
+    "reason": "mapped_ns3_clock_lag_above_0.12sim"
+  },
+  "last_ack_before_fault": {
+    "kind": "clock_return_received",
+    "horizon_ns": 1260000000,
+    "monotonic_ns": 426400895562209
+  },
+  "pending_clock": {
+    "kind": "clock_frame",
+    "operation": "clock",
+    "horizon_ns": 1270000000,
+    "queued_monotonic_ns": 426400895602497,
+    "begin_byte_offset": 4418254,
+    "end_byte_offset": 4418310,
+    "socket_send_before_monotonic_ns": 426400897447180,
+    "socket_frame_flushed_monotonic_ns": 426400897575984,
+    "cumulative_socket_bytes": 4418310
+  },
+  "pending_hub_chain": [
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 426400899449452,
+      "horizon_ns": 1270000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 426400899455025,
+      "horizon_ns": 1270000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 426400899462699,
+      "horizon_ns": 1270000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 426400940253480,
+      "horizon_ns": 1270000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 426400940380890,
+      "horizon_ns": 1270000000
+    }
+  ],
+  "pending_native_begin": {
+    "kind": "step_begin",
+    "monotonic_ns": 426400899500657,
+    "thread_cpu_ns": 1452842438,
+    "ns3_ns": 1260000000,
+    "horizon_ns": 1270000000,
+    "hub_receive_monotonic_ns": 426400899692010
+  },
+  "pending_native_end": {
+    "kind": "step_end",
+    "monotonic_ns": 426400939998885,
+    "thread_cpu_ns": 1492805228,
+    "ns3_ns": 1270000000,
+    "horizon_ns": 1270000000,
+    "output_messages": 27,
+    "output_bytes": 166071,
+    "output_wall_ns": 928285,
+    "output_cpu_ns": 378012,
+    "hub_receive_monotonic_ns": 426400940169196
+  },
+  "slow_steps_before_fault": [
+    {
+      "horizon_ns": 1260000000,
+      "begin_monotonic_ns": 426400815072075,
+      "end_monotonic_ns": 426400894708407,
+      "wall_ns": 79636332,
+      "cpu_ns": 78615812,
+      "output_wall_ns": 1405225,
+      "output_cpu_ns": 382649
+    },
+    {
+      "horizon_ns": 730000000,
+      "begin_monotonic_ns": 426399638948215,
+      "end_monotonic_ns": 426399717540235,
+      "wall_ns": 78592020,
+      "cpu_ns": 77937413,
+      "output_wall_ns": 1106912,
+      "output_cpu_ns": 448891
+    },
+    {
+      "horizon_ns": 850000000,
+      "begin_monotonic_ns": 426399885791553,
+      "end_monotonic_ns": 426399961032633,
+      "wall_ns": 75241080,
+      "cpu_ns": 74749299,
+      "output_wall_ns": 812769,
+      "output_cpu_ns": 316655
+    },
+    {
+      "horizon_ns": 660000000,
+      "begin_monotonic_ns": 426399434234006,
+      "end_monotonic_ns": 426399505869511,
+      "wall_ns": 71635505,
+      "cpu_ns": 70618003,
+      "output_wall_ns": 1302055,
+      "output_cpu_ns": 290506
+    },
+    {
+      "horizon_ns": 1160000000,
+      "begin_monotonic_ns": 426400591860510,
+      "end_monotonic_ns": 426400662900990,
+      "wall_ns": 71040480,
+      "cpu_ns": 70767220,
+      "output_wall_ns": 545895,
+      "output_cpu_ns": 270121
+    }
+  ],
+  "flows": [
+    {
+      "side": "C",
+      "flow": 21,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 1,
+      "published_cdr_bytes": 55104,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 22,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 36,
+      "published_cdr_bytes": 26064,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 23,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 116,
+      "published_cdr_bytes": 11600,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 24,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 1,
+      "published_cdr_bytes": 100,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 25,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 2,
+      "published_cdr_bytes": 7408,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 26,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 24,
+      "published_cdr_bytes": 1248,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 31,
+      "captured": 80,
+      "captured_before_fault": 7,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 32,
+      "captured": 1,
+      "captured_before_fault": 1,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 41,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 1,
+      "published_cdr_bytes": 55104,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 42,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 35,
+      "published_cdr_bytes": 25340,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 43,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 112,
+      "published_cdr_bytes": 11200,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 44,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 1,
+      "published_cdr_bytes": 100,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 45,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 2,
+      "published_cdr_bytes": 7408,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 46,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 23,
+      "published_cdr_bytes": 1196,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 51,
+      "captured": 80,
+      "captured_before_fault": 7,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 52,
+      "captured": 1,
+      "captured_before_fault": 1,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 61,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 1,
+      "published_cdr_bytes": 55104,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 62,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 34,
+      "published_cdr_bytes": 24616,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 63,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 109,
+      "published_cdr_bytes": 10892,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 64,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 1,
+      "published_cdr_bytes": 100,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 65,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 2,
+      "published_cdr_bytes": 7408,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 66,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 23,
+      "published_cdr_bytes": 1196,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 71,
+      "captured": 80,
+      "captured_before_fault": 7,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "C",
+      "flow": 72,
+      "captured": 1,
+      "captured_before_fault": 1,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 21,
+      "captured": 4,
+      "captured_before_fault": 1,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 22,
+      "captured": 481,
+      "captured_before_fault": 43,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 23,
+      "captured": 1603,
+      "captured_before_fault": 140,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 24,
+      "captured": 1,
+      "captured_before_fault": 1,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 25,
+      "captured": 32,
+      "captured_before_fault": 2,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 26,
+      "captured": 1072,
+      "captured_before_fault": 29,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 31,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 6,
+      "published_cdr_bytes": 8715,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 32,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 1,
+      "published_cdr_bytes": 56,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 41,
+      "captured": 4,
+      "captured_before_fault": 1,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 42,
+      "captured": 480,
+      "captured_before_fault": 42,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 43,
+      "captured": 1600,
+      "captured_before_fault": 136,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 44,
+      "captured": 1,
+      "captured_before_fault": 1,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 45,
+      "captured": 32,
+      "captured_before_fault": 2,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 46,
+      "captured": 1072,
+      "captured_before_fault": 28,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 51,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 6,
+      "published_cdr_bytes": 8715,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 52,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 1,
+      "published_cdr_bytes": 56,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 61,
+      "captured": 4,
+      "captured_before_fault": 1,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 62,
+      "captured": 480,
+      "captured_before_fault": 42,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 63,
+      "captured": 1600,
+      "captured_before_fault": 135,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 64,
+      "captured": 1,
+      "captured_before_fault": 1,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 65,
+      "captured": 32,
+      "captured_before_fault": 2,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 66,
+      "captured": 1072,
+      "captured_before_fault": 28,
+      "published": 0,
+      "published_cdr_bytes": 0,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 71,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 6,
+      "published_cdr_bytes": 8715,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    },
+    {
+      "side": "R",
+      "flow": 72,
+      "captured": 0,
+      "captured_before_fault": 0,
+      "published": 1,
+      "published_cdr_bytes": 56,
+      "semantics": "Captured continued after fault; sent/delivered stop on first fault, so full-window ratio is not healthy throughput"
+    }
+  ],
+  "health_interarrival_before_fault": [
+    {
+      "robot": 1,
+      "flow": 31,
+      "received": 6,
+      "max_observed_interarrival_wall_ms": 266.537381,
+      "scope": "Only consecutive publications before first clock fault; startup/trailing gap not a sustained health qualification"
+    },
+    {
+      "robot": 2,
+      "flow": 51,
+      "received": 6,
+      "max_observed_interarrival_wall_ms": 276.811232,
+      "scope": "Only consecutive publications before first clock fault; startup/trailing gap not a sustained health qualification"
+    },
+    {
+      "robot": 3,
+      "flow": 71,
+      "received": 6,
+      "max_observed_interarrival_wall_ms": 289.519711,
+      "scope": "Only consecutive publications before first clock fault; startup/trailing gap not a sustained health qualification"
+    }
+  ],
+  "bound_received": 20,
+  "bound_accepted": 14,
+  "bound_source_gate": "14 accepted using original .4/.55 state_fresh, 6 bootstrap rejected; unarmed fixture does not establish continuous armed safety",
+  "hub_final": {
+    "argv": [
+      "/home/zhuyulab/ns3-workspace/net-01/build/followup03-cpu/net01-payload",
+      "--output=/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-16-paced-wifi/hub/native",
+      "--profile=B",
+      "--controlTrace=1"
+    ],
+    "scope": "Unix IPC to actual ns3 full-payload transport",
+    "status": "PASS",
+    "native_exit": 0,
+    "ingress_messages": 1128,
+    "delivered_messages": 939
+  },
+  "gateway_complete": 939,
+  "postfault_discard": 6,
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 1,
+      "2": 1,
+      "3": 1
+    }
+  },
+  "guard_dispatch": {
+    "1": {
+      "calls": 888,
+      "max_gap_wall_s": 0.07139884599018842,
+      "last": 426415.918130018
+    },
+    "2": {
+      "calls": 887,
+      "max_gap_wall_s": 0.06843060796381906,
+      "last": 426415.921699214
+    },
+    "3": {
+      "calls": 888,
+      "max_gap_wall_s": 0.06592227600049227,
+      "last": 426415.923380263
+    }
+  },
+  "limitations": [
+    "Pacing did not pass clock prerequisite; no automatic retry/parameter sweep/GZ admission",
+    "Post-fault drain and END saved successfully, but first lag fault unchanged",
+    "Synthetic per-wall rates are CPU overspec and not proof of real-GZ lower-frequency odom receipt gaps",
+    "No real-world/policy/Nav2/physical safety or sustained full-window delivery PASS"
+  ]
+}
