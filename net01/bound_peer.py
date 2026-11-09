@@ -68,7 +68,7 @@ class BatchBinding:
         self.pending.clear()
 
 
-def decode_bound(packet, robot, session_id):
+def decode_envelope(packet, robot, session_id):
     if len(packet) < 4:
         raise ValueError("Missing mask binding")
     size, = struct.unpack("!I", packet[:4])
@@ -80,6 +80,11 @@ def decode_bound(packet, robot, session_id):
         raise ValueError("Mask robot/session/binding mismatch")
     if len(body) != meta["mask_cdr_bytes"] or hashlib.sha256(body).hexdigest() != meta["mask_cdr_sha256"]:
         raise ValueError("Actual mask CDR identity mismatch")
+    return meta, body
+
+
+def decode_bound(packet, robot, session_id):
+    meta, body = decode_envelope(packet, robot, session_id)
     message = deserialize_message(body, OccupancyGrid)
     h = meta["original_header"]
     if (message.header.stamp.sec,message.header.stamp.nanosec,message.header.frame_id) != (h["stamp_sec"],h["stamp_nanosec"],h["frame_id"]):

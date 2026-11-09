@@ -7,7 +7,7 @@ import struct
 from rclpy.serialization import serialize_message,deserialize_message
 from nav_msgs.msg import OccupancyGrid
 from std_msgs.msg import String
-from bound_peer import BatchBinding,ObservedPublisher,decode_bound
+from bound_peer import BatchBinding,ObservedPublisher,decode_bound,decode_envelope
 
 
 def main():
@@ -47,6 +47,8 @@ def main():
             metadata,message=decode_bound(packet,robot,17)
             check(robot+"_all_original_mask_fields_unchanged",message==before[robot])
             n,=struct.unpack("!I",packet[:4]);body=packet[4+n:]
+            envelope,opaque_body=decode_envelope(packet,robot,17)
+            check(robot+"_C_metadata_and_opaque_CDR_equal_full_R_validation",envelope==metadata and opaque_body==body)
             check(robot+"_original_publish_all_fields_equal",message==deserialize_message(original[robot],OccupancyGrid))
             check(robot+"_captured_CDR_exact_in_envelope",body==observed_cdr[robot])
             check(robot+"_actual_same_health_state_bound",metadata["bound_state"]==state)
