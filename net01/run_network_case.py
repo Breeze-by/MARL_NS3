@@ -23,6 +23,7 @@ import rclpy
 from std_msgs.msg import String
 from std_srvs.srv import Trigger,Empty
 from rclpy.qos import QoSProfile,DurabilityPolicy
+from execution_profile import load_profile
 
 
 class NetworkObserver(original.Observer):
@@ -63,35 +64,52 @@ class NetworkObserver(original.Observer):
 
     def startup_navigation(self,deadline):
         # One real, no-goal clock/pause test inside this admitted Gazebo start.
+        profile=load_profile(os.environ.get('NET01_EXECUTION_PROFILE') or None)
+        quantum_sim_s=.1 if profile is None else profile['native_step_quantum_ns']/1e9
+        def reject_latched_failure():
+            if self.network_fault:raise RuntimeError('Network guardian INVALID: '+self.network_fault)
+            state=self.network_state
+            if state is not None:
+                if state['failure']:raise RuntimeError('Network gateway INVALID: '+state['failure'])
+                for robot,guard in state['guards'].items():
+                    if guard['fault']:raise RuntimeError(f'STA{robot} INVALID: '+guard['fault'])
         request_ns=time.monotonic_ns()
         self.call(Empty,"/pause_physics",Empty.Request())
         completed_ns=time.monotonic_ns()
         try:
             while time.monotonic()<deadline:
                 rclpy.spin_once(self,timeout_sec=.01)
-                if self.network_state["gateway_monotonic_ns"]>completed_ns:break
-            else:raise RuntimeError("Original startup deadline: no post-pause gateway clock baseline")
+                reject_latched_failure()
+                state=self.network_state
+                if (state is not None and state['gateway_monotonic_ns']>completed_ns
+                    and time.monotonic()-self.network_received<=.3 and state['anchor'] is not None
+                    and state['gz_ns']==int(round(self.sim*1e9))
+                    and state['ns3_ns']==state['gz_ns']-state['anchor']['offset_ns']):break
+            else:raise RuntimeError("Original startup deadline: no fresh aligned post-pause clock baseline")
             before=dict(self.network_state);baseline_ns=time.monotonic_ns();baseline_R_sim=self.sim
             until=time.monotonic()+.35
             if until>deadline:raise RuntimeError("Original startup deadline leaves no pause observation window")
-            while time.monotonic()<until:rclpy.spin_once(self,timeout_sec=.01)
+            while time.monotonic()<until:
+                rclpy.spin_once(self,timeout_sec=.01)
+                reject_latched_failure()
             paused=dict(self.network_state);observed_ns=time.monotonic_ns();observed_R_sim=self.sim
         finally:self.call(Empty,"/unpause_physics",Empty.Request())
         anchor=before["anchor"]
         if not anchor or paused["anchor"]!=anchor:raise RuntimeError("Network clock anchor changed")
         if paused["gz_ns"]-before["gz_ns"]>100_000_000:
-            raise RuntimeError("Gazebo /clock did not pause within fixed .1sim quantum")
+            raise RuntimeError("Gazebo /clock exceeded legacy .1sim pause advance bound")
         if paused["ns3_ns"]>paused["gz_ns"]-anchor["offset_ns"]:
             raise RuntimeError("ns-3 advanced beyond actual Gazebo clock")
         if paused["ns3_ns"]-before["ns3_ns"]>100_000_000:
-            raise RuntimeError("ns-3 progressed during Gazebo pause beyond one admitted horizon")
+            raise RuntimeError("ns-3 progressed during Gazebo pause beyond legacy .1sim advance bound")
         self.event("real_clock_no_goal_pause_resume",before=before,paused=paused,
             pause_request_monotonic_ns=request_ns,pause_completed_monotonic_ns=completed_ns,
             baseline_monotonic_ns=baseline_ns,observed_monotonic_ns=observed_ns,
             baseline_R_sim=baseline_R_sim,observed_R_sim=observed_R_sim,
-            test_wall_s=.35,quantum_sim_s=.1,max_lag_sim_s=.12)
+            test_wall_s=.35,quantum_sim_s=quantum_sim_s,legacy_pause_advance_bound_sim_s=.1,max_lag_sim_s=.12)
         while time.monotonic()<deadline:
             rclpy.spin_once(self,timeout_sec=.01)
+            reject_latched_failure()
             if not self.peer_error():break
         else:raise RuntimeError("Original startup deadline: no fresh sources after clock resume")
         super().startup_navigation(deadline)
