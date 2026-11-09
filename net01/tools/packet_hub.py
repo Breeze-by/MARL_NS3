@@ -9,6 +9,7 @@ import asyncio
 import json
 import os
 from pathlib import Path
+import socket
 import time
 
 
@@ -43,6 +44,14 @@ async def main(args):
     control_trace=[]
     native_boundaries=[]
     native_stderr=[]
+    step_observer=socket.socket(socket.AF_UNIX,socket.SOCK_DGRAM) if args.step_observer else None
+    if step_observer is not None:step_observer.setblocking(False)
+    last_native_horizon=0
+    def observe_native(kind,horizon):
+        # Administrative progress only; never payload, goal or policy input.
+        if step_observer is not None:
+            step_observer.sendto(json.dumps(dict(kind=kind,horizon_ns=horizon,
+                monotonic_ns=time.monotonic_ns())).encode(),str(args.step_observer))
     def control_event(kind,**fields):
         if args.control_trace:control_trace.append(dict(kind=kind,monotonic_ns=time.monotonic_ns(),**fields))
 
@@ -58,6 +67,7 @@ async def main(args):
     diagnostics_task=asyncio.create_task(native_diagnostics()) if args.control_trace else None
 
     async def native_rx():
+        nonlocal last_native_horizon
         try:
             while line := await process.stdout.readline():
                 words = line.decode().split()
@@ -81,6 +91,8 @@ async def main(args):
                     if detailed:control_event('hub_owner_output_end',message_id=mid,bytes=size)
                 elif words[0] == "STEP":
                     control_event('hub_native_STEP_received',horizon_ns=int(words[1]))
+                    last_native_horizon=int(words[1])
+                    observe_native('step',last_native_horizon)
                     await received_steps.put(int(words[1]))
                 else:
                     raise ValueError("Unexpected native output")
@@ -155,6 +167,7 @@ async def main(args):
     try:
         if await asyncio.wait_for(process.stdout.readline(), timeout=10) != b"READY\n":
             raise RuntimeError("Native model did not become ready")
+        observe_native('ready',0)  # Native initialized at0; no Run before READY.
         receive_task = asyncio.create_task(native_rx())
         server = await asyncio.start_unix_server(endpoint, path=str(args.socket))
         os.chmod(args.socket, 0o600)
@@ -174,6 +187,8 @@ async def main(args):
         result["error"] = repr(error)
         raise
     finally:
+        late_observer_error=None
+        primary_failed='error' in result
         if server is not None:
             server.close()
             await server.wait_closed()
@@ -182,6 +197,13 @@ async def main(args):
             await process.wait()
         if owner is not None:
             owner.close()
+        if step_observer is not None:
+            try:observe_native('closed',last_native_horizon)
+            except OSError as error:
+                late_observer_error=error
+                result['step_observer_close_error']=repr(error)
+                result['status']='FAIL'
+            finally:step_observer.close()
         if diagnostics_task is not None:
             await diagnostics_task
             stderr.writelines(native_stderr)
@@ -193,6 +215,8 @@ async def main(args):
         if args.control_trace:(args.output/'hub-clock-control.json').write_text(json.dumps(control_trace,indent=2)+'\n')
         if args.socket.exists():
             args.socket.unlink()
+        if late_observer_error is not None and not primary_failed:
+            raise late_observer_error
 
 
 if __name__ == "__main__":
@@ -205,4 +229,6 @@ if __name__ == "__main__":
     parser.add_argument("--allow-radio-fault", action="store_true", help="Independent no-motion negative fixture only")
     parser.add_argument("--clock-source", choices=("synthetic","gazebo"), default="synthetic")
     parser.add_argument('--control-trace',action='store_true')
+    parser.add_argument('--step-observer',type=Path,
+        help='Explicit independent controlled-time receiver; only real native progress, no business data')
     asyncio.run(main(parser.parse_args()))

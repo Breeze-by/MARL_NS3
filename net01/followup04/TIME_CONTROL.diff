@@ -1,0 +1,496 @@
+diff --git a/net01/followup04/check_time_control_state.py b/net01/followup04/check_time_control_state.py
+new file mode 100644
+index 0000000..0bee315
+--- /dev/null
++++ b/net01/followup04/check_time_control_state.py
+@@ -0,0 +1,56 @@
++"""Direct checks of the actual pure coordination state; no ROS/model imports."""
++import argparse
++import json
++from pathlib import Path
++import sys
++sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
++from time_control_state import TimeControlState,QUANTUM_NS
++
++
++def main():
++    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True)
++    out=parser.parse_args().output;out.mkdir(parents=True,exist_ok=False)
++    checks={}
++    def finish(s,before,iteration=0):
++        s.begin_step();s.complete_step(dict(before_ns=before,after_ns=before+QUANTUM_NS,
++            before_iterations=iteration,after_iterations=iteration+10,completed_steps=10))
++    s=TimeControlState();assert not s.can_step();s.native('ready',0)
++    finish(s,5_000_000);finish(s,15_000_000,10)
++    assert not s.can_step() and s.bootstrap_tokens==2
++    checks['preanchor_at_most_two_physical_quanta']=True
++    s.set_anchor(10_000_000);s.clock(20_000_000)
++    assert not s.can_step();s.native('step',10_000_000);assert s.can_step()
++    finish(s,25_000_000,20);assert s.physical_ns==35_000_000 and not s.can_step()
++    checks['nonterminal_clock_phase_and_actual20ms_lead_bound']=True
++    s.native('step',20_000_000);assert not s.can_step()
++    s.clock(30_000_000);assert s.can_step()
++    checks['ACK_does_not_fabricate_a_missing_real_clock']=True
++    s.begin_step()
++    try:s.begin_step()
++    except RuntimeError:pass
++    else:raise AssertionError('overlapping physical token permitted')
++    s.hold();assert not s.can_step()
++    s.complete_step(dict(before_ns=35_000_000,after_ns=45_000_000,
++        before_iterations=30,after_iterations=40,completed_steps=10))
++    assert s.mode=='HOLD' and not s.can_step()
++    checks['HOLD_preempts_new_tokens_allows_only_original_inflight_completion']=True
++    assert s.run();assert s.stop_observe(True) and s.mode=='STOP_COUPLED'
++    assert not s.can_step()  # No native credit; normal stop cannot run freely.
++    checks['normal_stop_observe_preserves_actual_native_credit']=True
++    s.fail('actual_transport_failure');assert not s.run() and not s.stop_observe(False)
++    assert s.stop_observe(True) and s.mode=='FAULT_STOP_OBSERVE' and s.can_step()
++    finish(s,45_000_000,40);assert s.native_ns==20_000_000
++    checks['failed_stop_requires_authority_exit_and_never_fakes_native_ACK']=True
++    s.hold(expected_shutdown=True);s.hold();assert s.expected_shutdown and not s.can_step() and not s.run() and not s.stop_observe(True)
++    s.native('closed',s.native_ns);assert s.failure=='actual_transport_failure'
++    checks['expected_shutdown_does_not_resume_or_overwrite_firstfault']=True
++    bad=TimeControlState();bad.native('ready',0);bad.begin_step()
++    bad.complete_step(dict(before_ns=0,after_ns=9_000_000,
++        before_iterations=0,after_iterations=9,completed_steps=9))
++    assert bad.failure=='post_physics_token_mismatch' and not bad.can_step() and not bad.stop_observe(True)
++    checks['incomplete_actual_physics_is_not_ACKed_as_a_full_token']=True
++    result=dict(scope='Pure actual coordinator-state methods; 0ROS/GZ/native/Goal/NN',status='PASS',checks=checks)
++    (out/'result.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
++
++
++if __name__=='__main__':main()
+diff --git a/net01/time_control_plugin/CMakeLists.txt b/net01/time_control_plugin/CMakeLists.txt
+new file mode 100644
+index 0000000..25a2d42
+--- /dev/null
++++ b/net01/time_control_plugin/CMakeLists.txt
+@@ -0,0 +1,13 @@
++cmake_minimum_required(VERSION 3.16)
++project(net01_time_control LANGUAGES CXX)
++find_package(ament_cmake REQUIRED)
++find_package(gazebo 11 REQUIRED)
++find_package(gazebo_ros REQUIRED)
++find_package(rclcpp REQUIRED)
++find_package(std_srvs REQUIRED)
++add_library(net01_time_control SHARED time_control_plugin.cc)
++target_compile_features(net01_time_control PRIVATE cxx_std_17)
++target_include_directories(net01_time_control PRIVATE ${GAZEBO_INCLUDE_DIRS})
++target_link_directories(net01_time_control PRIVATE ${GAZEBO_LIBRARY_DIRS})
++ament_target_dependencies(net01_time_control gazebo_ros rclcpp std_srvs)
++target_link_libraries(net01_time_control ${GAZEBO_LIBRARIES})
+diff --git a/net01/time_control_plugin/time_control_plugin.cc b/net01/time_control_plugin/time_control_plugin.cc
+new file mode 100644
+index 0000000..666bf52
+--- /dev/null
++++ b/net01/time_control_plugin/time_control_plugin.cc
+@@ -0,0 +1,62 @@
++// A physics-completion RPC only. No clock, pose, velocity or parameter writes.
++#include <gazebo/common/Plugin.hh>
++#include <gazebo/physics/PhysicsEngine.hh>
++#include <gazebo/physics/World.hh>
++#include <gazebo_ros/node.hpp>
++#include <std_srvs/srv/trigger.hpp>
++
++#include <cstdint>
++#include <sstream>
++
++namespace net01
++{
++int64_t Nanoseconds(const gazebo::common::Time &time)
++{
++  return int64_t(time.sec) * 1000000000LL + time.nsec;
++}
++
++class TimeControlPlugin : public gazebo::WorldPlugin
++{
++public:
++  void Load(gazebo::physics::WorldPtr world, sdf::ElementPtr sdf) override
++  {
++    node_ = gazebo_ros::Node::Get(sdf);
++    group_ = node_->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
++    service_ = node_->create_service<std_srvs::srv::Trigger>(
++      "/net01/physics_step",
++      [world](std_srvs::srv::Trigger::Request::SharedPtr,
++        std_srvs::srv::Trigger::Response::SharedPtr response)
++      {
++        const auto before_ns = Nanoseconds(world->SimTime());
++        const auto before_iterations = world->Iterations();
++        const bool allowed = world->IsPaused() &&
++          world->Physics()->GetMaxStepSize() == 0.001;
++        // gazebo_ros::Node services run on its background ROS executor, not
++        // the world-update thread. Step blocks until post-update stepInc==0,
++        // or until the world stops; never call this from an update callback.
++        if (allowed) {
++          world->Step(10);
++        }
++        const auto after_ns = Nanoseconds(world->SimTime());
++        const auto after_iterations = world->Iterations();
++        const auto completed_steps = uint32_t(after_iterations - before_iterations);
++        response->success = allowed && world->IsPaused() && completed_steps == 10 &&
++          after_ns - before_ns == 10000000LL;
++        std::ostringstream message;
++        message << "{\"before_ns\":" << before_ns
++                << ",\"after_ns\":" << after_ns
++                << ",\"before_iterations\":" << before_iterations
++                << ",\"after_iterations\":" << after_iterations
++                << ",\"completed_steps\":" << completed_steps << "}";
++        response->message = message.str();
++      }, rmw_qos_profile_services_default, group_);
++  }
++
++private:
++  gazebo_ros::Node::SharedPtr node_;
++  rclcpp::CallbackGroup::SharedPtr group_;
++  rclcpp::Service<std_srvs::srv::Trigger>::SharedPtr service_;
++};
++
++GZ_REGISTER_WORLD_PLUGIN(TimeControlPlugin)
++}  // namespace net01
+diff --git a/net01/time_control_state.py b/net01/time_control_state.py
+new file mode 100644
+index 0000000..ba1e76f
+--- /dev/null
++++ b/net01/time_control_state.py
+@@ -0,0 +1,81 @@
++"""Pure state for the explicit controlled-time profile, no ROS/model/clock I/O.
++
++Physical end-time is a credit bound only. It is never a fabricated /clock or
++ns3 STEP target. The native owner still advances only to actual observed clock.
++"""
++QUANTUM_NS=10_000_000
++LOOKAHEAD_NS=2*QUANTUM_NS
++
++
++class TimeControlState:
++    def __init__(self):
++        self.mode='RUN';self.failure=None;self.expected_shutdown=False;self.physics_failed=False
++        self.native_ready=False;self.native_ns=0;self.anchor=None;self.clock_ns=None
++        self.physical_ns=None;self.iterations=None;self.inflight=False
++        self.bootstrap_tokens=0;self.authority_exited=False
++
++    def fail(self,reason,physics=False):
++        if self.failure is None:self.failure=reason
++        self.physics_failed=self.physics_failed or physics
++        if self.physics_failed:self.mode='HOLD'
++        elif self.mode in ('STOP_COUPLED','FAULT_STOP_OBSERVE') and self.authority_exited:
++            self.mode='FAULT_STOP_OBSERVE'
++        else:self.mode='HOLD'
++
++    def clock(self,value):
++        if self.clock_ns is not None and value<self.clock_ns:
++            self.fail('actual_clock_rollback',physics=True);return
++        self.clock_ns=value
++
++    def set_anchor(self,offset):
++        if self.anchor is not None and self.anchor!=offset:
++            self.fail('fixed_clock_anchor_changed');return
++        self.anchor=offset
++
++    def native(self,kind,value):
++        if kind=='ready':
++            self.native_ready=True
++        elif kind=='step':
++            if value<self.native_ns:self.fail('actual_native_ACK_rollback');return
++            self.native_ns=value
++        elif kind=='closed' and not self.expected_shutdown:
++            self.fail('native_closed_before_expected_shutdown')
++
++    def hold(self,expected_shutdown=False):
++        self.mode='HOLD';self.expected_shutdown=self.expected_shutdown or expected_shutdown
++
++    def run(self):
++        if self.failure is not None or self.expected_shutdown:return False
++        self.mode='RUN';self.authority_exited=False;return True
++
++    def stop_observe(self,authority_exited):
++        if not authority_exited or self.physics_failed or self.expected_shutdown:return False
++        self.authority_exited=True
++        self.mode='FAULT_STOP_OBSERVE' if self.failure else 'STOP_COUPLED'
++        return True
++
++    def can_step(self):
++        if self.inflight or self.physics_failed or self.expected_shutdown or self.mode=='HOLD':return False
++        if self.mode=='FAULT_STOP_OBSERVE':return True
++        if not self.native_ready:return False
++        if self.anchor is None:return self.bootstrap_tokens<2
++        if self.clock_ns is None or self.anchor+self.native_ns>self.clock_ns:
++            return False  # Observe the real sample, never manufacture one.
++        return (self.physical_ns is None or
++            self.physical_ns+QUANTUM_NS<=self.anchor+self.native_ns+LOOKAHEAD_NS)
++
++    def begin_step(self):
++        if not self.can_step():raise RuntimeError('Unlicensed physical token')
++        self.inflight=True
++
++    def complete_step(self,response):
++        if not self.inflight:raise RuntimeError('No physical token outstanding')
++        self.inflight=False
++        before,after=response['before_ns'],response['after_ns']
++        ib,ia=response['before_iterations'],response['after_iterations']
++        if (after-before!=QUANTUM_NS or ia-ib!=10 or response['completed_steps']!=10
++            or (self.physical_ns is not None and before!=self.physical_ns)
++            or (self.iterations is not None and ib!=self.iterations)):
++            self.fail('post_physics_token_mismatch',physics=True);return
++        self.physical_ns=after;self.iterations=ia
++        if self.anchor is None:self.bootstrap_tokens+=1
+diff --git a/net01/time_controller.py b/net01/time_controller.py
+new file mode 100644
+index 0000000..4389c8d
+--- /dev/null
++++ b/net01/time_controller.py
+@@ -0,0 +1,163 @@
++"""Independent controlled-time owner. Only simulation/admin data, no business.
++
++World::Step acknowledgements bound physical credit; only the unchanged Gateway
++and real /clock drive native. One physical RPC, at most20ms physical lookahead.
++"""
++import argparse
++import json
++from pathlib import Path
++import signal
++import socket
++import time
++
++import rclpy
++from rclpy.callback_groups import ReentrantCallbackGroup
++from rclpy.clock import Clock,ClockType
++from rclpy.executors import SingleThreadedExecutor
++from rclpy.node import Node
++from rclpy.qos import QoSProfile,DurabilityPolicy,qos_profile_sensor_data
++from rclpy.signals import SignalHandlerOptions
++from rosgraph_msgs.msg import Clock as ClockMessage
++from std_msgs.msg import String
++from std_srvs.srv import Trigger,SetBool
++from time_control_state import TimeControlState
++
++
++class TimeController(Node):
++    def __init__(self,ack_socket,output):
++        super().__init__('net01_time_controller')
++        self.state=TimeControlState();self.output=Path(output);self.records=[]
++        self.ack_socket=Path(ack_socket)
++        self.socket=socket.socket(socket.AF_UNIX,socket.SOCK_DGRAM)
++        self.socket.bind(str(self.ack_socket));self.socket.setblocking(False)
++        self.future=None;self.group=ReentrantCallbackGroup()
++        self.step=self.create_client(Trigger,'/net01/physics_step',callback_group=self.group)
++        self.subscriptions_kept=[
++            self.create_subscription(ClockMessage,'/clock',self.clock,qos_profile_sensor_data),
++            self.create_subscription(String,'/net01/gateway_state',self.gateway,
++                QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)),
++            self.create_subscription(String,'/net01/guard_fault',self.guard_fault,10)]
++        self.control_services=[
++            self.create_service(SetBool,'/net01/time_control/hold',self.hold,callback_group=self.group),
++            self.create_service(Trigger,'/net01/time_control/run',self.run,callback_group=self.group),
++            self.create_service(SetBool,'/net01/time_control/stop_observe',self.stop_observe,callback_group=self.group)]
++        self.publisher=self.create_publisher(String,'/net01/time_control_state',
++            QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
++        self.timer=self.create_timer(.05,self.publish_state,clock=Clock(clock_type=ClockType.STEADY_TIME))
++
++    def record(self,kind,*values):
++        # Primitive tuples, RAM only; no payload or model object retention.
++        self.records.append((kind,time.monotonic_ns(),time.thread_time_ns(),*values))
++
++    def snapshot(self):
++        return dict(mode=self.state.mode,failure=self.state.failure,
++            expected_shutdown=self.state.expected_shutdown,physics_failed=self.state.physics_failed,
++            physical_ns=self.state.physical_ns,iterations=self.state.iterations,
++            actual_clock_ns=self.state.clock_ns,native_ACK_ns=self.state.native_ns,
++            fixed_offset_ns=self.state.anchor,physical_RPC_inflight=self.state.inflight)
++
++    def publish_state(self):self.publisher.publish(String(data=json.dumps(self.snapshot())))
++
++    def clock(self,message):
++        value=message.clock.sec*1_000_000_000+message.clock.nanosec
++        self.state.clock(value);self.record('actual_clock',value)
++
++    def gateway(self,message):
++        data=json.loads(message.data)
++        if data['anchor'] is not None:self.state.set_anchor(data['anchor']['offset_ns'])
++        if data['failure']:self.observed_failure('gateway:'+data['failure'])
++
++    def guard_fault(self,message):self.observed_failure('guard:'+message.data)
++
++    def observed_failure(self,reason):
++        self.record('post_expected_shutdown_condition' if self.state.expected_shutdown else 'failure',reason)
++        if not self.state.expected_shutdown:self.state.fail(reason)
++
++    async def hold(self,request,response):
++        self.state.hold();self.record('HOLD_requested',request.data)
++        pending=self.future
++        if pending is not None:
++            await pending
++            self.finish_step()
++        response.success=not self.state.physics_failed
++        if response.success and request.data:self.state.hold(expected_shutdown=True)
++        self.record('HOLD_completed',response.success,self.state.expected_shutdown)
++        response.message=json.dumps(self.snapshot());return response
++
++    def run(self,request,response):
++        response.success=self.state.run();self.record('RUN',response.success)
++        response.message=json.dumps(self.snapshot());return response
++
++    def stop_observe(self,request,response):
++        # The real supervisor supplies its already-established authority exit;
++        # this is simulation/safety control, never a policy input or new goal.
++        response.success=self.state.stop_observe(request.data)
++        self.record('STOP_OBSERVE',request.data,response.success,self.state.mode)
++        response.message=json.dumps(self.snapshot());return response
++
++    def finish_step(self):
++        if self.future is None or not self.future.done():return
++        future=self.future;self.future=None
++        try:
++            response=future.result();data=json.loads(response.message)
++            self.record('post_physics_ACK',response.success,data['before_ns'],data['after_ns'],
++                data['before_iterations'],data['after_iterations'],data['completed_steps'])
++            if not response.success:
++                self.state.inflight=False;self.state.fail('physics_RPC_rejected',physics=True)
++            else:self.state.complete_step(data)
++        except Exception as error:
++            self.state.inflight=False;self.state.fail('physics_RPC_failed:'+repr(error),physics=True)
++            self.record('physics_RPC_failed',repr(error))
++
++    def poll(self):
++        while True:
++            try:body=self.socket.recv(4096)
++            except BlockingIOError:break
++            row=json.loads(body)
++            self.state.native(row['kind'],row['horizon_ns'])
++            self.record('actual_native_progress',row['kind'],row['horizon_ns'],row['monotonic_ns'])
++        self.finish_step()
++        if self.state.can_step() and self.step.service_is_ready():
++            self.state.begin_step();self.record('physical_token',self.state.mode,
++                self.state.physical_ns,self.state.native_ns,self.state.anchor)
++            self.future=self.step.call_async(Trigger.Request())
++
++    def close(self):
++        self.socket.close();self.ack_socket.unlink()
++        with self.output.open('x') as stream:
++            json.dump(dict(scope='Simulation control only; real clock/native ACK, no business payload',
++                final=self.snapshot(),records=self.records),stream)
++
++
++def main():
++    parser=argparse.ArgumentParser();parser.add_argument('--ack-socket',type=Path,required=True)
++    parser.add_argument('--output',type=Path,required=True)
++    parser.add_argument('--stop-file',type=Path,help='Isolated fixture resource teardown only')
++    parser.add_argument('--hold-file',type=Path,help='Isolated fixture expected-shutdown request only')
++    args=parser.parse_args()
++    rclpy.init(domain_id=92,signal_handler_options=SignalHandlerOptions.NO)
++    node=TimeController(args.ack_socket,args.output);executor=SingleThreadedExecutor();executor.add_node(node)
++    stopping=False;held=False
++    def stop(signum,frame):
++        nonlocal stopping
++        stopping=True
++    signal.signal(signal.SIGINT,stop);signal.signal(signal.SIGTERM,stop)
++    print('TIME_CONTROL_READY '+str(args.ack_socket),flush=True)
++    try:
++        while not stopping:
++            try:
++                executor.spin_once(timeout_sec=.001);node.poll()
++                if args.hold_file is not None and args.hold_file.exists():
++                    node.state.hold()
++                    if not node.state.inflight and not held:
++                        node.state.hold(expected_shutdown=True);held=True
++                        args.hold_file.with_suffix('.ack').write_text('actual physical RPC complete; resource HOLD only')
++                if args.stop_file is not None and args.stop_file.exists():stopping=True
++            except Exception as error:node.observed_failure(repr(error))
++    finally:
++        node.close();executor.remove_node(node);executor.shutdown(timeout_sec=0)
++        node.destroy_node();rclpy.shutdown()
++    return 1 if node.state.failure or node.state.inflight or not node.state.expected_shutdown else 0
++
++
++if __name__=='__main__':raise SystemExit(main())
+diff --git a/net01/tools/packet_hub.py b/net01/tools/packet_hub.py
+index 9474057..ced31e3 100644
+--- a/net01/tools/packet_hub.py
++++ b/net01/tools/packet_hub.py
+@@ -9,6 +9,7 @@ import asyncio
+ import json
+ import os
+ from pathlib import Path
++import socket
+ import time
+ 
+ 
+@@ -43,6 +44,14 @@ async def main(args):
+     control_trace=[]
+     native_boundaries=[]
+     native_stderr=[]
++    step_observer=socket.socket(socket.AF_UNIX,socket.SOCK_DGRAM) if args.step_observer else None
++    if step_observer is not None:step_observer.setblocking(False)
++    last_native_horizon=0
++    def observe_native(kind,horizon):
++        # Administrative progress only; never payload, goal or policy input.
++        if step_observer is not None:
++            step_observer.sendto(json.dumps(dict(kind=kind,horizon_ns=horizon,
++                monotonic_ns=time.monotonic_ns())).encode(),str(args.step_observer))
+     def control_event(kind,**fields):
+         if args.control_trace:control_trace.append(dict(kind=kind,monotonic_ns=time.monotonic_ns(),**fields))
+ 
+@@ -58,6 +67,7 @@ async def main(args):
+     diagnostics_task=asyncio.create_task(native_diagnostics()) if args.control_trace else None
+ 
+     async def native_rx():
++        nonlocal last_native_horizon
+         try:
+             while line := await process.stdout.readline():
+                 words = line.decode().split()
+@@ -81,6 +91,8 @@ async def main(args):
+                     if detailed:control_event('hub_owner_output_end',message_id=mid,bytes=size)
+                 elif words[0] == "STEP":
+                     control_event('hub_native_STEP_received',horizon_ns=int(words[1]))
++                    last_native_horizon=int(words[1])
++                    observe_native('step',last_native_horizon)
+                     await received_steps.put(int(words[1]))
+                 else:
+                     raise ValueError("Unexpected native output")
+@@ -155,6 +167,7 @@ async def main(args):
+     try:
+         if await asyncio.wait_for(process.stdout.readline(), timeout=10) != b"READY\n":
+             raise RuntimeError("Native model did not become ready")
++        observe_native('ready',0)  # Native initialized at0; no Run before READY.
+         receive_task = asyncio.create_task(native_rx())
+         server = await asyncio.start_unix_server(endpoint, path=str(args.socket))
+         os.chmod(args.socket, 0o600)
+@@ -174,6 +187,8 @@ async def main(args):
+         result["error"] = repr(error)
+         raise
+     finally:
++        late_observer_error=None
++        primary_failed='error' in result
+         if server is not None:
+             server.close()
+             await server.wait_closed()
+@@ -182,6 +197,13 @@ async def main(args):
+             await process.wait()
+         if owner is not None:
+             owner.close()
++        if step_observer is not None:
++            try:observe_native('closed',last_native_horizon)
++            except OSError as error:
++                late_observer_error=error
++                result['step_observer_close_error']=repr(error)
++                result['status']='FAIL'
++            finally:step_observer.close()
+         if diagnostics_task is not None:
+             await diagnostics_task
+             stderr.writelines(native_stderr)
+@@ -193,6 +215,8 @@ async def main(args):
+         if args.control_trace:(args.output/'hub-clock-control.json').write_text(json.dumps(control_trace,indent=2)+'\n')
+         if args.socket.exists():
+             args.socket.unlink()
++        if late_observer_error is not None and not primary_failed:
++            raise late_observer_error
+ 
+ 
+ if __name__ == "__main__":
+@@ -205,4 +229,6 @@ if __name__ == "__main__":
+     parser.add_argument("--allow-radio-fault", action="store_true", help="Independent no-motion negative fixture only")
+     parser.add_argument("--clock-source", choices=("synthetic","gazebo"), default="synthetic")
+     parser.add_argument('--control-trace',action='store_true')
++    parser.add_argument('--step-observer',type=Path,
++        help='Explicit independent controlled-time receiver; only real native progress, no business data')
+     asyncio.run(main(parser.parse_args()))
