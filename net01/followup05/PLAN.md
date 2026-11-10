@@ -26,8 +26,31 @@
 ## 最小验证预算 / 实际入口待源码固定后root准入
 
 1. 一个0Node定向check（纯状态/受控future，不执行策略），覆盖精确body/ACK错session错offset、响应先于requestACK、ACK丢失重ACK、期满不被late包复活、旧service状态接口不变。无新泛框架。
-2. 一个固定分阶段真实DDS generated Action→实际ns3.40 WiFi→真实DDS fixture，复用ControlledServer/LinkSession/HubClient/ros-python.sh与旧82bc。新文件不修改旧check_action_wifi历史断言。暂定C/R隔离域104/105，固定session本轮专用；0Nav2真实进程/无速度publisher/无Gazebo/训练。总60wall（含owned Hub/native/ROS收尾），场景预算另在实际argv中固定：真实3robot五端点与原UUID，短物理blackout使首请求丢失；受控server真完成响应时的物理blackout使首响应丢失；重复/ACK丢失；长GetResult合法等待>1.0wall后真实成功；原Cancel/CANCELED与feedback/status；最后永久断链耗尽必须INVALID/unknown而非fakeclosure，验证实际Gateway.fail/receive discard及本机清理边界。
+2. 一个固定分阶段真实DDS generated Action→实际ns3.40 WiFi→真实DDS fixture，复用ControlledServer/LinkSession/HubClient/ros-python.sh与旧82bc。新文件不修改旧check_action_wifi历史断言。复用实际Gateway固定C91/R92隔离域，不新增生产domain参数，固定session本轮专用；0Nav2真实进程/无非零速度publisher（实际LocalStop零Twist/PAUSE保留）/无Gazebo/训练。总60wall（含owned Hub/native/ROS收尾），场景预算另在实际argv中固定：真实3robot五端点与原UUID，短物理blackout使首请求丢失；受控server真完成响应时的物理blackout使首响应丢失；重复/ACK丢失；长GetResult合法等待>1.0wall后真实成功；原Cancel/CANCELED与feedback/status；最后永久断链必须INVALID/unknown（原.5wall readiness撤回可先于1wall确认上限触发，不能为凑五发放宽）而非fakeclosure，验证实际Gateway.fail/receive discard及本机清理边界。
 
 故障具体sim/wall阶段、域、fixtureargv/rootfs/owned Hub/native硬界和所有状态断言在源码READY时送root，不在本PLAN给尚未实现的命令冒充可执行。ACK级定点丢弃若为fixture应用层注入必须明确标注，不能冒称PHY丢包；请求/响应物理负例用原Range gate、V3不改。每次真实尝试按nativeID/RPC/CDR关联，不以Future.set_result或代理callback返回代替原中央client真收响应。
 
 任何首失败保原件，必要最小接口修补必须另登记复验，不能无限跑/调重送参数。结果只证明零运动真实ROS/ns3外部适配，不自动签真实机器人网络安全、120sim闭环或NET02。既有B首heartbeat发布→Ccapture未观测137.93ms、整Rcapture空194.945ms仍独立未闭合；本轮不混改调度/GC/clock。
+
+
+## 已固定生产源与唯一待准入实际命令
+
+root固定生产源提交51c5ac75971091913ad9a77f78d8b22327093a73；生产者此后不再改action_wire/gateway。实际0Node定向check已由helper唯一执行，16PASS/exit0/1.676wall，原件evidence/reliable-state-01；非DDS/网络证据。
+
+SOURCE_READY：`check_reliable_wifi.py`直接构造实际Gateway B（原C91/R92）、原ControlledServer和真实中央ActionClient。原rootfs/LinkSession/82bc/V3，synthetic实际DDS Clock10ms，每10wallms最多一个样本，不追赶；不宣称Gazebo时间。health/bound输入沿旧local-guard夹具方式为明确synthetic当前state，仅用于可控arm，不计作过网health资格。PAUSE为真实DDS spy、zero为真实Twist收件，仅期望全0，不签物理停机。
+
+固定顺序：真实三STA HELLO/ACK→3五端点→.25wall物理blackout丢tb1请求→恢复/原UUID成功→tb2 GetResult首requestACK在实际RX后应用级drop一次，同RPC重送不二call，真等1.2wall合法→.25wall物理blackout时release真实GetResult以丢首response→恢复收到原result→tb3首SendGoalresponseACK在实际RX后应用级drop一次，response重送/C重ACK不二DDS完成→原Cancel/CANCELED/反馈/status→全真实pending/confirmation drain→永久物理blackout+新Goal，原readiness撤回或确认上限先到者锁存INVALID/unknown→实际Gateway.fail停止所有重送，原zero/PAUSE继续，原pending不清→Gateway.close/END/Hub退出封存。
+
+postfailure receive-discard检查只显式把以前真native收到的完整CDR及meta交回同实际Gateway.receive，标注method-level replay，不冒充新无线收件/不构造理想cleanup旁路。断链后没有继续人为STEP绕过生产失败时钟门禁。ACK精确丢弃点有fixture-injections原件，与PHY断链区分。
+
+工作区根待root准入命令：
+
+```sh
+rtk proxy python3 -B net-01/workspace/net01/followup05/run_reliable_wifi.py
+```
+
+runner独占evidence/reliable-wifi-01与workspace/f05-wifi-01.sock，60wall总界；Hub自有50wall（native未改）、ROS fixture活动loop45wall，close另沿原最多3秒flush；outer60wall才是包含全部收尾硬界。ROS使用原`ros-python.sh`，没有namespace/宿主网络/TAP更改。全部argv于启动前写commands.json；首次错误保留，超总界只KILL本runner自有PG并明确FAIL，不正常发全PG SIGINT伪装有序退出。root确认原91/92无本项目残留/其它业务后才准run；不触domain69。无构建、无其它CPU试验并行。该命令尚未执行。
+
+夹具SOURCE_READY补充：创建ControlledServer前先在原R91/92节点观察实际精确Action/ManageLifecycle服务与cmd_vel外部reader均不存在（.6wall有界发现窗），否则不发送任何合成Goal。验完整Goal frame/stamp/pose/behavior_tree经标准generated序列化规范化后全typed字段相等；capture SHA与每条实际native完整CDR逐(sender,receiver,flow,rpc)对应。恢复Rangegate前明确request/response均未wholeRX，dedupe核R2.forwarded_requests恰2，不以dictkey唯一冒充只call一次。feedback/status本身仍原不可靠topic，本轮不称全面可靠。
+
+最终本机清理断言不仅观察spy请求，还等全部原LocalStop.futures done，并逐机收到actual_local_pause_response success；仍无真实物理停止认证。

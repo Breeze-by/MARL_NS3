@@ -1,0 +1,25 @@
+{
+  "scope": "Actual ActionWire methods/generated CDR/controlled Futures; 0 Node/DDS/ns3/Gazebo",
+  "checks": {
+    "duplicate_request_calls_real_client_adapter_once": true,
+    "same_identity_different_body_rejected": true,
+    "response_before_request_ACK_completes_only_original_future": true,
+    "completed_duplicate_response_reACK_without_second_completion": true,
+    "request_and_response_confirmation_states_drained": true,
+    "confirmed_GetResult_wait_beyond_transport_deadline_is_legitimate": true,
+    "request_ACK_stops_retries_without_GetResult_completion": true,
+    "lost_response_retries_original_CDR_same_RPC": true,
+    "lost_response_ACK_recovered_by_duplicate_response_reACK": true,
+    "duplicate_send_preserves_original_deadline_and_attempt": true,
+    "changed_C_transfer_body_rejected": true,
+    "old_session_and_wrong_offset_ACK_do_not_confirm_request": true,
+    "maximum_five_attempts_same_original_CDR": true,
+    "late_duplicate_does_not_extend_original_deadline": true,
+    "ACK_at_deadline_cannot_erase_expiry": true,
+    "permanent_failure_keeps_original_unknown_and_stops_retries": true
+  },
+  "status": "PASS",
+  "failures": [
+    "action_delivery_unconfirmed_tb1_offset0_rpc21479131447297"
+  ]
+}
