@@ -1,7 +1,7 @@
 {
   "review_date": "2026-11-10",
   "project_baseline_commit": "24ed61500985f55a99b6ed4f406641771c8a1e61",
-  "scope": "Full reading of five user-supplied PDFs, key-figure inspection and read-only checks of primary sources; no reproduction experiment or production modification",
+  "scope": "Full reading of five user-supplied PDFs, key-figure inspection and read-only checks of primary sources; subsequent fixed-source review of the user-supplied CORNET flagship repository; no reproduction experiment or production modification",
   "local_input_directory": "/home/zhuyulab/ns3-workspace/paper",
   "total_local_PDF_pages": 62,
   "original_PDFs_published_in_repository": false,
@@ -82,6 +82,22 @@
       "associated_code": "https://github.com/Emon-dey/RobSenCom/tree/20cfacfe74d1d159630c01b559682739417370d1",
       "code_caveat": "Associated later project, not proven exact 2022 experimental version; original paper usesROS1 and lists ROS2/DDS as future work",
       "reproduction_status": "NOT RUN; numeric window rule can be restated but complete reproducible implementation not established"
+    }
+  ],
+  "software_supplements": [
+    {
+      "id": "S1",
+      "repository": "https://github.com/rbccps-iisc/CORNET",
+      "identity": "Current Flagship reconstruction, distinct from CORNET1.0/CORNET2.0/CORNET3.0; not an additional paper read",
+      "commit": "81f0234b894977e9756b95303459cc64765bbc19",
+      "commit_date": "2026-09-28T23:32:02+05:30",
+      "declared_package_version": "0.1.0",
+      "report": "CORNET_FLAGSHIP_ADDENDUM.md",
+      "reviewed_scope": "Middleware clock/dispatcher/TUN, ROS2 bridge, ns3 and robot plugins, WiFi C++ backend, task examples, installation and lineage docs, selected tests and existing benchmark results",
+      "positive_findings": "Real Humble/Classic integration hooks, actual ns3 WiFi AP/STA/application source, explicit environment lanes and useful orchestration/statistics helpers",
+      "limits": "Physics clock not shown coupled to reviewed ns3 event-completion progress; helper/data-plane wiring gaps, TUN/TAP and CLI contract inconsistencies; current ns3.40 and three-robot Nav2 business integration not validated",
+      "reproduction_status": "NOT RUN; third-party source inspected only, no installation, tests, build, simulator or host-network commands executed",
+      "local_clone_published_in_repository": false
     }
   ]
 }

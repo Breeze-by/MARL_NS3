@@ -21,6 +21,8 @@
 
 当前选择保留真实Step/ACK/有限credit骨架；DUSC的位置时间依赖、MUNILS/CORNET的网络隔离值得借鉴。没有证据支持立即整体更换，更没有证据表明换clock就能修复一次UDP Goal丢失后无限等待。下一最小修复仍是可靠Action交付、中央捕获等待和原停止所有权闭合。
 
+用户随后补充的`rbccps-iisc/CORNET`为现代Flagship，已新增[专项源码评估](research/time-sync/CORNET_FLAGSHIP_ADDENDUM.md)。它确有Humble/Classic与真实ns-3 Wi-Fi代码，不能沿用2.0的Mininet-only结论；目前静态仍有CLI、TUN/TAP和clock/业务接线缺口。已列入待验证候选，未运行或更换生产系统。
+
 本次只新增评估与入口文档，未运行新实验、安装论文环境、训练或修改生产实现。五篇论文均未在本次获得“复现成功”结论。原论文PDF及第三方源码研读副本保留本机，不随本仓库发布。
 
 该评估不启动NET-02，不改变原失败和冻结tag。Git独立分支用于交接当前研究状态；新机器仍需按原环境说明恢复Gazebo/rootfs，不能把CPU回放当真实联合运行。
