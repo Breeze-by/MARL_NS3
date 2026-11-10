@@ -1,0 +1,4423 @@
+{
+  "case": "net-01d/workspace/net01d/runs/full-load-wifi-audit-01",
+  "overall_case": "FAIL; normal32/negative_goal/radiooff not reached",
+  "measurement_status": "VALID_EXACT_JOIN",
+  "method": {
+    "join": "native_message_id -> message_id with route/flow/bytes/source_stamp validation",
+    "delay": "ns3_rx_ns - actual admission_ns, scheduled SENDAT transmit boundary",
+    "unit": "ns3 simulation ms, complete application transport across CSMA/AP/WiFi/reassembly; not pure airtime or Linux wall",
+    "percentiles": "nearest rank ceil(p*n); median midpoint for even n",
+    "missing": "Unobserved complete message at last Native horizon, not automatically PHY loss; no ledger loss attribution",
+    "phase": "Only cohorts use same-host Hub ingress mono relative to C normalstart and first actual guardtrip; numerical delay always N-N",
+    "sampling": "Delivered-only delays, absent messages reported separately; per-message weighting, not byte-weighted"
+  },
+  "windows": {
+    "normal_start_G_sim_ns": 850000000,
+    "normal_start_N_sim_ns": 840000000,
+    "normal_start_mono_ns": 517268695264451,
+    "first_actual_guard_mono_ns": 517272979286441,
+    "final_native_HOLD_horizon_ns": 2640000000,
+    "final_G_clock_ns": 2650000000,
+    "final_post_physics_ACK_ns": 2655000000,
+    "fixed_G_minus_N_offset_ns": 10000000,
+    "source_supply_window_by_robot": {
+      "1": {
+        "active_supply_wall_s": 4.856714549998287,
+        "active_supply_begin_sim_ns": 650000000,
+        "active_supply_end_sim_ns": 2650000000
+      },
+      "2": {
+        "active_supply_wall_s": 4.8555358439916745,
+        "active_supply_begin_sim_ns": 650000000,
+        "active_supply_end_sim_ns": 2650000000
+      },
+      "3": {
+        "active_supply_wall_s": 4.856328823952936,
+        "active_supply_begin_sim_ns": 650000000,
+        "active_supply_end_sim_ns": 2650000000
+      }
+    },
+    "no_extra_native_drain_after_HOLD": true
+  },
+  "integrity_issues": [],
+  "all_transport_including_Link": {
+    "admitted": 2933,
+    "complete_delivered": 2809,
+    "not_delivered_by_final_horizon": 124,
+    "delivered_payload_bytes_including_rpc8": 11255124,
+    "delay": {
+      "n": 2809,
+      "unit": "ns3_sim_ms",
+      "min": 0.047025,
+      "median": 1.226851,
+      "p95_nearest_rank": 5.942973,
+      "p99_nearest_rank": 11.471752,
+      "max": 19.145048
+    },
+    "by_Hub_ingress_wall_phase": {
+      "pre_normal": {
+        "admitted": 180,
+        "complete_delivered": 179,
+        "not_delivered_by_final_horizon": 1,
+        "delay": {
+          "n": 179,
+          "unit": "ns3_sim_ms",
+          "min": 0.047025,
+          "median": 1.415022,
+          "p95_nearest_rank": 9.744892,
+          "p99_nearest_rank": 15.551164,
+          "max": 16.373162
+        }
+      },
+      "normal_before_first_guard": {
+        "admitted": 2650,
+        "complete_delivered": 2630,
+        "not_delivered_by_final_horizon": 20,
+        "delay": {
+          "n": 2630,
+          "unit": "ns3_sim_ms",
+          "min": 0.120039,
+          "median": 1.2255065,
+          "p95_nearest_rank": 5.643291,
+          "p99_nearest_rank": 10.22264,
+          "max": 19.145048
+        }
+      },
+      "after_first_guard_to_HOLD_and_END": {
+        "admitted": 103,
+        "complete_delivered": 0,
+        "not_delivered_by_final_horizon": 103,
+        "delay": {
+          "n": 0,
+          "unit": "ns3_sim_ms",
+          "min": null,
+          "median": null,
+          "p95_nearest_rank": null,
+          "p99_nearest_rank": null,
+          "max": null
+        }
+      }
+    }
+  },
+  "all_business_excluding_Link": {
+    "admitted": 2927,
+    "complete_delivered": 2803,
+    "not_delivered_by_final_horizon": 124,
+    "delivered_payload_bytes_including_rpc8": 11255004,
+    "delay": {
+      "n": 2803,
+      "unit": "ns3_sim_ms",
+      "min": 0.047025,
+      "median": 1.225611,
+      "p95_nearest_rank": 5.926429,
+      "p99_nearest_rank": 10.752486,
+      "max": 19.145048
+    },
+    "by_Hub_ingress_wall_phase": {
+      "pre_normal": {
+        "admitted": 174,
+        "complete_delivered": 173,
+        "not_delivered_by_final_horizon": 1,
+        "delay": {
+          "n": 173,
+          "unit": "ns3_sim_ms",
+          "min": 0.047025,
+          "median": 1.246811,
+          "p95_nearest_rank": 8.699107,
+          "p99_nearest_rank": 15.551164,
+          "max": 16.373162
+        }
+      },
+      "normal_before_first_guard": {
+        "admitted": 2650,
+        "complete_delivered": 2630,
+        "not_delivered_by_final_horizon": 20,
+        "delay": {
+          "n": 2630,
+          "unit": "ns3_sim_ms",
+          "min": 0.120039,
+          "median": 1.2255065,
+          "p95_nearest_rank": 5.643291,
+          "p99_nearest_rank": 10.22264,
+          "max": 19.145048
+        }
+      },
+      "after_first_guard_to_HOLD_and_END": {
+        "admitted": 103,
+        "complete_delivered": 0,
+        "not_delivered_by_final_horizon": 103,
+        "delay": {
+          "n": 0,
+          "unit": "ns3_sim_ms",
+          "min": null,
+          "median": null,
+          "p95_nearest_rank": null,
+          "p99_nearest_rank": null,
+          "max": null
+        }
+      }
+    }
+  },
+  "per_business_flow": {
+    "21": {
+      "admitted": 2,
+      "complete_delivered": 2,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 69612,
+      "delay": {
+        "n": 2,
+        "unit": "ns3_sim_ms",
+        "min": 3.711636,
+        "median": 4.053896,
+        "p95_nearest_rank": 4.396156,
+        "p99_nearest_rank": 4.396156,
+        "max": 4.396156
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 3.711636,
+            "median": 3.711636,
+            "p95_nearest_rank": 3.711636,
+            "p99_nearest_rank": 3.711636,
+            "max": 3.711636
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 4.396156,
+            "median": 4.396156,
+            "p95_nearest_rank": 4.396156,
+            "p99_nearest_rank": 4.396156,
+            "max": 4.396156
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "22": {
+      "admitted": 60,
+      "complete_delivered": 60,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 43920,
+      "delay": {
+        "n": 60,
+        "unit": "ns3_sim_ms",
+        "min": 0.489947,
+        "median": 1.06594,
+        "p95_nearest_rank": 5.1005,
+        "p99_nearest_rank": 6.229706,
+        "max": 6.229706
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 6,
+          "complete_delivered": 6,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 6,
+            "unit": "ns3_sim_ms",
+            "min": 0.704213,
+            "median": 0.958233,
+            "p95_nearest_rank": 1.483208,
+            "p99_nearest_rank": 1.483208,
+            "max": 1.483208
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 54,
+          "complete_delivered": 54,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 54,
+            "unit": "ns3_sim_ms",
+            "min": 0.489947,
+            "median": 1.0756645,
+            "p95_nearest_rank": 5.304637,
+            "p99_nearest_rank": 6.229706,
+            "max": 6.229706
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "23": {
+      "admitted": 323,
+      "complete_delivered": 314,
+      "not_delivered_by_final_horizon": 9,
+      "delivered_payload_bytes_including_rpc8": 34760,
+      "delay": {
+        "n": 314,
+        "unit": "ns3_sim_ms",
+        "min": 0.221796,
+        "median": 1.2492485,
+        "p95_nearest_rank": 5.618339,
+        "p99_nearest_rank": 5.970709,
+        "max": 6.241842
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 31,
+          "complete_delivered": 30,
+          "not_delivered_by_final_horizon": 1,
+          "delay": {
+            "n": 30,
+            "unit": "ns3_sim_ms",
+            "min": 0.221796,
+            "median": 1.185632,
+            "p95_nearest_rank": 5.696929,
+            "p99_nearest_rank": 5.704628,
+            "max": 5.704628
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 284,
+          "complete_delivered": 284,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 284,
+            "unit": "ns3_sim_ms",
+            "min": 0.357392,
+            "median": 1.252507,
+            "p95_nearest_rank": 5.521669,
+            "p99_nearest_rank": 5.974803,
+            "max": 6.241842
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 8,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 8,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "24": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 108,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 3.714252,
+        "median": 3.714252,
+        "p95_nearest_rank": 3.714252,
+        "p99_nearest_rank": 3.714252,
+        "max": 3.714252
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 3.714252,
+            "median": 3.714252,
+            "p95_nearest_rank": 3.714252,
+            "p99_nearest_rank": 3.714252,
+            "max": 3.714252
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "25": {
+      "admitted": 4,
+      "complete_delivered": 4,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 160448,
+      "delay": {
+        "n": 4,
+        "unit": "ns3_sim_ms",
+        "min": 2.480984,
+        "median": 2.9398575,
+        "p95_nearest_rank": 3.911713,
+        "p99_nearest_rank": 3.911713,
+        "max": 3.911713
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 3.911713,
+            "median": 3.911713,
+            "p95_nearest_rank": 3.911713,
+            "p99_nearest_rank": 3.911713,
+            "max": 3.911713
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 3,
+          "complete_delivered": 3,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 2.480984,
+            "median": 2.638916,
+            "p95_nearest_rank": 3.240799,
+            "p99_nearest_rank": 3.240799,
+            "max": 3.240799
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "26": {
+      "admitted": 104,
+      "complete_delivered": 95,
+      "not_delivered_by_final_horizon": 9,
+      "delivered_payload_bytes_including_rpc8": 5700,
+      "delay": {
+        "n": 95,
+        "unit": "ns3_sim_ms",
+        "min": 0.392601,
+        "median": 1.252506,
+        "p95_nearest_rank": 5.688077,
+        "p99_nearest_rank": 6.23449,
+        "max": 6.23449
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 10,
+          "complete_delivered": 10,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 10,
+            "unit": "ns3_sim_ms",
+            "min": 0.70955,
+            "median": 2.1965255,
+            "p95_nearest_rank": 5.700055,
+            "p99_nearest_rank": 5.700055,
+            "max": 5.700055
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 85,
+          "complete_delivered": 85,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 85,
+            "unit": "ns3_sim_ms",
+            "min": 0.392601,
+            "median": 1.252506,
+            "p95_nearest_rank": 5.524795,
+            "p99_nearest_rank": 6.23449,
+            "max": 6.23449
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 9,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 9,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "30": {
+      "admitted": 21,
+      "complete_delivered": 21,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 3374499,
+      "delay": {
+        "n": 21,
+        "unit": "ns3_sim_ms",
+        "min": 4.567047,
+        "median": 6.161288,
+        "p95_nearest_rank": 10.175183,
+        "p99_nearest_rank": 10.22264,
+        "max": 10.22264
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 3,
+          "complete_delivered": 3,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 4.567047,
+            "median": 4.633077,
+            "p95_nearest_rank": 10.175183,
+            "p99_nearest_rank": 10.175183,
+            "max": 10.175183
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 18,
+          "complete_delivered": 18,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 18,
+            "unit": "ns3_sim_ms",
+            "min": 5.089439,
+            "median": 6.2218665,
+            "p95_nearest_rank": 10.22264,
+            "p99_nearest_rank": 10.22264,
+            "max": 10.22264
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "31": {
+      "admitted": 20,
+      "complete_delivered": 20,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 31668,
+      "delay": {
+        "n": 20,
+        "unit": "ns3_sim_ms",
+        "min": 0.195755,
+        "median": 0.24324,
+        "p95_nearest_rank": 0.820451,
+        "p99_nearest_rank": 0.940848,
+        "max": 0.940848
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 2,
+          "complete_delivered": 2,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 2,
+            "unit": "ns3_sim_ms",
+            "min": 0.28857,
+            "median": 0.357562,
+            "p95_nearest_rank": 0.426554,
+            "p99_nearest_rank": 0.426554,
+            "max": 0.426554
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 18,
+          "complete_delivered": 18,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 18,
+            "unit": "ns3_sim_ms",
+            "min": 0.195755,
+            "median": 0.231246,
+            "p95_nearest_rank": 0.940848,
+            "p99_nearest_rank": 0.940848,
+            "max": 0.940848
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "32": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 64,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.047025,
+        "median": 0.047025,
+        "p95_nearest_rank": 0.047025,
+        "p99_nearest_rank": 0.047025,
+        "max": 0.047025
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.047025,
+            "median": 0.047025,
+            "p95_nearest_rank": 0.047025,
+            "p99_nearest_rank": 0.047025,
+            "max": 0.047025
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "41": {
+      "admitted": 2,
+      "complete_delivered": 2,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 85496,
+      "delay": {
+        "n": 2,
+        "unit": "ns3_sim_ms",
+        "min": 2.691438,
+        "median": 2.8422075,
+        "p95_nearest_rank": 2.992977,
+        "p99_nearest_rank": 2.992977,
+        "max": 2.992977
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 2.691438,
+            "median": 2.691438,
+            "p95_nearest_rank": 2.691438,
+            "p99_nearest_rank": 2.691438,
+            "max": 2.691438
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 2.992977,
+            "median": 2.992977,
+            "p95_nearest_rank": 2.992977,
+            "p99_nearest_rank": 2.992977,
+            "max": 2.992977
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "42": {
+      "admitted": 60,
+      "complete_delivered": 60,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 43920,
+      "delay": {
+        "n": 60,
+        "unit": "ns3_sim_ms",
+        "min": 0.423883,
+        "median": 1.176703,
+        "p95_nearest_rank": 5.469626,
+        "p99_nearest_rank": 7.931883,
+        "max": 7.931883
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 6,
+          "complete_delivered": 6,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 6,
+            "unit": "ns3_sim_ms",
+            "min": 0.947267,
+            "median": 1.1083455,
+            "p95_nearest_rank": 7.931883,
+            "p99_nearest_rank": 7.931883,
+            "max": 7.931883
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 54,
+          "complete_delivered": 54,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 54,
+            "unit": "ns3_sim_ms",
+            "min": 0.423883,
+            "median": 1.184038,
+            "p95_nearest_rank": 5.201357,
+            "p99_nearest_rank": 6.7733,
+            "max": 6.7733
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "43": {
+      "admitted": 323,
+      "complete_delivered": 315,
+      "not_delivered_by_final_horizon": 8,
+      "delivered_payload_bytes_including_rpc8": 34724,
+      "delay": {
+        "n": 315,
+        "unit": "ns3_sim_ms",
+        "min": 0.185005,
+        "median": 1.172058,
+        "p95_nearest_rank": 5.562977,
+        "p99_nearest_rank": 6.817385,
+        "max": 16.741498
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 32,
+          "complete_delivered": 32,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 32,
+            "unit": "ns3_sim_ms",
+            "min": 0.185005,
+            "median": 1.2995485,
+            "p95_nearest_rank": 6.125648,
+            "p99_nearest_rank": 7.934563,
+            "max": 7.934563
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 283,
+          "complete_delivered": 283,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 283,
+            "unit": "ns3_sim_ms",
+            "min": 0.335552,
+            "median": 1.171099,
+            "p95_nearest_rank": 5.504687,
+            "p99_nearest_rank": 6.817385,
+            "max": 16.741498
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 8,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 8,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "44": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 108,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 2.696606,
+        "median": 2.696606,
+        "p95_nearest_rank": 2.696606,
+        "p99_nearest_rank": 2.696606,
+        "max": 2.696606
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 2.696606,
+            "median": 2.696606,
+            "p95_nearest_rank": 2.696606,
+            "p99_nearest_rank": 2.696606,
+            "max": 2.696606
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "45": {
+      "admitted": 4,
+      "complete_delivered": 4,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 160448,
+      "delay": {
+        "n": 4,
+        "unit": "ns3_sim_ms",
+        "min": 2.754036,
+        "median": 2.7990245,
+        "p95_nearest_rank": 3.626411,
+        "p99_nearest_rank": 3.626411,
+        "max": 3.626411
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 2.754036,
+            "median": 2.754036,
+            "p95_nearest_rank": 2.754036,
+            "p99_nearest_rank": 2.754036,
+            "max": 2.754036
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 3,
+          "complete_delivered": 3,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 2.771941,
+            "median": 2.826108,
+            "p95_nearest_rank": 3.626411,
+            "p99_nearest_rank": 3.626411,
+            "max": 3.626411
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "46": {
+      "admitted": 102,
+      "complete_delivered": 94,
+      "not_delivered_by_final_horizon": 8,
+      "delivered_payload_bytes_including_rpc8": 5640,
+      "delay": {
+        "n": 94,
+        "unit": "ns3_sim_ms",
+        "min": 0.18037,
+        "median": 1.2082275,
+        "p95_nearest_rank": 5.535585,
+        "p99_nearest_rank": 7.434136,
+        "max": 7.434136
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 9,
+          "complete_delivered": 9,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 9,
+            "unit": "ns3_sim_ms",
+            "min": 0.18037,
+            "median": 1.410204,
+            "p95_nearest_rank": 6.111824,
+            "p99_nearest_rank": 6.111824,
+            "max": 6.111824
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 85,
+          "complete_delivered": 85,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 85,
+            "unit": "ns3_sim_ms",
+            "min": 0.338678,
+            "median": 1.207753,
+            "p95_nearest_rank": 5.495343,
+            "p99_nearest_rank": 7.434136,
+            "max": 7.434136
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 8,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 8,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "50": {
+      "admitted": 21,
+      "complete_delivered": 20,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_rpc8": 3213811,
+      "delay": {
+        "n": 20,
+        "unit": "ns3_sim_ms",
+        "min": 5.049553,
+        "median": 10.5905145,
+        "p95_nearest_rank": 13.913684,
+        "p99_nearest_rank": 14.027721,
+        "max": 14.027721
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 3,
+          "complete_delivered": 3,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 8.699107,
+            "median": 10.913113,
+            "p95_nearest_rank": 13.913684,
+            "p99_nearest_rank": 13.913684,
+            "max": 13.913684
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 18,
+          "complete_delivered": 17,
+          "not_delivered_by_final_horizon": 1,
+          "delay": {
+            "n": 17,
+            "unit": "ns3_sim_ms",
+            "min": 5.049553,
+            "median": 10.428543,
+            "p95_nearest_rank": 14.027721,
+            "p99_nearest_rank": 14.027721,
+            "max": 14.027721
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "51": {
+      "admitted": 20,
+      "complete_delivered": 20,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 31668,
+      "delay": {
+        "n": 20,
+        "unit": "ns3_sim_ms",
+        "min": 0.372832,
+        "median": 0.76668,
+        "p95_nearest_rank": 2.383914,
+        "p99_nearest_rank": 4.790079,
+        "max": 4.790079
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 2,
+          "complete_delivered": 2,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 2,
+            "unit": "ns3_sim_ms",
+            "min": 0.629564,
+            "median": 1.313597,
+            "p95_nearest_rank": 1.99763,
+            "p99_nearest_rank": 1.99763,
+            "max": 1.99763
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 18,
+          "complete_delivered": 18,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 18,
+            "unit": "ns3_sim_ms",
+            "min": 0.372832,
+            "median": 0.76668,
+            "p95_nearest_rank": 4.790079,
+            "p99_nearest_rank": 4.790079,
+            "max": 4.790079
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "52": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 64,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.309035,
+        "median": 0.309035,
+        "p95_nearest_rank": 0.309035,
+        "p99_nearest_rank": 0.309035,
+        "max": 0.309035
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.309035,
+            "median": 0.309035,
+            "p95_nearest_rank": 0.309035,
+            "p99_nearest_rank": 0.309035,
+            "max": 0.309035
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "61": {
+      "admitted": 2,
+      "complete_delivered": 2,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 105644,
+      "delay": {
+        "n": 2,
+        "unit": "ns3_sim_ms",
+        "min": 1.583753,
+        "median": 2.495019,
+        "p95_nearest_rank": 3.406285,
+        "p99_nearest_rank": 3.406285,
+        "max": 3.406285
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 1.583753,
+            "median": 1.583753,
+            "p95_nearest_rank": 1.583753,
+            "p99_nearest_rank": 1.583753,
+            "max": 1.583753
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 3.406285,
+            "median": 3.406285,
+            "p95_nearest_rank": 3.406285,
+            "p99_nearest_rank": 3.406285,
+            "max": 3.406285
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "62": {
+      "admitted": 60,
+      "complete_delivered": 60,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 43920,
+      "delay": {
+        "n": 60,
+        "unit": "ns3_sim_ms",
+        "min": 0.120039,
+        "median": 1.236196,
+        "p95_nearest_rank": 5.182651,
+        "p99_nearest_rank": 9.739907,
+        "max": 9.739907
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 6,
+          "complete_delivered": 6,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 6,
+            "unit": "ns3_sim_ms",
+            "min": 0.434266,
+            "median": 0.605173,
+            "p95_nearest_rank": 9.739907,
+            "p99_nearest_rank": 9.739907,
+            "max": 9.739907
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 54,
+          "complete_delivered": 54,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 54,
+            "unit": "ns3_sim_ms",
+            "min": 0.120039,
+            "median": 1.241089,
+            "p95_nearest_rank": 4.990659,
+            "p99_nearest_rank": 7.137374,
+            "max": 7.137374
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "63": {
+      "admitted": 322,
+      "complete_delivered": 314,
+      "not_delivered_by_final_horizon": 8,
+      "delivered_payload_bytes_including_rpc8": 34624,
+      "delay": {
+        "n": 314,
+        "unit": "ns3_sim_ms",
+        "min": 0.122591,
+        "median": 1.1959335,
+        "p95_nearest_rank": 5.294285,
+        "p99_nearest_rank": 7.172435,
+        "max": 9.742587
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 31,
+          "complete_delivered": 31,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 31,
+            "unit": "ns3_sim_ms",
+            "min": 0.39767,
+            "median": 1.077322,
+            "p95_nearest_rank": 5.774564,
+            "p99_nearest_rank": 9.742587,
+            "max": 9.742587
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 283,
+          "complete_delivered": 283,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 283,
+            "unit": "ns3_sim_ms",
+            "min": 0.122591,
+            "median": 1.23387,
+            "p95_nearest_rank": 5.118748,
+            "p99_nearest_rank": 7.172435,
+            "max": 7.190483
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 8,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 8,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "64": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 108,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 1.586511,
+        "median": 1.586511,
+        "p95_nearest_rank": 1.586511,
+        "p99_nearest_rank": 1.586511,
+        "max": 1.586511
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 1.586511,
+            "median": 1.586511,
+            "p95_nearest_rank": 1.586511,
+            "p99_nearest_rank": 1.586511,
+            "max": 1.586511
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "65": {
+      "admitted": 4,
+      "complete_delivered": 4,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 160448,
+      "delay": {
+        "n": 4,
+        "unit": "ns3_sim_ms",
+        "min": 2.558073,
+        "median": 3.839572,
+        "p95_nearest_rank": 3.897953,
+        "p99_nearest_rank": 3.897953,
+        "max": 3.897953
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 3.793048,
+            "median": 3.793048,
+            "p95_nearest_rank": 3.793048,
+            "p99_nearest_rank": 3.793048,
+            "max": 3.793048
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 3,
+          "complete_delivered": 3,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 2.558073,
+            "median": 3.886096,
+            "p95_nearest_rank": 3.897953,
+            "p99_nearest_rank": 3.897953,
+            "max": 3.897953
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "66": {
+      "admitted": 105,
+      "complete_delivered": 94,
+      "not_delivered_by_final_horizon": 11,
+      "delivered_payload_bytes_including_rpc8": 5640,
+      "delay": {
+        "n": 94,
+        "unit": "ns3_sim_ms",
+        "min": 0.15478,
+        "median": 1.3473175,
+        "p95_nearest_rank": 5.047412,
+        "p99_nearest_rank": 7.163091,
+        "max": 7.163091
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 9,
+          "complete_delivered": 9,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 9,
+            "unit": "ns3_sim_ms",
+            "min": 0.349665,
+            "median": 1.083754,
+            "p95_nearest_rank": 3.796579,
+            "p99_nearest_rank": 3.796579,
+            "max": 3.796579
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 85,
+          "complete_delivered": 85,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 85,
+            "unit": "ns3_sim_ms",
+            "min": 0.15478,
+            "median": 1.383928,
+            "p95_nearest_rank": 5.047412,
+            "p99_nearest_rank": 7.163091,
+            "max": 7.163091
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 11,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 11,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "70": {
+      "admitted": 21,
+      "complete_delivered": 20,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_rpc8": 3213811,
+      "delay": {
+        "n": 20,
+        "unit": "ns3_sim_ms",
+        "min": 5.174594,
+        "median": 15.0064085,
+        "p95_nearest_rank": 18.410756,
+        "p99_nearest_rank": 19.145048,
+        "max": 19.145048
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 3,
+          "complete_delivered": 3,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 8.186571,
+            "median": 15.551164,
+            "p95_nearest_rank": 16.373162,
+            "p99_nearest_rank": 16.373162,
+            "max": 16.373162
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 18,
+          "complete_delivered": 17,
+          "not_delivered_by_final_horizon": 1,
+          "delay": {
+            "n": 17,
+            "unit": "ns3_sim_ms",
+            "min": 5.174594,
+            "median": 14.986811,
+            "p95_nearest_rank": 19.145048,
+            "p99_nearest_rank": 19.145048,
+            "max": 19.145048
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "71": {
+      "admitted": 20,
+      "complete_delivered": 20,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 31668,
+      "delay": {
+        "n": 20,
+        "unit": "ns3_sim_ms",
+        "min": 0.204383,
+        "median": 1.6591435,
+        "p95_nearest_rank": 4.232488,
+        "p99_nearest_rank": 6.27009,
+        "max": 6.27009
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 2,
+          "complete_delivered": 2,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 2,
+            "unit": "ns3_sim_ms",
+            "min": 1.688612,
+            "median": 2.34535,
+            "p95_nearest_rank": 3.002088,
+            "p99_nearest_rank": 3.002088,
+            "max": 3.002088
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 18,
+          "complete_delivered": 18,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 18,
+            "unit": "ns3_sim_ms",
+            "min": 0.204383,
+            "median": 1.452858,
+            "p95_nearest_rank": 6.27009,
+            "p99_nearest_rank": 6.27009,
+            "max": 6.27009
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "72": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 64,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.463046,
+        "median": 0.463046,
+        "p95_nearest_rank": 0.463046,
+        "p99_nearest_rank": 0.463046,
+        "max": 0.463046
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.463046,
+            "median": 0.463046,
+            "p95_nearest_rank": 0.463046,
+            "p99_nearest_rank": 0.463046,
+            "max": 0.463046
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "89": {
+      "admitted": 4,
+      "complete_delivered": 4,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 214012,
+      "delay": {
+        "n": 4,
+        "unit": "ns3_sim_ms",
+        "min": 1.923756,
+        "median": 2.061478,
+        "p95_nearest_rank": 2.57636,
+        "p99_nearest_rank": 2.57636,
+        "max": 2.57636
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 2.57636,
+            "median": 2.57636,
+            "p95_nearest_rank": 2.57636,
+            "p99_nearest_rank": 2.57636,
+            "max": 2.57636
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 3,
+          "complete_delivered": 3,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 1.923756,
+            "median": 1.998052,
+            "p95_nearest_rank": 2.124904,
+            "p99_nearest_rank": 2.124904,
+            "max": 2.124904
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "95": {
+      "admitted": 6,
+      "complete_delivered": 6,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 2643,
+      "delay": {
+        "n": 6,
+        "unit": "ns3_sim_ms",
+        "min": 0.185212,
+        "median": 0.4103425,
+        "p95_nearest_rank": 0.849498,
+        "p99_nearest_rank": 0.849498,
+        "max": 0.849498
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 6,
+          "complete_delivered": 6,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 6,
+            "unit": "ns3_sim_ms",
+            "min": 0.185212,
+            "median": 0.4103425,
+            "p95_nearest_rank": 0.849498,
+            "p99_nearest_rank": 0.849498,
+            "max": 0.849498
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "220": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 154,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 8.375276,
+        "median": 8.375276,
+        "p95_nearest_rank": 8.375276,
+        "p99_nearest_rank": 8.375276,
+        "max": 8.375276
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 8.375276,
+            "median": 8.375276,
+            "p95_nearest_rank": 8.375276,
+            "p99_nearest_rank": 8.375276,
+            "max": 8.375276
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "221": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 24,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 1.515285,
+        "median": 1.515285,
+        "p95_nearest_rank": 1.515285,
+        "p99_nearest_rank": 1.515285,
+        "max": 1.515285
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 1.515285,
+            "median": 1.515285,
+            "p95_nearest_rank": 1.515285,
+            "p99_nearest_rank": 1.515285,
+            "max": 1.515285
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "222": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 28,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.830722,
+        "median": 0.830722,
+        "p95_nearest_rank": 0.830722,
+        "p99_nearest_rank": 0.830722,
+        "max": 0.830722
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.830722,
+            "median": 0.830722,
+            "p95_nearest_rank": 0.830722,
+            "p99_nearest_rank": 0.830722,
+            "max": 0.830722
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "223": {
+      "admitted": 1,
+      "complete_delivered": 0,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_rpc8": 0,
+      "delay": {
+        "n": 0,
+        "unit": "ns3_sim_ms",
+        "min": null,
+        "median": null,
+        "p95_nearest_rank": null,
+        "p99_nearest_rank": null,
+        "max": null
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 1,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 1,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "226": {
+      "admitted": 408,
+      "complete_delivered": 386,
+      "not_delivered_by_final_horizon": 22,
+      "delivered_payload_bytes_including_rpc8": 47864,
+      "delay": {
+        "n": 386,
+        "unit": "ns3_sim_ms",
+        "min": 0.2462,
+        "median": 1.2232915,
+        "p95_nearest_rank": 5.517595,
+        "p99_nearest_rank": 5.973854,
+        "max": 6.247555
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 393,
+          "complete_delivered": 386,
+          "not_delivered_by_final_horizon": 7,
+          "delay": {
+            "n": 386,
+            "unit": "ns3_sim_ms",
+            "min": 0.2462,
+            "median": 1.2232915,
+            "p95_nearest_rank": 5.517595,
+            "p99_nearest_rank": 5.973854,
+            "max": 6.247555
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 15,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 15,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "227": {
+      "admitted": 2,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_rpc8": 44,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 1.509873,
+        "median": 1.509873,
+        "p95_nearest_rank": 1.509873,
+        "p99_nearest_rank": 1.509873,
+        "max": 1.509873
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 1.509873,
+            "median": 1.509873,
+            "p95_nearest_rank": 1.509873,
+            "p99_nearest_rank": 1.509873,
+            "max": 1.509873
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 1,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 1,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "228": {
+      "admitted": 20,
+      "complete_delivered": 20,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 320,
+      "delay": {
+        "n": 20,
+        "unit": "ns3_sim_ms",
+        "min": 0.999105,
+        "median": 3.8283,
+        "p95_nearest_rank": 5.308122,
+        "p99_nearest_rank": 5.485901,
+        "max": 5.485901
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 2,
+          "complete_delivered": 2,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 2,
+            "unit": "ns3_sim_ms",
+            "min": 3.204122,
+            "median": 4.256122,
+            "p95_nearest_rank": 5.308122,
+            "p99_nearest_rank": 5.308122,
+            "max": 5.308122
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 18,
+          "complete_delivered": 18,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 18,
+            "unit": "ns3_sim_ms",
+            "min": 0.999105,
+            "median": 3.8283,
+            "p95_nearest_rank": 5.485901,
+            "p99_nearest_rank": 5.485901,
+            "max": 5.485901
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "229": {
+      "admitted": 3,
+      "complete_delivered": 3,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 30,
+      "delay": {
+        "n": 3,
+        "unit": "ns3_sim_ms",
+        "min": 0.827933,
+        "median": 1.497073,
+        "p95_nearest_rank": 1.540063,
+        "p99_nearest_rank": 1.540063,
+        "max": 1.540063
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 3,
+          "complete_delivered": 3,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 0.827933,
+            "median": 1.497073,
+            "p95_nearest_rank": 1.540063,
+            "p99_nearest_rank": 1.540063,
+            "max": 1.540063
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "240": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 154,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 3.91923,
+        "median": 3.91923,
+        "p95_nearest_rank": 3.91923,
+        "p99_nearest_rank": 3.91923,
+        "max": 3.91923
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 3.91923,
+            "median": 3.91923,
+            "p95_nearest_rank": 3.91923,
+            "p99_nearest_rank": 3.91923,
+            "max": 3.91923
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "241": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 24,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.593155,
+        "median": 0.593155,
+        "p95_nearest_rank": 0.593155,
+        "p99_nearest_rank": 0.593155,
+        "max": 0.593155
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.593155,
+            "median": 0.593155,
+            "p95_nearest_rank": 0.593155,
+            "p99_nearest_rank": 0.593155,
+            "max": 0.593155
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "242": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 28,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.159376,
+        "median": 0.159376,
+        "p95_nearest_rank": 0.159376,
+        "p99_nearest_rank": 0.159376,
+        "max": 0.159376
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.159376,
+            "median": 0.159376,
+            "p95_nearest_rank": 0.159376,
+            "p99_nearest_rank": 0.159376,
+            "max": 0.159376
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "243": {
+      "admitted": 1,
+      "complete_delivered": 0,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_rpc8": 0,
+      "delay": {
+        "n": 0,
+        "unit": "ns3_sim_ms",
+        "min": null,
+        "median": null,
+        "p95_nearest_rank": null,
+        "p99_nearest_rank": null,
+        "max": null
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 1,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 1,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "246": {
+      "admitted": 411,
+      "complete_delivered": 389,
+      "not_delivered_by_final_horizon": 22,
+      "delivered_payload_bytes_including_rpc8": 48236,
+      "delay": {
+        "n": 389,
+        "unit": "ns3_sim_ms",
+        "min": 0.344928,
+        "median": 1.176049,
+        "p95_nearest_rank": 5.509637,
+        "p99_nearest_rank": 7.439406,
+        "max": 16.751206
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 393,
+          "complete_delivered": 389,
+          "not_delivered_by_final_horizon": 4,
+          "delay": {
+            "n": 389,
+            "unit": "ns3_sim_ms",
+            "min": 0.344928,
+            "median": 1.176049,
+            "p95_nearest_rank": 5.509637,
+            "p99_nearest_rank": 7.439406,
+            "max": 16.751206
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 18,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 18,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "247": {
+      "admitted": 2,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_rpc8": 44,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.587112,
+        "median": 0.587112,
+        "p95_nearest_rank": 0.587112,
+        "p99_nearest_rank": 0.587112,
+        "max": 0.587112
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.587112,
+            "median": 0.587112,
+            "p95_nearest_rank": 0.587112,
+            "p99_nearest_rank": 0.587112,
+            "max": 0.587112
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 1,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 1,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "248": {
+      "admitted": 20,
+      "complete_delivered": 20,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 320,
+      "delay": {
+        "n": 20,
+        "unit": "ns3_sim_ms",
+        "min": 0.894117,
+        "median": 4.4929145,
+        "p95_nearest_rank": 6.780476,
+        "p99_nearest_rank": 7.936868,
+        "max": 7.936868
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 2,
+          "complete_delivered": 2,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 2,
+            "unit": "ns3_sim_ms",
+            "min": 5.501495,
+            "median": 6.7191815,
+            "p95_nearest_rank": 7.936868,
+            "p99_nearest_rank": 7.936868,
+            "max": 7.936868
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 18,
+          "complete_delivered": 18,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 18,
+            "unit": "ns3_sim_ms",
+            "min": 0.894117,
+            "median": 4.191298,
+            "p95_nearest_rank": 6.780476,
+            "p99_nearest_rank": 6.780476,
+            "max": 6.780476
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "249": {
+      "admitted": 3,
+      "complete_delivered": 3,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 30,
+      "delay": {
+        "n": 3,
+        "unit": "ns3_sim_ms",
+        "min": 0.153811,
+        "median": 0.579457,
+        "p95_nearest_rank": 0.687804,
+        "p99_nearest_rank": 0.687804,
+        "max": 0.687804
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 3,
+          "complete_delivered": 3,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 0.153811,
+            "median": 0.579457,
+            "p95_nearest_rank": 0.687804,
+            "p99_nearest_rank": 0.687804,
+            "max": 0.687804
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "260": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 154,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 8.195265,
+        "median": 8.195265,
+        "p95_nearest_rank": 8.195265,
+        "p99_nearest_rank": 8.195265,
+        "max": 8.195265
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 8.195265,
+            "median": 8.195265,
+            "p95_nearest_rank": 8.195265,
+            "p99_nearest_rank": 8.195265,
+            "max": 8.195265
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "261": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 24,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.881265,
+        "median": 0.881265,
+        "p95_nearest_rank": 0.881265,
+        "p99_nearest_rank": 0.881265,
+        "max": 0.881265
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.881265,
+            "median": 0.881265,
+            "p95_nearest_rank": 0.881265,
+            "p99_nearest_rank": 0.881265,
+            "max": 0.881265
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "262": {
+      "admitted": 1,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 28,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.328475,
+        "median": 0.328475,
+        "p95_nearest_rank": 0.328475,
+        "p99_nearest_rank": 0.328475,
+        "max": 0.328475
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.328475,
+            "median": 0.328475,
+            "p95_nearest_rank": 0.328475,
+            "p99_nearest_rank": 0.328475,
+            "max": 0.328475
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "263": {
+      "admitted": 1,
+      "complete_delivered": 0,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_rpc8": 0,
+      "delay": {
+        "n": 0,
+        "unit": "ns3_sim_ms",
+        "min": null,
+        "median": null,
+        "p95_nearest_rank": null,
+        "p99_nearest_rank": null,
+        "max": null
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 1,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 1,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "266": {
+      "admitted": 405,
+      "complete_delivered": 386,
+      "not_delivered_by_final_horizon": 19,
+      "delivered_payload_bytes_including_rpc8": 47864,
+      "delay": {
+        "n": 386,
+        "unit": "ns3_sim_ms",
+        "min": 0.125335,
+        "median": 1.1758435,
+        "p95_nearest_rank": 5.123724,
+        "p99_nearest_rank": 7.172738,
+        "max": 7.199223
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 393,
+          "complete_delivered": 386,
+          "not_delivered_by_final_horizon": 7,
+          "delay": {
+            "n": 386,
+            "unit": "ns3_sim_ms",
+            "min": 0.125335,
+            "median": 1.1758435,
+            "p95_nearest_rank": 5.123724,
+            "p99_nearest_rank": 7.172738,
+            "max": 7.199223
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 12,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 12,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "267": {
+      "admitted": 2,
+      "complete_delivered": 1,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_rpc8": 44,
+      "delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.877069,
+        "median": 0.877069,
+        "p95_nearest_rank": 0.877069,
+        "p99_nearest_rank": 0.877069,
+        "max": 0.877069
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 1,
+          "complete_delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.877069,
+            "median": 0.877069,
+            "p95_nearest_rank": 0.877069,
+            "p99_nearest_rank": 0.877069,
+            "max": 0.877069
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 1,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 1,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "268": {
+      "admitted": 20,
+      "complete_delivered": 20,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 320,
+      "delay": {
+        "n": 20,
+        "unit": "ns3_sim_ms",
+        "min": 0.127215,
+        "median": 3.763257,
+        "p95_nearest_rank": 7.144742,
+        "p99_nearest_rank": 9.744892,
+        "max": 9.744892
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 2,
+          "complete_delivered": 2,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 2,
+            "unit": "ns3_sim_ms",
+            "min": 5.768507,
+            "median": 7.7566995,
+            "p95_nearest_rank": 9.744892,
+            "p99_nearest_rank": 9.744892,
+            "max": 9.744892
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 18,
+          "complete_delivered": 18,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 18,
+            "unit": "ns3_sim_ms",
+            "min": 0.127215,
+            "median": 3.656731,
+            "p95_nearest_rank": 7.144742,
+            "p99_nearest_rank": 7.144742,
+            "max": 7.144742
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "269": {
+      "admitted": 3,
+      "complete_delivered": 3,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_rpc8": 30,
+      "delay": {
+        "n": 3,
+        "unit": "ns3_sim_ms",
+        "min": 0.32291,
+        "median": 1.140776,
+        "p95_nearest_rank": 1.968511,
+        "p99_nearest_rank": 1.968511,
+        "max": 1.968511
+      },
+      "by_Hub_ingress_wall_phase": {
+        "pre_normal": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "normal_before_first_guard": {
+          "admitted": 3,
+          "complete_delivered": 3,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 0.32291,
+            "median": 1.140776,
+            "p95_nearest_rank": 1.968511,
+            "p99_nearest_rank": 1.968511,
+            "max": 1.968511
+          }
+        },
+        "after_first_guard_to_HOLD_and_END": {
+          "admitted": 0,
+          "complete_delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    }
+  },
+  "unobserved_messages": [
+    {
+      "native_message_id": 75,
+      "flow": 23,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 710000000,
+      "available_native_progress_before_final_horizon_ns": 1930000000,
+      "Hub_ingress_wall_phase": "pre_normal"
+    },
+    {
+      "native_message_id": 693,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 1180000000,
+      "available_native_progress_before_final_horizon_ns": 1460000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 860,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 1290000000,
+      "available_native_progress_before_final_horizon_ns": 1350000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 992,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 1380000000,
+      "available_native_progress_before_final_horizon_ns": 1260000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 1149,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 1490000000,
+      "available_native_progress_before_final_horizon_ns": 1150000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 1259,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 1560000000,
+      "available_native_progress_before_final_horizon_ns": 1080000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 1573,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 1780000000,
+      "available_native_progress_before_final_horizon_ns": 860000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 1587,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 1800000000,
+      "available_native_progress_before_final_horizon_ns": 840000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 1588,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 1800000000,
+      "available_native_progress_before_final_horizon_ns": 840000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 1746,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 1910000000,
+      "available_native_progress_before_final_horizon_ns": 730000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 2005,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2080000000,
+      "available_native_progress_before_final_horizon_ns": 560000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 2212,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2220000000,
+      "available_native_progress_before_final_horizon_ns": 420000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 2213,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2220000000,
+      "available_native_progress_before_final_horizon_ns": 420000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 2335,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2300000000,
+      "available_native_progress_before_final_horizon_ns": 340000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 2443,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2360000000,
+      "available_native_progress_before_final_horizon_ns": 280000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 2444,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2360000000,
+      "available_native_progress_before_final_horizon_ns": 280000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 2489,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2410000000,
+      "available_native_progress_before_final_horizon_ns": 230000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 2579,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2460000000,
+      "available_native_progress_before_final_horizon_ns": 180000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 2732,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2560000000,
+      "available_native_progress_before_final_horizon_ns": 80000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 2817,
+      "flow": 50,
+      "sender": 0,
+      "receiver": 2,
+      "admission_ns": 2630000000,
+      "available_native_progress_before_final_horizon_ns": 10000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 2818,
+      "flow": 70,
+      "sender": 0,
+      "receiver": 3,
+      "admission_ns": 2630000000,
+      "available_native_progress_before_final_horizon_ns": 10000000,
+      "Hub_ingress_wall_phase": "normal_before_first_guard"
+    },
+    {
+      "native_message_id": 2831,
+      "flow": 23,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2832,
+      "flow": 43,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2833,
+      "flow": 46,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2834,
+      "flow": 63,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2835,
+      "flow": 66,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2836,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2837,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2838,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2839,
+      "flow": 23,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2840,
+      "flow": 43,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2841,
+      "flow": 63,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2842,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2843,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2844,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2845,
+      "flow": 23,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2846,
+      "flow": 26,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2847,
+      "flow": 43,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2848,
+      "flow": 63,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2849,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2850,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2851,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2852,
+      "flow": 23,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2853,
+      "flow": 43,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2854,
+      "flow": 63,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2855,
+      "flow": 66,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2856,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2857,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2858,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2859,
+      "flow": 267,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2860,
+      "flow": 43,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2861,
+      "flow": 63,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2862,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2863,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2864,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2865,
+      "flow": 263,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2866,
+      "flow": 23,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2867,
+      "flow": 26,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2868,
+      "flow": 46,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2869,
+      "flow": 63,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2870,
+      "flow": 66,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2871,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2872,
+      "flow": 227,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2873,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2874,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2875,
+      "flow": 23,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2876,
+      "flow": 26,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2877,
+      "flow": 43,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2878,
+      "flow": 66,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2879,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2880,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2881,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2882,
+      "flow": 223,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2883,
+      "flow": 26,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2884,
+      "flow": 63,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2885,
+      "flow": 66,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2886,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2887,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2888,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2889,
+      "flow": 26,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2890,
+      "flow": 43,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2891,
+      "flow": 66,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2892,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2893,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2894,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2895,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2896,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2897,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2898,
+      "flow": 23,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2899,
+      "flow": 26,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2900,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2901,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2902,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2903,
+      "flow": 46,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2904,
+      "flow": 63,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2905,
+      "flow": 66,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2906,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2907,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2908,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2909,
+      "flow": 43,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2910,
+      "flow": 46,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2911,
+      "flow": 66,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2912,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2913,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2914,
+      "flow": 247,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2915,
+      "flow": 243,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2916,
+      "flow": 23,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2917,
+      "flow": 46,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2918,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2919,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2920,
+      "flow": 26,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2921,
+      "flow": 46,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2922,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2923,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2924,
+      "flow": 66,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2925,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2926,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2927,
+      "flow": 26,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2928,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2929,
+      "flow": 46,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2930,
+      "flow": 66,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2931,
+      "flow": 26,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2932,
+      "flow": 46,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    },
+    {
+      "native_message_id": 2933,
+      "flow": 66,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2640000000,
+      "available_native_progress_before_final_horizon_ns": 0,
+      "Hub_ingress_wall_phase": "after_first_guard_to_HOLD_and_END"
+    }
+  ],
+  "unobserved_available_progress_ms": {
+    "n": 124,
+    "unit": "ns3_sim_ms",
+    "min": 0.0,
+    "median": 0.0,
+    "p95_nearest_rank": 860.0,
+    "p99_nearest_rank": 1460.0,
+    "max": 1930.0
+  },
+  "selected_actual_PHY_MAC_evidence": "FULL_B_PHY_MAC_CHAINS.json",
+  "limits": [
+    "Real Guard/Action failure remains. Native/HUB successful exit is only a transport sub-result.",
+    "A1 Disk vs B RAM and CPU/IPC/controlled-time/RTF confounding remains.",
+    "No real Nav2/Gazebo/Policy. No formal loss rate or pure wireless performance attribution."
+  ]
+}

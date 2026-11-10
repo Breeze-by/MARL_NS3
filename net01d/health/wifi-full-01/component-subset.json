@@ -1,0 +1,522 @@
+{
+  "guards": {
+    "1": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb1",
+          "session_id": 2026110912,
+          "sim": 0.76,
+          "monotonic": 517268.530928143
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "bound_mask_receipt_stale",
+          "robot": "tb1",
+          "session_id": 2026110912,
+          "sim": 2.65,
+          "monotonic": 517273.002173583
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00100000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "status": 5
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00100000000000000": 5
+      }
+    },
+    "2": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb2",
+          "session_id": 2026110912,
+          "sim": 0.76,
+          "monotonic": 517268.535722616
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "bound_mask_receipt_stale",
+          "robot": "tb2",
+          "session_id": 2026110912,
+          "sim": 2.65,
+          "monotonic": 517273.04469272
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00200000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00200000000000000": 5
+      }
+    },
+    "3": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb3",
+          "session_id": 2026110912,
+          "sim": 0.8,
+          "monotonic": 517268.585722536
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_heartbeat_stale",
+          "robot": "tb3",
+          "session_id": 2026110912,
+          "sim": 2.65,
+          "monotonic": 517272.979286441
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00300000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "status": 5
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00300000000000000": 5
+      }
+    }
+  },
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      false,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [
+      {
+        "robot": 2,
+        "flow_offset": 3,
+        "rpc_id": 8702080105108733956
+      },
+      {
+        "robot": 1,
+        "flow_offset": 3,
+        "rpc_id": 8702080105108733957
+      },
+      {
+        "robot": 3,
+        "flow_offset": 3,
+        "rpc_id": 8702080105108733958
+      }
+    ],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "action_confirmation_states": {
+      "C": {
+        "enabled": true,
+        "failure": null,
+        "waiting": 0,
+        "unconfirmed": 0
+      },
+      "R": {
+        "1": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 1,
+          "unconfirmed": 0
+        },
+        "2": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 1,
+          "unconfirmed": 0
+        },
+        "3": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 1,
+          "unconfirmed": 0
+        }
+      }
+    },
+    "retired_C_services": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+  "topics": {
+    "C": {
+      "captured": [
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "b42f9e29106ab0d6a76063bbc2812c8d3fe96f82866d352dcf03452e7dad12e9",
+          "source_stamp_ns": 630000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 517268353413451,
+          "capture_node_sim_ns": 690000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 561,
+          "cdr_sha256": "ef611f0bc3e1f918d7f4ddc791a6003e3aad50157dd3fd2d307f547f2c174e4a",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 517268709827899,
+          "capture_node_sim_ns": 860000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 561,
+          "cdr_sha256": "ae0dc7fcd798e5ac39ee5dc19b65083353101434122f2c6b1390f2200bb34a1c",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 517268711493955,
+          "capture_node_sim_ns": 860000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 561,
+          "cdr_sha256": "211abd7d6dfbd12e65d5265aef1ccf2e3d4f375ca3dc1183d3356efcc8baec97",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 517268717031825,
+          "capture_node_sim_ns": 860000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 304,
+          "cdr_sha256": "07effb07004fed52759213c9386af468691fe6ccf08d3afb6ddd65d0d91d4092",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 517268772578135,
+          "capture_node_sim_ns": 870000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 304,
+          "cdr_sha256": "261ea7727a9f9393dc43b7e6d0c0effd80c980a8195a4119ad03672e0a9c49e7",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 517268805640712,
+          "capture_node_sim_ns": 880000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 304,
+          "cdr_sha256": "31d4a4cc05ab944b8c00f1c380029d2ca0235745e27c5548e64b9a7bd291e7c6",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 517268807157595,
+          "capture_node_sim_ns": 880000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "64b8f445d6ca187018c2b550b42e2f846dabe2d21730900ea40269e4420789f3",
+          "source_stamp_ns": 630000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 517272822452595,
+          "capture_node_sim_ns": 2580000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "c2372a6fa98894ef87e450e7ac85fd8c072ff04a3967635f10ed27e9a7af617e",
+          "source_stamp_ns": 640000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 517272866436717,
+          "capture_node_sim_ns": 2600000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "514a869edae49c2900f75d181bfcb0c0ef068348a07d92fd6dc2e8e501ab1156",
+          "source_stamp_ns": 2430000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 517272910566246,
+          "capture_node_sim_ns": 2620000000
+        }
+      ],
+      "delivered": []
+    },
+    "R": {
+      "captured": [],
+      "delivered": [
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "message_id": 53,
+          "source_stamp_ns": 630000000,
+          "ns3_rx_ns": 682576360,
+          "hub_receive_monotonic_ns": 517268363323194,
+          "bytes": 53503,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "b42f9e29106ab0d6a76063bbc2812c8d3fe96f82866d352dcf03452e7dad12e9",
+          "destination_node_sim_ns": 700000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 517268365553359,
+          "publish_before_thread_cpu_ns": 2383401688,
+          "publish_after_monotonic_ns": 517268365895199,
+          "publish_after_thread_cpu_ns": 2383741796
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "message_id": 185,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 850185212,
+          "hub_receive_monotonic_ns": 517268759301302,
+          "bytes": 569,
+          "cdr_bytes": 561,
+          "cdr_sha256": "ef611f0bc3e1f918d7f4ddc791a6003e3aad50157dd3fd2d307f547f2c174e4a",
+          "destination_node_sim_ns": 870000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 517268759701223,
+          "publish_before_thread_cpu_ns": 2775829769,
+          "publish_after_monotonic_ns": 517268759822811,
+          "publish_after_thread_cpu_ns": 2775950835
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "message_id": 186,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 850199078,
+          "hub_receive_monotonic_ns": 517268759453408,
+          "bytes": 569,
+          "cdr_bytes": 561,
+          "cdr_sha256": "ae0dc7fcd798e5ac39ee5dc19b65083353101434122f2c6b1390f2200bb34a1c",
+          "destination_node_sim_ns": 870000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 517268759917305,
+          "publish_before_thread_cpu_ns": 2776045541,
+          "publish_after_monotonic_ns": 517268759963239,
+          "publish_after_thread_cpu_ns": 2776091032
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "message_id": 190,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 850215289,
+          "hub_receive_monotonic_ns": 517268759490790,
+          "bytes": 569,
+          "cdr_bytes": 561,
+          "cdr_sha256": "211abd7d6dfbd12e65d5265aef1ccf2e3d4f375ca3dc1183d3356efcc8baec97",
+          "destination_node_sim_ns": 870000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 517268760526665,
+          "publish_before_thread_cpu_ns": 2776654877,
+          "publish_after_monotonic_ns": 517268760597372,
+          "publish_after_thread_cpu_ns": 2776732198
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "message_id": 217,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 860605396,
+          "hub_receive_monotonic_ns": 517268783859189,
+          "bytes": 312,
+          "cdr_bytes": 304,
+          "cdr_sha256": "07effb07004fed52759213c9386af468691fe6ccf08d3afb6ddd65d0d91d4092",
+          "destination_node_sim_ns": 880000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 517268784795867,
+          "publish_before_thread_cpu_ns": 2800883456,
+          "publish_after_monotonic_ns": 517268784896997,
+          "publish_after_thread_cpu_ns": 2800983503
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "message_id": 240,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 870839337,
+          "hub_receive_monotonic_ns": 517268814706231,
+          "bytes": 312,
+          "cdr_bytes": 304,
+          "cdr_sha256": "261ea7727a9f9393dc43b7e6d0c0effd80c980a8195a4119ad03672e0a9c49e7",
+          "destination_node_sim_ns": 890000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 517268818813147,
+          "publish_before_thread_cpu_ns": 2834846908,
+          "publish_after_monotonic_ns": 517268818889221,
+          "publish_after_thread_cpu_ns": 2834921311
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "message_id": 241,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 870849498,
+          "hub_receive_monotonic_ns": 517268814734876,
+          "bytes": 312,
+          "cdr_bytes": 304,
+          "cdr_sha256": "31d4a4cc05ab944b8c00f1c380029d2ca0235745e27c5548e64b9a7bd291e7c6",
+          "destination_node_sim_ns": 890000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 517268818970299,
+          "publish_before_thread_cpu_ns": 2835002770,
+          "publish_after_monotonic_ns": 517268819038250,
+          "publish_after_thread_cpu_ns": 2835070298
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "message_id": 2746,
+          "source_stamp_ns": 630000000,
+          "ns3_rx_ns": 2571923756,
+          "hub_receive_monotonic_ns": 517272840665180,
+          "bytes": 53503,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "64b8f445d6ca187018c2b550b42e2f846dabe2d21730900ea40269e4420789f3",
+          "destination_node_sim_ns": 2590000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 517272842373630,
+          "publish_before_thread_cpu_ns": 6848528884,
+          "publish_after_monotonic_ns": 517272842778273,
+          "publish_after_thread_cpu_ns": 6848932072
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "message_id": 2769,
+          "source_stamp_ns": 640000000,
+          "ns3_rx_ns": 2592124904,
+          "hub_receive_monotonic_ns": 517272886948962,
+          "bytes": 53503,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "c2372a6fa98894ef87e450e7ac85fd8c072ff04a3967635f10ed27e9a7af617e",
+          "destination_node_sim_ns": 2610000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 517272888450178,
+          "publish_before_thread_cpu_ns": 6894521876,
+          "publish_after_monotonic_ns": 517272888748117,
+          "publish_after_thread_cpu_ns": 6894819068
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "message_id": 2798,
+          "source_stamp_ns": 2430000000,
+          "ns3_rx_ns": 2611998052,
+          "hub_receive_monotonic_ns": 517272927341243,
+          "bytes": 53503,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "514a869edae49c2900f75d181bfcb0c0ef068348a07d92fd6dc2e8e501ab1156",
+          "destination_node_sim_ns": 2630000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 517272929955246,
+          "publish_before_thread_cpu_ns": 6935929636,
+          "publish_after_monotonic_ns": 517272930207617,
+          "publish_after_thread_cpu_ns": 6936180214
+        }
+      ]
+    }
+  }
+}

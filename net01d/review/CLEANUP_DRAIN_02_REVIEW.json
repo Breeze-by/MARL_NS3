@@ -1,0 +1,72 @@
+{
+  "case": "net01d/runs/cleanup-drain-02",
+  "scope": "Actual controlled Action failure-cleanup only, stress5ms/Disk; not32normal/P5/physical/Gazebo",
+  "original_regression_pass": true,
+  "original_first_error": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519604224647993, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+  "first_guard_faults": {
+    "1": "health_original_sources_stale",
+    "2": "health_original_sources_stale",
+    "3": "health_original_sources_stale"
+  },
+  "timing": {
+    "active": 519603958252491,
+    "trigger": 519603961664070,
+    "first_failure": 519604224647993,
+    "local_marker": 519604282095023,
+    "STOP_write_begin": 519604286712590
+  },
+  "strict_order": true,
+  "drain_wall_s": 0.058486393,
+  "drain_bound_wall_s": 2,
+  "local_futures_pending": 0,
+  "robots": {
+    "1": {
+      "uuid": "0000000078c3ffc00100000000000000",
+      "one_active_at_trigger": true,
+      "Cancel_response_0_exact_UUID_list": true,
+      "actual_GetResult_5": true,
+      "PAUSE_actual_success": true,
+      "owned_empty": true,
+      "R_service_cancelled_same_UUID": true,
+      "C_actual_result": 5,
+      "R_C_Goal_CDR_bytes_equal": true
+    },
+    "2": {
+      "uuid": "0000000078c3ffc00200000000000000",
+      "one_active_at_trigger": true,
+      "Cancel_response_0_exact_UUID_list": true,
+      "actual_GetResult_5": true,
+      "PAUSE_actual_success": true,
+      "owned_empty": true,
+      "R_service_cancelled_same_UUID": true,
+      "C_actual_result": 5,
+      "R_C_Goal_CDR_bytes_equal": true
+    },
+    "3": {
+      "uuid": "0000000078c3ffc00300000000000000",
+      "one_active_at_trigger": true,
+      "Cancel_response_0_exact_UUID_list": true,
+      "actual_GetResult_5": true,
+      "PAUSE_actual_success": true,
+      "owned_empty": true,
+      "R_service_cancelled_same_UUID": true,
+      "C_actual_result": 5,
+      "R_C_Goal_CDR_bytes_equal": true
+    }
+  },
+  "exits": {
+    "coordinator": 1,
+    "hub": 0,
+    "peer": 0,
+    "gateway": 0,
+    "mock_physics": 0,
+    "merge": 0,
+    "source-tb1": 0,
+    "source-tb2": 0,
+    "source-tb3": 0,
+    "client": 0
+  },
+  "forced": [],
+  "old_cleanup01_status": "FAIL unchanged",
+  "new_runtime_execution": false
+}

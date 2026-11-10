@@ -1,0 +1,540 @@
+{
+  "scope": "Saved P5 A1 tb1 same flow23 subscription, original writer groups",
+  "writers": {
+    "map->odom": {
+      "source_count": 80,
+      "capture_count": 39,
+      "first_captures": [
+        {
+          "stamp_ns": 660000000,
+          "capture_mono_ns": 515751607862301,
+          "capture_node_sim_ns": 980000000,
+          "tf_edges": [
+            {
+              "frame_id": "map",
+              "child_frame_id": "odom",
+              "stamp_ns": 660000000
+            }
+          ]
+        },
+        {
+          "stamp_ns": 660000000,
+          "capture_mono_ns": 515751618394935,
+          "capture_node_sim_ns": 990000000,
+          "tf_edges": [
+            {
+              "frame_id": "map",
+              "child_frame_id": "odom",
+              "stamp_ns": 660000000
+            }
+          ]
+        },
+        {
+          "stamp_ns": 660000000,
+          "capture_mono_ns": 515751629707580,
+          "capture_node_sim_ns": 990000000,
+          "tf_edges": [
+            {
+              "frame_id": "map",
+              "child_frame_id": "odom",
+              "stamp_ns": 660000000
+            }
+          ]
+        }
+      ],
+      "last_captures": [
+        {
+          "stamp_ns": 860000000,
+          "capture_mono_ns": 515752257655509,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "map",
+              "child_frame_id": "odom",
+              "stamp_ns": 860000000
+            }
+          ]
+        },
+        {
+          "stamp_ns": 860000000,
+          "capture_mono_ns": 515752262559634,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "map",
+              "child_frame_id": "odom",
+              "stamp_ns": 860000000
+            }
+          ]
+        },
+        {
+          "stamp_ns": 860000000,
+          "capture_mono_ns": 515752269686751,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "map",
+              "child_frame_id": "odom",
+              "stamp_ns": 860000000
+            }
+          ]
+        }
+      ],
+      "unique_stamp_pairs": []
+    },
+    "odom->base_footprint": {
+      "source_count": 23,
+      "capture_count": 12,
+      "first_captures": [
+        {
+          "stamp_ns": 500000000,
+          "capture_mono_ns": 515751638264604,
+          "capture_node_sim_ns": 1000000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 500000000
+            }
+          ]
+        },
+        {
+          "stamp_ns": 530000000,
+          "capture_mono_ns": 515751679981965,
+          "capture_node_sim_ns": 1020000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 530000000
+            }
+          ]
+        },
+        {
+          "stamp_ns": 560000000,
+          "capture_mono_ns": 515751728123361,
+          "capture_node_sim_ns": 1040000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 560000000
+            }
+          ]
+        }
+      ],
+      "last_captures": [
+        {
+          "stamp_ns": 800000000,
+          "capture_mono_ns": 515752200895659,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 800000000
+            }
+          ]
+        },
+        {
+          "stamp_ns": 830000000,
+          "capture_mono_ns": 515752247334642,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 830000000
+            }
+          ]
+        },
+        {
+          "stamp_ns": 860000000,
+          "capture_mono_ns": 515752274850198,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 860000000
+            }
+          ]
+        }
+      ],
+      "unique_stamp_pairs": [
+        {
+          "stamp_ns": 500000000,
+          "capture_mono_ns": 515751638264604,
+          "capture_node_sim_ns": 1000000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 500000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515750632597183,
+          "source_publish_return_mono_ns": 515750632696702,
+          "source_return_to_capture_ms": 1005.567902
+        },
+        {
+          "stamp_ns": 530000000,
+          "capture_mono_ns": 515751679981965,
+          "capture_node_sim_ns": 1020000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 530000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515750692216879,
+          "source_publish_return_mono_ns": 515750692332371,
+          "source_return_to_capture_ms": 987.649594
+        },
+        {
+          "stamp_ns": 560000000,
+          "capture_mono_ns": 515751728123361,
+          "capture_node_sim_ns": 1040000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 560000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515750751952807,
+          "source_publish_return_mono_ns": 515750752068919,
+          "source_return_to_capture_ms": 976.054442
+        },
+        {
+          "stamp_ns": 600000000,
+          "capture_mono_ns": 515751783735565,
+          "capture_node_sim_ns": 1070000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 600000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515750832521784,
+          "source_publish_return_mono_ns": 515750832624675,
+          "source_return_to_capture_ms": 951.11089
+        },
+        {
+          "stamp_ns": 630000000,
+          "capture_mono_ns": 515751810094712,
+          "capture_node_sim_ns": 1080000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 630000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515750891514117,
+          "source_publish_return_mono_ns": 515750891608573,
+          "source_return_to_capture_ms": 918.486139
+        },
+        {
+          "stamp_ns": 660000000,
+          "capture_mono_ns": 515751841670839,
+          "capture_node_sim_ns": 1100000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 660000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515750951894031,
+          "source_publish_return_mono_ns": 515750951986977,
+          "source_return_to_capture_ms": 889.683862
+        },
+        {
+          "stamp_ns": 700000000,
+          "capture_mono_ns": 515751955556363,
+          "capture_node_sim_ns": 1140000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 700000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515751032624846,
+          "source_publish_return_mono_ns": 515751032711343,
+          "source_return_to_capture_ms": 922.84502
+        },
+        {
+          "stamp_ns": 730000000,
+          "capture_mono_ns": 515752026738056,
+          "capture_node_sim_ns": 1180000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 730000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515751092741819,
+          "source_publish_return_mono_ns": 515751092816626,
+          "source_return_to_capture_ms": 933.92143
+        },
+        {
+          "stamp_ns": 760000000,
+          "capture_mono_ns": 515752083177872,
+          "capture_node_sim_ns": 1220000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 760000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515751151876139,
+          "source_publish_return_mono_ns": 515751151949711,
+          "source_return_to_capture_ms": 931.228161
+        },
+        {
+          "stamp_ns": 800000000,
+          "capture_mono_ns": 515752200895659,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 800000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515751232561611,
+          "source_publish_return_mono_ns": 515751232656893,
+          "source_return_to_capture_ms": 968.238766
+        },
+        {
+          "stamp_ns": 830000000,
+          "capture_mono_ns": 515752247334642,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 830000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515751291886909,
+          "source_publish_return_mono_ns": 515751291967937,
+          "source_return_to_capture_ms": 955.366705
+        },
+        {
+          "stamp_ns": 860000000,
+          "capture_mono_ns": 515752274850198,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "odom",
+              "child_frame_id": "base_footprint",
+              "stamp_ns": 860000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515751351619041,
+          "source_publish_return_mono_ns": 515751351706586,
+          "source_return_to_capture_ms": 923.143612
+        }
+      ]
+    },
+    "base_link->wheel_left_link": {
+      "source_count": 7,
+      "capture_count": 4,
+      "first_captures": [
+        {
+          "stamp_ns": 560000000,
+          "capture_mono_ns": 515751739732692,
+          "capture_node_sim_ns": 1050000000,
+          "tf_edges": [
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_left_link",
+              "stamp_ns": 560000000
+            },
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_right_link",
+              "stamp_ns": 560000000
+            }
+          ]
+        },
+        {
+          "stamp_ns": 660000000,
+          "capture_mono_ns": 515751851375061,
+          "capture_node_sim_ns": 1100000000,
+          "tf_edges": [
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_left_link",
+              "stamp_ns": 660000000
+            },
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_right_link",
+              "stamp_ns": 660000000
+            }
+          ]
+        },
+        {
+          "stamp_ns": 760000000,
+          "capture_mono_ns": 515752098620726,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_left_link",
+              "stamp_ns": 760000000
+            },
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_right_link",
+              "stamp_ns": 760000000
+            }
+          ]
+        }
+      ],
+      "last_captures": [
+        {
+          "stamp_ns": 660000000,
+          "capture_mono_ns": 515751851375061,
+          "capture_node_sim_ns": 1100000000,
+          "tf_edges": [
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_left_link",
+              "stamp_ns": 660000000
+            },
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_right_link",
+              "stamp_ns": 660000000
+            }
+          ]
+        },
+        {
+          "stamp_ns": 760000000,
+          "capture_mono_ns": 515752098620726,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_left_link",
+              "stamp_ns": 760000000
+            },
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_right_link",
+              "stamp_ns": 760000000
+            }
+          ]
+        },
+        {
+          "stamp_ns": 860000000,
+          "capture_mono_ns": 515752279496592,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_left_link",
+              "stamp_ns": 860000000
+            },
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_right_link",
+              "stamp_ns": 860000000
+            }
+          ]
+        }
+      ],
+      "unique_stamp_pairs": [
+        {
+          "stamp_ns": 560000000,
+          "capture_mono_ns": 515751739732692,
+          "capture_node_sim_ns": 1050000000,
+          "tf_edges": [
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_left_link",
+              "stamp_ns": 560000000
+            },
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_right_link",
+              "stamp_ns": 560000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515750752185154,
+          "source_publish_return_mono_ns": 515750752294456,
+          "source_return_to_capture_ms": 987.438236
+        },
+        {
+          "stamp_ns": 660000000,
+          "capture_mono_ns": 515751851375061,
+          "capture_node_sim_ns": 1100000000,
+          "tf_edges": [
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_left_link",
+              "stamp_ns": 660000000
+            },
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_right_link",
+              "stamp_ns": 660000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515750952112638,
+          "source_publish_return_mono_ns": 515750952262316,
+          "source_return_to_capture_ms": 899.112745
+        },
+        {
+          "stamp_ns": 760000000,
+          "capture_mono_ns": 515752098620726,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_left_link",
+              "stamp_ns": 760000000
+            },
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_right_link",
+              "stamp_ns": 760000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515751152064783,
+          "source_publish_return_mono_ns": 515751152160166,
+          "source_return_to_capture_ms": 946.46056
+        },
+        {
+          "stamp_ns": 860000000,
+          "capture_mono_ns": 515752279496592,
+          "capture_node_sim_ns": 1230000000,
+          "tf_edges": [
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_left_link",
+              "stamp_ns": 860000000
+            },
+            {
+              "frame_id": "base_link",
+              "child_frame_id": "wheel_right_link",
+              "stamp_ns": 860000000
+            }
+          ],
+          "source_publish_begin_mono_ns": 515751351803137,
+          "source_publish_return_mono_ns": 515751351908573,
+          "source_return_to_capture_ms": 927.588019
+        }
+      ]
+    }
+  }
+}

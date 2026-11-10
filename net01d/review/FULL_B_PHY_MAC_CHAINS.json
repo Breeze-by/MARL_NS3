@@ -1,0 +1,1317 @@
+{
+  "case": "net-01d/workspace/net01d/runs/full-load-wifi-audit-01",
+  "scope": "One bounded finite28.1MB ledger pass; two already-delivered health IDs selected from exact runtime subset; no PCAP parse/model execution/hash",
+  "ledger_lines_read": 178377,
+  "ledger_bytes_read": 28117887,
+  "offline_read_wall_s": 1.5482382230111398,
+  "messages": {
+    "2646": {
+      "hub_ingress": {
+        "kind": "send",
+        "sender": 0,
+        "receiver": 3,
+        "flow": 71,
+        "source_stamp_ns": 0,
+        "admission_ns": 2520000000,
+        "bytes": 1567,
+        "native_message_id": 2646,
+        "hub_ingress_monotonic_ns": 517272655791488
+      },
+      "hub_delivery": {
+        "kind": "delivered",
+        "sender": 0,
+        "receiver": 3,
+        "flow": 71,
+        "message_id": 2646,
+        "source_stamp_ns": 0,
+        "ns3_rx_ns": 2522188414,
+        "hub_receive_monotonic_ns": 517272673101411,
+        "bytes": 1567
+      },
+      "sequence": 25,
+      "full_network_delay_sim_ms": 2.188414,
+      "original_message_rows": [
+        {
+          "line_number": 162260,
+          "record": {
+            "kind": "ipc_ingress",
+            "ns3_ns": 2520000000,
+            "monotonic_ns": 517272655860531,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "message_id": 2646,
+            "body_bytes": 1567,
+            "source_stamp_ns": 0,
+            "admission_ns": 2520000000
+          },
+          "original_line": "{\"kind\":\"ipc_ingress\",\"ns3_ns\":2520000000,\"monotonic_ns\":517272655860531,\"from\":0,\"to\":3,\"flow\":71,\"message_id\":2646,\"body_bytes\":1567,\"source_stamp_ns\":0,\"admission_ns\":2520000000}"
+        },
+        {
+          "line_number": 162261,
+          "record": {
+            "kind": "udp_tx",
+            "ns3_ns": 2520000000,
+            "monotonic_ns": 517272655863631,
+            "message_id": 2646,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 0,
+            "total": 1567,
+            "body_bytes": 1164,
+            "source_stamp_ns": 0,
+            "packet_uid": 62799
+          },
+          "original_line": "{\"kind\":\"udp_tx\",\"ns3_ns\":2520000000,\"monotonic_ns\":517272655863631,\"message_id\":2646,\"from\":0,\"to\":3,\"flow\":71,\"offset\":0,\"total\":1567,\"body_bytes\":1164,\"source_stamp_ns\":0,\"packet_uid\":62799}"
+        },
+        {
+          "line_number": 162262,
+          "record": {
+            "kind": "udp_tx",
+            "ns3_ns": 2520000000,
+            "monotonic_ns": 517272655877246,
+            "message_id": 2646,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 1164,
+            "total": 1567,
+            "body_bytes": 403,
+            "source_stamp_ns": 0,
+            "packet_uid": 62800
+          },
+          "original_line": "{\"kind\":\"udp_tx\",\"ns3_ns\":2520000000,\"monotonic_ns\":517272655877246,\"message_id\":2646,\"from\":0,\"to\":3,\"flow\":71,\"offset\":1164,\"total\":1567,\"body_bytes\":403,\"source_stamp_ns\":0,\"packet_uid\":62800}"
+        },
+        {
+          "line_number": 162951,
+          "record": {
+            "kind": "udp_rx",
+            "ns3_ns": 2522174562,
+            "monotonic_ns": 517272672736474,
+            "message_id": 2646,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 0,
+            "total": 1567,
+            "body_bytes": 1164,
+            "source_stamp_ns": 0,
+            "packet_uid": 62799
+          },
+          "original_line": "{\"kind\":\"udp_rx\",\"ns3_ns\":2522174562,\"monotonic_ns\":517272672736474,\"message_id\":2646,\"from\":0,\"to\":3,\"flow\":71,\"offset\":0,\"total\":1567,\"body_bytes\":1164,\"source_stamp_ns\":0,\"packet_uid\":62799}"
+        },
+        {
+          "line_number": 162963,
+          "record": {
+            "kind": "udp_rx",
+            "ns3_ns": 2522188414,
+            "monotonic_ns": 517272672951856,
+            "message_id": 2646,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 1164,
+            "total": 1567,
+            "body_bytes": 403,
+            "source_stamp_ns": 0,
+            "packet_uid": 62800
+          },
+          "original_line": "{\"kind\":\"udp_rx\",\"ns3_ns\":2522188414,\"monotonic_ns\":517272672951856,\"message_id\":2646,\"from\":0,\"to\":3,\"flow\":71,\"offset\":1164,\"total\":1567,\"body_bytes\":403,\"source_stamp_ns\":0,\"packet_uid\":62800}"
+        },
+        {
+          "line_number": 162964,
+          "record": {
+            "kind": "message_deliver",
+            "ns3_ns": 2522188414,
+            "monotonic_ns": 517272672954342,
+            "message_id": 2646,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 1164,
+            "total": 1567,
+            "body_bytes": 403,
+            "source_stamp_ns": 0
+          },
+          "original_line": "{\"kind\":\"message_deliver\",\"ns3_ns\":2522188414,\"monotonic_ns\":517272672954342,\"message_id\":2646,\"from\":0,\"to\":3,\"flow\":71,\"offset\":1164,\"total\":1567,\"body_bytes\":403,\"source_stamp_ns\":0}"
+        }
+      ],
+      "UDP_fragment_packet_UIDs": [
+        62799,
+        62800
+      ],
+      "exact_UID_linked_rows": [
+        {
+          "line_number": 162261,
+          "record": {
+            "kind": "udp_tx",
+            "ns3_ns": 2520000000,
+            "monotonic_ns": 517272655863631,
+            "message_id": 2646,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 0,
+            "total": 1567,
+            "body_bytes": 1164,
+            "source_stamp_ns": 0,
+            "packet_uid": 62799
+          },
+          "original_line": "{\"kind\":\"udp_tx\",\"ns3_ns\":2520000000,\"monotonic_ns\":517272655863631,\"message_id\":2646,\"from\":0,\"to\":3,\"flow\":71,\"offset\":0,\"total\":1567,\"body_bytes\":1164,\"source_stamp_ns\":0,\"packet_uid\":62799}"
+        },
+        {
+          "line_number": 162262,
+          "record": {
+            "kind": "udp_tx",
+            "ns3_ns": 2520000000,
+            "monotonic_ns": 517272655877246,
+            "message_id": 2646,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 1164,
+            "total": 1567,
+            "body_bytes": 403,
+            "source_stamp_ns": 0,
+            "packet_uid": 62800
+          },
+          "original_line": "{\"kind\":\"udp_tx\",\"ns3_ns\":2520000000,\"monotonic_ns\":517272655877246,\"message_id\":2646,\"from\":0,\"to\":3,\"flow\":71,\"offset\":1164,\"total\":1567,\"body_bytes\":403,\"source_stamp_ns\":0,\"packet_uid\":62800}"
+        },
+        {
+          "line_number": 162441,
+          "record": {
+            "kind": "mac_tx",
+            "ns3_ns": 2520043048,
+            "monotonic_ns": 517272660917085,
+            "node": 0,
+            "packet_uid": 62799,
+            "packet_bytes": 1236
+          },
+          "original_line": "{\"kind\":\"mac_tx\",\"ns3_ns\":2520043048,\"monotonic_ns\":517272660917085,\"node\":0,\"packet_uid\":62799,\"packet_bytes\":1236}"
+        },
+        {
+          "line_number": 162442,
+          "record": {
+            "kind": "mac_tx",
+            "ns3_ns": 2520048024,
+            "monotonic_ns": 517272660937295,
+            "node": 0,
+            "packet_uid": 62800,
+            "packet_bytes": 475
+          },
+          "original_line": "{\"kind\":\"mac_tx\",\"ns3_ns\":2520048024,\"monotonic_ns\":517272660937295,\"node\":0,\"packet_uid\":62800,\"packet_bytes\":475}"
+        },
+        {
+          "line_number": 162736,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2521173368,
+            "monotonic_ns": 517272667859299,
+            "node": 3,
+            "packet_uid": 62799,
+            "packet_bytes": 1266,
+            "reason": 4
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2521173368,\"monotonic_ns\":517272667859299,\"node\":3,\"packet_uid\":62799,\"packet_bytes\":1266,\"reason\":4}"
+        },
+        {
+          "line_number": 162737,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2521173368,
+            "monotonic_ns": 517272667861732,
+            "node": 3,
+            "packet_uid": 62800,
+            "packet_bytes": 505,
+            "reason": 4
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2521173368,\"monotonic_ns\":517272667861732,\"node\":3,\"packet_uid\":62800,\"packet_bytes\":505,\"reason\":4}"
+        },
+        {
+          "line_number": 162742,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2521177367,
+            "monotonic_ns": 517272667927503,
+            "node": 1,
+            "packet_uid": 62799,
+            "packet_bytes": 1266,
+            "reason": 8
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2521177367,\"monotonic_ns\":517272667927503,\"node\":1,\"packet_uid\":62799,\"packet_bytes\":1266,\"reason\":8}"
+        },
+        {
+          "line_number": 162743,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2521177367,
+            "monotonic_ns": 517272667929542,
+            "node": 1,
+            "packet_uid": 62800,
+            "packet_bytes": 505,
+            "reason": 8
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2521177367,\"monotonic_ns\":517272667929542,\"node\":1,\"packet_uid\":62800,\"packet_bytes\":505,\"reason\":8}"
+        },
+        {
+          "line_number": 162744,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2521177367,
+            "monotonic_ns": 517272667933077,
+            "node": 2,
+            "packet_uid": 62799,
+            "packet_bytes": 1266,
+            "reason": 8
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2521177367,\"monotonic_ns\":517272667933077,\"node\":2,\"packet_uid\":62799,\"packet_bytes\":1266,\"reason\":8}"
+        },
+        {
+          "line_number": 162745,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2521177367,
+            "monotonic_ns": 517272667951467,
+            "node": 2,
+            "packet_uid": 62800,
+            "packet_bytes": 505,
+            "reason": 8
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2521177367,\"monotonic_ns\":517272667951467,\"node\":2,\"packet_uid\":62800,\"packet_bytes\":505,\"reason\":8}"
+        },
+        {
+          "line_number": 162764,
+          "record": {
+            "kind": "phy_tx_end",
+            "ns3_ns": 2521249362,
+            "monotonic_ns": 517272668264139,
+            "node": 0,
+            "packet_uid": 62799,
+            "packet_bytes": 1266
+          },
+          "original_line": "{\"kind\":\"phy_tx_end\",\"ns3_ns\":2521249362,\"monotonic_ns\":517272668264139,\"node\":0,\"packet_uid\":62799,\"packet_bytes\":1266}"
+        },
+        {
+          "line_number": 162765,
+          "record": {
+            "kind": "phy_tx_end",
+            "ns3_ns": 2521249362,
+            "monotonic_ns": 517272668265957,
+            "node": 0,
+            "packet_uid": 62800,
+            "packet_bytes": 505
+          },
+          "original_line": "{\"kind\":\"phy_tx_end\",\"ns3_ns\":2521249362,\"monotonic_ns\":517272668265957,\"node\":0,\"packet_uid\":62800,\"packet_bytes\":505}"
+        },
+        {
+          "line_number": 162950,
+          "record": {
+            "kind": "mac_rx",
+            "ns3_ns": 2522174562,
+            "monotonic_ns": 517272672710862,
+            "node": 3,
+            "packet_uid": 62799,
+            "packet_bytes": 1236
+          },
+          "original_line": "{\"kind\":\"mac_rx\",\"ns3_ns\":2522174562,\"monotonic_ns\":517272672710862,\"node\":3,\"packet_uid\":62799,\"packet_bytes\":1236}"
+        },
+        {
+          "line_number": 162951,
+          "record": {
+            "kind": "udp_rx",
+            "ns3_ns": 2522174562,
+            "monotonic_ns": 517272672736474,
+            "message_id": 2646,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 0,
+            "total": 1567,
+            "body_bytes": 1164,
+            "source_stamp_ns": 0,
+            "packet_uid": 62799
+          },
+          "original_line": "{\"kind\":\"udp_rx\",\"ns3_ns\":2522174562,\"monotonic_ns\":517272672736474,\"message_id\":2646,\"from\":0,\"to\":3,\"flow\":71,\"offset\":0,\"total\":1567,\"body_bytes\":1164,\"source_stamp_ns\":0,\"packet_uid\":62799}"
+        },
+        {
+          "line_number": 162952,
+          "record": {
+            "kind": "phy_tx_end",
+            "ns3_ns": 2522188408,
+            "monotonic_ns": 517272672828928,
+            "node": 0,
+            "packet_uid": 62799,
+            "packet_bytes": 1266
+          },
+          "original_line": "{\"kind\":\"phy_tx_end\",\"ns3_ns\":2522188408,\"monotonic_ns\":517272672828928,\"node\":0,\"packet_uid\":62799,\"packet_bytes\":1266}"
+        },
+        {
+          "line_number": 162953,
+          "record": {
+            "kind": "phy_tx_end",
+            "ns3_ns": 2522188408,
+            "monotonic_ns": 517272672830866,
+            "node": 0,
+            "packet_uid": 62800,
+            "packet_bytes": 505
+          },
+          "original_line": "{\"kind\":\"phy_tx_end\",\"ns3_ns\":2522188408,\"monotonic_ns\":517272672830866,\"node\":0,\"packet_uid\":62800,\"packet_bytes\":505}"
+        },
+        {
+          "line_number": 162954,
+          "record": {
+            "kind": "phy_rx_end",
+            "ns3_ns": 2522188413,
+            "monotonic_ns": 517272672840438,
+            "node": 1,
+            "packet_uid": 62799,
+            "packet_bytes": 1266
+          },
+          "original_line": "{\"kind\":\"phy_rx_end\",\"ns3_ns\":2522188413,\"monotonic_ns\":517272672840438,\"node\":1,\"packet_uid\":62799,\"packet_bytes\":1266}"
+        },
+        {
+          "line_number": 162955,
+          "record": {
+            "kind": "phy_rx_end",
+            "ns3_ns": 2522188413,
+            "monotonic_ns": 517272672841905,
+            "node": 1,
+            "packet_uid": 62800,
+            "packet_bytes": 505
+          },
+          "original_line": "{\"kind\":\"phy_rx_end\",\"ns3_ns\":2522188413,\"monotonic_ns\":517272672841905,\"node\":1,\"packet_uid\":62800,\"packet_bytes\":505}"
+        },
+        {
+          "line_number": 162956,
+          "record": {
+            "kind": "wifi_sniffer_rx",
+            "ns3_ns": 2522188413,
+            "monotonic_ns": 517272672854951,
+            "node": 1,
+            "packet_uid": 62799,
+            "packet_bytes": 1272,
+            "frequency_mhz": 5210,
+            "signal_dbm": -34.5331662883,
+            "noise_dbm": -87.9453852712,
+            "snr_db": 53.4122189829
+          },
+          "original_line": "{\"kind\":\"wifi_sniffer_rx\",\"ns3_ns\":2522188413,\"monotonic_ns\":517272672854951,\"node\":1,\"packet_uid\":62799,\"packet_bytes\":1272,\"frequency_mhz\":5210,\"signal_dbm\":-34.5331662883,\"noise_dbm\":-87.9453852712,\"snr_db\":53.4122189829}"
+        },
+        {
+          "line_number": 162957,
+          "record": {
+            "kind": "wifi_sniffer_rx",
+            "ns3_ns": 2522188413,
+            "monotonic_ns": 517272672885747,
+            "node": 1,
+            "packet_uid": 62800,
+            "packet_bytes": 509,
+            "frequency_mhz": 5210,
+            "signal_dbm": -34.5331662883,
+            "noise_dbm": -87.9453852712,
+            "snr_db": 53.4122189829
+          },
+          "original_line": "{\"kind\":\"wifi_sniffer_rx\",\"ns3_ns\":2522188413,\"monotonic_ns\":517272672885747,\"node\":1,\"packet_uid\":62800,\"packet_bytes\":509,\"frequency_mhz\":5210,\"signal_dbm\":-34.5331662883,\"noise_dbm\":-87.9453852712,\"snr_db\":53.4122189829}"
+        },
+        {
+          "line_number": 162958,
+          "record": {
+            "kind": "phy_rx_end",
+            "ns3_ns": 2522188413,
+            "monotonic_ns": 517272672900297,
+            "node": 2,
+            "packet_uid": 62799,
+            "packet_bytes": 1266
+          },
+          "original_line": "{\"kind\":\"phy_rx_end\",\"ns3_ns\":2522188413,\"monotonic_ns\":517272672900297,\"node\":2,\"packet_uid\":62799,\"packet_bytes\":1266}"
+        },
+        {
+          "line_number": 162959,
+          "record": {
+            "kind": "phy_rx_end",
+            "ns3_ns": 2522188413,
+            "monotonic_ns": 517272672902563,
+            "node": 2,
+            "packet_uid": 62800,
+            "packet_bytes": 505
+          },
+          "original_line": "{\"kind\":\"phy_rx_end\",\"ns3_ns\":2522188413,\"monotonic_ns\":517272672902563,\"node\":2,\"packet_uid\":62800,\"packet_bytes\":505}"
+        },
+        {
+          "line_number": 162960,
+          "record": {
+            "kind": "wifi_sniffer_rx",
+            "ns3_ns": 2522188413,
+            "monotonic_ns": 517272672910147,
+            "node": 2,
+            "packet_uid": 62799,
+            "packet_bytes": 1272,
+            "frequency_mhz": 5210,
+            "signal_dbm": -34.9091431622,
+            "noise_dbm": -87.9453852712,
+            "snr_db": 53.0362421091
+          },
+          "original_line": "{\"kind\":\"wifi_sniffer_rx\",\"ns3_ns\":2522188413,\"monotonic_ns\":517272672910147,\"node\":2,\"packet_uid\":62799,\"packet_bytes\":1272,\"frequency_mhz\":5210,\"signal_dbm\":-34.9091431622,\"noise_dbm\":-87.9453852712,\"snr_db\":53.0362421091}"
+        },
+        {
+          "line_number": 162961,
+          "record": {
+            "kind": "wifi_sniffer_rx",
+            "ns3_ns": 2522188413,
+            "monotonic_ns": 517272672928378,
+            "node": 2,
+            "packet_uid": 62800,
+            "packet_bytes": 509,
+            "frequency_mhz": 5210,
+            "signal_dbm": -34.9091431622,
+            "noise_dbm": -87.9453852712,
+            "snr_db": 53.0362421091
+          },
+          "original_line": "{\"kind\":\"wifi_sniffer_rx\",\"ns3_ns\":2522188413,\"monotonic_ns\":517272672928378,\"node\":2,\"packet_uid\":62800,\"packet_bytes\":509,\"frequency_mhz\":5210,\"signal_dbm\":-34.9091431622,\"noise_dbm\":-87.9453852712,\"snr_db\":53.0362421091}"
+        },
+        {
+          "line_number": 162962,
+          "record": {
+            "kind": "mac_rx",
+            "ns3_ns": 2522188414,
+            "monotonic_ns": 517272672942978,
+            "node": 3,
+            "packet_uid": 62800,
+            "packet_bytes": 475
+          },
+          "original_line": "{\"kind\":\"mac_rx\",\"ns3_ns\":2522188414,\"monotonic_ns\":517272672942978,\"node\":3,\"packet_uid\":62800,\"packet_bytes\":475}"
+        },
+        {
+          "line_number": 162963,
+          "record": {
+            "kind": "udp_rx",
+            "ns3_ns": 2522188414,
+            "monotonic_ns": 517272672951856,
+            "message_id": 2646,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 1164,
+            "total": 1567,
+            "body_bytes": 403,
+            "source_stamp_ns": 0,
+            "packet_uid": 62800
+          },
+          "original_line": "{\"kind\":\"udp_rx\",\"ns3_ns\":2522188414,\"monotonic_ns\":517272672951856,\"message_id\":2646,\"from\":0,\"to\":3,\"flow\":71,\"offset\":1164,\"total\":1567,\"body_bytes\":403,\"source_stamp_ns\":0,\"packet_uid\":62800}"
+        },
+        {
+          "line_number": 162965,
+          "record": {
+            "kind": "phy_rx_end",
+            "ns3_ns": 2522188414,
+            "monotonic_ns": 517272672978210,
+            "node": 3,
+            "packet_uid": 62799,
+            "packet_bytes": 1266
+          },
+          "original_line": "{\"kind\":\"phy_rx_end\",\"ns3_ns\":2522188414,\"monotonic_ns\":517272672978210,\"node\":3,\"packet_uid\":62799,\"packet_bytes\":1266}"
+        },
+        {
+          "line_number": 162966,
+          "record": {
+            "kind": "phy_rx_end",
+            "ns3_ns": 2522188414,
+            "monotonic_ns": 517272672990403,
+            "node": 3,
+            "packet_uid": 62800,
+            "packet_bytes": 505
+          },
+          "original_line": "{\"kind\":\"phy_rx_end\",\"ns3_ns\":2522188414,\"monotonic_ns\":517272672990403,\"node\":3,\"packet_uid\":62800,\"packet_bytes\":505}"
+        },
+        {
+          "line_number": 162967,
+          "record": {
+            "kind": "wifi_sniffer_rx",
+            "ns3_ns": 2522188414,
+            "monotonic_ns": 517272672998667,
+            "node": 3,
+            "packet_uid": 62799,
+            "packet_bytes": 1272,
+            "frequency_mhz": 5210,
+            "signal_dbm": -36.4341557325,
+            "noise_dbm": -87.9453852712,
+            "snr_db": 51.5112295387
+          },
+          "original_line": "{\"kind\":\"wifi_sniffer_rx\",\"ns3_ns\":2522188414,\"monotonic_ns\":517272672998667,\"node\":3,\"packet_uid\":62799,\"packet_bytes\":1272,\"frequency_mhz\":5210,\"signal_dbm\":-36.4341557325,\"noise_dbm\":-87.9453852712,\"snr_db\":51.5112295387}"
+        },
+        {
+          "line_number": 162968,
+          "record": {
+            "kind": "wifi_sniffer_rx",
+            "ns3_ns": 2522188414,
+            "monotonic_ns": 517272673025436,
+            "node": 3,
+            "packet_uid": 62800,
+            "packet_bytes": 509,
+            "frequency_mhz": 5210,
+            "signal_dbm": -36.4341557325,
+            "noise_dbm": -87.9453852712,
+            "snr_db": 51.5112295387
+          },
+          "original_line": "{\"kind\":\"wifi_sniffer_rx\",\"ns3_ns\":2522188414,\"monotonic_ns\":517272673025436,\"node\":3,\"packet_uid\":62800,\"packet_bytes\":509,\"frequency_mhz\":5210,\"signal_dbm\":-36.4341557325,\"noise_dbm\":-87.9453852712,\"snr_db\":51.5112295387}"
+        }
+      ],
+      "exact_UID_trace_counts": {
+        "udp_tx": 2,
+        "mac_tx": 2,
+        "phy_rx_drop": 6,
+        "phy_tx_end": 4,
+        "mac_rx": 2,
+        "udp_rx": 2,
+        "phy_rx_end": 6,
+        "wifi_sniffer_rx": 6
+      },
+      "per_UID": {
+        "62799": {
+          "kinds": {
+            "udp_tx": 1,
+            "mac_tx": 1,
+            "phy_rx_drop": 3,
+            "phy_tx_end": 2,
+            "mac_rx": 1,
+            "udp_rx": 1,
+            "phy_rx_end": 3,
+            "wifi_sniffer_rx": 3
+          },
+          "nodes": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "62800": {
+          "kinds": {
+            "udp_tx": 1,
+            "mac_tx": 1,
+            "phy_rx_drop": 3,
+            "phy_tx_end": 2,
+            "phy_rx_end": 3,
+            "wifi_sniffer_rx": 3,
+            "mac_rx": 1,
+            "udp_rx": 1
+          },
+          "nodes": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "PHY_UID_linkage_complete": true,
+      "linkage_limit": "Only exact observed packet UID; aggregation-created other UID is not inferred by nearby time. MAC final-drop/retry has no per-message UID and is not attributed here."
+    },
+    "2815": {
+      "hub_ingress": {
+        "kind": "send",
+        "sender": 0,
+        "receiver": 3,
+        "flow": 71,
+        "source_stamp_ns": 0,
+        "admission_ns": 2630000000,
+        "bytes": 1582,
+        "native_message_id": 2815,
+        "hub_ingress_monotonic_ns": 517272945015307
+      },
+      "hub_delivery": {
+        "kind": "delivered",
+        "sender": 0,
+        "receiver": 3,
+        "flow": 71,
+        "message_id": 2815,
+        "source_stamp_ns": 0,
+        "ns3_rx_ns": 2632037257,
+        "hub_receive_monotonic_ns": 517272976892884,
+        "bytes": 1582
+      },
+      "sequence": 26,
+      "full_network_delay_sim_ms": 2.037257,
+      "original_message_rows": [
+        {
+          "line_number": 174577,
+          "record": {
+            "kind": "ipc_ingress",
+            "ns3_ns": 2630000000,
+            "monotonic_ns": 517272945110508,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "message_id": 2815,
+            "body_bytes": 1582,
+            "source_stamp_ns": 0,
+            "admission_ns": 2630000000
+          },
+          "original_line": "{\"kind\":\"ipc_ingress\",\"ns3_ns\":2630000000,\"monotonic_ns\":517272945110508,\"from\":0,\"to\":3,\"flow\":71,\"message_id\":2815,\"body_bytes\":1582,\"source_stamp_ns\":0,\"admission_ns\":2630000000}"
+        },
+        {
+          "line_number": 174578,
+          "record": {
+            "kind": "udp_tx",
+            "ns3_ns": 2630000000,
+            "monotonic_ns": 517272945116417,
+            "message_id": 2815,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 0,
+            "total": 1582,
+            "body_bytes": 1164,
+            "source_stamp_ns": 0,
+            "packet_uid": 67530
+          },
+          "original_line": "{\"kind\":\"udp_tx\",\"ns3_ns\":2630000000,\"monotonic_ns\":517272945116417,\"message_id\":2815,\"from\":0,\"to\":3,\"flow\":71,\"offset\":0,\"total\":1582,\"body_bytes\":1164,\"source_stamp_ns\":0,\"packet_uid\":67530}"
+        },
+        {
+          "line_number": 174579,
+          "record": {
+            "kind": "udp_tx",
+            "ns3_ns": 2630000000,
+            "monotonic_ns": 517272945170326,
+            "message_id": 2815,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 1164,
+            "total": 1582,
+            "body_bytes": 418,
+            "source_stamp_ns": 0,
+            "packet_uid": 67531
+          },
+          "original_line": "{\"kind\":\"udp_tx\",\"ns3_ns\":2630000000,\"monotonic_ns\":517272945170326,\"message_id\":2815,\"from\":0,\"to\":3,\"flow\":71,\"offset\":1164,\"total\":1582,\"body_bytes\":418,\"source_stamp_ns\":0,\"packet_uid\":67531}"
+        },
+        {
+          "line_number": 175522,
+          "record": {
+            "kind": "udp_rx",
+            "ns3_ns": 2632023405,
+            "monotonic_ns": 517272976434505,
+            "message_id": 2815,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 0,
+            "total": 1582,
+            "body_bytes": 1164,
+            "source_stamp_ns": 0,
+            "packet_uid": 67530
+          },
+          "original_line": "{\"kind\":\"udp_rx\",\"ns3_ns\":2632023405,\"monotonic_ns\":517272976434505,\"message_id\":2815,\"from\":0,\"to\":3,\"flow\":71,\"offset\":0,\"total\":1582,\"body_bytes\":1164,\"source_stamp_ns\":0,\"packet_uid\":67530}"
+        },
+        {
+          "line_number": 175535,
+          "record": {
+            "kind": "udp_rx",
+            "ns3_ns": 2632037257,
+            "monotonic_ns": 517272976651826,
+            "message_id": 2815,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 1164,
+            "total": 1582,
+            "body_bytes": 418,
+            "source_stamp_ns": 0,
+            "packet_uid": 67531
+          },
+          "original_line": "{\"kind\":\"udp_rx\",\"ns3_ns\":2632037257,\"monotonic_ns\":517272976651826,\"message_id\":2815,\"from\":0,\"to\":3,\"flow\":71,\"offset\":1164,\"total\":1582,\"body_bytes\":418,\"source_stamp_ns\":0,\"packet_uid\":67531}"
+        },
+        {
+          "line_number": 175536,
+          "record": {
+            "kind": "message_deliver",
+            "ns3_ns": 2632037257,
+            "monotonic_ns": 517272976657841,
+            "message_id": 2815,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 1164,
+            "total": 1582,
+            "body_bytes": 418,
+            "source_stamp_ns": 0
+          },
+          "original_line": "{\"kind\":\"message_deliver\",\"ns3_ns\":2632037257,\"monotonic_ns\":517272976657841,\"message_id\":2815,\"from\":0,\"to\":3,\"flow\":71,\"offset\":1164,\"total\":1582,\"body_bytes\":418,\"source_stamp_ns\":0}"
+        }
+      ],
+      "UDP_fragment_packet_UIDs": [
+        67530,
+        67531
+      ],
+      "exact_UID_linked_rows": [
+        {
+          "line_number": 174578,
+          "record": {
+            "kind": "udp_tx",
+            "ns3_ns": 2630000000,
+            "monotonic_ns": 517272945116417,
+            "message_id": 2815,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 0,
+            "total": 1582,
+            "body_bytes": 1164,
+            "source_stamp_ns": 0,
+            "packet_uid": 67530
+          },
+          "original_line": "{\"kind\":\"udp_tx\",\"ns3_ns\":2630000000,\"monotonic_ns\":517272945116417,\"message_id\":2815,\"from\":0,\"to\":3,\"flow\":71,\"offset\":0,\"total\":1582,\"body_bytes\":1164,\"source_stamp_ns\":0,\"packet_uid\":67530}"
+        },
+        {
+          "line_number": 174579,
+          "record": {
+            "kind": "udp_tx",
+            "ns3_ns": 2630000000,
+            "monotonic_ns": 517272945170326,
+            "message_id": 2815,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 1164,
+            "total": 1582,
+            "body_bytes": 418,
+            "source_stamp_ns": 0,
+            "packet_uid": 67531
+          },
+          "original_line": "{\"kind\":\"udp_tx\",\"ns3_ns\":2630000000,\"monotonic_ns\":517272945170326,\"message_id\":2815,\"from\":0,\"to\":3,\"flow\":71,\"offset\":1164,\"total\":1582,\"body_bytes\":418,\"source_stamp_ns\":0,\"packet_uid\":67531}"
+        },
+        {
+          "line_number": 175073,
+          "record": {
+            "kind": "mac_tx",
+            "ns3_ns": 2630010968,
+            "monotonic_ns": 517272965027200,
+            "node": 0,
+            "packet_uid": 67530,
+            "packet_bytes": 1236
+          },
+          "original_line": "{\"kind\":\"mac_tx\",\"ns3_ns\":2630010968,\"monotonic_ns\":517272965027200,\"node\":0,\"packet_uid\":67530,\"packet_bytes\":1236}"
+        },
+        {
+          "line_number": 175074,
+          "record": {
+            "kind": "mac_tx",
+            "ns3_ns": 2630016064,
+            "monotonic_ns": 517272965093246,
+            "node": 0,
+            "packet_uid": 67531,
+            "packet_bytes": 490
+          },
+          "original_line": "{\"kind\":\"mac_tx\",\"ns3_ns\":2630016064,\"monotonic_ns\":517272965093246,\"node\":0,\"packet_uid\":67531,\"packet_bytes\":490}"
+        },
+        {
+          "line_number": 175146,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2630308194,
+            "monotonic_ns": 517272966726638,
+            "node": 2,
+            "packet_uid": 67530,
+            "packet_bytes": 1266,
+            "reason": 4
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2630308194,\"monotonic_ns\":517272966726638,\"node\":2,\"packet_uid\":67530,\"packet_bytes\":1266,\"reason\":4}"
+        },
+        {
+          "line_number": 175147,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2630308194,
+            "monotonic_ns": 517272966729171,
+            "node": 2,
+            "packet_uid": 67531,
+            "packet_bytes": 520,
+            "reason": 4
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2630308194,\"monotonic_ns\":517272966729171,\"node\":2,\"packet_uid\":67531,\"packet_bytes\":520,\"reason\":4}"
+        },
+        {
+          "line_number": 175149,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2630312194,
+            "monotonic_ns": 517272966748338,
+            "node": 1,
+            "packet_uid": 67530,
+            "packet_bytes": 1266,
+            "reason": 8
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2630312194,\"monotonic_ns\":517272966748338,\"node\":1,\"packet_uid\":67530,\"packet_bytes\":1266,\"reason\":8}"
+        },
+        {
+          "line_number": 175150,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2630312194,
+            "monotonic_ns": 517272966750018,
+            "node": 1,
+            "packet_uid": 67531,
+            "packet_bytes": 520,
+            "reason": 8
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2630312194,\"monotonic_ns\":517272966750018,\"node\":1,\"packet_uid\":67531,\"packet_bytes\":520,\"reason\":8}"
+        },
+        {
+          "line_number": 175151,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2630312195,
+            "monotonic_ns": 517272966752651,
+            "node": 3,
+            "packet_uid": 67530,
+            "packet_bytes": 1266,
+            "reason": 8
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2630312195,\"monotonic_ns\":517272966752651,\"node\":3,\"packet_uid\":67530,\"packet_bytes\":1266,\"reason\":8}"
+        },
+        {
+          "line_number": 175152,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2630312195,
+            "monotonic_ns": 517272966754375,
+            "node": 3,
+            "packet_uid": 67531,
+            "packet_bytes": 520,
+            "reason": 8
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2630312195,\"monotonic_ns\":517272966754375,\"node\":3,\"packet_uid\":67531,\"packet_bytes\":520,\"reason\":8}"
+        },
+        {
+          "line_number": 175164,
+          "record": {
+            "kind": "phy_tx_end",
+            "ns3_ns": 2630384189,
+            "monotonic_ns": 517272967078046,
+            "node": 0,
+            "packet_uid": 67530,
+            "packet_bytes": 1266
+          },
+          "original_line": "{\"kind\":\"phy_tx_end\",\"ns3_ns\":2630384189,\"monotonic_ns\":517272967078046,\"node\":0,\"packet_uid\":67530,\"packet_bytes\":1266}"
+        },
+        {
+          "line_number": 175165,
+          "record": {
+            "kind": "phy_tx_end",
+            "ns3_ns": 2630384189,
+            "monotonic_ns": 517272967079862,
+            "node": 0,
+            "packet_uid": 67531,
+            "packet_bytes": 520
+          },
+          "original_line": "{\"kind\":\"phy_tx_end\",\"ns3_ns\":2630384189,\"monotonic_ns\":517272967079862,\"node\":0,\"packet_uid\":67531,\"packet_bytes\":520}"
+        },
+        {
+          "line_number": 175264,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2630822209,
+            "monotonic_ns": 517272969789791,
+            "node": 3,
+            "packet_uid": 67530,
+            "packet_bytes": 1266,
+            "reason": 4
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2630822209,\"monotonic_ns\":517272969789791,\"node\":3,\"packet_uid\":67530,\"packet_bytes\":1266,\"reason\":4}"
+        },
+        {
+          "line_number": 175265,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2630822209,
+            "monotonic_ns": 517272969792437,
+            "node": 3,
+            "packet_uid": 67531,
+            "packet_bytes": 520,
+            "reason": 4
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2630822209,\"monotonic_ns\":517272969792437,\"node\":3,\"packet_uid\":67531,\"packet_bytes\":520,\"reason\":4}"
+        },
+        {
+          "line_number": 175268,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2630826208,
+            "monotonic_ns": 517272969854506,
+            "node": 1,
+            "packet_uid": 67530,
+            "packet_bytes": 1266,
+            "reason": 8
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2630826208,\"monotonic_ns\":517272969854506,\"node\":1,\"packet_uid\":67530,\"packet_bytes\":1266,\"reason\":8}"
+        },
+        {
+          "line_number": 175269,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2630826208,
+            "monotonic_ns": 517272969856186,
+            "node": 1,
+            "packet_uid": 67531,
+            "packet_bytes": 520,
+            "reason": 8
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2630826208,\"monotonic_ns\":517272969856186,\"node\":1,\"packet_uid\":67531,\"packet_bytes\":520,\"reason\":8}"
+        },
+        {
+          "line_number": 175270,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2630826208,
+            "monotonic_ns": 517272969859368,
+            "node": 2,
+            "packet_uid": 67530,
+            "packet_bytes": 1266,
+            "reason": 8
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2630826208,\"monotonic_ns\":517272969859368,\"node\":2,\"packet_uid\":67530,\"packet_bytes\":1266,\"reason\":8}"
+        },
+        {
+          "line_number": 175271,
+          "record": {
+            "kind": "phy_rx_drop",
+            "ns3_ns": 2630826208,
+            "monotonic_ns": 517272969860796,
+            "node": 2,
+            "packet_uid": 67531,
+            "packet_bytes": 520,
+            "reason": 8
+          },
+          "original_line": "{\"kind\":\"phy_rx_drop\",\"ns3_ns\":2630826208,\"monotonic_ns\":517272969860796,\"node\":2,\"packet_uid\":67531,\"packet_bytes\":520,\"reason\":8}"
+        },
+        {
+          "line_number": 175282,
+          "record": {
+            "kind": "phy_tx_end",
+            "ns3_ns": 2630898203,
+            "monotonic_ns": 517272970138640,
+            "node": 0,
+            "packet_uid": 67530,
+            "packet_bytes": 1266
+          },
+          "original_line": "{\"kind\":\"phy_tx_end\",\"ns3_ns\":2630898203,\"monotonic_ns\":517272970138640,\"node\":0,\"packet_uid\":67530,\"packet_bytes\":1266}"
+        },
+        {
+          "line_number": 175283,
+          "record": {
+            "kind": "phy_tx_end",
+            "ns3_ns": 2630898203,
+            "monotonic_ns": 517272970140460,
+            "node": 0,
+            "packet_uid": 67531,
+            "packet_bytes": 520
+          },
+          "original_line": "{\"kind\":\"phy_tx_end\",\"ns3_ns\":2630898203,\"monotonic_ns\":517272970140460,\"node\":0,\"packet_uid\":67531,\"packet_bytes\":520}"
+        },
+        {
+          "line_number": 175521,
+          "record": {
+            "kind": "mac_rx",
+            "ns3_ns": 2632023405,
+            "monotonic_ns": 517272976407521,
+            "node": 3,
+            "packet_uid": 67530,
+            "packet_bytes": 1236
+          },
+          "original_line": "{\"kind\":\"mac_rx\",\"ns3_ns\":2632023405,\"monotonic_ns\":517272976407521,\"node\":3,\"packet_uid\":67530,\"packet_bytes\":1236}"
+        },
+        {
+          "line_number": 175522,
+          "record": {
+            "kind": "udp_rx",
+            "ns3_ns": 2632023405,
+            "monotonic_ns": 517272976434505,
+            "message_id": 2815,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 0,
+            "total": 1582,
+            "body_bytes": 1164,
+            "source_stamp_ns": 0,
+            "packet_uid": 67530
+          },
+          "original_line": "{\"kind\":\"udp_rx\",\"ns3_ns\":2632023405,\"monotonic_ns\":517272976434505,\"message_id\":2815,\"from\":0,\"to\":3,\"flow\":71,\"offset\":0,\"total\":1582,\"body_bytes\":1164,\"source_stamp_ns\":0,\"packet_uid\":67530}"
+        },
+        {
+          "line_number": 175524,
+          "record": {
+            "kind": "phy_tx_end",
+            "ns3_ns": 2632037251,
+            "monotonic_ns": 517272976494521,
+            "node": 0,
+            "packet_uid": 67530,
+            "packet_bytes": 1266
+          },
+          "original_line": "{\"kind\":\"phy_tx_end\",\"ns3_ns\":2632037251,\"monotonic_ns\":517272976494521,\"node\":0,\"packet_uid\":67530,\"packet_bytes\":1266}"
+        },
+        {
+          "line_number": 175525,
+          "record": {
+            "kind": "phy_tx_end",
+            "ns3_ns": 2632037251,
+            "monotonic_ns": 517272976496612,
+            "node": 0,
+            "packet_uid": 67531,
+            "packet_bytes": 520
+          },
+          "original_line": "{\"kind\":\"phy_tx_end\",\"ns3_ns\":2632037251,\"monotonic_ns\":517272976496612,\"node\":0,\"packet_uid\":67531,\"packet_bytes\":520}"
+        },
+        {
+          "line_number": 175526,
+          "record": {
+            "kind": "phy_rx_end",
+            "ns3_ns": 2632037256,
+            "monotonic_ns": 517272976508521,
+            "node": 1,
+            "packet_uid": 67530,
+            "packet_bytes": 1266
+          },
+          "original_line": "{\"kind\":\"phy_rx_end\",\"ns3_ns\":2632037256,\"monotonic_ns\":517272976508521,\"node\":1,\"packet_uid\":67530,\"packet_bytes\":1266}"
+        },
+        {
+          "line_number": 175527,
+          "record": {
+            "kind": "phy_rx_end",
+            "ns3_ns": 2632037256,
+            "monotonic_ns": 517272976510267,
+            "node": 1,
+            "packet_uid": 67531,
+            "packet_bytes": 520
+          },
+          "original_line": "{\"kind\":\"phy_rx_end\",\"ns3_ns\":2632037256,\"monotonic_ns\":517272976510267,\"node\":1,\"packet_uid\":67531,\"packet_bytes\":520}"
+        },
+        {
+          "line_number": 175528,
+          "record": {
+            "kind": "wifi_sniffer_rx",
+            "ns3_ns": 2632037256,
+            "monotonic_ns": 517272976525766,
+            "node": 1,
+            "packet_uid": 67530,
+            "packet_bytes": 1272,
+            "frequency_mhz": 5210,
+            "signal_dbm": -34.5331662883,
+            "noise_dbm": -87.9453852712,
+            "snr_db": 53.4122189829
+          },
+          "original_line": "{\"kind\":\"wifi_sniffer_rx\",\"ns3_ns\":2632037256,\"monotonic_ns\":517272976525766,\"node\":1,\"packet_uid\":67530,\"packet_bytes\":1272,\"frequency_mhz\":5210,\"signal_dbm\":-34.5331662883,\"noise_dbm\":-87.9453852712,\"snr_db\":53.4122189829}"
+        },
+        {
+          "line_number": 175529,
+          "record": {
+            "kind": "wifi_sniffer_rx",
+            "ns3_ns": 2632037256,
+            "monotonic_ns": 517272976551529,
+            "node": 1,
+            "packet_uid": 67531,
+            "packet_bytes": 524,
+            "frequency_mhz": 5210,
+            "signal_dbm": -34.5331662883,
+            "noise_dbm": -87.9453852712,
+            "snr_db": 53.4122189829
+          },
+          "original_line": "{\"kind\":\"wifi_sniffer_rx\",\"ns3_ns\":2632037256,\"monotonic_ns\":517272976551529,\"node\":1,\"packet_uid\":67531,\"packet_bytes\":524,\"frequency_mhz\":5210,\"signal_dbm\":-34.5331662883,\"noise_dbm\":-87.9453852712,\"snr_db\":53.4122189829}"
+        },
+        {
+          "line_number": 175530,
+          "record": {
+            "kind": "phy_rx_end",
+            "ns3_ns": 2632037256,
+            "monotonic_ns": 517272976568661,
+            "node": 2,
+            "packet_uid": 67530,
+            "packet_bytes": 1266
+          },
+          "original_line": "{\"kind\":\"phy_rx_end\",\"ns3_ns\":2632037256,\"monotonic_ns\":517272976568661,\"node\":2,\"packet_uid\":67530,\"packet_bytes\":1266}"
+        },
+        {
+          "line_number": 175531,
+          "record": {
+            "kind": "phy_rx_end",
+            "ns3_ns": 2632037256,
+            "monotonic_ns": 517272976570293,
+            "node": 2,
+            "packet_uid": 67531,
+            "packet_bytes": 520
+          },
+          "original_line": "{\"kind\":\"phy_rx_end\",\"ns3_ns\":2632037256,\"monotonic_ns\":517272976570293,\"node\":2,\"packet_uid\":67531,\"packet_bytes\":520}"
+        },
+        {
+          "line_number": 175532,
+          "record": {
+            "kind": "wifi_sniffer_rx",
+            "ns3_ns": 2632037256,
+            "monotonic_ns": 517272976578858,
+            "node": 2,
+            "packet_uid": 67530,
+            "packet_bytes": 1272,
+            "frequency_mhz": 5210,
+            "signal_dbm": -34.9091431622,
+            "noise_dbm": -87.9453852712,
+            "snr_db": 53.0362421091
+          },
+          "original_line": "{\"kind\":\"wifi_sniffer_rx\",\"ns3_ns\":2632037256,\"monotonic_ns\":517272976578858,\"node\":2,\"packet_uid\":67530,\"packet_bytes\":1272,\"frequency_mhz\":5210,\"signal_dbm\":-34.9091431622,\"noise_dbm\":-87.9453852712,\"snr_db\":53.0362421091}"
+        },
+        {
+          "line_number": 175533,
+          "record": {
+            "kind": "wifi_sniffer_rx",
+            "ns3_ns": 2632037256,
+            "monotonic_ns": 517272976601045,
+            "node": 2,
+            "packet_uid": 67531,
+            "packet_bytes": 524,
+            "frequency_mhz": 5210,
+            "signal_dbm": -34.9091431622,
+            "noise_dbm": -87.9453852712,
+            "snr_db": 53.0362421091
+          },
+          "original_line": "{\"kind\":\"wifi_sniffer_rx\",\"ns3_ns\":2632037256,\"monotonic_ns\":517272976601045,\"node\":2,\"packet_uid\":67531,\"packet_bytes\":524,\"frequency_mhz\":5210,\"signal_dbm\":-34.9091431622,\"noise_dbm\":-87.9453852712,\"snr_db\":53.0362421091}"
+        },
+        {
+          "line_number": 175534,
+          "record": {
+            "kind": "mac_rx",
+            "ns3_ns": 2632037257,
+            "monotonic_ns": 517272976629278,
+            "node": 3,
+            "packet_uid": 67531,
+            "packet_bytes": 490
+          },
+          "original_line": "{\"kind\":\"mac_rx\",\"ns3_ns\":2632037257,\"monotonic_ns\":517272976629278,\"node\":3,\"packet_uid\":67531,\"packet_bytes\":490}"
+        },
+        {
+          "line_number": 175535,
+          "record": {
+            "kind": "udp_rx",
+            "ns3_ns": 2632037257,
+            "monotonic_ns": 517272976651826,
+            "message_id": 2815,
+            "from": 0,
+            "to": 3,
+            "flow": 71,
+            "offset": 1164,
+            "total": 1582,
+            "body_bytes": 418,
+            "source_stamp_ns": 0,
+            "packet_uid": 67531
+          },
+          "original_line": "{\"kind\":\"udp_rx\",\"ns3_ns\":2632037257,\"monotonic_ns\":517272976651826,\"message_id\":2815,\"from\":0,\"to\":3,\"flow\":71,\"offset\":1164,\"total\":1582,\"body_bytes\":418,\"source_stamp_ns\":0,\"packet_uid\":67531}"
+        },
+        {
+          "line_number": 175537,
+          "record": {
+            "kind": "phy_rx_end",
+            "ns3_ns": 2632037257,
+            "monotonic_ns": 517272976704376,
+            "node": 3,
+            "packet_uid": 67530,
+            "packet_bytes": 1266
+          },
+          "original_line": "{\"kind\":\"phy_rx_end\",\"ns3_ns\":2632037257,\"monotonic_ns\":517272976704376,\"node\":3,\"packet_uid\":67530,\"packet_bytes\":1266}"
+        },
+        {
+          "line_number": 175538,
+          "record": {
+            "kind": "phy_rx_end",
+            "ns3_ns": 2632037257,
+            "monotonic_ns": 517272976707165,
+            "node": 3,
+            "packet_uid": 67531,
+            "packet_bytes": 520
+          },
+          "original_line": "{\"kind\":\"phy_rx_end\",\"ns3_ns\":2632037257,\"monotonic_ns\":517272976707165,\"node\":3,\"packet_uid\":67531,\"packet_bytes\":520}"
+        },
+        {
+          "line_number": 175539,
+          "record": {
+            "kind": "wifi_sniffer_rx",
+            "ns3_ns": 2632037257,
+            "monotonic_ns": 517272976721973,
+            "node": 3,
+            "packet_uid": 67530,
+            "packet_bytes": 1272,
+            "frequency_mhz": 5210,
+            "signal_dbm": -36.4341557325,
+            "noise_dbm": -87.9453852712,
+            "snr_db": 51.5112295387
+          },
+          "original_line": "{\"kind\":\"wifi_sniffer_rx\",\"ns3_ns\":2632037257,\"monotonic_ns\":517272976721973,\"node\":3,\"packet_uid\":67530,\"packet_bytes\":1272,\"frequency_mhz\":5210,\"signal_dbm\":-36.4341557325,\"noise_dbm\":-87.9453852712,\"snr_db\":51.5112295387}"
+        },
+        {
+          "line_number": 175540,
+          "record": {
+            "kind": "wifi_sniffer_rx",
+            "ns3_ns": 2632037257,
+            "monotonic_ns": 517272976745303,
+            "node": 3,
+            "packet_uid": 67531,
+            "packet_bytes": 524,
+            "frequency_mhz": 5210,
+            "signal_dbm": -36.4341557325,
+            "noise_dbm": -87.9453852712,
+            "snr_db": 51.5112295387
+          },
+          "original_line": "{\"kind\":\"wifi_sniffer_rx\",\"ns3_ns\":2632037257,\"monotonic_ns\":517272976745303,\"node\":3,\"packet_uid\":67531,\"packet_bytes\":524,\"frequency_mhz\":5210,\"signal_dbm\":-36.4341557325,\"noise_dbm\":-87.9453852712,\"snr_db\":51.5112295387}"
+        }
+      ],
+      "exact_UID_trace_counts": {
+        "udp_tx": 2,
+        "mac_tx": 2,
+        "phy_rx_drop": 12,
+        "phy_tx_end": 6,
+        "mac_rx": 2,
+        "udp_rx": 2,
+        "phy_rx_end": 6,
+        "wifi_sniffer_rx": 6
+      },
+      "per_UID": {
+        "67530": {
+          "kinds": {
+            "udp_tx": 1,
+            "mac_tx": 1,
+            "phy_rx_drop": 6,
+            "phy_tx_end": 3,
+            "mac_rx": 1,
+            "udp_rx": 1,
+            "phy_rx_end": 3,
+            "wifi_sniffer_rx": 3
+          },
+          "nodes": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "67531": {
+          "kinds": {
+            "udp_tx": 1,
+            "mac_tx": 1,
+            "phy_rx_drop": 6,
+            "phy_tx_end": 3,
+            "phy_rx_end": 3,
+            "wifi_sniffer_rx": 3,
+            "mac_rx": 1,
+            "udp_rx": 1
+          },
+          "nodes": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "PHY_UID_linkage_complete": true,
+      "linkage_limit": "Only exact observed packet UID; aggregation-created other UID is not inferred by nearby time. MAC final-drop/retry has no per-message UID and is not attributed here."
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "case": "net-01d/workspace/net01d/runs/full-load-dds-audit-01",
+  "scope": "Read-only small component audit; no TF/take analysis, no execution/hash computation",
+  "normal_done": true,
+  "normal_results": {
+    "3": 5,
+    "1": 4,
+    "2": 4
+  },
+  "normal_GetResult_pending": [],
+  "negative_phase": {
+    "goal": {
+      "uuid": "0000000078c3ffc00301000000000000",
+      "Goal_CDR": "0001000011000000802b530b040000006d6170000000000000000a4000000000000006c0000000000000000000000000000000000000000000000000333333333333e33f9a9999999999e93f3f0000004e455430314420636f6e74726f6c6c6564206e656761746976652061637469766520676f616c3b206e6f204e617632207472656520657865637574696f6e00",
+      "accepted": true,
+      "pending_at_ready": true
+    },
+    "request_pending": false,
+    "result_pending": false,
+    "actual_result_status": 5
+  },
+  "normal_journal_expected_events": 11,
+  "robots": {
+    "1": {
+      "actual_arm_success": true,
+      "accepted_Goal_CDR_count": 1,
+      "all_C_R_Goal_CDR_bytes_equal": true,
+      "cancelled": [],
+      "still_executing": [],
+      "local_PAUSE_requests": [
+        {
+          "command": 1,
+          "monotonic_ns": 516819761451552
+        }
+      ],
+      "merge_actual_consumed": 19,
+      "journal_actual_consumed": 11,
+      "journal_consumed_equals_all_selected_C_fixture_events": true,
+      "active_supply_wall_s": 32.68289968499448
+    },
+    "2": {
+      "actual_arm_success": true,
+      "accepted_Goal_CDR_count": 1,
+      "all_C_R_Goal_CDR_bytes_equal": true,
+      "cancelled": [],
+      "still_executing": [],
+      "local_PAUSE_requests": [
+        {
+          "command": 1,
+          "monotonic_ns": 516819761965836
+        }
+      ],
+      "merge_actual_consumed": 19,
+      "journal_actual_consumed": 11,
+      "journal_consumed_equals_all_selected_C_fixture_events": true,
+      "active_supply_wall_s": 32.66369765496347
+    },
+    "3": {
+      "actual_arm_success": true,
+      "accepted_Goal_CDR_count": 2,
+      "all_C_R_Goal_CDR_bytes_equal": true,
+      "cancelled": [
+        "0000000078c3ffc00300000000000000",
+        "0000000078c3ffc00301000000000000"
+      ],
+      "still_executing": [],
+      "local_PAUSE_requests": [
+        {
+          "command": 1,
+          "monotonic_ns": 516819769026769
+        }
+      ],
+      "merge_actual_consumed": 19,
+      "journal_actual_consumed": 11,
+      "journal_consumed_equals_all_selected_C_fixture_events": true,
+      "active_supply_wall_s": 33.653286171960644
+    }
+  },
+  "original_gateway_subset": {
+    "evidence": "net01d/health/dds-audit-analysis-01/component-subset.json",
+    "all_three_PAUSE_success": true,
+    "fourth_local_cancel": [
+      {
+        "kind": "actual_local_cancel_response",
+        "uuid": "0000000078c3ffc00301000000000000",
+        "return_code": 0,
+        "goals_canceling": [
+          "0000000078c3ffc00301000000000000"
+        ]
+      }
+    ],
+    "fourth_local_GetResult": [
+      {
+        "kind": "actual_local_GetResult",
+        "uuid": "0000000078c3ffc00301000000000000",
+        "status": 5
+      }
+    ],
+    "all_R_owned_empty": true,
+    "cleanup": {
+      "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+      "end_frame_flushed": true,
+      "executor_shutdown": [
+        true,
+        true
+      ],
+      "resources_destroyed": true,
+      "unresolved_C_RPC": [],
+      "unresolved_R_RPC": [],
+      "unresolved_local_cleanup_futures": {
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "action_confirmation_states": {
+        "C": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "R": {
+          "1": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          },
+          "2": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          },
+          "3": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          }
+        }
+      },
+      "retired_C_services": {
+        "1": [],
+        "2": [],
+        "3": []
+      }
+    },
+    "flow89_95_complete_original_C_R_CDR_identity_counters_equal": true
+  }
+}

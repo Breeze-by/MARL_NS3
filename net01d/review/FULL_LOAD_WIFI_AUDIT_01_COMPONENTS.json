@@ -1,0 +1,360 @@
+{
+  "case": "net01d/runs/full-load-wifi-audit-01",
+  "overall": "FAIL",
+  "scope": "Sealed small Action/89/95 review; no TF/health attribution, no raw ledger/Gateway reload or hash computation",
+  "normal_32wall_complete": false,
+  "fourth_negative_goal_reached": false,
+  "planned_radiooff_phase_reached": false,
+  "process": {
+    "scope": {
+      "arm": "B",
+      "delivery": "actual ns3 V3 B WiFi; controlled real Action transport; 3 normal +1 negative; no physical Nav2/Policy",
+      "source_window_wall_s": 32,
+      "hard_wall_s": 60.0,
+      "session_id": 2026110912,
+      "roles": [
+        "coordinator",
+        "hub/native",
+        "peer",
+        "gateway",
+        "mock_physics",
+        "source-tb1",
+        "source-tb2",
+        "source-tb3",
+        "merge",
+        "client"
+      ],
+      "profile": "controlled1000-clock100-q10ms",
+      "source_clock_contract": "frozen-source-clock",
+      "dispatch_profile": true,
+      "control_trace": true,
+      "guard": "Original actual masks/health and original actual arm services; normal automatic gates effective",
+      "source_sizes": "Six original Grid templates in explicit payload manifest; unchanged cells/frame/origin/shape, new fixture-time fields",
+      "source_rates": "odom30sim + odomTF; wheel10sim both in same message; scanheader5sim; costmap strict ROS>.5 in5wall poll; map5wall period; correction50wall latest_scan+.2; feedback100wall; exactzero_cmd20wall; Peer masks/health10sim unchanged",
+      "missing_flows": [],
+      "scope": "P5 no-motion complete business fixture; not real SLAM/Nav2/physics or scientific radio comparison",
+      "native": "/home/zhuyulab/ns3-workspace/net-01/build/followup03-release-portable-native/net01-payload",
+      "baseline": "/home/zhuyulab/ns3-workspace/base-01-econ",
+      "native_evidence_ram": "/dev/shm/net01d-full-load-wifi-audit-01",
+      "Gazebo": 0,
+      "Nav2": 0,
+      "Goal": 4,
+      "NN": 0,
+      "arm_guard": true,
+      "stage": "full",
+      "normal_t0": "actual C client all three Action facades ready and first Goal about to send",
+      "dds_take_trace": true,
+      "source_window": "Independent R supplies prewarm plus whole client32wall normal window and negative, until SUPPLY_STOP/finalSTOP",
+      "normal_Goals": 3,
+      "negative_active_Goals": 1,
+      "payloads": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01",
+      "negative": "after normal32wall and RPCdrain, fourth tb3 accepted/GetResult ACKed; B realRADIOoff .8wall with sources continuing, A1 stop observations .8wall; local real cancellation/PAUSE required"
+    },
+    "error": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 517273052757240, \"Gateway_failure\": null, \"guards\": {\"1\": \"bound_mask_receipt_stale\", \"2\": \"bound_mask_receipt_stale\", \"3\": \"health_heartbeat_stale\"}}')",
+    "wall_s": 10.273189365980215,
+    "exits": {
+      "coordinator": 1,
+      "hub": 0,
+      "peer": 0,
+      "gateway": 1,
+      "mock_physics": 0,
+      "merge": 0,
+      "source-tb1": 0,
+      "source-tb2": 0,
+      "source-tb3": 0,
+      "client": 0
+    },
+    "forced": [],
+    "negative_scope": "Actual local controlled cancellation; central negative Future may remain unknown; no claimed network recovery or physical stopping",
+    "judgement": "Process completion only; actual supply/health receipts/profile require offline review"
+  },
+  "C_GetResult_pending": [
+    2,
+    1,
+    3
+  ],
+  "C_terminal_results": {},
+  "robots": {
+    "1": {
+      "actual_arm_success": true,
+      "original_UUID": "0000000078c3ffc00100000000000000",
+      "accepted_Goal_count": 1,
+      "C_R_Goal_CDR_bytes_equal": true,
+      "C_feedback_received": 386,
+      "R_cancelled_UUIDs": [
+        "0000000078c3ffc00100000000000000"
+      ],
+      "R_still_executing": [],
+      "merge_actual_consumed": 4,
+      "journal_actual_consumed": 6,
+      "all_actual_selected_C_journal_events_consumed": true
+    },
+    "2": {
+      "actual_arm_success": true,
+      "original_UUID": "0000000078c3ffc00200000000000000",
+      "accepted_Goal_count": 1,
+      "C_R_Goal_CDR_bytes_equal": true,
+      "C_feedback_received": 389,
+      "R_cancelled_UUIDs": [
+        "0000000078c3ffc00200000000000000"
+      ],
+      "R_still_executing": [],
+      "merge_actual_consumed": 4,
+      "journal_actual_consumed": 6,
+      "all_actual_selected_C_journal_events_consumed": true
+    },
+    "3": {
+      "actual_arm_success": true,
+      "original_UUID": "0000000078c3ffc00300000000000000",
+      "accepted_Goal_count": 1,
+      "C_R_Goal_CDR_bytes_equal": true,
+      "C_feedback_received": 386,
+      "R_cancelled_UUIDs": [
+        "0000000078c3ffc00300000000000000"
+      ],
+      "R_still_executing": [],
+      "merge_actual_consumed": 4,
+      "journal_actual_consumed": 6,
+      "all_actual_selected_C_journal_events_consumed": true
+    }
+  },
+  "raw_guard_evidence": {
+    "1": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb1",
+          "session_id": 2026110912,
+          "sim": 0.76,
+          "monotonic": 517268.530928143
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "bound_mask_receipt_stale",
+          "robot": "tb1",
+          "session_id": 2026110912,
+          "sim": 2.65,
+          "monotonic": 517273.002173583
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00100000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "status": 5
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00100000000000000": 5
+      }
+    },
+    "2": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb2",
+          "session_id": 2026110912,
+          "sim": 0.76,
+          "monotonic": 517268.535722616
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "bound_mask_receipt_stale",
+          "robot": "tb2",
+          "session_id": 2026110912,
+          "sim": 2.65,
+          "monotonic": 517273.04469272
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00200000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00200000000000000": 5
+      }
+    },
+    "3": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb3",
+          "session_id": 2026110912,
+          "sim": 0.8,
+          "monotonic": 517268.585722536
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_heartbeat_stale",
+          "robot": "tb3",
+          "session_id": 2026110912,
+          "sim": 2.65,
+          "monotonic": 517272.979286441
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00300000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "status": 5
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00300000000000000": 5
+      }
+    }
+  },
+  "raw_cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      false,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [
+      {
+        "robot": 2,
+        "flow_offset": 3,
+        "rpc_id": 8702080105108733956
+      },
+      {
+        "robot": 1,
+        "flow_offset": 3,
+        "rpc_id": 8702080105108733957
+      },
+      {
+        "robot": 3,
+        "flow_offset": 3,
+        "rpc_id": 8702080105108733958
+      }
+    ],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 1,
+      "3": 0
+    },
+    "action_confirmation_states": {
+      "C": {
+        "enabled": true,
+        "failure": null,
+        "waiting": 0,
+        "unconfirmed": 0
+      },
+      "R": {
+        "1": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 1,
+          "unconfirmed": 0
+        },
+        "2": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 1,
+          "unconfirmed": 0
+        },
+        "3": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 1,
+          "unconfirmed": 0
+        }
+      }
+    },
+    "retired_C_services": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+  "original_gateway_subset": "net01d/health/wifi-full-01/component-subset.json",
+  "flow89": {
+    "route": [
+      0,
+      1
+    ],
+    "Ccaptured": 4,
+    "Rdestination_published": 4,
+    "existing_CDR_hash_Counter_equal": true,
+    "three_independent_STA_copies_proven": false
+  },
+  "flow95": {
+    "route": [
+      0,
+      1
+    ],
+    "Ccaptured": 6,
+    "Rdestination_published": 6,
+    "existing_CDR_hash_Counter_equal": true,
+    "three_independent_STA_copies_proven": false
+  }
+}

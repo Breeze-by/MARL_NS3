@@ -1,0 +1,3090 @@
+{
+  "case": "net-01d/workspace/net01d/runs/health-profile-wifi-01",
+  "status": "READ_ONLY_MEASUREMENT_COMPLETE",
+  "method": {
+    "join": "unique native_message_id -> message_id, checked sender/receiver/flow/source_stamp/bytes",
+    "delay": "ns3_rx_ns - admission_ns; original SENDAT schedules transmit at admission",
+    "unit": "ns3 simulation ms; complete application message, including routing/AP/CSMA/WiFi queues/MAC/retries/reassembly, not pure airtime or Linux wall",
+    "percentiles": "nearest-rank ceil(p*n), median average of two central values when even",
+    "scope": "P1 only; no Goal,89,95,NN,Nav2,Gazebo; unarmed",
+    "censoring": "Absent final full delivery is unresolved at final horizon, never automatically permanent packet loss; pending_incomplete=0 does not mean no queued/inflight/unreceived message",
+    "window_definition": "Admission-time cohort using source reported sim begin/end translated by actual fixed offset; not source-provenance classification or exact wall teardown boundary"
+  },
+  "source_and_HOLD": {
+    "source_active_wall_s": 16.000416991999373,
+    "source_Gazebo_clock_begin_ns": 650000000,
+    "source_Gazebo_clock_end_ns": 7790000000,
+    "fixed_G_minus_N_offset_ns": 10000000,
+    "source_native_admission_window_closed_ns": [
+      640000000,
+      7780000000
+    ],
+    "native_final_HOLD_horizon_ns": 8110000000,
+    "final_actual_G_clock_ns": 8120000000,
+    "final_post_physics_ACK_G_ns": 8125000000,
+    "HOLD_sealed_inflight": false,
+    "expected_shutdown": true,
+    "no_extra_network_drain_after_HOLD": true
+  },
+  "integrity_issues": [],
+  "all_transport_including_Link": {
+    "admitted": 10449,
+    "delivered": 10380,
+    "not_delivered_by_final_horizon": 69,
+    "delivered_payload_bytes_including_RPC8": 40290069,
+    "delivery_delay": {
+      "n": 10380,
+      "unit": "ns3_sim_ms",
+      "min": 0.047025,
+      "median": 1.219801,
+      "p95_nearest_rank": 6.599682,
+      "p99_nearest_rank": 12.24913,
+      "max": 22.868686
+    },
+    "by_admission_window": {
+      "before_source_clock_window": {
+        "admitted": 9,
+        "delivered": 9,
+        "not_delivered_by_final_horizon": 0,
+        "delivery_delay": {
+          "n": 9,
+          "unit": "ns3_sim_ms",
+          "min": 0.047025,
+          "median": 7.563828,
+          "p95_nearest_rank": 14.230123,
+          "p99_nearest_rank": 14.230123,
+          "max": 14.230123
+        }
+      },
+      "source_clock_window": {
+        "admitted": 10407,
+        "delivered": 10345,
+        "not_delivered_by_final_horizon": 62,
+        "delivery_delay": {
+          "n": 10345,
+          "unit": "ns3_sim_ms",
+          "min": 0.122101,
+          "median": 1.219968,
+          "p95_nearest_rank": 6.555903,
+          "p99_nearest_rank": 11.716455,
+          "max": 22.868686
+        }
+      },
+      "post_source_to_final_HOLD": {
+        "admitted": 33,
+        "delivered": 26,
+        "not_delivered_by_final_horizon": 7,
+        "delivery_delay": {
+          "n": 26,
+          "unit": "ns3_sim_ms",
+          "min": 0.094005,
+          "median": 0.856502,
+          "p95_nearest_rank": 13.082186,
+          "p99_nearest_rank": 13.322132,
+          "max": 13.322132
+        }
+      }
+    }
+  },
+  "all_business_excluding_Link": {
+    "admitted": 10443,
+    "delivered": 10374,
+    "not_delivered_by_final_horizon": 69,
+    "delivered_payload_bytes_including_RPC8": 40289949,
+    "delivery_delay": {
+      "n": 10374,
+      "unit": "ns3_sim_ms",
+      "min": 0.047025,
+      "median": 1.219607,
+      "p95_nearest_rank": 6.584064,
+      "p99_nearest_rank": 11.92135,
+      "max": 22.868686
+    },
+    "by_admission_window": {
+      "before_source_clock_window": {
+        "admitted": 3,
+        "delivered": 3,
+        "not_delivered_by_final_horizon": 0,
+        "delivery_delay": {
+          "n": 3,
+          "unit": "ns3_sim_ms",
+          "min": 0.047025,
+          "median": 0.309035,
+          "p95_nearest_rank": 0.463046,
+          "p99_nearest_rank": 0.463046,
+          "max": 0.463046
+        }
+      },
+      "source_clock_window": {
+        "admitted": 10407,
+        "delivered": 10345,
+        "not_delivered_by_final_horizon": 62,
+        "delivery_delay": {
+          "n": 10345,
+          "unit": "ns3_sim_ms",
+          "min": 0.122101,
+          "median": 1.219968,
+          "p95_nearest_rank": 6.555903,
+          "p99_nearest_rank": 11.716455,
+          "max": 22.868686
+        }
+      },
+      "post_source_to_final_HOLD": {
+        "admitted": 33,
+        "delivered": 26,
+        "not_delivered_by_final_horizon": 7,
+        "delivery_delay": {
+          "n": 26,
+          "unit": "ns3_sim_ms",
+          "min": 0.094005,
+          "median": 0.856502,
+          "p95_nearest_rank": 13.082186,
+          "p99_nearest_rank": 13.322132,
+          "max": 13.322132
+        }
+      }
+    }
+  },
+  "health": {
+    "31": {
+      "admitted": 75,
+      "delivered": 75,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 117182,
+      "delivery_delay": {
+        "n": 75,
+        "unit": "ns3_sim_ms",
+        "min": 0.094005,
+        "median": 0.246711,
+        "p95_nearest_rank": 1.848099,
+        "p99_nearest_rank": 4.464727,
+        "max": 4.464727
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 71,
+          "delivered": 71,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 71,
+            "unit": "ns3_sim_ms",
+            "min": 0.162257,
+            "median": 0.235543,
+            "p95_nearest_rank": 1.848099,
+            "p99_nearest_rank": 4.464727,
+            "max": 4.464727
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 4,
+          "delivered": 4,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 4,
+            "unit": "ns3_sim_ms",
+            "min": 0.094005,
+            "median": 0.282646,
+            "p95_nearest_rank": 0.301047,
+            "p99_nearest_rank": 0.301047,
+            "max": 0.301047
+          }
+        }
+      }
+    },
+    "51": {
+      "admitted": 75,
+      "delivered": 75,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 117182,
+      "delivery_delay": {
+        "n": 75,
+        "unit": "ns3_sim_ms",
+        "min": 0.207186,
+        "median": 0.824067,
+        "p95_nearest_rank": 3.744999,
+        "p99_nearest_rank": 6.409711,
+        "max": 6.409711
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 71,
+          "delivered": 71,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 71,
+            "unit": "ns3_sim_ms",
+            "min": 0.207186,
+            "median": 0.836072,
+            "p95_nearest_rank": 3.744999,
+            "p99_nearest_rank": 6.409711,
+            "max": 6.409711
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 4,
+          "delivered": 4,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 4,
+            "unit": "ns3_sim_ms",
+            "min": 0.288015,
+            "median": 0.559057,
+            "p95_nearest_rank": 0.999025,
+            "p99_nearest_rank": 0.999025,
+            "max": 0.999025
+          }
+        }
+      }
+    },
+    "71": {
+      "admitted": 75,
+      "delivered": 74,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_RPC8": 115613,
+      "delivery_delay": {
+        "n": 74,
+        "unit": "ns3_sim_ms",
+        "min": 0.175361,
+        "median": 1.2022225,
+        "p95_nearest_rank": 5.428985,
+        "p99_nearest_rank": 8.006722,
+        "max": 8.006722
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 71,
+          "delivered": 71,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 71,
+            "unit": "ns3_sim_ms",
+            "min": 0.175361,
+            "median": 1.203228,
+            "p95_nearest_rank": 5.428985,
+            "p99_nearest_rank": 8.006722,
+            "max": 8.006722
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 4,
+          "delivered": 3,
+          "not_delivered_by_final_horizon": 1,
+          "delivery_delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 0.21408,
+            "median": 0.748068,
+            "p95_nearest_rank": 1.184036,
+            "p99_nearest_rank": 1.184036,
+            "max": 1.184036
+          }
+        }
+      }
+    }
+  },
+  "per_business_flow": {
+    "21": {
+      "admitted": 4,
+      "delivered": 4,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 220448,
+      "delivery_delay": {
+        "n": 4,
+        "unit": "ns3_sim_ms",
+        "min": 3.174046,
+        "median": 4.73949,
+        "p95_nearest_rank": 10.627118,
+        "p99_nearest_rank": 10.627118,
+        "max": 10.627118
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 4,
+          "delivered": 4,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 4,
+            "unit": "ns3_sim_ms",
+            "min": 3.174046,
+            "median": 4.73949,
+            "p95_nearest_rank": 10.627118,
+            "p99_nearest_rank": 10.627118,
+            "max": 10.627118
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "22": {
+      "admitted": 214,
+      "delivered": 214,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 156648,
+      "delivery_delay": {
+        "n": 214,
+        "unit": "ns3_sim_ms",
+        "min": 0.397452,
+        "median": 1.1758335,
+        "p95_nearest_rank": 4.963092,
+        "p99_nearest_rank": 6.398006,
+        "max": 8.76247
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 214,
+          "delivered": 214,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 214,
+            "unit": "ns3_sim_ms",
+            "min": 0.397452,
+            "median": 1.1758335,
+            "p95_nearest_rank": 4.963092,
+            "p99_nearest_rank": 6.398006,
+            "max": 8.76247
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "23": {
+      "admitted": 1086,
+      "delivered": 1085,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_RPC8": 120444,
+      "delivery_delay": {
+        "n": 1085,
+        "unit": "ns3_sim_ms",
+        "min": 0.326213,
+        "median": 1.215971,
+        "p95_nearest_rank": 5.498497,
+        "p99_nearest_rank": 8.813528,
+        "max": 12.24913
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 1086,
+          "delivered": 1085,
+          "not_delivered_by_final_horizon": 1,
+          "delivery_delay": {
+            "n": 1085,
+            "unit": "ns3_sim_ms",
+            "min": 0.326213,
+            "median": 1.215971,
+            "p95_nearest_rank": 5.498497,
+            "p99_nearest_rank": 8.813528,
+            "max": 12.24913
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "24": {
+      "admitted": 1,
+      "delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 108,
+      "delivery_delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 1.932165,
+        "median": 1.932165,
+        "p95_nearest_rank": 1.932165,
+        "p99_nearest_rank": 1.932165,
+        "max": 1.932165
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 1,
+          "delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 1.932165,
+            "median": 1.932165,
+            "p95_nearest_rank": 1.932165,
+            "p99_nearest_rank": 1.932165,
+            "max": 1.932165
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "25": {
+      "admitted": 13,
+      "delivered": 13,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 521456,
+      "delivery_delay": {
+        "n": 13,
+        "unit": "ns3_sim_ms",
+        "min": 2.517123,
+        "median": 3.120803,
+        "p95_nearest_rank": 11.69542,
+        "p99_nearest_rank": 11.69542,
+        "max": 11.69542
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 13,
+          "delivered": 13,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 13,
+            "unit": "ns3_sim_ms",
+            "min": 2.517123,
+            "median": 3.120803,
+            "p95_nearest_rank": 11.69542,
+            "p99_nearest_rank": 11.69542,
+            "max": 11.69542
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "26": {
+      "admitted": 321,
+      "delivered": 321,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 19260,
+      "delivery_delay": {
+        "n": 321,
+        "unit": "ns3_sim_ms",
+        "min": 0.340402,
+        "median": 1.216397,
+        "p95_nearest_rank": 5.716495,
+        "p99_nearest_rank": 10.664856,
+        "max": 12.252256
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 321,
+          "delivered": 321,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 321,
+            "unit": "ns3_sim_ms",
+            "min": 0.340402,
+            "median": 1.216397,
+            "p95_nearest_rank": 5.716495,
+            "p99_nearest_rank": 10.664856,
+            "max": 12.252256
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "30": {
+      "admitted": 76,
+      "delivered": 75,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_RPC8": 12050980,
+      "delivery_delay": {
+        "n": 75,
+        "unit": "ns3_sim_ms",
+        "min": 4.333119,
+        "median": 6.258251,
+        "p95_nearest_rank": 10.506498,
+        "p99_nearest_rank": 16.863619,
+        "max": 16.863619
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 72,
+          "delivered": 72,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 72,
+            "unit": "ns3_sim_ms",
+            "min": 4.355097,
+            "median": 6.281096,
+            "p95_nearest_rank": 10.506498,
+            "p99_nearest_rank": 16.863619,
+            "max": 16.863619
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 4,
+          "delivered": 3,
+          "not_delivered_by_final_horizon": 1,
+          "delivery_delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 4.333119,
+            "median": 4.483121,
+            "p95_nearest_rank": 4.957067,
+            "p99_nearest_rank": 4.957067,
+            "max": 4.957067
+          }
+        }
+      }
+    },
+    "31": {
+      "admitted": 75,
+      "delivered": 75,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 117182,
+      "delivery_delay": {
+        "n": 75,
+        "unit": "ns3_sim_ms",
+        "min": 0.094005,
+        "median": 0.246711,
+        "p95_nearest_rank": 1.848099,
+        "p99_nearest_rank": 4.464727,
+        "max": 4.464727
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 71,
+          "delivered": 71,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 71,
+            "unit": "ns3_sim_ms",
+            "min": 0.162257,
+            "median": 0.235543,
+            "p95_nearest_rank": 1.848099,
+            "p99_nearest_rank": 4.464727,
+            "max": 4.464727
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 4,
+          "delivered": 4,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 4,
+            "unit": "ns3_sim_ms",
+            "min": 0.094005,
+            "median": 0.282646,
+            "p95_nearest_rank": 0.301047,
+            "p99_nearest_rank": 0.301047,
+            "max": 0.301047
+          }
+        }
+      }
+    },
+    "32": {
+      "admitted": 1,
+      "delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 64,
+      "delivery_delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.047025,
+        "median": 0.047025,
+        "p95_nearest_rank": 0.047025,
+        "p99_nearest_rank": 0.047025,
+        "max": 0.047025
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 1,
+          "delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.047025,
+            "median": 0.047025,
+            "p95_nearest_rank": 0.047025,
+            "p99_nearest_rank": 0.047025,
+            "max": 0.047025
+          }
+        },
+        "source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "41": {
+      "admitted": 4,
+      "delivered": 4,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 220448,
+      "delivery_delay": {
+        "n": 4,
+        "unit": "ns3_sim_ms",
+        "min": 2.386366,
+        "median": 5.187361,
+        "p95_nearest_rank": 6.10773,
+        "p99_nearest_rank": 6.10773,
+        "max": 6.10773
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 4,
+          "delivered": 4,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 4,
+            "unit": "ns3_sim_ms",
+            "min": 2.386366,
+            "median": 5.187361,
+            "p95_nearest_rank": 6.10773,
+            "p99_nearest_rank": 6.10773,
+            "max": 6.10773
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "42": {
+      "admitted": 214,
+      "delivered": 214,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 156648,
+      "delivery_delay": {
+        "n": 214,
+        "unit": "ns3_sim_ms",
+        "min": 0.149465,
+        "median": 1.0575095,
+        "p95_nearest_rank": 5.136824,
+        "p99_nearest_rank": 6.406458,
+        "max": 10.291707
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 214,
+          "delivered": 214,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 214,
+            "unit": "ns3_sim_ms",
+            "min": 0.149465,
+            "median": 1.0575095,
+            "p95_nearest_rank": 5.136824,
+            "p99_nearest_rank": 6.406458,
+            "max": 10.291707
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "43": {
+      "admitted": 1085,
+      "delivered": 1083,
+      "not_delivered_by_final_horizon": 2,
+      "delivered_payload_bytes_including_RPC8": 120244,
+      "delivery_delay": {
+        "n": 1083,
+        "unit": "ns3_sim_ms",
+        "min": 0.128358,
+        "median": 1.166969,
+        "p95_nearest_rank": 5.446066,
+        "p99_nearest_rank": 9.777766,
+        "max": 20.26212
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 1085,
+          "delivered": 1083,
+          "not_delivered_by_final_horizon": 2,
+          "delivery_delay": {
+            "n": 1083,
+            "unit": "ns3_sim_ms",
+            "min": 0.128358,
+            "median": 1.166969,
+            "p95_nearest_rank": 5.446066,
+            "p99_nearest_rank": 9.777766,
+            "max": 20.26212
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "44": {
+      "admitted": 1,
+      "delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 108,
+      "delivery_delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 3.176209,
+        "median": 3.176209,
+        "p95_nearest_rank": 3.176209,
+        "p99_nearest_rank": 3.176209,
+        "max": 3.176209
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 1,
+          "delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 3.176209,
+            "median": 3.176209,
+            "p95_nearest_rank": 3.176209,
+            "p99_nearest_rank": 3.176209,
+            "max": 3.176209
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "45": {
+      "admitted": 14,
+      "delivered": 14,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 561568,
+      "delivery_delay": {
+        "n": 14,
+        "unit": "ns3_sim_ms",
+        "min": 2.316991,
+        "median": 3.1452525,
+        "p95_nearest_rank": 9.619637,
+        "p99_nearest_rank": 9.619637,
+        "max": 9.619637
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 14,
+          "delivered": 14,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 14,
+            "unit": "ns3_sim_ms",
+            "min": 2.316991,
+            "median": 3.1452525,
+            "p95_nearest_rank": 9.619637,
+            "p99_nearest_rank": 9.619637,
+            "max": 9.619637
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "46": {
+      "admitted": 320,
+      "delivered": 320,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 19200,
+      "delivery_delay": {
+        "n": 320,
+        "unit": "ns3_sim_ms",
+        "min": 0.122101,
+        "median": 1.198229,
+        "p95_nearest_rank": 5.463719,
+        "p99_nearest_rank": 9.68138,
+        "max": 10.503198
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 320,
+          "delivered": 320,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 320,
+            "unit": "ns3_sim_ms",
+            "min": 0.122101,
+            "median": 1.198229,
+            "p95_nearest_rank": 5.463719,
+            "p99_nearest_rank": 9.68138,
+            "max": 10.503198
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "50": {
+      "admitted": 76,
+      "delivered": 75,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_RPC8": 12050980,
+      "delivery_delay": {
+        "n": 75,
+        "unit": "ns3_sim_ms",
+        "min": 4.538013,
+        "median": 10.406491,
+        "p95_nearest_rank": 16.20722,
+        "p99_nearest_rank": 19.556639,
+        "max": 19.556639
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 72,
+          "delivered": 72,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 72,
+            "unit": "ns3_sim_ms",
+            "min": 4.538013,
+            "median": 10.472644,
+            "p95_nearest_rank": 16.20722,
+            "p99_nearest_rank": 19.556639,
+            "max": 19.556639
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 4,
+          "delivered": 3,
+          "not_delivered_by_final_horizon": 1,
+          "delivery_delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 8.475149,
+            "median": 8.823151,
+            "p95_nearest_rank": 9.207097,
+            "p99_nearest_rank": 9.207097,
+            "max": 9.207097
+          }
+        }
+      }
+    },
+    "51": {
+      "admitted": 75,
+      "delivered": 75,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 117182,
+      "delivery_delay": {
+        "n": 75,
+        "unit": "ns3_sim_ms",
+        "min": 0.207186,
+        "median": 0.824067,
+        "p95_nearest_rank": 3.744999,
+        "p99_nearest_rank": 6.409711,
+        "max": 6.409711
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 71,
+          "delivered": 71,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 71,
+            "unit": "ns3_sim_ms",
+            "min": 0.207186,
+            "median": 0.836072,
+            "p95_nearest_rank": 3.744999,
+            "p99_nearest_rank": 6.409711,
+            "max": 6.409711
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 4,
+          "delivered": 4,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 4,
+            "unit": "ns3_sim_ms",
+            "min": 0.288015,
+            "median": 0.559057,
+            "p95_nearest_rank": 0.999025,
+            "p99_nearest_rank": 0.999025,
+            "max": 0.999025
+          }
+        }
+      }
+    },
+    "52": {
+      "admitted": 1,
+      "delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 64,
+      "delivery_delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.309035,
+        "median": 0.309035,
+        "p95_nearest_rank": 0.309035,
+        "p99_nearest_rank": 0.309035,
+        "max": 0.309035
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 1,
+          "delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.309035,
+            "median": 0.309035,
+            "p95_nearest_rank": 0.309035,
+            "p99_nearest_rank": 0.309035,
+            "max": 0.309035
+          }
+        },
+        "source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "61": {
+      "admitted": 4,
+      "delivered": 4,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 220448,
+      "delivery_delay": {
+        "n": 4,
+        "unit": "ns3_sim_ms",
+        "min": 1.760287,
+        "median": 3.503831,
+        "p95_nearest_rank": 4.685211,
+        "p99_nearest_rank": 4.685211,
+        "max": 4.685211
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 4,
+          "delivered": 4,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 4,
+            "unit": "ns3_sim_ms",
+            "min": 1.760287,
+            "median": 3.503831,
+            "p95_nearest_rank": 4.685211,
+            "p99_nearest_rank": 4.685211,
+            "max": 4.685211
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "62": {
+      "admitted": 214,
+      "delivered": 213,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_RPC8": 155916,
+      "delivery_delay": {
+        "n": 213,
+        "unit": "ns3_sim_ms",
+        "min": 0.37643,
+        "median": 1.192561,
+        "p95_nearest_rank": 5.07443,
+        "p99_nearest_rank": 7.195285,
+        "max": 7.968225
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 214,
+          "delivered": 213,
+          "not_delivered_by_final_horizon": 1,
+          "delivery_delay": {
+            "n": 213,
+            "unit": "ns3_sim_ms",
+            "min": 0.37643,
+            "median": 1.192561,
+            "p95_nearest_rank": 5.07443,
+            "p99_nearest_rank": 7.195285,
+            "max": 7.968225
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "63": {
+      "admitted": 1085,
+      "delivered": 1083,
+      "not_delivered_by_final_horizon": 2,
+      "delivered_payload_bytes_including_RPC8": 120244,
+      "delivery_delay": {
+        "n": 1083,
+        "unit": "ns3_sim_ms",
+        "min": 0.164386,
+        "median": 1.223907,
+        "p95_nearest_rank": 5.622084,
+        "p99_nearest_rank": 7.988273,
+        "max": 16.925376
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 1085,
+          "delivered": 1083,
+          "not_delivered_by_final_horizon": 2,
+          "delivery_delay": {
+            "n": 1083,
+            "unit": "ns3_sim_ms",
+            "min": 0.164386,
+            "median": 1.223907,
+            "p95_nearest_rank": 5.622084,
+            "p99_nearest_rank": 7.988273,
+            "max": 16.925376
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "64": {
+      "admitted": 1,
+      "delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 108,
+      "delivery_delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 2.981712,
+        "median": 2.981712,
+        "p95_nearest_rank": 2.981712,
+        "p99_nearest_rank": 2.981712,
+        "max": 2.981712
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 1,
+          "delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 2.981712,
+            "median": 2.981712,
+            "p95_nearest_rank": 2.981712,
+            "p99_nearest_rank": 2.981712,
+            "max": 2.981712
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "65": {
+      "admitted": 14,
+      "delivered": 14,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 561568,
+      "delivery_delay": {
+        "n": 14,
+        "unit": "ns3_sim_ms",
+        "min": 2.34103,
+        "median": 3.428342,
+        "p95_nearest_rank": 6.178322,
+        "p99_nearest_rank": 6.178322,
+        "max": 6.178322
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 14,
+          "delivered": 14,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 14,
+            "unit": "ns3_sim_ms",
+            "min": 2.34103,
+            "median": 3.428342,
+            "p95_nearest_rank": 6.178322,
+            "p99_nearest_rank": 6.178322,
+            "max": 6.178322
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "66": {
+      "admitted": 320,
+      "delivered": 320,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 19200,
+      "delivery_delay": {
+        "n": 320,
+        "unit": "ns3_sim_ms",
+        "min": 0.167512,
+        "median": 1.2127725,
+        "p95_nearest_rank": 5.476738,
+        "p99_nearest_rank": 7.444882,
+        "max": 11.67939
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 320,
+          "delivered": 320,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 320,
+            "unit": "ns3_sim_ms",
+            "min": 0.167512,
+            "median": 1.2127725,
+            "p95_nearest_rank": 5.476738,
+            "p99_nearest_rank": 7.444882,
+            "max": 11.67939
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "70": {
+      "admitted": 76,
+      "delivered": 75,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_RPC8": 12050980,
+      "delivery_delay": {
+        "n": 75,
+        "unit": "ns3_sim_ms",
+        "min": 5.03946,
+        "median": 15.359545,
+        "p95_nearest_rank": 20.006373,
+        "p99_nearest_rank": 22.868686,
+        "max": 22.868686
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 72,
+          "delivered": 72,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 72,
+            "unit": "ns3_sim_ms",
+            "min": 5.03946,
+            "median": 15.4282325,
+            "p95_nearest_rank": 20.006373,
+            "p99_nearest_rank": 22.868686,
+            "max": 22.868686
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 4,
+          "delivered": 3,
+          "not_delivered_by_final_horizon": 1,
+          "delivery_delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 12.617184,
+            "median": 13.082186,
+            "p95_nearest_rank": 13.322132,
+            "p99_nearest_rank": 13.322132,
+            "max": 13.322132
+          }
+        }
+      }
+    },
+    "71": {
+      "admitted": 75,
+      "delivered": 74,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_RPC8": 115613,
+      "delivery_delay": {
+        "n": 74,
+        "unit": "ns3_sim_ms",
+        "min": 0.175361,
+        "median": 1.2022225,
+        "p95_nearest_rank": 5.428985,
+        "p99_nearest_rank": 8.006722,
+        "max": 8.006722
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 71,
+          "delivered": 71,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 71,
+            "unit": "ns3_sim_ms",
+            "min": 0.175361,
+            "median": 1.203228,
+            "p95_nearest_rank": 5.428985,
+            "p99_nearest_rank": 8.006722,
+            "max": 8.006722
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 4,
+          "delivered": 3,
+          "not_delivered_by_final_horizon": 1,
+          "delivery_delay": {
+            "n": 3,
+            "unit": "ns3_sim_ms",
+            "min": 0.21408,
+            "median": 0.748068,
+            "p95_nearest_rank": 1.184036,
+            "p99_nearest_rank": 1.184036,
+            "max": 1.184036
+          }
+        }
+      }
+    },
+    "72": {
+      "admitted": 1,
+      "delivered": 1,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 64,
+      "delivery_delay": {
+        "n": 1,
+        "unit": "ns3_sim_ms",
+        "min": 0.463046,
+        "median": 0.463046,
+        "p95_nearest_rank": 0.463046,
+        "p99_nearest_rank": 0.463046,
+        "max": 0.463046
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 1,
+          "delivered": 1,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 1,
+            "unit": "ns3_sim_ms",
+            "min": 0.463046,
+            "median": 0.463046,
+            "p95_nearest_rank": 0.463046,
+            "p99_nearest_rank": 0.463046,
+            "max": 0.463046
+          }
+        },
+        "source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "226": {
+      "admitted": 1601,
+      "delivered": 1593,
+      "not_delivered_by_final_horizon": 8,
+      "delivered_payload_bytes_including_RPC8": 197532,
+      "delivery_delay": {
+        "n": 1593,
+        "unit": "ns3_sim_ms",
+        "min": 0.331163,
+        "median": 1.220213,
+        "p95_nearest_rank": 5.40806,
+        "p99_nearest_rank": 8.840804,
+        "max": 12.262284
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 1601,
+          "delivered": 1593,
+          "not_delivered_by_final_horizon": 8,
+          "delivery_delay": {
+            "n": 1593,
+            "unit": "ns3_sim_ms",
+            "min": 0.331163,
+            "median": 1.220213,
+            "p95_nearest_rank": 5.40806,
+            "p99_nearest_rank": 8.840804,
+            "max": 12.262284
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "227": {
+      "admitted": 17,
+      "delivered": 17,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 272,
+      "delivery_delay": {
+        "n": 17,
+        "unit": "ns3_sim_ms",
+        "min": 0.490978,
+        "median": 1.141312,
+        "p95_nearest_rank": 4.683823,
+        "p99_nearest_rank": 4.683823,
+        "max": 4.683823
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 17,
+          "delivered": 17,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 17,
+            "unit": "ns3_sim_ms",
+            "min": 0.490978,
+            "median": 1.141312,
+            "p95_nearest_rank": 4.683823,
+            "p99_nearest_rank": 4.683823,
+            "max": 4.683823
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "228": {
+      "admitted": 74,
+      "delivered": 73,
+      "not_delivered_by_final_horizon": 1,
+      "delivered_payload_bytes_including_RPC8": 1168,
+      "delivery_delay": {
+        "n": 73,
+        "unit": "ns3_sim_ms",
+        "min": 0.340924,
+        "median": 4.765307,
+        "p95_nearest_rank": 8.898353,
+        "p99_nearest_rank": 10.046337,
+        "max": 10.046337
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 71,
+          "delivered": 71,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 71,
+            "unit": "ns3_sim_ms",
+            "min": 0.390038,
+            "median": 4.776295,
+            "p95_nearest_rank": 8.898353,
+            "p99_nearest_rank": 10.046337,
+            "max": 10.046337
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 3,
+          "delivered": 2,
+          "not_delivered_by_final_horizon": 1,
+          "delivery_delay": {
+            "n": 2,
+            "unit": "ns3_sim_ms",
+            "min": 0.340924,
+            "median": 0.414864,
+            "p95_nearest_rank": 0.488804,
+            "p99_nearest_rank": 0.488804,
+            "max": 0.488804
+          }
+        }
+      }
+    },
+    "246": {
+      "admitted": 1600,
+      "delivered": 1580,
+      "not_delivered_by_final_horizon": 20,
+      "delivered_payload_bytes_including_RPC8": 195920,
+      "delivery_delay": {
+        "n": 1580,
+        "unit": "ns3_sim_ms",
+        "min": 0.127371,
+        "median": 1.1800235,
+        "p95_nearest_rank": 5.442775,
+        "p99_nearest_rank": 9.782716,
+        "max": 20.26707
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 1600,
+          "delivered": 1580,
+          "not_delivered_by_final_horizon": 20,
+          "delivery_delay": {
+            "n": 1580,
+            "unit": "ns3_sim_ms",
+            "min": 0.127371,
+            "median": 1.1800235,
+            "p95_nearest_rank": 5.442775,
+            "p99_nearest_rank": 9.782716,
+            "max": 20.26707
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "247": {
+      "admitted": 17,
+      "delivered": 17,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 272,
+      "delivery_delay": {
+        "n": 17,
+        "unit": "ns3_sim_ms",
+        "min": 0.635849,
+        "median": 1.436272,
+        "p95_nearest_rank": 9.627224,
+        "p99_nearest_rank": 9.627224,
+        "max": 9.627224
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 17,
+          "delivered": 17,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 17,
+            "unit": "ns3_sim_ms",
+            "min": 0.635849,
+            "median": 1.436272,
+            "p95_nearest_rank": 9.627224,
+            "p99_nearest_rank": 9.627224,
+            "max": 9.627224
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "248": {
+      "admitted": 74,
+      "delivered": 72,
+      "not_delivered_by_final_horizon": 2,
+      "delivered_payload_bytes_including_RPC8": 1152,
+      "delivery_delay": {
+        "n": 72,
+        "unit": "ns3_sim_ms",
+        "min": 0.316794,
+        "median": 4.83304,
+        "p95_nearest_rank": 9.773828,
+        "p99_nearest_rank": 20.269749,
+        "max": 20.269749
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 71,
+          "delivered": 70,
+          "not_delivered_by_final_horizon": 1,
+          "delivery_delay": {
+            "n": 70,
+            "unit": "ns3_sim_ms",
+            "min": 0.36917,
+            "median": 4.8419145,
+            "p95_nearest_rank": 9.773828,
+            "p99_nearest_rank": 20.269749,
+            "max": 20.269749
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 3,
+          "delivered": 2,
+          "not_delivered_by_final_horizon": 1,
+          "delivery_delay": {
+            "n": 2,
+            "unit": "ns3_sim_ms",
+            "min": 0.316794,
+            "median": 0.70437,
+            "p95_nearest_rank": 1.091946,
+            "p99_nearest_rank": 1.091946,
+            "max": 1.091946
+          }
+        }
+      }
+    },
+    "266": {
+      "admitted": 1599,
+      "delivered": 1573,
+      "not_delivered_by_final_horizon": 26,
+      "delivered_payload_bytes_including_RPC8": 195052,
+      "delivery_delay": {
+        "n": 1573,
+        "unit": "ns3_sim_ms",
+        "min": 0.157769,
+        "median": 1.222385,
+        "p95_nearest_rank": 5.545153,
+        "p99_nearest_rank": 7.996669,
+        "max": 16.930326
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 1599,
+          "delivered": 1573,
+          "not_delivered_by_final_horizon": 26,
+          "delivery_delay": {
+            "n": 1573,
+            "unit": "ns3_sim_ms",
+            "min": 0.157769,
+            "median": 1.222385,
+            "p95_nearest_rank": 5.545153,
+            "p99_nearest_rank": 7.996669,
+            "max": 16.930326
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "267": {
+      "admitted": 16,
+      "delivered": 16,
+      "not_delivered_by_final_horizon": 0,
+      "delivered_payload_bytes_including_RPC8": 256,
+      "delivery_delay": {
+        "n": 16,
+        "unit": "ns3_sim_ms",
+        "min": 0.403398,
+        "median": 1.4047875,
+        "p95_nearest_rank": 4.697156,
+        "p99_nearest_rank": 4.697156,
+        "max": 4.697156
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 16,
+          "delivered": 16,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 16,
+            "unit": "ns3_sim_ms",
+            "min": 0.403398,
+            "median": 1.4047875,
+            "p95_nearest_rank": 4.697156,
+            "p99_nearest_rank": 4.697156,
+            "max": 4.697156
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        }
+      }
+    },
+    "268": {
+      "admitted": 74,
+      "delivered": 72,
+      "not_delivered_by_final_horizon": 2,
+      "delivered_payload_bytes_including_RPC8": 1152,
+      "delivery_delay": {
+        "n": 72,
+        "unit": "ns3_sim_ms",
+        "min": 0.160448,
+        "median": 4.742865,
+        "p95_nearest_rank": 8.204983,
+        "p99_nearest_rank": 16.933005,
+        "max": 16.933005
+      },
+      "by_admission_window": {
+        "before_source_clock_window": {
+          "admitted": 0,
+          "delivered": 0,
+          "not_delivered_by_final_horizon": 0,
+          "delivery_delay": {
+            "n": 0,
+            "unit": "ns3_sim_ms",
+            "min": null,
+            "median": null,
+            "p95_nearest_rank": null,
+            "p99_nearest_rank": null,
+            "max": null
+          }
+        },
+        "source_clock_window": {
+          "admitted": 71,
+          "delivered": 70,
+          "not_delivered_by_final_horizon": 1,
+          "delivery_delay": {
+            "n": 70,
+            "unit": "ns3_sim_ms",
+            "min": 0.160448,
+            "median": 4.7662825,
+            "p95_nearest_rank": 8.204983,
+            "p99_nearest_rank": 16.933005,
+            "max": 16.933005
+          }
+        },
+        "post_source_to_final_HOLD": {
+          "admitted": 3,
+          "delivered": 2,
+          "not_delivered_by_final_horizon": 1,
+          "delivery_delay": {
+            "n": 2,
+            "unit": "ns3_sim_ms",
+            "min": 0.660816,
+            "median": 0.812876,
+            "p95_nearest_rank": 0.964936,
+            "p99_nearest_rank": 0.964936,
+            "max": 0.964936
+          }
+        }
+      }
+    }
+  },
+  "not_delivered_message_records": [
+    {
+      "native_message_id": 197,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 780000000,
+      "native_progress_available_ns": 7330000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 328,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 870000000,
+      "native_progress_available_ns": 7240000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 352,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 900000000,
+      "native_progress_available_ns": 7210000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 654,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 1120000000,
+      "native_progress_available_ns": 6990000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 757,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 1170000000,
+      "native_progress_available_ns": 6940000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 917,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 1290000000,
+      "native_progress_available_ns": 6820000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 955,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 1320000000,
+      "native_progress_available_ns": 6790000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 1060,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 1390000000,
+      "native_progress_available_ns": 6720000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 1061,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 1390000000,
+      "native_progress_available_ns": 6720000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 1306,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 1560000000,
+      "native_progress_available_ns": 6550000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 1768,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 1890000000,
+      "native_progress_available_ns": 6220000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 2039,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2070000000,
+      "native_progress_available_ns": 6040000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 2472,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2370000000,
+      "native_progress_available_ns": 5740000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 2782,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2580000000,
+      "native_progress_available_ns": 5530000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 2935,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2690000000,
+      "native_progress_available_ns": 5420000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 2944,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 2700000000,
+      "native_progress_available_ns": 5410000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 3056,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 2770000000,
+      "native_progress_available_ns": 5340000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 3427,
+      "flow": 248,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 3030000000,
+      "native_progress_available_ns": 5080000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 3494,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 3060000000,
+      "native_progress_available_ns": 5050000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 3818,
+      "flow": 63,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 3300000000,
+      "native_progress_available_ns": 4810000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 3819,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 3300000000,
+      "native_progress_available_ns": 4810000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 4081,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 3470000000,
+      "native_progress_available_ns": 4640000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 4082,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 3470000000,
+      "native_progress_available_ns": 4640000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 4376,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 3670000000,
+      "native_progress_available_ns": 4440000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 4555,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 3790000000,
+      "native_progress_available_ns": 4320000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 4825,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 3960000000,
+      "native_progress_available_ns": 4150000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 5268,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 4270000000,
+      "native_progress_available_ns": 3840000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 5468,
+      "flow": 268,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 4430000000,
+      "native_progress_available_ns": 3680000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 5569,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 4490000000,
+      "native_progress_available_ns": 3620000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 5575,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 4500000000,
+      "native_progress_available_ns": 3610000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 5846,
+      "flow": 63,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 4680000000,
+      "native_progress_available_ns": 3430000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 6038,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 4820000000,
+      "native_progress_available_ns": 3290000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 6732,
+      "flow": 43,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 5270000000,
+      "native_progress_available_ns": 2840000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 6734,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 5270000000,
+      "native_progress_available_ns": 2840000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 6879,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 5370000000,
+      "native_progress_available_ns": 2740000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 7046,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 5500000000,
+      "native_progress_available_ns": 2610000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 7207,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 5610000000,
+      "native_progress_available_ns": 2500000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 7208,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 5610000000,
+      "native_progress_available_ns": 2500000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 7213,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 5620000000,
+      "native_progress_available_ns": 2490000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 7459,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 5750000000,
+      "native_progress_available_ns": 2360000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 7475,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 5770000000,
+      "native_progress_available_ns": 2340000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 7619,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 5880000000,
+      "native_progress_available_ns": 2230000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 7809,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 6020000000,
+      "native_progress_available_ns": 2090000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 8065,
+      "flow": 23,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 6170000000,
+      "native_progress_available_ns": 1940000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 8068,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 6170000000,
+      "native_progress_available_ns": 1940000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 8080,
+      "flow": 43,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 6190000000,
+      "native_progress_available_ns": 1920000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 8211,
+      "flow": 62,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 6280000000,
+      "native_progress_available_ns": 1830000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 8515,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 6500000000,
+      "native_progress_available_ns": 1610000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 8675,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 6610000000,
+      "native_progress_available_ns": 1500000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 8838,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 6720000000,
+      "native_progress_available_ns": 1390000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 8964,
+      "flow": 246,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 6800000000,
+      "native_progress_available_ns": 1310000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 8969,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 6810000000,
+      "native_progress_available_ns": 1300000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 8971,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 6810000000,
+      "native_progress_available_ns": 1300000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 9107,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 6900000000,
+      "native_progress_available_ns": 1210000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 9221,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 6970000000,
+      "native_progress_available_ns": 1140000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 9388,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 7090000000,
+      "native_progress_available_ns": 1020000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 9390,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 7090000000,
+      "native_progress_available_ns": 1020000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 9554,
+      "flow": 226,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 7200000000,
+      "native_progress_available_ns": 910000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 9556,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 7200000000,
+      "native_progress_available_ns": 910000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 9994,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 7490000000,
+      "native_progress_available_ns": 620000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 10106,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 7570000000,
+      "native_progress_available_ns": 540000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 10238,
+      "flow": 266,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 7660000000,
+      "native_progress_available_ns": 450000000,
+      "window": "source_clock_window"
+    },
+    {
+      "native_message_id": 10417,
+      "flow": 228,
+      "sender": 1,
+      "receiver": 0,
+      "admission_ns": 7830000000,
+      "native_progress_available_ns": 280000000,
+      "window": "post_source_to_final_HOLD"
+    },
+    {
+      "native_message_id": 10418,
+      "flow": 248,
+      "sender": 2,
+      "receiver": 0,
+      "admission_ns": 7830000000,
+      "native_progress_available_ns": 280000000,
+      "window": "post_source_to_final_HOLD"
+    },
+    {
+      "native_message_id": 10419,
+      "flow": 268,
+      "sender": 3,
+      "receiver": 0,
+      "admission_ns": 7830000000,
+      "native_progress_available_ns": 280000000,
+      "window": "post_source_to_final_HOLD"
+    },
+    {
+      "native_message_id": 10446,
+      "flow": 71,
+      "sender": 0,
+      "receiver": 3,
+      "admission_ns": 8110000000,
+      "native_progress_available_ns": 0,
+      "window": "post_source_to_final_HOLD"
+    },
+    {
+      "native_message_id": 10447,
+      "flow": 30,
+      "sender": 0,
+      "receiver": 1,
+      "admission_ns": 8110000000,
+      "native_progress_available_ns": 0,
+      "window": "post_source_to_final_HOLD"
+    },
+    {
+      "native_message_id": 10448,
+      "flow": 50,
+      "sender": 0,
+      "receiver": 2,
+      "admission_ns": 8110000000,
+      "native_progress_available_ns": 0,
+      "window": "post_source_to_final_HOLD"
+    },
+    {
+      "native_message_id": 10449,
+      "flow": 70,
+      "sender": 0,
+      "receiver": 3,
+      "admission_ns": 8110000000,
+      "native_progress_available_ns": 0,
+      "window": "post_source_to_final_HOLD"
+    }
+  ],
+  "not_delivered_final_available_progress_ms": {
+    "n": 69,
+    "unit": "ns3_sim_ms",
+    "min": 0.0,
+    "median": 2740.0,
+    "p95_nearest_rank": 6990.0,
+    "p99_nearest_rank": 7330.0,
+    "max": 7330.0
+  },
+  "comparison_limits": [
+    "A1 Disk empty-business Native vs B RAM full-business Native differ; CPU/synchronization/IPC/RTF confounding remains.",
+    "Only completed-message delay distribution; absent deliveries are separately enumerated.",
+    "Source RT cadence/health guarded deadlines are wall-time contracts; these ns3-sim delays cannot be directly compared to300mswall."
+  ]
+}

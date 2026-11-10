@@ -1,0 +1,267 @@
+{
+  "case": "net01d/runs/actual-phase-local-01",
+  "scope": "Read-only small Action/89/95 components only, no Gateway reload or new execution; phase0 RAM A1, no physical robot/Nav2/Gazebo/NN",
+  "normal": {
+    "start_mono_ns": 519708730329220,
+    "end_mono_ns": 519740731232131,
+    "actual_wall_s": 32.000902911,
+    "results": {
+      "2": 4,
+      "3": 5,
+      "1": 4
+    },
+    "feedback": {
+      "1": 2515,
+      "2": 2426,
+      "3": 2470
+    },
+    "request_pending": [],
+    "GetResult_pending": [],
+    "RPC_DRAINED_original": {
+      "mode": "A",
+      "session_id": 2026110912,
+      "connected": true,
+      "failure": null,
+      "anchor": {
+        "gazebo_ns": 10000000,
+        "ns3_ns": 0,
+        "offset_ns": 10000000,
+        "monotonic_ns": 519706496906358
+      },
+      "gz_ns": 17130000000,
+      "ns3_ns": 17120000000,
+      "gateway_monotonic_ns": 519740765239507,
+      "clock_reader_ready": true,
+      "clock_publishers": 1,
+      "clock_writer_discovered": true,
+      "actual_rpc_cleanup": {
+        "C_pending": 0,
+        "R_pending": 0,
+        "C_service_inflight": 0,
+        "C_retired_services": 0,
+        "C_unadmitted_unknown_total": 0,
+        "C_rpc_confirmation_pending": 0,
+        "R_rpc_confirmation_pending": 0,
+        "rpc_delivery_unconfirmed": 0,
+        "local_cleanup_pending": 0
+      },
+      "guards": {
+        "1": {
+          "armed": true,
+          "fault": null,
+          "reason": null
+        },
+        "2": {
+          "armed": true,
+          "fault": null,
+          "reason": null
+        },
+        "3": {
+          "armed": true,
+          "fault": null,
+          "reason": null
+        }
+      }
+    }
+  },
+  "negative_phase": {
+    "goal": {
+      "uuid": "0000000078c3ffc00301000000000000",
+      "Goal_CDR": "0001000011000000003b5808040000006d6170000000000000000a4000000000000006c0000000000000000000000000000000000000000000000000333333333333e33f9a9999999999e93f3f0000004e455430314420636f6e74726f6c6c6564206e656761746976652061637469766520676f616c3b206e6f204e617632207472656520657865637574696f6e00",
+      "accepted": true,
+      "pending_at_ready": true
+    },
+    "request_pending": false,
+    "result_pending": false,
+    "actual_result_status": 5
+  },
+  "negative_transport_ready": {
+    "uuid": "0000000078c3ffc00301000000000000",
+    "monotonic_ns": 519740922911273,
+    "actual_status": {
+      "mode": "A",
+      "session_id": 2026110912,
+      "connected": true,
+      "failure": null,
+      "anchor": {
+        "gazebo_ns": 10000000,
+        "ns3_ns": 0,
+        "offset_ns": 10000000,
+        "monotonic_ns": 519706496906358
+      },
+      "gz_ns": 17200000000,
+      "ns3_ns": 17190000000,
+      "gateway_monotonic_ns": 519740902600006,
+      "clock_reader_ready": true,
+      "clock_publishers": 1,
+      "clock_writer_discovered": true,
+      "actual_rpc_cleanup": {
+        "C_pending": 1,
+        "R_pending": 1,
+        "C_service_inflight": 1,
+        "C_retired_services": 0,
+        "C_unadmitted_unknown_total": 0,
+        "C_rpc_confirmation_pending": 0,
+        "R_rpc_confirmation_pending": 0,
+        "rpc_delivery_unconfirmed": 0,
+        "local_cleanup_pending": 0
+      },
+      "guards": {
+        "1": {
+          "armed": true,
+          "fault": null,
+          "reason": null
+        },
+        "2": {
+          "armed": true,
+          "fault": null,
+          "reason": null
+        },
+        "3": {
+          "armed": true,
+          "fault": null,
+          "reason": null
+        }
+      }
+    },
+    "scope": "Original request ACKed; one legitimate remote GetResult pending"
+  },
+  "negative_done_original": {
+    "monotonic_ns": 519741342831142,
+    "uuid": "0000000078c3ffc00301000000000000",
+    "actual_local_GetResult": 5,
+    "PAUSE_success": true,
+    "guards": {
+      "1": "health_original_sources_stale",
+      "2": "health_original_sources_stale",
+      "3": "health_original_sources_stale"
+    },
+    "local_cleanup_pending": 0,
+    "central_state": {
+      "mode": "A",
+      "session_id": 2026110912,
+      "connected": true,
+      "failure": null,
+      "anchor": {
+        "gazebo_ns": 10000000,
+        "ns3_ns": 0,
+        "offset_ns": 10000000,
+        "monotonic_ns": 519706496906358
+      },
+      "gz_ns": 17400000000,
+      "ns3_ns": 17390000000,
+      "gateway_monotonic_ns": 519741313443082,
+      "clock_reader_ready": true,
+      "clock_publishers": 1,
+      "clock_writer_discovered": true,
+      "actual_rpc_cleanup": {
+        "C_pending": 1,
+        "R_pending": 1,
+        "C_service_inflight": 1,
+        "C_retired_services": 0,
+        "C_unadmitted_unknown_total": 0,
+        "C_rpc_confirmation_pending": 0,
+        "R_rpc_confirmation_pending": 0,
+        "rpc_delivery_unconfirmed": 0,
+        "local_cleanup_pending": 2
+      },
+      "guards": {
+        "1": {
+          "armed": true,
+          "fault": "health_original_sources_stale",
+          "reason": "health_original_sources_stale"
+        },
+        "2": {
+          "armed": true,
+          "fault": "health_original_sources_stale",
+          "reason": "health_original_sources_stale"
+        },
+        "3": {
+          "armed": true,
+          "fault": "health_original_sources_stale",
+          "reason": "health_original_sources_stale"
+        }
+      }
+    },
+    "scope": "Local controlled-server cancellation, not physical stopping"
+  },
+  "robots": {
+    "1": {
+      "actual_arm_success": true,
+      "accepted_goal_count": 1,
+      "all_C_R_Goal_CDR_bytes_equal": true,
+      "R_cancelled_UUIDs": [],
+      "R_still_executing": [],
+      "actual_PAUSE_requests": [
+        {
+          "command": 1,
+          "monotonic_ns": 519741290342363
+        }
+      ],
+      "all_period_89_consumed": 19,
+      "89_by_receipt_phase": {
+        "pre_normal": 1,
+        "normal32": 18
+      },
+      "all_period_95_consumed": 11,
+      "95_by_receipt_phase": {
+        "normal32": 9,
+        "post_normal_before_negative": 2
+      },
+      "95_all_selected_actual_C_events_equal": true
+    },
+    "2": {
+      "actual_arm_success": true,
+      "accepted_goal_count": 1,
+      "all_C_R_Goal_CDR_bytes_equal": true,
+      "R_cancelled_UUIDs": [],
+      "R_still_executing": [],
+      "actual_PAUSE_requests": [
+        {
+          "command": 1,
+          "monotonic_ns": 519741291291890
+        }
+      ],
+      "all_period_89_consumed": 19,
+      "89_by_receipt_phase": {
+        "pre_normal": 1,
+        "normal32": 18
+      },
+      "all_period_95_consumed": 11,
+      "95_by_receipt_phase": {
+        "normal32": 9,
+        "post_normal_before_negative": 2
+      },
+      "95_all_selected_actual_C_events_equal": true
+    },
+    "3": {
+      "actual_arm_success": true,
+      "accepted_goal_count": 2,
+      "all_C_R_Goal_CDR_bytes_equal": true,
+      "R_cancelled_UUIDs": [
+        "0000000078c3ffc00300000000000000",
+        "0000000078c3ffc00301000000000000"
+      ],
+      "R_still_executing": [],
+      "actual_PAUSE_requests": [
+        {
+          "command": 1,
+          "monotonic_ns": 519741297614672
+        }
+      ],
+      "all_period_89_consumed": 19,
+      "89_by_receipt_phase": {
+        "pre_normal": 1,
+        "normal32": 18
+      },
+      "all_period_95_consumed": 11,
+      "95_by_receipt_phase": {
+        "normal32": 9,
+        "post_normal_before_negative": 2
+      },
+      "95_all_selected_actual_C_events_equal": true
+    }
+  },
+  "old_stress_FAIL_preserved": true,
+  "observation_not_a_behavior_repair": true
+}

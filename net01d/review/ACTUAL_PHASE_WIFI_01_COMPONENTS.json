@@ -1,0 +1,484 @@
+{
+  "case": "net01d/runs/actual-phase-wifi-01",
+  "overall": "FAIL; normal32/fourth/radiooff not reached",
+  "scope": "Independent small Action/cleanup/89/95 review only; no Gateway/TF reload or model execution",
+  "source": "81710e6739311a59ed4bef945a0fbd871d274a64",
+  "process": {
+    "scope": {
+      "arm": "B",
+      "delivery": "actual ns3 V3 B WiFi; controlled real Action transport; 3 normal +1 negative; no physical Nav2/Policy",
+      "source_window_wall_s": 32,
+      "hard_wall_s": 60.0,
+      "session_id": 2026110912,
+      "roles": [
+        "coordinator",
+        "hub/native",
+        "peer",
+        "gateway",
+        "mock_physics",
+        "source-tb1",
+        "source-tb2",
+        "source-tb3",
+        "merge",
+        "client"
+      ],
+      "profile": "controlled1000-clock100-q10ms",
+      "source_clock_contract": "frozen-source-clock",
+      "dispatch_profile": true,
+      "control_trace": true,
+      "guard": "Original actual masks/health and original actual arm services; normal automatic gates effective",
+      "source_sizes": "Six original Grid templates in explicit payload manifest; unchanged cells/frame/origin/shape, new fixture-time fields",
+      "source_rates": "odom30sim + odomTF; wheel10sim both in same message; scanheader5sim; costmap strict ROS>.5 in5wall poll; map5wall period; correction50wall latest_scan+.2; feedback100wall; exactzero_cmd20wall; Peer masks/health10sim unchanged",
+      "missing_flows": [],
+      "scope": "P5 no-motion complete business fixture; not real SLAM/Nav2/physics or scientific radio comparison",
+      "native": "/home/zhuyulab/ns3-workspace/net-01/build/followup03-release-portable-native/net01-payload",
+      "baseline": "/home/zhuyulab/ns3-workspace/base-01-econ",
+      "mock_phase": "actual-corr6201",
+      "native_evidence_ram": "/dev/shm/net01d-full-load-actual-phase-wifi-01",
+      "Gazebo": 0,
+      "Nav2": 0,
+      "Goal": 4,
+      "NN": 0,
+      "arm_guard": true,
+      "stage": "full",
+      "normal_t0": "actual C client all three Action facades ready and first Goal about to send",
+      "dds_take_trace": true,
+      "source_window": "Independent R supplies prewarm plus whole client32wall normal window and negative, until SUPPLY_STOP/finalSTOP",
+      "normal_Goals": 3,
+      "negative_active_Goals": 1,
+      "payloads": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01",
+      "negative": "after normal32wall and RPCdrain, fourth tb3 accepted/GetResult ACKed; B realRADIOoff .8wall with sources continuing, A1 stop observations .8wall; local real cancellation/PAUSE required"
+    },
+    "error": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519992457589963, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+    "wall_s": 15.315861103998031,
+    "exits": {
+      "coordinator": 1,
+      "hub": 0,
+      "peer": 0,
+      "gateway": 1,
+      "mock_physics": 0,
+      "merge": 0,
+      "source-tb1": 0,
+      "source-tb2": 0,
+      "source-tb3": 0,
+      "client": 0
+    },
+    "forced": [],
+    "first_failure_local_cleanup_wait": {
+      "begin_monotonic_ns": 519992462360098,
+      "end_monotonic_ns": 519992556966489,
+      "bound_wall_s": 2.0,
+      "drained": true,
+      "first_error_preserved": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519992457589963, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+      "central_unknown_not_waited": true
+    },
+    "STOP_written_monotonic_ns": 519992556999037,
+    "negative_scope": "Actual local controlled cancellation; central negative Future may remain unknown; no claimed network recovery or physical stopping",
+    "judgement": "Process completion only; actual supply/health receipts/profile require offline review"
+  },
+  "normal_done": false,
+  "C_GetResult_pending": [
+    2,
+    1,
+    3
+  ],
+  "C_results": {},
+  "negative_phase": {
+    "goal": null,
+    "request_pending": false,
+    "result_pending": false,
+    "actual_result_status": null
+  },
+  "cleanup_marker": {
+    "monotonic_ns": 519992551240490,
+    "owned": {
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "actions": {
+      "1": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00100000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "status": 5
+        }
+      ],
+      "2": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00200000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "status": 5
+        }
+      ],
+      "3": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00300000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "status": 5
+        }
+      ]
+    },
+    "local_futures_pending": 0,
+    "PAUSE_success": true,
+    "scope": "Actual local cleanup only; central wireless Futures may remain unknown"
+  },
+  "raw_cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      false,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [
+      {
+        "robot": 2,
+        "flow_offset": 3,
+        "rpc_id": 8702080105108733956
+      },
+      {
+        "robot": 1,
+        "flow_offset": 3,
+        "rpc_id": 8702080105108733957
+      },
+      {
+        "robot": 3,
+        "flow_offset": 3,
+        "rpc_id": 8702080105108733958
+      }
+    ],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "action_confirmation_states": {
+      "C": {
+        "enabled": true,
+        "failure": null,
+        "waiting": 0,
+        "unconfirmed": 0
+      },
+      "R": {
+        "1": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 1,
+          "unconfirmed": 0
+        },
+        "2": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 1,
+          "unconfirmed": 0
+        },
+        "3": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 1,
+          "unconfirmed": 0
+        }
+      }
+    },
+    "retired_C_services": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+  "raw_guards": {
+    "1": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb1",
+          "session_id": 2026110912,
+          "sim": 0.76,
+          "monotonic": 519983.52082766
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_original_sources_stale",
+          "robot": "tb1",
+          "session_id": 2026110912,
+          "sim": 4.66,
+          "monotonic": 519992.417146585
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00100000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "status": 5
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00100000000000000": 5
+      }
+    },
+    "2": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb2",
+          "session_id": 2026110912,
+          "sim": 0.79,
+          "monotonic": 519983.592527438
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_original_sources_stale",
+          "robot": "tb2",
+          "session_id": 2026110912,
+          "sim": 4.66,
+          "monotonic": 519992.424697831
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00200000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "status": 5
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00200000000000000": 5
+      }
+    },
+    "3": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb3",
+          "session_id": 2026110912,
+          "sim": 0.79,
+          "monotonic": 519983.593085501
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_original_sources_stale",
+          "robot": "tb3",
+          "session_id": 2026110912,
+          "sim": 4.66,
+          "monotonic": 519992.426222059
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00300000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "status": 5
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00300000000000000": 5
+      }
+    }
+  },
+  "robots": {
+    "1": {
+      "uuid": "0000000078c3ffc00100000000000000",
+      "arm_actual_success": true,
+      "R_accepted_Goal_count": 1,
+      "C_R_complete_Goal_CDR_equal": true,
+      "C_feedback_received": 525,
+      "local_cancel0_exact_list": true,
+      "local_actual_GetResult5": true,
+      "local_actual_PAUSE_success": true,
+      "owned_empty": true,
+      "R_still_executing": [],
+      "actual_89_consumed": 4,
+      "actual_95_consumed": 6,
+      "all_C_selected_journal_events_consumed": true
+    },
+    "2": {
+      "uuid": "0000000078c3ffc00200000000000000",
+      "arm_actual_success": true,
+      "R_accepted_Goal_count": 1,
+      "C_R_complete_Goal_CDR_equal": true,
+      "C_feedback_received": 525,
+      "local_cancel0_exact_list": true,
+      "local_actual_GetResult5": true,
+      "local_actual_PAUSE_success": true,
+      "owned_empty": true,
+      "R_still_executing": [],
+      "actual_89_consumed": 4,
+      "actual_95_consumed": 6,
+      "all_C_selected_journal_events_consumed": true
+    },
+    "3": {
+      "uuid": "0000000078c3ffc00300000000000000",
+      "arm_actual_success": true,
+      "R_accepted_Goal_count": 1,
+      "C_R_complete_Goal_CDR_equal": true,
+      "C_feedback_received": 525,
+      "local_cancel0_exact_list": true,
+      "local_actual_GetResult5": true,
+      "local_actual_PAUSE_success": true,
+      "owned_empty": true,
+      "R_still_executing": [],
+      "actual_89_consumed": 4,
+      "actual_95_consumed": 6,
+      "all_C_selected_journal_events_consumed": true
+    }
+  },
+  "flow89": {
+    "route": [
+      0,
+      1
+    ],
+    "Ccaptured": 4,
+    "Rpublished": 4,
+    "existing_C_R_CDR_hash_Counter_equal": true,
+    "three_independent_STA_copies_proven": false
+  },
+  "flow95": {
+    "route": [
+      0,
+      1
+    ],
+    "Ccaptured": 6,
+    "Rpublished": 6,
+    "existing_C_R_CDR_hash_Counter_equal": true,
+    "three_independent_STA_copies_proven": false
+  },
+  "marker_precedes_STOP": true,
+  "local_drain_wall_s": 0.094606391
+}

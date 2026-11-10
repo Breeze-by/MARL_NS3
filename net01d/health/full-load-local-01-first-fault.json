@@ -1,0 +1,3927 @@
+{
+  "scope": "Read-only P5 A1 first fault; no replay",
+  "first_failure": {
+    "monotonic_ns": 515752165523767,
+    "Gateway_failure": null,
+    "guards": {
+      "1": "health_original_sources_stale",
+      "2": "health_original_sources_stale",
+      "3": "health_original_sources_stale"
+    }
+  },
+  "guard_events": {
+    "1": [
+      {
+        "kind": "armed",
+        "robot": "tb1",
+        "session_id": 2026110912,
+        "sim": 1.05,
+        "monotonic": 515751.74305863
+      },
+      {
+        "kind": "latched_INVALID",
+        "reason": "health_original_sources_stale",
+        "robot": "tb1",
+        "session_id": 2026110912,
+        "sim": 1.22,
+        "monotonic": 515752.091970897
+      }
+    ],
+    "2": [
+      {
+        "kind": "armed",
+        "robot": "tb2",
+        "session_id": 2026110912,
+        "sim": 1.05,
+        "monotonic": 515751.743666673
+      },
+      {
+        "kind": "latched_INVALID",
+        "reason": "health_original_sources_stale",
+        "robot": "tb2",
+        "session_id": 2026110912,
+        "sim": 1.22,
+        "monotonic": 515752.095217565
+      }
+    ],
+    "3": [
+      {
+        "kind": "armed",
+        "robot": "tb3",
+        "session_id": 2026110912,
+        "sim": 1.05,
+        "monotonic": 515751.744071693
+      },
+      {
+        "kind": "latched_INVALID",
+        "reason": "health_original_sources_stale",
+        "robot": "tb3",
+        "session_id": 2026110912,
+        "sim": 1.22,
+        "monotonic": 515752.096491737
+      }
+    ]
+  },
+  "peer_states": [
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 0.1,
+      "ready": false,
+      "sequence": 1,
+      "mask_contract": "owner-odom-lattice-v1",
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {},
+      "failures": {
+        "tb1": "missing_odom",
+        "tb2": "missing_odom",
+        "tb3": "missing_odom"
+      },
+      "pending_tf": {},
+      "odom_stamps": {},
+      "correction_stamps": {},
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 515749.833826319,
+        "masks": {
+          "tb1": {
+            "begin": 515749.833888098,
+            "built": 515749.834364763,
+            "before_publish": 515749.834728079,
+            "after_publish": 515749.835709284
+          },
+          "tb2": {
+            "begin": 515749.835712709,
+            "built": 515749.83593968,
+            "before_publish": 515749.835984613,
+            "after_publish": 515749.836793641
+          },
+          "tb3": {
+            "begin": 515749.836795949,
+            "built": 515749.837017789,
+            "before_publish": 515749.837061441,
+            "after_publish": 515749.837710439
+          }
+        },
+        "snapshot_monotonic": 515749.833887381,
+        "health_publish_before_monotonic": 515749.837830468,
+        "health_publish_after_monotonic": 515749.843479783
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 0.2,
+      "ready": false,
+      "sequence": 2,
+      "mask_contract": "owner-odom-lattice-v1",
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {},
+      "failures": {
+        "tb1": "missing_odom",
+        "tb2": "missing_odom",
+        "tb3": "missing_odom"
+      },
+      "pending_tf": {},
+      "odom_stamps": {},
+      "correction_stamps": {},
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 515750.032910056,
+        "masks": {
+          "tb1": {
+            "begin": 515750.032961789,
+            "built": 515750.033292918,
+            "before_publish": 515750.033371495,
+            "after_publish": 515750.033735024
+          },
+          "tb2": {
+            "begin": 515750.033737269,
+            "built": 515750.033887531,
+            "before_publish": 515750.033917574,
+            "after_publish": 515750.034204056
+          },
+          "tb3": {
+            "begin": 515750.034205922,
+            "built": 515750.034345877,
+            "before_publish": 515750.034397061,
+            "after_publish": 515750.034612821
+          }
+        },
+        "snapshot_monotonic": 515750.032961055,
+        "health_publish_before_monotonic": 515750.034726879,
+        "health_publish_after_monotonic": 515750.0403607
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 0.30000000000000004,
+      "ready": false,
+      "sequence": 3,
+      "mask_contract": "owner-odom-lattice-v1",
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {},
+      "failures": {
+        "tb1": "missing_odom",
+        "tb2": "missing_odom",
+        "tb3": "missing_odom"
+      },
+      "pending_tf": {},
+      "odom_stamps": {},
+      "correction_stamps": {},
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 515750.233344107,
+        "masks": {
+          "tb1": {
+            "begin": 515750.233399484,
+            "built": 515750.233640856,
+            "before_publish": 515750.233727967,
+            "after_publish": 515750.234156705
+          },
+          "tb2": {
+            "begin": 515750.234158805,
+            "built": 515750.234350655,
+            "before_publish": 515750.234382136,
+            "after_publish": 515750.234652164
+          },
+          "tb3": {
+            "begin": 515750.23465356,
+            "built": 515750.234765471,
+            "before_publish": 515750.234795259,
+            "after_publish": 515750.234992898
+          }
+        },
+        "snapshot_monotonic": 515750.233398747,
+        "health_publish_before_monotonic": 515750.235148883,
+        "health_publish_after_monotonic": 515750.239850009
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 0.4,
+      "ready": false,
+      "sequence": 4,
+      "mask_contract": "owner-odom-lattice-v1",
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {},
+      "failures": {
+        "tb1": "missing_odom",
+        "tb2": "missing_odom",
+        "tb3": "missing_odom"
+      },
+      "pending_tf": {},
+      "odom_stamps": {},
+      "correction_stamps": {},
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 515750.434806469,
+        "masks": {
+          "tb1": {
+            "begin": 515750.43486545,
+            "built": 515750.43512357,
+            "before_publish": 515750.435204504,
+            "after_publish": 515750.435600729
+          },
+          "tb2": {
+            "begin": 515750.435603107,
+            "built": 515750.435759808,
+            "before_publish": 515750.435791237,
+            "after_publish": 515750.436043546
+          },
+          "tb3": {
+            "begin": 515750.436045117,
+            "built": 515750.436163263,
+            "before_publish": 515750.436195924,
+            "after_publish": 515750.43642481
+          }
+        },
+        "snapshot_monotonic": 515750.434864898,
+        "health_publish_before_monotonic": 515750.436535954,
+        "health_publish_after_monotonic": 515750.440962624
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 0.5,
+      "ready": false,
+      "sequence": 5,
+      "mask_contract": "owner-odom-lattice-v1",
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {},
+      "failures": {
+        "tb1": "missing_odom",
+        "tb2": "missing_odom",
+        "tb3": "missing_odom"
+      },
+      "pending_tf": {},
+      "odom_stamps": {},
+      "correction_stamps": {},
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 515750.633957343,
+        "masks": {
+          "tb1": {
+            "begin": 515750.634021051,
+            "built": 515750.63427967,
+            "before_publish": 515750.63437095,
+            "after_publish": 515750.634721608
+          },
+          "tb2": {
+            "begin": 515750.634723611,
+            "built": 515750.634914365,
+            "before_publish": 515750.635051055,
+            "after_publish": 515750.635365037
+          },
+          "tb3": {
+            "begin": 515750.635366737,
+            "built": 515750.635495411,
+            "before_publish": 515750.635529693,
+            "after_publish": 515750.635741567
+          }
+        },
+        "snapshot_monotonic": 515750.634020409,
+        "health_publish_before_monotonic": 515750.635856093,
+        "health_publish_after_monotonic": 515750.640159416
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 0.6000000000000001,
+      "ready": false,
+      "sequence": 6,
+      "mask_contract": "owner-odom-lattice-v1",
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb2": {
+          "source": 0.040000000000000036,
+          "receipt": 0.07259269495261833,
+          "correction": -0.05999999999999994,
+          "correction_receipt": 0.00820411101449281
+        },
+        "tb3": {
+          "source": 0.040000000000000036,
+          "receipt": 0.07130634400527924,
+          "correction": -0.05999999999999994,
+          "correction_receipt": 0.00686684699030593
+        }
+      },
+      "failures": {
+        "tb1": "missing_odom"
+      },
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb2": 0.56,
+        "tb3": 0.56
+      },
+      "correction_stamps": {
+        "tb2": 0.66,
+        "tb3": 0.66
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 515750.83457357,
+        "masks": {
+          "tb1": {
+            "begin": 515750.834660833,
+            "built": 515750.835179134,
+            "before_publish": 515750.835470081,
+            "after_publish": 515750.836298428
+          },
+          "tb2": {
+            "begin": 515750.83630098,
+            "built": 515750.836508956,
+            "before_publish": 515750.836542909,
+            "after_publish": 515750.837022801
+          },
+          "tb3": {
+            "begin": 515750.837024693,
+            "built": 515750.83717721,
+            "before_publish": 515750.837212831,
+            "after_publish": 515750.83766857
+          }
+        },
+        "snapshot_monotonic": 515750.834660302,
+        "health_publish_before_monotonic": 515750.837933115,
+        "health_publish_after_monotonic": 515750.843775566
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 0.7000000000000001,
+      "ready": false,
+      "sequence": 7,
+      "mask_contract": "owner-odom-lattice-v1",
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb2": {
+          "source": 0.040000000000000036,
+          "receipt": 0.07623344601597637,
+          "correction": -0.16000000000000003,
+          "correction_receipt": 0.005089272977784276
+        },
+        "tb3": {
+          "source": 0.040000000000000036,
+          "receipt": 0.07342322199838236,
+          "correction": -0.16000000000000003,
+          "correction_receipt": 0.0036289329873397946
+        }
+      },
+      "failures": {
+        "tb1": "missing_odom"
+      },
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb2": 0.66,
+        "tb3": 0.66
+      },
+      "correction_stamps": {
+        "tb2": 0.8600000000000001,
+        "tb3": 0.8600000000000001
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 515751.034171591,
+        "masks": {
+          "tb1": {
+            "begin": 515751.034242556,
+            "built": 515751.034478808,
+            "before_publish": 515751.034564612,
+            "after_publish": 515751.035083979
+          },
+          "tb2": {
+            "begin": 515751.035088149,
+            "built": 515751.035340762,
+            "before_publish": 515751.035408003,
+            "after_publish": 515751.03577004
+          },
+          "tb3": {
+            "begin": 515751.035771497,
+            "built": 515751.035917771,
+            "before_publish": 515751.03595385,
+            "after_publish": 515751.036321142
+          }
+        },
+        "snapshot_monotonic": 515751.034241687,
+        "health_publish_before_monotonic": 515751.036478007,
+        "health_publish_after_monotonic": 515751.041792336
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 0.8,
+      "ready": false,
+      "sequence": 8,
+      "mask_contract": "owner-odom-lattice-v1",
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb2": {
+          "source": 0.040000000000000036,
+          "receipt": 0.07827902998542413,
+          "correction": -0.06000000000000005,
+          "correction_receipt": 0.0072007940034382045
+        },
+        "tb3": {
+          "source": 0.040000000000000036,
+          "receipt": 0.07588199101155624,
+          "correction": -0.06000000000000005,
+          "correction_receipt": 0.005825193016789854
+        }
+      },
+      "failures": {
+        "tb1": "missing_odom"
+      },
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb2": 0.76,
+        "tb3": 0.76
+      },
+      "correction_stamps": {
+        "tb2": 0.8600000000000001,
+        "tb3": 0.8600000000000001
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 515751.23453431,
+        "masks": {
+          "tb1": {
+            "begin": 515751.234632198,
+            "built": 515751.234863829,
+            "before_publish": 515751.234938064,
+            "after_publish": 515751.235309285
+          },
+          "tb2": {
+            "begin": 515751.235311185,
+            "built": 515751.235451694,
+            "before_publish": 515751.235478766,
+            "after_publish": 515751.235719761
+          },
+          "tb3": {
+            "begin": 515751.235721522,
+            "built": 515751.235834722,
+            "before_publish": 515751.23586244,
+            "after_publish": 515751.236064544
+          }
+        },
+        "snapshot_monotonic": 515751.234631456,
+        "health_publish_before_monotonic": 515751.236239232,
+        "health_publish_after_monotonic": 515751.240777195
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 0.9,
+      "ready": false,
+      "sequence": 9,
+      "mask_contract": "owner-odom-lattice-v1",
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb2": {
+          "source": 0.039999999999999925,
+          "receipt": 0.07556078699417412,
+          "correction": -0.16000000000000003,
+          "correction_receipt": 0.007005393970757723
+        },
+        "tb3": {
+          "source": 0.039999999999999925,
+          "receipt": 0.07921123399864882,
+          "correction": -0.16000000000000003,
+          "correction_receipt": 0.005536401004064828
+        }
+      },
+      "failures": {
+        "tb1": "missing_odom"
+      },
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb2": 0.8600000000000001,
+        "tb3": 0.8600000000000001
+      },
+      "correction_stamps": {
+        "tb2": 1.06,
+        "tb3": 1.06
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 515751.434567481,
+        "masks": {
+          "tb1": {
+            "begin": 515751.434624801,
+            "built": 515751.434856684,
+            "before_publish": 515751.434938768,
+            "after_publish": 515751.435512583
+          },
+          "tb2": {
+            "begin": 515751.435516362,
+            "built": 515751.435709244,
+            "before_publish": 515751.435744613,
+            "after_publish": 515751.436012282
+          },
+          "tb3": {
+            "begin": 515751.436013917,
+            "built": 515751.436136918,
+            "before_publish": 515751.436165124,
+            "after_publish": 515751.436377796
+          }
+        },
+        "snapshot_monotonic": 515751.434624233,
+        "health_publish_before_monotonic": 515751.43652949,
+        "health_publish_after_monotonic": 515751.440869471
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 1.0,
+      "ready": true,
+      "sequence": 10,
+      "mask_contract": "owner-odom-lattice-v1",
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb1": {
+          "source": 0.1399999999999999,
+          "receipt": 0.0069721160107292235,
+          "correction": 0.33999999999999997,
+          "correction_receipt": 0.005450182012282312
+        },
+        "tb2": {
+          "source": 0.039999999999999925,
+          "receipt": 0.08168824197491631,
+          "correction": -0.06000000000000005,
+          "correction_receipt": 0.0048201350145973265
+        },
+        "tb3": {
+          "source": 0.039999999999999925,
+          "receipt": 0.07655346702085808,
+          "correction": -0.06000000000000005,
+          "correction_receipt": 0.003158983017783612
+        }
+      },
+      "failures": {},
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb2": 0.9600000000000001,
+        "tb3": 0.9600000000000001,
+        "tb1": 0.8600000000000001
+      },
+      "correction_stamps": {
+        "tb2": 1.06,
+        "tb3": 1.06,
+        "tb1": 0.66
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 515751.637352762,
+        "masks": {
+          "tb1": {
+            "begin": 515751.637409395,
+            "built": 515751.657689872,
+            "before_publish": 515751.657781196,
+            "after_publish": 515751.658233202
+          },
+          "tb2": {
+            "begin": 515751.658237227,
+            "built": 515751.673848091,
+            "before_publish": 515751.673942404,
+            "after_publish": 515751.674372057
+          },
+          "tb3": {
+            "begin": 515751.674375454,
+            "built": 515751.692138503,
+            "before_publish": 515751.692245008,
+            "after_publish": 515751.692668343
+          }
+        },
+        "snapshot_monotonic": 515751.637408856,
+        "health_publish_before_monotonic": 515751.692886651,
+        "health_publish_after_monotonic": 515751.697929736
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 1.1,
+      "ready": true,
+      "sequence": 11,
+      "mask_contract": "owner-odom-lattice-v1",
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb1": {
+          "source": 0.040000000000000036,
+          "receipt": 0.07681732502533123,
+          "correction": 0.44000000000000006,
+          "correction_receipt": 0.008293910999782383
+        },
+        "tb2": {
+          "source": 0.040000000000000036,
+          "receipt": 0.0743760319892317,
+          "correction": -0.15999999999999992,
+          "correction_receipt": 0.006995534000452608
+        },
+        "tb3": {
+          "source": 0.040000000000000036,
+          "receipt": 0.07218292297329754,
+          "correction": -0.15999999999999992,
+          "correction_receipt": 0.0032745160278864205
+        }
+      },
+      "failures": {},
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb2": 1.06,
+        "tb3": 1.06,
+        "tb1": 1.06
+      },
+      "correction_stamps": {
+        "tb2": 1.26,
+        "tb3": 1.26,
+        "tb1": 0.66
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 515751.835835865,
+        "masks": {
+          "tb1": {
+            "begin": 515751.835896218,
+            "built": 515751.853148869,
+            "before_publish": 515751.853239365,
+            "after_publish": 515751.853646103
+          },
+          "tb2": {
+            "begin": 515751.85364841,
+            "built": 515751.870458408,
+            "before_publish": 515751.870550667,
+            "after_publish": 515751.870966848
+          },
+          "tb3": {
+            "begin": 515751.870969604,
+            "built": 515751.888620829,
+            "before_publish": 515751.888717394,
+            "after_publish": 515751.889180682
+          }
+        },
+        "snapshot_monotonic": 515751.835895631,
+        "health_publish_before_monotonic": 515751.889370492,
+        "health_publish_after_monotonic": 515751.893767732
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 1.2000000000000002,
+      "ready": true,
+      "sequence": 12,
+      "mask_contract": "owner-odom-lattice-v1",
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb1": {
+          "source": 0.04000000000000026,
+          "receipt": 0.06419351097429171,
+          "correction": 0.3400000000000001,
+          "correction_receipt": 0.01339191000442952
+        },
+        "tb2": {
+          "source": 0.04000000000000026,
+          "receipt": 0.05656083195935935,
+          "correction": -0.05999999999999983,
+          "correction_receipt": 0.01999406499089673
+        },
+        "tb3": {
+          "source": 0.04000000000000026,
+          "receipt": 0.05060524900909513,
+          "correction": -0.05999999999999983,
+          "correction_receipt": 0.018891485000494868
+        }
+      },
+      "failures": {},
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb2": 1.16,
+        "tb3": 1.16,
+        "tb1": 1.16
+      },
+      "correction_stamps": {
+        "tb2": 1.26,
+        "tb3": 1.26,
+        "tb1": 0.8600000000000001
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 515752.050022114,
+        "masks": {
+          "tb1": {
+            "begin": 515752.050088081,
+            "built": 515752.068094108,
+            "before_publish": 515752.068210034,
+            "after_publish": 515752.068639264
+          },
+          "tb2": {
+            "begin": 515752.068643363,
+            "built": 515752.086535639,
+            "before_publish": 515752.086632661,
+            "after_publish": 515752.087073966
+          },
+          "tb3": {
+            "begin": 515752.087077256,
+            "built": 515752.10563014,
+            "before_publish": 515752.105722823,
+            "after_publish": 515752.106189251
+          }
+        },
+        "snapshot_monotonic": 515752.050087525,
+        "health_publish_before_monotonic": 515752.106390319,
+        "health_publish_after_monotonic": 515752.11085376
+      }
+    }
+  ],
+  "health_trace": [
+    {
+      "stage": "C_health_callback",
+      "sequence": 1,
+      "flow": 31,
+      "callback_entry_mono_ns": 515749840425667,
+      "mono_ns": 515749840430206,
+      "thread_cpu_ns": 1114930789,
+      "serialize_begin_mono_ns": 515749840494313,
+      "serialize_begin_thread_cpu_ns": 1114995074,
+      "serialize_return_mono_ns": 515749840544540,
+      "serialize_return_thread_cpu_ns": 1115045171,
+      "send_returned": true,
+      "callback_end_mono_ns": 515749840608525,
+      "callback_end_thread_cpu_ns": 1115109018
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 1,
+      "flow": 31,
+      "native_message_id": 4,
+      "old_sequence": null,
+      "old_receipt_mono_s": null,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515749840694177,
+      "thread_cpu_ns": 1115194644,
+      "decode_end_mono_ns": 515749840767399,
+      "decode_end_thread_cpu_ns": 1115268018,
+      "returned": true,
+      "guard_end_mono_ns": 515749840779132,
+      "guard_end_thread_cpu_ns": 1115279747,
+      "actual_receipt_mono_s": 515749.840777689,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 1,
+      "flow": 51,
+      "callback_entry_mono_ns": 515749841030053,
+      "mono_ns": 515749841032237,
+      "thread_cpu_ns": 1115532822,
+      "serialize_begin_mono_ns": 515749841089071,
+      "serialize_begin_thread_cpu_ns": 1115589742,
+      "serialize_return_mono_ns": 515749841118465,
+      "serialize_return_thread_cpu_ns": 1115619213,
+      "send_returned": true,
+      "callback_end_mono_ns": 515749841165031,
+      "callback_end_thread_cpu_ns": 1115665447
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 1,
+      "flow": 51,
+      "native_message_id": 5,
+      "old_sequence": null,
+      "old_receipt_mono_s": null,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515749841241822,
+      "thread_cpu_ns": 1115742554,
+      "decode_end_mono_ns": 515749841301686,
+      "decode_end_thread_cpu_ns": 1115802340,
+      "returned": true,
+      "guard_end_mono_ns": 515749841309036,
+      "guard_end_thread_cpu_ns": 1115809628,
+      "actual_receipt_mono_s": 515749.841307803,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 1,
+      "flow": 71,
+      "callback_entry_mono_ns": 515749844988908,
+      "mono_ns": 515749844993743,
+      "thread_cpu_ns": 1119456275,
+      "serialize_begin_mono_ns": 515749845078870,
+      "serialize_begin_thread_cpu_ns": 1119541536,
+      "serialize_return_mono_ns": 515749845145767,
+      "serialize_return_thread_cpu_ns": 1119608243,
+      "send_returned": true,
+      "callback_end_mono_ns": 515749845237106,
+      "callback_end_thread_cpu_ns": 1119706563
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 1,
+      "flow": 71,
+      "native_message_id": 6,
+      "old_sequence": null,
+      "old_receipt_mono_s": null,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515749845349695,
+      "thread_cpu_ns": 1119812210,
+      "decode_end_mono_ns": 515749845435585,
+      "decode_end_thread_cpu_ns": 1119898304,
+      "returned": true,
+      "guard_end_mono_ns": 515749845445093,
+      "guard_end_thread_cpu_ns": 1119907399,
+      "actual_receipt_mono_s": 515749.845443294,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 2,
+      "flow": 31,
+      "callback_entry_mono_ns": 515750041126094,
+      "mono_ns": 515750041132638,
+      "thread_cpu_ns": 1313731621,
+      "serialize_begin_mono_ns": 515750041215717,
+      "serialize_begin_thread_cpu_ns": 1313814887,
+      "serialize_return_mono_ns": 515750041285541,
+      "serialize_return_thread_cpu_ns": 1313884408,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750041361818,
+      "callback_end_thread_cpu_ns": 1313960677
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 2,
+      "flow": 31,
+      "native_message_id": 13,
+      "old_sequence": 1,
+      "old_receipt_mono_s": 515749.840777689,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750041443254,
+      "thread_cpu_ns": 1314041960,
+      "decode_end_mono_ns": 515750041522408,
+      "decode_end_thread_cpu_ns": 1314121205,
+      "returned": true,
+      "guard_end_mono_ns": 515750041538368,
+      "guard_end_thread_cpu_ns": 1314137028,
+      "actual_receipt_mono_s": 515750.041536639,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 2,
+      "flow": 51,
+      "callback_entry_mono_ns": 515750041768559,
+      "mono_ns": 515750041770757,
+      "thread_cpu_ns": 1314369608,
+      "serialize_begin_mono_ns": 515750041834569,
+      "serialize_begin_thread_cpu_ns": 1314433355,
+      "serialize_return_mono_ns": 515750041859300,
+      "serialize_return_thread_cpu_ns": 1314458181,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750041899243,
+      "callback_end_thread_cpu_ns": 1314498019
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 2,
+      "flow": 51,
+      "native_message_id": 14,
+      "old_sequence": 1,
+      "old_receipt_mono_s": 515749.841307803,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750041977168,
+      "thread_cpu_ns": 1314576116,
+      "decode_end_mono_ns": 515750042053193,
+      "decode_end_thread_cpu_ns": 1314651907,
+      "returned": true,
+      "guard_end_mono_ns": 515750042066291,
+      "guard_end_thread_cpu_ns": 1314664969,
+      "actual_receipt_mono_s": 515750.042065021,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 2,
+      "flow": 71,
+      "callback_entry_mono_ns": 515750047270187,
+      "mono_ns": 515750047274959,
+      "thread_cpu_ns": 1319845094,
+      "serialize_begin_mono_ns": 515750047340320,
+      "serialize_begin_thread_cpu_ns": 1319910068,
+      "serialize_return_mono_ns": 515750047397795,
+      "serialize_return_thread_cpu_ns": 1319967555,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750047474257,
+      "callback_end_thread_cpu_ns": 1320044136
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 2,
+      "flow": 71,
+      "native_message_id": 15,
+      "old_sequence": 1,
+      "old_receipt_mono_s": 515749.845443294,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750047576976,
+      "thread_cpu_ns": 1320146652,
+      "decode_end_mono_ns": 515750047652415,
+      "decode_end_thread_cpu_ns": 1320222127,
+      "returned": true,
+      "guard_end_mono_ns": 515750047676347,
+      "guard_end_thread_cpu_ns": 1320246037,
+      "actual_receipt_mono_s": 515750.047674496,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 3,
+      "flow": 31,
+      "callback_entry_mono_ns": 515750239950377,
+      "mono_ns": 515750239954784,
+      "thread_cpu_ns": 1510489157,
+      "serialize_begin_mono_ns": 515750240032684,
+      "serialize_begin_thread_cpu_ns": 1510566966,
+      "serialize_return_mono_ns": 515750240101740,
+      "serialize_return_thread_cpu_ns": 1510635822,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750240164734,
+      "callback_end_thread_cpu_ns": 1510698996
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 3,
+      "flow": 31,
+      "native_message_id": 22,
+      "old_sequence": 2,
+      "old_receipt_mono_s": 515750.041536639,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750240252746,
+      "thread_cpu_ns": 1510786890,
+      "decode_end_mono_ns": 515750240322511,
+      "decode_end_thread_cpu_ns": 1510856749,
+      "returned": true,
+      "guard_end_mono_ns": 515750240337282,
+      "guard_end_thread_cpu_ns": 1510871330,
+      "actual_receipt_mono_s": 515750.240336048,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 3,
+      "flow": 51,
+      "callback_entry_mono_ns": 515750240547059,
+      "mono_ns": 515750240548917,
+      "thread_cpu_ns": 1511083320,
+      "serialize_begin_mono_ns": 515750240590036,
+      "serialize_begin_thread_cpu_ns": 1511124064,
+      "serialize_return_mono_ns": 515750240613392,
+      "serialize_return_thread_cpu_ns": 1511147410,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750240648772,
+      "callback_end_thread_cpu_ns": 1511182954
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 3,
+      "flow": 51,
+      "native_message_id": 23,
+      "old_sequence": 2,
+      "old_receipt_mono_s": 515750.042065021,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750240733568,
+      "thread_cpu_ns": 1511267560,
+      "decode_end_mono_ns": 515750240792530,
+      "decode_end_thread_cpu_ns": 1511326687,
+      "returned": true,
+      "guard_end_mono_ns": 515750240809392,
+      "guard_end_thread_cpu_ns": 1511343451,
+      "actual_receipt_mono_s": 515750.240808101,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 3,
+      "flow": 71,
+      "callback_entry_mono_ns": 515750244337290,
+      "mono_ns": 515750244341241,
+      "thread_cpu_ns": 1514836909,
+      "serialize_begin_mono_ns": 515750244405924,
+      "serialize_begin_thread_cpu_ns": 1514901662,
+      "serialize_return_mono_ns": 515750244456464,
+      "serialize_return_thread_cpu_ns": 1514952007,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750244527418,
+      "callback_end_thread_cpu_ns": 1515023070
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 3,
+      "flow": 71,
+      "native_message_id": 24,
+      "old_sequence": 2,
+      "old_receipt_mono_s": 515750.047674496,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750244625482,
+      "thread_cpu_ns": 1515120972,
+      "decode_end_mono_ns": 515750244713682,
+      "decode_end_thread_cpu_ns": 1515209393,
+      "returned": true,
+      "guard_end_mono_ns": 515750244729143,
+      "guard_end_thread_cpu_ns": 1515224761,
+      "actual_receipt_mono_s": 515750.244727591,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 4,
+      "flow": 31,
+      "callback_entry_mono_ns": 515750441667221,
+      "mono_ns": 515750441671155,
+      "thread_cpu_ns": 1710207755,
+      "serialize_begin_mono_ns": 515750441734631,
+      "serialize_begin_thread_cpu_ns": 1710271104,
+      "serialize_return_mono_ns": 515750441790305,
+      "serialize_return_thread_cpu_ns": 1710326753,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750441852449,
+      "callback_end_thread_cpu_ns": 1710388999
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 4,
+      "flow": 31,
+      "native_message_id": 31,
+      "old_sequence": 3,
+      "old_receipt_mono_s": 515750.240336048,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750441937766,
+      "thread_cpu_ns": 1710474256,
+      "decode_end_mono_ns": 515750442036356,
+      "decode_end_thread_cpu_ns": 1710572966,
+      "returned": true,
+      "guard_end_mono_ns": 515750442056278,
+      "guard_end_thread_cpu_ns": 1710592909,
+      "actual_receipt_mono_s": 515750.442054507,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 4,
+      "flow": 51,
+      "callback_entry_mono_ns": 515750442301359,
+      "mono_ns": 515750442303052,
+      "thread_cpu_ns": 1710839654,
+      "serialize_begin_mono_ns": 515750442346104,
+      "serialize_begin_thread_cpu_ns": 1710882596,
+      "serialize_return_mono_ns": 515750442372108,
+      "serialize_return_thread_cpu_ns": 1710908508,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750442409477,
+      "callback_end_thread_cpu_ns": 1710945964
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 4,
+      "flow": 51,
+      "native_message_id": 32,
+      "old_sequence": 3,
+      "old_receipt_mono_s": 515750.240808101,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750442480062,
+      "thread_cpu_ns": 1711016459,
+      "decode_end_mono_ns": 515750442543544,
+      "decode_end_thread_cpu_ns": 1711080067,
+      "returned": true,
+      "guard_end_mono_ns": 515750442555678,
+      "guard_end_thread_cpu_ns": 1711092209,
+      "actual_receipt_mono_s": 515750.442554443,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 4,
+      "flow": 71,
+      "callback_entry_mono_ns": 515750447669627,
+      "mono_ns": 515750447673774,
+      "thread_cpu_ns": 1716171040,
+      "serialize_begin_mono_ns": 515750447745180,
+      "serialize_begin_thread_cpu_ns": 1716242512,
+      "serialize_return_mono_ns": 515750447813617,
+      "serialize_return_thread_cpu_ns": 1716310694,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750447890873,
+      "callback_end_thread_cpu_ns": 1716388212
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 4,
+      "flow": 71,
+      "native_message_id": 33,
+      "old_sequence": 3,
+      "old_receipt_mono_s": 515750.244727591,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750447988356,
+      "thread_cpu_ns": 1716485527,
+      "decode_end_mono_ns": 515750448068908,
+      "decode_end_thread_cpu_ns": 1716566258,
+      "returned": true,
+      "guard_end_mono_ns": 515750448083633,
+      "guard_end_thread_cpu_ns": 1716580698,
+      "actual_receipt_mono_s": 515750.448082266,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 5,
+      "flow": 31,
+      "callback_entry_mono_ns": 515750644135298,
+      "mono_ns": 515750644140368,
+      "thread_cpu_ns": 1911356192,
+      "serialize_begin_mono_ns": 515750644217545,
+      "serialize_begin_thread_cpu_ns": 1911433117,
+      "serialize_return_mono_ns": 515750644282852,
+      "serialize_return_thread_cpu_ns": 1911498429,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750644383339,
+      "callback_end_thread_cpu_ns": 1911599557
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 5,
+      "flow": 31,
+      "native_message_id": 56,
+      "old_sequence": 4,
+      "old_receipt_mono_s": 515750.442054507,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750644500140,
+      "thread_cpu_ns": 1911715621,
+      "decode_end_mono_ns": 515750644602471,
+      "decode_end_thread_cpu_ns": 1911818325,
+      "returned": true,
+      "guard_end_mono_ns": 515750644620914,
+      "guard_end_thread_cpu_ns": 1911836360,
+      "actual_receipt_mono_s": 515750.64461941,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 5,
+      "flow": 51,
+      "callback_entry_mono_ns": 515750644854411,
+      "mono_ns": 515750644856475,
+      "thread_cpu_ns": 1912072154,
+      "serialize_begin_mono_ns": 515750644904429,
+      "serialize_begin_thread_cpu_ns": 1912120047,
+      "serialize_return_mono_ns": 515750644930077,
+      "serialize_return_thread_cpu_ns": 1912145730,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750644969904,
+      "callback_end_thread_cpu_ns": 1912185524
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 5,
+      "flow": 51,
+      "native_message_id": 57,
+      "old_sequence": 4,
+      "old_receipt_mono_s": 515750.442554443,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750645051465,
+      "thread_cpu_ns": 1912266898,
+      "decode_end_mono_ns": 515750645109262,
+      "decode_end_thread_cpu_ns": 1912324829,
+      "returned": true,
+      "guard_end_mono_ns": 515750645123544,
+      "guard_end_thread_cpu_ns": 1912338915,
+      "actual_receipt_mono_s": 515750.645122244,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 5,
+      "flow": 71,
+      "callback_entry_mono_ns": 515750651369010,
+      "mono_ns": 515750651374209,
+      "thread_cpu_ns": 1918589398,
+      "serialize_begin_mono_ns": 515750651449495,
+      "serialize_begin_thread_cpu_ns": 1918664685,
+      "serialize_return_mono_ns": 515750651497814,
+      "serialize_return_thread_cpu_ns": 1918712988,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750651572939,
+      "callback_end_thread_cpu_ns": 1918788144
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 5,
+      "flow": 71,
+      "native_message_id": 60,
+      "old_sequence": 4,
+      "old_receipt_mono_s": 515750.448082266,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750651679155,
+      "thread_cpu_ns": 1918894286,
+      "decode_end_mono_ns": 515750651757895,
+      "decode_end_thread_cpu_ns": 1918973214,
+      "returned": true,
+      "guard_end_mono_ns": 515750651773604,
+      "guard_end_thread_cpu_ns": 1918988693,
+      "actual_receipt_mono_s": 515750.651772015,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 6,
+      "flow": 31,
+      "callback_entry_mono_ns": 515750845359456,
+      "mono_ns": 515750845369744,
+      "thread_cpu_ns": 2111761956,
+      "serialize_begin_mono_ns": 515750845458096,
+      "serialize_begin_thread_cpu_ns": 2111849795,
+      "serialize_return_mono_ns": 515750845525463,
+      "serialize_return_thread_cpu_ns": 2111917191,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750845594050,
+      "callback_end_thread_cpu_ns": 2111985688
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 6,
+      "flow": 31,
+      "native_message_id": 109,
+      "old_sequence": 5,
+      "old_receipt_mono_s": 515750.64461941,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750845684238,
+      "thread_cpu_ns": 2112075913,
+      "decode_end_mono_ns": 515750845776357,
+      "decode_end_thread_cpu_ns": 2112167981,
+      "returned": true,
+      "guard_end_mono_ns": 515750845800193,
+      "guard_end_thread_cpu_ns": 2112191853,
+      "actual_receipt_mono_s": 515750.845798618,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 6,
+      "flow": 51,
+      "callback_entry_mono_ns": 515750846084806,
+      "mono_ns": 515750846087276,
+      "thread_cpu_ns": 2112479468,
+      "serialize_begin_mono_ns": 515750846162175,
+      "serialize_begin_thread_cpu_ns": 2112553771,
+      "serialize_return_mono_ns": 515750846196747,
+      "serialize_return_thread_cpu_ns": 2112588428,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750846243633,
+      "callback_end_thread_cpu_ns": 2112635231
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 6,
+      "flow": 51,
+      "native_message_id": 110,
+      "old_sequence": 5,
+      "old_receipt_mono_s": 515750.645122244,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750846330878,
+      "thread_cpu_ns": 2112722728,
+      "decode_end_mono_ns": 515750846445970,
+      "decode_end_thread_cpu_ns": 2112837894,
+      "returned": true,
+      "guard_end_mono_ns": 515750846471810,
+      "guard_end_thread_cpu_ns": 2112863837,
+      "actual_receipt_mono_s": 515750.846468928,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 6,
+      "flow": 71,
+      "callback_entry_mono_ns": 515750852801651,
+      "mono_ns": 515750852811057,
+      "thread_cpu_ns": 2119186455,
+      "serialize_begin_mono_ns": 515750852926901,
+      "serialize_begin_thread_cpu_ns": 2119302048,
+      "serialize_return_mono_ns": 515750852993870,
+      "serialize_return_thread_cpu_ns": 2119368897,
+      "send_returned": true,
+      "callback_end_mono_ns": 515750853113637,
+      "callback_end_thread_cpu_ns": 2119488949
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 6,
+      "flow": 71,
+      "native_message_id": 113,
+      "old_sequence": 5,
+      "old_receipt_mono_s": 515750.651772015,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515750853237802,
+      "thread_cpu_ns": 2119612811,
+      "decode_end_mono_ns": 515750853338482,
+      "decode_end_thread_cpu_ns": 2119713825,
+      "returned": true,
+      "guard_end_mono_ns": 515750853363697,
+      "guard_end_thread_cpu_ns": 2119738759,
+      "actual_receipt_mono_s": 515750.853361827,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 7,
+      "flow": 31,
+      "callback_entry_mono_ns": 515751044996787,
+      "mono_ns": 515751045013109,
+      "thread_cpu_ns": 2310911901,
+      "serialize_begin_mono_ns": 515751045152313,
+      "serialize_begin_thread_cpu_ns": 2311051763,
+      "serialize_return_mono_ns": 515751045260166,
+      "serialize_return_thread_cpu_ns": 2311158977,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751045359502,
+      "callback_end_thread_cpu_ns": 2311258309
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 7,
+      "flow": 31,
+      "native_message_id": 160,
+      "old_sequence": 6,
+      "old_receipt_mono_s": 515750.845798618,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515751045471569,
+      "thread_cpu_ns": 2311369913,
+      "decode_end_mono_ns": 515751045584470,
+      "decode_end_thread_cpu_ns": 2311483311,
+      "returned": true,
+      "guard_end_mono_ns": 515751045617887,
+      "guard_end_thread_cpu_ns": 2311516158,
+      "actual_receipt_mono_s": 515751.045615314,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 7,
+      "flow": 51,
+      "callback_entry_mono_ns": 515751045926621,
+      "mono_ns": 515751045929131,
+      "thread_cpu_ns": 2311827615,
+      "serialize_begin_mono_ns": 515751045992857,
+      "serialize_begin_thread_cpu_ns": 2311891225,
+      "serialize_return_mono_ns": 515751046033751,
+      "serialize_return_thread_cpu_ns": 2311932098,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751046081684,
+      "callback_end_thread_cpu_ns": 2311980005
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 7,
+      "flow": 51,
+      "native_message_id": 161,
+      "old_sequence": 6,
+      "old_receipt_mono_s": 515750.846468928,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515751046166721,
+      "thread_cpu_ns": 2312065057,
+      "decode_end_mono_ns": 515751046244811,
+      "decode_end_thread_cpu_ns": 2312143374,
+      "returned": true,
+      "guard_end_mono_ns": 515751046271472,
+      "guard_end_thread_cpu_ns": 2312169696,
+      "actual_receipt_mono_s": 515751.046270006,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 7,
+      "flow": 71,
+      "callback_entry_mono_ns": 515751051501333,
+      "mono_ns": 515751051506490,
+      "thread_cpu_ns": 2317404670,
+      "serialize_begin_mono_ns": 515751051602454,
+      "serialize_begin_thread_cpu_ns": 2317500660,
+      "serialize_return_mono_ns": 515751051637369,
+      "serialize_return_thread_cpu_ns": 2317535427,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751051684444,
+      "callback_end_thread_cpu_ns": 2317582501
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 7,
+      "flow": 71,
+      "native_message_id": 164,
+      "old_sequence": 6,
+      "old_receipt_mono_s": 515750.853361827,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515751051774738,
+      "thread_cpu_ns": 2317673040,
+      "decode_end_mono_ns": 515751051853566,
+      "decode_end_thread_cpu_ns": 2317751987,
+      "returned": true,
+      "guard_end_mono_ns": 515751051880223,
+      "guard_end_thread_cpu_ns": 2317778224,
+      "actual_receipt_mono_s": 515751.051878516,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 8,
+      "flow": 31,
+      "callback_entry_mono_ns": 515751245921191,
+      "mono_ns": 515751245929607,
+      "thread_cpu_ns": 2511302073,
+      "serialize_begin_mono_ns": 515751246052228,
+      "serialize_begin_thread_cpu_ns": 2511424407,
+      "serialize_return_mono_ns": 515751246119627,
+      "serialize_return_thread_cpu_ns": 2511491596,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751246208134,
+      "callback_end_thread_cpu_ns": 2511580058
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 8,
+      "flow": 31,
+      "native_message_id": 211,
+      "old_sequence": 7,
+      "old_receipt_mono_s": 515751.045615314,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515751246319715,
+      "thread_cpu_ns": 2511691541,
+      "decode_end_mono_ns": 515751246424223,
+      "decode_end_thread_cpu_ns": 2511796239,
+      "returned": true,
+      "guard_end_mono_ns": 515751246447925,
+      "guard_end_thread_cpu_ns": 2511819652,
+      "actual_receipt_mono_s": 515751.246446248,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 8,
+      "flow": 51,
+      "callback_entry_mono_ns": 515751246703457,
+      "mono_ns": 515751246705496,
+      "thread_cpu_ns": 2512077361,
+      "serialize_begin_mono_ns": 515751246773812,
+      "serialize_begin_thread_cpu_ns": 2512145619,
+      "serialize_return_mono_ns": 515751246801233,
+      "serialize_return_thread_cpu_ns": 2512173027,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751246844652,
+      "callback_end_thread_cpu_ns": 2512216493
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 8,
+      "flow": 51,
+      "native_message_id": 212,
+      "old_sequence": 7,
+      "old_receipt_mono_s": 515751.046270006,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515751246919535,
+      "thread_cpu_ns": 2512291371,
+      "decode_end_mono_ns": 515751246996469,
+      "decode_end_thread_cpu_ns": 2512368560,
+      "returned": true,
+      "guard_end_mono_ns": 515751247024953,
+      "guard_end_thread_cpu_ns": 2512396643,
+      "actual_receipt_mono_s": 515751.247023695,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 8,
+      "flow": 71,
+      "callback_entry_mono_ns": 515751251733406,
+      "mono_ns": 515751251738587,
+      "thread_cpu_ns": 2517110422,
+      "serialize_begin_mono_ns": 515751251832912,
+      "serialize_begin_thread_cpu_ns": 2517204612,
+      "serialize_return_mono_ns": 515751251881294,
+      "serialize_return_thread_cpu_ns": 2517252941,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751251966243,
+      "callback_end_thread_cpu_ns": 2517338010
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 8,
+      "flow": 71,
+      "native_message_id": 215,
+      "old_sequence": 7,
+      "old_receipt_mono_s": 515751.051878516,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515751252081771,
+      "thread_cpu_ns": 2517453398,
+      "decode_end_mono_ns": 515751252176465,
+      "decode_end_thread_cpu_ns": 2517548215,
+      "returned": true,
+      "guard_end_mono_ns": 515751252197537,
+      "guard_end_thread_cpu_ns": 2517569418,
+      "actual_receipt_mono_s": 515751.252195945,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 9,
+      "flow": 31,
+      "callback_entry_mono_ns": 515751444369584,
+      "mono_ns": 515751444374759,
+      "thread_cpu_ns": 2709265323,
+      "serialize_begin_mono_ns": 515751444475012,
+      "serialize_begin_thread_cpu_ns": 2709365601,
+      "serialize_return_mono_ns": 515751444538531,
+      "serialize_return_thread_cpu_ns": 2709429620,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751444618820,
+      "callback_end_thread_cpu_ns": 2709509883
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 9,
+      "flow": 31,
+      "native_message_id": 262,
+      "old_sequence": 8,
+      "old_receipt_mono_s": 515751.246446248,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515751444705892,
+      "thread_cpu_ns": 2709596595,
+      "decode_end_mono_ns": 515751444795274,
+      "decode_end_thread_cpu_ns": 2709685957,
+      "returned": true,
+      "guard_end_mono_ns": 515751444819403,
+      "guard_end_thread_cpu_ns": 2709709851,
+      "actual_receipt_mono_s": 515751.444817788,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 9,
+      "flow": 51,
+      "callback_entry_mono_ns": 515751445080783,
+      "mono_ns": 515751445082884,
+      "thread_cpu_ns": 2709973709,
+      "serialize_begin_mono_ns": 515751445160883,
+      "serialize_begin_thread_cpu_ns": 2710051407,
+      "serialize_return_mono_ns": 515751445191719,
+      "serialize_return_thread_cpu_ns": 2710082183,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751445238445,
+      "callback_end_thread_cpu_ns": 2710128975
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 9,
+      "flow": 51,
+      "native_message_id": 263,
+      "old_sequence": 8,
+      "old_receipt_mono_s": 515751.247023695,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515751445311517,
+      "thread_cpu_ns": 2710202004,
+      "decode_end_mono_ns": 515751445395687,
+      "decode_end_thread_cpu_ns": 2710286193,
+      "returned": true,
+      "guard_end_mono_ns": 515751445415899,
+      "guard_end_thread_cpu_ns": 2710306253,
+      "actual_receipt_mono_s": 515751.44541461,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 9,
+      "flow": 71,
+      "callback_entry_mono_ns": 515751452180322,
+      "mono_ns": 515751452186449,
+      "thread_cpu_ns": 2717076871,
+      "serialize_begin_mono_ns": 515751452279560,
+      "serialize_begin_thread_cpu_ns": 2717169700,
+      "serialize_return_mono_ns": 515751452334888,
+      "serialize_return_thread_cpu_ns": 2717225091,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751452425680,
+      "callback_end_thread_cpu_ns": 2717316218
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 9,
+      "flow": 71,
+      "native_message_id": 266,
+      "old_sequence": 8,
+      "old_receipt_mono_s": 515751.252195945,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515751452538104,
+      "thread_cpu_ns": 2717428186,
+      "decode_end_mono_ns": 515751452629300,
+      "decode_end_thread_cpu_ns": 2717519586,
+      "returned": true,
+      "guard_end_mono_ns": 515751452652897,
+      "guard_end_thread_cpu_ns": 2717543019,
+      "actual_receipt_mono_s": 515751.452651332,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 10,
+      "flow": 31,
+      "callback_entry_mono_ns": 515751700935149,
+      "mono_ns": 515751700942975,
+      "thread_cpu_ns": 2965344277,
+      "serialize_begin_mono_ns": 515751701053546,
+      "serialize_begin_thread_cpu_ns": 2965454874,
+      "serialize_return_mono_ns": 515751701134723,
+      "serialize_return_thread_cpu_ns": 2965536082,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751701233118,
+      "callback_end_thread_cpu_ns": 2965634911
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 10,
+      "flow": 31,
+      "native_message_id": 356,
+      "old_sequence": 9,
+      "old_receipt_mono_s": 515751.444817788,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515751701344115,
+      "thread_cpu_ns": 2965745588,
+      "decode_end_mono_ns": 515751701461169,
+      "decode_end_thread_cpu_ns": 2965863172,
+      "returned": true,
+      "guard_end_mono_ns": 515751701487607,
+      "guard_end_thread_cpu_ns": 2965888737,
+      "actual_receipt_mono_s": 515751.701485982,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 10,
+      "flow": 51,
+      "callback_entry_mono_ns": 515751701768527,
+      "mono_ns": 515751701771015,
+      "thread_cpu_ns": 2966172595,
+      "serialize_begin_mono_ns": 515751701839709,
+      "serialize_begin_thread_cpu_ns": 2966240848,
+      "serialize_return_mono_ns": 515751701873465,
+      "serialize_return_thread_cpu_ns": 2966274913,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751701924063,
+      "callback_end_thread_cpu_ns": 2966325272
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 10,
+      "flow": 51,
+      "native_message_id": 357,
+      "old_sequence": 9,
+      "old_receipt_mono_s": 515751.44541461,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515751702014925,
+      "thread_cpu_ns": 2966416193,
+      "decode_end_mono_ns": 515751702100457,
+      "decode_end_thread_cpu_ns": 2966501806,
+      "returned": true,
+      "guard_end_mono_ns": 515751702125615,
+      "guard_end_thread_cpu_ns": 2966527034,
+      "actual_receipt_mono_s": 515751.702124012,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 10,
+      "flow": 71,
+      "callback_entry_mono_ns": 515751707406252,
+      "mono_ns": 515751707412074,
+      "thread_cpu_ns": 2971813054,
+      "serialize_begin_mono_ns": 515751707526072,
+      "serialize_begin_thread_cpu_ns": 2971927106,
+      "serialize_return_mono_ns": 515751707567699,
+      "serialize_return_thread_cpu_ns": 2971968547,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751707623849,
+      "callback_end_thread_cpu_ns": 2972024709
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 10,
+      "flow": 71,
+      "native_message_id": 362,
+      "old_sequence": 9,
+      "old_receipt_mono_s": 515751.452651332,
+      "armed": false,
+      "fault_before": null,
+      "mono_ns": 515751707727115,
+      "thread_cpu_ns": 2972128116,
+      "decode_end_mono_ns": 515751707823765,
+      "decode_end_thread_cpu_ns": 2972224775,
+      "returned": true,
+      "guard_end_mono_ns": 515751707853134,
+      "guard_end_thread_cpu_ns": 2972253982,
+      "actual_receipt_mono_s": 515751.707850871,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 11,
+      "flow": 31,
+      "callback_entry_mono_ns": 515751892715711,
+      "mono_ns": 515751892722017,
+      "thread_cpu_ns": 3156885213,
+      "serialize_begin_mono_ns": 515751892818051,
+      "serialize_begin_thread_cpu_ns": 3156981309,
+      "serialize_return_mono_ns": 515751892879318,
+      "serialize_return_thread_cpu_ns": 3157042417,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751892963331,
+      "callback_end_thread_cpu_ns": 3157126419
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 11,
+      "flow": 31,
+      "native_message_id": 426,
+      "old_sequence": 10,
+      "old_receipt_mono_s": 515751.701485982,
+      "armed": true,
+      "fault_before": null,
+      "mono_ns": 515751893065084,
+      "thread_cpu_ns": 3157228347,
+      "decode_end_mono_ns": 515751893158262,
+      "decode_end_thread_cpu_ns": 3157321462,
+      "returned": true,
+      "guard_end_mono_ns": 515751893261712,
+      "guard_end_thread_cpu_ns": 3157424795,
+      "actual_receipt_mono_s": 515751.893237084,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 11,
+      "flow": 51,
+      "callback_entry_mono_ns": 515751893516800,
+      "mono_ns": 515751893518848,
+      "thread_cpu_ns": 3157682167,
+      "serialize_begin_mono_ns": 515751893581996,
+      "serialize_begin_thread_cpu_ns": 3157745153,
+      "serialize_return_mono_ns": 515751893609573,
+      "serialize_return_thread_cpu_ns": 3157772780,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751893655305,
+      "callback_end_thread_cpu_ns": 3157818597
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 11,
+      "flow": 51,
+      "native_message_id": 427,
+      "old_sequence": 10,
+      "old_receipt_mono_s": 515751.702124012,
+      "armed": true,
+      "fault_before": null,
+      "mono_ns": 515751893746983,
+      "thread_cpu_ns": 3157910502,
+      "decode_end_mono_ns": 515751893856493,
+      "decode_end_thread_cpu_ns": 3158020093,
+      "returned": true,
+      "guard_end_mono_ns": 515751893963451,
+      "guard_end_thread_cpu_ns": 3158126628,
+      "actual_receipt_mono_s": 515751.893941295,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 11,
+      "flow": 71,
+      "callback_entry_mono_ns": 515751895139464,
+      "mono_ns": 515751895143345,
+      "thread_cpu_ns": 3159306480,
+      "serialize_begin_mono_ns": 515751895236337,
+      "serialize_begin_thread_cpu_ns": 3159399383,
+      "serialize_return_mono_ns": 515751895277026,
+      "serialize_return_thread_cpu_ns": 3159440426,
+      "send_returned": true,
+      "callback_end_mono_ns": 515751895325220,
+      "callback_end_thread_cpu_ns": 3159488279
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 11,
+      "flow": 71,
+      "native_message_id": 429,
+      "old_sequence": 10,
+      "old_receipt_mono_s": 515751.707850871,
+      "armed": true,
+      "fault_before": null,
+      "mono_ns": 515751895407903,
+      "thread_cpu_ns": 3159570942,
+      "decode_end_mono_ns": 515751895493553,
+      "decode_end_thread_cpu_ns": 3159656760,
+      "returned": true,
+      "guard_end_mono_ns": 515751895583490,
+      "guard_end_thread_cpu_ns": 3159746578,
+      "actual_receipt_mono_s": 515751.895560769,
+      "fault_after": null
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 12,
+      "flow": 31,
+      "callback_entry_mono_ns": 515752108949790,
+      "mono_ns": 515752108960122,
+      "thread_cpu_ns": 3372794714,
+      "serialize_begin_mono_ns": 515752109093866,
+      "serialize_begin_thread_cpu_ns": 3372928470,
+      "serialize_return_mono_ns": 515752109178999,
+      "serialize_return_thread_cpu_ns": 3373013529,
+      "send_returned": true,
+      "callback_end_mono_ns": 515752109305252,
+      "callback_end_thread_cpu_ns": 3373139677
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 12,
+      "flow": 31,
+      "native_message_id": 557,
+      "old_sequence": 11,
+      "old_receipt_mono_s": 515751.893237084,
+      "armed": true,
+      "fault_before": "health_original_sources_stale",
+      "mono_ns": 515752109434299,
+      "thread_cpu_ns": 3373268641,
+      "decode_end_mono_ns": 515752109571759,
+      "decode_end_thread_cpu_ns": 3373406299,
+      "returned": false,
+      "guard_end_mono_ns": 515752109598774,
+      "guard_end_thread_cpu_ns": 3373433028,
+      "actual_receipt_mono_s": 515752.109596453,
+      "fault_after": "health_original_sources_stale"
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 12,
+      "flow": 51,
+      "callback_entry_mono_ns": 515752109939865,
+      "mono_ns": 515752109943613,
+      "thread_cpu_ns": 3373778436,
+      "serialize_begin_mono_ns": 515752110026583,
+      "serialize_begin_thread_cpu_ns": 3373861200,
+      "serialize_return_mono_ns": 515752110065845,
+      "serialize_return_thread_cpu_ns": 3373900300,
+      "send_returned": true,
+      "callback_end_mono_ns": 515752110120417,
+      "callback_end_thread_cpu_ns": 3373955000
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 12,
+      "flow": 51,
+      "native_message_id": 558,
+      "old_sequence": 11,
+      "old_receipt_mono_s": 515751.893941295,
+      "armed": true,
+      "fault_before": "health_original_sources_stale",
+      "mono_ns": 515752110222636,
+      "thread_cpu_ns": 3374056921,
+      "decode_end_mono_ns": 515752110321690,
+      "decode_end_thread_cpu_ns": 3374156532,
+      "returned": false,
+      "guard_end_mono_ns": 515752110347039,
+      "guard_end_thread_cpu_ns": 3374181292,
+      "actual_receipt_mono_s": 515752.110345326,
+      "fault_after": "health_original_sources_stale"
+    },
+    {
+      "stage": "C_health_callback",
+      "sequence": 12,
+      "flow": 71,
+      "callback_entry_mono_ns": 515752112517598,
+      "mono_ns": 515752112525687,
+      "thread_cpu_ns": 3376359971,
+      "serialize_begin_mono_ns": 515752112632227,
+      "serialize_begin_thread_cpu_ns": 3376466527,
+      "serialize_return_mono_ns": 515752112697252,
+      "serialize_return_thread_cpu_ns": 3376531428,
+      "send_returned": true,
+      "callback_end_mono_ns": 515752112782038,
+      "callback_end_thread_cpu_ns": 3376616298
+    },
+    {
+      "stage": "R_health_intake",
+      "sequence": 12,
+      "flow": 71,
+      "native_message_id": 559,
+      "old_sequence": 11,
+      "old_receipt_mono_s": 515751.895560769,
+      "armed": true,
+      "fault_before": "health_original_sources_stale",
+      "mono_ns": 515752112880347,
+      "thread_cpu_ns": 3376714610,
+      "decode_end_mono_ns": 515752112975108,
+      "decode_end_thread_cpu_ns": 3376809488,
+      "returned": false,
+      "guard_end_mono_ns": 515752113010243,
+      "guard_end_thread_cpu_ns": 3376844438,
+      "actual_receipt_mono_s": 515752.112998846,
+      "fault_after": "health_original_sources_stale"
+    }
+  ],
+  "source_summary": {
+    "1": {
+      "scope": "P5 stationary synthetic observations with complete historical Grid content; real controlled ActionServer, not Nav2/SLAM",
+      "robot": 1,
+      "session_id": 2026110912,
+      "active_wall_requested": 32.0,
+      "error": null,
+      "arm_response": {
+        "success": true,
+        "message": "{\"robot\": 1, \"fault\": null, \"reason\": null}"
+      },
+      "final_gateway_status": {
+        "mode": "A",
+        "session_id": 2026110912,
+        "connected": true,
+        "failure": null,
+        "anchor": {
+          "gazebo_ns": 10000000,
+          "ns3_ns": 0,
+          "offset_ns": 10000000,
+          "monotonic_ns": 515749650927324
+        },
+        "gz_ns": 1230000000,
+        "ns3_ns": 1220000000,
+        "gateway_monotonic_ns": 515752171157240,
+        "clock_reader_ready": true,
+        "clock_publishers": 1,
+        "clock_writer_discovered": true,
+        "actual_rpc_cleanup": {
+          "C_pending": 0,
+          "R_pending": 0,
+          "C_service_inflight": 2,
+          "C_retired_services": 0,
+          "C_unadmitted_unknown_total": 0,
+          "C_rpc_confirmation_pending": 0,
+          "R_rpc_confirmation_pending": 0,
+          "rpc_delivery_unconfirmed": 0,
+          "local_cleanup_pending": 2
+        },
+        "guards": {
+          "1": {
+            "armed": true,
+            "fault": "health_original_sources_stale",
+            "reason": null
+          },
+          "2": {
+            "armed": true,
+            "fault": "health_original_sources_stale",
+            "reason": null
+          },
+          "3": {
+            "armed": true,
+            "fault": "health_original_sources_stale",
+            "reason": null
+          }
+        }
+      },
+      "cancelled": [
+        "0000000078c3ffc00100000000000000"
+      ],
+      "still_executing": [],
+      "pause_requests": [
+        {
+          "command": 1,
+          "monotonic_ns": 515752094914691
+        }
+      ],
+      "source_ticks": {
+        "odom": 23,
+        "wheel": 7,
+        "scan": 3
+      },
+      "skipped_configured_ticks": {
+        "odom": 0,
+        "wheel": 0,
+        "scan": 0
+      },
+      "active_supply_wall_s": 1.6119662359706126,
+      "active_supply_begin_sim_ns": 460000000,
+      "active_supply_end_sim_ns": 1230000000,
+      "emitted_counts": [
+        {
+          "flow": 21,
+          "kind": "historical_content_fixture_map",
+          "count": 1
+        },
+        {
+          "flow": 22,
+          "kind": "fixture_odom",
+          "count": 23
+        },
+        {
+          "flow": 23,
+          "kind": "both_wheel_TF",
+          "count": 7
+        },
+        {
+          "flow": 23,
+          "kind": "map->odom",
+          "count": 80
+        },
+        {
+          "flow": 23,
+          "kind": "odom->base_footprint",
+          "count": 23
+        },
+        {
+          "flow": 24,
+          "kind": "fixture_static",
+          "count": 1
+        },
+        {
+          "flow": 25,
+          "kind": "historical_content_fixture_costmap",
+          "count": 2
+        },
+        {
+          "flow": 26,
+          "kind": "exact_zero_cmd",
+          "count": 32
+        }
+      ],
+      "feedback_publisher_calls_after_successful_tick": 20,
+      "zero_spy_scope": "R spy sees source and Guardian zero writers; receipt alone does not identify Guardian or physical driver consumption",
+      "feedback_contract": "Existing ControlledServer full feedback fields at100wall Hz only while actual goal handle executes"
+    },
+    "2": {
+      "scope": "P5 stationary synthetic observations with complete historical Grid content; real controlled ActionServer, not Nav2/SLAM",
+      "robot": 2,
+      "session_id": 2026110912,
+      "active_wall_requested": 32.0,
+      "error": null,
+      "arm_response": {
+        "success": true,
+        "message": "{\"robot\": 2, \"fault\": null, \"reason\": null}"
+      },
+      "final_gateway_status": {
+        "mode": "A",
+        "session_id": 2026110912,
+        "connected": true,
+        "failure": null,
+        "anchor": {
+          "gazebo_ns": 10000000,
+          "ns3_ns": 0,
+          "offset_ns": 10000000,
+          "monotonic_ns": 515749650927324
+        },
+        "gz_ns": 1230000000,
+        "ns3_ns": 1220000000,
+        "gateway_monotonic_ns": 515752171157240,
+        "clock_reader_ready": true,
+        "clock_publishers": 1,
+        "clock_writer_discovered": true,
+        "actual_rpc_cleanup": {
+          "C_pending": 0,
+          "R_pending": 0,
+          "C_service_inflight": 2,
+          "C_retired_services": 0,
+          "C_unadmitted_unknown_total": 0,
+          "C_rpc_confirmation_pending": 0,
+          "R_rpc_confirmation_pending": 0,
+          "rpc_delivery_unconfirmed": 0,
+          "local_cleanup_pending": 2
+        },
+        "guards": {
+          "1": {
+            "armed": true,
+            "fault": "health_original_sources_stale",
+            "reason": null
+          },
+          "2": {
+            "armed": true,
+            "fault": "health_original_sources_stale",
+            "reason": null
+          },
+          "3": {
+            "armed": true,
+            "fault": "health_original_sources_stale",
+            "reason": null
+          }
+        }
+      },
+      "cancelled": [
+        "0000000078c3ffc00200000000000000"
+      ],
+      "still_executing": [],
+      "pause_requests": [
+        {
+          "command": 1,
+          "monotonic_ns": 515752099416159
+        }
+      ],
+      "source_ticks": {
+        "odom": 23,
+        "wheel": 7,
+        "scan": 3
+      },
+      "skipped_configured_ticks": {
+        "odom": 0,
+        "wheel": 0,
+        "scan": 0
+      },
+      "active_supply_wall_s": 1.6209477979573421,
+      "active_supply_begin_sim_ns": 460000000,
+      "active_supply_end_sim_ns": 1230000000,
+      "emitted_counts": [
+        {
+          "flow": 41,
+          "kind": "historical_content_fixture_map",
+          "count": 1
+        },
+        {
+          "flow": 42,
+          "kind": "fixture_odom",
+          "count": 23
+        },
+        {
+          "flow": 43,
+          "kind": "both_wheel_TF",
+          "count": 7
+        },
+        {
+          "flow": 43,
+          "kind": "map->odom",
+          "count": 80
+        },
+        {
+          "flow": 43,
+          "kind": "odom->base_footprint",
+          "count": 23
+        },
+        {
+          "flow": 44,
+          "kind": "fixture_static",
+          "count": 1
+        },
+        {
+          "flow": 45,
+          "kind": "historical_content_fixture_costmap",
+          "count": 2
+        },
+        {
+          "flow": 46,
+          "kind": "exact_zero_cmd",
+          "count": 32
+        }
+      ],
+      "feedback_publisher_calls_after_successful_tick": 21,
+      "zero_spy_scope": "R spy sees source and Guardian zero writers; receipt alone does not identify Guardian or physical driver consumption",
+      "feedback_contract": "Existing ControlledServer full feedback fields at100wall Hz only while actual goal handle executes"
+    },
+    "3": {
+      "scope": "P5 stationary synthetic observations with complete historical Grid content; real controlled ActionServer, not Nav2/SLAM",
+      "robot": 3,
+      "session_id": 2026110912,
+      "active_wall_requested": 32.0,
+      "error": null,
+      "arm_response": {
+        "success": true,
+        "message": "{\"robot\": 3, \"fault\": null, \"reason\": null}"
+      },
+      "final_gateway_status": {
+        "mode": "A",
+        "session_id": 2026110912,
+        "connected": true,
+        "failure": null,
+        "anchor": {
+          "gazebo_ns": 10000000,
+          "ns3_ns": 0,
+          "offset_ns": 10000000,
+          "monotonic_ns": 515749650927324
+        },
+        "gz_ns": 1230000000,
+        "ns3_ns": 1220000000,
+        "gateway_monotonic_ns": 515752171157240,
+        "clock_reader_ready": true,
+        "clock_publishers": 1,
+        "clock_writer_discovered": true,
+        "actual_rpc_cleanup": {
+          "C_pending": 0,
+          "R_pending": 0,
+          "C_service_inflight": 2,
+          "C_retired_services": 0,
+          "C_unadmitted_unknown_total": 0,
+          "C_rpc_confirmation_pending": 0,
+          "R_rpc_confirmation_pending": 0,
+          "rpc_delivery_unconfirmed": 0,
+          "local_cleanup_pending": 2
+        },
+        "guards": {
+          "1": {
+            "armed": true,
+            "fault": "health_original_sources_stale",
+            "reason": null
+          },
+          "2": {
+            "armed": true,
+            "fault": "health_original_sources_stale",
+            "reason": null
+          },
+          "3": {
+            "armed": true,
+            "fault": "health_original_sources_stale",
+            "reason": null
+          }
+        }
+      },
+      "cancelled": [
+        "0000000078c3ffc00300000000000000"
+      ],
+      "still_executing": [],
+      "pause_requests": [
+        {
+          "command": 1,
+          "monotonic_ns": 515752099374531
+        }
+      ],
+      "source_ticks": {
+        "odom": 23,
+        "wheel": 7,
+        "scan": 3
+      },
+      "skipped_configured_ticks": {
+        "odom": 0,
+        "wheel": 0,
+        "scan": 0
+      },
+      "active_supply_wall_s": 1.6116980199585669,
+      "active_supply_begin_sim_ns": 460000000,
+      "active_supply_end_sim_ns": 1230000000,
+      "emitted_counts": [
+        {
+          "flow": 61,
+          "kind": "historical_content_fixture_map",
+          "count": 1
+        },
+        {
+          "flow": 62,
+          "kind": "fixture_odom",
+          "count": 23
+        },
+        {
+          "flow": 63,
+          "kind": "both_wheel_TF",
+          "count": 7
+        },
+        {
+          "flow": 63,
+          "kind": "map->odom",
+          "count": 80
+        },
+        {
+          "flow": 63,
+          "kind": "odom->base_footprint",
+          "count": 23
+        },
+        {
+          "flow": 64,
+          "kind": "fixture_static",
+          "count": 1
+        },
+        {
+          "flow": 65,
+          "kind": "historical_content_fixture_costmap",
+          "count": 2
+        },
+        {
+          "flow": 66,
+          "kind": "exact_zero_cmd",
+          "count": 32
+        }
+      ],
+      "feedback_publisher_calls_after_successful_tick": 21,
+      "zero_spy_scope": "R spy sees source and Guardian zero writers; receipt alone does not identify Guardian or physical driver consumption",
+      "feedback_contract": "Existing ControlledServer full feedback fields at100wall Hz only while actual goal handle executes"
+    }
+  },
+  "source_records": {
+    "1": [
+      {
+        "kind": "fixture_observations_active",
+        "monotonic_ns": 515750563930271,
+        "node_sim_ns": 460000000,
+        "active_wall": 32.0,
+        "source_ticks": {
+          "odom": 0,
+          "wheel": 0,
+          "scan": 0
+        },
+        "skipped_configured_ticks": {
+          "odom": 0,
+          "wheel": 0,
+          "scan": 0
+        },
+        "clock_origin_ns": 460000000,
+        "scan_header_ns": 460000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751602172886,
+        "after_monotonic_ns": 515751602360950,
+        "node_sim_ns": 980000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751621991373,
+        "after_monotonic_ns": 515751622198521,
+        "node_sim_ns": 990000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 22,
+        "source_stamp_ns": 1000000000,
+        "before_monotonic_ns": 515751631539816,
+        "after_monotonic_ns": 515751631727813,
+        "node_sim_ns": 1000000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751642242940,
+        "after_monotonic_ns": 515751642411652,
+        "node_sim_ns": 1000000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751662401757,
+        "after_monotonic_ns": 515751662568828,
+        "node_sim_ns": 1010000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751682154698,
+        "after_monotonic_ns": 515751682363822,
+        "node_sim_ns": 1020000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 22,
+        "source_stamp_ns": 1030000000,
+        "before_monotonic_ns": 515751691285727,
+        "after_monotonic_ns": 515751691511335,
+        "node_sim_ns": 1030000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751702219907,
+        "after_monotonic_ns": 515751702402515,
+        "node_sim_ns": 1030000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751722306414,
+        "after_monotonic_ns": 515751722515308,
+        "node_sim_ns": 1040000000
+      },
+      {
+        "kind": "actual_local_arm_request",
+        "monotonic_ns": 515751728221949,
+        "node_sim_ns": 1040000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751742363021,
+        "after_monotonic_ns": 515751742522339,
+        "node_sim_ns": 1050000000
+      },
+      {
+        "kind": "actual_local_arm_response",
+        "monotonic_ns": 515751743842170,
+        "node_sim_ns": 1050000000,
+        "success": true,
+        "message": "{\"robot\": 1, \"fault\": null, \"reason\": null}"
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 22,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751751317543,
+        "after_monotonic_ns": 515751751494082,
+        "node_sim_ns": 1060000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751761909010,
+        "after_monotonic_ns": 515751762064643,
+        "node_sim_ns": 1060000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751782314219,
+        "after_monotonic_ns": 515751782487898,
+        "node_sim_ns": 1070000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751802162369,
+        "after_monotonic_ns": 515751802393512,
+        "node_sim_ns": 1080000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751822176353,
+        "after_monotonic_ns": 515751822393374,
+        "node_sim_ns": 1090000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 22,
+        "source_stamp_ns": 1100000000,
+        "before_monotonic_ns": 515751832087967,
+        "after_monotonic_ns": 515751832275611,
+        "node_sim_ns": 1100000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751841991544,
+        "after_monotonic_ns": 515751842216615,
+        "node_sim_ns": 1100000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751862180448,
+        "after_monotonic_ns": 515751862374019,
+        "node_sim_ns": 1110000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751882262764,
+        "after_monotonic_ns": 515751882438428,
+        "node_sim_ns": 1120000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 22,
+        "source_stamp_ns": 1130000000,
+        "before_monotonic_ns": 515751892112631,
+        "after_monotonic_ns": 515751892292571,
+        "node_sim_ns": 1130000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751904361841,
+        "after_monotonic_ns": 515751904524954,
+        "node_sim_ns": 1130000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751922027044,
+        "after_monotonic_ns": 515751922213856,
+        "node_sim_ns": 1130000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751942018060,
+        "after_monotonic_ns": 515751942187770,
+        "node_sim_ns": 1140000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751962289162,
+        "after_monotonic_ns": 515751962456465,
+        "node_sim_ns": 1150000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 22,
+        "source_stamp_ns": 1160000000,
+        "before_monotonic_ns": 515751966818809,
+        "after_monotonic_ns": 515751966949467,
+        "node_sim_ns": 1160000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751982304232,
+        "after_monotonic_ns": 515751982506296,
+        "node_sim_ns": 1160000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752002371494,
+        "after_monotonic_ns": 515752002576035,
+        "node_sim_ns": 1170000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752021971916,
+        "after_monotonic_ns": 515752022187633,
+        "node_sim_ns": 1180000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 22,
+        "source_stamp_ns": 1200000000,
+        "before_monotonic_ns": 515752040071003,
+        "after_monotonic_ns": 515752040239140,
+        "node_sim_ns": 1200000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752041974685,
+        "after_monotonic_ns": 515752042124546,
+        "node_sim_ns": 1200000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752062289180,
+        "after_monotonic_ns": 515752062473410,
+        "node_sim_ns": 1210000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752082356503,
+        "after_monotonic_ns": 515752082561489,
+        "node_sim_ns": 1220000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 22,
+        "source_stamp_ns": 1230000000,
+        "before_monotonic_ns": 515752091570137,
+        "after_monotonic_ns": 515752091750076,
+        "node_sim_ns": 1230000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752102110179,
+        "after_monotonic_ns": 515752102284043,
+        "node_sim_ns": 1230000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752122264662,
+        "after_monotonic_ns": 515752122460482,
+        "node_sim_ns": 1230000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752142757009,
+        "after_monotonic_ns": 515752142921368,
+        "node_sim_ns": 1230000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 23,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752162315823,
+        "after_monotonic_ns": 515752162516527,
+        "node_sim_ns": 1230000000
+      }
+    ],
+    "2": [
+      {
+        "kind": "fixture_observations_active",
+        "monotonic_ns": 515750564830680,
+        "node_sim_ns": 460000000,
+        "active_wall": 32.0,
+        "source_ticks": {
+          "odom": 0,
+          "wheel": 0,
+          "scan": 0
+        },
+        "skipped_configured_ticks": {
+          "odom": 0,
+          "wheel": 0,
+          "scan": 0
+        },
+        "clock_origin_ns": 460000000,
+        "scan_header_ns": 460000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751602598748,
+        "after_monotonic_ns": 515751602823447,
+        "node_sim_ns": 980000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751622752366,
+        "after_monotonic_ns": 515751622939622,
+        "node_sim_ns": 990000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 42,
+        "source_stamp_ns": 1000000000,
+        "before_monotonic_ns": 515751631507545,
+        "after_monotonic_ns": 515751631728467,
+        "node_sim_ns": 1000000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751642745630,
+        "after_monotonic_ns": 515751642917919,
+        "node_sim_ns": 1000000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751662707548,
+        "after_monotonic_ns": 515751662937981,
+        "node_sim_ns": 1010000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751683052712,
+        "after_monotonic_ns": 515751683220256,
+        "node_sim_ns": 1020000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 42,
+        "source_stamp_ns": 1030000000,
+        "before_monotonic_ns": 515751691451393,
+        "after_monotonic_ns": 515751691659220,
+        "node_sim_ns": 1030000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751702630063,
+        "after_monotonic_ns": 515751702816004,
+        "node_sim_ns": 1030000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751722748470,
+        "after_monotonic_ns": 515751722958280,
+        "node_sim_ns": 1040000000
+      },
+      {
+        "kind": "actual_local_arm_request",
+        "monotonic_ns": 515751727746892,
+        "node_sim_ns": 1040000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751742739217,
+        "after_monotonic_ns": 515751742927246,
+        "node_sim_ns": 1050000000
+      },
+      {
+        "kind": "actual_local_arm_response",
+        "monotonic_ns": 515751744489683,
+        "node_sim_ns": 1050000000,
+        "success": true,
+        "message": "{\"robot\": 2, \"fault\": null, \"reason\": null}"
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 42,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751751442529,
+        "after_monotonic_ns": 515751751647434,
+        "node_sim_ns": 1060000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751762952261,
+        "after_monotonic_ns": 515751763170858,
+        "node_sim_ns": 1060000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751782689781,
+        "after_monotonic_ns": 515751782861458,
+        "node_sim_ns": 1070000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751802723601,
+        "after_monotonic_ns": 515751802920166,
+        "node_sim_ns": 1080000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751822773718,
+        "after_monotonic_ns": 515751822978948,
+        "node_sim_ns": 1090000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 42,
+        "source_stamp_ns": 1100000000,
+        "before_monotonic_ns": 515751831992844,
+        "after_monotonic_ns": 515751832275727,
+        "node_sim_ns": 1100000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751842720218,
+        "after_monotonic_ns": 515751842905549,
+        "node_sim_ns": 1100000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751862790199,
+        "after_monotonic_ns": 515751862986443,
+        "node_sim_ns": 1110000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751882689576,
+        "after_monotonic_ns": 515751882875647,
+        "node_sim_ns": 1120000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 42,
+        "source_stamp_ns": 1130000000,
+        "before_monotonic_ns": 515751892314426,
+        "after_monotonic_ns": 515751892511126,
+        "node_sim_ns": 1130000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751902727199,
+        "after_monotonic_ns": 515751902911841,
+        "node_sim_ns": 1130000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751923452258,
+        "after_monotonic_ns": 515751923635270,
+        "node_sim_ns": 1130000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751942852408,
+        "after_monotonic_ns": 515751943044390,
+        "node_sim_ns": 1140000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751962795444,
+        "after_monotonic_ns": 515751962975320,
+        "node_sim_ns": 1150000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 42,
+        "source_stamp_ns": 1160000000,
+        "before_monotonic_ns": 515751966949985,
+        "after_monotonic_ns": 515751967110775,
+        "node_sim_ns": 1160000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751982675502,
+        "after_monotonic_ns": 515751982865114,
+        "node_sim_ns": 1160000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752002801279,
+        "after_monotonic_ns": 515752002996329,
+        "node_sim_ns": 1170000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752023026857,
+        "after_monotonic_ns": 515752023214464,
+        "node_sim_ns": 1180000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 42,
+        "source_stamp_ns": 1200000000,
+        "before_monotonic_ns": 515752039697327,
+        "after_monotonic_ns": 515752039924875,
+        "node_sim_ns": 1200000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752042966287,
+        "after_monotonic_ns": 515752043160048,
+        "node_sim_ns": 1200000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752062834272,
+        "after_monotonic_ns": 515752063028832,
+        "node_sim_ns": 1210000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752082606824,
+        "after_monotonic_ns": 515752082804579,
+        "node_sim_ns": 1220000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 42,
+        "source_stamp_ns": 1230000000,
+        "before_monotonic_ns": 515752092039562,
+        "after_monotonic_ns": 515752092282738,
+        "node_sim_ns": 1230000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752103011844,
+        "after_monotonic_ns": 515752103183812,
+        "node_sim_ns": 1230000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752122727637,
+        "after_monotonic_ns": 515752122890552,
+        "node_sim_ns": 1230000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752142934398,
+        "after_monotonic_ns": 515752143185933,
+        "node_sim_ns": 1230000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 43,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752162731112,
+        "after_monotonic_ns": 515752162896055,
+        "node_sim_ns": 1230000000
+      }
+    ],
+    "3": [
+      {
+        "kind": "fixture_observations_active",
+        "monotonic_ns": 515750564492947,
+        "node_sim_ns": 460000000,
+        "active_wall": 32.0,
+        "source_ticks": {
+          "odom": 0,
+          "wheel": 0,
+          "scan": 0
+        },
+        "skipped_configured_ticks": {
+          "odom": 0,
+          "wheel": 0,
+          "scan": 0
+        },
+        "clock_origin_ns": 460000000,
+        "scan_header_ns": 460000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751602630299,
+        "after_monotonic_ns": 515751602822625,
+        "node_sim_ns": 980000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751622420625,
+        "after_monotonic_ns": 515751622648232,
+        "node_sim_ns": 990000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 62,
+        "source_stamp_ns": 1000000000,
+        "before_monotonic_ns": 515751631632396,
+        "after_monotonic_ns": 515751631864974,
+        "node_sim_ns": 1000000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751642287569,
+        "after_monotonic_ns": 515751642493162,
+        "node_sim_ns": 1000000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751662471908,
+        "after_monotonic_ns": 515751662669375,
+        "node_sim_ns": 1010000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751682639229,
+        "after_monotonic_ns": 515751682807402,
+        "node_sim_ns": 1020000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 62,
+        "source_stamp_ns": 1030000000,
+        "before_monotonic_ns": 515751691500752,
+        "after_monotonic_ns": 515751691709289,
+        "node_sim_ns": 1030000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751702673485,
+        "after_monotonic_ns": 515751702858320,
+        "node_sim_ns": 1030000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751722603894,
+        "after_monotonic_ns": 515751722856962,
+        "node_sim_ns": 1040000000
+      },
+      {
+        "kind": "actual_local_arm_request",
+        "monotonic_ns": 515751727747630,
+        "node_sim_ns": 1040000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751742270807,
+        "after_monotonic_ns": 515751742498721,
+        "node_sim_ns": 1050000000
+      },
+      {
+        "kind": "actual_local_arm_response",
+        "monotonic_ns": 515751744901687,
+        "node_sim_ns": 1050000000,
+        "success": true,
+        "message": "{\"robot\": 3, \"fault\": null, \"reason\": null}"
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 62,
+        "source_stamp_ns": 1060000000,
+        "before_monotonic_ns": 515751751773738,
+        "after_monotonic_ns": 515751751984147,
+        "node_sim_ns": 1060000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751762653208,
+        "after_monotonic_ns": 515751762826705,
+        "node_sim_ns": 1060000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751782684724,
+        "after_monotonic_ns": 515751782867044,
+        "node_sim_ns": 1070000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751802285250,
+        "after_monotonic_ns": 515751802498729,
+        "node_sim_ns": 1080000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751822702096,
+        "after_monotonic_ns": 515751822941804,
+        "node_sim_ns": 1090000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 62,
+        "source_stamp_ns": 1100000000,
+        "before_monotonic_ns": 515751832298115,
+        "after_monotonic_ns": 515751832565982,
+        "node_sim_ns": 1100000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751842445373,
+        "after_monotonic_ns": 515751842614763,
+        "node_sim_ns": 1100000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751862619939,
+        "after_monotonic_ns": 515751862816817,
+        "node_sim_ns": 1110000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751882636796,
+        "after_monotonic_ns": 515751882818325,
+        "node_sim_ns": 1120000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 62,
+        "source_stamp_ns": 1130000000,
+        "before_monotonic_ns": 515751892275768,
+        "after_monotonic_ns": 515751892481539,
+        "node_sim_ns": 1130000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751902431354,
+        "after_monotonic_ns": 515751902683760,
+        "node_sim_ns": 1130000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751922835418,
+        "after_monotonic_ns": 515751923069525,
+        "node_sim_ns": 1130000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751942347992,
+        "after_monotonic_ns": 515751942518766,
+        "node_sim_ns": 1140000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751962306892,
+        "after_monotonic_ns": 515751962485358,
+        "node_sim_ns": 1150000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 62,
+        "source_stamp_ns": 1160000000,
+        "before_monotonic_ns": 515751966136598,
+        "after_monotonic_ns": 515751966327448,
+        "node_sim_ns": 1160000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515751982714455,
+        "after_monotonic_ns": 515751982893477,
+        "node_sim_ns": 1160000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752002427944,
+        "after_monotonic_ns": 515752002627166,
+        "node_sim_ns": 1170000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752022750370,
+        "after_monotonic_ns": 515752022942115,
+        "node_sim_ns": 1180000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 62,
+        "source_stamp_ns": 1200000000,
+        "before_monotonic_ns": 515752040103178,
+        "after_monotonic_ns": 515752040305361,
+        "node_sim_ns": 1200000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752042222736,
+        "after_monotonic_ns": 515752042367553,
+        "node_sim_ns": 1200000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752062748898,
+        "after_monotonic_ns": 515752062936170,
+        "node_sim_ns": 1210000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752082451939,
+        "after_monotonic_ns": 515752082652674,
+        "node_sim_ns": 1220000000
+      },
+      {
+        "kind": "fixture_odom",
+        "flow": 62,
+        "source_stamp_ns": 1230000000,
+        "before_monotonic_ns": 515752092144707,
+        "after_monotonic_ns": 515752092362246,
+        "node_sim_ns": 1230000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752102617761,
+        "after_monotonic_ns": 515752102802097,
+        "node_sim_ns": 1230000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752122566752,
+        "after_monotonic_ns": 515752122764078,
+        "node_sim_ns": 1230000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752142602154,
+        "after_monotonic_ns": 515752142905531,
+        "node_sim_ns": 1230000000
+      },
+      {
+        "kind": "map->odom",
+        "flow": 63,
+        "source_stamp_ns": 1260000000,
+        "before_monotonic_ns": 515752162586220,
+        "after_monotonic_ns": 515752162761105,
+        "node_sim_ns": 1230000000
+      }
+    ]
+  },
+  "clock_relays": [
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751727508555,
+      "gz_ns": 1040000000,
+      "gazebo_ns": 1040000000,
+      "R_callback_capture_monotonic_ns": 515751727255962,
+      "C_publish_return_monotonic_ns": 515751727405936
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751739114272,
+      "gz_ns": 1050000000,
+      "gazebo_ns": 1050000000,
+      "R_callback_capture_monotonic_ns": 515751738838737,
+      "C_publish_return_monotonic_ns": 515751738992632
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751756684471,
+      "gz_ns": 1060000000,
+      "gazebo_ns": 1060000000,
+      "R_callback_capture_monotonic_ns": 515751756512200,
+      "C_publish_return_monotonic_ns": 515751756619328
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751778009943,
+      "gz_ns": 1070000000,
+      "gazebo_ns": 1070000000,
+      "R_callback_capture_monotonic_ns": 515751777795831,
+      "C_publish_return_monotonic_ns": 515751777917317
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751795316776,
+      "gz_ns": 1080000000,
+      "gazebo_ns": 1080000000,
+      "R_callback_capture_monotonic_ns": 515751795088231,
+      "C_publish_return_monotonic_ns": 515751795230931
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751817130828,
+      "gz_ns": 1090000000,
+      "gazebo_ns": 1090000000,
+      "R_callback_capture_monotonic_ns": 515751816867993,
+      "C_publish_return_monotonic_ns": 515751817029120
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751834860895,
+      "gz_ns": 1100000000,
+      "gazebo_ns": 1100000000,
+      "R_callback_capture_monotonic_ns": 515751834613213,
+      "C_publish_return_monotonic_ns": 515751834740095
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751856331016,
+      "gz_ns": 1110000000,
+      "gazebo_ns": 1110000000,
+      "R_callback_capture_monotonic_ns": 515751856138272,
+      "C_publish_return_monotonic_ns": 515751856249236
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751888353818,
+      "gz_ns": 1120000000,
+      "gazebo_ns": 1120000000,
+      "R_callback_capture_monotonic_ns": 515751888163313,
+      "C_publish_return_monotonic_ns": 515751888274246
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751934252315,
+      "gz_ns": 1130000000,
+      "gazebo_ns": 1130000000,
+      "R_callback_capture_monotonic_ns": 515751933999955,
+      "C_publish_return_monotonic_ns": 515751934150272
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751954992575,
+      "gz_ns": 1140000000,
+      "gazebo_ns": 1140000000,
+      "R_callback_capture_monotonic_ns": 515751954834471,
+      "C_publish_return_monotonic_ns": 515751954928719
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751961710540,
+      "gz_ns": 1150000000,
+      "gazebo_ns": 1150000000,
+      "R_callback_capture_monotonic_ns": 515751961475280,
+      "C_publish_return_monotonic_ns": 515751961633604
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515751983657285,
+      "gz_ns": 1160000000,
+      "gazebo_ns": 1160000000,
+      "R_callback_capture_monotonic_ns": 515751983486135,
+      "C_publish_return_monotonic_ns": 515751983580572
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515752010324916,
+      "gz_ns": 1170000000,
+      "gazebo_ns": 1170000000,
+      "R_callback_capture_monotonic_ns": 515752010140499,
+      "C_publish_return_monotonic_ns": 515752010250228
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515752025979432,
+      "gz_ns": 1180000000,
+      "gazebo_ns": 1180000000,
+      "R_callback_capture_monotonic_ns": 515752025764088,
+      "C_publish_return_monotonic_ns": 515752025896165
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515752034508240,
+      "gz_ns": 1190000000,
+      "gazebo_ns": 1190000000,
+      "R_callback_capture_monotonic_ns": 515752034260193,
+      "C_publish_return_monotonic_ns": 515752034417240
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515752048714919,
+      "gz_ns": 1200000000,
+      "gazebo_ns": 1200000000,
+      "R_callback_capture_monotonic_ns": 515752048505217,
+      "C_publish_return_monotonic_ns": 515752048633854
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515752067557332,
+      "gz_ns": 1210000000,
+      "gazebo_ns": 1210000000,
+      "R_callback_capture_monotonic_ns": 515752067325725,
+      "C_publish_return_monotonic_ns": 515752067470591
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515752082511860,
+      "gz_ns": 1220000000,
+      "gazebo_ns": 1220000000,
+      "R_callback_capture_monotonic_ns": 515752082266997,
+      "C_publish_return_monotonic_ns": 515752082407616
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 515752097933956,
+      "gz_ns": 1230000000,
+      "gazebo_ns": 1230000000,
+      "R_callback_capture_monotonic_ns": 515752097764273,
+      "C_publish_return_monotonic_ns": 515752097854865
+    }
+  ],
+  "longspans": [
+    {
+      "stage": "progress_inclusive",
+      "begin_monotonic_ns": 515749651050702,
+      "end_monotonic_ns": 515749699516401,
+      "begin_thread_cpu_ns": 926995708,
+      "end_thread_cpu_ns": 975429310
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749649796549,
+      "end_monotonic_ns": 515749740704146,
+      "begin_thread_cpu_ns": 925742028,
+      "end_thread_cpu_ns": 1016300219
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749740928058,
+      "end_monotonic_ns": 515749756692778,
+      "begin_thread_cpu_ns": 1016524617,
+      "end_thread_cpu_ns": 1032131144
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749761373439,
+      "end_monotonic_ns": 515749776682155,
+      "begin_thread_cpu_ns": 1036733679,
+      "end_thread_cpu_ns": 1051885587
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749795513279,
+      "end_monotonic_ns": 515749810818196,
+      "begin_thread_cpu_ns": 1070489218,
+      "end_thread_cpu_ns": 1085641416
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749816214341,
+      "end_monotonic_ns": 515749830476158,
+      "begin_thread_cpu_ns": 1090997502,
+      "end_thread_cpu_ns": 1105059360
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749835594265,
+      "end_monotonic_ns": 515749870770246,
+      "begin_thread_cpu_ns": 1110136835,
+      "end_thread_cpu_ns": 1145149815
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749876326641,
+      "end_monotonic_ns": 515749890602100,
+      "begin_thread_cpu_ns": 1150666758,
+      "end_thread_cpu_ns": 1164810618
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749895923494,
+      "end_monotonic_ns": 515749911486252,
+      "begin_thread_cpu_ns": 1170092273,
+      "end_thread_cpu_ns": 1185485845
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749919999900,
+      "end_monotonic_ns": 515749930233905,
+      "begin_thread_cpu_ns": 1193938990,
+      "end_thread_cpu_ns": 1204036733
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749935693137,
+      "end_monotonic_ns": 515749955686940,
+      "begin_thread_cpu_ns": 1209457178,
+      "end_thread_cpu_ns": 1229255180
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749955698376,
+      "end_monotonic_ns": 515749970373410,
+      "begin_thread_cpu_ns": 1229266631,
+      "end_thread_cpu_ns": 1243745486
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749975683395,
+      "end_monotonic_ns": 515749990314642,
+      "begin_thread_cpu_ns": 1249016060,
+      "end_thread_cpu_ns": 1263447692
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515749995797353,
+      "end_monotonic_ns": 515750011215152,
+      "begin_thread_cpu_ns": 1268890508,
+      "end_thread_cpu_ns": 1284112071
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750016659148,
+      "end_monotonic_ns": 515750029483186,
+      "begin_thread_cpu_ns": 1289516545,
+      "end_thread_cpu_ns": 1302203148
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750036357137,
+      "end_monotonic_ns": 515750075919977,
+      "begin_thread_cpu_ns": 1308997424,
+      "end_thread_cpu_ns": 1348406805
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750076079444,
+      "end_monotonic_ns": 515750096035509,
+      "begin_thread_cpu_ns": 1348566363,
+      "end_thread_cpu_ns": 1368271376
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750096045466,
+      "end_monotonic_ns": 515750111045298,
+      "begin_thread_cpu_ns": 1368281597,
+      "end_thread_cpu_ns": 1383123679
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750116567293,
+      "end_monotonic_ns": 515750129563659,
+      "begin_thread_cpu_ns": 1388605592,
+      "end_thread_cpu_ns": 1401447046
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750136630811,
+      "end_monotonic_ns": 515750155512394,
+      "begin_thread_cpu_ns": 1408434342,
+      "end_thread_cpu_ns": 1427115327
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750155521838,
+      "end_monotonic_ns": 515750169879633,
+      "begin_thread_cpu_ns": 1427124828,
+      "end_thread_cpu_ns": 1441284380
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750176830935,
+      "end_monotonic_ns": 515750189731393,
+      "begin_thread_cpu_ns": 1448148020,
+      "end_thread_cpu_ns": 1460813453
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750195398209,
+      "end_monotonic_ns": 515750209769052,
+      "begin_thread_cpu_ns": 1466443129,
+      "end_thread_cpu_ns": 1480621613
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750216850270,
+      "end_monotonic_ns": 515750229885874,
+      "begin_thread_cpu_ns": 1487624178,
+      "end_thread_cpu_ns": 1500502400
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750235195415,
+      "end_monotonic_ns": 515750269623021,
+      "begin_thread_cpu_ns": 1505770082,
+      "end_thread_cpu_ns": 1540034604
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750271323680,
+      "end_monotonic_ns": 515750289820564,
+      "begin_thread_cpu_ns": 1541695011,
+      "end_thread_cpu_ns": 1560003280
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750296689191,
+      "end_monotonic_ns": 515750310205759,
+      "begin_thread_cpu_ns": 1566791116,
+      "end_thread_cpu_ns": 1580147818
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750315510233,
+      "end_monotonic_ns": 515750329915718,
+      "begin_thread_cpu_ns": 1585414462,
+      "end_thread_cpu_ns": 1599636991
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750331647997,
+      "end_monotonic_ns": 515750356232362,
+      "begin_thread_cpu_ns": 1601330867,
+      "end_thread_cpu_ns": 1625712298
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750375726284,
+      "end_monotonic_ns": 515750390177844,
+      "begin_thread_cpu_ns": 1644971135,
+      "end_thread_cpu_ns": 1659218922
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750395716073,
+      "end_monotonic_ns": 515750416364379,
+      "begin_thread_cpu_ns": 1664715439,
+      "end_thread_cpu_ns": 1685176286
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750436651011,
+      "end_monotonic_ns": 515750471290375,
+      "begin_thread_cpu_ns": 1705227355,
+      "end_thread_cpu_ns": 1739705368
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750476671471,
+      "end_monotonic_ns": 515750489708250,
+      "begin_thread_cpu_ns": 1745044764,
+      "end_thread_cpu_ns": 1757921596
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750496769158,
+      "end_monotonic_ns": 515750511061522,
+      "begin_thread_cpu_ns": 1764904627,
+      "end_thread_cpu_ns": 1779043740
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750516821974,
+      "end_monotonic_ns": 515750535184772,
+      "begin_thread_cpu_ns": 1784766768,
+      "end_thread_cpu_ns": 1802976722
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750540504288,
+      "end_monotonic_ns": 515750556788234,
+      "begin_thread_cpu_ns": 1808212352,
+      "end_thread_cpu_ns": 1824376359
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750561830875,
+      "end_monotonic_ns": 515750580675722,
+      "begin_thread_cpu_ns": 1829336167,
+      "end_thread_cpu_ns": 1848099269
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750580684733,
+      "end_monotonic_ns": 515750591540456,
+      "begin_thread_cpu_ns": 1848108192,
+      "end_thread_cpu_ns": 1858921595
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750591695887,
+      "end_monotonic_ns": 515750616946992,
+      "begin_thread_cpu_ns": 1859077125,
+      "end_thread_cpu_ns": 1884243990
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750616956726,
+      "end_monotonic_ns": 515750630600044,
+      "begin_thread_cpu_ns": 1884253730,
+      "end_thread_cpu_ns": 1897816138
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750630609345,
+      "end_monotonic_ns": 515750711598608,
+      "begin_thread_cpu_ns": 1897825474,
+      "end_thread_cpu_ns": 1978693871
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750711760397,
+      "end_monotonic_ns": 515750731559410,
+      "begin_thread_cpu_ns": 1978855906,
+      "end_thread_cpu_ns": 1998572461
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750731571534,
+      "end_monotonic_ns": 515750811779814,
+      "begin_thread_cpu_ns": 1998584590,
+      "end_thread_cpu_ns": 2078613097
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750820499668,
+      "end_monotonic_ns": 515750831180071,
+      "begin_thread_cpu_ns": 2087293249,
+      "end_thread_cpu_ns": 2097932864
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750831190552,
+      "end_monotonic_ns": 515750936821126,
+      "begin_thread_cpu_ns": 2097943274,
+      "end_thread_cpu_ns": 2203053786
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750937048962,
+      "end_monotonic_ns": 515750982092719,
+      "begin_thread_cpu_ns": 2203281822,
+      "end_thread_cpu_ns": 2248176816
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515750982107209,
+      "end_monotonic_ns": 515751021051517,
+      "begin_thread_cpu_ns": 2248191278,
+      "end_thread_cpu_ns": 2286986771
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515751021278036,
+      "end_monotonic_ns": 515751136733980,
+      "begin_thread_cpu_ns": 2287214199,
+      "end_thread_cpu_ns": 2402442544
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515751136940885,
+      "end_monotonic_ns": 515751181223570,
+      "begin_thread_cpu_ns": 2402649497,
+      "end_thread_cpu_ns": 2446774987
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515751181234807,
+      "end_monotonic_ns": 515751196354347,
+      "begin_thread_cpu_ns": 2446786195,
+      "end_thread_cpu_ns": 2461833675
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515751196575083,
+      "end_monotonic_ns": 515751336125803,
+      "begin_thread_cpu_ns": 2462055406,
+      "end_thread_cpu_ns": 2601275189
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515751336347925,
+      "end_monotonic_ns": 515751481696209,
+      "begin_thread_cpu_ns": 2601497843,
+      "end_thread_cpu_ns": 2746508334
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515751481887820,
+      "end_monotonic_ns": 515751536808874,
+      "begin_thread_cpu_ns": 2746700596,
+      "end_thread_cpu_ns": 2801505974
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515751537014394,
+      "end_monotonic_ns": 515751706920576,
+      "begin_thread_cpu_ns": 2801711681,
+      "end_thread_cpu_ns": 2971321410
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515751707127705,
+      "end_monotonic_ns": 515751894699553,
+      "begin_thread_cpu_ns": 2971529123,
+      "end_thread_cpu_ns": 3158862407
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515751894875972,
+      "end_monotonic_ns": 515752047416917,
+      "begin_thread_cpu_ns": 3159039057,
+      "end_thread_cpu_ns": 3311337724
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515752047590719,
+      "end_monotonic_ns": 515752165387744,
+      "begin_thread_cpu_ns": 3311511753,
+      "end_thread_cpu_ns": 3429100060
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 515752166124526,
+      "end_monotonic_ns": 515752280334178,
+      "begin_thread_cpu_ns": 3429837756,
+      "end_thread_cpu_ns": 3543641182
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # NET-01D 故障因果审计与最小修复计划
 
-状态：STATIC PREPARATION ONLY；尚无 ROS/ns-3/Gazebo/构建准入。起点 `cee0c7024ccf06d88d7ff458a47c39cdf605a7f3`，独立 worktree `/home/zhuyulab/ns3-workspace/net-01d/workspace`、分支 `net-01d/fault-causal-audit`。旧 NET worktree、tag、raw、FAIL、manifest原样保留；不推远程，Git由root协调。
+状态：运行已停止；两轮外部修补用完，actual相位B正常段FAIL，所有Gazebo NOT RUN。以下前瞻段落保留各次准入前原状态，不构成新的运行授权。起点 `cee0c7024ccf06d88d7ff458a47c39cdf605a7f3`，独立 worktree `/home/zhuyulab/ns3-workspace/net-01d/workspace`、分支 `net-01d/fault-causal-audit`。旧 NET worktree、tag、raw、FAIL、manifest原样保留；不推远程，Git由root协调。
 
 ## 目标、所有权与冻结边界
 
@@ -118,3 +118,89 @@ rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py \
 运行前只做一次精确/proc executable/Python入口确认无真实Gazebo/Nav2机器人actor（不启动graph探针），防同名受控服务竞争。原guard health/mask .3wall、C receipt .2wall、source .4/.55sim、lag .12与全部安全边界不松；P5未过0GZ。
 
 运行前评审纠正（0P5实际运行）：root核native `RADIO` 的enabled=true实际恢复、false实际blackout，因此薄role在RADIO_OFF标记后发送 `radio_fault(False)`。这是新fixture接线纠正，不当旧根因或已运行修复；B封存时需真实native channel_blackout事件确认，不另建测试。
+
+## 首P5失败后的唯一定向DDS take诊断候选（未运行）
+
+正常P5 A1失败原件不动，不凭此次观测重试改PASS；新case `full-load-dds-audit-01` 仅复用同32/60、原全部负载/Goal/保护与首次故障退出，新增SDK版固定元数据观测，非行为修复。
+
+```sh
+rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py \
+  --stage full --arm A1 --case full-load-dds-audit-01 \
+  --payloads /home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01 \
+  --dds-take-trace
+```
+
+Gateway默认仍SingleThreadedExecutor；仅此flag+已有dispatch_profile下R采用 `net01d.health.take_trace.MetadataSingleThreadedExecutor`。只覆写安装Humble的 `_take_subscription`：原handle内take_message恰一次，原tuple[0]返回一次、None/异常原样，非TF23/43/63直接super；原执行闭包、实体顺序、QoS、回调cap与周期均不改。不改installedSDK、不新Node/thread。实际版本tuple[1]仅source_timestamp/received_timestamp，缺GID/seq字段不造值；received_timestamp尚未校准为首次DDS入队，不能借此无证细分。每条记录take前后mono/CPU/实际最后ROSclock及原metadata，RAM落盘。
+
+源三TF publisher显式 `--dds-source-trace` 记录每kind发布ordinal、现成matched-reader count变化及publish前后realtime/mono bracket，默认正常P5源不加查询。不加任意sleep/新warmup、不预先等新match掩盖旧现象、不改原stamp/供给。元数据/publish查询自身有非零观测成本；只有实际数据足以区别DDS source→take/Reader等待与回调调度才进一步选最小修复。旧B137ms、旧A09源timer335ms和新P5TF23启动~1s等待仍分别标责任段，不能先合并同因。
+
+SOURCE_READY后root/metric审、独立checkpoint后才准唯一运行；不自动正常P5复验/B/GZ。
+
+## 同观测口径P5 B唯一候选（待root实际准入）
+
+只允许host在原DDS诊断flag下映射新B case，全部source/SDK take/负载/源时基/实际arm/原gate/profile与A1 audit相同，无行为修复。固定原V3B、32wall正常/60wall总、正常3Goal+第四已接受tb3活动任务、真native radio_fault(False)固定.8wall。
+
+```sh
+rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py \
+  --stage full --arm B --case full-load-wifi-audit-01 \
+  --payloads /home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01 \
+  --dds-take-trace \
+  --native-evidence-ram /dev/shm/net01d-full-load-wifi-audit-01
+```
+
+B实际业务WiFi/RAM，A1仅空native控制/Disk，分别列ns3CPU/IPC/credit/记录路径成本，不用总wall差冒称纯空口优势。A1成功audit未复现此前TF23~1s等待，旧FAIL和间歇根因E不消除；B诊断不会自动解锁Gazebo。源继续发布时radio-off→guardtrip前入网新seq与R缺收用于无旁路证明；trip后coor停步造成sim源停产的部分不全计无线丢失。本次不强造恢复时钟或合成未知Result。任何关键FAIL保第一现场，未批准复验/调参/另一矩阵。
+
+## 第1轮最小修复：unexpected failure后本机清理生命周期（未回归）
+
+源码/现场已证明harness缺口：FIRST_FAILURE后HOLD.ack即写共享STOP，同时撤R真实server和Gateway轮询，而原Gateway._close只快照/flush不spin本机Future。这可使已status5的本机GetResult尚未callback完成；不能追认它是首305ms时效根因。修补仅新harness：先SUPPLY_STOP停观测而保服务/GW活，原hard剩余内从该阶段开始固定最多2wall等原owned空、三PAUSE真实success、全部本机future.done的LOCAL_CLEANUP_DRAINED marker，再STOP。HOLD等待与本机drain共用这2wall，不各加2秒；timeout保首error并单列cleanup缺项，不等/伪清中央无线unknown。生产guard/阈值/close语义不改。
+
+定向回归只一次候选，20wall总/原SDK观测/真实A1 Action：
+
+```sh
+rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py \
+  --stage full --arm A1 --case cleanup-drain-01 \
+  --payloads /home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01 \
+  --dds-take-trace --cleanup-regression
+```
+
+等待真实三R accepted、三个C/R GetResult已ACK且仍pending（原计数3/3/inflight3、确认0、guard无fault），然后主动停观测，不写NEGATIVE_PHASE，使原FIRST_FAILURE分支实际执行。需FIRST_FAILURE在触发后保留原错误、LOCAL_CLEANUP_DRAINED在STOP前、每原UUID本机Cancel0/原列表+GetResult5、PAUSE真、owned空/本机Future0，无强杀/所有role真实退出。coor/GW1可保故障或C未知；其他role须0。原process-exit首error不擦；单独cleanup-regression.json/外层exit0仅表示此预定失败清理判据通过，不是32wall正常/物理停机/原B通过。若触发前自然再失败、或2wall内不drain，就原FAIL保留，不自动复验，不再整跑B32。
+
+## 第2轮最后最小修正（未执行）
+
+第1轮cleanup01保整体FAIL：三活动/主动停供触发都已达到；原Future.done先FINISHED，再排其done_callback，故marker先于实际GetResult callback记录。最终GW后来三GetResult5是后续事实，不回填旧marker。第2轮不放oracle，只加强同一marker：每个原g.stopped UUID须已有真实actual_local_cancel_response及actual_local_GetResult terminal4/5/6记录，旧owned空/三PAUSEsuccess/所有future.done条件保持；定向回归仍严格要求每原UUID Cancel0/列表与GetResult5。原hard内同一最多2wall；不等/伪清C无线unknown。
+
+先仅此唯一20wall定向回归，仍旧stress5ms，未准执行：
+
+```sh
+rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py \
+  --stage full --arm A1 --case cleanup-drain-02 \
+  --payloads /home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01 \
+  --dds-take-trace --cleanup-regression
+```
+
+同轮另一个必要修正是实际相位合同：主审/独审只读旧真实A10的14322/14322、B01的10951/10951物理ACK，coor每ACK前已见相同G=E，独立R witness支持同相；旧mock E=G+5ms为人为保守stress，不能外推真实Gazebo能力上限。`mock_physics.py --phase`保默认stress5ms（initial5ms），显式actual-corr6201只把initial改0；原每10个1ms Step/10ms clock采样、q10ms/credit20ms/pacer20ms及原TTL均不变，不补末端clock、不改offset。输出记phase/初值/真实证据引用 `health/real-gazebo-phase-01.json`。这是fixture条件校准，不是生产时钟Bug修复。
+
+cleanup02独审通过后，actual-phase A1/B各自新case/另准，源/metadata/32正常60总/4Goal/实际负例相同：
+
+```sh
+rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py \
+  --stage full --arm A1 --case actual-phase-local-01 \
+  --payloads /home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01 \
+  --dds-take-trace --mock-phase actual-corr6201 \
+  --native-evidence-ram /dev/shm/net01d-full-load-actual-phase-local-01
+
+rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py \
+  --stage full --arm B --case actual-phase-wifi-01 \
+  --payloads /home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01 \
+  --dds-take-trace --mock-phase actual-corr6201 \
+  --native-evidence-ram /dev/shm/net01d-full-load-actual-phase-wifi-01
+```
+
+以上准备不授权自动执行。旧stress P1/P5 FAIL全保，cleanup01 FAIL全保；两轮修复到此为止，若真实相位再关键失败，不开第三轮修补/扫q、pacer、credit、V3/TTL，不自动GZ。
+
+实际相位两个新组在结果前统一原RAM记录后端（A1也必需显式独占RAM路径），全部PCAP/ledger原样、同资源前提/actualexit后完整copy/原60wall，不关日志；旧stress A1/cleanup默认Disk保持。消除这一后端差异，不消除A1空业务模型vsB真实业务CPU的固有差异，仍分项披露。
+
+
+## 执行封存状态（原前瞻计划保留）
+
+上述命令共执行九个独占无运动case，详见RUN_LEDGER。actual-phase-local-01完成预注册正常及负例；actual-phase-wifi-01在normal32前触发原source-age保护，计划第四Goal/radio-off未执行。两轮修补已用完，所有Gazebo臂NOT RUN/0of8；不自动执行原未来草案、不第三修补。当前仅完成精确首fault归因/报告与root独立本地交付备份。
