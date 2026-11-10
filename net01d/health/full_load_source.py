@@ -24,6 +24,7 @@ def main():
     parser.add_argument('--payloads',type=Path,required=True)
     parser.add_argument('--active-wall',type=float,default=32.)
     parser.add_argument('--supply-stop-file',type=Path)
+    parser.add_argument('--dds-source-trace',action='store_true')
     args = parser.parse_args()
     import rclpy
     from rclpy.clock import Clock,ClockType
@@ -64,6 +65,7 @@ def main():
     quiet = False;arm_future = None;arm_response = None;error = None
     supply_end_wall=None;active_start_sim_ns=None;supply_end_sim_ns=None
     feedback_publish_calls=0
+    tf_ordinals=Counter();tf_matched={}
     def record(kind,**fields):
         rows.append(dict(kind=kind,monotonic_ns=time.monotonic_ns(),
             node_sim_ns=node.get_clock().now().nanoseconds,**fields))
@@ -71,11 +73,27 @@ def main():
         if active_start is None or quiet:
             return
         before = time.monotonic_ns()
+        diagnostic=None
+        if args.dds_source_trace and kind in ('map->odom','odom->base_footprint','both_wheel_TF'):
+            tf_ordinals[kind]+=1
+            matched=pub.get_subscription_count()
+            diagnostic=dict(writer_kind=kind,publication_ordinal=tf_ordinals[kind],
+                matched_readers=matched,before_realtime_ns=time.time_ns(),
+                before_realtime_mono_after_ns=time.monotonic_ns())
+            if tf_matched.get(kind)!=matched:
+                tf_matched[kind]=matched
+                record('tf_matched_readers_changed',writer_kind=kind,matched_readers=matched,
+                    publication_ordinal=tf_ordinals[kind])
         pub.publish(message)
+        after=time.monotonic_ns()
+        if diagnostic is not None:
+            diagnostic.update(after_realtime_ns=time.time_ns(),after_realtime_mono_after_ns=time.monotonic_ns())
         offset={'fixture_odom':2,'fixture_static':4,'exact_zero_cmd':6,
             'historical_content_fixture_map':1,'historical_content_fixture_costmap':5}.get(kind,3)
-        rows.append(dict(kind=kind,flow=robot*20+offset,source_stamp_ns=stamp,before_monotonic_ns=before,
-            after_monotonic_ns=time.monotonic_ns(),node_sim_ns=node.get_clock().now().nanoseconds))
+        row=dict(kind=kind,flow=robot*20+offset,source_stamp_ns=stamp,before_monotonic_ns=before,
+            after_monotonic_ns=after,node_sim_ns=node.get_clock().now().nanoseconds)
+        if diagnostic is not None:row['dds_source_trace']=diagnostic
+        rows.append(row)
     def stamp(header,value):
         header.stamp.sec,header.stamp.nanosec = divmod(value,1_000_000_000)
     tf = [node.create_publisher(TFMessage,prefix+'/tf',100) for _ in range(3)]
@@ -205,6 +223,7 @@ def main():
                 sorted(Counter((r['flow'],r['kind']) for r in rows if 'before_monotonic_ns' in r).items())],
             feedback_publisher_calls_after_successful_tick=feedback_publish_calls,
             zero_spy_scope='R spy sees source and Guardian zero writers; receipt alone does not identify Guardian or physical driver consumption',
+            dds_source_trace_enabled=args.dds_source_trace,
             feedback_contract='Existing ControlledServer full feedback fields at100wall Hz only while actual goal handle executes')
         with (args.directory/'full-source.json').open('x') as stream:
             json.dump(data,stream);stream.write('\n')

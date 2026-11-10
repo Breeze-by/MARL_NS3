@@ -27,15 +27,19 @@ def main():
     parser.add_argument('--stage',choices=('profile','full'),default='profile')
     parser.add_argument('--arm',choices=('A1','B'),required=True)
     parser.add_argument('--case',choices=('health-profile-01','health-profile-wifi-01',
-        'full-load-local-01','full-load-wifi-01'),required=True)
+        'full-load-local-01','full-load-wifi-01','full-load-dds-audit-01'),required=True)
     parser.add_argument('--native',type=Path,default=NATIVE)
     parser.add_argument('--baseline',type=Path,default=BASELINE)
     parser.add_argument('--native-evidence-ram',type=Path)
     parser.add_argument('--payloads',type=Path)
+    parser.add_argument('--dds-take-trace',action='store_true')
     args=parser.parse_args()
     full=args.stage=='full'
     expected_case=({'A1':'full-load-local-01','B':'full-load-wifi-01'} if full else
         {'A1':'health-profile-01','B':'health-profile-wifi-01'})[args.arm]
+    if args.dds_take_trace:
+        if not full or args.arm!='A1':raise ValueError('DDS audit is the fixed full A1 diagnostic only')
+        expected_case='full-load-dds-audit-01'
     if args.case!=expected_case:raise ValueError('Use the preregistered arm/case pair')
     if (args.arm=='B') != (args.native_evidence_ram is not None):
         raise ValueError('B requires its explicit exclusive RAM evidence path; A1 retains disk')
@@ -104,6 +108,7 @@ def main():
     (base/'scope.json').write_text(json.dumps(scope,indent=2)+'\n')
     if full:
         scope.update(stage='full',normal_t0='actual C client all three Action facades ready and first Goal about to send',
+            dds_take_trace=args.dds_take_trace,
             delivery=('IDEAL-DIRECT-ADAPTER' if args.arm=='A1' else 'actual ns3 V3 B WiFi')+
                 '; controlled real Action transport; 3 normal +1 negative; no physical Nav2/Policy',
             source_window='Independent R supplies prewarm plus whole client32wall normal window and negative, until SUPPLY_STOP/finalSTOP',
@@ -144,7 +149,8 @@ def main():
         launch('peer',ros([role,'--role','peer','--directory',inner+'/peer','--stop-file',stop]))
         # Both roles start before bootstrap physical tokens can be granted.
         gateway=launch('gateway',ros([role,'--role','gateway','--directory',inner+'/gateway',
-            '--stop-file',stop,'--mode',('A' if args.arm=='A1' else 'B')]+(['--full-load'] if full else [])))
+            '--stop-file',stop,'--mode',('A' if args.arm=='A1' else 'B')]+(['--full-load'] if full else [])+
+            (['--dds-take-trace'] if args.dds_take_trace else [])))
         launch('mock_physics',ros(['/mnt/net01/followup04/mock_physics.py',
             '--output',inner+'/mock-physics.json','--stop-file',stop]),'MOCK_PHYSICS_READY')
         # Gateway stdout is a file: its independent source waits on real DDS
@@ -161,7 +167,8 @@ def main():
                 launch('source-tb'+str(robot),ros(['/mnt/net01d/health/full_load_source.py',
                     '--robot',str(robot),'--directory',inner+'/source-tb'+str(robot),
                     '--stop-file',stop,'--session-id','2026110912','--active-wall','32',
-                    '--payloads',payloads,'--supply-stop-file',inner+'/SUPPLY_STOP']))
+                    '--payloads',payloads,'--supply-stop-file',inner+'/SUPPLY_STOP']+
+                    (['--dds-source-trace'] if args.dds_take_trace else [])))
             launch('client',ros([script,'--role','client','--directory',inner+'/client',
                 '--stop-file',stop,'--session-id','2026110912','--active-wall','32',
                 '--journal',inner+'/gateway/controller/allocation-events.jsonl',

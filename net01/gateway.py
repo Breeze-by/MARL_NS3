@@ -94,7 +94,10 @@ def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limi
 
 
 class Gateway:
-    def __init__(self, mode, socket, directory, session_id, *, dispatch_profile=False,control_trace=False,execution_profile=None):
+    def __init__(self, mode, socket, directory, session_id, *, dispatch_profile=False,control_trace=False,execution_profile=None,
+                 dds_take_trace=False):
+        if dds_take_trace and not dispatch_profile:
+            raise ValueError('DDS take diagnostic requires the existing RAM dispatch profile')
         self.mode,self.directory,self.session_id=mode,Path(directory),session_id
         self.execution_profile=load_profile(execution_profile)
         self.step_quantum_ns=100_000_000 if self.execution_profile is None else self.execution_profile['native_step_quantum_ns']
@@ -122,7 +125,11 @@ class Gateway:
             rclpy.init(context=context,domain_id=domain,signal_handler_options=SignalHandlerOptions.NO)
             node=Node("net01_gateway_"+side.lower(),context=context,
                 parameter_overrides=[Parameter("use_sim_time",value=True)])
-            executor=SingleThreadedExecutor(context=context);executor.add_node(node)
+            if dds_take_trace and side=='R':
+                from net01d.health.take_trace import MetadataSingleThreadedExecutor
+                executor=MetadataSingleThreadedExecutor(context=context,node=node,trace=self.health_trace)
+            else:executor=SingleThreadedExecutor(context=context)
+            executor.add_node(node)
             self.contexts.append(context);self.nodes.append(node);self.executors.append(executor)
         self.c,self.r=self.nodes
         self.hub=HubClient(socket,control_trace=control_trace);self.hub.receive=self.receive
@@ -270,7 +277,9 @@ class Gateway:
                     row=self.health_trace.stamp('R_health_intake',flow=flow,
                         native_message_id=meta.get('message_id',meta.get('native_id')),
                         old_sequence=None if guard.health is None else guard.health['sequence'],
-                        old_receipt_mono_s=guard.health_receipt,armed=guard.armed,fault_before=guard.fault)
+                        old_receipt_mono_s=guard.health_receipt,armed=guard.armed,fault_before=guard.fault,
+                        R_node_sim_before_ns=self.r.get_clock().now().nanoseconds,
+                        last_native_ACK_before_ns=self.hub.horizon_ns)
                 state=json.loads(deserialize_message(body,String).data)
                 if row is not None:row.update(sequence=state['sequence'],
                     decode_end_mono_ns=time.monotonic_ns(),decode_end_thread_cpu_ns=time.thread_time_ns())
@@ -280,7 +289,9 @@ class Gateway:
                 finally:
                     if row is not None:row.update(guard_end_mono_ns=time.monotonic_ns(),
                         guard_end_thread_cpu_ns=time.thread_time_ns(),
-                        actual_receipt_mono_s=guard.health_receipt,fault_after=guard.fault)
+                        actual_receipt_mono_s=guard.health_receipt,fault_after=guard.fault,
+                        R_node_sim_after_ns=self.r.get_clock().now().nanoseconds,
+                        last_native_ACK_after_ns=self.hub.horizon_ns)
             self.wires[side].receive(meta,body,rpc)
 
     def arm(self,robot,response):
@@ -561,9 +572,11 @@ def main():
     parser.add_argument("--session-id",type=int,required=True)
     parser.add_argument('--control-trace',action='store_true')
     parser.add_argument('--dispatch-profile',action='store_true')
+    parser.add_argument('--dds-take-trace',action='store_true')
     parser.add_argument('--execution-profile')
     args=parser.parse_args()
-    node=Gateway(args.mode,args.socket,args.directory,args.session_id,dispatch_profile=args.dispatch_profile,control_trace=args.control_trace,execution_profile=args.execution_profile)
+    node=Gateway(args.mode,args.socket,args.directory,args.session_id,dispatch_profile=args.dispatch_profile,
+        control_trace=args.control_trace,execution_profile=args.execution_profile,dds_take_trace=args.dds_take_trace)
     stopping=False
     def stop(signum,frame):
         nonlocal stopping

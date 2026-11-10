@@ -40,11 +40,11 @@ def peer(directory,stop_file):
             node.destroy_node();rclpy.try_shutdown()
 
 
-def gateway(directory,stop_file,mode,full_load=False):
+def gateway(directory,stop_file,mode,full_load=False,dds_take_trace=False):
     from gateway import Gateway
     node=Gateway(mode,directory.parent/'wire.sock',directory,SESSION,
         dispatch_profile=True,control_trace=True,
-        execution_profile='controlled1000-clock100-q10ms')
+        execution_profile='controlled1000-clock100-q10ms',dds_take_trace=dds_take_trace)
     announced=False;next_check=0.;radio_off=False
     base=directory.parent
     def marker(name,data):
@@ -114,9 +114,10 @@ def main():
     parser.add_argument('--stop-file',type=Path,required=True)
     parser.add_argument('--mode',choices=('A','B'),default='A')
     parser.add_argument('--full-load',action='store_true')
+    parser.add_argument('--dds-take-trace',action='store_true')
     args=parser.parse_args()
     if args.role=='peer':return peer(args.directory,args.stop_file)
-    if args.role=='gateway':return gateway(args.directory,args.stop_file,args.mode,args.full_load)
+    if args.role=='gateway':return gateway(args.directory,args.stop_file,args.mode,args.full_load,args.dds_take_trace)
     from followup01.continuous_dds import source
     return source(args.directory,100,'controlled1000-clock100-q10ms','frozen-source-clock')
 
