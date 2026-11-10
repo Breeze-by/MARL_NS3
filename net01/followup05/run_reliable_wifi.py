@@ -8,7 +8,7 @@ import subprocess
 import time
 
 repo=Path(__file__).resolve().parents[2]
-parser=argparse.ArgumentParser();parser.add_argument('--case',choices=('01','02'),required=True)
+parser=argparse.ArgumentParser();parser.add_argument('--case',choices=('01','02','03'),required=True)
 number=parser.parse_args().case
 case=repo/f'net01/followup05/evidence/reliable-wifi-{number}'
 case.mkdir(parents=True,exist_ok=False)

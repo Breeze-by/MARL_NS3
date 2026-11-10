@@ -71,3 +71,18 @@ rtk proxy python3 -B net-01/workspace/net01/followup05/run_reliable_wifi.py --ca
 新exclusive evidence/reliable-wifi-02与f05-wifi-02.sock，runner仅接受01/02且旧01目录已存在拒绝覆盖。所有协议/网络/时钟/故障窗口/保护/60-50-45wall与case场景原样，仅修前检oracle/新结果路径。生产ActionWire/Gateway仍51c未动。最多这一次02复验，失败先保原件不自动增03。
 
 主源链接：https://github.com/ros2/rmw_fastrtps/blob/humble/rmw_fastrtps_shared_cpp/src/rmw_service_names_and_types.cpp#L53-L57 ，https://github.com/ros2/rmw_dds_common/blob/humble/rmw_dds_common/src/graph_cache.cpp#L690-L699 。
+
+
+## 02 oracle失败与唯一03必要复验（未运行）
+
+02原FAIL保留，16个正例断言成立；3个真实UUID原Goal字段一致、两SUCCEEDED/一CANCELED、真实物理request/response丢失恢复与ACK重送、1.2wall GetResult长等、RPC/confirmation全drain。outer6.847wall/ROS1/Hub0/native0/无forced；永久断链尚未执行。首错是哈希断言的`flow>=200`误把LinkSession65534/65535六个HELLO/ACK算成Action，Gateway捕获范围本来200<=flow<300。原132条actualdelivery恰6个unmatched全这两个握手flow，其余原Action完整body不变；不能将02整个结果追认PASS。
+
+根审批准准备仅一行filter纠正为200<=flow<300，runner显式增加case03，生产51c/ACK协议/网络/源/seed/门限/时基/故障阶段均不改。03重复正例独立计作实际调用；01/02原目录及socket名字不复用，不增加通用框架。03仍总60/Hub50/active45+原close界。
+
+待root锁定准入后唯一入口：
+
+```sh
+rtk proxy python3 -B net-01/workspace/net01/followup05/run_reliable_wifi.py --case 03
+```
+
+03为同固定全阶段夹具，用于完成先前因checker错误未执行的永久断链与真实Gateway.fail/原未知RPC/本机零与PAUSE响应门禁。不得自动新增04或因结果改参数重跑；这条准备不授权Gazebo/训练/NET02。

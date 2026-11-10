@@ -207,7 +207,7 @@ def main():
             for r in gateway.records if r['kind']=='action_CDR_capture'}
         check('all_actual_Action_CDR_bytes_equal_captured_full_payload',all(
             (r['sender'],r['receiver'],r['flow'],r['rpc_id'],hashlib.sha256(bytes.fromhex(r['body_hex'])).hexdigest()) in captured
-            for r in actual_packets if r['flow']>=200))
+            for r in actual_packets if 200<=r['flow']<300))
 
         # Permanent partition: readiness withdrawal can fail closed BEFORE the
         # one-second transport ceiling. Neither original limit is relaxed.

@@ -1,0 +1,764 @@
+{
+  "status": "FAIL",
+  "checks": {
+    "isolated_domain_no_real_Action_lifecycle_or_robot_driver_before_fixture": true,
+    "synthetic_fixture_guard_inputs_explicitly_arm": true,
+    "real_five_endpoints_after_actual_three_STA_handshake": true,
+    "physical_blackout_request_not_whole_received_before_restore": true,
+    "tb1_real_client_accept_original_UUID_and_all_Goal_fields": true,
+    "lost_request_recovered_same_RPC_one_real_goal": true,
+    "recovered_goal_real_SUCCESS_feedback_status": true,
+    "tb2_real_client_accept_original_UUID_and_all_Goal_fields": true,
+    "GetResult_real_wait_beyond_confirmation_budget_no_false_fault": true,
+    "lost_request_ACK_deduplicated_without_second_GetResult_call": true,
+    "physical_blackout_response_not_whole_received_before_restore": true,
+    "lost_real_response_retried_same_CDR_to_original_client": true,
+    "tb3_real_client_accept_original_UUID_and_all_Goal_fields": true,
+    "lost_response_ACK_recovered_no_second_DDS_accept": true,
+    "real_Cancel_UUID_list_and_CANCELED_terminal": true,
+    "healthy_rpc_and_confirmation_counts_drained": true
+  },
+  "domains": [
+    91,
+    92
+  ],
+  "session_id": 5002,
+  "scope": "Actual Gateway/real DDS controlled Action servers/actual ns3 WiFi; no Nav2/Gazebo/Policy",
+  "health_bound_source": "synthetic fresh fixture intake only; not radio health/mask qualification",
+  "nonzero_velocity_publishers": 0,
+  "physical_stop_certified": false,
+  "preflight": {
+    "discovered_service_topics": [
+      "/tb1/lifecycle_manager_navigation/manage_nodes",
+      "/tb1/navigate_to_pose/_action/cancel_goal",
+      "/tb1/navigate_to_pose/_action/get_result",
+      "/tb1/navigate_to_pose/_action/send_goal",
+      "/tb2/lifecycle_manager_navigation/manage_nodes",
+      "/tb2/navigate_to_pose/_action/cancel_goal",
+      "/tb2/navigate_to_pose/_action/get_result",
+      "/tb2/navigate_to_pose/_action/send_goal",
+      "/tb3/lifecycle_manager_navigation/manage_nodes",
+      "/tb3/navigate_to_pose/_action/cancel_goal",
+      "/tb3/navigate_to_pose/_action/get_result",
+      "/tb3/navigate_to_pose/_action/send_goal"
+    ],
+    "foreign_cmd_vel_readers": {
+      "1": [],
+      "2": [],
+      "3": []
+    },
+    "Action_server_ready": {
+      "tb1:offset0": false,
+      "tb1:offset2": false,
+      "tb1:offset4": false,
+      "tb2:offset0": false,
+      "tb2:offset2": false,
+      "tb2:offset4": false,
+      "tb3:offset0": false,
+      "tb3:offset2": false,
+      "tb3:offset4": false
+    },
+    "PAUSE_server_ready": {
+      "1": false,
+      "2": false,
+      "3": false
+    }
+  },
+  "positive_phase": {
+    "accepted": {
+      "1": 1,
+      "2": 1,
+      "3": 1
+    },
+    "outcomes": {
+      "1": 4,
+      "2": 4,
+      "3": 5
+    },
+    "ACK_injections": [
+      {
+        "kind": "application_drop_after_actual_native_RX",
+        "meta": {
+          "kind": "delivered",
+          "sender": 2,
+          "receiver": 0,
+          "flow": 249,
+          "message_id": 46,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 1280051766,
+          "hub_receive_monotonic_ns": 507431931135002,
+          "bytes": 10
+        },
+        "rpc_id": 21483426414596,
+        "body_hex": "0102",
+        "monotonic": 507431.931593415
+      },
+      {
+        "kind": "application_drop_after_actual_native_RX",
+        "meta": {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 3,
+          "flow": 269,
+          "message_id": 114,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 2100653050,
+          "hub_receive_monotonic_ns": 507433804057550,
+          "bytes": 10
+        },
+        "rpc_id": 21483426414597,
+        "body_hex": "0101",
+        "monotonic": 507433.810889795
+      }
+    ]
+  },
+  "error": "AssertionError('all_actual_Action_CDR_bytes_equal_captured_full_payload')",
+  "confirmation_state": {
+    "C": {
+      "status": {
+        "enabled": true,
+        "failure": null,
+        "waiting": 0,
+        "unconfirmed": 0
+      },
+      "events": [
+        {
+          "kind": "original_CDR_attempt",
+          "monotonic": 507431.324737354,
+          "robot": 1,
+          "offset": 0,
+          "rpc_id": 21483426414593,
+          "attempt": 1,
+          "body_bytes": 129
+        },
+        {
+          "kind": "original_CDR_attempt",
+          "monotonic": 507431.528529356,
+          "robot": 1,
+          "offset": 0,
+          "rpc_id": 21483426414593,
+          "attempt": 2,
+          "body_bytes": 129
+        },
+        {
+          "kind": "confirmation_received",
+          "monotonic": 507431.649813821,
+          "robot": 1,
+          "offset": 0,
+          "rpc_id": 21483426414593
+        },
+        {
+          "kind": "confirmation_enqueued",
+          "monotonic": 507431.650316882,
+          "robot": 1,
+          "offset": 1,
+          "rpc_id": 21483426414593
+        },
+        {
+          "kind": "original_CDR_attempt",
+          "monotonic": 507431.679803877,
+          "robot": 1,
+          "offset": 2,
+          "rpc_id": 21483426414594,
+          "attempt": 1,
+          "body_bytes": 20
+        },
+        {
+          "kind": "confirmation_received",
+          "monotonic": 507431.724985991,
+          "robot": 1,
+          "offset": 2,
+          "rpc_id": 21483426414594
+        },
+        {
+          "kind": "confirmation_enqueued",
+          "monotonic": 507431.769241799,
+          "robot": 1,
+          "offset": 3,
+          "rpc_id": 21483426414594
+        },
+        {
+          "kind": "original_CDR_attempt",
+          "monotonic": 507431.797100204,
+          "robot": 2,
+          "offset": 0,
+          "rpc_id": 21483426414595,
+          "attempt": 1,
+          "body_bytes": 129
+        },
+        {
+          "kind": "confirmation_received",
+          "monotonic": 507431.853561179,
+          "robot": 2,
+          "offset": 0,
+          "rpc_id": 21483426414595
+        },
+        {
+          "kind": "confirmation_enqueued",
+          "monotonic": 507431.854322619,
+          "robot": 2,
+          "offset": 1,
+          "rpc_id": 21483426414595
+        },
+        {
+          "kind": "original_CDR_attempt",
+          "monotonic": 507431.88924285,
+          "robot": 2,
+          "offset": 2,
+          "rpc_id": 21483426414596,
+          "attempt": 1,
+          "body_bytes": 20
+        },
+        {
+          "kind": "original_CDR_attempt",
+          "monotonic": 507432.090349854,
+          "robot": 2,
+          "offset": 2,
+          "rpc_id": 21483426414596,
+          "attempt": 2,
+          "body_bytes": 20
+        },
+        {
+          "kind": "confirmation_received",
+          "monotonic": 507432.128510467,
+          "robot": 2,
+          "offset": 2,
+          "rpc_id": 21483426414596
+        },
+        {
+          "kind": "confirmation_enqueued",
+          "monotonic": 507433.673835487,
+          "robot": 2,
+          "offset": 3,
+          "rpc_id": 21483426414596
+        },
+        {
+          "kind": "confirmation_enqueued",
+          "monotonic": 507433.674038599,
+          "robot": 2,
+          "offset": 3,
+          "rpc_id": 21483426414596
+        },
+        {
+          "kind": "original_CDR_attempt",
+          "monotonic": 507433.708710016,
+          "robot": 3,
+          "offset": 0,
+          "rpc_id": 21483426414597,
+          "attempt": 1,
+          "body_bytes": 129
+        },
+        {
+          "kind": "confirmation_received",
+          "monotonic": 507433.742563597,
+          "robot": 3,
+          "offset": 0,
+          "rpc_id": 21483426414597
+        },
+        {
+          "kind": "confirmation_enqueued",
+          "monotonic": 507433.769446862,
+          "robot": 3,
+          "offset": 1,
+          "rpc_id": 21483426414597
+        },
+        {
+          "kind": "confirmation_enqueued",
+          "monotonic": 507433.963541271,
+          "robot": 3,
+          "offset": 1,
+          "rpc_id": 21483426414597
+        },
+        {
+          "kind": "original_CDR_attempt",
+          "monotonic": 507433.989858134,
+          "robot": 3,
+          "offset": 2,
+          "rpc_id": 21483426414598,
+          "attempt": 1,
+          "body_bytes": 20
+        },
+        {
+          "kind": "original_CDR_attempt",
+          "monotonic": 507433.990489719,
+          "robot": 3,
+          "offset": 4,
+          "rpc_id": 21483426414599,
+          "attempt": 1,
+          "body_bytes": 28
+        },
+        {
+          "kind": "confirmation_received",
+          "monotonic": 507434.047572139,
+          "robot": 3,
+          "offset": 2,
+          "rpc_id": 21483426414598
+        },
+        {
+          "kind": "confirmation_received",
+          "monotonic": 507434.047612461,
+          "robot": 3,
+          "offset": 4,
+          "rpc_id": 21483426414599
+        },
+        {
+          "kind": "confirmation_enqueued",
+          "monotonic": 507434.048105959,
+          "robot": 3,
+          "offset": 5,
+          "rpc_id": 21483426414599
+        },
+        {
+          "kind": "confirmation_enqueued",
+          "monotonic": 507434.113216495,
+          "robot": 3,
+          "offset": 3,
+          "rpc_id": 21483426414598
+        },
+        {
+          "kind": "reliable_transport_stopped",
+          "monotonic": 507434.173507064,
+          "reason": "owned_shutdown"
+        }
+      ],
+      "transfers": [
+        {
+          "robot": 1,
+          "offset": 0,
+          "rpc_id": 21483426414593,
+          "body_bytes": 129,
+          "attempts": 2,
+          "deadline": 507432.324725245,
+          "next_attempt": 507431.72850804904,
+          "state": "ACKED"
+        },
+        {
+          "robot": 1,
+          "offset": 2,
+          "rpc_id": 21483426414594,
+          "body_bytes": 20,
+          "attempts": 1,
+          "deadline": 507432.679792981,
+          "next_attempt": 507431.879792981,
+          "state": "ACKED"
+        },
+        {
+          "robot": 2,
+          "offset": 0,
+          "rpc_id": 21483426414595,
+          "body_bytes": 129,
+          "attempts": 1,
+          "deadline": 507432.797088371,
+          "next_attempt": 507431.997088371,
+          "state": "ACKED"
+        },
+        {
+          "robot": 2,
+          "offset": 2,
+          "rpc_id": 21483426414596,
+          "body_bytes": 20,
+          "attempts": 2,
+          "deadline": 507432.88923241,
+          "next_attempt": 507432.290327498,
+          "state": "ACKED"
+        },
+        {
+          "robot": 3,
+          "offset": 0,
+          "rpc_id": 21483426414597,
+          "body_bytes": 129,
+          "attempts": 1,
+          "deadline": 507434.708700542,
+          "next_attempt": 507433.908700542,
+          "state": "ACKED"
+        },
+        {
+          "robot": 3,
+          "offset": 2,
+          "rpc_id": 21483426414598,
+          "body_bytes": 20,
+          "attempts": 1,
+          "deadline": 507434.989848758,
+          "next_attempt": 507434.189848758,
+          "state": "ACKED"
+        },
+        {
+          "robot": 3,
+          "offset": 4,
+          "rpc_id": 21483426414599,
+          "body_bytes": 28,
+          "attempts": 1,
+          "deadline": 507434.990482656,
+          "next_attempt": 507434.190482656,
+          "state": "ACKED"
+        }
+      ]
+    },
+    "R": {
+      "1": {
+        "status": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "events": [
+          {
+            "kind": "confirmation_enqueued",
+            "monotonic": 507431.609806921,
+            "robot": 1,
+            "offset": 0,
+            "rpc_id": 21483426414593
+          },
+          {
+            "kind": "original_CDR_attempt",
+            "monotonic": 507431.624266877,
+            "robot": 1,
+            "offset": 1,
+            "rpc_id": 21483426414593,
+            "attempt": 1,
+            "body_bytes": 16
+          },
+          {
+            "kind": "confirmation_received",
+            "monotonic": 507431.691239067,
+            "robot": 1,
+            "offset": 1,
+            "rpc_id": 21483426414593
+          },
+          {
+            "kind": "confirmation_enqueued",
+            "monotonic": 507431.692223437,
+            "robot": 1,
+            "offset": 2,
+            "rpc_id": 21483426414594
+          },
+          {
+            "kind": "original_CDR_attempt",
+            "monotonic": 507431.737197447,
+            "robot": 1,
+            "offset": 3,
+            "rpc_id": 21483426414594,
+            "attempt": 1,
+            "body_bytes": 8
+          },
+          {
+            "kind": "confirmation_received",
+            "monotonic": 507431.793432786,
+            "robot": 1,
+            "offset": 3,
+            "rpc_id": 21483426414594
+          },
+          {
+            "kind": "reliable_transport_stopped",
+            "monotonic": 507434.173513182,
+            "reason": "owned_shutdown"
+          }
+        ],
+        "transfers": [
+          {
+            "robot": 1,
+            "offset": 1,
+            "rpc_id": 21483426414593,
+            "body_bytes": 16,
+            "attempts": 1,
+            "deadline": 507432.624257291,
+            "next_attempt": 507431.82425729104,
+            "state": "ACKED"
+          },
+          {
+            "robot": 1,
+            "offset": 3,
+            "rpc_id": 21483426414594,
+            "body_bytes": 8,
+            "attempts": 1,
+            "deadline": 507432.737188454,
+            "next_attempt": 507431.93718845403,
+            "state": "ACKED"
+          }
+        ]
+      },
+      "2": {
+        "status": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "events": [
+          {
+            "kind": "confirmation_enqueued",
+            "monotonic": 507431.831691549,
+            "robot": 2,
+            "offset": 0,
+            "rpc_id": 21483426414595
+          },
+          {
+            "kind": "original_CDR_attempt",
+            "monotonic": 507431.840899494,
+            "robot": 2,
+            "offset": 1,
+            "rpc_id": 21483426414595,
+            "attempt": 1,
+            "body_bytes": 16
+          },
+          {
+            "kind": "confirmation_received",
+            "monotonic": 507431.888143176,
+            "robot": 2,
+            "offset": 1,
+            "rpc_id": 21483426414595
+          },
+          {
+            "kind": "confirmation_enqueued",
+            "monotonic": 507431.908268474,
+            "robot": 2,
+            "offset": 2,
+            "rpc_id": 21483426414596
+          },
+          {
+            "kind": "confirmation_enqueued",
+            "monotonic": 507432.103368556,
+            "robot": 2,
+            "offset": 2,
+            "rpc_id": 21483426414596
+          },
+          {
+            "kind": "original_CDR_attempt",
+            "monotonic": 507433.37463305,
+            "robot": 2,
+            "offset": 3,
+            "rpc_id": 21483426414596,
+            "attempt": 1,
+            "body_bytes": 8
+          },
+          {
+            "kind": "original_CDR_attempt",
+            "monotonic": 507433.575221564,
+            "robot": 2,
+            "offset": 3,
+            "rpc_id": 21483426414596,
+            "attempt": 2,
+            "body_bytes": 8
+          },
+          {
+            "kind": "confirmation_received",
+            "monotonic": 507433.707465265,
+            "robot": 2,
+            "offset": 3,
+            "rpc_id": 21483426414596
+          },
+          {
+            "kind": "confirmation_received",
+            "monotonic": 507433.707914872,
+            "robot": 2,
+            "offset": 3,
+            "rpc_id": 21483426414596
+          },
+          {
+            "kind": "reliable_transport_stopped",
+            "monotonic": 507434.17351551,
+            "reason": "owned_shutdown"
+          }
+        ],
+        "transfers": [
+          {
+            "robot": 2,
+            "offset": 1,
+            "rpc_id": 21483426414595,
+            "body_bytes": 16,
+            "attempts": 1,
+            "deadline": 507432.840890815,
+            "next_attempt": 507432.040890815,
+            "state": "ACKED"
+          },
+          {
+            "robot": 2,
+            "offset": 3,
+            "rpc_id": 21483426414596,
+            "body_bytes": 8,
+            "attempts": 2,
+            "deadline": 507434.374623661,
+            "next_attempt": 507433.7752111,
+            "state": "ACKED"
+          }
+        ]
+      },
+      "3": {
+        "status": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "events": [
+          {
+            "kind": "confirmation_enqueued",
+            "monotonic": 507433.72913988,
+            "robot": 3,
+            "offset": 0,
+            "rpc_id": 21483426414597
+          },
+          {
+            "kind": "original_CDR_attempt",
+            "monotonic": 507433.743599865,
+            "robot": 3,
+            "offset": 1,
+            "rpc_id": 21483426414597,
+            "attempt": 1,
+            "body_bytes": 16
+          },
+          {
+            "kind": "original_CDR_attempt",
+            "monotonic": 507433.94680361,
+            "robot": 3,
+            "offset": 1,
+            "rpc_id": 21483426414597,
+            "attempt": 2,
+            "body_bytes": 16
+          },
+          {
+            "kind": "confirmation_received",
+            "monotonic": 507433.986115101,
+            "robot": 3,
+            "offset": 1,
+            "rpc_id": 21483426414597
+          },
+          {
+            "kind": "confirmation_enqueued",
+            "monotonic": 507434.012747319,
+            "robot": 3,
+            "offset": 2,
+            "rpc_id": 21483426414598
+          },
+          {
+            "kind": "confirmation_enqueued",
+            "monotonic": 507434.013622463,
+            "robot": 3,
+            "offset": 4,
+            "rpc_id": 21483426414599
+          },
+          {
+            "kind": "original_CDR_attempt",
+            "monotonic": 507434.029131357,
+            "robot": 3,
+            "offset": 5,
+            "rpc_id": 21483426414599,
+            "attempt": 1,
+            "body_bytes": 36
+          },
+          {
+            "kind": "confirmation_received",
+            "monotonic": 507434.082531065,
+            "robot": 3,
+            "offset": 5,
+            "rpc_id": 21483426414599
+          },
+          {
+            "kind": "original_CDR_attempt",
+            "monotonic": 507434.096103616,
+            "robot": 3,
+            "offset": 3,
+            "rpc_id": 21483426414598,
+            "attempt": 1,
+            "body_bytes": 8
+          },
+          {
+            "kind": "confirmation_received",
+            "monotonic": 507434.148538588,
+            "robot": 3,
+            "offset": 3,
+            "rpc_id": 21483426414598
+          },
+          {
+            "kind": "reliable_transport_stopped",
+            "monotonic": 507434.173517701,
+            "reason": "owned_shutdown"
+          }
+        ],
+        "transfers": [
+          {
+            "robot": 3,
+            "offset": 1,
+            "rpc_id": 21483426414597,
+            "body_bytes": 16,
+            "attempts": 2,
+            "deadline": 507434.743590318,
+            "next_attempt": 507434.146794359,
+            "state": "ACKED"
+          },
+          {
+            "robot": 3,
+            "offset": 5,
+            "rpc_id": 21483426414599,
+            "body_bytes": 36,
+            "attempts": 1,
+            "deadline": 507435.029117821,
+            "next_attempt": 507434.229117821,
+            "state": "ACKED"
+          },
+          {
+            "robot": 3,
+            "offset": 3,
+            "rpc_id": 21483426414598,
+            "body_bytes": 8,
+            "attempts": 1,
+            "deadline": 507435.096091112,
+            "next_attempt": 507434.296091112,
+            "state": "ACKED"
+          }
+        ]
+      }
+    }
+  },
+  "Gateway_clean_return": true,
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "action_confirmation_states": {
+      "C": {
+        "enabled": true,
+        "failure": null,
+        "waiting": 0,
+        "unconfirmed": 0
+      },
+      "R": {
+        "1": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "2": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "3": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        }
+      }
+    },
+    "retired_C_services": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  }
+}
