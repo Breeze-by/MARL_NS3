@@ -28,12 +28,13 @@ def main():
     parser.add_argument('--arm',choices=('A1','B'),required=True)
     parser.add_argument('--case',choices=('health-profile-01','health-profile-wifi-01',
         'full-load-local-01','full-load-wifi-01','full-load-dds-audit-01',
-        'full-load-wifi-audit-01'),required=True)
+        'full-load-wifi-audit-01','cleanup-drain-01'),required=True)
     parser.add_argument('--native',type=Path,default=NATIVE)
     parser.add_argument('--baseline',type=Path,default=BASELINE)
     parser.add_argument('--native-evidence-ram',type=Path)
     parser.add_argument('--payloads',type=Path)
     parser.add_argument('--dds-take-trace',action='store_true')
+    parser.add_argument('--cleanup-regression',action='store_true')
     args=parser.parse_args()
     full=args.stage=='full'
     expected_case=({'A1':'full-load-local-01','B':'full-load-wifi-01'} if full else
@@ -41,6 +42,10 @@ def main():
     if args.dds_take_trace:
         if not full:raise ValueError('DDS audit is a preregistered full-load diagnostic only')
         expected_case={'A1':'full-load-dds-audit-01','B':'full-load-wifi-audit-01'}[args.arm]
+    if args.cleanup_regression:
+        if not full or args.arm!='A1' or not args.dds_take_trace:
+            raise ValueError('Cleanup regression is the fixed full A1 metadata fixture')
+        expected_case='cleanup-drain-01'
     if args.case!=expected_case:raise ValueError('Use the preregistered arm/case pair')
     if (args.arm=='B') != (args.native_evidence_ram is not None):
         raise ValueError('B requires its explicit exclusive RAM evidence path; A1 retains disk')
@@ -59,9 +64,10 @@ def main():
         for role in ('source-tb1','source-tb2','source-tb3','merge','client'):(base/role).mkdir()
     home=base/'runtime-home';home.mkdir()
     inner='/mnt/'+str(base.relative_to(REPO))
-    hard_wall=60. if full else 30.
+    hard_wall=20. if args.cleanup_regression else 60. if full else 30.
     started=time.monotonic();deadline=started+hard_wall
     processes={};logs=[];forced=[];commands={};error=None;identities={}
+    cleanup_wait=None;regression_trigger_ns=None
     def ros(argv):
         return ['bwrap','--unshare-user','--uid','0','--gid','0','--die-with-parent',
             '--ro-bind',str(args.baseline/'isolation/rootfs'),'/', '--tmpfs','/tmp',
@@ -121,6 +127,16 @@ def main():
             negative='after normal32wall and RPCdrain, fourth tb3 accepted/GetResult ACKed; B realRADIOoff .8wall with sources continuing, A1 stop observations .8wall; local real cancellation/PAUSE required',
             scope='P5 no-motion complete business fixture; not real SLAM/Nav2/physics or scientific radio comparison')
         (base/'scope.json').write_text(json.dumps(scope,indent=2)+'\n')
+        if args.cleanup_regression:
+            scope.update(stage='unexpected_failure_cleanup_regression',Goal=3,
+                negative_active_Goals=0,normal_window_required=False,
+                source_window_wall_s=None,
+                delivery='IDEAL-DIRECT-ADAPTER; three real active controlled Goals, no fourth planned negative Goal',
+                negative='Observation-stop trigger uses unchanged unexpected FIRST_FAILURE path, not NEGATIVE_PHASE',
+                regression='3 actual accepted Goals with ACKed GetResult pending, then stop observations '
+                    'without NEGATIVE_PHASE; use unchanged FIRST_FAILURE path and real local drain',
+                hard_wall_s=20)
+            (base/'scope.json').write_text(json.dumps(scope,indent=2)+'\n')
     def wait_file(name,until):
         while time.monotonic()<until:
             failure=base/'FIRST_FAILURE.json'
@@ -176,6 +192,14 @@ def main():
                 '--normal-done-file',inner+'/CLIENT_NORMAL_DONE.json',
                 '--allow-negative-file',inner+'/ALLOW_NEGATIVE_GOAL',
                 '--negative-active-ready-file',inner+'/NEGATIVE_ACTIVE_READY.json']))
+            if args.cleanup_regression:
+                wait_file('ACTIVE_GOALS_READY.json',deadline-7.)
+                regression_trigger_ns=time.monotonic_ns()
+                (base/'SUPPLY_STOP').write_text('Regression only: active tasks, unexpected normal-failure path')
+                # No negative-phase marker: original guard FIRST_FAILURE must
+                # enter the same failure/teardown branch as the real FAIL.
+                wait_file('CLIENT_NORMAL_DONE.json',min(deadline-6.,time.monotonic()+2.))
+                raise RuntimeError('Regression failed to produce original unexpected guard failure')
             wait_file('CLIENT_NORMAL_DONE.json',deadline-9.)
             wait_file('RPC_DRAINED.json',deadline-8.)
             (base/'ALLOW_NEGATIVE_GOAL').write_text('One preregistered controlled tb3 Goal only')
@@ -192,11 +216,28 @@ def main():
                 raise RuntimeError('Original local CANCELED/PAUSE/futures not proved in fixed negative window')
     except BaseException as exc:error=repr(exc)
     finally:
+        failure_cleanup=(full and (base/'FIRST_FAILURE.json').exists())
+        if failure_cleanup:
+            # Quiesce observations, retain actual local Action/PAUSE services
+            # and the Gateway executor until their real callbacks have drained.
+            drain_begin=time.monotonic();drain_deadline=min(deadline-2.,drain_begin+2.)
+            (base/'SUPPLY_STOP').write_text('First failure: observations stop; local services/executors stay alive')
         (base/'HOLD').write_text('Fixture resource HOLD; not physical stop certification')
-        while not (base/'HOLD.ack').exists() and time.monotonic()<deadline-3:
+        hold_deadline=min(deadline-3.,drain_deadline) if failure_cleanup else deadline-3.
+        while not (base/'HOLD.ack').exists() and time.monotonic()<hold_deadline:
             if 'coordinator' not in processes or processes['coordinator'].poll() is not None:break
             time.sleep(.005)
         if not (base/'HOLD.ack').exists() and error is None:error='Actual resource HOLD not confirmed'
+        if failure_cleanup:
+            while not (base/'LOCAL_CLEANUP_DRAINED.json').exists() and time.monotonic()<drain_deadline:
+                if processes.get('gateway') is None or processes['gateway'].poll() is not None:break
+                time.sleep(.005)
+            cleanup_wait=dict(begin_monotonic_ns=int(drain_begin*1e9),
+                end_monotonic_ns=time.monotonic_ns(),bound_wall_s=2.,
+                drained=(base/'LOCAL_CLEANUP_DRAINED.json').exists(),
+                first_error_preserved=error,central_unknown_not_waited=True)
+            if not cleanup_wait['drained']:cleanup_wait['failure']='Local cleanup did not complete before existing hard/drain bound'
+        stop_written_ns=time.monotonic_ns()
         (base/'STOP').write_text('Fixture owned resource close, no business state')
         for role in ('source','source-tb1','source-tb2','source-tb3','client','merge','peer','gateway','mock_physics','hub'):
             process=processes.get(role)
@@ -214,12 +255,38 @@ def main():
                 if error is None:error='Hard bound forced coordinator'
         result=dict(scope=scope,error=error,wall_s=time.monotonic()-started,
             exits={role:p.returncode for role,p in processes.items()},forced=forced,
+            first_failure_local_cleanup_wait=cleanup_wait,STOP_written_monotonic_ns=stop_written_ns,
             negative_scope=('Actual local controlled cancellation; central negative Future may remain unknown; '
                 'no claimed network recovery or physical stopping' if full else None),
             judgement='Process completion only; actual supply/health receipts/profile require offline review')
         (base/'process-exit.json').write_text(json.dumps(result,indent=2)+'\n')
+        if args.cleanup_regression:
+            marker=base/'LOCAL_CLEANUP_DRAINED.json'
+            active=base/'ACTIVE_GOALS_READY.json'
+            first=base/'FIRST_FAILURE.json'
+            passed=bool(regression_trigger_ns is not None and active.exists() and first.exists()
+                and marker.exists() and cleanup_wait and cleanup_wait['drained'] and not forced)
+            if passed:
+                ready=json.loads(active.read_text());local=json.loads(marker.read_text())
+                first_data=json.loads(first.read_text())
+                passed=(first_data['monotonic_ns']>=regression_trigger_ns
+                    and local['monotonic_ns']<stop_written_ns
+                    and all(any(row['kind']=='actual_local_GetResult' and row.get('uuid')==uuid
+                        and row.get('status')==5 for row in local['actions'][r])
+                        and any(row['kind']=='actual_local_cancel_response' and row.get('uuid')==uuid
+                            and row.get('return_code')==0 and row.get('goals_canceling')==[uuid]
+                            for row in local['actions'][r])
+                        for r,uuids in ready['accepted'].items() for uuid in uuids)
+                    and all(process.returncode in ((0,1) if role in ('coordinator','gateway') else (0,))
+                        for role,process in processes.items()))
+            result['cleanup_regression_pass']=passed
+            with (base/'cleanup-regression.json').open('x') as stream:
+                json.dump(dict(passed=passed,first_failure_preserved=True,
+                    trigger_monotonic_ns=regression_trigger_ns,result=result),stream,indent=2)
         for log in logs:log.close()
     print(json.dumps(result),flush=True)
+    if args.cleanup_regression:
+        return int(not result['cleanup_regression_pass'])
     # A completed negative guard fault is retained by the original coordinator;
     # exit1 there is expected, not rewritten to a clean shutdown.
     expected=(full and (base/'NEGATIVE_DONE.json').exists())

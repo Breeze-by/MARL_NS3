@@ -63,6 +63,16 @@ def gateway(directory,stop_file,mode,full_load=False,dds_take_trace=False):
                     if not negative and (node.failure or any(faults.values())):
                         marker('FIRST_FAILURE.json',dict(monotonic_ns=time.monotonic_ns(),
                             Gateway_failure=node.failure,guards=faults))
+                    if ((base/'FIRST_FAILURE.json').exists()
+                            and all(not g.owned and all(f.done() for f in g.futures)
+                                for g in node.guards.values())
+                            and all(any(row['kind']=='actual_local_pause_response' and row['success']
+                                for row in g.records) for g in node.guards.values())):
+                        marker('LOCAL_CLEANUP_DRAINED.json',dict(monotonic_ns=time.monotonic_ns(),
+                            owned={str(r):sorted(g.owned) for r,g in node.guards.items()},
+                            actions={str(r):g.records for r,g in node.guards.items()},
+                            local_futures_pending=0,PAUSE_success=True,
+                            scope='Actual local cleanup only; central wireless Futures may remain unknown'))
                     if status is not None and time.monotonic_ns()-status['gateway_monotonic_ns']<=300_000_000:
                         counts=status['actual_rpc_cleanup']
                         if ((base/'CLIENT_NORMAL_DONE.json').exists() and not negative
@@ -70,6 +80,14 @@ def gateway(directory,stop_file,mode,full_load=False,dds_take_trace=False):
                                 and all(g.guard.armed and not g.owned for g in node.guards.values())
                                 and all(value==0 for value in counts.values())):
                             marker('RPC_DRAINED.json',status)
+                        if (not negative and all(g.guard.armed and g.guard.fault is None
+                                and len(g.accepted)==1 for g in node.guards.values())
+                                and not node.failure
+                                and all(value=={'C_pending':3,'R_pending':3,
+                                    'C_service_inflight':3}.get(key,0) for key,value in counts.items())):
+                            marker('ACTIVE_GOALS_READY.json',dict(monotonic_ns=time.monotonic_ns(),
+                                accepted={str(r):sorted(g.accepted) for r,g in node.guards.items()},
+                                actual_status=status))
                     if mode=='B' and (base/'RADIO_OFF').exists() and not radio_off:
                         node.record('fixture_request_actual_native_radio_off',enabled=False)
                         node.hub.radio_fault(False);radio_off=True
