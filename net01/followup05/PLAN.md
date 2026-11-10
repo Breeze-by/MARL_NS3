@@ -10,7 +10,7 @@
 
 新增每robot offset9仅传输元数据：2B(version1, acknowledged_original_offset)，原rpc仍Hub的8B字段；按原session/peer/offset/rpc精确匹配。ACK只证明代理已记录请求或收到真实响应，不等于Nav2 accepted/terminal。无ACK-of-ACK。
 
-- C初送原请求，R先保完整原body并只call_async一次，再ACK请求。R重复同key/body若pending只再ACK，完成则原cache回复；同key不同body为实际协议错误。
+- C初送原请求，R先保完整原body并只call_async一次，再ACK请求。R重复同key/body若pending只再ACK；完成且响应仍待确认时由原cache按既定周期重送，已ACK不重新开放预算（仍可ACK该重复请求）；同key不同body为实际协议错误。
 - C收到真实requestACK后停止请求重送，但不完成原Future。GetResult可以等待整段导航；响应budget只在R真实future完成并产生原CDR时开始。
 - R真完成后有界重送相同原response，C匹配原pending后真实DDS send_response仍由原service完成；C重复response若与已完成原CDR完全相同，只重ACK、不再次完成Future。响应先于请求ACK也可确认原请求已被执行。
 - 原retired服务必须保到真实DDS send_response成功后销毁；pending tuple/status接口保持，不因generation变动抛弃已准入真实结果。新SendGoal权限在ready撤回时立即失效；未确认/仍在重送的SendGoal不能在权限恢复后悄悄创建新目标。原R Guardian gate、late-accept exactUUID cancel保持。
@@ -54,3 +54,20 @@ runner独占evidence/reliable-wifi-01与workspace/f05-wifi-01.sock，60wall总�
 夹具SOURCE_READY补充：创建ControlledServer前先在原R91/92节点观察实际精确Action/ManageLifecycle服务与cmd_vel外部reader均不存在（.6wall有界发现窗），否则不发送任何合成Goal。验完整Goal frame/stamp/pose/behavior_tree经标准generated序列化规范化后全typed字段相等；capture SHA与每条实际native完整CDR逐(sender,receiver,flow,rpc)对应。恢复Rangegate前明确request/response均未wholeRX，dedupe核R2.forwarded_requests恰2，不以dictkey唯一冒充只call一次。feedback/status本身仍原不可靠topic，本轮不称全面可靠。
 
 最终本机清理断言不仅观察spy请求，还等全部原LocalStop.futures done，并逐机收到actual_local_pause_response success；仍无真实物理停止认证。
+
+
+## 01首失败与唯一02复验准备（未运行）
+
+实际01使用固定d712，outer3.639wall exit1、ROS1/Hub0/native0，无forced、ENDtrue、两executor shutdowntrue、0Goal/0ControlledServer/无pending。preflight因全图service-topic列表含12个同名客户端请求路径而FAIL；原evidence/reliable-wifi-01与原commands/结果保持，不改PASS。不是Action重送运行阶段失败，也不能据名字列表断言真实Nav2存在。
+
+源码依据（仅只读，没有新增Node诊断）：installed Humble rclpy/node.py1795–1804将get_service_names_and_types定义为service topics；1743–1761的by_node才明确service server topics。installed client.py153–160的service_is_ready直接调用service_server_is_available。官方Humble rmw_fastrtps_shared_cpp/src/rmw_service_names_and_types.cpp53–57调用GraphCache.get_names_and_types；rmw_dds_common/src/graph_cache.cpp690–699把data_readers与data_writers一起demangle，未按服务端过滤。所以名字清单仅保诊断；改用已有九Action typedclient.service_is_ready + 三LocalStop.pause.service_is_ready真服务端判据，foreign cmd_vel readers与原Cfacade判据保持，无新Graph节点/兼容层。
+
+02唯一准备入口（root另准才运行）：
+
+```sh
+rtk proxy python3 -B net-01/workspace/net01/followup05/run_reliable_wifi.py --case 02
+```
+
+新exclusive evidence/reliable-wifi-02与f05-wifi-02.sock，runner仅接受01/02且旧01目录已存在拒绝覆盖。所有协议/网络/时钟/故障窗口/保护/60-50-45wall与case场景原样，仅修前检oracle/新结果路径。生产ActionWire/Gateway仍51c未动。最多这一次02复验，失败先保原件不自动增03。
+
+主源链接：https://github.com/ros2/rmw_fastrtps/blob/humble/rmw_fastrtps_shared_cpp/src/rmw_service_names_and_types.cpp#L53-L57 ，https://github.com/ros2/rmw_dds_common/blob/humble/rmw_dds_common/src/graph_cache.cpp#L690-L699 。

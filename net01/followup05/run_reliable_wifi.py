@@ -1,4 +1,5 @@
 """Own the single admitted Hub/native and rootfs ROS fixture, total60wall."""
+import argparse
 import json
 import os
 from pathlib import Path
@@ -7,16 +8,18 @@ import subprocess
 import time
 
 repo=Path(__file__).resolve().parents[2]
-case=repo/'net01/followup05/evidence/reliable-wifi-01'
+parser=argparse.ArgumentParser();parser.add_argument('--case',choices=('01','02'),required=True)
+number=parser.parse_args().case
+case=repo/f'net01/followup05/evidence/reliable-wifi-{number}'
 case.mkdir(parents=True,exist_ok=False)
-sock=repo/'f05-wifi-01.sock'
+sock=repo/f'f05-wifi-{number}.sock'
 if sock.exists():raise FileExistsError(sock)
 native=repo.parent/'build/followup03-release-portable-native/net01-payload'
 hub_command=['python3','-B',str(repo/'net01/tools/packet_hub.py'),'--socket',str(sock),
     '--native',str(native),'--output',str(case/'hub'),'--profile','B','--wall','50',
     '--allow-radio-fault','--clock-source','gazebo','--control-trace']
 ros_command=['bash',str(repo/'net01/ros-python.sh'),'/mnt/net01/followup05/check_reliable_wifi.py',
-    '--socket','/mnt/'+sock.name,'--output','/mnt/net01/followup05/evidence/reliable-wifi-01/ros']
+    '--socket','/mnt/'+sock.name,'--output',f'/mnt/net01/followup05/evidence/reliable-wifi-{number}/ros']
 (case/'commands.json').write_text(json.dumps(dict(hub=hub_command,ROS=ros_command),indent=2)+'\n')
 started=time.monotonic();deadline=started+60.;processes={};logs=[];forced=[]
 result=dict(scope='single actual Gateway/DDS/ns3-WiFi fixture,0Gazebo/Nav2/Policy',status='FAIL')

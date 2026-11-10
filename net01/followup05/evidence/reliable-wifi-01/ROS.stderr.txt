@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/net01/followup05/check_reliable_wifi.py", line 252, in <module>
+    if __name__=='__main__':main()
+  File "/mnt/net01/followup05/check_reliable_wifi.py", line 131, in main
+    check('isolated_domain_no_real_Action_lifecycle_or_robot_driver_before_fixture',not services and
+  File "/mnt/net01/followup05/check_reliable_wifi.py", line 49, in check
+    assert value,name
+AssertionError: isolated_domain_no_real_Action_lifecycle_or_robot_driver_before_fixture

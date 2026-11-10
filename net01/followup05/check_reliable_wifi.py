@@ -127,10 +127,16 @@ def main():
                 name==f'/tb{r}/lifecycle_manager_navigation/manage_nodes' for r in (1,2,3))]
         foreign_drive_readers={r:[info.node_name for info in gateway.r.get_subscriptions_info_by_topic(f'/tb{r}/cmd_vel')
             if info.node_name!=gateway.r.get_name()] for r in (1,2,3)}
-        result['preflight']=dict(R_action_or_lifecycle_services=services,foreign_cmd_vel_readers=foreign_drive_readers)
-        check('isolated_domain_no_real_Action_lifecycle_or_robot_driver_before_fixture',not services and
-            not any(foreign_drive_readers.values()) and not gateway.action_c.endpoints and
-            not any(client.service_is_ready() for action in gateway.action_r.values() for client in action.clients.values()))
+        ready_clients={f'tb{r}:offset{offset}':client.service_is_ready()
+            for r,action in gateway.action_r.items() for offset,client in action.clients.items()}
+        ready_pause={r:stop.pause.service_is_ready() for r,stop in gateway.guards.items()}
+        # The graph's unqualified service-topic list includes local clients;
+        # only the existing typed clients test real server availability.
+        result['preflight']=dict(discovered_service_topics=services,foreign_cmd_vel_readers=foreign_drive_readers,
+            Action_server_ready=ready_clients,PAUSE_server_ready=ready_pause)
+        check('isolated_domain_no_real_Action_lifecycle_or_robot_driver_before_fixture',
+            not any(ready_clients.values()) and not any(ready_pause.values()) and
+            not any(foreign_drive_readers.values()) and not gateway.action_c.endpoints)
         for robot in (1,2,3):
             servers[robot]=ControlledServer(gateway.r,robot)
             clients[robot]=ActionClient(gateway.c,NavigateToPose,ActionWire.name(robot),callback_group=ReentrantCallbackGroup())
