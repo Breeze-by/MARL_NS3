@@ -4,7 +4,8 @@ One instance belongs to one transport session. Recreate both sides when that
 session changes. send(peer, flow, full_cdr, rpc_id) only enqueues transport;
 receive is called by the owner executor after complete actual delivery.
 Readiness is generated Bool CDR; every other body is the original generated
-Action service request/response or feedback/status CDR, without an envelope.
+Action service request/response or feedback/status CDR, without an envelope,
+except optional offset9's two-byte application-level delivery confirmation.
 """
 from functools import partial
 import time
@@ -25,7 +26,8 @@ SERVICES=((0, NavigateToPose.Impl.SendGoalService, 'send_goal'),
 
 class ActionWire:
     def __init__(self, node, send, *, robot=None, robots=(1, 2, 3),
-                 session_id=1, readiness_period_s=.1, readiness_timeout_s=.5, guardian=None):
+                 session_id=1, readiness_period_s=.1, readiness_timeout_s=.5, guardian=None,
+                 reliable=False, transport_error=None):
         self.node, self.send, self.robot = node, send, robot
         self.guardian=guardian
         self.robots=tuple(robots) if robot is None else (robot,)
@@ -42,6 +44,11 @@ class ActionWire:
         self.clients={};self.subscriptions=[]
         self.forwarded_requests=0;self.duplicate_requests=0;self.blocked_requests=0
         self.unknown_responses=0
+        # Application-level confirmation over the SAME transport, not TCP.
+        # Each transfer preserves the original Action CDR/flow/RPC identity.
+        self.reliable=reliable;self.transport_error=transport_error
+        self.transfers={};self.completed_responses={};self.request_bodies={}
+        self.reliability_events=[];self.transport_failed=None
         if robot is not None:
             name=self.name(robot)
             for offset,typ,suffix in SERVICES:
@@ -62,6 +69,72 @@ class ActionWire:
     def next_id(self):
         self.counter+=1
         return (self.session_id<<32)|self.counter
+
+    def _transport_event(self,kind,**fields):
+        self.reliability_events.append(dict(kind=kind,monotonic=time.monotonic(),**fields))
+
+    def stop_reliability(self,reason):
+        if self.transport_failed is None:
+            self.transport_failed=reason
+            self._transport_event('reliable_transport_stopped',reason=reason)
+
+    def _transport_fail(self,reason):
+        self.stop_reliability(reason)
+        if self.transport_error is not None:self.transport_error(reason)
+
+    def _expire_transfers(self,now):
+        if not self.reliable or self.transport_failed is not None:return
+        for key,item in self.transfers.items():
+            if item['state']=='WAIT_CONFIRMATION' and now>=item['deadline']:
+                item['state']='UNCONFIRMED'
+                self._transport_event('delivery_confirmation_expired',robot=key[0],offset=key[1],
+                    rpc_id=key[2],attempts=item['attempts'],deadline=item['deadline'])
+                self._transport_fail(f'action_delivery_unconfirmed_tb{key[0]}_offset{key[1]}_rpc{key[2]}')
+                return
+
+    def _attempt_transfer(self,key,item,now):
+        robot,offset,rpc=key
+        item['attempts']+=1;item['next_attempt']=now+.2
+        self._transport_event('original_CDR_attempt',robot=robot,offset=offset,rpc_id=rpc,
+            attempt=item['attempts'],body_bytes=len(item['body']))
+        self.send(robot if self.robot is None else 0,self.flow(robot,offset),item['body'],rpc)
+
+    def _send_rpc(self,robot,offset,body,rpc):
+        body=bytes(body)
+        if not self.reliable:
+            self.send(robot if self.robot is None else 0,self.flow(robot,offset),body,rpc);return
+        if self.transport_failed is not None:return
+        key=(robot,offset,rpc);now=time.monotonic()
+        # An ACKed response needs no new automatic transfer. A request duplicate
+        # can still elicit the original response while confirmation is pending.
+        if key in self.transfers:
+            if self.transfers[key]['body']!=body:raise ValueError('Action transfer identity reused with different CDR')
+            return
+        item=dict(body=body,attempts=0,deadline=now+1.,next_attempt=now,state='WAIT_CONFIRMATION')
+        self.transfers[key]=item
+        self._attempt_transfer(key,item,now)
+
+    def _ack(self,robot,offset,rpc):
+        if self.reliable and self.transport_failed is None:
+            self.send(robot if self.robot is None else 0,self.flow(robot,9),bytes((1,offset)),rpc)
+            self._transport_event('confirmation_enqueued',robot=robot,offset=offset,rpc_id=rpc)
+
+    def reliability_tick(self):
+        now=time.monotonic();self._expire_transfers(now)
+        if not self.reliable or self.transport_failed is not None:return
+        for key,item in self.transfers.items():
+            if item['state']=='WAIT_CONFIRMATION' and item['attempts']<5 and now>=item['next_attempt']:
+                self._attempt_transfer(key,item,now)
+
+    def reliability_status(self):
+        return dict(enabled=self.reliable,failure=self.transport_failed,
+            waiting=sum(t['state']=='WAIT_CONFIRMATION' for t in self.transfers.values()),
+            unconfirmed=sum(t['state']=='UNCONFIRMED' for t in self.transfers.values()))
+
+    def reliability_snapshot(self):
+        return dict(status=self.reliability_status(),events=self.reliability_events,
+            transfers=[dict(robot=r,offset=o,rpc_id=i,body_bytes=len(t['body']),
+                **{k:v for k,v in t.items() if k!='body'}) for (r,o,i),t in self.transfers.items()])
 
     def _publish_wire(self,robot,offset,message):
         self.send(0,self.flow(robot,offset),serialize_message(message),self.next_id())
@@ -115,7 +188,7 @@ class ActionWire:
                     state['inflight']+=1
                     rpc_id=self.next_id()
                     self.pending[(robot,offset+1,rpc_id)]=(future,typ.Response,generation)
-                    self.send(robot,self.flow(robot,offset),serialize_message(request),rpc_id)
+                    self._send_rpc(robot,offset,serialize_message(request),rpc_id)
                     return await future
                 service=self.node.create_service(typ,name+'/_action/'+suffix,forward,callback_group=self.group)
                 state['service']=service;send_response=service.send_response
@@ -134,6 +207,14 @@ class ActionWire:
                 self.node.create_publisher(NavigateToPose.Impl.FeedbackMessage,name+'/_action/feedback',10),
                 self.node.create_publisher(GoalStatusArray,name+'/_action/status',qos_profile_action_status_default))
         else:
+            # Revoking goal authority must not leave an unconfirmed SendGoal
+            # eligible to create a new remote goal after later readiness recovery.
+            if self.reliable and self.transport_failed is None:
+                for (r,offset,rpc),item in self.transfers.items():
+                    if r==robot and offset==0 and item['state']=='WAIT_CONFIRMATION':
+                        item['state']='UNCONFIRMED'
+                        self._transport_fail(f'action_goal_authority_withdrawn_unconfirmed_tb{r}_rpc{rpc}')
+                        break
             services,feedback,status=self.endpoints.pop(robot)
             for state in self.service_states.pop(robot):
                 state['retired']=True
@@ -148,18 +229,45 @@ class ActionWire:
         if robot not in self.robots or peer!=(robot if self.robot is None else 0):
             raise ValueError('Action peer/flow does not match this endpoint')
         if rpc_id>>32!=self.session_id:return
+        body=bytes(body)
+        # A newly processed late ACK/response cannot erase a real wall expiry.
+        self._expire_transfers(time.monotonic())
+        if self.reliable and self.transport_failed is not None:
+            self._transport_event('late_packet_after_failure',robot=robot,offset=offset,rpc_id=rpc_id)
+            return
+        if offset==9:
+            allowed=(0,2,4) if self.robot is None else (1,3,5)
+            if not self.reliable or len(body)!=2 or body[0]!=1 or body[1] not in allowed:
+                raise ValueError('Invalid Action delivery confirmation')
+            item=self.transfers.get((robot,body[1],rpc_id))
+            if item is None:
+                self._transport_event('unknown_confirmation',robot=robot,offset=body[1],rpc_id=rpc_id)
+            else:
+                item['state']='ACKED'
+                self._transport_event('confirmation_received',robot=robot,offset=body[1],rpc_id=rpc_id)
+            return
         if self.robot is None:
             if offset==8:
                 if rpc_id<=self.ready_sequence.get(robot,-1):return
                 self.ready_sequence[robot]=rpc_id;self.ready_received[robot]=time.monotonic()
                 self._set_ready(robot,deserialize_message(body,Bool).data)
             elif offset in (1,3,5):
-                item=self.pending.get((robot,offset,rpc_id))
+                key=(robot,offset,rpc_id)
+                if self.reliable and key in self.completed_responses:
+                    if self.completed_responses[key]!=body:raise ValueError('Completed Action response identity changed')
+                    self._ack(robot,offset,rpc_id);return
+                item=self.pending.get(key)
                 if item is None:
                     self.unknown_responses+=1;return
                 future,typ,generation=item
+                response=deserialize_message(body,typ)
                 self.pending.pop((robot,offset,rpc_id))
-                future.set_result(deserialize_message(body,typ))
+                if self.reliable:
+                    request_transfer=self.transfers[(robot,offset-1,rpc_id)]
+                    request_transfer['state']='ACKED'  # A real response also proves request delivery.
+                    self.completed_responses[key]=body
+                    self._ack(robot,offset,rpc_id)
+                future.set_result(response)
             elif offset in (6,7):
                 endpoints=self.endpoints.get(robot)
                 if endpoints is not None:
@@ -170,9 +278,11 @@ class ActionWire:
             if typ is None:raise ValueError('Unexpected central-to-robot Action flow')
             key=(flow,rpc_id)
             if key in self.requests:
+                if self.request_bodies[key]!=body:raise ValueError('Action request identity reused with different CDR')
                 self.duplicate_requests+=1
+                self._ack(robot,offset,rpc_id)
                 completed=self.requests[key]
-                if completed is not None:self.send(0,self.flow(robot,offset+1),completed,rpc_id)
+                if completed is not None:self._send_rpc(robot,offset+1,completed,rpc_id)
                 return
             # A latched goal gate must still permit real GetResult/CancelGoal cleanup.
             admission=self.ready[robot] if self.guardian is None or offset==0 else True
@@ -182,14 +292,16 @@ class ActionWire:
             if self.guardian is not None and offset==0 and not self.guardian.observe_send_goal(request):
                 self.blocked_requests+=1;return
             self.requests[key]=None
+            self.request_bodies[key]=body
             self.forwarded_requests+=1
             future=self.clients[offset].call_async(request)
+            self._ack(robot,offset,rpc_id)
             def completed(done):
                 response=done.result()
                 if self.guardian is not None and offset==0:self.guardian.observe_goal_response(request,response)
                 payload=serialize_message(response)
                 self.requests[key]=payload
-                self.send(0,self.flow(robot,offset+1),payload,rpc_id)
+                self._send_rpc(robot,offset+1,payload,rpc_id)
             future.add_done_callback(completed)
 
     def close(self):

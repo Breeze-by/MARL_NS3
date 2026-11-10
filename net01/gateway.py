@@ -209,10 +209,11 @@ class Gateway:
         self.bound_r=BoundMaskWire(self.r,"R",self.send,self.session_id,
             lambda robot,binding,meta:self.guards[robot].guard.receive_bound(binding,meta))
         self.action_c=ActionWire(self.c,lambda peer,flow,body,rpc:self.send(0,peer,flow,body,rpc),
-            session_id=self.session_id)
+            session_id=self.session_id,reliable=True,transport_error=self.fail)
         self.action_r={r:ActionWire(self.r,
             lambda peer,flow,body,rpc,r=r:self.send(r,peer,flow,body,rpc),
-            robot=r,session_id=self.session_id,guardian=self.guards[r]) for r in (1,2,3)}
+            robot=r,session_id=self.session_id,guardian=self.guards[r],
+            reliable=True,transport_error=self.fail) for r in (1,2,3)}
         if self.cpu_profile is not None:
             for side,wire in self.wires.items():
                 outgoing=[flow for flow,spec in wire.specs.items()
@@ -272,6 +273,8 @@ class Gateway:
         clock_publishers=self.r.count_publishers('/clock')
         rpc_cleanup=dict(C_pending=0,R_pending=0,C_service_inflight=0,
             C_retired_services=0,C_unadmitted_unknown_total=0,
+            C_rpc_confirmation_pending=0,R_rpc_confirmation_pending=0,
+            rpc_delivery_unconfirmed=0,
             local_cleanup_pending=sum(not future.done() for guard in self.guards.values()
                 for future in guard.futures))
         if self.wires is not None:
@@ -283,7 +286,11 @@ class Gateway:
                     [*self.action_c.service_states.values(),*self.action_c.retired_services.values()]
                     for state in states),
                 C_retired_services=sum(len(states) for states in self.action_c.retired_services.values()),
-                C_unadmitted_unknown_total=self.action_c.blocked_requests)
+                C_unadmitted_unknown_total=self.action_c.blocked_requests,
+                C_rpc_confirmation_pending=self.action_c.reliability_status()['waiting'],
+                R_rpc_confirmation_pending=sum(a.reliability_status()['waiting'] for a in self.action_r.values()),
+                rpc_delivery_unconfirmed=sum(a.reliability_status()['unconfirmed']
+                    for a in (self.action_c,*self.action_r.values())))
         data=dict(mode=self.mode,session_id=self.session_id,connected=self.connected,
             failure=self.failure,anchor=self.anchor,gz_ns=self.gz,ns3_ns=self.hub.horizon_ns,
             gateway_monotonic_ns=time.monotonic_ns(),
@@ -321,6 +328,7 @@ class Gateway:
         self.failure=reason;self.record("transport_latched_INVALID",reason=reason)
         for guard in self.guards.values():guard.guard.trip(reason)
         if self.wires is not None:
+            for action in (self.action_c,*self.action_r.values()):action.stop_reliability(reason)
             for robot in tuple(self.action_c.endpoints):self.action_c._set_ready(robot,False)
         # Stay alive to spin real R Cancel/GetResult/PAUSE and zero publishers.
 
@@ -428,6 +436,12 @@ class Gateway:
             if not self.link.sent and self.hub.horizon_ns>=600_000_000:self.link.begin()
             if self.link.ready and not self.connected:
                 self.connected=True;self.install_wires()
+        if self.wires is not None:
+            # B/C hub.poll and A's fixed current direct batch have both run.
+            # receive itself still rejects a packet processed after expiry.
+            for action in (self.action_c,*self.action_r.values()):
+                action.reliability_tick()
+                if self.failure:return
 
     def persist(self):
         persist_begin=time.monotonic()
@@ -443,6 +457,8 @@ class Gateway:
         if self.wires is not None:
             data["topics"]={side:dict(captured=w.captured,delivered=w.delivered) for side,w in self.wires.items()}
             data["bound_masks"]=self.bound_r.received
+            data['action_reliability']=dict(C=self.action_c.reliability_snapshot(),
+                R={str(r):a.reliability_snapshot() for r,a in self.action_r.items()})
         if self.cpu_profile is not None:
             data['dispatch_cpu_profile']=dict(aggregates=self.cpu_profile,longspans=self.profile_longspans,gc_events=self.gc_events,
                 longspan_semantics='RAM spans >=10ms; end-order append. Poll includes all work; handler includes journal_call; progress total includes hub/direct. Inclusive parents and children must not be summed. Diagnostic timing overhead, not capacity proof.',
@@ -475,6 +491,9 @@ class Gateway:
             end_frame_flushed=False,executor_shutdown=[],resources_destroyed=False,
             unresolved_C_RPC=[],unresolved_R_RPC=[],unresolved_local_cleanup_futures={})
         if self.wires is not None:
+            self.cleanup['action_confirmation_states']=dict(C=self.action_c.reliability_status(),
+                R={str(r):a.reliability_status() for r,a in self.action_r.items()})
+            for action in (self.action_c,*self.action_r.values()):action.stop_reliability('owned_shutdown')
             self.cleanup["unresolved_C_RPC"]=[dict(robot=r,flow_offset=f,rpc_id=i)
                 for (r,f,i),(future,typ,generation) in self.action_c.pending.items() if not future.done()]
             self.cleanup["retired_C_services"]={str(r):[dict(flow_offset=s['offset'],inflight=s['inflight']) for s in states]
@@ -505,7 +524,10 @@ class Gateway:
         self.cleanup["resources_destroyed"]=True
         # Saved means successful persistence after bounded teardown, not a
         # synthetic response/terminal for any unresolved callback above.
-        return self.cleanup["end_frame_flushed"] and self.failure is None
+        confirmations=self.cleanup.get('action_confirmation_states')
+        drained=(confirmations is None or all(not s['waiting'] and not s['unconfirmed']
+            for s in (confirmations['C'],*confirmations['R'].values())))
+        return self.cleanup["end_frame_flushed"] and self.failure is None and drained
 
 
 def main():
