@@ -27,7 +27,8 @@ def main():
     parser.add_argument('--stage',choices=('profile','full'),default='profile')
     parser.add_argument('--arm',choices=('A1','B'),required=True)
     parser.add_argument('--case',choices=('health-profile-01','health-profile-wifi-01',
-        'full-load-local-01','full-load-wifi-01','full-load-dds-audit-01'),required=True)
+        'full-load-local-01','full-load-wifi-01','full-load-dds-audit-01',
+        'full-load-wifi-audit-01'),required=True)
     parser.add_argument('--native',type=Path,default=NATIVE)
     parser.add_argument('--baseline',type=Path,default=BASELINE)
     parser.add_argument('--native-evidence-ram',type=Path)
@@ -38,8 +39,8 @@ def main():
     expected_case=({'A1':'full-load-local-01','B':'full-load-wifi-01'} if full else
         {'A1':'health-profile-01','B':'health-profile-wifi-01'})[args.arm]
     if args.dds_take_trace:
-        if not full or args.arm!='A1':raise ValueError('DDS audit is the fixed full A1 diagnostic only')
-        expected_case='full-load-dds-audit-01'
+        if not full:raise ValueError('DDS audit is a preregistered full-load diagnostic only')
+        expected_case={'A1':'full-load-dds-audit-01','B':'full-load-wifi-audit-01'}[args.arm]
     if args.case!=expected_case:raise ValueError('Use the preregistered arm/case pair')
     if (args.arm=='B') != (args.native_evidence_ram is not None):
         raise ValueError('B requires its explicit exclusive RAM evidence path; A1 retains disk')
