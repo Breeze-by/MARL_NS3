@@ -1,0 +1,15 @@
+[
+  "rtk",
+  "proxy",
+  "timeout",
+  "--signal=TERM",
+  "--kill-after=2s",
+  "20s",
+  "python3",
+  "-B",
+  "net-01d/workspace/net01d/health/full_load_payloads.py",
+  "--bag",
+  "net-01/workspace/runs/net01-b-corridor-6201-01/bag/bag_0.db3",
+  "--out",
+  "net-01d/workspace/net01d/health/payloads-01"
+]

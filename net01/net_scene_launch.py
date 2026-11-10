@@ -73,6 +73,8 @@ def launch_setup(context):
                     command[2]=str(HERE/'bound_peer.py')
                     index=command.index('--ros-args')
                     command[index:index]=['--session-id',session_id]
+                    if context.environment.get('NET01_DISPATCH_PROFILE')=='1':
+                        command[index:index]=['--health-trace']
                     action=ExecuteProcess(cmd=command,output='screen')
                 placed.append(GroupAction(actions=[
                     SetEnvironmentVariable('ROS_DOMAIN_ID','91'),action],

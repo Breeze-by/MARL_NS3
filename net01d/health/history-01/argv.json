@@ -1,0 +1,15 @@
+[
+  "rtk",
+  "proxy",
+  "timeout",
+  "--signal=TERM",
+  "--kill-after=2s",
+  "20s",
+  "python3",
+  "-B",
+  "net-01d/workspace/net01d/health/analyze_history.py",
+  "--case",
+  "net-01/workspace/runs/net01-b-corridor-6201-01",
+  "--out",
+  "net-01d/workspace/net01d/health/history-01"
+]

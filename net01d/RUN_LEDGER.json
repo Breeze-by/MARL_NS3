@@ -1,0 +1,264 @@
+{
+  "project": "NET-01D",
+  "base_commit": "cee0c7024ccf06d88d7ff458a47c39cdf605a7f3",
+  "state": "P1 diagnostics sealed with bootstrap limits and no old137ms reproduction; P5 full-load source/harness preparation only",
+  "worktree": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "production_behavior_changes": [],
+  "experiments": [
+    {
+      "case": "health-profile-01",
+      "arm": "A1",
+      "scope": "P1 only; independent synthetic sources; actual Gateway local ordered backend; no Goal/89/95/arm/physical system",
+      "source_identity": "base cee0c702 plus then-current uncommitted five passive-observation source diffs, trace.py and replay roles/host; not unmodified base HEAD",
+      "command": "rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py --arm A1 --case health-profile-01",
+      "wall_s": 21.967807147011627,
+      "exits": {
+        "coordinator": 0,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "mock_physics": 0,
+        "source": 0
+      },
+      "forced": [],
+      "source_active_wall_s": 16.000440675008576,
+      "source_sim_ns": [
+        400000000,
+        8440000000
+      ],
+      "active_ticks": {
+        "odom": 241,
+        "wheel": 80,
+        "scan": 40
+      },
+      "skipped_configured_ticks": {
+        "odom": 0,
+        "wheel": 0,
+        "scan": 0
+      },
+      "source_counts_per_robot": {
+        "odom": [
+          241,
+          241,
+          241
+        ],
+        "both_wheel_TF": [
+          80,
+          80,
+          80
+        ],
+        "costmap": [
+          14,
+          14,
+          14
+        ],
+        "map": [
+          4,
+          4,
+          4
+        ],
+        "map_to_odom": [
+          801,
+          800,
+          800
+        ],
+        "feedback": [
+          1601,
+          1600,
+          1599
+        ]
+      },
+      "actual_health_updates": [
+        86,
+        86,
+        86
+      ],
+      "actual_guard_health_receipt_max_gap_wall_s": [
+        0.2660995660116896,
+        0.26613916299538687,
+        0.2662347859586589
+      ],
+      "accepted_masks": [
+        81,
+        81,
+        81
+      ],
+      "actual_mask_receipt_gap_upper_max_wall_s": [
+        0.217628724,
+        0.213385165,
+        0.213444548
+      ],
+      "Gateway_failure": null,
+      "END_flushed": true,
+      "executor_shutdown": [
+        true,
+        true
+      ],
+      "RPC_confirmation_localcleanup_pending": 0,
+      "health_cause_profile_analysis": "health/summary-01.json; no >100ms single function; max outer poll137.874ms CPU137.561ms, nested short interleaved work; raw publish return to C max21.102ms; oldB137ms not reproduced",
+      "P5": "NOT VERIFIED",
+      "Gazebo": 0,
+      "native_build": 0,
+      "raw_directory": "net01d/runs/health-profile-01",
+      "accepted_mask_sequences": {
+        "accepted": "5..85",
+        "rejected": "1..4 and86"
+      },
+      "health_freshness_limit": "unarmed receive_health True means no latchedfault, not each input state_fresh certificate"
+    },
+    {
+      "case": "health-profile-wifi-01",
+      "arm": "B",
+      "scope": "P1 only; same independent synthetic sources; actual V3 WiFi/RAM; no Goal/89/95/arm/physics",
+      "source_identity": "38e0050cbc5d5dd05073c3ee6c8f7b2f48e906c0 plus only the preregistered B host diff; no runtime source changes",
+      "command": "rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py --arm B --case health-profile-wifi-01 --native-evidence-ram /dev/shm/net01d-health-profile-wifi-01",
+      "wall_s": 23.127814481034875,
+      "exits": {
+        "coordinator": 0,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "mock_physics": 0,
+        "source": 0
+      },
+      "forced": [],
+      "source_active_wall_s": 16.000416991999373,
+      "source_sim_ns": [
+        650000000,
+        7790000000
+      ],
+      "active_ticks_delta": {
+        "odom": 214,
+        "wheel": 71,
+        "scan": 35
+      },
+      "skipped_configured_ticks_delta": {
+        "odom": 0,
+        "wheel": 0,
+        "scan": 0
+      },
+      "source_counts_per_robot": {
+        "odom": [
+          214,
+          214,
+          214
+        ],
+        "both_wheel_TF": [
+          71,
+          71,
+          71
+        ],
+        "costmap": [
+          13,
+          14,
+          14
+        ],
+        "map": [
+          4,
+          4,
+          4
+        ],
+        "map_to_odom": [
+          801,
+          800,
+          800
+        ],
+        "feedback": [
+          1601,
+          1600,
+          1599
+        ]
+      },
+      "actual_health_updates": [
+        75,
+        75,
+        74
+      ],
+      "all_actual_guard_health_receipt_max_gap_wall_s": [
+        0.30135472101392224,
+        0.3055959659977816,
+        0.3126508920104243
+      ],
+      "phase_limit": "All three >.3 intervals are seq7 readyfalse/missing_odom to seq8 firstready bootstrap, unarmed; whole-input overlimits retained. Ready-to-ready separate cohort is not whole-run/armed PASS.",
+      "accepted_masks": [
+        73,
+        73,
+        73
+      ],
+      "accepted_mask_sequences": "8..80",
+      "actual_mask_receipt_gap_upper_max_wall_s": [
+        0.277873738,
+        0.271716377,
+        0.283805682
+      ],
+      "Gateway_failure": null,
+      "guard_unarmed": true,
+      "END_flushed": true,
+      "executor_shutdown": [
+        true,
+        true
+      ],
+      "RPC_confirmation_localcleanup_pending": 0,
+      "ingress_messages": 10449,
+      "complete_messages": 10380,
+      "storage": {
+        "backend": "existing exclusive RAM then copy after actual native exit",
+        "RAM_source": "/dev/shm/net01d-health-profile-wifi-01",
+        "bytes_source_and_copied": 292711429,
+        "copy_complete": true,
+        "copy_wall_s": 0.38444231200264767,
+        "RAM_retained": true
+      },
+      "P5": "NOT VERIFIED",
+      "Gazebo": 0,
+      "native_build": 0,
+      "raw_directory": "net01d/runs/health-profile-wifi-01",
+      "bootstrap_overlimit_sequence_pair": [
+        7,
+        8
+      ],
+      "bootstrap_Peer_raw_publish_return_interval_wall_s": 0.28701024,
+      "ready_to_ready_intervals_per_flow": 72,
+      "ready_to_ready_actual_health_receipt_max_gap_wall_s": [
+        0.278257979,
+        0.281131403,
+        0.269613264
+      ],
+      "profile_summary": "health/summary-wifi-01.json and gap-wifi-01.json; old137ms not reproduced, no >100ms single owner. No behavioral repair selected."
+    }
+  ],
+  "Gazebo_budget": {
+    "maximum": 8,
+    "per_arm_maximum": 2,
+    "sim_per_run": 120,
+    "used": 0,
+    "A0": 0,
+    "A1": 0,
+    "B": 0,
+    "C": 0,
+    "user_sim_upper_bound": 180
+  },
+  "repair_rounds": {
+    "maximum": 2,
+    "used": 0
+  },
+  "frozen_identity_reused": {
+    "release": "MR3-RL-POLICY-v1.1.0",
+    "behavior_source": "76fd91cf937bd8d662302901dad063affbea3c38",
+    "checkpoint_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+    "native_sha256": "82bc8ecff7d1e88d826931be534335fac21971fa8e6a23731af805f291c7e184"
+  },
+  "P0": {
+    "HEAD_matches": true,
+    "frozen_tracked_path_diff_empty": true,
+    "old_raw_root": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs",
+    "old_three_cases_required_path_existence": true,
+    "full_old_raw_content_rehash": false,
+    "exact_actor_proc_snapshot_matches": [],
+    "DDS_graph_query_started": false,
+    "migration_dependencies_and_120sim_admission": "Dependency paths pending explicit binding; existing120 contract retained, not a defect",
+    "checkpoint_single_recheck": "root verified current checkpoint once against Manifest; producer did not recompute"
+  },
+  "pushed": false,
+  "old_evidence_modified": false
+}

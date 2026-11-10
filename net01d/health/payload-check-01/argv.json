@@ -1,0 +1,12 @@
+[
+  "rtk",
+  "proxy",
+  "timeout",
+  "--signal=TERM",
+  "--kill-after=2s",
+  "20s",
+  "bash",
+  "net-01d/workspace/net01/ros-python.sh",
+  "-c",
+  "import ast,copy,json,sys\nfrom pathlib import Path\nfrom unittest.mock import patch\nimport rclpy\nfrom rclpy.node import Node\nfrom rclpy.serialization import deserialize_message,serialize_message\nfrom nav_msgs.msg import OccupancyGrid\nbase=Path('/mnt/net01d/health')\nsys.path.insert(0,str(base))\nresult=dict(scope='0 ROS init/Node/DDS/native/Gazebo; six real generated Grid payload checks',templates={})\nwith patch('rclpy.init',side_effect=AssertionError('ROS init forbidden')),patch.object(Node,'__init__',side_effect=AssertionError('Node forbidden')):\n import full_load_source,full_load_client,full_load_payloads\n manifest=json.loads((base/'payloads-01/manifest.json').read_text())\n for key,meta in manifest['templates'].items():\n  original=deserialize_message((base/'payloads-01'/meta['file']).read_bytes(),OccupancyGrid)\n  assert len(original.data)==original.info.width*original.info.height\n  assert deserialize_message(serialize_message(original),OccupancyGrid)==original\n  new=copy.deepcopy(original)\n  new.header.stamp.sec=2;new.header.stamp.nanosec=30000000\n  new.info.map_load_time.sec=1;new.info.map_load_time.nanosec=0\n  new.header.stamp=original.header.stamp;new.info.map_load_time=original.info.map_load_time\n  assert new==original\n  result['templates'][key]=dict(complete_CDR_bytes=meta['complete_CDR_bytes'],width=original.info.width,height=original.info.height,frame_id=original.header.frame_id,resolution=original.info.resolution,all_typed_fields_roundtrip_equal=True,fixture_changes_only_two_documented_time_fields=True)\n for path in base.glob('full_load_*.py'):ast.parse(path.read_text(),filename=str(path))\n result['status']='PASS'\nprint(json.dumps(result,indent=2))\n"
+]

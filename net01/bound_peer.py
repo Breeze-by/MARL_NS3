@@ -184,9 +184,15 @@ def main():
     parser.add_argument("--scene",type=Path,required=True)
     parser.add_argument("--directory",type=Path,required=True)
     parser.add_argument("--session-id",type=int,required=True)
+    parser.add_argument('--health-trace',action='store_true')
     args,ros_args=parser.parse_known_args()
     rclpy.init(args=ros_args)
-    node=BoundPeer(json.loads(args.scene.read_text()),args.directory,session_id=args.session_id)
+    health_trace=None
+    if args.health_trace:
+        from net01d.health.trace import HealthTrace
+        health_trace=HealthTrace()
+    node=BoundPeer(json.loads(args.scene.read_text()),args.directory,session_id=args.session_id,
+        health_trace=health_trace)
     try:rclpy.spin(node)
     finally:
         try:

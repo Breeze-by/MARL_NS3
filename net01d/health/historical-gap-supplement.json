@@ -1,0 +1,78 @@
+{
+  "scope": "Supplement: saved small Peer/binding records plus history-01 only; no Gateway reread/native ledger",
+  "source_cohort_n": 876,
+  "binding_sequences_n": 876,
+  "source_sequences_missing_binding": [],
+  "binding_hashes_per_sequence_counts": [
+    1
+  ],
+  "unique_cohort_hash_n": 876,
+  "capture_pair_count_each_flow": {
+    "31": 876,
+    "51": 876,
+    "71": 876
+  },
+  "coverage_interpretation": "876 independent source rows, 876 distinct source hashes, and 876 unique capture pairs per flow in this saved cohort; not proof outside cohort or source publishing not recorded",
+  "source_rows": {
+    "1032": {
+      "sequence": 1032,
+      "generated_sim": 103.2,
+      "timer_entry_monotonic_ns": 458207901260004,
+      "state_snapshot_monotonic_ns": 458207901363590,
+      "wrapper_before_monotonic_ns": 458207961904402,
+      "wrapper_after_monotonic_ns": 458207967462353
+    },
+    "1033": {
+      "sequence": 1033,
+      "generated_sim": 103.30000000000001,
+      "timer_entry_monotonic_ns": 458208121364605,
+      "state_snapshot_monotonic_ns": 458208121440275,
+      "wrapper_before_monotonic_ns": 458208181254433,
+      "wrapper_after_monotonic_ns": 458208186454543
+    }
+  },
+  "state_construction_interval_bracket_ms": [
+    220.001015,
+    220.180271
+  ],
+  "health_wrapper_before_interval_ms": 219.350031,
+  "health_wrapper_after_interval_ms": 218.99219,
+  "last_valid_tb1_health_sequence": 1032,
+  "original_guard_latch_monotonic_ns": 458208327175423,
+  "old_guard_receipt_bracket_monotonic_ns": [
+    458207993844265,
+    458207994153794
+  ],
+  "old_receipt_bracket_basis": "Guard receives/updates after Gateway destination entry and before TopicWire public publish; exact internal receipt is not stored",
+  "old_receipt_age_at_first_guard_bracket_ms": [
+    333.021629,
+    333.331158
+  ],
+  "old_receipt_deadline_bracket_monotonic_ns": [
+    458208293844265,
+    458208294153794
+  ],
+  "deadline_remaining_at_new_wrapper_after_bracket_ms": [
+    107.389722,
+    107.699251
+  ],
+  "tb1_R_complete_to_complete_interval_ms": 336.985698,
+  "exact_observed_boundary_decomposition_ms": {
+    "source_wrapper_before_interval": 219.350031,
+    "old_wrapper_before_to_old_R_complete": 31.939863,
+    "new_wrapper_before_to_new_R_complete": 149.57553,
+    "equation": "R complete interval = source wrapper-before interval + new-path elapsed - old-path elapsed; not a guard internal timestamp"
+  },
+  "cadence_budget": {
+    "peer_timer_sim_s": 0.1,
+    "nominal_RTF": 0.5,
+    "nominal_wall_period_ms": 200,
+    "original_guard_wall_ms": 300,
+    "nominal_remainder_ms": 100,
+    "meaning": "Native credit stalls can defer next sim-timer generation. Source cadence and already-generated callback wait are separate; frozen rules unchanged."
+  },
+  "unresolved": [
+    "Exact raw publisher return and exact state generation instant are bracketed, not measured",
+    "Source interval numerical decomposition does not uniquely identify Native Run/IPC/DDS/scheduling cause"
+  ]
+}

@@ -130,6 +130,7 @@ class Gateway:
         self.guards={r:LocalStop(self.r,r,session_id) for r in (1,2,3)}
         self.anchor=None;self.gz=None;self.previous_clock=None;self.step_pending=None
         self.connected=False;self.failure=None;self.wires=None
+        self.last_status=None  # Actual existing timer snapshot, for fixture diagnostics only.
         self.hub_poll_closed=False
         self.health_status=self.r.create_publisher(String,"/net01/gateway_state",
             QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
@@ -320,6 +321,7 @@ class Gateway:
             actual_rpc_cleanup=rpc_cleanup,
             guards={str(r):dict(armed=g.guard.armed,fault=g.guard.fault,reason=g.guard.reason())
                 for r,g in self.guards.items()})
+        self.last_status=data
         self.health_status.publish(String(data=json.dumps(data)))
 
     def export_controller_records(self):

@@ -62,7 +62,7 @@ class ControlledRuntime:
             'NET01_SESSION_ID='+str(self.session),
             '/bin/bash','--noprofile','--norc','-c',
             'source /opt/ros/humble/setup.bash\nsource /project/workspace/install/setup.bash\n'
-            'export PYTHONPATH=/mnt/net01:/mnt/workspace/gz01:/mnt/workspace/rl04:/mnt/workspace/rl02:/mnt/workspace/rl01:/mnt/workspace/src/multi_robot_exploration:/tmp/rl02-python:${PYTHONPATH:-}\n'
+            'export PYTHONPATH=/mnt:/mnt/net01:/mnt/workspace/gz01:/mnt/workspace/rl04:/mnt/workspace/rl02:/mnt/workspace/rl01:/mnt/workspace/src/multi_robot_exploration:/tmp/rl02-python:${PYTHONPATH:-}\n'
             'exec "$@"','bash',*arguments]
 
     def start(self,deadline):

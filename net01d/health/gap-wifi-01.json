@@ -1,0 +1,740 @@
+{
+  "case": "net-01d/workspace/net01d/runs/health-profile-wifi-01",
+  "source_begin_sim_ns": 650000000,
+  "source_end_sim_ns": 7790000000,
+  "source_active_wall_s": 16.000416991999373,
+  "top_receipt_intervals": [
+    {
+      "flow": 31,
+      "old_sequence": 7,
+      "new_sequence": 8,
+      "old_source_state": {
+        "ready": false,
+        "generated_sim": 0.7000000000000001,
+        "failures": {
+          "tb1": "missing_odom",
+          "tb2": "missing_odom",
+          "tb3": "missing_odom"
+        },
+        "delivery_timing": {
+          "entry_monotonic": 514179.728642667,
+          "masks": {
+            "tb1": {
+              "begin": 514179.72873312,
+              "built": 514179.729369977,
+              "before_publish": 514179.72965799,
+              "after_publish": 514179.73055223
+            },
+            "tb2": {
+              "begin": 514179.730554775,
+              "built": 514179.730751979,
+              "before_publish": 514179.730784436,
+              "after_publish": 514179.731381454
+            },
+            "tb3": {
+              "begin": 514179.731383391,
+              "built": 514179.731551694,
+              "before_publish": 514179.731588355,
+              "after_publish": 514179.732263139
+            }
+          },
+          "snapshot_monotonic": 514179.728732346,
+          "health_publish_before_monotonic": 514179.732532693,
+          "health_publish_after_monotonic": 514179.738714554
+        }
+      },
+      "new_source_state": {
+        "ready": true,
+        "generated_sim": 0.8,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514179.96154404,
+          "masks": {
+            "tb1": {
+              "begin": 514179.961607394,
+              "built": 514179.98276804,
+              "before_publish": 514179.982854932,
+              "after_publish": 514179.983444827
+            },
+            "tb2": {
+              "begin": 514179.983448458,
+              "built": 514179.999838368,
+              "before_publish": 514179.999922175,
+              "after_publish": 514180.000424613
+            },
+            "tb3": {
+              "begin": 514180.000428541,
+              "built": 514180.018617568,
+              "before_publish": 514180.018702214,
+              "after_publish": 514180.019455377
+            }
+          },
+          "snapshot_monotonic": 514179.961606287,
+          "health_publish_before_monotonic": 514180.01968997,
+          "health_publish_after_monotonic": 514180.024501755
+        }
+      },
+      "actual_receipt_interval_ms": 301.35472101392224,
+      "old_guard_receipt_mono_s": 514179.75341819,
+      "new_guard_receipt_mono_s": 514180.054772911,
+      "source_raw_publish_interval_ms": 287.130554,
+      "source_raw_publish_return_interval_ms": 287.01024,
+      "C_capture_interval_ms": 294.094425,
+      "old_raw_return_to_guard_ms": 20.457238,
+      "new_raw_return_to_guard_ms": 34.801719,
+      "old_C_capture_to_guard_ms": 14.856903,
+      "new_C_capture_to_guard_ms": 22.117199,
+      "armed_before_new": false
+    },
+    {
+      "flow": 31,
+      "old_sequence": 56,
+      "new_sequence": 57,
+      "old_source_state": {
+        "ready": true,
+        "generated_sim": 5.6000000000000005,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514190.693914153,
+          "masks": {
+            "tb1": {
+              "begin": 514190.693981665,
+              "built": 514190.712390147,
+              "before_publish": 514190.712476338,
+              "after_publish": 514190.712880437
+            },
+            "tb2": {
+              "begin": 514190.712883857,
+              "built": 514190.731528942,
+              "before_publish": 514190.731637284,
+              "after_publish": 514190.732136281
+            },
+            "tb3": {
+              "begin": 514190.732140602,
+              "built": 514190.749979761,
+              "before_publish": 514190.750189287,
+              "after_publish": 514190.750676793
+            }
+          },
+          "snapshot_monotonic": 514190.693981092,
+          "health_publish_before_monotonic": 514190.750865815,
+          "health_publish_after_monotonic": 514190.755597486
+        }
+      },
+      "new_source_state": {
+        "ready": true,
+        "generated_sim": 5.7,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514190.968712537,
+          "masks": {
+            "tb1": {
+              "begin": 514190.968794468,
+              "built": 514190.982440474,
+              "before_publish": 514190.982506158,
+              "after_publish": 514190.982985913
+            },
+            "tb2": {
+              "begin": 514190.98299136,
+              "built": 514190.997466331,
+              "before_publish": 514190.997555786,
+              "after_publish": 514190.998053921
+            },
+            "tb3": {
+              "begin": 514190.998057882,
+              "built": 514191.018525848,
+              "before_publish": 514191.018631021,
+              "after_publish": 514191.019257681
+            }
+          },
+          "snapshot_monotonic": 514190.968793916,
+          "health_publish_before_monotonic": 514191.019615444,
+          "health_publish_after_monotonic": 514191.024598818
+        }
+      },
+      "actual_receipt_interval_ms": 278.2579790218733,
+      "old_guard_receipt_mono_s": 514190.763318318,
+      "new_guard_receipt_mono_s": 514191.041576297,
+      "source_raw_publish_interval_ms": 268.784296,
+      "source_raw_publish_return_interval_ms": 268.802961,
+      "C_capture_interval_ms": 264.641384,
+      "old_raw_return_to_guard_ms": 12.198461,
+      "new_raw_return_to_guard_ms": 21.653479,
+      "old_C_capture_to_guard_ms": 6.197088,
+      "new_C_capture_to_guard_ms": 19.813683,
+      "armed_before_new": false
+    },
+    {
+      "flow": 31,
+      "old_sequence": 37,
+      "new_sequence": 38,
+      "old_source_state": {
+        "ready": true,
+        "generated_sim": 3.7,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514186.401635436,
+          "masks": {
+            "tb1": {
+              "begin": 514186.401732786,
+              "built": 514186.420386867,
+              "before_publish": 514186.420477958,
+              "after_publish": 514186.420891056
+            },
+            "tb2": {
+              "begin": 514186.420894034,
+              "built": 514186.439057035,
+              "before_publish": 514186.439148483,
+              "after_publish": 514186.439783594
+            },
+            "tb3": {
+              "begin": 514186.439786717,
+              "built": 514186.457058637,
+              "before_publish": 514186.457151658,
+              "after_publish": 514186.45756219
+            }
+          },
+          "snapshot_monotonic": 514186.401732004,
+          "health_publish_before_monotonic": 514186.45776127,
+          "health_publish_after_monotonic": 514186.462228549
+        }
+      },
+      "new_source_state": {
+        "ready": true,
+        "generated_sim": 3.8000000000000003,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514186.656190668,
+          "masks": {
+            "tb1": {
+              "begin": 514186.656287327,
+              "built": 514186.675397841,
+              "before_publish": 514186.675506221,
+              "after_publish": 514186.676118774
+            },
+            "tb2": {
+              "begin": 514186.676121878,
+              "built": 514186.694848539,
+              "before_publish": 514186.695030624,
+              "after_publish": 514186.695575499
+            },
+            "tb3": {
+              "begin": 514186.695579377,
+              "built": 514186.714278294,
+              "before_publish": 514186.714374712,
+              "after_publish": 514186.714837257
+            }
+          },
+          "snapshot_monotonic": 514186.656286631,
+          "health_publish_before_monotonic": 514186.715169896,
+          "health_publish_after_monotonic": 514186.720254751
+        }
+      },
+      "actual_receipt_interval_ms": 269.3468970246613,
+      "old_guard_receipt_mono_s": 514186.477475687,
+      "new_guard_receipt_mono_s": 514186.746822584,
+      "source_raw_publish_interval_ms": 257.448393,
+      "source_raw_publish_return_interval_ms": 257.506686,
+      "C_capture_interval_ms": 259.2774,
+      "old_raw_return_to_guard_ms": 19.490308,
+      "new_raw_return_to_guard_ms": 31.330519,
+      "old_C_capture_to_guard_ms": 7.887504,
+      "new_C_capture_to_guard_ms": 17.957001,
+      "armed_before_new": false
+    },
+    {
+      "flow": 51,
+      "old_sequence": 7,
+      "new_sequence": 8,
+      "old_source_state": {
+        "ready": false,
+        "generated_sim": 0.7000000000000001,
+        "failures": {
+          "tb1": "missing_odom",
+          "tb2": "missing_odom",
+          "tb3": "missing_odom"
+        },
+        "delivery_timing": {
+          "entry_monotonic": 514179.728642667,
+          "masks": {
+            "tb1": {
+              "begin": 514179.72873312,
+              "built": 514179.729369977,
+              "before_publish": 514179.72965799,
+              "after_publish": 514179.73055223
+            },
+            "tb2": {
+              "begin": 514179.730554775,
+              "built": 514179.730751979,
+              "before_publish": 514179.730784436,
+              "after_publish": 514179.731381454
+            },
+            "tb3": {
+              "begin": 514179.731383391,
+              "built": 514179.731551694,
+              "before_publish": 514179.731588355,
+              "after_publish": 514179.732263139
+            }
+          },
+          "snapshot_monotonic": 514179.728732346,
+          "health_publish_before_monotonic": 514179.732532693,
+          "health_publish_after_monotonic": 514179.738714554
+        }
+      },
+      "new_source_state": {
+        "ready": true,
+        "generated_sim": 0.8,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514179.96154404,
+          "masks": {
+            "tb1": {
+              "begin": 514179.961607394,
+              "built": 514179.98276804,
+              "before_publish": 514179.982854932,
+              "after_publish": 514179.983444827
+            },
+            "tb2": {
+              "begin": 514179.983448458,
+              "built": 514179.999838368,
+              "before_publish": 514179.999922175,
+              "after_publish": 514180.000424613
+            },
+            "tb3": {
+              "begin": 514180.000428541,
+              "built": 514180.018617568,
+              "before_publish": 514180.018702214,
+              "after_publish": 514180.019455377
+            }
+          },
+          "snapshot_monotonic": 514179.961606287,
+          "health_publish_before_monotonic": 514180.01968997,
+          "health_publish_after_monotonic": 514180.024501755
+        }
+      },
+      "actual_receipt_interval_ms": 305.5959659977816,
+      "old_guard_receipt_mono_s": 514179.758486854,
+      "new_guard_receipt_mono_s": 514180.06408282,
+      "source_raw_publish_interval_ms": 287.130554,
+      "source_raw_publish_return_interval_ms": 287.01024,
+      "C_capture_interval_ms": 294.153794,
+      "old_raw_return_to_guard_ms": 25.525902,
+      "new_raw_return_to_guard_ms": 44.111628,
+      "old_C_capture_to_guard_ms": 19.437902,
+      "new_C_capture_to_guard_ms": 30.880074,
+      "armed_before_new": false
+    },
+    {
+      "flow": 51,
+      "old_sequence": 56,
+      "new_sequence": 57,
+      "old_source_state": {
+        "ready": true,
+        "generated_sim": 5.6000000000000005,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514190.693914153,
+          "masks": {
+            "tb1": {
+              "begin": 514190.693981665,
+              "built": 514190.712390147,
+              "before_publish": 514190.712476338,
+              "after_publish": 514190.712880437
+            },
+            "tb2": {
+              "begin": 514190.712883857,
+              "built": 514190.731528942,
+              "before_publish": 514190.731637284,
+              "after_publish": 514190.732136281
+            },
+            "tb3": {
+              "begin": 514190.732140602,
+              "built": 514190.749979761,
+              "before_publish": 514190.750189287,
+              "after_publish": 514190.750676793
+            }
+          },
+          "snapshot_monotonic": 514190.693981092,
+          "health_publish_before_monotonic": 514190.750865815,
+          "health_publish_after_monotonic": 514190.755597486
+        }
+      },
+      "new_source_state": {
+        "ready": true,
+        "generated_sim": 5.7,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514190.968712537,
+          "masks": {
+            "tb1": {
+              "begin": 514190.968794468,
+              "built": 514190.982440474,
+              "before_publish": 514190.982506158,
+              "after_publish": 514190.982985913
+            },
+            "tb2": {
+              "begin": 514190.98299136,
+              "built": 514190.997466331,
+              "before_publish": 514190.997555786,
+              "after_publish": 514190.998053921
+            },
+            "tb3": {
+              "begin": 514190.998057882,
+              "built": 514191.018525848,
+              "before_publish": 514191.018631021,
+              "after_publish": 514191.019257681
+            }
+          },
+          "snapshot_monotonic": 514190.968793916,
+          "health_publish_before_monotonic": 514191.019615444,
+          "health_publish_after_monotonic": 514191.024598818
+        }
+      },
+      "actual_receipt_interval_ms": 281.13140299683437,
+      "old_guard_receipt_mono_s": 514190.763749185,
+      "new_guard_receipt_mono_s": 514191.044880588,
+      "source_raw_publish_interval_ms": 268.784296,
+      "source_raw_publish_return_interval_ms": 268.802961,
+      "C_capture_interval_ms": 264.638513,
+      "old_raw_return_to_guard_ms": 12.629328,
+      "new_raw_return_to_guard_ms": 24.95777,
+      "old_C_capture_to_guard_ms": 6.083015,
+      "new_C_capture_to_guard_ms": 22.575905,
+      "armed_before_new": false
+    },
+    {
+      "flow": 51,
+      "old_sequence": 37,
+      "new_sequence": 38,
+      "old_source_state": {
+        "ready": true,
+        "generated_sim": 3.7,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514186.401635436,
+          "masks": {
+            "tb1": {
+              "begin": 514186.401732786,
+              "built": 514186.420386867,
+              "before_publish": 514186.420477958,
+              "after_publish": 514186.420891056
+            },
+            "tb2": {
+              "begin": 514186.420894034,
+              "built": 514186.439057035,
+              "before_publish": 514186.439148483,
+              "after_publish": 514186.439783594
+            },
+            "tb3": {
+              "begin": 514186.439786717,
+              "built": 514186.457058637,
+              "before_publish": 514186.457151658,
+              "after_publish": 514186.45756219
+            }
+          },
+          "snapshot_monotonic": 514186.401732004,
+          "health_publish_before_monotonic": 514186.45776127,
+          "health_publish_after_monotonic": 514186.462228549
+        }
+      },
+      "new_source_state": {
+        "ready": true,
+        "generated_sim": 3.8000000000000003,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514186.656190668,
+          "masks": {
+            "tb1": {
+              "begin": 514186.656287327,
+              "built": 514186.675397841,
+              "before_publish": 514186.675506221,
+              "after_publish": 514186.676118774
+            },
+            "tb2": {
+              "begin": 514186.676121878,
+              "built": 514186.694848539,
+              "before_publish": 514186.695030624,
+              "after_publish": 514186.695575499
+            },
+            "tb3": {
+              "begin": 514186.695579377,
+              "built": 514186.714278294,
+              "before_publish": 514186.714374712,
+              "after_publish": 514186.714837257
+            }
+          },
+          "snapshot_monotonic": 514186.656286631,
+          "health_publish_before_monotonic": 514186.715169896,
+          "health_publish_after_monotonic": 514186.720254751
+        }
+      },
+      "actual_receipt_interval_ms": 271.3087199954316,
+      "old_guard_receipt_mono_s": 514186.479812185,
+      "new_guard_receipt_mono_s": 514186.751120905,
+      "source_raw_publish_interval_ms": 257.448393,
+      "source_raw_publish_return_interval_ms": 257.506686,
+      "C_capture_interval_ms": 259.258504,
+      "old_raw_return_to_guard_ms": 21.826806,
+      "new_raw_return_to_guard_ms": 35.62884,
+      "old_C_capture_to_guard_ms": 9.680626,
+      "new_C_capture_to_guard_ms": 21.730842,
+      "armed_before_new": false
+    },
+    {
+      "flow": 71,
+      "old_sequence": 7,
+      "new_sequence": 8,
+      "old_source_state": {
+        "ready": false,
+        "generated_sim": 0.7000000000000001,
+        "failures": {
+          "tb1": "missing_odom",
+          "tb2": "missing_odom",
+          "tb3": "missing_odom"
+        },
+        "delivery_timing": {
+          "entry_monotonic": 514179.728642667,
+          "masks": {
+            "tb1": {
+              "begin": 514179.72873312,
+              "built": 514179.729369977,
+              "before_publish": 514179.72965799,
+              "after_publish": 514179.73055223
+            },
+            "tb2": {
+              "begin": 514179.730554775,
+              "built": 514179.730751979,
+              "before_publish": 514179.730784436,
+              "after_publish": 514179.731381454
+            },
+            "tb3": {
+              "begin": 514179.731383391,
+              "built": 514179.731551694,
+              "before_publish": 514179.731588355,
+              "after_publish": 514179.732263139
+            }
+          },
+          "snapshot_monotonic": 514179.728732346,
+          "health_publish_before_monotonic": 514179.732532693,
+          "health_publish_after_monotonic": 514179.738714554
+        }
+      },
+      "new_source_state": {
+        "ready": true,
+        "generated_sim": 0.8,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514179.96154404,
+          "masks": {
+            "tb1": {
+              "begin": 514179.961607394,
+              "built": 514179.98276804,
+              "before_publish": 514179.982854932,
+              "after_publish": 514179.983444827
+            },
+            "tb2": {
+              "begin": 514179.983448458,
+              "built": 514179.999838368,
+              "before_publish": 514179.999922175,
+              "after_publish": 514180.000424613
+            },
+            "tb3": {
+              "begin": 514180.000428541,
+              "built": 514180.018617568,
+              "before_publish": 514180.018702214,
+              "after_publish": 514180.019455377
+            }
+          },
+          "snapshot_monotonic": 514179.961606287,
+          "health_publish_before_monotonic": 514180.01968997,
+          "health_publish_after_monotonic": 514180.024501755
+        }
+      },
+      "actual_receipt_interval_ms": 312.6508920104243,
+      "old_guard_receipt_mono_s": 514179.760022985,
+      "new_guard_receipt_mono_s": 514180.072673877,
+      "source_raw_publish_interval_ms": 287.130554,
+      "source_raw_publish_return_interval_ms": 287.01024,
+      "C_capture_interval_ms": 293.83151,
+      "old_raw_return_to_guard_ms": 27.062033,
+      "new_raw_return_to_guard_ms": 52.702685,
+      "old_C_capture_to_guard_ms": 17.807608,
+      "new_C_capture_to_guard_ms": 36.62699,
+      "armed_before_new": false
+    },
+    {
+      "flow": 71,
+      "old_sequence": 39,
+      "new_sequence": 40,
+      "old_source_state": {
+        "ready": true,
+        "generated_sim": 3.9000000000000004,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514186.883591595,
+          "masks": {
+            "tb1": {
+              "begin": 514186.883657132,
+              "built": 514186.90126981,
+              "before_publish": 514186.901357941,
+              "after_publish": 514186.901784112
+            },
+            "tb2": {
+              "begin": 514186.901787723,
+              "built": 514186.919786666,
+              "before_publish": 514186.919942987,
+              "after_publish": 514186.920470969
+            },
+            "tb3": {
+              "begin": 514186.920475381,
+              "built": 514186.938082679,
+              "before_publish": 514186.938171554,
+              "after_publish": 514186.938622977
+            }
+          },
+          "snapshot_monotonic": 514186.883655952,
+          "health_publish_before_monotonic": 514186.938832853,
+          "health_publish_after_monotonic": 514186.943328571
+        }
+      },
+      "new_source_state": {
+        "ready": true,
+        "generated_sim": 4.0,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514187.117644479,
+          "masks": {
+            "tb1": {
+              "begin": 514187.117708459,
+              "built": 514187.135920095,
+              "before_publish": 514187.136029333,
+              "after_publish": 514187.13645652
+            },
+            "tb2": {
+              "begin": 514187.136460343,
+              "built": 514187.155390844,
+              "before_publish": 514187.155492485,
+              "after_publish": 514187.155866624
+            },
+            "tb3": {
+              "begin": 514187.15586976,
+              "built": 514187.175162137,
+              "before_publish": 514187.175264515,
+              "after_publish": 514187.175811542
+            }
+          },
+          "snapshot_monotonic": 514187.117707926,
+          "health_publish_before_monotonic": 514187.176056091,
+          "health_publish_after_monotonic": 514187.181243546
+        }
+      },
+      "actual_receipt_interval_ms": 269.6132639539428,
+      "old_guard_receipt_mono_s": 514186.965433282,
+      "new_guard_receipt_mono_s": 514187.235046546,
+      "source_raw_publish_interval_ms": 237.257507,
+      "source_raw_publish_return_interval_ms": 237.282985,
+      "C_capture_interval_ms": 248.337257,
+      "old_raw_return_to_guard_ms": 26.372467,
+      "new_raw_return_to_guard_ms": 58.702746,
+      "old_C_capture_to_guard_ms": 22.209455,
+      "new_C_capture_to_guard_ms": 43.485462,
+      "armed_before_new": false
+    },
+    {
+      "flow": 71,
+      "old_sequence": 50,
+      "new_sequence": 51,
+      "old_source_state": {
+        "ready": true,
+        "generated_sim": 5.0,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514189.333295766,
+          "masks": {
+            "tb1": {
+              "begin": 514189.333380908,
+              "built": 514189.3505935,
+              "before_publish": 514189.350681468,
+              "after_publish": 514189.351073497
+            },
+            "tb2": {
+              "begin": 514189.351077228,
+              "built": 514189.368565155,
+              "before_publish": 514189.368659493,
+              "after_publish": 514189.36909127
+            },
+            "tb3": {
+              "begin": 514189.369097286,
+              "built": 514189.387277332,
+              "before_publish": 514189.387462776,
+              "after_publish": 514189.387850202
+            }
+          },
+          "snapshot_monotonic": 514189.333380259,
+          "health_publish_before_monotonic": 514189.388047825,
+          "health_publish_after_monotonic": 514189.392067225
+        }
+      },
+      "new_source_state": {
+        "ready": true,
+        "generated_sim": 5.1000000000000005,
+        "failures": {},
+        "delivery_timing": {
+          "entry_monotonic": 514189.569555157,
+          "masks": {
+            "tb1": {
+              "begin": 514189.569645314,
+              "built": 514189.58771201,
+              "before_publish": 514189.587785091,
+              "after_publish": 514189.588237241
+            },
+            "tb2": {
+              "begin": 514189.588240484,
+              "built": 514189.605519425,
+              "before_publish": 514189.605620777,
+              "after_publish": 514189.606054351
+            },
+            "tb3": {
+              "begin": 514189.606057445,
+              "built": 514189.623783519,
+              "before_publish": 514189.623858968,
+              "after_publish": 514189.624327668
+            }
+          },
+          "snapshot_monotonic": 514189.569644702,
+          "health_publish_before_monotonic": 514189.624504939,
+          "health_publish_after_monotonic": 514189.628994927
+        }
+      },
+      "actual_receipt_interval_ms": 260.74734004214406,
+      "old_guard_receipt_mono_s": 514189.414695478,
+      "new_guard_receipt_mono_s": 514189.675442818,
+      "source_raw_publish_interval_ms": 236.433384,
+      "source_raw_publish_return_interval_ms": 236.413389,
+      "C_capture_interval_ms": 239.080442,
+      "old_raw_return_to_guard_ms": 26.401235,
+      "new_raw_return_to_guard_ms": 50.735186,
+      "old_C_capture_to_guard_ms": 24.330972,
+      "new_C_capture_to_guard_ms": 45.99787,
+      "armed_before_new": false
+    }
+  ],
+  "consecutive_both_source_ready_intervals": {
+    "31": {
+      "n": 72,
+      "max_ms": 278.2579790218733,
+      "above300": 0
+    },
+    "51": {
+      "n": 72,
+      "max_ms": 281.13140299683437,
+      "above300": 0
+    },
+    "71": {
+      "n": 72,
+      "max_ms": 269.6132639539428,
+      "above300": 0
+    }
+  },
+  "semantics": "Ready source state is not proof armed or full safety. Interval = source raw-return interval + new path latency - old path latency."
+}
