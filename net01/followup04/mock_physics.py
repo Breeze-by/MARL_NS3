@@ -18,10 +18,13 @@ from std_srvs.srv import Trigger
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True)
-    parser.add_argument('--stop-file',type=Path,required=True);args=parser.parse_args()
+    parser.add_argument('--stop-file',type=Path,required=True)
+    parser.add_argument('--phase',choices=('stress5ms','actual-corr6201'),default='stress5ms')
+    args=parser.parse_args()
     rclpy.init(domain_id=92,signal_handler_options=SignalHandlerOptions.NO)
     node=Node('net01_MOCK_PHYSICS');publisher=node.create_publisher(Clock,'/clock',qos_profile_sensor_data)
-    value=5_000_000;iterations=0;records=[]
+    initial=5_000_000 if args.phase=='stress5ms' else 0
+    value=initial;iterations=0;records=[]
     def step(request,response):
         nonlocal value,iterations
         before=value;ib=iterations;begin=time.monotonic_ns()
@@ -41,6 +44,8 @@ def main():
     finally:
         node.destroy_node();rclpy.shutdown()
         with args.output.open('x') as stream:json.dump(dict(scope='MOCK_PHYSICS only; no real ODE/Gazebo',
+            phase=args.phase,initial_sim_ns=initial,
+            phase_reference=('net01d/health/real-gazebo-phase-01.json' if args.phase=='actual-corr6201' else None),
             sim_ns=value,iterations=iterations,records=records),stream)
 
 

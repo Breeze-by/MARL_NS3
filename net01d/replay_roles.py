@@ -67,7 +67,12 @@ def gateway(directory,stop_file,mode,full_load=False,dds_take_trace=False):
                             and all(not g.owned and all(f.done() for f in g.futures)
                                 for g in node.guards.values())
                             and all(any(row['kind']=='actual_local_pause_response' and row['success']
-                                for row in g.records) for g in node.guards.values())):
+                                for row in g.records) for g in node.guards.values())
+                            and all(any(row['kind']=='actual_local_cancel_response' and row.get('uuid')==uuid
+                                    for row in g.records)
+                                and any(row['kind']=='actual_local_GetResult' and row.get('uuid')==uuid
+                                    and row.get('status') in (4,5,6) for row in g.records)
+                                for g in node.guards.values() for uuid in g.stopped)):
                         marker('LOCAL_CLEANUP_DRAINED.json',dict(monotonic_ns=time.monotonic_ns(),
                             owned={str(r):sorted(g.owned) for r,g in node.guards.items()},
                             actions={str(r):g.records for r,g in node.guards.items()},

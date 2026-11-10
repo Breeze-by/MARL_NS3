@@ -28,13 +28,15 @@ def main():
     parser.add_argument('--arm',choices=('A1','B'),required=True)
     parser.add_argument('--case',choices=('health-profile-01','health-profile-wifi-01',
         'full-load-local-01','full-load-wifi-01','full-load-dds-audit-01',
-        'full-load-wifi-audit-01','cleanup-drain-01'),required=True)
+        'full-load-wifi-audit-01','cleanup-drain-01','cleanup-drain-02',
+        'actual-phase-local-01','actual-phase-wifi-01'),required=True)
     parser.add_argument('--native',type=Path,default=NATIVE)
     parser.add_argument('--baseline',type=Path,default=BASELINE)
     parser.add_argument('--native-evidence-ram',type=Path)
     parser.add_argument('--payloads',type=Path)
     parser.add_argument('--dds-take-trace',action='store_true')
     parser.add_argument('--cleanup-regression',action='store_true')
+    parser.add_argument('--mock-phase',choices=('stress5ms','actual-corr6201'),default='stress5ms')
     args=parser.parse_args()
     full=args.stage=='full'
     expected_case=({'A1':'full-load-local-01','B':'full-load-wifi-01'} if full else
@@ -43,12 +45,17 @@ def main():
         if not full:raise ValueError('DDS audit is a preregistered full-load diagnostic only')
         expected_case={'A1':'full-load-dds-audit-01','B':'full-load-wifi-audit-01'}[args.arm]
     if args.cleanup_regression:
-        if not full or args.arm!='A1' or not args.dds_take_trace:
+        if not full or args.arm!='A1' or not args.dds_take_trace or args.mock_phase!='stress5ms':
             raise ValueError('Cleanup regression is the fixed full A1 metadata fixture')
-        expected_case='cleanup-drain-01'
+        expected_case='cleanup-drain-02'
+    elif args.mock_phase=='actual-corr6201':
+        if not full or not args.dds_take_trace:
+            raise ValueError('Actual Corr phase requires the fixed full metadata diagnostic')
+        expected_case={'A1':'actual-phase-local-01','B':'actual-phase-wifi-01'}[args.arm]
     if args.case!=expected_case:raise ValueError('Use the preregistered arm/case pair')
-    if (args.arm=='B') != (args.native_evidence_ram is not None):
-        raise ValueError('B requires its explicit exclusive RAM evidence path; A1 retains disk')
+    ram_required=args.arm=='B' or args.mock_phase=='actual-corr6201'
+    if ram_required != (args.native_evidence_ram is not None):
+        raise ValueError('B and both actual-phase arms require explicit RAM; legacy stress A1 retains disk')
     # Explicit existing dependencies. Do not copy, rebuild or alias old binaries.
     if not args.native.is_absolute() or not args.native.is_file():raise FileNotFoundError(args.native)
     if not args.baseline.is_absolute() or not (args.baseline/'isolation/rootfs').is_dir():
@@ -110,6 +117,7 @@ def main():
             'feedback100wall; exactzero_cmd20wall; Peer masks/health10sim unchanged',
         missing_flows=[89,95],scope='P1 independent-source size/cadence approximation, not SLAM/full-system/P5',
         native=str(args.native),baseline=str(args.baseline),
+        mock_phase=args.mock_phase,
         native_evidence_ram=None if args.native_evidence_ram is None else str(args.native_evidence_ram),
         Gazebo=0,Nav2=0,Goal=0,NN=0,arm_guard=False)
     (base/'scope.json').write_text(json.dumps(scope,indent=2)+'\n')
@@ -169,7 +177,7 @@ def main():
             '--stop-file',stop,'--mode',('A' if args.arm=='A1' else 'B')]+(['--full-load'] if full else [])+
             (['--dds-take-trace'] if args.dds_take_trace else [])))
         launch('mock_physics',ros(['/mnt/net01/followup04/mock_physics.py',
-            '--output',inner+'/mock-physics.json','--stop-file',stop]),'MOCK_PHYSICS_READY')
+            '--output',inner+'/mock-physics.json','--stop-file',stop,'--phase',args.mock_phase]),'MOCK_PHYSICS_READY')
         # Gateway stdout is a file: its independent source waits on real DDS
         # gateway_state connected/anchor, as in the original source fixture.
         if not full:
