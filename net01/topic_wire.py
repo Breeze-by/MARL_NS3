@@ -5,6 +5,7 @@ from a source cache; receive() accepts only complete destination wire messages.
 """
 import time
 import hashlib
+import json
 from rclpy.serialization import serialize_message, deserialize_message
 from rclpy.qos import QoSProfile, DurabilityPolicy
 from nav_msgs.msg import OccupancyGrid, Odometry
@@ -59,10 +60,11 @@ def tf_headers(message):
 
 
 class TopicWire:
-    def __init__(self, node, side, send, *, bound_masks=False, runtime=False):
+    def __init__(self, node, side, send, *, bound_masks=False, runtime=False, health_trace=None):
         if side not in ("R", "C"):
             raise ValueError("Explicit R or C endpoint required")
         self.node, self.side, self.send = node, side, send
+        self.health_trace = health_trace
         self.specs = flows(runtime=runtime)
         if bound_masks:
             self.specs = {f:s for f,s in self.specs.items() if f%20!=10}
@@ -79,7 +81,17 @@ class TopicWire:
 
     def capture(self, flow, message):
         now = time.monotonic_ns()
+        trace = None
+        if self.health_trace is not None and flow in (31,51,71):
+            trace=self.health_trace.stamp('C_health_callback',flow=flow,
+                callback_entry_mono_ns=now)
+            trace['sequence']=json.loads(message.data)['sequence']
+            trace.update(serialize_begin_mono_ns=time.monotonic_ns(),
+                serialize_begin_thread_cpu_ns=time.thread_time_ns())
         body = serialize_message(message)
+        if trace is not None:
+            trace.update(serialize_return_mono_ns=time.monotonic_ns(),
+                serialize_return_thread_cpu_ns=time.thread_time_ns())
         spec = self.specs[flow]
         header = getattr(message, "header", None)
         stamp = 0 if header is None else header.stamp.sec*1_000_000_000+header.stamp.nanosec
@@ -91,7 +103,12 @@ class TopicWire:
         if spec["cls"] is TFMessage:row["tf_edges"]=tf_headers(message)
         self.captured.append(row)
         sender, receiver = (spec["robot"], 0) if self.side == "R" else (0, spec["robot"])
-        self.send(sender, receiver, flow, body, 0, stamp)
+        try:
+            self.send(sender, receiver, flow, body, 0, stamp)
+            if trace is not None:trace['send_returned']=True
+        finally:
+            if trace is not None:trace.update(callback_end_mono_ns=time.monotonic_ns(),
+                callback_end_thread_cpu_ns=time.thread_time_ns())
 
     def receive(self, meta, cdr, rpc_id):
         flow = meta["flow"]

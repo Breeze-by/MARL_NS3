@@ -111,6 +111,10 @@ class Gateway:
             if dispatch_profile else None)
         self.profile_longspans=[] if dispatch_profile else None
         self.profile_labels={}
+        self.health_trace=None
+        if dispatch_profile:
+            from net01d.health.trace import HealthTrace
+            self.health_trace=HealthTrace()
         self.last_poll=None
         self.gc_events=[];self.gc_callback=None
         for domain,side in ((91,"C"),(92,"R")):
@@ -204,7 +208,8 @@ class Gateway:
     def install_wires(self):
         self.wires={}
         for side,node in (("C",self.c),("R",self.r)):
-            self.wires[side]=TopicWire(node,side,self.send,bound_masks=True,runtime=True)
+            self.wires[side]=TopicWire(node,side,self.send,bound_masks=True,runtime=True,
+                health_trace=self.health_trace)
         self.bound_c=BoundMaskWire(self.c,"C",self.send,self.session_id,None)
         self.bound_r=BoundMaskWire(self.r,"R",self.send,self.session_id,
             lambda robot,binding,meta:self.guards[robot].guard.receive_bound(binding,meta))
@@ -258,8 +263,23 @@ class Gateway:
         else:
             side="C" if meta["receiver"]==0 else "R"
             if side=="R" and flow in (31,51,71):
+                guard=self.guards[meta['receiver']].guard
+                row=None
+                if self.health_trace is not None:
+                    row=self.health_trace.stamp('R_health_intake',flow=flow,
+                        native_message_id=meta.get('message_id',meta.get('native_id')),
+                        old_sequence=None if guard.health is None else guard.health['sequence'],
+                        old_receipt_mono_s=guard.health_receipt,armed=guard.armed,fault_before=guard.fault)
                 state=json.loads(deserialize_message(body,String).data)
-                self.guards[meta["receiver"]].guard.receive_health(state)
+                if row is not None:row.update(sequence=state['sequence'],
+                    decode_end_mono_ns=time.monotonic_ns(),decode_end_thread_cpu_ns=time.thread_time_ns())
+                try:
+                    accepted=guard.receive_health(state)
+                    if row is not None:row['returned']=accepted
+                finally:
+                    if row is not None:row.update(guard_end_mono_ns=time.monotonic_ns(),
+                        guard_end_thread_cpu_ns=time.thread_time_ns(),
+                        actual_receipt_mono_s=guard.health_receipt,fault_after=guard.fault)
             self.wires[side].receive(meta,body,rpc)
 
     def arm(self,robot,response):
@@ -460,6 +480,7 @@ class Gateway:
             data['action_reliability']=dict(C=self.action_c.reliability_snapshot(),
                 R={str(r):a.reliability_snapshot() for r,a in self.action_r.items()})
         if self.cpu_profile is not None:
+            data['health_trace']=self.health_trace.snapshot()
             data['dispatch_cpu_profile']=dict(aggregates=self.cpu_profile,longspans=self.profile_longspans,gc_events=self.gc_events,
                 longspan_semantics='RAM spans >=10ms; end-order append. Poll includes all work; handler includes journal_call; progress total includes hub/direct. Inclusive parents and children must not be summed. Diagnostic timing overhead, not capacity proof.',
                 semantics='wait and handler totals exclude progress; progress total_inclusive contains hub_poll/direct_batch; do not sum parent and children. Async handler measures executing step only, not pending Future time. RAM only, diagnostic opt-in.')

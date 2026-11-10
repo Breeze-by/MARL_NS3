@@ -136,7 +136,7 @@ async def main(args):
                 words = line.decode().split()
                 if words[0] == "RX":
                     sender, receiver, flow, mid, source, stamp, size = map(int, words[1:])
-                    detailed=args.control_trace and size>=16384
+                    detailed=args.control_trace and (size>=16384 or flow in (31,51,71))
                     if detailed:control_event('hub_payload_read_begin',message_id=mid,bytes=size)
                     payload = await process.stdout.readexactly(size)
                     if await process.stdout.readexactly(1) != b"\n":
@@ -189,8 +189,12 @@ async def main(args):
                         raise ValueError("Actual-clock source admission not established")
                     header=(f"SEND {sender} {receiver} {flow} {next_message} {source} {len(body)}\n" if admission is None else
                         f"SENDAT {sender} {receiver} {flow} {next_message} {source} {len(body)} {admission}\n")
+                    health=args.control_trace and flow in (31,51,71)
+                    if health:control_event('health_native_write_before',flow=flow,message_id=next_message)
                     process.stdin.write(header.encode()+body+b"\n")
+                    if health:control_event('health_native_write_returned',flow=flow,message_id=next_message)
                     await process.stdin.drain()
+                    if health:control_event('health_native_drain_returned',flow=flow,message_id=next_message)
                 elif op=="observed_clock" and args.clock_source=="gazebo":
                     horizon=meta["horizon_ns"]
                     if horizon<known_horizon:raise ValueError("Actual observed clock rollback")

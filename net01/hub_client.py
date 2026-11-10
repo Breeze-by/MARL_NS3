@@ -27,8 +27,11 @@ class HubClient:
         self.outgoing.extend(frame)
         if self.control_trace is not None:
             begin=self.tx_queued;self.tx_queued+=len(frame)
-            if meta['kind'] in ('clock','observed_clock'):
-                row=dict(kind='clock_frame',operation=meta['kind'],horizon_ns=meta['horizon_ns'],
+            health=meta['kind']=='send' and meta.get('flow') in (31,51,71)
+            if meta['kind'] in ('clock','observed_clock') or health:
+                row=dict(kind='health_frame' if health else 'clock_frame',operation=meta['kind'],
+                    **({'flow':meta['flow'],'sender':meta['sender'],'receiver':meta['receiver']}
+                       if health else {'horizon_ns':meta['horizon_ns']}),
                     queued_monotonic_ns=time.monotonic_ns(),begin_byte_offset=begin,end_byte_offset=self.tx_queued)
                 self.control_trace.append(row);self.control_frames.append(row)
 

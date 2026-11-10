@@ -26,12 +26,29 @@ from std_msgs.msg import UInt8MultiArray
 
 
 class ObservedPublisher:
-    def __init__(self, publisher, after):
+    def __init__(self, publisher, after, health_trace=None):
         self.publisher, self.after = publisher, after
+        self.health_trace=health_trace
 
     def publish(self, message):
-        self.publisher.publish(message)
-        self.after(message)
+        if self.health_trace is None:
+            self.publisher.publish(message)
+            self.after(message)
+            return
+        sequence=json.loads(message.data)['sequence']
+        row=self.health_trace.stamp('Peer_health_publish',sequence=sequence)
+        try:
+            self.publisher.publish(message)
+            row['raw_publish_returned']=True
+        finally:
+            row.update(raw_publish_end_mono_ns=time.monotonic_ns(),
+                raw_publish_end_thread_cpu_ns=time.thread_time_ns())
+        try:
+            self.after(message)
+            row['binding_returned']=True
+        finally:
+            row.update(binding_end_mono_ns=time.monotonic_ns(),
+                binding_end_thread_cpu_ns=time.thread_time_ns())
 
 
 class BatchBinding:
@@ -95,7 +112,8 @@ def decode_bound(packet, robot, session_id):
 
 
 class BoundPeer(frozen.PeerKeepout):
-    def __init__(self, scene, directory, *, session_id):
+    def __init__(self, scene, directory, *, session_id, health_trace=None):
+        self.health_trace=health_trace
         self.tf_input_records=[]
         super().__init__(scene,directory,timing=False)
         qos = QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)
@@ -105,7 +123,7 @@ class BoundPeer(frozen.PeerKeepout):
         for robot in frozen.ROBOTS:
             self.maps[robot] = ObservedPublisher(self.maps[robot],
                 lambda message,r=robot:self.binding.mask(r,message))
-        self.health = ObservedPublisher(self.health,self.binding.health)
+        self.health = ObservedPublisher(self.health,self.binding.health,health_trace)
         # Only this externally wall-bounded NET process. Refcounting remains;
         # deferred cycles can increase RAM, not a long-lived-service setting.
         self.gc_original_enabled=gc.isenabled()
@@ -148,6 +166,9 @@ class BoundPeer(frozen.PeerKeepout):
 
     def persist_records(self):
         super().persist_records()
+        if self.health_trace is not None:
+            with (self.directory/'health-trace.json').open('x') as stream:
+                json.dump(self.health_trace.snapshot(),stream)
         with (self.directory/"bound-mask-publications.jsonl").open("x") as stream:
             for record in self.binding.records:
                 stream.write(json.dumps(record)+"\n")
