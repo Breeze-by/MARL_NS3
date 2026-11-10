@@ -1,0 +1,10 @@
+[
+  "cmake",
+  "-S",
+  "/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native",
+  "-B",
+  "/home/zhuyulab/ns3-workspace/net-01/build/paper-method-trials",
+  "-DCMAKE_BUILD_TYPE=Release",
+  "-DNS3_BUILD_DIR=/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build",
+  "-DCONFIG_HEADER_DIR=/home/zhuyulab/ns3-workspace/net-01/build/network-full-payload"
+]

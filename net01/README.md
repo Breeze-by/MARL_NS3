@@ -17,6 +17,8 @@
 
 ## 2026-11-10 时间同步论文评估
 
+随后按用户授权完成了[三项方法的实际隔离小试与独立审查](experiments/paper_methods/REPORT.md)：共享时钟降低读取开销；真实ns-3 Wi-Fi TCP恢复了UDP丢失的两笔合成请求；源时间调度消除位置提前生效，但迟到拒绝保留旧位置。共3个clock配对case、4个native回合，无新Gazebo/ROS/Nav2或生产替换，NET-01仍BLOCKED。这些结果不是完整论文复现或Gazebo性能提升。
+
 已全文研读用户提供的五篇、共62个PDF页，并核关键图表及作者公开源码。详细比较见 [文献评估报告](research/time-sync/REVIEW.md)，版本/页码/来源见 [论文索引](research/time-sync/PAPERS.json)。
 
 当前选择保留真实Step/ACK/有限credit骨架；DUSC的位置时间依赖、MUNILS/CORNET的网络隔离值得借鉴。没有证据支持立即整体更换，更没有证据表明换clock就能修复一次UDP Goal丢失后无限等待。下一最小修复仍是可靠Action交付、中央捕获等待和原停止所有权闭合。
