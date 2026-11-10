@@ -1,0 +1,120 @@
+{
+  "scope": "NET01 followup05 application-level reliable Action RPC over existing ns3 UDP; not TCP",
+  "production_commit": "51c5ac75971091913ad9a77f78d8b22327093a73",
+  "fixture_commit": "90c2e4c44e4db999e5875817b4d83d9bb46a9b64",
+  "budget_used": {
+    "zero_Node_checks": 1,
+    "actual_WiFi_cases": 3,
+    "Gazebo": 0,
+    "training": 0
+  },
+  "runs": [
+    {
+      "case": "reliable-state-01",
+      "status": "PASS scoped 0Node",
+      "checks": 16,
+      "exit": 0,
+      "wall_s": 1.676356799
+    },
+    {
+      "case": "reliable-wifi-01",
+      "status": "FAIL",
+      "failure": "fixture graph-name preflight oracle; 0Goal; no business stage",
+      "ROS_exit": 1,
+      "Hub_exit": 0,
+      "native_exit": 0,
+      "wall_s": 3.639059728011489,
+      "forced": []
+    },
+    {
+      "case": "reliable-wifi-02",
+      "status": "FAIL",
+      "failure": "fixture flow>=200 hash oracle included six Link handshake packets",
+      "positive_checks": 16,
+      "Action_RX_matched": 126,
+      "Link_RX_excluded": 6,
+      "permanent_partition_executed": false,
+      "ROS_exit": 1,
+      "Hub_exit": 0,
+      "native_exit": 0,
+      "wall_s": 6.847240114002489,
+      "forced": []
+    },
+    {
+      "case": "reliable-wifi-03",
+      "status": "PASS within controlled fixture; intentional final INVALID/unknown",
+      "checks": 20,
+      "ROS_exit": 0,
+      "Hub_exit": 0,
+      "native_exit": 0,
+      "wall_s": 7.2993423090083525,
+      "forced": [],
+      "positive_accepted_per_robot": [
+        1,
+        1,
+        1
+      ],
+      "terminal_statuses": [
+        4,
+        4,
+        5
+      ],
+      "Action_RX_matched": 121,
+      "Link_RX_excluded": 6,
+      "ingress_messages": 146,
+      "delivered_messages": 127,
+      "request_recovery": {
+        "rpc": 21483426414593,
+        "attempts": 2,
+        "first_native_id_no_RX": 19,
+        "retry_native_id_RX": 23
+      },
+      "response_limit": "original native98 and retry102 both received after restore: delayed/duplicate response, not proven permanent response loss",
+      "expected_failure": "action_goal_authority_withdrawn_unconfirmed_tb1_rpc21483426414600",
+      "unknown_rpc": 21483426414600,
+      "unknown_attempts": 3,
+      "unknown_native_ids_no_RX": [
+        135,
+        139,
+        143
+      ],
+      "C_RPC_pending": 1,
+      "C_confirmation_unconfirmed": 1,
+      "retired_C_service_inflight": 1,
+      "R_RPC_pending": 0,
+      "local_cleanup_pending": [
+        0,
+        0,
+        0
+      ],
+      "actual_local_PAUSE_success": [
+        true,
+        true,
+        true
+      ],
+      "executor_shutdown": [
+        false,
+        true
+      ],
+      "Gateway_clean_return": false,
+      "resources_destroyed": true,
+      "END_flushed": true,
+      "physical_stop_certified": false
+    }
+  ],
+  "PID_recording_limit": "runner did not persist actual PIDs; no PID values reconstructed",
+  "evidence_paths": [
+    "evidence/reliable-state-01",
+    "evidence/reliable-wifi-01",
+    "evidence/reliable-wifi-02",
+    "evidence/reliable-wifi-03"
+  ],
+  "overall_NET01": "BLOCKED; no automatic Gazebo/NET02; previous failures unchanged",
+  "remaining_unverified": [
+    "wireless recovery uniquely requiring retransmission of a permanently lost response",
+    "real Nav2/physical stopping",
+    "full-load heartbeat path",
+    "120sim closed loop"
+  ],
+  "stopped": true
+}

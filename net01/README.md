@@ -1,8 +1,14 @@
-# NET-01 当前工程与文献评估入口
+# NET-01 当前工程与证据入口
 
 当前固定研究策略仍为`MR3-RL-POLICY-v1.1.0`。中央RL权重、观察编码、Frontier/目标规则和Nav2/SLAM核心未因本轮文献研读改变。
 
-## 当前实际结果
+## 2026-11-10 可靠Action交付已接入
+
+已将**同RPC确认与有界重送**接入实际Gateway的A/B/C共用任务适配器，保持原UUID、完整Goal和Action CDR；这是应用层可靠机制，不是TCP。一次零Node检查16项通过，真实ROS 2—ns-3 Wi-Fi受控夹具03的20项检查通过：丢失请求重送后只执行一次，三目标两成功一取消，响应延迟/重复与ACK丢失正确处理，长GetResult不误判。永久断链明确INVALID，三本地PAUSE真实响应成功，但中央未决任务如实保留。01/02两次检查脚本失败全部保存。
+
+详见[生产报告](followup05/REPORT.md)、[独立审查](followup05/INDEPENDENT_REVIEW.md)、[全部新执行账本](followup05/RUN_LEDGER.json)。这仅是**无运动的真实ROS/模拟Wi-Fi接口验证**：health/bound和clock为显式合成夹具输入，未运行真实Nav2或Gazebo，没有新增覆盖率/完成时间，也没有证明物理停止。原健康发布→捕获延迟仍未修复，见[只读定位与下一最小诊断](followup05/HEALTH_PATH_REVIEW.md)。NET-01整体仍BLOCKED，不自动运行Gazebo或NET-02。
+
+## 已有真实Gazebo结果
 
 **NET-01 BLOCKED，尚未形成可靠的三机器人Gazebo—ROS2—ns-3 Wi-Fi探索闭环。**
 

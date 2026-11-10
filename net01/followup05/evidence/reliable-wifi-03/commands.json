@@ -1,0 +1,30 @@
+{
+  "hub": [
+    "python3",
+    "-B",
+    "/home/zhuyulab/ns3-workspace/net-01/workspace/net01/tools/packet_hub.py",
+    "--socket",
+    "/home/zhuyulab/ns3-workspace/net-01/workspace/f05-wifi-03.sock",
+    "--native",
+    "/home/zhuyulab/ns3-workspace/net-01/build/followup03-release-portable-native/net01-payload",
+    "--output",
+    "/home/zhuyulab/ns3-workspace/net-01/workspace/net01/followup05/evidence/reliable-wifi-03/hub",
+    "--profile",
+    "B",
+    "--wall",
+    "50",
+    "--allow-radio-fault",
+    "--clock-source",
+    "gazebo",
+    "--control-trace"
+  ],
+  "ROS": [
+    "bash",
+    "/home/zhuyulab/ns3-workspace/net-01/workspace/net01/ros-python.sh",
+    "/mnt/net01/followup05/check_reliable_wifi.py",
+    "--socket",
+    "/mnt/f05-wifi-03.sock",
+    "--output",
+    "/mnt/net01/followup05/evidence/reliable-wifi-03/ros"
+  ]
+}
