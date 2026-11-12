@@ -1,0 +1,23 @@
+{
+  "repository": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "final_HEAD": "8a7932282d89b7b61e6082117d26901794eac6a7",
+  "content_commit": "95313801094ced769917c91a0e37383a3e26ac36",
+  "argv": [
+    "rtk",
+    "proxy",
+    "git",
+    "-c",
+    "pack.threads=2",
+    "bundle",
+    "create",
+    "/home/zhuyulab/ns3-workspace/net-01d/backups/net01e-followup01-20261111T204635Z.bundle",
+    "--all"
+  ],
+  "create_exit": 130,
+  "create_wall_s": 332.1993937899824,
+  "create_stdout": "",
+  "create_stderr": "[rtk] git: process terminated by signal 2\n",
+  "bundle": "/home/zhuyulab/ns3-workspace/net-01d/backups/net01e-followup01-20261111T204635Z.bundle",
+  "mode": "full standalone --all; no remote push",
+  "classification": "Operator canceled overly broad --all shared-repository backup; only this owned bundle/pack process received SIGINT. No experiment or source was changed."
+}

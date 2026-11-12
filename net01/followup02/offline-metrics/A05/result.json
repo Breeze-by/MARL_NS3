@@ -1,0 +1,498 @@
+{
+  "scope": "ENCLOSED TASK COMPONENT",
+  "analysis_version": "gz01-recorded-v2",
+  "source_case": "/mnt/runs/net01-a-corridor-6201-05",
+  "world": "/mnt/inputs/worlds/eval-corridor-common-6201.sdf",
+  "start_sim": 29.6,
+  "end_sim": 40.3,
+  "autonomy_sim_s": 10.699999999999996,
+  "reference_bounds": [
+    -5.800000000000001,
+    -5.6000000000000005,
+    7.25,
+    5.300000000000001
+  ],
+  "reference_shape": [
+    218,
+    261
+  ],
+  "boundary_connected_cells": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "reference_free_area_m2": 38.89500000000001,
+  "initial_source": {
+    "receipt_sim": 29.6,
+    "source_stamp": 25.816
+  },
+  "initial_coverage": 0.11138963877105026,
+  "final_coverage": 0.529245404293611,
+  "added_coverage": 0.41785576552256076,
+  "final_metrics": {
+    "receipt_sim": 39.5,
+    "source_stamp": 38.236,
+    "elapsed_sim_s": 9.899999999999999,
+    "reference_free_cells": 15558,
+    "reference_free_area_m2": 38.89500000000001,
+    "correct_free_cells": 8234,
+    "coverage": 0.529245404293611,
+    "correct_free_area_m2": 20.585000000000004,
+    "unknown_reachable_area_m2": 18.215000000000003,
+    "false_occupied_reachable_area_m2": 0.09500000000000001,
+    "false_free_physical_area_m2": 0.4900000000000001,
+    "free_precision_physical": 0.982895540623091,
+    "predicted_occupied_cells": 870,
+    "occupied_alignment_median_m": 0.0,
+    "occupied_alignment_p95_m": 0.05,
+    "known_truth_obstacle_cells": 818,
+    "known_obstacle_recall_within_0_10m": 0.9938875305623472,
+    "map_quality_warnings": [],
+    "map_quality_valid": true,
+    "alignment_assessment": "within_predeclared_diagnostics"
+  },
+  "raw_thresholds": {
+    "0.5": {
+      "elapsed_sim_s": 9.899999999999999,
+      "receipt_sim": 39.5,
+      "initially_reached": false
+    },
+    "0.8": null,
+    "0.9": null,
+    "0.95": null,
+    "0.98": null
+  },
+  "quality_valid_thresholds": {
+    "0.5": {
+      "elapsed_sim_s": 9.899999999999999,
+      "receipt_sim": 39.5,
+      "initially_reached": false
+    },
+    "0.8": null,
+    "0.9": null,
+    "0.95": null,
+    "0.98": null
+  },
+  "coverage_curve": [
+    {
+      "receipt_sim": 29.6,
+      "source_stamp": 25.816,
+      "elapsed_sim_s": 0.0,
+      "initial_map_receipt_sim": 29.6,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 1733,
+      "coverage": 0.11138963877105026,
+      "correct_free_area_m2": 4.3325000000000005,
+      "unknown_reachable_area_m2": 34.540000000000006,
+      "false_occupied_reachable_area_m2": 0.022500000000000006,
+      "false_free_physical_area_m2": 0.0075000000000000015,
+      "free_precision_physical": 0.9986276303751144,
+      "predicted_occupied_cells": 133,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.5915180331626093,
+      "known_truth_obstacle_cells": 117,
+      "known_obstacle_recall_within_0_10m": 1.0,
+      "map_quality_warnings": [
+        "occupied_alignment_p95_above_0.25m"
+      ],
+      "map_quality_valid": false,
+      "alignment_assessment": "warning"
+    },
+    {
+      "receipt_sim": 30.4,
+      "source_stamp": 26.107,
+      "elapsed_sim_s": 0.7999999999999972,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 1733,
+      "coverage": 0.11138963877105026,
+      "correct_free_area_m2": 4.3325000000000005,
+      "unknown_reachable_area_m2": 34.540000000000006,
+      "false_occupied_reachable_area_m2": 0.022500000000000006,
+      "false_free_physical_area_m2": 0.0075000000000000015,
+      "free_precision_physical": 0.9986276303751144,
+      "predicted_occupied_cells": 133,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.5915180331626093,
+      "known_truth_obstacle_cells": 117,
+      "known_obstacle_recall_within_0_10m": 1.0,
+      "map_quality_warnings": [
+        "occupied_alignment_p95_above_0.25m"
+      ],
+      "map_quality_valid": false,
+      "alignment_assessment": "warning"
+    },
+    {
+      "receipt_sim": 30.7,
+      "source_stamp": 29.436,
+      "elapsed_sim_s": 1.0999999999999979,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 1733,
+      "coverage": 0.11138963877105026,
+      "correct_free_area_m2": 4.3325000000000005,
+      "unknown_reachable_area_m2": 34.540000000000006,
+      "false_occupied_reachable_area_m2": 0.022500000000000006,
+      "false_free_physical_area_m2": 0.0075000000000000015,
+      "free_precision_physical": 0.9986276303751144,
+      "predicted_occupied_cells": 133,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.5915180331626093,
+      "known_truth_obstacle_cells": 117,
+      "known_obstacle_recall_within_0_10m": 1.0,
+      "map_quality_warnings": [
+        "occupied_alignment_p95_above_0.25m"
+      ],
+      "map_quality_valid": false,
+      "alignment_assessment": "warning"
+    },
+    {
+      "receipt_sim": 34.1,
+      "source_stamp": 30.219,
+      "elapsed_sim_s": 4.5,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 1733,
+      "coverage": 0.11138963877105026,
+      "correct_free_area_m2": 4.3325000000000005,
+      "unknown_reachable_area_m2": 34.540000000000006,
+      "false_occupied_reachable_area_m2": 0.022500000000000006,
+      "false_free_physical_area_m2": 0.0075000000000000015,
+      "free_precision_physical": 0.9986276303751144,
+      "predicted_occupied_cells": 133,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.5915180331626093,
+      "known_truth_obstacle_cells": 117,
+      "known_obstacle_recall_within_0_10m": 1.0,
+      "map_quality_warnings": [
+        "occupied_alignment_p95_above_0.25m"
+      ],
+      "map_quality_valid": false,
+      "alignment_assessment": "warning"
+    },
+    {
+      "receipt_sim": 34.8,
+      "source_stamp": 30.508,
+      "elapsed_sim_s": 5.199999999999996,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 1733,
+      "coverage": 0.11138963877105026,
+      "correct_free_area_m2": 4.3325000000000005,
+      "unknown_reachable_area_m2": 34.540000000000006,
+      "false_occupied_reachable_area_m2": 0.022500000000000006,
+      "false_free_physical_area_m2": 0.0075000000000000015,
+      "free_precision_physical": 0.9986276303751144,
+      "predicted_occupied_cells": 133,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.5915180331626093,
+      "known_truth_obstacle_cells": 117,
+      "known_obstacle_recall_within_0_10m": 1.0,
+      "map_quality_warnings": [
+        "occupied_alignment_p95_above_0.25m"
+      ],
+      "map_quality_valid": false,
+      "alignment_assessment": "warning"
+    },
+    {
+      "receipt_sim": 35.1,
+      "source_stamp": 34.036,
+      "elapsed_sim_s": 5.5,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 1733,
+      "coverage": 0.11138963877105026,
+      "correct_free_area_m2": 4.3325000000000005,
+      "unknown_reachable_area_m2": 34.540000000000006,
+      "false_occupied_reachable_area_m2": 0.022500000000000006,
+      "false_free_physical_area_m2": 0.0075000000000000015,
+      "free_precision_physical": 0.9986276303751144,
+      "predicted_occupied_cells": 133,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.5915180331626093,
+      "known_truth_obstacle_cells": 117,
+      "known_obstacle_recall_within_0_10m": 1.0,
+      "map_quality_warnings": [
+        "occupied_alignment_p95_above_0.25m"
+      ],
+      "map_quality_valid": false,
+      "alignment_assessment": "warning"
+    },
+    {
+      "receipt_sim": 38.4,
+      "source_stamp": 34.621,
+      "elapsed_sim_s": 8.799999999999997,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 6009,
+      "coverage": 0.3862321635171616,
+      "correct_free_area_m2": 15.022500000000003,
+      "unknown_reachable_area_m2": 23.820000000000004,
+      "false_occupied_reachable_area_m2": 0.05250000000000001,
+      "false_free_physical_area_m2": 0.25250000000000006,
+      "free_precision_physical": 0.9872539121655729,
+      "predicted_occupied_cells": 430,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.25,
+      "known_truth_obstacle_cells": 416,
+      "known_obstacle_recall_within_0_10m": 0.9278846153846154,
+      "map_quality_warnings": [],
+      "map_quality_valid": true,
+      "alignment_assessment": "within_predeclared_diagnostics"
+    },
+    {
+      "receipt_sim": 39.2,
+      "source_stamp": 35.108,
+      "elapsed_sim_s": 9.600000000000001,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 7292,
+      "coverage": 0.4686977760637614,
+      "correct_free_area_m2": 18.230000000000004,
+      "unknown_reachable_area_m2": 20.590000000000003,
+      "false_occupied_reachable_area_m2": 0.07500000000000001,
+      "false_free_physical_area_m2": 0.4150000000000001,
+      "free_precision_physical": 0.9833983398339834,
+      "predicted_occupied_cells": 654,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.05,
+      "known_truth_obstacle_cells": 626,
+      "known_obstacle_recall_within_0_10m": 0.9536741214057508,
+      "map_quality_warnings": [],
+      "map_quality_valid": true,
+      "alignment_assessment": "within_predeclared_diagnostics"
+    },
+    {
+      "receipt_sim": 39.5,
+      "source_stamp": 38.236,
+      "elapsed_sim_s": 9.899999999999999,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 8234,
+      "coverage": 0.529245404293611,
+      "correct_free_area_m2": 20.585000000000004,
+      "unknown_reachable_area_m2": 18.215000000000003,
+      "false_occupied_reachable_area_m2": 0.09500000000000001,
+      "false_free_physical_area_m2": 0.4900000000000001,
+      "free_precision_physical": 0.982895540623091,
+      "predicted_occupied_cells": 870,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.05,
+      "known_truth_obstacle_cells": 818,
+      "known_obstacle_recall_within_0_10m": 0.9938875305623472,
+      "map_quality_warnings": [],
+      "map_quality_valid": true,
+      "alignment_assessment": "within_predeclared_diagnostics"
+    }
+  ],
+  "first_scan_receipt_sim": {
+    "/tb1/scan": 0.4,
+    "/tb2/scan": 1.9,
+    "/tb3/scan": 5.0
+  },
+  "initial_scan_ready_sim": 23.9,
+  "initial_scan_ready_semantics": "Common supervisor readiness and observed-stop complete; first scan receipts separately recorded, not called initial-scan completion.",
+  "first_policy_decision_sim": 35.0,
+  "first_goal_submission_sim": 35.0,
+  "first_motion_sim": 35.8,
+  "first_translation_sim": 35.8,
+  "all_robot_stationary_s": 6.199999999999996,
+  "robot_metrics": {
+    "tb1": {
+      "path_m": 0.8788553855437087,
+      "goals": 1,
+      "succeeded": 0,
+      "aborted": 0,
+      "canceled": 0,
+      "motion_participation": false,
+      "predecision_idle_sample_held_proxy_s": 5.299999999999997,
+      "task_timeline": {
+        "dispatched_ownership_intervals": [
+          [
+            35.0,
+            40.3
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            35.7,
+            40.3
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 5.399999999999999,
+        "pending_response_s": 0.7000000000000028,
+        "accepted_active_s": 4.599999999999994,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 0,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "local_ever_correct_area_m2": 16.265000000000004,
+      "local_added_correct_area_m2": 13.267500000000002,
+      "exclusive_correct_area_m2": 0.3550000000000001,
+      "exclusive_new_correct_area_m2": 0.3525000000000001,
+      "active_owned_low_translation_s": 0.09999999999999432,
+      "active_owned_stationary_s": 0.09999999999999432,
+      "repeated_request_coordinates_0_2m": 0,
+      "overlapping_request_ownership": 0,
+      "target_switch_while_previous_request_unterminated": 0,
+      "task_ownership_intervals": [
+        [
+          35.7,
+          40.3
+        ]
+      ],
+      "attribution_limit": "Local map observation/overlap facts, not causal first-arrival sensor credit"
+    },
+    "tb2": {
+      "path_m": 0.7543297245503242,
+      "goals": 1,
+      "succeeded": 0,
+      "aborted": 0,
+      "canceled": 0,
+      "motion_participation": false,
+      "predecision_idle_sample_held_proxy_s": 5.299999999999997,
+      "task_timeline": {
+        "dispatched_ownership_intervals": [
+          [
+            35.0,
+            40.3
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            35.7,
+            40.3
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 5.399999999999999,
+        "pending_response_s": 0.7000000000000028,
+        "accepted_active_s": 4.599999999999994,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 0,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "local_ever_correct_area_m2": 19.800000000000004,
+      "local_added_correct_area_m2": 17.122500000000002,
+      "exclusive_correct_area_m2": 2.3775000000000004,
+      "exclusive_new_correct_area_m2": 2.3750000000000004,
+      "active_owned_low_translation_s": 0.9999999999999929,
+      "active_owned_stationary_s": 0.09999999999999432,
+      "repeated_request_coordinates_0_2m": 0,
+      "overlapping_request_ownership": 0,
+      "target_switch_while_previous_request_unterminated": 0,
+      "task_ownership_intervals": [
+        [
+          35.7,
+          40.3
+        ]
+      ],
+      "attribution_limit": "Local map observation/overlap facts, not causal first-arrival sensor credit"
+    },
+    "tb3": {
+      "path_m": 0.8929173029585848,
+      "goals": 1,
+      "succeeded": 0,
+      "aborted": 0,
+      "canceled": 0,
+      "motion_participation": false,
+      "predecision_idle_sample_held_proxy_s": 5.299999999999997,
+      "task_timeline": {
+        "dispatched_ownership_intervals": [
+          [
+            35.0,
+            40.3
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            35.7,
+            40.3
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 5.399999999999999,
+        "pending_response_s": 0.7000000000000028,
+        "accepted_active_s": 4.599999999999994,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 0,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "local_ever_correct_area_m2": 15.002500000000003,
+      "local_added_correct_area_m2": 12.635000000000003,
+      "exclusive_correct_area_m2": 0.23750000000000004,
+      "exclusive_new_correct_area_m2": 0.23750000000000004,
+      "active_owned_low_translation_s": 0.8999999999999986,
+      "active_owned_stationary_s": 0.19999999999999574,
+      "repeated_request_coordinates_0_2m": 0,
+      "overlapping_request_ownership": 0,
+      "target_switch_while_previous_request_unterminated": 0,
+      "task_ownership_intervals": [
+        [
+          35.7,
+          40.3
+        ]
+      ],
+      "attribution_limit": "Local map observation/overlap facts, not causal first-arrival sensor credit"
+    }
+  },
+  "stationary_definition": "linear speed<.01m/s AND abs angular speed<.03rad/s; intervals with sample gap\u2264.5sim only",
+  "autonomous_wall_s": 12.204916715621948,
+  "observed_stop_sim": 43.2,
+  "post_task_observed_stop": true,
+  "stop_error": null,
+  "emergency_physics_pause_sim": null,
+  "original_result_sim_elapsed": 10.699999999999996,
+  "target_counter_semantics": "succeeded/aborted/canceled are raw Nav2 callbacks within task phase; high-level failures (including timeout raw5) and actual rejection responses are separate in task_timeline. Stop-phase outcomes are not task successes. Sample-held predecision idle is only a proxy; waiting_no_dispatched_task_s uses actual UUID events and includes startup.",
+  "end_reason": "fatal_error",
+  "raw_run_end_reason": "fatal_error",
+  "raw_run_error": "Network guardian INVALID: {\"robot\": 3, \"session_id\": 2026110915, \"reason\": \"health_original_sources_stale\"}",
+  "first_error": "Network guardian INVALID: {\"robot\": 3, \"session_id\": 2026110915, \"reason\": \"health_original_sources_stale\"}",
+  "natural_completion_verified": false,
+  "quality_valid_samples": 3,
+  "samples": 9,
+  "calls": {
+    "Node": 0,
+    "NN": 0,
+    "environment_step": 0,
+    "optimizer": 0,
+    "Gazebo": 0,
+    "actual_Action": 0
+  },
+  "caveats": [
+    "Map receipt/bag ROS time used, never min-source header backdating.",
+    "Strict metric uses fixed declared world/common alignment, no fitted map transform.",
+    "Existing original budget outcome retained; retrospective threshold is not a natural policy terminal.",
+    "Reference region is not expanded to arbitrary ground-plane padding."
+  ]
+}

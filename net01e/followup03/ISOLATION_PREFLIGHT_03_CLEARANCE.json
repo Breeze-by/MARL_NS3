@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-12T11:00:06.830214+00:00",
+  "scope": "Fresh read-only clearance after previously observed transient DDS bindings. No process stopped or other cleanup performed; prior conflict ownership unknown.",
+  "occupied_paths": [],
+  "port_conflicts": [
+    "udp UNCONN    0      0                                   239.255.0.1:30400            0.0.0.0:*    ",
+    "udp UNCONN    0      0                                     127.0.0.1:30400            0.0.0.0:*    ",
+    "udp UNCONN    0      0                                     127.0.0.1:30496            0.0.0.0:*    ",
+    "udp UNCONN    0      0                                     127.0.0.1:30497            0.0.0.0:*    "
+  ],
+  "visible_preview_processes": [],
+  "available_bytes": {
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace": 1555874521088,
+    "/dev/shm": 16854306816
+  },
+  "fixed_candidate_fields_equal_completed_B": true,
+  "limitations": "Snapshot only, not reservation/absolute endpoint proof."
+}

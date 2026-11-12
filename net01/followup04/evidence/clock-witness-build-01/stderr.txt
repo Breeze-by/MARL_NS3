@@ -1,0 +1,7 @@
+/mnt/net01/clock_witness/clock_witness.cc: In lambda function:
+/mnt/net01/clock_witness/clock_witness.cc:42:13: warning: narrowing conversion of ‘(rmw_time_point_value_t)rmw.rmw_message_info_s::source_timestamp’ from ‘rmw_time_point_value_t’ {aka ‘long int’} to ‘uint64_t’ {aka ‘long unsigned int’} [-Wnarrowing]
+   42 |         rmw.source_timestamp, rmw.received_timestamp, mono, realtime, {}};
+      |         ~~~~^~~~~~~~~~~~~~~~
+/mnt/net01/clock_witness/clock_witness.cc:42:35: warning: narrowing conversion of ‘(rmw_time_point_value_t)rmw.rmw_message_info_s::received_timestamp’ from ‘rmw_time_point_value_t’ {aka ‘long int’} to ‘uint64_t’ {aka ‘long unsigned int’} [-Wnarrowing]
+   42 |         rmw.source_timestamp, rmw.received_timestamp, mono, realtime, {}};
+      |                               ~~~~^~~~~~~~~~~~~~~~~~

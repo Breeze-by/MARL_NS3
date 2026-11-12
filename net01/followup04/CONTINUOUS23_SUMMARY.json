@@ -1,0 +1,275 @@
+{
+  "status": "FAIL",
+  "scope": "MOCK_PHYSICS actual-WiFi whole-body qualification; unarmed/0Goal/Policy/NN/Gazebo, not physical safety",
+  "runtime_source": "d231ac66544c81de0c7b286e9030a4ba5b9a36f2",
+  "preregistered_plan": "f0384031a43acd65c8fcf4c99f5eeaa19d0f62f3",
+  "raw": "runs/continuous-dds-23-controlled-wifi",
+  "process": {
+    "scope": "MOCK_PHYSICS WiFi feasibility only; not real GZ clock/stop/180sim PASS",
+    "error": null,
+    "wall_s": 24.147068371006753,
+    "hard_wall_s": 30,
+    "exits": {
+      "coordinator": 0,
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "mock_physics": 0,
+      "source": 0
+    },
+    "profile": {
+      "id": "controlled1000-clock100-q10ms",
+      "world_real_time_update_rate": 1000,
+      "physics_max_step_size_unchanged": 0.001,
+      "clock_publish_rate_sim_hz": 100.0,
+      "native_step_quantum_ns": 10000000,
+      "qualification": {
+        "source_wall_s": 16,
+        "hard_wall_s": 30,
+        "clock_period_wall_s": 0.02,
+        "clock_increment_ns": 10000000,
+        "other_sources": "Original TF/odom/feedback per wall unchanged, source clock subscribed from explicit MOCK_PHYSICS actual step service",
+        "peer": "Original10Hz sim timer, expected5Hz wall at target.5RTF; actual intervals measured, original gates unchanged",
+        "local_costmap_cells": [
+          200,
+          200
+        ],
+        "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
+        "not_generated_flows": [
+          "89 C merge_map",
+          "95 C controller journal"
+        ]
+      },
+      "scope": "Explicit external controlled-time shared A/B profile; fixed.5RTF wall target and actual native credit, not policy/network optimization. Qualification uses MOCK_PHYSICS, never claims Gazebo.",
+      "controlled_physics": true,
+      "physical_token_steps": 10,
+      "physical_lookahead_quanta": 2,
+      "token_wall_period_ns": 20000000
+    },
+    "resource_control": "HOLD then STOP, keep actual ACK observer through native END",
+    "Gazebo": 0,
+    "Nav2": 0,
+    "Goal": 0,
+    "NN": 0
+  },
+  "first_confirmed_acceptance_failure": "Actual accepted-mask receipt gap seq43\u219244 lower bounds>.3wall, corroborated by health gap. No retransmission/deadline/threshold tuning or retry.",
+  "source": {
+    "actual_window_wall_s": 16.02900531794876,
+    "counts": {
+      "1": {
+        "static": 1,
+        "synthetic_map": 4,
+        "synthetic_action_status": 17,
+        "map->odom": 801,
+        "odom": 481,
+        "odom->base_footprint": 481,
+        "base_link->wheel_left_link": 321,
+        "exact_zero_cmd": 321,
+        "synthetic_action_feedback": 1600,
+        "synthetic_costmap": 32
+      },
+      "2": {
+        "static": 1,
+        "synthetic_map": 4,
+        "synthetic_action_status": 17,
+        "synthetic_action_feedback": 1600,
+        "map->odom": 800,
+        "odom": 480,
+        "odom->base_footprint": 480,
+        "base_link->wheel_left_link": 320,
+        "exact_zero_cmd": 320,
+        "synthetic_costmap": 32
+      },
+      "3": {
+        "static": 1,
+        "synthetic_map": 4,
+        "synthetic_action_status": 16,
+        "synthetic_action_feedback": 1600,
+        "map->odom": 800,
+        "odom": 480,
+        "odom->base_footprint": 480,
+        "base_link->wheel_left_link": 320,
+        "exact_zero_cmd": 320,
+        "synthetic_costmap": 32
+      }
+    },
+    "missing_flows": [
+      "89 shared merge_map",
+      "95 controller journal"
+    ]
+  },
+  "peer": {
+    "total": 70,
+    "ready": 64,
+    "ready_contiguous": [
+      7,
+      70
+    ],
+    "startup_unready": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "bound_masks": {
+    "tb1": {
+      "accepted": 64,
+      "first_sequence": 7,
+      "last_sequence": 70,
+      "max_gap": {
+        "previous_sequence": 43,
+        "next_sequence": 44,
+        "lower_wall_s": 0.49262338,
+        "upper_wall_s": 0.49281158
+      },
+      "certain_over_point3_count": 3,
+      "callback_max_wall_us": 161.28
+    },
+    "tb2": {
+      "accepted": 64,
+      "first_sequence": 7,
+      "last_sequence": 70,
+      "max_gap": {
+        "previous_sequence": 43,
+        "next_sequence": 44,
+        "lower_wall_s": 0.487630023,
+        "upper_wall_s": 0.487846784
+      },
+      "certain_over_point3_count": 4,
+      "callback_max_wall_us": 142.833
+    },
+    "tb3": {
+      "accepted": 64,
+      "first_sequence": 7,
+      "last_sequence": 70,
+      "max_gap": {
+        "previous_sequence": 43,
+        "next_sequence": 44,
+        "lower_wall_s": 0.509279211,
+        "upper_wall_s": 0.509445062
+      },
+      "certain_over_point3_count": 1,
+      "callback_max_wall_us": 123.54
+    }
+  },
+  "health": {
+    "tb1": {
+      "ready_delivered": 64,
+      "max_publish_entry_gap_wall_s": 0.49060386,
+      "sequence_pair": [
+        43,
+        44
+      ]
+    },
+    "tb2": {
+      "ready_delivered": 64,
+      "max_publish_entry_gap_wall_s": 0.486324349,
+      "sequence_pair": [
+        43,
+        44
+      ]
+    },
+    "tb3": {
+      "ready_delivered": 64,
+      "max_publish_entry_gap_wall_s": 0.483951745,
+      "sequence_pair": [
+        43,
+        44
+      ]
+    }
+  },
+  "rtf": {
+    "same_phase_ACK_load_count": 614,
+    "same_phase_ACK_load_elapsed_sim_s": 6.13,
+    "same_phase_ACK_load_elapsed_wall_s": 16.005536232,
+    "same_phase_ACK_load_RTF": 0.38299247904885814,
+    "all_token_light_start_inclusive": 0.39489426326688415,
+    "original180_over420": 0.42857142857142855,
+    "prospective120_over420": 0.2857142857142857,
+    "scope_warning": "Measured load RTF exceeds new engineering floor but does not excuse original wall freshness failure; no guarantee120sim actual GZ or180sim."
+  },
+  "clock": {
+    "max_observed_clock_minus_actual_native_ACK_ns": 10000000,
+    "actual_native_ACKs": 703,
+    "max_licensed_physical_ahead_ns": 15000000,
+    "coordinator_final": {
+      "mode": "HOLD",
+      "failure": null,
+      "expected_shutdown": true,
+      "physics_failed": false,
+      "physical_ns": 7045000000,
+      "iterations": 7040,
+      "actual_clock_ns": 7040000000,
+      "native_ACK_ns": 7030000000,
+      "fixed_offset_ns": 10000000,
+      "physical_RPC_inflight": false,
+      "session_id": 2026110912,
+      "gateway_clock_ready": false,
+      "pending_holds": 0,
+      "token_wall_period_ns": 20000000,
+      "next_earliest_wall_ns": 446797516301991,
+      "max_token_lateness_ns": 3861862757,
+      "late_tokens": 703
+    }
+  },
+  "failure_timeline": {
+    "peer43_entry": 446794.177280413,
+    "peer44_entry": 446794.671510799,
+    "native_step437_begin": {
+      "kind": "step_begin",
+      "monotonic_ns": 446794413660499,
+      "thread_cpu_ns": 5939845974,
+      "ns3_ns": 4360000000,
+      "horizon_ns": 4370000000,
+      "hub_receive_monotonic_ns": 446794413858720
+    },
+    "native_step437_end": {
+      "kind": "step_end",
+      "monotonic_ns": 446794596685395,
+      "thread_cpu_ns": 5951274108,
+      "ns3_ns": 4370000000,
+      "horizon_ns": 4370000000,
+      "output_messages": 17,
+      "output_bytes": 43760,
+      "output_wall_ns": 237609,
+      "output_cpu_ns": 227567,
+      "hub_receive_monotonic_ns": 446794596861347
+    },
+    "Run_wall_ms": 183.024896,
+    "Run_thread_CPU_ms": 11.428134,
+    "stdout_output_wall_ms": 0.237609,
+    "interpretation": "171.596762ms Run wall-minus-threadCPU not accounted by.237609ms stdout. OffCPU/synchronous non-output wait is real but OS scheduling vs PCAP/ledger I/O not uniquely attributed; no blame to C full decode removed in this source."
+  },
+  "gateway_failure": null,
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "retired_C_services": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+  "unarmed_events": {
+    "1": 0,
+    "2": 0,
+    "3": 0
+  },
+  "all_business_zero_loss_claim": false,
+  "conclusion": "Full-window critical wall gates FAIL despite complete process teardown and accepted messages. Keep no Gazebo admission, no follow-on run or guard change. Next decision requires first-delay mechanism evidence, not faster/source-reduced repetition."
+}

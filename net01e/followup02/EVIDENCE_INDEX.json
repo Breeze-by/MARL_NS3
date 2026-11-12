@@ -1,0 +1,1578 @@
+{
+  "scope": "NET01E followup02 only; raw originals retained, metadata inventory without raw-file rehash",
+  "generated_utc": "2026-11-12T07:24:26.625549+00:00",
+  "runtime_commits": [
+    "af21dfb1030d39cab9e48c747156e84f0f9ff280",
+    "fbad53d78dc28ab53367af00b02ff833cb8644fe"
+  ],
+  "project_index": "PROJECT.md",
+  "physical_attempts": 2,
+  "new_budget_exhausted": true,
+  "entries": [
+    {
+      "path": "net01e/followup02/DIAGNOSIS.md",
+      "bytes": 23347
+    },
+    {
+      "path": "net01e/followup02/FIXTURE_PLAN.md",
+      "bytes": 5781
+    },
+    {
+      "path": "net01e/followup02/GDB_PLAN.md",
+      "bytes": 4978
+    },
+    {
+      "path": "net01e/followup02/GZ_PLAN.md",
+      "bytes": 5577
+    },
+    {
+      "path": "net01e/followup02/INDEPENDENT_CANDIDATE_REVIEW.md",
+      "bytes": 18792
+    },
+    {
+      "path": "net01e/followup02/ISOLATION_PREFLIGHT.json",
+      "bytes": 5400
+    },
+    {
+      "path": "net01e/followup02/ISOLATION_PREFLIGHT_GDB02.json",
+      "bytes": 661
+    },
+    {
+      "path": "net01e/followup02/REPORT.md",
+      "bytes": 10290
+    },
+    {
+      "path": "net01e/followup02/RUN_LEDGER.json",
+      "bytes": 3686
+    },
+    {
+      "path": "net01e/followup02/STAGED_DELIVERY_FILES.txt",
+      "bytes": 20523
+    },
+    {
+      "path": "net01e/followup02/TASK.md",
+      "bytes": 3573
+    },
+    {
+      "path": "net01e/followup02/a0-filter/G65-shared-cut.json",
+      "bytes": 79810
+    },
+    {
+      "path": "net01e/followup02/a0-filter/G65.json",
+      "bytes": 12146
+    },
+    {
+      "path": "net01e/followup02/a0-filter/G70.json",
+      "bytes": 12246
+    },
+    {
+      "path": "net01e/followup02/a0-filter/RESULT.md",
+      "bytes": 6370
+    },
+    {
+      "path": "net01e/followup02/a0-filter/execution.json",
+      "bytes": 425
+    },
+    {
+      "path": "net01e/followup02/a0-filter/reconstruct.py",
+      "bytes": 11334
+    },
+    {
+      "path": "net01e/followup02/a0-filter/shared_cut.py",
+      "bytes": 5438
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/RESULT.md",
+      "bytes": 11796
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/cases.json",
+      "bytes": 12769
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r01-a0.decision-summary.json",
+      "bytes": 60725
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r01-a0.event-schema-samples.json",
+      "bytes": 29667
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r01-a0.goals.json",
+      "bytes": 36294
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r01-a0.no-dispatched-goal-gaps.json",
+      "bytes": 11250
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r01-a0.physical-segments.json",
+      "bytes": 2743521
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r01-a0.route-1sim.csv",
+      "bytes": 78507
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r01-a0.selected-events.jsonl",
+      "bytes": 533525
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r01-a0.summary.json",
+      "bytes": 67003
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r02-a0.decision-summary.json",
+      "bytes": 61116
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r02-a0.event-schema-samples.json",
+      "bytes": 26821
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r02-a0.goals.json",
+      "bytes": 36197
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r02-a0.no-dispatched-goal-gaps.json",
+      "bytes": 11237
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r02-a0.physical-segments.json",
+      "bytes": 2727864
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r02-a0.route-1sim.csv",
+      "bytes": 78089
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r02-a0.selected-events.jsonl",
+      "bytes": 522386
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r02-a0.summary.json",
+      "bytes": 64144
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r03-a0.decision-summary.json",
+      "bytes": 61004
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r03-a0.event-schema-samples.json",
+      "bytes": 31043
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r03-a0.goals.json",
+      "bytes": 36224
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r03-a0.no-dispatched-goal-gaps.json",
+      "bytes": 11351
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r03-a0.physical-segments.json",
+      "bytes": 2731954
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r03-a0.route-1sim.csv",
+      "bytes": 78855
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r03-a0.selected-events.jsonl",
+      "bytes": 529949
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/corr6201-v2-r03-a0.summary.json",
+      "bytes": 68511
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/decisions.csv",
+      "bytes": 42211
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/decisions.json",
+      "bytes": 182841
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/extract.py",
+      "bytes": 13667
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/extraction.json",
+      "bytes": 2420
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/goals.csv",
+      "bytes": 12076
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/initial-and-wall-partition.json",
+      "bytes": 2530
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/no-dispatched-goal-gaps.csv",
+      "bytes": 6247
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/robot-phases.csv",
+      "bytes": 3643
+    },
+    {
+      "path": "net01e/followup02/a0-timeline/tb2-G65-G70-existing-context.json",
+      "bytes": 34179
+    },
+    {
+      "path": "net01e/followup02/audit_static_fixture.py",
+      "bytes": 3996
+    },
+    {
+      "path": "net01e/followup02/b3-observations/argv.json",
+      "bytes": 922
+    },
+    {
+      "path": "net01e/followup02/b3-observations/b3-body-raw-map.json",
+      "bytes": 823
+    },
+    {
+      "path": "net01e/followup02/b3-observations/b3-central-grid-events.json",
+      "bytes": 41750
+    },
+    {
+      "path": "net01e/followup02/b3-observations/b3-navigation-observations.json",
+      "bytes": 111672
+    },
+    {
+      "path": "net01e/followup02/b3-observations/b3-start-window-v2.json",
+      "bytes": 72503
+    },
+    {
+      "path": "net01e/followup02/b3-observations/b3-start-window.json",
+      "bytes": 69694
+    },
+    {
+      "path": "net01e/followup02/b3-observations/b3-window-timeline.json",
+      "bytes": 5189
+    },
+    {
+      "path": "net01e/followup02/b3-observations/execution.json",
+      "bytes": 91
+    },
+    {
+      "path": "net01e/followup02/b3-observations/start-window-execution-v2.json",
+      "bytes": 143
+    },
+    {
+      "path": "net01e/followup02/b3-observations/start-window-execution.json",
+      "bytes": 141
+    },
+    {
+      "path": "net01e/followup02/b3-observations/stderr.txt",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/b3-observations/stdout.txt",
+      "bytes": 462
+    },
+    {
+      "path": "net01e/followup02/b3_extract.py",
+      "bytes": 9115
+    },
+    {
+      "path": "net01e/followup02/b3_start_window.py",
+      "bytes": 3788
+    },
+    {
+      "path": "net01e/followup02/batch-gdb-candidate.patch",
+      "bytes": 2629
+    },
+    {
+      "path": "net01e/followup02/candidate-config-check-01/argv.json",
+      "bytes": 941
+    },
+    {
+      "path": "net01e/followup02/candidate-config-check-01/derived/common-execution-revision.json",
+      "bytes": 1492
+    },
+    {
+      "path": "net01e/followup02/candidate-config-check-01/derived/peer_nav2_tb1.before-static-footprint.yaml",
+      "bytes": 16088
+    },
+    {
+      "path": "net01e/followup02/candidate-config-check-01/derived/peer_nav2_tb1.yaml",
+      "bytes": 16129
+    },
+    {
+      "path": "net01e/followup02/candidate-config-check-01/derived/peer_nav2_tb2.before-static-footprint.yaml",
+      "bytes": 16089
+    },
+    {
+      "path": "net01e/followup02/candidate-config-check-01/derived/peer_nav2_tb2.yaml",
+      "bytes": 16130
+    },
+    {
+      "path": "net01e/followup02/candidate-config-check-01/derived/peer_nav2_tb3.before-static-footprint.yaml",
+      "bytes": 16089
+    },
+    {
+      "path": "net01e/followup02/candidate-config-check-01/derived/peer_nav2_tb3.yaml",
+      "bytes": 16130
+    },
+    {
+      "path": "net01e/followup02/candidate-config-check-01/execution.json",
+      "bytes": 656
+    },
+    {
+      "path": "net01e/followup02/candidate-config-check-01/result.json",
+      "bytes": 651
+    },
+    {
+      "path": "net01e/followup02/check_static_launch.py",
+      "bytes": 2322
+    },
+    {
+      "path": "net01e/followup02/gdb-load-01/argv.json",
+      "bytes": 2163
+    },
+    {
+      "path": "net01e/followup02/gdb-load-01/command-comparison.json",
+      "bytes": 201
+    },
+    {
+      "path": "net01e/followup02/gdb-load-01/result.json",
+      "bytes": 538
+    },
+    {
+      "path": "net01e/followup02/gdb-load-01/stderr.txt",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gdb-load-01/stdout.txt",
+      "bytes": 164
+    },
+    {
+      "path": "net01e/followup02/gz-analysis/corr6201-static-footprint-v1-b-01/FAILED_START.md",
+      "bytes": 4146
+    },
+    {
+      "path": "net01e/followup02/gz-analysis/corr6201-static-footprint-v1-b-01/pre-analysis-exit-proof.json",
+      "bytes": 6310
+    },
+    {
+      "path": "net01e/followup02/gz-analysis/corr6201-static-footprint-v1-b-01/startup-analysis.json",
+      "bytes": 14388
+    },
+    {
+      "path": "net01e/followup02/gz-analysis/corr6201-static-fp-gdb-b-02/FAILED_PREFLIGHT.md",
+      "bytes": 3670
+    },
+    {
+      "path": "net01e/followup02/gz-analysis/corr6201-static-fp-gdb-b-02/pre-analysis-exit-proof.json",
+      "bytes": 7720
+    },
+    {
+      "path": "net01e/followup02/gz-analysis/corr6201-static-fp-gdb-b-02/rpc-timeline.json",
+      "bytes": 2671
+    },
+    {
+      "path": "net01e/followup02/gz-requests/CANDIDATE_DELTA.json",
+      "bytes": 780
+    },
+    {
+      "path": "net01e/followup02/gz-requests/COMMON_BINDING_STATIC_FOOTPRINT_GDB.json",
+      "bytes": 6725
+    },
+    {
+      "path": "net01e/followup02/gz-requests/COMMON_BINDING_STATIC_FOOTPRINT_V1.json",
+      "bytes": 6925
+    },
+    {
+      "path": "net01e/followup02/gz-requests/GDB_CANDIDATE_DELTA.json",
+      "bytes": 1450
+    },
+    {
+      "path": "net01e/followup02/gz-requests/corr6201-static-footprint-v1-b-01.candidate.json",
+      "bytes": 33871
+    },
+    {
+      "path": "net01e/followup02/gz-requests/corr6201-static-footprint-v1-b-01.ready.json",
+      "bytes": 35113
+    },
+    {
+      "path": "net01e/followup02/gz-requests/corr6201-static-fp-gdb-b-02.candidate.json",
+      "bytes": 34188
+    },
+    {
+      "path": "net01e/followup02/gz-requests/corr6201-static-fp-gdb-b-02.ready.json",
+      "bytes": 35124
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.admission-used.json",
+      "bytes": 350
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.boot-exit.json",
+      "bytes": 176
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.early-abort-request.json",
+      "bytes": 511
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.host-exit.json",
+      "bytes": 5875
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.hub.log",
+      "bytes": 95
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.native-load.json",
+      "bytes": 2018
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.native.log",
+      "bytes": 4905
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.native.maps.txt",
+      "bytes": 17956
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network-integrity.json",
+      "bytes": 3359
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/hub-clock-control.json",
+      "bytes": 95307
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/hub-deliveries.json",
+      "bytes": 923
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/hub-ingress.json",
+      "bytes": 1175
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/native-control-boundaries.json",
+      "bytes": 152929
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/native.stderr.txt",
+      "bytes": 102722
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/native/configured-lock.json",
+      "bytes": 3994
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/native/control-step-trace.jsonl",
+      "bytes": 33683
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/native/ledger-status.json",
+      "bytes": 243
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/native/native-summary.json",
+      "bytes": 527
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/native/packet-ledger.jsonl",
+      "bytes": 170531
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/native/transport-config.json",
+      "bytes": 3908
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/native/wifi-0-0.pcap",
+      "bytes": 8635
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/native/wifi-1-0.pcap",
+      "bytes": 8818
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/native/wifi-2-0.pcap",
+      "bytes": 8818
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/native/wifi-3-0.pcap",
+      "bytes": 8818
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network/result.json",
+      "bytes": 2063
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.owned-runner.json",
+      "bytes": 180
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.producer-command.json",
+      "bytes": 557
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/artifact-identity.json",
+      "bytes": 441
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/clock-C.csv",
+      "bytes": 24964
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/clock-R.csv",
+      "bytes": 24964
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/clock_C.bwrap-info.json",
+      "bytes": 62
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/clock_C.log",
+      "bytes": 91
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/clock_R.bwrap-info.json",
+      "bytes": 62
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/clock_R.log",
+      "bytes": 91
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/coordinator.bwrap-info.json",
+      "bytes": 62
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/coordinator.json",
+      "bytes": 61949
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/coordinator.log",
+      "bytes": 106
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/owned.jsonl",
+      "bytes": 6807
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/process-exit.json",
+      "bytes": 2044
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.xvfb.log",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/bag.log",
+      "bytes": 2746
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/bag/bag_0.db3",
+      "bytes": 2658304
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/bag/metadata.yaml",
+      "bytes": 10250
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/bound-mask-publications.jsonl",
+      "bytes": 25473
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/bound-mask-recording-saved.json",
+      "bytes": 773
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/bound-peer-tf-calls.jsonl",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/central-map-capture/index.json",
+      "bytes": 578
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/common-execution-revision.json",
+      "bytes": 1750
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/drive_diagnostics.csv",
+      "bytes": 6540
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/effective_contact_robot.adaptation.json",
+      "bytes": 445
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/effective_contact_robot.sdf",
+      "bytes": 13934
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/effective_world.adaptation.json",
+      "bytes": 895
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/effective_world.sdf",
+      "bytes": 25398
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/events.jsonl",
+      "bytes": 486355
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/execution-profile.json",
+      "bytes": 4096
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/gazebo_logs/default.log",
+      "bytes": 4256
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/gazebo_logs/gzserver.log",
+      "bytes": 158
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/health-trace.json",
+      "bytes": 5693
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/hub-poststop-opaque.bin",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/launch.log",
+      "bytes": 39455
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/net01-clock-params.yaml",
+      "bytes": 52
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/network-controller-exit.json",
+      "bytes": 261
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/network-gateway-close-phases.jsonl",
+      "bytes": 2103
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/network-gateway-exit.json",
+      "bytes": 84
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/network-gateway-resources-closed.json",
+      "bytes": 1189
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/network-gateway-saved.json",
+      "bytes": 1120
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/network-gateway.json",
+      "bytes": 18439370
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/network-gateway.log",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/observer_timing.json",
+      "bytes": 1626184
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/owned_processes.jsonl",
+      "bytes": 111
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/peer-keepout.jsonl",
+      "bytes": 23936
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/peer-recording-saved.json",
+      "bytes": 91
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/peer_nav2_tb1.before-static-footprint.yaml",
+      "bytes": 16088
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/peer_nav2_tb1.yaml",
+      "bytes": 16129
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/peer_nav2_tb2.before-static-footprint.yaml",
+      "bytes": 16089
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/peer_nav2_tb2.yaml",
+      "bytes": 16130
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/peer_nav2_tb3.before-static-footprint.yaml",
+      "bytes": 16089
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/peer_nav2_tb3.yaml",
+      "bytes": 16130
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/processes_after.txt",
+      "bytes": 114850
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/received-controller-records.json",
+      "bytes": 2
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/result.json",
+      "bytes": 4904
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/2026-11-12-06-47-21-915630-zhuyulab-1590018/launch.log",
+      "bytes": 12738
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/behavior_server_1590075_1794466044971.log",
+      "bytes": 526
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/behavior_server_1590644_1794466049595.log",
+      "bytes": 526
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/bt_navigator_1590077_1794466044971.log",
+      "bytes": 567
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/bt_navigator_1590646_1794466049595.log",
+      "bytes": 567
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/controller_server_1590069_1794466044962.log",
+      "bytes": 944
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/controller_server_1590636_1794466049585.log",
+      "bytes": 944
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/gzserver_1590063_1794466045850.log",
+      "bytes": 1626
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/lifecycle_manager_1590083_1794466044963.log",
+      "bytes": 869
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/lifecycle_manager_1590652_1794466049583.log",
+      "bytes": 869
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/multirobot_slam_toolbox_node_1590089_1794466044998.log",
+      "bytes": 487
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/multirobot_slam_toolbox_node_1590634_1794466049609.log",
+      "bytes": 348
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/planner_server_1590073_1794466044962.log",
+      "bytes": 910
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/planner_server_1590640_1794466049585.log",
+      "bytes": 910
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/python3_1590017_1794466042106.log",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/python3_1590019_1794466041968.log",
+      "bytes": 2687
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/python3_1590059_1794466045258.log",
+      "bytes": 136
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/python3_1590061_1794466045516.log",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/python3_1590067_1794466045532.log",
+      "bytes": 592
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/python3_1590085_1794466045436.log",
+      "bytes": 139
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/python3_1590626_1794466050134.log",
+      "bytes": 485
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/python3_1590630_1794466050064.log",
+      "bytes": 139
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/robot_state_publisher_1590065_1794466044944.log",
+      "bytes": 1267
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/robot_state_publisher_1590628_1794466049546.log",
+      "bytes": 1267
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/smoother_server_1590071_1794466044962.log",
+      "bytes": 604
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/smoother_server_1590638_1794466049585.log",
+      "bytes": 604
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/static_transform_publisher_1590087_1794466044960.log",
+      "bytes": 334
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/static_transform_publisher_1590632_1794466049569.log",
+      "bytes": 334
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/velocity_smoother_1590081_1794466044962.log",
+      "bytes": 934
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/velocity_smoother_1590650_1794466049585.log",
+      "bytes": 934
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/waypoint_follower_1590079_1794466044962.log",
+      "bytes": 602
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/ros_logs/waypoint_follower_1590648_1794466049585.log",
+      "bytes": 602
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/slam_tb1.yaml",
+      "bytes": 1752
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/slam_tb2.yaml",
+      "bytes": 1752
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/slam_tb3.yaml",
+      "bytes": 1752
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/tb1_first.npz",
+      "bytes": 1759
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/tb1_first.pgm",
+      "bytes": 34500
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/tb1_last.npz",
+      "bytes": 1759
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/tb1_last.pgm",
+      "bytes": 34500
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/time-control-observer.json",
+      "bytes": 5433
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01/trajectories.csv",
+      "bytes": 2087
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.admission-used.json",
+      "bytes": 338
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.boot-exit.json",
+      "bytes": 176
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.host-exit.json",
+      "bytes": 5788
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.hub.log",
+      "bytes": 1015
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.native-load.json",
+      "bytes": 2020
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.native.log",
+      "bytes": 4895
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.native.maps.txt",
+      "bytes": 17956
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network-integrity.json",
+      "bytes": 3348
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/hub-clock-control.json",
+      "bytes": 3
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/hub-deliveries.json",
+      "bytes": 3
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/hub-ingress.json",
+      "bytes": 3
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/native-control-boundaries.json",
+      "bytes": 3
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/native.stderr.txt",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/native/configured-lock.json",
+      "bytes": 3994
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/native/control-step-trace.jsonl",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/native/ledger-status.json",
+      "bytes": 228
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/native/native-summary.json",
+      "bytes": 213
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/native/packet-ledger.jsonl",
+      "bytes": 3165
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/native/transport-config.json",
+      "bytes": 3174
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/native/wifi-0-0.pcap",
+      "bytes": 24
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/native/wifi-1-0.pcap",
+      "bytes": 24
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/native/wifi-2-0.pcap",
+      "bytes": 24
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/native/wifi-3-0.pcap",
+      "bytes": 24
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network/result.json",
+      "bytes": 2232
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.owned-runner.json",
+      "bytes": 168
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.producer-command.json",
+      "bytes": 545
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control/artifact-identity.json",
+      "bytes": 441
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control/clock-C.csv",
+      "bytes": 294
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control/clock-R.csv",
+      "bytes": 294
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control/clock_C.bwrap-info.json",
+      "bytes": 62
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control/clock_C.log",
+      "bytes": 91
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control/clock_R.bwrap-info.json",
+      "bytes": 62
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control/clock_R.log",
+      "bytes": 91
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control/coordinator.bwrap-info.json",
+      "bytes": 62
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control/coordinator.json",
+      "bytes": 2389
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control/coordinator.log",
+      "bytes": 100
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control/owned.jsonl",
+      "bytes": 6747
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control/process-exit.json",
+      "bytes": 1969
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.xvfb.log",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/bag.log",
+      "bytes": 3620
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/bag/bag_0.db3",
+      "bytes": 159744
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/bag/metadata.yaml",
+      "bytes": 14959
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/bound-mask-publications.jsonl",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/bound-mask-recording-saved.json",
+      "bytes": 772
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/bound-peer-tf-calls.jsonl",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/central-map-capture/index.json",
+      "bytes": 578
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/common-execution-revision.json",
+      "bytes": 1714
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/drive_diagnostics.csv",
+      "bytes": 244
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/effective_contact_robot.adaptation.json",
+      "bytes": 439
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/effective_contact_robot.sdf",
+      "bytes": 13934
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/effective_world.adaptation.json",
+      "bytes": 883
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/effective_world.sdf",
+      "bytes": 25398
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/events.jsonl",
+      "bytes": 246275
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/execution-profile.json",
+      "bytes": 4096
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/gazebo_logs/default.log",
+      "bytes": 5733
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/gazebo_logs/gzserver.log",
+      "bytes": 158
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/health-trace.json",
+      "bytes": 173
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/hub-poststop-opaque.bin",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/launch.log",
+      "bytes": 54733
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/net01-clock-params.yaml",
+      "bytes": 52
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/network-controller-exit.json",
+      "bytes": 255
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/network-gateway-close-phases.jsonl",
+      "bytes": 2067
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/network-gateway-exit.json",
+      "bytes": 84
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/network-gateway-resources-closed.json",
+      "bytes": 1183
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/network-gateway-saved.json",
+      "bytes": 1118
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/network-gateway.json",
+      "bytes": 21922863
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/network-gateway.log",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/observer_timing.json",
+      "bytes": 6989
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/owned_processes.jsonl",
+      "bytes": 111
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/peer-keepout.jsonl",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/peer-recording-saved.json",
+      "bytes": 89
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/peer_nav2_tb1.before-static-footprint.yaml",
+      "bytes": 16088
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/peer_nav2_tb1.yaml",
+      "bytes": 16129
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/peer_nav2_tb2.before-static-footprint.yaml",
+      "bytes": 16089
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/peer_nav2_tb2.yaml",
+      "bytes": 16130
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/peer_nav2_tb3.before-static-footprint.yaml",
+      "bytes": 16089
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/peer_nav2_tb3.yaml",
+      "bytes": 16130
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/processes_after.txt",
+      "bytes": 115339
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/received-controller-records.json",
+      "bytes": 2
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/result.json",
+      "bytes": 4894
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/2026-11-12-07-07-47-623002-zhuyulab-1593059/launch.log",
+      "bytes": 19462
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/behavior_server_1593118_1794467270662.log",
+      "bytes": 526
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/behavior_server_1593770_1794467278682.log",
+      "bytes": 526
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/behavior_server_1593977_1794467282829.log",
+      "bytes": 526
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/bt_navigator_1593120_1794467270662.log",
+      "bytes": 567
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/bt_navigator_1593774_1794467278686.log",
+      "bytes": 567
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/bt_navigator_1593979_1794467282830.log",
+      "bytes": 567
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/controller_server_1593112_1794467270653.log",
+      "bytes": 944
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/controller_server_1593764_1794467278670.log",
+      "bytes": 944
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/controller_server_1593971_1794467282818.log",
+      "bytes": 944
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/gzserver_1593357_1794467273626.log",
+      "bytes": 4398
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/lifecycle_manager_1593126_1794467270654.log",
+      "bytes": 869
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/lifecycle_manager_1593780_1794467278674.log",
+      "bytes": 869
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/lifecycle_manager_1593990_1794467282844.log",
+      "bytes": 869
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/multirobot_slam_toolbox_node_1593132_1794467270691.log",
+      "bytes": 348
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/multirobot_slam_toolbox_node_1593762_1794467278686.log",
+      "bytes": 348
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/multirobot_slam_toolbox_node_1593969_1794467282839.log",
+      "bytes": 348
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/planner_server_1593116_1794467270653.log",
+      "bytes": 910
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/planner_server_1593768_1794467278671.log",
+      "bytes": 910
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/planner_server_1593975_1794467282818.log",
+      "bytes": 910
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/python3_1593058_1794467267799.log",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/python3_1593060_1794467267692.log",
+      "bytes": 3561
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/python3_1593101_1794467270969.log",
+      "bytes": 136
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/python3_1593103_1794467271185.log",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/python3_1593109_1794467271242.log",
+      "bytes": 586
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/python3_1593128_1794467271138.log",
+      "bytes": 139
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/python3_1593754_1794467279220.log",
+      "bytes": 586
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/python3_1593758_1794467279157.log",
+      "bytes": 139
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/python3_1593961_1794467283454.log",
+      "bytes": 586
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/python3_1593965_1794467283303.log",
+      "bytes": 139
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/robot_state_publisher_1593107_1794467270636.log",
+      "bytes": 1267
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/robot_state_publisher_1593756_1794467278635.log",
+      "bytes": 1267
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/robot_state_publisher_1593963_1794467282802.log",
+      "bytes": 1267
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/smoother_server_1593114_1794467270654.log",
+      "bytes": 604
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/smoother_server_1593766_1794467278670.log",
+      "bytes": 604
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/smoother_server_1593973_1794467282818.log",
+      "bytes": 604
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/static_transform_publisher_1593130_1794467270652.log",
+      "bytes": 334
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/static_transform_publisher_1593760_1794467278654.log",
+      "bytes": 334
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/static_transform_publisher_1593967_1794467282806.log",
+      "bytes": 334
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/velocity_smoother_1593124_1794467270653.log",
+      "bytes": 934
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/velocity_smoother_1593778_1794467278671.log",
+      "bytes": 934
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/velocity_smoother_1593987_1794467282848.log",
+      "bytes": 934
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/waypoint_follower_1593122_1794467270653.log",
+      "bytes": 602
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/waypoint_follower_1593776_1794467278671.log",
+      "bytes": 602
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/ros_logs/waypoint_follower_1593981_1794467282818.log",
+      "bytes": 602
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/slam_tb1.yaml",
+      "bytes": 1752
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/slam_tb2.yaml",
+      "bytes": 1752
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/slam_tb3.yaml",
+      "bytes": 1752
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/tf_preflight_failure.json",
+      "bytes": 7646
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/time-control-observer.json",
+      "bytes": 5208
+    },
+    {
+      "path": "net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02/trajectories.csv",
+      "bytes": 48
+    },
+    {
+      "path": "net01e/followup02/navigation-source-review.md",
+      "bytes": 12566
+    },
+    {
+      "path": "net01e/followup02/static-footprint-candidate.patch",
+      "bytes": 1726
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/admission.json",
+      "bytes": 179
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/argv.json",
+      "bytes": 1171
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/execution.json",
+      "bytes": 166
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/false/argv.json",
+      "bytes": 166
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/false/exit.json",
+      "bytes": 52
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/false/moved-new-map.json",
+      "bytes": 1744
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/false/moved-new-map.npz",
+      "bytes": 4226
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/false/moved-no-map.json",
+      "bytes": 1743
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/false/moved-no-map.npz",
+      "bytes": 4226
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/false/original-pose.json",
+      "bytes": 1730
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/false/original-pose.npz",
+      "bytes": 4220
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/false/params.yaml",
+      "bytes": 1562
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/false/plan.json",
+      "bytes": 196
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/false/planner.log",
+      "bytes": 5523
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/fixed-input.npz",
+      "bytes": 2596
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/result.json",
+      "bytes": 15651
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/roslogs/planner_server_1587355_1794464754346.log",
+      "bytes": 5352
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/roslogs/planner_server_1587400_1794464763934.log",
+      "bytes": 4920
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/roslogs/python3_1587340_1794464754021.log",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/saved-grid-audit.json",
+      "bytes": 4151
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/stderr.txt",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/stdout.txt",
+      "bytes": 0
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/true/argv.json",
+      "bytes": 164
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/true/exit.json",
+      "bytes": 52
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/true/moved-new-map.json",
+      "bytes": 1744
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/true/moved-new-map.npz",
+      "bytes": 4226
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/true/moved-no-map.json",
+      "bytes": 1740
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/true/moved-no-map.npz",
+      "bytes": 4197
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/true/original-pose.json",
+      "bytes": 1724
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/true/original-pose.npz",
+      "bytes": 4191
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/true/params.yaml",
+      "bytes": 1555
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/true/plan.json",
+      "bytes": 343
+    },
+    {
+      "path": "net01e/followup02/static-footprint-fixture-01/true/planner.log",
+      "bytes": 5089
+    },
+    {
+      "path": "net01e/followup02/static_footprint_fixture.py",
+      "bytes": 12351
+    },
+    {
+      "path": "net01e/followup02/static_footprint_launch.py",
+      "bytes": 2761
+    }
+  ],
+  "file_count": 389,
+  "indexed_bytes": 59225017,
+  "exclusions": [
+    "This inventory and SHA256SUMS to avoid self-reference",
+    "Python bytecode",
+    "Historical followup01 originals referenced by path, not copied or rehashed"
+  ],
+  "raw_bag_PCAP_native_hashing": false,
+  "git_raw_capture_scope": "Original bag/db3 and routine ignored logs remain local and are enumerated here; the two decisive raw launch.log files are explicitly force-tracked. This is not a claim that a Git bundle contains ignored captures."
+}

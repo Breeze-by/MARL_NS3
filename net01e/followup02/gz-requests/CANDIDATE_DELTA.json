@@ -1,0 +1,22 @@
+{
+  "candidate": "net01e/followup02/gz-requests/corr6201-static-footprint-v1-b-01.candidate.json",
+  "source_commit": "af21dfb1030d39cab9e48c747156e84f0f9ff280",
+  "old_binding_count": 54,
+  "new_binding_count": 55,
+  "changed_existing_network_sources": [
+    "boot_network.py",
+    "run_network_case.py"
+  ],
+  "new_network_sources": [
+    "../net01e/followup02/static_footprint_launch.py"
+  ],
+  "frozen_source_map_identical": true,
+  "scene_world_checkpoint_selection_bindings_identical": true,
+  "physical_and_runtime_limits_identical": true,
+  "fixed_network_and_controlled_settings_identical": true,
+  "socket_host_literal_bytes": 80,
+  "socket_container_literal_bytes": 38,
+  "exclusive_paths_absent": true,
+  "authorizations_false_pending_Root": true,
+  "new_Gazebo": 0
+}

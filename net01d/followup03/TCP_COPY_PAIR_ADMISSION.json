@@ -1,0 +1,78 @@
+{
+  "status": "ROOT_ADMITTED_ONE_NATIVE_PAIR_NO_FULL_NO_GAZEBO",
+  "execution_authorized": true,
+  "source_checkpoint": "59e9933 plus reviewedobserver/buildproof included in this commit",
+  "scope": "One fixed reference/candidate native-only pair, separately root-started arms; no ROS/Gazebo",
+  "reference": {
+    "native": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "SHA_reused": "0cc771a18a3eb63ebbc4eb09ee942aaba27ea93211e07a7a0805d993dcc7c4f3",
+    "case": "ntcp-copy-r1"
+  },
+  "candidate": {
+    "path": "/home/zhuyulab/ns3-workspace/net-01d/native-copy-cost-followup03/driver-out/net01-payload-tcp",
+    "bytes": 524472,
+    "sha256": "5a176ead03765473a5880f681d2b792cb94629079bc86525c77042614cbf232d"
+  },
+  "immutable_base_source": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-src",
+  "source_difference": "native/TCP_COPY_CANDIDATE.patch only",
+  "commands": {
+    "reference": [
+      "rtk",
+      "proxy",
+      "python3",
+      "-B",
+      "net01d/followup03/native/observe_copy_pair.py",
+      "--arm",
+      "reference"
+    ],
+    "candidate": [
+      "rtk",
+      "proxy",
+      "python3",
+      "-B",
+      "net01d/followup03/native/observe_copy_pair.py",
+      "--arm",
+      "candidate"
+    ]
+  },
+  "original_runner": "net01d/followup02/native/run_native_tcp.py, imported unchanged with only BASE/output/ELF overrides",
+  "active_wall_s": 20,
+  "total_wall_s": 30,
+  "END_flush_bound_s": 1,
+  "mode": "serial",
+  "transport": "tcp-mtu-v2",
+  "radio_profile": "B",
+  "bodies": 18,
+  "target_sim_s": 8,
+  "STEP_count": 800,
+  "LD_LIBRARY_PATH": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+  "clear_environment": [
+    "LD_PRELOAD",
+    "LD_AUDIT",
+    "LD_PROFILE",
+    "LD_PROFILE_OUTPUT"
+  ],
+  "actual_one_time_maps_required": true,
+  "owned_chain_and_exit_required": true,
+  "original_RAM_prefix": "net01d-f02-",
+  "new_exclusive_names": [
+    "ntcp-copy-r1",
+    "ntcp-copy-c1"
+  ],
+  "no_automatic_candidate": true,
+  "no_retry": true,
+  "no_Ros": true,
+  "no_Gazebo": true,
+  "comparison": {
+    "bodies": "18 actual bytes/routes/source/identity",
+    "ledger": "strict complete ordered rows, ignore monotonic_ns only, preserve packetUID and simulated time",
+    "PCAP": "all4 byte-for-byte",
+    "CPU": "native ledger-status model_cpu_ns including TX outsideRun, perSTEP RunCPU/wall separately, wholeGNUtime CPU/wall including subprocess/Hub/copy/summary; no Run-only benefit criterion"
+  },
+  "current_build": "native/copy-build-01/BUILD_IDENTITY.json",
+  "build_exit": 0,
+  "build_wall_s": 35.53,
+  "library_rebuilds": 0,
+  "model_starts_so_far": 0,
+  "root_decision": "Root and independent reviewer accept isolated one-loop copy patch for wire equivalence and cost measurement only. Pythonbenchmarkfinished. Reference then candidate only if reference passes; separate root START; no retry/automaticFull/GZ."
+}

@@ -1,0 +1,20 @@
+{
+  "pid": 1106680,
+  "spin_begin_monotonic_ns": 620901730624640,
+  "idle_wait_limit_wall_s": 0.05,
+  "stop_requested": true,
+  "signal_requests": [
+    {
+      "signal": 2,
+      "handler_monotonic_ns": 620901881517264,
+      "interrupted_file": "/mnt/net01e/controller/check_graceful.py",
+      "interrupted_function": "received",
+      "interrupted_line": 67
+    }
+  ],
+  "submissions": [],
+  "semantics": "Gate admission is entry to original send_goal, not DDS send or Nav2 acceptance",
+  "spin_boundary_exit_monotonic_ns": 620901881571254,
+  "context_ok_at_boundary": true,
+  "spin_adapter_finished_monotonic_ns": 620901881653517
+}

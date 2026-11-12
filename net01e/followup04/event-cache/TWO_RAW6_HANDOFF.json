@@ -1,0 +1,1145 @@
+{
+  "failures": [
+    {
+      "case": "corr6201-common58-r01-b",
+      "pair": 1,
+      "arm": "B",
+      "T95_receipt_G": 51.739999999999995,
+      "goal": {
+        "robot": "tb3",
+        "token": 3,
+        "UUID": "478a3297a9a5411db34cdfe71fea106e",
+        "reservation": {
+          "source_line": 21409,
+          "event": {
+            "kind": "goal_reserved",
+            "sim": 50.0,
+            "robot": "tb3",
+            "target": [
+              6.175000000000002,
+              -2.3749999999999996
+            ],
+            "token": 3,
+            "decision_id": 7,
+            "wall_ns": 1794490921487309387
+          }
+        },
+        "request": {
+          "source_line": 21411,
+          "event": {
+            "kind": "rl_actual_nav2_goal_request",
+            "sim": 50.0,
+            "robot": "tb3",
+            "token": 3,
+            "request_uuid": "478a3297a9a5411db34cdfe71fea106e",
+            "decision_id": 7,
+            "merge_map_target": [
+              6.175000000000002,
+              -2.3749999999999996
+            ],
+            "actual_goal_frame": "map",
+            "actual_goal_stamp": 50.0,
+            "actual_goal_position": [
+              5.075000000000002,
+              -1.5749999999999997,
+              0.0
+            ],
+            "actual_goal_quaternion": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "wall_ns": 1794490921489516169
+          }
+        },
+        "response": {
+          "source_line": 21441,
+          "event": {
+            "kind": "rl_actual_nav2_goal_response",
+            "sim": 50.46,
+            "robot": "tb3",
+            "token": 3,
+            "request_uuid": "478a3297a9a5411db34cdfe71fea106e",
+            "accepted": true,
+            "accepted_uuid": "478a3297a9a5411db34cdfe71fea106e",
+            "wall_ns": 1794490921565368631
+          }
+        },
+        "result": {
+          "source_line": 33619,
+          "event": {
+            "kind": "rl_actual_nav2_goal_result",
+            "sim": 72.08,
+            "robot": "tb3",
+            "token": 3,
+            "request_uuid": "478a3297a9a5411db34cdfe71fea106e",
+            "raw_status": 6,
+            "wall_ns": 1794490973232558972
+          }
+        },
+        "request_before_T95": true,
+        "active_at_T95": true,
+        "result_after_T95": true,
+        "route_before_T95": {
+          "begin_G": 50.0,
+          "end_G": 51.739999999999995,
+          "samples": 18,
+          "first": {
+            "wall_unix": 1794490920.4073966,
+            "sim_s": 50.0,
+            "x": -0.28689136545395577,
+            "y": -4.517723240540451,
+            "z": 0.00783247290741806,
+            "speed_xy": 0.00018761683255666064,
+            "angular_z": 0.0653210200021691
+          },
+          "last": {
+            "wall_unix": 1794490924.5726974,
+            "sim_s": 51.7,
+            "x": -0.03478599469252711,
+            "y": -4.532041148548336,
+            "z": 0.007820705022386897,
+            "speed_xy": 0.24449143550609215,
+            "angular_z": 0.6549565690099405
+          },
+          "path_m": 0.25537610200624966,
+          "stationary_sim_s": 0.5,
+          "sampling_scope": "Observed true Gazebo model samples only, no boundary extrapolation; \u2264.1sim endpoint sampling discrepancy."
+        },
+        "route_T95_to_T98": {
+          "begin_G": 51.739999999999995,
+          "end_G": 72.08,
+          "samples": 203,
+          "first": {
+            "wall_unix": 1794490924.8161533,
+            "sim_s": 51.8,
+            "x": -0.010027626158955262,
+            "y": -4.525053110506257,
+            "z": 0.007839956234231164,
+            "speed_xy": 0.2582579503068097,
+            "angular_z": 0.6229299695215224
+          },
+          "last": {
+            "wall_unix": 1794490972.9985433,
+            "sim_s": 72.0,
+            "x": 0.5118533746531184,
+            "y": -3.907519739245205,
+            "z": 0.007832835068639755,
+            "speed_xy": 6.01456984619524e-05,
+            "angular_z": -5.588674931343806e-05
+          },
+          "path_m": 1.1556984853183345,
+          "stationary_sim_s": 4.000000000000007,
+          "sampling_scope": "Observed true Gazebo model samples only, no boundary extrapolation; \u2264.1sim endpoint sampling discrepancy."
+        }
+      },
+      "important_limit": "Late result does not imply whole task started afterT95; lifecycle/logical vs client node.now stamps retained. No unique RF/Nav2 causal attribution.",
+      "failure_context_logs": [
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3861,
+          "raw_log": "[planner_server-37] [ERROR] [1794490929.754504992] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490929.754505,
+          "approx_G_via_trajectory_wall_sim_interpolation": 53.85208986197698,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3862,
+          "raw_log": "[planner_server-37] [WARN] [1794490929.754729135] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490929.754729,
+          "approx_G_via_trajectory_wall_sim_interpolation": 53.852169974134,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3863,
+          "raw_log": "[planner_server-37] [WARN] [1794490929.754756916] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490929.754757,
+          "approx_G_via_trajectory_wall_sim_interpolation": 53.852179945540776,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3864,
+          "raw_log": "[planner_server-37] [WARN] [1794490929.754781896] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490929.754782,
+          "approx_G_via_trajectory_wall_sim_interpolation": 53.85218889423917,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3867,
+          "raw_log": "[bt_navigator-39] [WARN] [1794490929.792167315] [tb3.bt_navigator_navigate_to_pose_rclcpp_node]: Node timed out while executing service call to global_costmap/clear_entirely_global_costmap.",
+          "raw_logger_wall_epoch_s": 1794490929.7921674,
+          "approx_G_via_trajectory_wall_sim_interpolation": 53.865552795189856,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3889,
+          "raw_log": "[planner_server-37] [ERROR] [1794490930.103719610] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490930.1037197,
+          "approx_G_via_trajectory_wall_sim_interpolation": 53.98804935915821,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3890,
+          "raw_log": "[planner_server-37] [WARN] [1794490930.103882021] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490930.103882,
+          "approx_G_via_trajectory_wall_sim_interpolation": 53.98811579442334,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3891,
+          "raw_log": "[planner_server-37] [WARN] [1794490930.103922139] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490930.1039221,
+          "approx_G_via_trajectory_wall_sim_interpolation": 53.98813218373985,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3892,
+          "raw_log": "[planner_server-37] [WARN] [1794490930.103948724] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490930.1039488,
+          "approx_G_via_trajectory_wall_sim_interpolation": 53.988143109950855,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3923,
+          "raw_log": "[planner_server-37] [ERROR] [1794490931.104788606] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490931.1047885,
+          "approx_G_via_trajectory_wall_sim_interpolation": 54.40609676853831,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3924,
+          "raw_log": "[planner_server-37] [WARN] [1794490931.104990660] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490931.1049907,
+          "approx_G_via_trajectory_wall_sim_interpolation": 54.40617756460827,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3925,
+          "raw_log": "[planner_server-37] [WARN] [1794490931.105019502] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490931.1050196,
+          "approx_G_via_trajectory_wall_sim_interpolation": 54.40618909329278,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 3926,
+          "raw_log": "[planner_server-37] [WARN] [1794490931.105082156] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490931.1050823,
+          "approx_G_via_trajectory_wall_sim_interpolation": 54.406214151507875,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4060,
+          "raw_log": "[planner_server-37] [ERROR] [1794490935.953756785] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490935.9537568,
+          "approx_G_via_trajectory_wall_sim_interpolation": 56.41486399498387,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4061,
+          "raw_log": "[planner_server-37] [WARN] [1794490935.953909899] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490935.9539099,
+          "approx_G_via_trajectory_wall_sim_interpolation": 56.41492354297566,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4062,
+          "raw_log": "[planner_server-37] [WARN] [1794490935.953935641] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490935.9539356,
+          "approx_G_via_trajectory_wall_sim_interpolation": 56.414933560394836,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4063,
+          "raw_log": "[planner_server-37] [WARN] [1794490935.953959780] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490935.9539597,
+          "approx_G_via_trajectory_wall_sim_interpolation": 56.414942928536846,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4075,
+          "raw_log": "[planner_server-37] [ERROR] [1794490936.105607532] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490936.1056075,
+          "approx_G_via_trajectory_wall_sim_interpolation": 56.473939684006076,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4076,
+          "raw_log": "[planner_server-37] [WARN] [1794490936.105749531] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490936.1057496,
+          "approx_G_via_trajectory_wall_sim_interpolation": 56.47399496531932,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4077,
+          "raw_log": "[planner_server-37] [WARN] [1794490936.105776800] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490936.1057768,
+          "approx_G_via_trajectory_wall_sim_interpolation": 56.47400553926179,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4078,
+          "raw_log": "[planner_server-37] [WARN] [1794490936.105801293] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490936.1058013,
+          "approx_G_via_trajectory_wall_sim_interpolation": 56.474015092911564,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4218,
+          "raw_log": "[planner_server-37] [ERROR] [1794490941.153858759] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490941.1538587,
+          "approx_G_via_trajectory_wall_sim_interpolation": 58.61465696206621,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4219,
+          "raw_log": "[planner_server-37] [WARN] [1794490941.153979459] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490941.1539795,
+          "approx_G_via_trajectory_wall_sim_interpolation": 58.614703761994214,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4220,
+          "raw_log": "[planner_server-37] [WARN] [1794490941.154004682] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490941.1540046,
+          "approx_G_via_trajectory_wall_sim_interpolation": 58.61471345428699,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4221,
+          "raw_log": "[planner_server-37] [WARN] [1794490941.154026827] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490941.1540267,
+          "approx_G_via_trajectory_wall_sim_interpolation": 58.61472203888917,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4252,
+          "raw_log": "[planner_server-37] [ERROR] [1794490942.117846884] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490942.117847,
+          "approx_G_via_trajectory_wall_sim_interpolation": 59.01268483161737,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4253,
+          "raw_log": "[planner_server-37] [WARN] [1794490942.118084704] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490942.1180847,
+          "approx_G_via_trajectory_wall_sim_interpolation": 59.01278485991023,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4254,
+          "raw_log": "[planner_server-37] [WARN] [1794490942.118127924] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490942.1181278,
+          "approx_G_via_trajectory_wall_sim_interpolation": 59.01280301951003,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4255,
+          "raw_log": "[planner_server-37] [WARN] [1794490942.118163916] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490942.1181638,
+          "approx_G_via_trajectory_wall_sim_interpolation": 59.012818169231416,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4520,
+          "raw_log": "[behavior_server-38] [WARN] [1794490952.132563800] [tb3.behavior_server]: Exceeded time allowance before reaching the DriveOnHeading goal - Exiting DriveOnHeading",
+          "raw_logger_wall_epoch_s": 1794490952.1325638,
+          "approx_G_via_trajectory_wall_sim_interpolation": 63.22702108931578,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4521,
+          "raw_log": "[behavior_server-38] [WARN] [1794490952.132688727] [tb3.behavior_server]: backup failed",
+          "raw_logger_wall_epoch_s": 1794490952.1326888,
+          "approx_G_via_trajectory_wall_sim_interpolation": 63.227074783506865,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4522,
+          "raw_log": "[behavior_server-38] [WARN] [1794490952.132719794] [tb3.behavior_server]: [backup] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490952.1327198,
+          "approx_G_via_trajectory_wall_sim_interpolation": 63.22708810458481,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4560,
+          "raw_log": "[planner_server-37] [WARN] [1794490953.106619801] [tb3.planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 2.4390 Hz",
+          "raw_logger_wall_epoch_s": 1794490953.1066198,
+          "approx_G_via_trajectory_wall_sim_interpolation": 63.64972889576831,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4643,
+          "raw_log": "[planner_server-37] [ERROR] [1794490956.193612645] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490956.1936126,
+          "approx_G_via_trajectory_wall_sim_interpolation": 64.91932067643813,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4644,
+          "raw_log": "[planner_server-37] [WARN] [1794490956.193800192] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490956.1938002,
+          "approx_G_via_trajectory_wall_sim_interpolation": 64.91939739375579,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4645,
+          "raw_log": "[planner_server-37] [WARN] [1794490956.193835105] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490956.193835,
+          "approx_G_via_trajectory_wall_sim_interpolation": 64.91941162593923,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4646,
+          "raw_log": "[planner_server-37] [WARN] [1794490956.193864545] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490956.1938646,
+          "approx_G_via_trajectory_wall_sim_interpolation": 64.91942371354709,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4677,
+          "raw_log": "[planner_server-37] [ERROR] [1794490957.106165530] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490957.1061656,
+          "approx_G_via_trajectory_wall_sim_interpolation": 65.29574480493356,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4678,
+          "raw_log": "[planner_server-37] [WARN] [1794490957.106305516] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490957.1063056,
+          "approx_G_via_trajectory_wall_sim_interpolation": 65.29580282717576,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4679,
+          "raw_log": "[planner_server-37] [WARN] [1794490957.106331563] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490957.1063316,
+          "approx_G_via_trajectory_wall_sim_interpolation": 65.29581360132295,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4680,
+          "raw_log": "[planner_server-37] [WARN] [1794490957.106354727] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490957.1063547,
+          "approx_G_via_trajectory_wall_sim_interpolation": 65.29582318932549,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4899,
+          "raw_log": "[planner_server-37] [ERROR] [1794490965.254252730] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490965.2542527,
+          "approx_G_via_trajectory_wall_sim_interpolation": 68.70059576773194,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4900,
+          "raw_log": "[planner_server-37] [WARN] [1794490965.254419403] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490965.2544193,
+          "approx_G_via_trajectory_wall_sim_interpolation": 68.70066775418736,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4901,
+          "raw_log": "[planner_server-37] [WARN] [1794490965.254447490] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490965.2544475,
+          "approx_G_via_trajectory_wall_sim_interpolation": 68.70067990640732,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4902,
+          "raw_log": "[planner_server-37] [WARN] [1794490965.254474571] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490965.2544746,
+          "approx_G_via_trajectory_wall_sim_interpolation": 68.7006916466876,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4933,
+          "raw_log": "[planner_server-37] [WARN] [1794490966.106516082] [tb3.planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 3.0303 Hz",
+          "raw_logger_wall_epoch_s": 1794490966.1065161,
+          "approx_G_via_trajectory_wall_sim_interpolation": 69.06687458572488,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4960,
+          "raw_log": "[planner_server-37] [ERROR] [1794490967.133562053] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490967.133562,
+          "approx_G_via_trajectory_wall_sim_interpolation": 69.49855585774921,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4961,
+          "raw_log": "[planner_server-37] [WARN] [1794490967.133762867] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490967.1337628,
+          "approx_G_via_trajectory_wall_sim_interpolation": 69.49864260106317,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4962,
+          "raw_log": "[planner_server-37] [WARN] [1794490967.133796491] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490967.1337965,
+          "approx_G_via_trajectory_wall_sim_interpolation": 69.49865712696254,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4963,
+          "raw_log": "[planner_server-37] [WARN] [1794490967.133823173] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490967.1338232,
+          "approx_G_via_trajectory_wall_sim_interpolation": 69.49866866526558,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4994,
+          "raw_log": "[planner_server-37] [ERROR] [1794490968.109365768] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490968.1093657,
+          "approx_G_via_trajectory_wall_sim_interpolation": 69.92353704068694,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4995,
+          "raw_log": "[planner_server-37] [WARN] [1794490968.109533179] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490968.109533,
+          "approx_G_via_trajectory_wall_sim_interpolation": 69.92360230488607,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4996,
+          "raw_log": "[planner_server-37] [WARN] [1794490968.109565271] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490968.1095653,
+          "approx_G_via_trajectory_wall_sim_interpolation": 69.92361485569361,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 4997,
+          "raw_log": "[planner_server-37] [WARN] [1794490968.109595115] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490968.109595,
+          "approx_G_via_trajectory_wall_sim_interpolation": 69.92362647681169,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 5140,
+          "raw_log": "[planner_server-37] [ERROR] [1794490973.153943136] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+          "raw_logger_wall_epoch_s": 1794490973.153943,
+          "approx_G_via_trajectory_wall_sim_interpolation": 72.0615404294043,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 5141,
+          "raw_log": "[planner_server-37] [WARN] [1794490973.154093197] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794490973.1540933,
+          "approx_G_via_trajectory_wall_sim_interpolation": 72.06159990106936,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 5142,
+          "raw_log": "[planner_server-37] [WARN] [1794490973.154121333] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (5.08, -1.57)",
+          "raw_logger_wall_epoch_s": 1794490973.1541214,
+          "approx_G_via_trajectory_wall_sim_interpolation": 72.06161104020661,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 5143,
+          "raw_log": "[planner_server-37] [WARN] [1794490973.154144016] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490973.154144,
+          "approx_G_via_trajectory_wall_sim_interpolation": 72.06162000815611,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 5146,
+          "raw_log": "[bt_navigator-39] [WARN] [1794490973.191426117] [tb3.bt_navigator_navigate_to_pose_rclcpp_node]: Node timed out while executing service call to global_costmap/clear_entirely_global_costmap.",
+          "raw_logger_wall_epoch_s": 1794490973.191426,
+          "approx_G_via_trajectory_wall_sim_interpolation": 72.07638144181972,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 5149,
+          "raw_log": "[bt_navigator-39] [WARN] [1794490973.201269636] [tb3.bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794490973.2012696,
+          "approx_G_via_trajectory_wall_sim_interpolation": 72.08027891266916,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "478a3297a9a5411db34cdfe71fea106e",
+          "source_line": 5150,
+          "raw_log": "[bt_navigator-39] [ERROR] [1794490973.201727827] [tb3.bt_navigator]: Goal failed",
+          "raw_logger_wall_epoch_s": 1794490973.2017279,
+          "approx_G_via_trajectory_wall_sim_interpolation": 72.08046034844732,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        }
+      ]
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "pair": 2,
+      "arm": "A1",
+      "T95_receipt_G": 80.55,
+      "goal": {
+        "robot": "tb2",
+        "token": 4,
+        "UUID": "c29f5979f42448948a121afe6456b43d",
+        "reservation": {
+          "source_line": 30890,
+          "event": {
+            "kind": "goal_reserved",
+            "sim": 85.0,
+            "robot": "tb2",
+            "target": [
+              -4.925,
+              -4.5249999999999995
+            ],
+            "token": 4,
+            "decision_id": 13,
+            "wall_ns": 1794492627519281126
+          }
+        },
+        "request": {
+          "source_line": 30892,
+          "event": {
+            "kind": "rl_actual_nav2_goal_request",
+            "sim": 85.0,
+            "robot": "tb2",
+            "token": 4,
+            "request_uuid": "c29f5979f42448948a121afe6456b43d",
+            "decision_id": 13,
+            "merge_map_target": [
+              -4.925,
+              -4.5249999999999995
+            ],
+            "actual_goal_frame": "map",
+            "actual_goal_stamp": 85.0,
+            "actual_goal_position": [
+              -5.2749999999999995,
+              -3.7249999999999996,
+              0.0
+            ],
+            "actual_goal_quaternion": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "wall_ns": 1794492627521260967
+          }
+        },
+        "response": {
+          "source_line": 30917,
+          "event": {
+            "kind": "rl_actual_nav2_goal_response",
+            "sim": 85.53,
+            "robot": "tb2",
+            "token": 4,
+            "request_uuid": "c29f5979f42448948a121afe6456b43d",
+            "accepted": true,
+            "accepted_uuid": "c29f5979f42448948a121afe6456b43d",
+            "wall_ns": 1794492627580919064
+          }
+        },
+        "result": {
+          "source_line": 49737,
+          "event": {
+            "kind": "rl_actual_nav2_goal_result",
+            "sim": 117.9,
+            "robot": "tb2",
+            "token": 4,
+            "request_uuid": "c29f5979f42448948a121afe6456b43d",
+            "raw_status": 6,
+            "wall_ns": 1794492692321944283
+          }
+        },
+        "request_before_T95": false,
+        "active_at_T95": false,
+        "result_after_T95": true,
+        "route_before_T95": null,
+        "route_T95_to_T98": {
+          "begin_G": 85.0,
+          "end_G": 117.9,
+          "samples": 330,
+          "first": {
+            "wall_unix": 1794492626.4993975,
+            "sim_s": 85.0,
+            "x": 4.97055662185482,
+            "y": -2.1926001275237463,
+            "z": 0.007830428911089761,
+            "speed_xy": 6.0853292854964944e-05,
+            "angular_z": 0.00010077948637214028
+          },
+          "last": {
+            "wall_unix": 1794492692.2975323,
+            "sim_s": 117.9,
+            "x": 3.1928609769334617,
+            "y": -2.302176425219663,
+            "z": 0.007830021449570831,
+            "speed_xy": 6.727657365468469e-05,
+            "angular_z": 5.7144261722636694e-05
+          },
+          "path_m": 2.1048472635981708,
+          "stationary_sim_s": 7.400000000000006,
+          "sampling_scope": "Observed true Gazebo model samples only, no boundary extrapolation; \u2264.1sim endpoint sampling discrepancy."
+        }
+      },
+      "important_limit": "Late result does not imply whole task started afterT95; lifecycle/logical vs client node.now stamps retained. No unique RF/Nav2 causal attribution.",
+      "failure_context_logs": [
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6399,
+          "raw_log": "[planner_server-24] [WARN] [1794492645.048383030] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492645.048383,
+          "approx_G_via_trajectory_wall_sim_interpolation": 94.27500118539592,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6400,
+          "raw_log": "[planner_server-24] [WARN] [1794492645.048558424] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492645.0485585,
+          "approx_G_via_trajectory_wall_sim_interpolation": 94.2750884305358,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6401,
+          "raw_log": "[planner_server-24] [WARN] [1794492645.048588453] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492645.0485885,
+          "approx_G_via_trajectory_wall_sim_interpolation": 94.27510336652442,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6413,
+          "raw_log": "[planner_server-24] [WARN] [1794492645.288358628] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492645.2883587,
+          "approx_G_via_trajectory_wall_sim_interpolation": 94.39380457208881,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6414,
+          "raw_log": "[planner_server-24] [WARN] [1794492645.288507141] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492645.2885072,
+          "approx_G_via_trajectory_wall_sim_interpolation": 94.39387802261287,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6415,
+          "raw_log": "[planner_server-24] [WARN] [1794492645.288541270] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492645.2885413,
+          "approx_G_via_trajectory_wall_sim_interpolation": 94.39389488204294,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6426,
+          "raw_log": "[bt_navigator-26] [WARN] [1794492645.340716189] [tb2.bt_navigator_navigate_to_pose_rclcpp_node]: Node timed out while executing service call to local_costmap/clear_entirely_local_costmap.",
+          "raw_logger_wall_epoch_s": 1794492645.3407161,
+          "approx_G_via_trajectory_wall_sim_interpolation": 94.42024496978173,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6594,
+          "raw_log": "[planner_server-24] [WARN] [1794492650.370269302] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492650.3702693,
+          "approx_G_via_trajectory_wall_sim_interpolation": 96.9338283234323,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6595,
+          "raw_log": "[planner_server-24] [WARN] [1794492650.370411367] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492650.3704114,
+          "approx_G_via_trajectory_wall_sim_interpolation": 96.93390256571875,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6596,
+          "raw_log": "[planner_server-24] [WARN] [1794492650.370444839] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492650.3704448,
+          "approx_G_via_trajectory_wall_sim_interpolation": 96.93392000518202,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6628,
+          "raw_log": "[planner_server-24] [WARN] [1794492651.292608880] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492651.292609,
+          "approx_G_via_trajectory_wall_sim_interpolation": 97.39645075899523,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6629,
+          "raw_log": "[planner_server-24] [WARN] [1794492651.292760414] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492651.2927604,
+          "approx_G_via_trajectory_wall_sim_interpolation": 97.39652678422843,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6630,
+          "raw_log": "[planner_server-24] [WARN] [1794492651.292803865] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492651.2928038,
+          "approx_G_via_trajectory_wall_sim_interpolation": 97.39654857413778,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6796,
+          "raw_log": "[planner_server-24] [WARN] [1794492656.341010408] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492656.3410103,
+          "approx_G_via_trajectory_wall_sim_interpolation": 99.91982066587458,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6797,
+          "raw_log": "[planner_server-24] [WARN] [1794492656.341148897] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492656.3411489,
+          "approx_G_via_trajectory_wall_sim_interpolation": 99.91988955844722,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6798,
+          "raw_log": "[planner_server-24] [WARN] [1794492656.341179782] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492656.3411798,
+          "approx_G_via_trajectory_wall_sim_interpolation": 99.91990497330858,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6834,
+          "raw_log": "[planner_server-24] [WARN] [1794492657.295566887] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492657.2955668,
+          "approx_G_via_trajectory_wall_sim_interpolation": 100.39899217454617,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6835,
+          "raw_log": "[planner_server-24] [WARN] [1794492657.295730396] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492657.2957304,
+          "approx_G_via_trajectory_wall_sim_interpolation": 100.39907611921122,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 6836,
+          "raw_log": "[planner_server-24] [WARN] [1794492657.295759938] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492657.29576,
+          "approx_G_via_trajectory_wall_sim_interpolation": 100.39909129288245,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7157,
+          "raw_log": "[behavior_server-25] [WARN] [1794492667.316777893] [tb2.behavior_server]: Exceeded time allowance before reaching the DriveOnHeading goal - Exiting DriveOnHeading",
+          "raw_logger_wall_epoch_s": 1794492667.316778,
+          "approx_G_via_trajectory_wall_sim_interpolation": 105.40929604612714,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7158,
+          "raw_log": "[behavior_server-25] [WARN] [1794492667.316860380] [tb2.behavior_server]: backup failed",
+          "raw_logger_wall_epoch_s": 1794492667.3168604,
+          "approx_G_via_trajectory_wall_sim_interpolation": 105.40933711237791,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7159,
+          "raw_log": "[behavior_server-25] [WARN] [1794492667.316890412] [tb2.behavior_server]: [backup] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492667.3168905,
+          "approx_G_via_trajectory_wall_sim_interpolation": 105.40935206713976,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7202,
+          "raw_log": "[planner_server-24] [WARN] [1794492668.294201428] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492668.2942014,
+          "approx_G_via_trajectory_wall_sim_interpolation": 105.89865320346198,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7203,
+          "raw_log": "[planner_server-24] [WARN] [1794492668.294384980] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492668.294385,
+          "approx_G_via_trajectory_wall_sim_interpolation": 105.89874484656328,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7204,
+          "raw_log": "[planner_server-24] [WARN] [1794492668.294436501] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492668.2944365,
+          "approx_G_via_trajectory_wall_sim_interpolation": 105.89877055423844,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7241,
+          "raw_log": "[planner_server-24] [WARN] [1794492669.290953376] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492669.2909534,
+          "approx_G_via_trajectory_wall_sim_interpolation": 106.39622686658595,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7242,
+          "raw_log": "[planner_server-24] [WARN] [1794492669.291083308] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492669.2910833,
+          "approx_G_via_trajectory_wall_sim_interpolation": 106.39629207326121,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7243,
+          "raw_log": "[planner_server-24] [WARN] [1794492669.291110810] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492669.2911108,
+          "approx_G_via_trajectory_wall_sim_interpolation": 106.3963058324679,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7414,
+          "raw_log": "[planner_server-24] [WARN] [1794492674.469865653] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492674.4698656,
+          "approx_G_via_trajectory_wall_sim_interpolation": 108.98630973425959,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7415,
+          "raw_log": "[planner_server-24] [WARN] [1794492674.470009696] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492674.4700098,
+          "approx_G_via_trajectory_wall_sim_interpolation": 108.98638199826088,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7416,
+          "raw_log": "[planner_server-24] [WARN] [1794492674.470041663] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492674.4700418,
+          "approx_G_via_trajectory_wall_sim_interpolation": 108.98639800384134,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7419,
+          "raw_log": "[bt_navigator-26] [WARN] [1794492674.507710552] [tb2.bt_navigator_navigate_to_pose_rclcpp_node]: Node timed out while executing service call to global_costmap/clear_entirely_global_costmap.",
+          "raw_logger_wall_epoch_s": 1794492674.5077105,
+          "approx_G_via_trajectory_wall_sim_interpolation": 109.00524947406498,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7425,
+          "raw_log": "[bt_navigator-26] [ERROR] [1794492674.528817052] [tb2.bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!",
+          "raw_logger_wall_epoch_s": 1794492674.528817,
+          "approx_G_via_trajectory_wall_sim_interpolation": 109.01578328621336,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7596,
+          "raw_log": "[planner_server-24] [WARN] [1794492679.555347179] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492679.5553472,
+          "approx_G_via_trajectory_wall_sim_interpolation": 111.52838727288558,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7597,
+          "raw_log": "[planner_server-24] [WARN] [1794492679.555488360] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492679.5554883,
+          "approx_G_via_trajectory_wall_sim_interpolation": 111.52845692797523,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7598,
+          "raw_log": "[planner_server-24] [WARN] [1794492679.555518310] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492679.5555184,
+          "approx_G_via_trajectory_wall_sim_interpolation": 111.52847175321389,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7624,
+          "raw_log": "[planner_server-24] [WARN] [1794492680.295490543] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492680.2954905,
+          "approx_G_via_trajectory_wall_sim_interpolation": 111.89944905034942,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7625,
+          "raw_log": "[planner_server-24] [WARN] [1794492680.295695858] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492680.2956958,
+          "approx_G_via_trajectory_wall_sim_interpolation": 111.89955230843587,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7626,
+          "raw_log": "[planner_server-24] [WARN] [1794492680.295750962] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492680.2957509,
+          "approx_G_via_trajectory_wall_sim_interpolation": 111.89958001182491,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7943,
+          "raw_log": "[behavior_server-25] [WARN] [1794492690.311703119] [tb2.behavior_server]: Exceeded time allowance before reaching the DriveOnHeading goal - Exiting DriveOnHeading",
+          "raw_logger_wall_epoch_s": 1794492690.3117032,
+          "approx_G_via_trajectory_wall_sim_interpolation": 116.90782988885265,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7944,
+          "raw_log": "[behavior_server-25] [WARN] [1794492690.311832683] [tb2.behavior_server]: backup failed",
+          "raw_logger_wall_epoch_s": 1794492690.3118327,
+          "approx_G_via_trajectory_wall_sim_interpolation": 116.90789382890209,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7945,
+          "raw_log": "[behavior_server-25] [WARN] [1794492690.311859551] [tb2.behavior_server]: [backup] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492690.3118596,
+          "approx_G_via_trajectory_wall_sim_interpolation": 116.90790713502655,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7987,
+          "raw_log": "[planner_server-24] [WARN] [1794492691.287812453] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492691.2878125,
+          "approx_G_via_trajectory_wall_sim_interpolation": 117.39485998617297,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7988,
+          "raw_log": "[planner_server-24] [WARN] [1794492691.287946531] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492691.2879465,
+          "approx_G_via_trajectory_wall_sim_interpolation": 117.39492779415332,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 7989,
+          "raw_log": "[planner_server-24] [WARN] [1794492691.287974147] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492691.287974,
+          "approx_G_via_trajectory_wall_sim_interpolation": 117.39494179010656,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 8025,
+          "raw_log": "[planner_server-24] [WARN] [1794492692.289653547] [tb2.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+          "raw_logger_wall_epoch_s": 1794492692.2896535,
+          "approx_G_via_trajectory_wall_sim_interpolation": 117.89609294242605,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 8026,
+          "raw_log": "[planner_server-24] [WARN] [1794492692.289774864] [tb2.planner_server]: Planning algorithm GridBased failed to generate a valid path to (-5.27, -3.72)",
+          "raw_logger_wall_epoch_s": 1794492692.289775,
+          "approx_G_via_trajectory_wall_sim_interpolation": 117.89615328079509,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 8027,
+          "raw_log": "[planner_server-24] [WARN] [1794492692.289803032] [tb2.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492692.289803,
+          "approx_G_via_trajectory_wall_sim_interpolation": 117.89616726886493,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 8028,
+          "raw_log": "[bt_navigator-26] [WARN] [1794492692.310505680] [tb2.bt_navigator]: [navigate_to_pose] [ActionServer] Aborting handle.",
+          "raw_logger_wall_epoch_s": 1794492692.3105056,
+          "approx_G_via_trajectory_wall_sim_interpolation": 117.90643816521565,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        },
+        {
+          "UUID": "c29f5979f42448948a121afe6456b43d",
+          "source_line": 8029,
+          "raw_log": "[bt_navigator-26] [ERROR] [1794492692.310926390] [tb2.bt_navigator]: Goal failed",
+          "raw_logger_wall_epoch_s": 1794492692.3109264,
+          "approx_G_via_trajectory_wall_sim_interpolation": 117.9066466634378,
+          "scope": "Robot+time context without UUID in log, approximate G only; internal FollowPath abort not automatically topNavigateToPose6."
+        }
+      ]
+    }
+  ],
+  "missing_fields": "No independent earliest RMW arrival or complete perstage network/CPU attribution inferred. Source-header age is not pureRF latency; no new probes.",
+  "scope": "Exactly the two observed new-series top-level raw6; prior bc18 raw5 timeout is separate history."
+}

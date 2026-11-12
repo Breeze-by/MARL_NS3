@@ -1,0 +1,381 @@
+{
+  "status": "PASS_A0_INTERFACE_ONLY",
+  "tool_exit": 0,
+  "checks_passed": 22,
+  "runtime_source": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "activation_commit": "bbecc30",
+  "actual_command": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "35s",
+    "bash",
+    "net01/ros-python.sh",
+    "/mnt/net01d/followup04/a0/check_a0_contract_ros.py",
+    "--output",
+    "/mnt/net01d/followup04/a0/evidence/ros-01"
+  ],
+  "guardian_pid": 854882,
+  "guardian_exit": 0,
+  "guardian_pid_present": false,
+  "parent_PID": "UNMEASURED_completed_before_first_PID_poll",
+  "parent_start_ticks": "UNMEASURED",
+  "driver_deadline_monotonic_ns": 611467324332684,
+  "driver_start_baseline_inferred_monotonic_ns": 611437324332684,
+  "driver_start_baseline_scope": "Derived from actual main deadline=monotonic()+30 expression, float-to-ns rounded; not kernel process start",
+  "stop_marker": {
+    "monotonic_ns": 611441495203465
+  },
+  "completed_observation_utc": "2026-11-11T10:55:07.687052+00:00",
+  "completed_observation_monotonic_ns": 611549169475232,
+  "exact_UUID_chains": [
+    {
+      "robot": 1,
+      "uuid": "0e0102030405060708090a0b0c0d0e0f",
+      "journal_before_send_monotonic_ns": 611441406454595,
+      "registration_monotonic_ns": 611441407640196,
+      "actualGoal_received_monotonic_ns": 611441411366963,
+      "normalrevoke_monotonic_s": 611441.422564197,
+      "actual_accept_return_monotonic_ns": 611441424704455,
+      "actual_cancelled": [
+        "0e0102030405060708090a0b0c0d0e0f"
+      ],
+      "actual_terminal": {
+        "0e0102030405060708090a0b0c0d0e0f": 5
+      },
+      "pending": 0,
+      "fault": null,
+      "halted": true,
+      "may_send_goal": false,
+      "action_order": [
+        {
+          "index": 0,
+          "kind": "actual_control_permission_revoked",
+          "reason": "authority_exited",
+          "monotonic_ns": 611441422741848
+        },
+        {
+          "index": 1,
+          "kind": "a0_actual_response_evidence",
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "accepted": true
+        },
+        {
+          "index": 2,
+          "kind": "actual_local_cancel_response",
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "return_code": 0,
+          "goals_canceling": [
+            "0e0102030405060708090a0b0c0d0e0f"
+          ]
+        },
+        {
+          "index": 3,
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "index": 4,
+          "kind": "actual_local_status_terminal",
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "status": 5
+        },
+        {
+          "index": 5,
+          "kind": "actual_local_GetResult",
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "status": 5
+        },
+        {
+          "index": 6,
+          "kind": "a0_actual_result_evidence",
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "status": 5
+        }
+      ],
+      "actual_receipt_fields": {
+        "receipt_clock_basis": "R-ros-sim-v1",
+        "health_receipt_sim": 100.07,
+        "mask_receipt_sim": 100.07,
+        "health_receipt_monotonic": 611441.454156862,
+        "mask_receipt_monotonic": 611441.456188228
+      },
+      "zeros": {
+        "count": 5,
+        "all_exact": true
+      },
+      "PAUSE_spy": [
+        {
+          "robot": 1,
+          "command": 1,
+          "monotonic_ns": 611441437933537
+        }
+      ]
+    },
+    {
+      "robot": 2,
+      "uuid": "0e0202030405060708090a0b0c0d0e0f",
+      "journal_before_send_monotonic_ns": 611441410580837,
+      "registration_monotonic_ns": 611441412271264,
+      "actualGoal_received_monotonic_ns": 611441418567729,
+      "normalrevoke_monotonic_s": 611441.42294292,
+      "actual_accept_return_monotonic_ns": 611441428078882,
+      "actual_cancelled": [
+        "0e0202030405060708090a0b0c0d0e0f"
+      ],
+      "actual_terminal": {
+        "0e0202030405060708090a0b0c0d0e0f": 5
+      },
+      "pending": 0,
+      "fault": null,
+      "halted": true,
+      "may_send_goal": false,
+      "action_order": [
+        {
+          "index": 0,
+          "kind": "actual_control_permission_revoked",
+          "reason": "authority_exited",
+          "monotonic_ns": 611441423020131
+        },
+        {
+          "index": 1,
+          "kind": "a0_actual_active_status",
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "status": 2,
+          "monotonic_ns": 611441433030867
+        },
+        {
+          "index": 2,
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "index": 3,
+          "kind": "actual_local_cancel_response",
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "return_code": 0,
+          "goals_canceling": [
+            "0e0202030405060708090a0b0c0d0e0f"
+          ]
+        },
+        {
+          "index": 4,
+          "kind": "a0_actual_response_evidence",
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "accepted": true
+        },
+        {
+          "index": 5,
+          "kind": "actual_local_status_terminal",
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "status": 5
+        },
+        {
+          "index": 6,
+          "kind": "a0_actual_result_evidence",
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "status": 5
+        },
+        {
+          "index": 7,
+          "kind": "actual_local_GetResult",
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "status": 5
+        }
+      ],
+      "actual_receipt_fields": {
+        "receipt_clock_basis": "R-ros-sim-v1",
+        "health_receipt_sim": 100.06,
+        "mask_receipt_sim": 100.07,
+        "health_receipt_monotonic": 611441.454212982,
+        "mask_receipt_monotonic": 611441.457406877
+      },
+      "zeros": {
+        "count": 5,
+        "all_exact": true
+      },
+      "PAUSE_spy": [
+        {
+          "robot": 2,
+          "command": 1,
+          "monotonic_ns": 611441439793998
+        }
+      ]
+    }
+  ],
+  "registry_before_close": {
+    "session_id": 2026111154,
+    "events": [
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611441407648094,
+        "request": {
+          "session_id": 2026111154,
+          "robot": 1,
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "token": 1,
+          "kind": "request",
+          "deadline_ns": 611441506677198
+        },
+        "reply": {
+          "session_id": 2026111154,
+          "robot": 1,
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "kind": "request",
+          "token": 1,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611441412277800,
+        "request": {
+          "session_id": 2026111154,
+          "robot": 2,
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "token": 1,
+          "kind": "request",
+          "deadline_ns": 611441510698502
+        },
+        "reply": {
+          "session_id": 2026111154,
+          "robot": 2,
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "kind": "request",
+          "token": 1,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611441427965496,
+        "request": {
+          "session_id": 2026111154,
+          "robot": 1,
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "token": 1,
+          "kind": "response",
+          "deadline_ns": 611441526329724,
+          "accepted": true,
+          "accepted_uuid": "0e0102030405060708090a0b0c0d0e0f"
+        },
+        "reply": {
+          "session_id": 2026111154,
+          "robot": 1,
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "kind": "response",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611441453416775,
+        "request": {
+          "session_id": 2026111154,
+          "robot": 2,
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "token": 1,
+          "kind": "response",
+          "deadline_ns": 611441552482544,
+          "accepted": true,
+          "accepted_uuid": "0e0202030405060708090a0b0c0d0e0f"
+        },
+        "reply": {
+          "session_id": 2026111154,
+          "robot": 2,
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "kind": "response",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611441486729584,
+        "request": {
+          "session_id": 2026111154,
+          "robot": 1,
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "token": 1,
+          "kind": "result",
+          "deadline_ns": 611441585868197,
+          "raw_status": 5
+        },
+        "reply": {
+          "session_id": 2026111154,
+          "robot": 1,
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "kind": "result",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611441490993803,
+        "request": {
+          "session_id": 2026111154,
+          "robot": 2,
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "token": 1,
+          "kind": "result",
+          "deadline_ns": 611441589387905,
+          "raw_status": 5
+        },
+        "reply": {
+          "session_id": 2026111154,
+          "robot": 2,
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "kind": "result",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      }
+    ],
+    "registrations": [
+      {
+        "robot": 1,
+        "uuid": "0e0102030405060708090a0b0c0d0e0f",
+        "token": 1,
+        "registered_monotonic_ns": 611441407640196
+      },
+      {
+        "robot": 2,
+        "uuid": "0e0202030405060708090a0b0c0d0e0f",
+        "token": 1,
+        "registered_monotonic_ns": 611441412271264
+      }
+    ],
+    "connections": 0,
+    "owned_unknown_or_active": {
+      "1": [],
+      "2": []
+    }
+  },
+  "registry_actual_close": {
+    "listener_fileno": -1,
+    "remaining_connections": 0,
+    "socket_exists": false
+  },
+  "executor_shutdown": [
+    true,
+    true,
+    true
+  ],
+  "context_ok_after_shutdown": false,
+  "domain96_udp_ports_after": [],
+  "stdout": "../ros-01.stdout.txt",
+  "stderr": "../ros-01.stderr.txt",
+  "stderr_bytes": 0,
+  "scope": "Real typedDDS A0LocalStop/direct input/admin/registry/hook/LoggedActionClient interface only; synthetic1cell OccupancyGrid and health/clock, PAUSE/zero spies; noNav2/Gazebo/native/NN/physical safety or fullGateway-constructor claim",
+  "no_retry_or_source_changes": true
+}

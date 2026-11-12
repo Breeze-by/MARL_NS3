@@ -1,0 +1,431 @@
+{
+  "scope": "Saved A04 records only, no new bag/metric/test",
+  "first_guard": {
+    "kind": "latched_INVALID",
+    "reason": "health_original_sources_stale",
+    "robot": "tb1",
+    "session_id": 2026110914,
+    "sim": 38.5,
+    "monotonic": 413757.946980254
+  },
+  "transport_fault": {
+    "kind": "transport_latched_INVALID",
+    "monotonic_ns": 413757976889534,
+    "gz_ns": 38500000000,
+    "reason": "mapped_ns3_clock_lag_above_0.12sim"
+  },
+  "transport_after_first_guard_ms": 29.909279954154044,
+  "peer_snapshots": [
+    {
+      "sequence": 382,
+      "generated_sim": 38.2,
+      "ready": true,
+      "correction_stamps": {
+        "tb1": 38.002,
+        "tb2": 37.916,
+        "tb3": 37.988
+      },
+      "odom_stamps": {
+        "tb1": 38.17,
+        "tb2": 38.189,
+        "tb3": 38.176
+      },
+      "delivery_timing": {
+        "entry_monotonic": 413757.590719472,
+        "masks": {
+          "tb1": {
+            "begin": 413757.590818252,
+            "built": 413757.61045014,
+            "before_publish": 413757.610532157,
+            "after_publish": 413757.610905229
+          },
+          "tb2": {
+            "begin": 413757.610908852,
+            "built": 413757.629641033,
+            "before_publish": 413757.629720404,
+            "after_publish": 413757.630139708
+          },
+          "tb3": {
+            "begin": 413757.630143048,
+            "built": 413757.652128425,
+            "before_publish": 413757.652210194,
+            "after_publish": 413757.652659959
+          }
+        },
+        "snapshot_monotonic": 413757.590817096,
+        "health_publish_before_monotonic": 413757.652919119,
+        "health_publish_after_monotonic": 413757.65788083
+      }
+    },
+    {
+      "sequence": 383,
+      "generated_sim": 38.300000000000004,
+      "ready": true,
+      "correction_stamps": {
+        "tb1": 38.002,
+        "tb2": 37.916,
+        "tb3": 37.988
+      },
+      "odom_stamps": {
+        "tb1": 38.272,
+        "tb2": 38.257,
+        "tb3": 38.278
+      },
+      "delivery_timing": {
+        "entry_monotonic": 413757.700904536,
+        "masks": {
+          "tb1": {
+            "begin": 413757.700979259,
+            "built": 413757.720854886,
+            "before_publish": 413757.720942928,
+            "after_publish": 413757.721368829
+          },
+          "tb2": {
+            "begin": 413757.721372745,
+            "built": 413757.741528072,
+            "before_publish": 413757.741608309,
+            "after_publish": 413757.74206216
+          },
+          "tb3": {
+            "begin": 413757.742065839,
+            "built": 413757.765127641,
+            "before_publish": 413757.765266817,
+            "after_publish": 413757.765746197
+          }
+        },
+        "snapshot_monotonic": 413757.70097839,
+        "health_publish_before_monotonic": 413757.766032091,
+        "health_publish_after_monotonic": 413757.770869661
+      }
+    },
+    {
+      "sequence": 384,
+      "generated_sim": 38.400000000000006,
+      "ready": true,
+      "correction_stamps": {
+        "tb1": 38.002,
+        "tb2": 38.116,
+        "tb3": 37.988
+      },
+      "odom_stamps": {
+        "tb1": 38.34,
+        "tb2": 38.325,
+        "tb3": 38.346
+      },
+      "delivery_timing": {
+        "entry_monotonic": 413757.941925995,
+        "masks": {
+          "tb1": {
+            "begin": 413757.942018374,
+            "built": 413757.962441303,
+            "before_publish": 413757.962529141,
+            "after_publish": 413757.96299428
+          },
+          "tb2": {
+            "begin": 413757.962997955,
+            "built": 413757.984426775,
+            "before_publish": 413757.984512486,
+            "after_publish": 413757.984994055
+          },
+          "tb3": {
+            "begin": 413757.984997118,
+            "built": 413758.006189199,
+            "before_publish": 413758.006269578,
+            "after_publish": 413758.006657392
+          }
+        },
+        "snapshot_monotonic": 413757.942017623,
+        "health_publish_before_monotonic": 413758.006854475,
+        "health_publish_after_monotonic": 413758.011647706
+      }
+    },
+    {
+      "sequence": 385,
+      "generated_sim": 38.5,
+      "ready": true,
+      "correction_stamps": {
+        "tb1": 38.002,
+        "tb2": 38.116,
+        "tb3": 37.988
+      },
+      "odom_stamps": {
+        "tb1": 38.374,
+        "tb2": 38.359,
+        "tb3": 38.38
+      },
+      "delivery_timing": {
+        "entry_monotonic": 413758.017265087,
+        "masks": {
+          "tb1": {
+            "begin": 413758.017323555,
+            "built": 413758.038615519,
+            "before_publish": 413758.038701164,
+            "after_publish": 413758.039146891
+          },
+          "tb2": {
+            "begin": 413758.039151751,
+            "built": 413758.059303583,
+            "before_publish": 413758.059394773,
+            "after_publish": 413758.059867059
+          },
+          "tb3": {
+            "begin": 413758.059871282,
+            "built": 413758.08079296,
+            "before_publish": 413758.0808711,
+            "after_publish": 413758.081360933
+          }
+        },
+        "snapshot_monotonic": 413758.017322832,
+        "health_publish_before_monotonic": 413758.081605137,
+        "health_publish_after_monotonic": 413758.086397862
+      }
+    }
+  ],
+  "guards": {
+    "1": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb1",
+          "session_id": 2026110914,
+          "sim": 30.4,
+          "monotonic": 413748.556913062
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_original_sources_stale",
+          "robot": "tb1",
+          "session_id": 2026110914,
+          "sim": 38.5,
+          "monotonic": 413757.946980254
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "4e5273a68a6244ee98e014e1202435bd",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "4e5273a68a6244ee98e014e1202435bd",
+          "return_code": 0,
+          "goals_canceling": [
+            "4e5273a68a6244ee98e014e1202435bd"
+          ]
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "4e5273a68a6244ee98e014e1202435bd",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "4e5273a68a6244ee98e014e1202435bd",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "4e5273a68a6244ee98e014e1202435bd": 5
+      }
+    },
+    "2": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb2",
+          "session_id": 2026110914,
+          "sim": 30.4,
+          "monotonic": 413748.575982975
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_original_sources_stale",
+          "robot": "tb2",
+          "session_id": 2026110914,
+          "sim": 38.5,
+          "monotonic": 413757.948309909
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "6cdf7266823b4f0baf2ea66d332836b2",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "6cdf7266823b4f0baf2ea66d332836b2",
+          "return_code": 0,
+          "goals_canceling": [
+            "6cdf7266823b4f0baf2ea66d332836b2"
+          ]
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "6cdf7266823b4f0baf2ea66d332836b2",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "6cdf7266823b4f0baf2ea66d332836b2",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "6cdf7266823b4f0baf2ea66d332836b2": 5
+      }
+    },
+    "3": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb3",
+          "session_id": 2026110914,
+          "sim": 30.4,
+          "monotonic": 413748.591666971
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_original_sources_stale",
+          "robot": "tb3",
+          "session_id": 2026110914,
+          "sim": 38.5,
+          "monotonic": 413757.949205073
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "ea6bcf6567ba40fcb8789af399ae652f",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "ea6bcf6567ba40fcb8789af399ae652f",
+          "return_code": 0,
+          "goals_canceling": [
+            "ea6bcf6567ba40fcb8789af399ae652f"
+          ]
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "ea6bcf6567ba40fcb8789af399ae652f",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "ea6bcf6567ba40fcb8789af399ae652f",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "ea6bcf6567ba40fcb8789af399ae652f": 5
+      }
+    }
+  },
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      false,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [
+      {
+        "robot": 1,
+        "flow_offset": 3,
+        "rpc_id": 8702080113698668548
+      },
+      {
+        "robot": 2,
+        "flow_offset": 3,
+        "rpc_id": 8702080113698668549
+      },
+      {
+        "robot": 3,
+        "flow_offset": 3,
+        "rpc_id": 8702080113698668550
+      }
+    ],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "dispatch": {
+    "C": {
+      "batches": 14183,
+      "callbacks": 6226,
+      "cap_hits": 0,
+      "max_wall_s": 0.16737192997243255,
+      "max_cpu_s": 0.012948918000000198
+    },
+    "R": {
+      "batches": 14183,
+      "callbacks": 29716,
+      "cap_hits": 0,
+      "max_wall_s": 0.2112035400350578,
+      "max_cpu_s": 0.21117521400000072
+    },
+    "guard_timers": {
+      "1": {
+        "calls": 2872,
+        "max_gap_wall_s": 0.23852347902720794,
+        "last": 413763.46184969
+      },
+      "2": {
+        "calls": 2871,
+        "max_gap_wall_s": 0.23555748898070306,
+        "last": 413763.446026733
+      },
+      "3": {
+        "calls": 2871,
+        "max_gap_wall_s": 0.23154784797225147,
+        "last": 413763.44909541
+      }
+    },
+    "max_poll_gap_wall_s": 0.21907773398561403
+  },
+  "owner_processes": [
+    {
+      "role": "network_gateway",
+      "pid": 1477553,
+      "proc_present_at_delivery": false
+    },
+    {
+      "role": "launch",
+      "pid": 1477554,
+      "proc_present_at_delivery": false
+    },
+    {
+      "role": "bag",
+      "pid": 1477555,
+      "proc_present_at_delivery": false
+    },
+    {
+      "role": "controller",
+      "pid": 1480134,
+      "proc_present_at_delivery": false
+    }
+  ],
+  "interpretation": "Original source-age failure valid. Next snapshot had newer correction but its health was not yet published at first trip. Clock-lag fault followed ~30ms later; do not override first cause. No unique new upstream attribution claimed."
+}

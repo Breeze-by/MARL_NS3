@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=1s",
+    "10s",
+    "python3",
+    "-B",
+    "net01d/followup04/check_controller_exit_reporting.py",
+    "--admission",
+    "net01d/followup04/CONTROLLER_EXIT_REPORTING_ADMISSION.json"
+  ],
+  "cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "runtime": "197a21aa86b45fc67be41f9b6cd5ec811cc29125",
+  "start_monotonic_ns": 612890937048027,
+  "output": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/evidence/controller-exit-reporting-01",
+  "scope": "UniqueactualAST+shortPythonchildren,0ROS/native/GZ/model"
+}

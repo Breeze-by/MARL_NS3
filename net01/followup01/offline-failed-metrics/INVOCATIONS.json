@@ -1,0 +1,30 @@
+{
+  "scope": "Offline sealed failed-episode assessment only; no Node/Gazebo/NN/training; no metric source/standard modification",
+  "tool": "/mnt/workspace/gz01/analyze_recorded.py",
+  "wrapper": "net01/ros-python.sh",
+  "world": "/mnt/inputs/worlds/eval-corridor-common-6201.sdf",
+  "assets": "/project/assets/gazebo_models",
+  "positions": "0.7249999999999996,-0.1499999999999999;0.34999999999999964,-0.7999999999999999;1.0999999999999996,-0.7999999999999999",
+  "metric_mode": "Default closed reference component; no --indoor-roi-only",
+  "case_runs": [
+    {
+      "case": "net01-a-corridor-6201-03",
+      "output": "A03",
+      "native_exit": 0,
+      "evaluations": 1
+    },
+    {
+      "case": "net01-a-corridor-6201-04",
+      "output": "A04",
+      "native_exit": 0,
+      "evaluations": 1
+    }
+  ],
+  "calls": {
+    "Node": 0,
+    "Gazebo": 0,
+    "NN": 0,
+    "training": 0
+  },
+  "original_report_and_identity_unchanged": true
+}

@@ -1,0 +1,40 @@
+diff --git a/net01/boot_network.py b/net01/boot_network.py
+index 8c3c7f2..7dde7fa 100644
+--- a/net01/boot_network.py
++++ b/net01/boot_network.py
+@@ -25,6 +25,14 @@ def main():
+     if ready.get("authorized_net01_execution") is not True:raise ValueError("No NET-01 root admission")
+     controlled=controlled_config(ready)
+     direct_reference=net.get("direct_reference",False)
++    controller_exit_adapter=net.get('controller_exit_adapter','original-v1')
++    if controller_exit_adapter not in ('original-v1','net01e-graceful-v1'):
++        raise ValueError('Unknown controller exit adapter')
++    if controller_exit_adapter=='net01e-graceful-v1':
++        required={'../net01e/controller/'+name for name in
++            ('graceful_controller_bootstrap.py','graceful_spin.py','GRACEFUL_ADMISSION.json','host_run.py')}
++        if not required.issubset(net['adapter_sha256']):
++            raise ValueError('NET-01E admission must bind its common controller adapter and host entry')
+     if type(direct_reference) is not bool:
+         raise ValueError("direct_reference must be an explicit JSON bool")
+     if direct_reference:
+@@ -63,6 +71,7 @@ def main():
+     os.environ['NET01_CONTROL_TRACE']='1' if net.get('control_trace',False) else '0'
+     os.environ['NET01_EXECUTION_PROFILE']=net.get('execution_profile','')
+     os.environ['NET01_DIRECT_REFERENCE']='1' if direct_reference else '0'
++    os.environ['NET01_CONTROLLER_EXIT_ADAPTER']=controller_exit_adapter
+     os.environ['NET01_ADAPTER_QOS_EVENTS']=qos_events
+     os.environ['NET01_CAPTURE_CENTRAL_MAP']='1' if capture else '0'
+     if direct_reference:
+diff --git a/net01/run_network_case.py b/net01/run_network_case.py
+index 683b1b0..ff57064 100644
+--- a/net01/run_network_case.py
++++ b/net01/run_network_case.py
+@@ -477,6 +477,8 @@ def popen(command,*args,**kwargs):
+     elif len(command)>2 and command[:2]==["python3","-B"] and command[2]==str(FROZEN/"gz01/headquarters.py"):
+         authority=True
+         command[2]=str(HERE/("a0_controller_bootstrap.py" if observer.direct_reference else "controller_bootstrap.py"))
++        if os.environ.get('NET01_CONTROLLER_EXIT_ADAPTER')=='net01e-graceful-v1':
++            command[2]=str(HERE.parent/'net01e/controller/graceful_controller_bootstrap.py')
+         kwargs["env"]=dict(os.environ,ROS_DOMAIN_ID="92" if observer.direct_reference else "91")
+     elif command[:3]==["ros2","bag","record"]:
+         index=command.index("--qos-profile-overrides-path")

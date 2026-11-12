@@ -1,0 +1,146 @@
+{
+  "gazebo_attempts": 7,
+  "scope": "Only followup04 seven actual Gazebo cases; raw earlier failures retained. No new runs or inference. Source fields absent are null, not invented. Per-case budgets remain in actual READY; total policy count includes failed firstcase.",
+  "cases": [
+    {
+      "case": "gz-simhealth-a1-01",
+      "source": "net01d/followup04/analysis/gz-simhealth-a1-01/small-result.json",
+      "autonomy_sim": 156.2,
+      "policy_forward": 31,
+      "accepted_per_robot": {
+        "tb1": 3,
+        "tb2": 2,
+        "tb3": 4
+      },
+      "success_per_robot": null,
+      "status": "FAIL_RECORDING_PROCESS_DURING_AUTONOMY_NOT_GUARD",
+      "error": "Controller, launch or bag exited during autonomous interval",
+      "host_exit": null,
+      "controller_exit": null
+    },
+    {
+      "case": "gz-simhealth-a1-02",
+      "source": "net01d/followup04/analysis/gz-simhealth-a1-02/small-result.json",
+      "autonomy_sim": 0.0,
+      "policy_forward": 0,
+      "accepted_per_robot": null,
+      "success_per_robot": null,
+      "status": "FAIL_PREFLIGHT_NO_AUTONOMY",
+      "error": "Preflight missing: ['model_states', 'tb1/model_state', 'tb1/drive', 'tb1/scan', 'tb1/odom', 'tb1/map', 'tb1/contacts', 'tb2/model_state', 'tb2/drive', 'tb2/scan', 'tb2/odom', 'tb2/map', 'tb2/contacts', 'tb3/model_state', 'tb3/drive', 'tb3/scan', 'tb3/odom', 'tb3/map', 'tb3/contacts', 'merge_map/map', 'tb1/TF map->base_scan', 'tb2/TF map->base_scan', 'tb3/TF map->base_scan', 'peer state/clock missing']",
+      "host_exit": null,
+      "controller_exit": null
+    },
+    {
+      "case": "gz-simhealth-a1-03",
+      "source": "net01d/followup04/analysis/gz-simhealth-a1-03/small-result.json",
+      "autonomy_sim": 180.0,
+      "policy_forward": 36,
+      "accepted_per_robot": {
+        "tb1": 3,
+        "tb2": 3,
+        "tb3": 4
+      },
+      "success_per_robot": {
+        "tb1": 3,
+        "tb2": 3,
+        "tb3": 4
+      },
+      "status": null,
+      "error": null,
+      "host_exit": null,
+      "controller_exit": null
+    },
+    {
+      "case": "gz-simhealth-b1-01",
+      "source": "net01d/followup04/analysis/gz-simhealth-b1-01/small-result.json",
+      "autonomy_sim": 180.0,
+      "policy_forward": 36,
+      "accepted_per_robot": {
+        "tb1": 4,
+        "tb2": 2,
+        "tb3": 4
+      },
+      "success_per_robot": {
+        "tb1": 4,
+        "tb2": 2,
+        "tb3": 4
+      },
+      "status": "BUSINESS_180SIM_COMPLETE_POSTSTOP_GATEWAY_EXIT_FAIL",
+      "error": null,
+      "host_exit": 1,
+      "controller_exit": null
+    },
+    {
+      "case": "gz-simhealth-b1-02",
+      "source": "net01d/followup04/analysis/gz-simhealth-b1-02/small-result.json",
+      "autonomy_sim": 180.0,
+      "policy_forward": 36,
+      "accepted_per_robot": {
+        "tb1": 5,
+        "tb2": 2,
+        "tb3": 4
+      },
+      "success_per_robot": {
+        "tb1": 5,
+        "tb2": 2,
+        "tb3": 4
+      },
+      "status": "BUSINESS180_COMPLETE_POSTSTOP_EXIT0_PRIMARY_R_VALID",
+      "error": null,
+      "host_exit": 0,
+      "controller_exit": null
+    },
+    {
+      "case": "gz-simhealth-a0-01",
+      "source": "net01d/followup04/analysis/gz-simhealth-a0-01/small-result.json",
+      "autonomy_sim": 180.0,
+      "policy_forward": 35,
+      "accepted_per_robot": {
+        "tb1": 7,
+        "tb2": 3,
+        "tb3": 4
+      },
+      "success_per_robot": {
+        "tb1": 6,
+        "tb2": 3,
+        "tb3": 4
+      },
+      "status": "A0_BUSINESS180_RVALID_HARNESS_EXIT0_CONTROLLER_EXIT1_NOT_ACCEPTED",
+      "error": null,
+      "host_exit": 0,
+      "controller_exit": 1
+    },
+    {
+      "case": "gz-simhealth-c1-01",
+      "source": "net01d/followup04/analysis/gz-simhealth-c1-01/small-result.json",
+      "autonomy_sim": 180.0,
+      "policy_forward": 36,
+      "accepted_per_robot": {
+        "tb1": 4,
+        "tb2": 4,
+        "tb3": 3
+      },
+      "success_per_robot": {
+        "tb1": 4,
+        "tb2": 4,
+        "tb3": 3
+      },
+      "status": "C_BUSINESS180_COMPLETE_ALL_EXIT0_PRIMARY_R_VALID",
+      "error": null,
+      "host_exit": 0,
+      "controller_exit": {
+        "started": true,
+        "pid": 885771,
+        "returncode": 0,
+        "session_id": 2026111153,
+        "case": "/mnt/net01d/followup04/runs/gz-simhealth-c1-01",
+        "observed_monotonic_ns": 614550375396349,
+        "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+      }
+    }
+  ],
+  "policy_forward_total": 210,
+  "autonomy_sim_total": 1056.2,
+  "training_optimizer_updates": 0,
+  "next_stage_started": false
+}

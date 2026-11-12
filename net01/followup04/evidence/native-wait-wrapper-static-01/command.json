@@ -1,0 +1,12 @@
+[
+  "/usr/bin/python3",
+  "-B",
+  "/home/zhuyulab/ns3-workspace/net-01/workspace/net01/followup04/native_wait_wrapper.py",
+  "/usr/bin/python3",
+  "/dev/shm/net01-native-wait-wrapper-check-01",
+  "-B",
+  "-c",
+  "import os,sys,time; assert sys.argv[1:]==['space arg','--literal']; payload=sys.stdin.buffer.read(); os.write(1,b'out:'+payload); os.write(2,b'child-stderr\\n'); time.sleep(.10); sys.exit(7)",
+  "space arg",
+  "--literal"
+]

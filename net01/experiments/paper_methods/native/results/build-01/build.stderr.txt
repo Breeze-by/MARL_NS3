@@ -1,0 +1,70 @@
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc: In function ‘int main(int, char**)’:
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:137:26: error: ‘LogDistancePropagationLossModel’ was not declared in this scope
+  137 |   auto loss=CreateObject<LogDistancePropagationLossModel>();loss->SetAttribute("Exponent",DoubleValue(kExponentB));loss->SetReference(1,kReferenceLoss);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:137:58: error: no matching function for call to ‘CreateObject<<expression error> >()’
+  137 |   auto loss=CreateObject<LogDistancePropagationLossModel>();loss->SetAttribute("Exponent",DoubleValue(kExponentB));loss->SetReference(1,kReferenceLoss);
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+In file included from /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/src/src/core/model/object-factory.h:23,
+                 from /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/src/src/core/model/simulator.h:27,
+                 from /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/include/ns3/simulator.h:1,
+                 from /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/src/src/core/helper/event-garbage-collector.h:23,
+                 from /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/include/ns3/event-garbage-collector.h:1,
+                 from /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/include/ns3/core-module.h:8,
+                 from /home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:2:
+/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/src/src/core/model/object.h:579:1: note: candidate: ‘template<class T, class ... Args> ns3::Ptr<T> ns3::CreateObject(Args&& ...)’
+  579 | CreateObject(Args&&... args)
+      | ^~~~~~~~~~~~
+/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/src/src/core/model/object.h:579:1: note:   template argument deduction/substitution failed:
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:137:58: error: template argument 1 is invalid
+  137 |   auto loss=CreateObject<LogDistancePropagationLossModel>();loss->SetAttribute("Exponent",DoubleValue(kExponentB));loss->SetReference(1,kReferenceLoss);
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:138:26: error: ‘RangePropagationLossModel’ was not declared in this scope
+  138 |   auto gate=CreateObject<RangePropagationLossModel>();gate->SetAttribute("MaxRange",DoubleValue(1e9));loss->SetNext(gate);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:138:52: error: no matching function for call to ‘CreateObject<<expression error> >()’
+  138 |   auto gate=CreateObject<RangePropagationLossModel>();gate->SetAttribute("MaxRange",DoubleValue(1e9));loss->SetNext(gate);
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/src/src/core/model/object.h:579:1: note: candidate: ‘template<class T, class ... Args> ns3::Ptr<T> ns3::CreateObject(Args&& ...)’
+  579 | CreateObject(Args&&... args)
+      | ^~~~~~~~~~~~
+/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/src/src/core/model/object.h:579:1: note:   template argument deduction/substitution failed:
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:138:52: error: template argument 1 is invalid
+  138 |   auto gate=CreateObject<RangePropagationLossModel>();gate->SetAttribute("MaxRange",DoubleValue(1e9));loss->SetNext(gate);
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:139:134: error: ‘ConstantSpeedPropagationDelayModel’ was not declared in this scope
+  139 |   auto channel=CreateObject<YansWifiChannel>();channel->SetPropagationLossModel(loss);channel->SetPropagationDelayModel(CreateObject<ConstantSpeedPropagationDelayModel>());
+      |                                                                                                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:139:169: error: no matching function for call to ‘CreateObject<<expression error> >()’
+  139 |   auto channel=CreateObject<YansWifiChannel>();channel->SetPropagationLossModel(loss);channel->SetPropagationDelayModel(CreateObject<ConstantSpeedPropagationDelayModel>());
+      |                                                                                                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/src/src/core/model/object.h:579:1: note: candidate: ‘template<class T, class ... Args> ns3::Ptr<T> ns3::CreateObject(Args&& ...)’
+  579 | CreateObject(Args&&... args)
+      | ^~~~~~~~~~~~
+/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/src/src/core/model/object.h:579:1: note:   template argument deduction/substitution failed:
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:139:169: error: template argument 1 is invalid
+  139 |   auto channel=CreateObject<YansWifiChannel>();channel->SetPropagationLossModel(loss);channel->SetPropagationDelayModel(CreateObject<ConstantSpeedPropagationDelayModel>());
+      |                                                                                                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc: In lambda function:
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:172:43: error: ‘gate’ is not captured
+  172 |     Simulator::Schedule(Seconds(2),[gate]{gate->SetAttribute("MaxRange",DoubleValue(0));log("channel_blackout_begin");});
+      |                                           ^~~~
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:172:41: note: the lambda has no capture-default
+  172 |     Simulator::Schedule(Seconds(2),[gate]{gate->SetAttribute("MaxRange",DoubleValue(0));log("channel_blackout_begin");});
+      |                                         ^
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:138:8: note: ‘<typeprefixerror>gate’ declared here
+  138 |   auto gate=CreateObject<RangePropagationLossModel>();gate->SetAttribute("MaxRange",DoubleValue(1e9));loss->SetNext(gate);
+      |        ^~~~
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc: In lambda function:
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:173:43: error: ‘gate’ is not captured
+  173 |     Simulator::Schedule(Seconds(3),[gate]{gate->SetAttribute("MaxRange",DoubleValue(1e9));log("channel_blackout_end");});
+      |                                           ^~~~
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:173:41: note: the lambda has no capture-default
+  173 |     Simulator::Schedule(Seconds(3),[gate]{gate->SetAttribute("MaxRange",DoubleValue(1e9));log("channel_blackout_end");});
+      |                                         ^
+/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc:138:8: note: ‘<typeprefixerror>gate’ declared here
+  138 |   auto gate=CreateObject<RangePropagationLossModel>();gate->SetAttribute("MaxRange",DoubleValue(1e9));loss->SetNext(gate);
+      |        ^~~~
+gmake[2]: *** [CMakeFiles/paper-methods.dir/build.make:76: CMakeFiles/paper-methods.dir/paper_methods.cc.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/paper-methods.dir/all] Error 2
+gmake: *** [Makefile:91: all] Error 2

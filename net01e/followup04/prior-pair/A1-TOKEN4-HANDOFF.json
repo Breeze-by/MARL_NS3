@@ -1,0 +1,3431 @@
+{
+  "observed_utc": "2026-11-12T13:14:19.818895+00:00",
+  "case": "corr6201-step-timing-plain-a1-04",
+  "token4_UUID": "21c7d47c52c44e29a2ae6e819d997169",
+  "target4_5_control_events": [
+    {
+      "source_line": 33059,
+      "event": {
+        "kind": "goal_reserved",
+        "sim": 85.0,
+        "robot": "tb3",
+        "target": [
+          -4.0249999999999995,
+          -4.925
+        ],
+        "token": 4,
+        "decision_id": 13,
+        "wall_ns": 1794482419558739993
+      }
+    },
+    {
+      "source_line": 33061,
+      "event": {
+        "kind": "rl_actual_nav2_goal_request",
+        "sim": 85.0,
+        "robot": "tb3",
+        "token": 4,
+        "request_uuid": "21c7d47c52c44e29a2ae6e819d997169",
+        "decision_id": 13,
+        "merge_map_target": [
+          -4.0249999999999995,
+          -4.925
+        ],
+        "actual_goal_frame": "map",
+        "actual_goal_stamp": 85.0,
+        "actual_goal_position": [
+          -5.124999999999999,
+          -4.125,
+          0.0
+        ],
+        "actual_goal_quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "wall_ns": 1794482419559993175
+      }
+    },
+    {
+      "source_line": 33068,
+      "event": {
+        "kind": "rl_actual_nav2_goal_response",
+        "sim": 85.46000000000001,
+        "robot": "tb3",
+        "token": 4,
+        "request_uuid": "21c7d47c52c44e29a2ae6e819d997169",
+        "accepted": true,
+        "accepted_uuid": "21c7d47c52c44e29a2ae6e819d997169",
+        "wall_ns": 1794482419585606999
+      }
+    },
+    {
+      "source_line": 33069,
+      "event": {
+        "kind": "goal_accepted",
+        "sim": 85.0,
+        "robot": "tb3",
+        "token": 4,
+        "uuid": "21c7d47c52c44e29a2ae6e819d997169",
+        "wall_ns": 1794482419585843726
+      }
+    },
+    {
+      "source_line": 63527,
+      "event": {
+        "kind": "cancel_required",
+        "sim": 175.48000000000002,
+        "robot": "tb3",
+        "token": 4,
+        "uuid": "21c7d47c52c44e29a2ae6e819d997169",
+        "reason": "task_timeout",
+        "wall_ns": 1794482599611054490
+      }
+    },
+    {
+      "source_line": 64824,
+      "event": {
+        "kind": "timeout_cancel_dispatched",
+        "sim": 180.0,
+        "robot": "tb3",
+        "token": 4,
+        "reason": "navigation_timeout",
+        "wall_ns": 1794482609507768905
+      }
+    },
+    {
+      "source_line": 64841,
+      "event": {
+        "kind": "rl_actual_nav2_goal_result",
+        "sim": 180.46,
+        "robot": "tb3",
+        "token": 4,
+        "request_uuid": "21c7d47c52c44e29a2ae6e819d997169",
+        "raw_status": 5,
+        "wall_ns": 1794482609570816175
+      }
+    },
+    {
+      "source_line": 64842,
+      "event": {
+        "kind": "nav2_terminal_classified",
+        "sim": 180.46,
+        "robot": "tb3",
+        "token": 4,
+        "raw_nav2_status": 5,
+        "high_level_status": "aborted",
+        "reason": "navigation_timeout",
+        "wall_ns": 1794482609571090078
+      }
+    },
+    {
+      "source_line": 64843,
+      "event": {
+        "kind": "goal_terminal",
+        "sim": 180.46,
+        "robot": "tb3",
+        "token": 4,
+        "uuid": "21c7d47c52c44e29a2ae6e819d997169",
+        "target": [
+          -4.0249999999999995,
+          -4.925
+        ],
+        "status": "aborted",
+        "wall_ns": 1794482609571173196
+      }
+    },
+    {
+      "source_line": 65234,
+      "event": {
+        "kind": "goal_reserved",
+        "sim": 185.0,
+        "robot": "tb3",
+        "target": [
+          -4.2749999999999995,
+          -4.574999999999999
+        ],
+        "token": 5,
+        "decision_id": 33,
+        "wall_ns": 1794482619502214900
+      }
+    },
+    {
+      "source_line": 65236,
+      "event": {
+        "kind": "rl_actual_nav2_goal_request",
+        "sim": 185.0,
+        "robot": "tb3",
+        "token": 5,
+        "request_uuid": "5b8f8e4e9dd3444a9e935c93688a6e63",
+        "decision_id": 33,
+        "merge_map_target": [
+          -4.2749999999999995,
+          -4.574999999999999
+        ],
+        "actual_goal_frame": "map",
+        "actual_goal_stamp": 185.0,
+        "actual_goal_position": [
+          -5.374999999999999,
+          -3.7749999999999995,
+          0.0
+        ],
+        "actual_goal_quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "wall_ns": 1794482619503979775
+      }
+    },
+    {
+      "source_line": 65243,
+      "event": {
+        "kind": "rl_actual_nav2_goal_response",
+        "sim": 185.45000000000002,
+        "robot": "tb3",
+        "token": 5,
+        "request_uuid": "5b8f8e4e9dd3444a9e935c93688a6e63",
+        "accepted": true,
+        "accepted_uuid": "5b8f8e4e9dd3444a9e935c93688a6e63",
+        "wall_ns": 1794482619544821416
+      }
+    },
+    {
+      "source_line": 65244,
+      "event": {
+        "kind": "goal_accepted",
+        "sim": 185.0,
+        "robot": "tb3",
+        "token": 5,
+        "uuid": "5b8f8e4e9dd3444a9e935c93688a6e63",
+        "wall_ns": 1794482619545033257
+      }
+    }
+  ],
+  "controller_feedback": {
+    "count": 17556,
+    "first": {
+      "source_line": 33071,
+      "kind": "feedback",
+      "robot": "tb3",
+      "token": 4,
+      "remaining": 0.23452156782150269,
+      "sim": 85.46000000000001,
+      "wall_ns": 1794482419589428209
+    },
+    "last": {
+      "source_line": 64840,
+      "kind": "feedback",
+      "robot": "tb3",
+      "token": 4,
+      "remaining": 3.738502264022827,
+      "sim": 180.46,
+      "wall_ns": 1794482609569270195
+    },
+    "min_remaining": 0.23452156782150269,
+    "last_five": [
+      {
+        "source_line": 64836,
+        "kind": "feedback",
+        "robot": "tb3",
+        "token": 4,
+        "remaining": 3.738502264022827,
+        "sim": 180.45000000000002,
+        "wall_ns": 1794482609548967914
+      },
+      {
+        "source_line": 64837,
+        "kind": "feedback",
+        "robot": "tb3",
+        "token": 4,
+        "remaining": 3.738502264022827,
+        "sim": 180.45000000000002,
+        "wall_ns": 1794482609553600213
+      },
+      {
+        "source_line": 64838,
+        "kind": "feedback",
+        "robot": "tb3",
+        "token": 4,
+        "remaining": 3.738502264022827,
+        "sim": 180.45000000000002,
+        "wall_ns": 1794482609558527806
+      },
+      {
+        "source_line": 64839,
+        "kind": "feedback",
+        "robot": "tb3",
+        "token": 4,
+        "remaining": 3.738502264022827,
+        "sim": 180.46,
+        "wall_ns": 1794482609564051340
+      },
+      {
+        "source_line": 64840,
+        "kind": "feedback",
+        "robot": "tb3",
+        "token": 4,
+        "remaining": 3.738502264022827,
+        "sim": 180.46,
+        "wall_ns": 1794482609569270195
+      }
+    ]
+  },
+  "observer_decimated_feedback": {
+    "count": 1900,
+    "first": {
+      "source_line": 12314,
+      "utc": "2026-11-12T11:20:19.575246+00:00",
+      "wall": 1794482419.5752728,
+      "sim": 85.46,
+      "kind": "action_feedback",
+      "robot": "tb3",
+      "goal": "21c7d47c52c44e29a2ae6e819d997169",
+      "x": -1.5288351787264005,
+      "y": -3.7714063491884136,
+      "remaining": 0.23452156782150269
+    },
+    "last": {
+      "source_line": 22824,
+      "utc": "2026-11-12T11:23:29.477226+00:00",
+      "wall": 1794482609.4772565,
+      "sim": 180.41,
+      "kind": "action_feedback",
+      "robot": "tb3",
+      "goal": "21c7d47c52c44e29a2ae6e819d997169",
+      "x": -1.5393361833870447,
+      "y": -3.7716071289235096,
+      "remaining": 3.738502264022827
+    },
+    "min_remaining": 0.23452156782150269,
+    "last_five": [
+      {
+        "source_line": 22807,
+        "utc": "2026-11-12T11:23:29.076030+00:00",
+        "wall": 1794482609.0760612,
+        "sim": 180.21,
+        "kind": "action_feedback",
+        "robot": "tb3",
+        "goal": "21c7d47c52c44e29a2ae6e819d997169",
+        "x": -1.539345033438451,
+        "y": -3.7716069346753494,
+        "remaining": 3.738502264022827
+      },
+      {
+        "source_line": 22810,
+        "utc": "2026-11-12T11:23:29.175158+00:00",
+        "wall": 1794482609.175188,
+        "sim": 180.26,
+        "kind": "action_feedback",
+        "robot": "tb3",
+        "goal": "21c7d47c52c44e29a2ae6e819d997169",
+        "x": -1.5393414936194922,
+        "y": -3.7716070048766137,
+        "remaining": 3.738502264022827
+      },
+      {
+        "source_line": 22815,
+        "utc": "2026-11-12T11:23:29.274351+00:00",
+        "wall": 1794482609.2743807,
+        "sim": 180.31,
+        "kind": "action_feedback",
+        "robot": "tb3",
+        "goal": "21c7d47c52c44e29a2ae6e819d997169",
+        "x": -1.5393397624676968,
+        "y": -3.7716070432419397,
+        "remaining": 3.738502264022827
+      },
+      {
+        "source_line": 22818,
+        "utc": "2026-11-12T11:23:29.372507+00:00",
+        "wall": 1794482609.37254,
+        "sim": 180.36,
+        "kind": "action_feedback",
+        "robot": "tb3",
+        "goal": "21c7d47c52c44e29a2ae6e819d997169",
+        "x": -1.5393378889214762,
+        "y": -3.771607087193101,
+        "remaining": 3.738502264022827
+      },
+      {
+        "source_line": 22824,
+        "utc": "2026-11-12T11:23:29.477226+00:00",
+        "wall": 1794482609.4772565,
+        "sim": 180.41,
+        "kind": "action_feedback",
+        "robot": "tb3",
+        "goal": "21c7d47c52c44e29a2ae6e819d997169",
+        "x": -1.5393361833870447,
+        "y": -3.7716071289235096,
+        "remaining": 3.738502264022827
+      }
+    ]
+  },
+  "postT95_routes": [
+    {
+      "begin": 85,
+      "end": 95,
+      "samples": 101,
+      "first": {
+        "wall_unix": 1794482418.641745,
+        "sim_s": 85.0,
+        "x": -0.4198808868894903,
+        "y": -4.559088070062614,
+        "z": 0.007808711598196169,
+        "speed_xy": 5.945128001937694e-05,
+        "angular_z": -0.005394533028337552
+      },
+      "last": {
+        "wall_unix": 1794482438.6429837,
+        "sim_s": 95.0,
+        "x": -0.42016667532805857,
+        "y": -4.559111503805664,
+        "z": 0.007812785442026508,
+        "speed_xy": 9.007524031584948e-05,
+        "angular_z": -0.024249265665056745
+      },
+      "path_m": 0.001021981941360636,
+      "low_translation_sim_s": 10.0,
+      "stationary_sim_s": 3.1999999999999886
+    },
+    {
+      "begin": 95,
+      "end": 120,
+      "samples": 251,
+      "first": {
+        "wall_unix": 1794482438.6429837,
+        "sim_s": 95.0,
+        "x": -0.42016667532805857,
+        "y": -4.559111503805664,
+        "z": 0.007812785442026508,
+        "speed_xy": 9.007524031584948e-05,
+        "angular_z": -0.024249265665056745
+      },
+      "last": {
+        "wall_unix": 1794482488.636985,
+        "sim_s": 120.0,
+        "x": -0.41902595004842685,
+        "y": -4.559187393088908,
+        "z": 0.0078113349571825585,
+        "speed_xy": 0.00013834099177836528,
+        "angular_z": -0.003489416652799966
+      },
+      "path_m": 0.0032182909942032934,
+      "low_translation_sim_s": 25.0,
+      "stationary_sim_s": 9.699999999999974
+    },
+    {
+      "begin": 120,
+      "end": 150,
+      "samples": 301,
+      "first": {
+        "wall_unix": 1794482488.636985,
+        "sim_s": 120.0,
+        "x": -0.41902595004842685,
+        "y": -4.559187393088908,
+        "z": 0.0078113349571825585,
+        "speed_xy": 0.00013834099177836528,
+        "angular_z": -0.003489416652799966
+      },
+      "last": {
+        "wall_unix": 1794482548.6389859,
+        "sim_s": 150.0,
+        "x": -0.41820413577611265,
+        "y": -4.559249529064327,
+        "z": 0.007825069660363356,
+        "speed_xy": 0.00013207241335799985,
+        "angular_z": -0.04436211838828907
+      },
+      "path_m": 0.0027443823887391564,
+      "low_translation_sim_s": 30.0,
+      "stationary_sim_s": 13.000000000000014
+    },
+    {
+      "begin": 150,
+      "end": 180.46,
+      "samples": 305,
+      "first": {
+        "wall_unix": 1794482548.6389859,
+        "sim_s": 150.0,
+        "x": -0.41820413577611265,
+        "y": -4.559249529064327,
+        "z": 0.007825069660363356,
+        "speed_xy": 0.00013207241335799985,
+        "angular_z": -0.04436211838828907
+      },
+      "last": {
+        "wall_unix": 1794482609.4390693,
+        "sim_s": 180.4,
+        "x": -0.41727030576735574,
+        "y": -4.559305451119253,
+        "z": 0.0078071862926324224,
+        "speed_xy": 8.065155025437426e-05,
+        "angular_z": 0.0027164618114962507
+      },
+      "path_m": 0.00269620089928958,
+      "low_translation_sim_s": 30.400000000000006,
+      "stationary_sim_s": 12.799999999999955
+    },
+    {
+      "begin": 185,
+      "end": 198.49,
+      "samples": 135,
+      "first": {
+        "wall_unix": 1794482618.6380546,
+        "sim_s": 185.0,
+        "x": -0.4171496276516964,
+        "y": -4.559315226895471,
+        "z": 0.007830600809306086,
+        "speed_xy": 5.944494985406803e-05,
+        "angular_z": 4.6977558966492336e-05
+      },
+      "last": {
+        "wall_unix": 1794482645.439427,
+        "sim_s": 198.4,
+        "x": -0.41655612724708546,
+        "y": -4.559361584144441,
+        "z": 0.007829953084753339,
+        "speed_xy": 0.00011936238602114189,
+        "angular_z": -0.04133672357355121
+      },
+      "path_m": 0.0018758669558918393,
+      "low_translation_sim_s": 13.400000000000006,
+      "stationary_sim_s": 4.0
+    }
+  ],
+  "tb3_launch_logs": [
+    {
+      "source_line": 244,
+      "log": "[robot_state_publisher-31] [WARN] [1794482253.038124306] [tb3.robot_state_publisher]: No robot_description parameter, but command-line argument available.  Assuming argument is name of URDF file.  This backwards compatibility fallback will be removed in the future.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 2.473354584174374
+    },
+    {
+      "source_line": 330,
+      "log": "[multirobot_slam_toolbox_node-34] [WARN] [1794482256.477950065] [tb3.slam_toolbox]: maximum laser range setting (20.0 m) exceeds the capabilities of the used Lidar (10.0 m)",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 3.533769843894695
+    },
+    {
+      "source_line": 1802,
+      "log": "[controller_server-35] [WARN] [1794482299.446140672] [tb3.controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded goal_checker . This warning will appear once.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 25.403975772821177
+    },
+    {
+      "source_line": 2481,
+      "log": "[planner_server-37] [ERROR] [1794482319.687444853] [tb3.planner_server]: Failed to create a plan from potential when a legal potential was found. This shouldn't happen.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 35.524313925710366
+    },
+    {
+      "source_line": 2482,
+      "log": "[planner_server-37] [WARN] [1794482319.687676883] [tb3.planner_server]: GridBased: failed to create plan with tolerance 0.50.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 35.524428654641156
+    },
+    {
+      "source_line": 2483,
+      "log": "[planner_server-37] [WARN] [1794482319.687722563] [tb3.planner_server]: Planning algorithm GridBased failed to generate a valid path to (3.03, -1.42)",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 35.52445117594206
+    },
+    {
+      "source_line": 2484,
+      "log": "[planner_server-37] [WARN] [1794482319.687749253] [tb3.planner_server]: [compute_path_to_pose] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 35.52446438214992
+    },
+    {
+      "source_line": 2487,
+      "log": "[bt_navigator-39] [WARN] [1794482319.725463935] [tb3.bt_navigator_navigate_to_pose_rclcpp_node]: Node timed out while executing service call to global_costmap/clear_entirely_global_costmap.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 35.54311661789017
+    },
+    {
+      "source_line": 2492,
+      "log": "[bt_navigator-39] [WARN] [1794482319.746475917] [tb3.bt_navigator_navigate_to_pose_rclcpp_node]: Node timed out while executing service call to local_costmap/clear_entirely_local_costmap.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 35.55350837061336
+    },
+    {
+      "source_line": 6415,
+      "log": "[controller_server-35] [ERROR] [1794482439.642205630] [tb3.controller_server]: Failed to make progress",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 95.50216188850297
+    },
+    {
+      "source_line": 6416,
+      "log": "[controller_server-35] [WARN] [1794482439.642491589] [tb3.controller_server]: [follow_path] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 95.50230305527757
+    },
+    {
+      "source_line": 6421,
+      "log": "[bt_navigator-39] [WARN] [1794482439.681081487] [tb3.bt_navigator_navigate_to_pose_rclcpp_node]: Node timed out while executing service call to local_costmap/clear_entirely_local_costmap.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 95.52135974568787
+    },
+    {
+      "source_line": 7227,
+      "log": "[controller_server-35] [ERROR] [1794482464.784360769] [tb3.controller_server]: Failed to make progress",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 108.07276786136907
+    },
+    {
+      "source_line": 7228,
+      "log": "[controller_server-35] [WARN] [1794482464.784596704] [tb3.controller_server]: [follow_path] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 108.07288489392519
+    },
+    {
+      "source_line": 7241,
+      "log": "[controller_server-35] [WARN] [1794482464.892543511] [tb3.controller_server]: Control loop missed its desired rate of 20.0000Hz",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 108.12623568969846
+    },
+    {
+      "source_line": 7242,
+      "log": "[controller_server-35] [WARN] [1794482464.920172206] [tb3.controller_server]: Control loop missed its desired rate of 20.0000Hz",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 108.13983126808219
+    },
+    {
+      "source_line": 7884,
+      "log": "[controller_server-35] [ERROR] [1794482484.916074687] [tb3.controller_server]: Failed to make progress",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 118.13727099858477
+    },
+    {
+      "source_line": 7885,
+      "log": "[controller_server-35] [WARN] [1794482484.916278053] [tb3.controller_server]: [follow_path] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 118.13737470880892
+    },
+    {
+      "source_line": 7888,
+      "log": "[behavior_server-38] [WARN] [1794482484.942156665] [tb3.behavior_server]: Collision Ahead - Exiting DriveOnHeading",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 118.1505715612705
+    },
+    {
+      "source_line": 7889,
+      "log": "[behavior_server-38] [WARN] [1794482484.942182085] [tb3.behavior_server]: backup failed",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 118.1505845706421
+    },
+    {
+      "source_line": 7890,
+      "log": "[behavior_server-38] [WARN] [1794482484.942201492] [tb3.behavior_server]: [backup] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 118.15059441885799
+    },
+    {
+      "source_line": 7932,
+      "log": "[planner_server-37] [WARN] [1794482485.912570065] [tb3.planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 2.1739 Hz",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 118.63642604593915
+    },
+    {
+      "source_line": 8561,
+      "log": "[controller_server-35] [ERROR] [1794482505.981933777] [tb3.controller_server]: Failed to make progress",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 128.6714208088691
+    },
+    {
+      "source_line": 8562,
+      "log": "[controller_server-35] [WARN] [1794482505.982234130] [tb3.controller_server]: [follow_path] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 128.67157397614966
+    },
+    {
+      "source_line": 8575,
+      "log": "[controller_server-35] [WARN] [1794482506.101221838] [tb3.controller_server]: Control loop missed its desired rate of 20.0000Hz",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 128.73156766548598
+    },
+    {
+      "source_line": 8576,
+      "log": "[controller_server-35] [WARN] [1794482506.127960528] [tb3.controller_server]: Control loop missed its desired rate of 20.0000Hz",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 128.74491580495888
+    },
+    {
+      "source_line": 9197,
+      "log": "[controller_server-35] [ERROR] [1794482526.113438667] [tb3.controller_server]: Failed to make progress",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 138.73735160422171
+    },
+    {
+      "source_line": 9198,
+      "log": "[controller_server-35] [WARN] [1794482526.113616239] [tb3.controller_server]: [follow_path] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 138.73744131299935
+    },
+    {
+      "source_line": 9201,
+      "log": "[behavior_server-38] [WARN] [1794482526.241549306] [tb3.behavior_server]: Collision Ahead - Exiting Spin",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 138.80203475129096
+    },
+    {
+      "source_line": 9202,
+      "log": "[behavior_server-38] [WARN] [1794482526.241642632] [tb3.behavior_server]: spin failed",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 138.80208149976747
+    },
+    {
+      "source_line": 9203,
+      "log": "[behavior_server-38] [WARN] [1794482526.241680231] [tb3.behavior_server]: [spin] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 138.80210022300932
+    },
+    {
+      "source_line": 9982,
+      "log": "[controller_server-35] [ERROR] [1794482551.371754141] [tb3.controller_server]: Failed to make progress",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 151.36689542381933
+    },
+    {
+      "source_line": 9983,
+      "log": "[controller_server-35] [WARN] [1794482551.372023751] [tb3.controller_server]: [follow_path] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 151.36703083432508
+    },
+    {
+      "source_line": 9996,
+      "log": "[controller_server-35] [WARN] [1794482551.494563711] [tb3.controller_server]: Control loop missed its desired rate of 20.0000Hz",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 151.4283259372173
+    },
+    {
+      "source_line": 9997,
+      "log": "[controller_server-35] [WARN] [1794482551.522989242] [tb3.controller_server]: Control loop missed its desired rate of 20.0000Hz",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 151.44248006135334
+    },
+    {
+      "source_line": 10618,
+      "log": "[controller_server-35] [ERROR] [1794482571.506975186] [tb3.controller_server]: Failed to make progress",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 161.4332415648459
+    },
+    {
+      "source_line": 10619,
+      "log": "[controller_server-35] [WARN] [1794482571.507207221] [tb3.controller_server]: [follow_path] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 161.43335905265943
+    },
+    {
+      "source_line": 10621,
+      "log": "[behavior_server-38] [WARN] [1794482571.531282662] [tb3.behavior_server]: Collision Ahead - Exiting DriveOnHeading",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 161.4455521866861
+    },
+    {
+      "source_line": 10622,
+      "log": "[behavior_server-38] [WARN] [1794482571.531349692] [tb3.behavior_server]: backup failed",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 161.44558611687683
+    },
+    {
+      "source_line": 10623,
+      "log": "[behavior_server-38] [WARN] [1794482571.531375030] [tb3.behavior_server]: [backup] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 161.44559891616586
+    },
+    {
+      "source_line": 10647,
+      "log": "[planner_server-37] [WARN] [1794482571.903807996] [tb3.planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 6.2500 Hz",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 161.63228588902217
+    },
+    {
+      "source_line": 11268,
+      "log": "[controller_server-35] [ERROR] [1794482591.972168455] [tb3.controller_server]: Failed to make progress",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 171.66565862096488
+    },
+    {
+      "source_line": 11269,
+      "log": "[controller_server-35] [WARN] [1794482591.972391469] [tb3.controller_server]: [follow_path] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 171.66577000832723
+    },
+    {
+      "source_line": 11282,
+      "log": "[controller_server-35] [WARN] [1794482592.090974462] [tb3.controller_server]: Control loop missed its desired rate of 20.0000Hz",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 171.7256667403925
+    },
+    {
+      "source_line": 11283,
+      "log": "[controller_server-35] [WARN] [1794482592.119943207] [tb3.controller_server]: Control loop missed its desired rate of 20.0000Hz",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 171.74051410954033
+    },
+    {
+      "source_line": 11823,
+      "log": "[bt_navigator-39] [ERROR] [1794482609.551508925] [tb3.bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 180.45657294646017
+    },
+    {
+      "source_line": 11824,
+      "log": "[bt_navigator-39] [INFO] [1794482609.551713301] [tb3.bt_navigator]: [navigate_to_pose] [ActionServer] Client requested to cancel the goal. Cancelling.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 180.45667572089008
+    },
+    {
+      "source_line": 11825,
+      "log": "[bt_navigator-39] [INFO] [1794482609.551948948] [tb3.bt_navigator]: Goal canceled",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 180.4567943252205
+    },
+    {
+      "source_line": 11826,
+      "log": "[controller_server-35] [INFO] [1794482609.553885357] [tb3.controller_server]: Goal was canceled. Stopping the robot.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 180.45776834379666
+    },
+    {
+      "source_line": 11827,
+      "log": "[controller_server-35] [INFO] [1794482609.554019533] [tb3.controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 180.45783574079738
+    },
+    {
+      "source_line": 12749,
+      "log": "[controller_server-35] [ERROR] [1794482639.589003707] [tb3.controller_server]: Failed to make progress",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 195.47503154996818
+    },
+    {
+      "source_line": 12750,
+      "log": "[controller_server-35] [WARN] [1794482639.589216709] [tb3.controller_server]: [follow_path] [ActionServer] Aborting handle.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 195.47513697231275
+    },
+    {
+      "source_line": 12763,
+      "log": "[controller_server-35] [WARN] [1794482639.699722595] [tb3.controller_server]: Control loop missed its desired rate of 20.0000Hz",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 195.53029915999412
+    },
+    {
+      "source_line": 12764,
+      "log": "[controller_server-35] [WARN] [1794482639.726792841] [tb3.controller_server]: Control loop missed its desired rate of 20.0000Hz",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 195.54390279846209
+    },
+    {
+      "source_line": 12945,
+      "log": "[bt_navigator-39] [ERROR] [1794482645.657551887] [tb3.bt_navigator_navigate_to_pose_rclcpp_node]: Failed to get result for follow_path in node halt!",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 198.5101616644617
+    },
+    {
+      "source_line": 12946,
+      "log": "[bt_navigator-39] [INFO] [1794482645.657834480] [tb3.bt_navigator]: [navigate_to_pose] [ActionServer] Client requested to cancel the goal. Cancelling.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 198.51030226804858
+    },
+    {
+      "source_line": 12947,
+      "log": "[bt_navigator-39] [INFO] [1794482645.658120684] [tb3.bt_navigator]: Goal canceled",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 198.5104446514277
+    },
+    {
+      "source_line": 12950,
+      "log": "[controller_server-35] [INFO] [1794482645.671071826] [tb3.controller_server]: Goal was canceled. Stopping the robot.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 198.51688999104172
+    },
+    {
+      "source_line": 12951,
+      "log": "[controller_server-35] [INFO] [1794482645.671213121] [tb3.controller_server]: [follow_path] [ActionServer] Client requested to cancel the goal. Cancelling.",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 198.51696035216156
+    },
+    {
+      "source_line": 13170,
+      "log": "[velocity_smoother-41] [ERROR] [1794482649.203530493] [tb3.velocity_smoother]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 200.2819786386244
+    },
+    {
+      "source_line": 13174,
+      "log": "[waypoint_follower-40] [ERROR] [1794482649.205228898] [tb3.waypoint_follower]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 200.2828294386607
+    },
+    {
+      "source_line": 13178,
+      "log": "[bt_navigator-39] [ERROR] [1794482649.206568513] [tb3.bt_navigator]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 200.28350059483142
+    },
+    {
+      "source_line": 13182,
+      "log": "[behavior_server-38] [ERROR] [1794482649.207868290] [tb3.behavior_server]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 200.2841518038442
+    },
+    {
+      "source_line": 13186,
+      "log": "[planner_server-37] [ERROR] [1794482649.209180973] [tb3.planner_server]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 200.2848094628362
+    },
+    {
+      "source_line": 13190,
+      "log": "[smoother_server-36] [ERROR] [1794482649.210450424] [tb3.smoother_server]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 200.28544538300932
+    },
+    {
+      "source_line": 13194,
+      "log": "[controller_server-35] [ERROR] [1794482649.211853613] [tb3.controller_server]: Unable to start transition 4 from current state inactive: Transition is not registered., at ./src/rcl_lifecycle.c:355",
+      "approx_G_from_linear_interpolation_of_observed_wall_sim": 200.28614831129988
+    }
+  ],
+  "supervisor_control_events": [
+    {
+      "source_line": 345,
+      "event": {
+        "utc": "2026-11-12T11:17:53.836915+00:00",
+        "wall": 1794482273.8369448,
+        "sim": 12.56,
+        "kind": "cancel_all",
+        "robot": "tb1",
+        "return_code": 0,
+        "goals": 0,
+        "goal_ids": []
+      }
+    },
+    {
+      "source_line": 346,
+      "event": {
+        "utc": "2026-11-12T11:17:53.846909+00:00",
+        "wall": 1794482273.8469396,
+        "sim": 12.57,
+        "kind": "cancel_all",
+        "robot": "tb2",
+        "return_code": 0,
+        "goals": 0,
+        "goal_ids": []
+      }
+    },
+    {
+      "source_line": 348,
+      "event": {
+        "utc": "2026-11-12T11:17:53.860172+00:00",
+        "wall": 1794482273.8601987,
+        "sim": 12.59,
+        "kind": "cancel_all",
+        "robot": "tb3",
+        "return_code": 0,
+        "goals": 0,
+        "goal_ids": []
+      }
+    },
+    {
+      "source_line": 748,
+      "event": {
+        "utc": "2026-11-12T11:17:59.243574+00:00",
+        "wall": 1794482279.2436082,
+        "sim": 15.3,
+        "kind": "observed_stop",
+        "positions": {
+          "tb1": [
+            0.7255152135269782,
+            -0.15002019453020152,
+            0.007827348095284023,
+            6.034530540818649e-05,
+            4.85083056956894e-05
+          ],
+          "tb2": [
+            0.35048025577955305,
+            -0.8000188099229663,
+            0.007830428636484135,
+            5.920189941703985e-05,
+            4.832672194045959e-05
+          ],
+          "tb3": [
+            1.1004192290456247,
+            -0.8000161237987662,
+            0.007827330607805539,
+            6.165622612552043e-05,
+            4.830657037750563e-05
+          ]
+        },
+        "per_robot_wall": {
+          "tb1": 699320.725686206,
+          "tb2": 699320.725728678,
+          "tb3": 699320.725743972
+        },
+        "sim_advanced": 0.8000000000000007,
+        "drive_received": {
+          "tb1": [
+            15.284,
+            100.0,
+            15.26,
+            0.0,
+            0.0,
+            -1.0775456512853518e-06,
+            1.3079341712581094e-05,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tb2": [
+            15.276,
+            100.0,
+            15.26,
+            0.0,
+            0.0,
+            -3.496597663923199e-05,
+            -2.0987639124520998e-05,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tb3": [
+            15.298,
+            101.0,
+            15.29,
+            0.0,
+            0.0,
+            -4.015800029829297e-05,
+            -2.6184176724099444e-05,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "rpc_errors": [],
+        "authority_stopped": true,
+        "ownership_closed": true,
+        "owned_goals": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "request_ownership": {
+          "closed": true,
+          "authority_stopped": true,
+          "requests": 0,
+          "unresolved_requests": [],
+          "owned_goals": {
+            "tb1": [],
+            "tb2": [],
+            "tb3": []
+          },
+          "unterminated_UUIDs": {
+            "tb1": [],
+            "tb2": [],
+            "tb3": []
+          },
+          "record_errors": []
+        },
+        "lifecycle_pause_healthy": true
+      }
+    },
+    {
+      "source_line": 749,
+      "event": {
+        "utc": "2026-11-12T11:17:59.243849+00:00",
+        "wall": 1794482279.243859,
+        "sim": 15.3,
+        "kind": "preflight_pass"
+      }
+    },
+    {
+      "source_line": 1426,
+      "event": {
+        "utc": "2026-11-12T11:18:19.419084+00:00",
+        "wall": 1794482299.4191136,
+        "sim": 25.39,
+        "kind": "action_status",
+        "robot": "tb1",
+        "goal": "fcd2146a6e0a444ab03d59173bb387c1",
+        "status": 2
+      }
+    },
+    {
+      "source_line": 1428,
+      "event": {
+        "utc": "2026-11-12T11:18:19.423237+00:00",
+        "wall": 1794482299.4232564,
+        "sim": 25.39,
+        "kind": "action_status",
+        "robot": "tb2",
+        "goal": "f081daf114e34fbba45b55779deb2702",
+        "status": 2
+      }
+    },
+    {
+      "source_line": 1430,
+      "event": {
+        "utc": "2026-11-12T11:18:19.427223+00:00",
+        "wall": 1794482299.4272394,
+        "sim": 25.39,
+        "kind": "action_status",
+        "robot": "tb3",
+        "goal": "e90039bb8e634dbb94f218345f7f1794",
+        "status": 2
+      }
+    },
+    {
+      "source_line": 3163,
+      "event": {
+        "utc": "2026-11-12T11:18:35.910685+00:00",
+        "wall": 1794482315.9107213,
+        "sim": 33.63,
+        "kind": "action_status",
+        "robot": "tb1",
+        "goal": "fcd2146a6e0a444ab03d59173bb387c1",
+        "status": 4
+      }
+    },
+    {
+      "source_line": 3259,
+      "event": {
+        "utc": "2026-11-12T11:18:37.219688+00:00",
+        "wall": 1794482317.219722,
+        "sim": 34.29,
+        "kind": "action_status",
+        "robot": "tb3",
+        "goal": "e90039bb8e634dbb94f218345f7f1794",
+        "status": 4
+      }
+    },
+    {
+      "source_line": 3371,
+      "event": {
+        "utc": "2026-11-12T11:18:39.661205+00:00",
+        "wall": 1794482319.6612337,
+        "sim": 35.51,
+        "kind": "action_status",
+        "robot": "tb1",
+        "goal": "433219c0c9494a40a7b98f48be1c95a0",
+        "status": 2
+      }
+    },
+    {
+      "source_line": 3376,
+      "event": {
+        "utc": "2026-11-12T11:18:39.685685+00:00",
+        "wall": 1794482319.6857133,
+        "sim": 35.52,
+        "kind": "action_status",
+        "robot": "tb3",
+        "goal": "f15bb92a52d64269a353a6d0b464030a",
+        "status": 2
+      }
+    },
+    {
+      "source_line": 3390,
+      "event": {
+        "utc": "2026-11-12T11:18:39.826177+00:00",
+        "wall": 1794482319.8262188,
+        "sim": 35.59,
+        "kind": "action_status",
+        "robot": "tb2",
+        "goal": "f081daf114e34fbba45b55779deb2702",
+        "status": 4
+      }
+    },
+    {
+      "source_line": 4081,
+      "event": {
+        "utc": "2026-11-12T11:18:49.602581+00:00",
+        "wall": 1794482329.6026156,
+        "sim": 40.48,
+        "kind": "action_status",
+        "robot": "tb2",
+        "goal": "ff0517ac26754e63ab10668788ea3944",
+        "status": 2
+      }
+    },
+    {
+      "source_line": 6538,
+      "event": {
+        "utc": "2026-11-12T11:19:12.965903+00:00",
+        "wall": 1794482352.9659324,
+        "sim": 52.16,
+        "kind": "action_status",
+        "robot": "tb3",
+        "goal": "f15bb92a52d64269a353a6d0b464030a",
+        "status": 4
+      }
+    },
+    {
+      "source_line": 7045,
+      "event": {
+        "utc": "2026-11-12T11:19:19.670449+00:00",
+        "wall": 1794482359.6704743,
+        "sim": 55.51,
+        "kind": "action_status",
+        "robot": "tb3",
+        "goal": "ab4428a59ea348e0bd79820aecd9510e",
+        "status": 2
+      }
+    },
+    {
+      "source_line": 7244,
+      "event": {
+        "utc": "2026-11-12T11:19:21.548675+00:00",
+        "wall": 1794482361.5487032,
+        "sim": 56.45,
+        "kind": "action_status",
+        "robot": "tb1",
+        "goal": "433219c0c9494a40a7b98f48be1c95a0",
+        "status": 4
+      }
+    },
+    {
+      "source_line": 7409,
+      "event": {
+        "utc": "2026-11-12T11:19:23.781946+00:00",
+        "wall": 1794482363.7819808,
+        "sim": 57.57,
+        "kind": "action_status",
+        "robot": "tb2",
+        "goal": "ff0517ac26754e63ab10668788ea3944",
+        "status": 4
+      }
+    },
+    {
+      "source_line": 7679,
+      "event": {
+        "utc": "2026-11-12T11:19:29.683466+00:00",
+        "wall": 1794482369.6835034,
+        "sim": 60.52,
+        "kind": "action_status",
+        "robot": "tb1",
+        "goal": "9252f536d7544b9197b18a381ba87025",
+        "status": 2
+      }
+    },
+    {
+      "source_line": 7680,
+      "event": {
+        "utc": "2026-11-12T11:19:29.684953+00:00",
+        "wall": 1794482369.6849751,
+        "sim": 60.52,
+        "kind": "action_status",
+        "robot": "tb2",
+        "goal": "c8de57eebdce469a9894647a5d548d14",
+        "status": 2
+      }
+    },
+    {
+      "source_line": 9710,
+      "event": {
+        "utc": "2026-11-12T11:19:49.024934+00:00",
+        "wall": 1794482389.0249505,
+        "sim": 70.19,
+        "kind": "action_status",
+        "robot": "tb2",
+        "goal": "c8de57eebdce469a9894647a5d548d14",
+        "status": 4
+      }
+    },
+    {
+      "source_line": 10506,
+      "event": {
+        "utc": "2026-11-12T11:19:59.599961+00:00",
+        "wall": 1794482399.5999851,
+        "sim": 75.48,
+        "kind": "action_status",
+        "robot": "tb2",
+        "goal": "c93946daf07646ce89e752318efca0cc",
+        "status": 2
+      }
+    },
+    {
+      "source_line": 11780,
+      "event": {
+        "utc": "2026-11-12T11:20:11.664525+00:00",
+        "wall": 1794482411.6645408,
+        "sim": 81.51,
+        "kind": "action_status",
+        "robot": "tb1",
+        "goal": "9252f536d7544b9197b18a381ba87025",
+        "status": 4
+      }
+    },
+    {
+      "source_line": 12223,
+      "event": {
+        "utc": "2026-11-12T11:20:17.601498+00:00",
+        "wall": 1794482417.601526,
+        "sim": 84.48,
+        "kind": "action_status",
+        "robot": "tb3",
+        "goal": "ab4428a59ea348e0bd79820aecd9510e",
+        "status": 4
+      }
+    },
+    {
+      "source_line": 12313,
+      "event": {
+        "utc": "2026-11-12T11:20:19.570846+00:00",
+        "wall": 1794482419.5708816,
+        "sim": 85.46,
+        "kind": "action_status",
+        "robot": "tb3",
+        "goal": "21c7d47c52c44e29a2ae6e819d997169",
+        "status": 2
+      }
+    },
+    {
+      "source_line": 17645,
+      "event": {
+        "utc": "2026-11-12T11:21:32.138533+00:00",
+        "wall": 1794482492.13857,
+        "sim": 121.74,
+        "kind": "action_status",
+        "robot": "tb2",
+        "goal": "c93946daf07646ce89e752318efca0cc",
+        "status": 4
+      }
+    },
+    {
+      "source_line": 22826,
+      "event": {
+        "utc": "2026-11-12T11:23:29.524713+00:00",
+        "wall": 1794482609.5247526,
+        "sim": 180.44,
+        "kind": "action_status",
+        "robot": "tb3",
+        "goal": "21c7d47c52c44e29a2ae6e819d997169",
+        "status": 3
+      }
+    },
+    {
+      "source_line": 22829,
+      "event": {
+        "utc": "2026-11-12T11:23:29.558126+00:00",
+        "wall": 1794482609.558151,
+        "sim": 180.46,
+        "kind": "action_status",
+        "robot": "tb3",
+        "goal": "21c7d47c52c44e29a2ae6e819d997169",
+        "status": 5
+      }
+    },
+    {
+      "source_line": 22982,
+      "event": {
+        "utc": "2026-11-12T11:23:39.519570+00:00",
+        "wall": 1794482619.5196018,
+        "sim": 185.44,
+        "kind": "action_status",
+        "robot": "tb3",
+        "goal": "5b8f8e4e9dd3444a9e935c93688a6e63",
+        "status": 2
+      }
+    },
+    {
+      "source_line": 24167,
+      "event": {
+        "utc": "2026-11-12T11:24:05.630981+00:00",
+        "wall": 1794482645.6310077,
+        "sim": 198.49,
+        "kind": "action_status",
+        "robot": "tb3",
+        "goal": "5b8f8e4e9dd3444a9e935c93688a6e63",
+        "status": 3
+      }
+    },
+    {
+      "source_line": 24172,
+      "event": {
+        "utc": "2026-11-12T11:24:05.662614+00:00",
+        "wall": 1794482645.6626284,
+        "sim": 198.51,
+        "kind": "action_status",
+        "robot": "tb3",
+        "goal": "5b8f8e4e9dd3444a9e935c93688a6e63",
+        "status": 5
+      }
+    },
+    {
+      "source_line": 24297,
+      "event": {
+        "utc": "2026-11-12T11:24:08.208483+00:00",
+        "wall": 1794482648.208511,
+        "sim": 199.74,
+        "kind": "cancel_all",
+        "robot": "tb1",
+        "return_code": 0,
+        "goals": 0,
+        "goal_ids": []
+      }
+    },
+    {
+      "source_line": 24298,
+      "event": {
+        "utc": "2026-11-12T11:24:08.220003+00:00",
+        "wall": 1794482648.2200372,
+        "sim": 199.75,
+        "kind": "cancel_all",
+        "robot": "tb2",
+        "return_code": 0,
+        "goals": 0,
+        "goal_ids": []
+      }
+    },
+    {
+      "source_line": 24299,
+      "event": {
+        "utc": "2026-11-12T11:24:08.230732+00:00",
+        "wall": 1794482648.2307642,
+        "sim": 199.76,
+        "kind": "cancel_all",
+        "robot": "tb3",
+        "return_code": 0,
+        "goals": 0,
+        "goal_ids": []
+      }
+    },
+    {
+      "source_line": 24541,
+      "event": {
+        "utc": "2026-11-12T11:24:11.038823+00:00",
+        "wall": 1794482651.0388472,
+        "sim": 201.2,
+        "kind": "observed_stop",
+        "positions": {
+          "tb1": [
+            -3.5862590517115343,
+            4.482892965635723,
+            0.007828982160664529,
+            6.040803446337107e-05,
+            5.15698656033691e-05
+          ],
+          "tb2": [
+            0.29123855057900133,
+            -4.343570881411003,
+            0.007828592231734658,
+            5.966683391392246e-05,
+            4.1098861090600494e-05
+          ],
+          "tb3": [
+            -0.4164457216869287,
+            -4.559366029651453,
+            0.007827171510390089,
+            5.692669926655394e-05,
+            4.441688921089311e-05
+          ]
+        },
+        "per_robot_wall": {
+          "tb1": 699692.520864897,
+          "tb2": 699692.520921501,
+          "tb3": 699692.520944334
+        },
+        "sim_advanced": 0.799999999999983,
+        "drive_received": {
+          "tb1": [
+            201.196,
+            2547.0,
+            201.19,
+            0.0,
+            0.0,
+            -1.7753059240624814e-05,
+            -2.898847540685987e-06,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tb2": [
+            201.188,
+            3886.0,
+            201.18,
+            0.0,
+            0.0,
+            1.3776052873622945e-05,
+            2.591018431260239e-05,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tb3": [
+            201.176,
+            6870.0,
+            201.17,
+            0.0,
+            0.0,
+            -3.240549184128443e-05,
+            -1.9641055206288624e-05,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "rpc_errors": [],
+        "authority_stopped": true,
+        "ownership_closed": true,
+        "owned_goals": {
+          "tb1": [
+            "433219c0c9494a40a7b98f48be1c95a0",
+            "9252f536d7544b9197b18a381ba87025",
+            "fcd2146a6e0a444ab03d59173bb387c1"
+          ],
+          "tb2": [
+            "c8de57eebdce469a9894647a5d548d14",
+            "c93946daf07646ce89e752318efca0cc",
+            "f081daf114e34fbba45b55779deb2702",
+            "ff0517ac26754e63ab10668788ea3944"
+          ],
+          "tb3": [
+            "21c7d47c52c44e29a2ae6e819d997169",
+            "5b8f8e4e9dd3444a9e935c93688a6e63",
+            "ab4428a59ea348e0bd79820aecd9510e",
+            "e90039bb8e634dbb94f218345f7f1794",
+            "f15bb92a52d64269a353a6d0b464030a"
+          ]
+        },
+        "request_ownership": {
+          "closed": true,
+          "authority_stopped": true,
+          "requests": 12,
+          "unresolved_requests": [],
+          "owned_goals": {
+            "tb1": [
+              "433219c0c9494a40a7b98f48be1c95a0",
+              "9252f536d7544b9197b18a381ba87025",
+              "fcd2146a6e0a444ab03d59173bb387c1"
+            ],
+            "tb2": [
+              "c8de57eebdce469a9894647a5d548d14",
+              "c93946daf07646ce89e752318efca0cc",
+              "f081daf114e34fbba45b55779deb2702",
+              "ff0517ac26754e63ab10668788ea3944"
+            ],
+            "tb3": [
+              "21c7d47c52c44e29a2ae6e819d997169",
+              "5b8f8e4e9dd3444a9e935c93688a6e63",
+              "ab4428a59ea348e0bd79820aecd9510e",
+              "e90039bb8e634dbb94f218345f7f1794",
+              "f15bb92a52d64269a353a6d0b464030a"
+            ]
+          },
+          "unterminated_UUIDs": {
+            "tb1": [],
+            "tb2": [],
+            "tb3": []
+          },
+          "record_errors": []
+        },
+        "lifecycle_pause_healthy": true
+      }
+    },
+    {
+      "source_line": 24598,
+      "event": {
+        "utc": "2026-11-12T11:24:11.690277+00:00",
+        "wall": 1794482651.6902864,
+        "sim": 201.52,
+        "kind": "gateway_poststop_supervision",
+        "pid": 1822895,
+        "begin_monotonic_ns": 699693172609598,
+        "initial_deadline_ns": 699713172609598,
+        "total_deadline_ns": 699753172609598,
+        "cleanup_deadline_ns": 699777098881414,
+        "hard_deadline_ns": 700181117022617,
+        "extension_eligible": true
+      }
+    }
+  ],
+  "missing_fields": {
+    "number_of_recoveries": "Not stored by existing controller/supervisor JSON feedback callbacks; original bag not opened here",
+    "navigation_time": "Not stored by existing JSON callbacks; original bag not opened",
+    "CancelResponse_GetResult": "Only actual existing low-frequency events retained below; absence of a dedicated response timestamp must remain missing, not inferred from request or later raw status"
+  },
+  "T95_receipt_G": 80.5,
+  "first_decision_comparison": {
+    "B": {
+      "first_inference": {
+        "source_line": 195,
+        "event": {
+          "kind": "rl_real_inference",
+          "sim": 20.0,
+          "arm": "rl",
+          "sequence": 1,
+          "policy_start_sim": 20.0,
+          "policy_wall_s": 0.023473361041396856,
+          "decision_id": 1,
+          "observed_state_and_candidates": {
+            "contract": "rl04-shared-frontier-approach-v2",
+            "decision_id": 1,
+            "map_version": 1,
+            "sim_stamp": 20.0,
+            "trigger": null,
+            "map": {
+              "resolution": 0.05,
+              "origin": [
+                -5.8,
+                -5.6
+              ],
+              "stamp": 17.758,
+              "source": "/merge_map",
+              "frame": "merge_map",
+              "version": 1
+            },
+            "robots": [
+              {
+                "id": "tb1",
+                "pose": [
+                  0.7248849523592812,
+                  -0.15000005517212697,
+                  0.00096804793355397
+                ],
+                "pose_stamp": 19.957,
+                "pose_source": "/tb1/odom + namespaced TF",
+                "velocity": [
+                  1.3167119833508718e-05,
+                  1.274640712730995e-08,
+                  4.961649497629615e-05
+                ],
+                "state": "idle",
+                "target": null,
+                "task_token": 0,
+                "action_uuid": null,
+                "last_status": "none",
+                "last_success": null,
+                "goal_duration_s": null,
+                "condition": "awaiting_observation",
+                "cancel_requested": false
+              },
+              {
+                "id": "tb2",
+                "pose": [
+                  0.3498932907739516,
+                  -0.8000000473998321,
+                  0.0008961764202941635
+                ],
+                "pose_stamp": 19.951,
+                "pose_source": "/tb2/odom + namespaced TF",
+                "velocity": [
+                  3.998591786301982e-07,
+                  3.583444632592369e-10,
+                  4.889120771686129e-05
+                ],
+                "state": "idle",
+                "target": null,
+                "task_token": 0,
+                "action_uuid": null,
+                "last_status": "none",
+                "last_success": null,
+                "goal_duration_s": null,
+                "condition": "awaiting_observation",
+                "cancel_requested": false
+              },
+              {
+                "id": "tb3",
+                "pose": [
+                  1.099902929379038,
+                  -0.8000000391494844,
+                  0.0008142879156004517
+                ],
+                "pose_stamp": 19.958,
+                "pose_source": "/tb3/odom + namespaced TF",
+                "velocity": [
+                  1.2356228758685827e-05,
+                  1.0061529984408225e-08,
+                  4.882346584928847e-05
+                ],
+                "state": "idle",
+                "target": null,
+                "task_token": 0,
+                "action_uuid": null,
+                "last_status": "none",
+                "last_success": null,
+                "goal_duration_s": null,
+                "condition": "awaiting_observation",
+                "cancel_requested": false
+              }
+            ],
+            "candidates": [
+              {
+                "index": 0,
+                "robot": "tb1",
+                "group_id": 21,
+                "position": [
+                  0.8250000000000002,
+                  0.8750000000000009
+                ],
+                "frame": "merge_map",
+                "reachable": true,
+                "path_cost_estimate_m": 1.0914213562373096,
+                "information_gain_proxy_m2": 0.20500000000000004,
+                "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+                "traditional_score": 4.168905280986593,
+                "traditional_eligible": true,
+                "valid": true,
+                "local_map_valid": true,
+                "kind": "frontier",
+                "shared_frontier_position": [
+                  0.8250000000000002,
+                  0.8750000000000009
+                ],
+                "remaining_shared_path_m": 0.0,
+                "unknown_boundary_cells": [],
+                "initial_route_prefix": [
+                  [
+                    0.7248849523592812,
+                    -0.15000005517212697
+                  ],
+                  [
+                    0.7250000000000005,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.7250000000000005,
+                    -0.12499999999999911
+                  ],
+                  [
+                    0.7250000000000005,
+                    -0.07499999999999929
+                  ],
+                  [
+                    0.7250000000000005,
+                    -0.024999999999999467
+                  ],
+                  [
+                    0.7250000000000005,
+                    0.025000000000000355
+                  ],
+                  [
+                    0.7250000000000005,
+                    0.07500000000000107
+                  ],
+                  [
+                    0.7250000000000005,
+                    0.1250000000000009
+                  ],
+                  [
+                    0.7250000000000005,
+                    0.1750000000000007
+                  ],
+                  [
+                    0.7250000000000005,
+                    0.22500000000000053
+                  ],
+                  [
+                    0.7250000000000005,
+                    0.24199979045375375
+                  ]
+                ]
+              },
+              {
+                "index": 1,
+                "robot": "tb1",
+                "group_id": 15,
+                "position": [
+                  -0.47499999999999964,
+                  -0.07499999999999929
+                ],
+                "frame": "merge_map",
+                "reachable": true,
+                "path_cost_estimate_m": 1.3121320343559646,
+                "information_gain_proxy_m2": 0.16500000000000004,
+                "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+                "traditional_score": 2.6023505681076724,
+                "traditional_eligible": true,
+                "valid": true,
+                "local_map_valid": true,
+                "kind": "frontier",
+                "shared_frontier_position": [
+                  -0.47499999999999964,
+                  -0.07499999999999929
+                ],
+                "remaining_shared_path_m": 0.0,
+                "unknown_boundary_cells": [],
+                "initial_route_prefix": [
+                  [
+                    0.7248849523592812,
+                    -0.15000005517212697
+                  ],
+                  [
+                    0.7250000000000005,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.6750000000000007,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.6250000000000009,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.5750000000000002,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.5250000000000004,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.47500000000000053,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.4250000000000007,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.3750000000000009,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.30800020954624785,
+                    -0.17499999999999893
+                  ]
+                ]
+              },
+              {
+                "index": 2,
+                "robot": "tb1",
+                "group_id": 20,
+                "position": [
+                  1.1750000000000007,
+                  0.22500000000000053
+                ],
+                "frame": "merge_map",
+                "reachable": true,
+                "path_cost_estimate_m": 0.6156854249492381,
+                "information_gain_proxy_m2": 0.0075000000000000015,
+                "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+                "traditional_score": 0.23908787370849624,
+                "traditional_eligible": true,
+                "valid": true,
+                "local_map_valid": true,
+                "kind": "frontier",
+                "shared_frontier_position": [
+                  1.1750000000000007,
+                  0.22500000000000053
+                ],
+                "remaining_shared_path_m": 0.0,
+                "unknown_boundary_cells": [],
+                "initial_route_prefix": [
+                  [
+                    0.7248849523592812,
+                    -0.15000005517212697
+                  ],
+                  [
+                    0.7250000000000005,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.7750000000000004,
+                    -0.12499999999999911
+                  ],
+                  [
+                    0.8250000000000002,
+                    -0.07499999999999929
+                  ],
+                  [
+                    0.8750000000000009,
+                    -0.024999999999999467
+                  ],
+                  [
+                    0.9250000000000007,
+                    -0.024999999999999467
+                  ],
+                  [
+                    0.9750000000000005,
+                    0.025000000000000355
+                  ],
+                  [
+                    1.0250000000000004,
+                    0.07500000000000107
+                  ],
+                  [
+                    1.034508040523891,
+                    0.0845080405238917
+                  ]
+                ]
+              },
+              {
+                "index": 3,
+                "robot": "tb2",
+                "group_id": 6,
+                "position": [
+                  0.6250000000000009,
+                  -1.9249999999999994
+                ],
+                "frame": "merge_map",
+                "reachable": true,
+                "path_cost_estimate_m": 1.2535533905932739,
+                "information_gain_proxy_m2": 0.19250000000000003,
+                "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+                "traditional_score": 3.3015073085055873,
+                "traditional_eligible": true,
+                "valid": true,
+                "local_map_valid": true,
+                "kind": "frontier",
+                "shared_frontier_position": [
+                  0.6250000000000009,
+                  -1.9249999999999994
+                ],
+                "remaining_shared_path_m": 0.0,
+                "unknown_boundary_cells": [],
+                "initial_route_prefix": [
+                  [
+                    0.3498932907739516,
+                    -0.8000000473998321
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.8249999999999993
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.8749999999999991
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.9249999999999998
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.9749999999999996
+                  ],
+                  [
+                    0.3250000000000002,
+                    -1.0249999999999995
+                  ],
+                  [
+                    0.3250000000000002,
+                    -1.0749999999999993
+                  ],
+                  [
+                    0.3250000000000002,
+                    -1.1249999999999991
+                  ],
+                  [
+                    0.3250000000000002,
+                    -1.1749999999999998
+                  ],
+                  [
+                    0.3250000000000002,
+                    -1.2249999999999996
+                  ],
+                  [
+                    0.3250000000000002,
+                    -1.231720068656995
+                  ]
+                ]
+              },
+              {
+                "index": 4,
+                "robot": "tb2",
+                "group_id": 15,
+                "position": [
+                  -0.5249999999999995,
+                  -0.3749999999999991
+                ],
+                "frame": "merge_map",
+                "reachable": true,
+                "path_cost_estimate_m": 1.1242640687119285,
+                "information_gain_proxy_m2": 0.16500000000000004,
+                "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+                "traditional_score": 3.1134615752727828,
+                "traditional_eligible": true,
+                "valid": true,
+                "local_map_valid": true,
+                "kind": "frontier",
+                "shared_frontier_position": [
+                  -0.5249999999999995,
+                  -0.3749999999999991
+                ],
+                "remaining_shared_path_m": 0.0,
+                "unknown_boundary_cells": [],
+                "initial_route_prefix": [
+                  [
+                    0.3498932907739516,
+                    -0.8000000473998321
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.8249999999999993
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.7749999999999995
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.7249999999999996
+                  ],
+                  [
+                    0.27500000000000036,
+                    -0.6749999999999989
+                  ],
+                  [
+                    0.27500000000000036,
+                    -0.6249999999999991
+                  ],
+                  [
+                    0.22500000000000053,
+                    -0.6249999999999991
+                  ],
+                  [
+                    0.1750000000000007,
+                    -0.6249999999999991
+                  ],
+                  [
+                    0.1250000000000009,
+                    -0.6249999999999991
+                  ],
+                  [
+                    0.08899060946165926,
+                    -0.6249999999999991
+                  ]
+                ]
+              },
+              {
+                "index": 5,
+                "robot": "tb3",
+                "group_id": 6,
+                "position": [
+                  0.7250000000000005,
+                  -1.8749999999999996
+                ],
+                "frame": "merge_map",
+                "reachable": true,
+                "path_cost_estimate_m": 1.2535533905932739,
+                "information_gain_proxy_m2": 0.19250000000000003,
+                "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+                "traditional_score": 3.443144432078065,
+                "traditional_eligible": true,
+                "valid": true,
+                "local_map_valid": true,
+                "kind": "frontier",
+                "shared_frontier_position": [
+                  0.7250000000000005,
+                  -1.8749999999999996
+                ],
+                "remaining_shared_path_m": 0.0,
+                "unknown_boundary_cells": [],
+                "initial_route_prefix": [
+                  [
+                    1.099902929379038,
+                    -0.8000000391494844
+                  ],
+                  [
+                    1.0750000000000002,
+                    -0.8249999999999993
+                  ],
+                  [
+                    1.0750000000000002,
+                    -0.8749999999999991
+                  ],
+                  [
+                    1.0750000000000002,
+                    -0.9249999999999998
+                  ],
+                  [
+                    1.0750000000000002,
+                    -0.9749999999999996
+                  ],
+                  [
+                    1.0750000000000002,
+                    -1.0249999999999995
+                  ],
+                  [
+                    1.0750000000000002,
+                    -1.0749999999999993
+                  ],
+                  [
+                    1.0750000000000002,
+                    -1.1249999999999991
+                  ],
+                  [
+                    1.0750000000000002,
+                    -1.1749999999999998
+                  ],
+                  [
+                    1.0750000000000002,
+                    -1.2249999999999996
+                  ],
+                  [
+                    1.0750000000000002,
+                    -1.2317132612135284
+                  ]
+                ]
+              }
+            ],
+            "action_mask": [
+              [
+                true,
+                true,
+                true,
+                false,
+                false,
+                false
+              ],
+              [
+                false,
+                false,
+                false,
+                true,
+                true,
+                false
+              ],
+              [
+                false,
+                false,
+                false,
+                false,
+                false,
+                true
+              ]
+            ],
+            "keep_mask": [
+              false,
+              false,
+              false
+            ],
+            "wait_mask": [
+              false,
+              false,
+              false
+            ],
+            "valid_counts": [
+              3,
+              2,
+              1
+            ],
+            "assigned": {
+              "tb1": null,
+              "tb2": null,
+              "tb3": null
+            },
+            "candidate_conflicts": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "initial_route_rule": "first-idle-prefix-v1",
+            "initial_route_length_m": 0.442,
+            "initial_route_separation_m": 0.55,
+            "endpoint_candidate_conflicts": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "initial_route_candidate_conflicts": [
+              [
+                1,
+                4
+              ]
+            ],
+            "history": [],
+            "halted": null,
+            "idle_body_goal_clearance_m": 0.55,
+            "idle_body_positions": {
+              "tb1": [
+                0.7248849523592812,
+                -0.15000005517212697,
+                0.00096804793355397
+              ],
+              "tb2": [
+                0.3498932907739516,
+                -0.8000000473998321,
+                0.0008961764202941635
+              ],
+              "tb3": [
+                1.099902929379038,
+                -0.8000000391494844,
+                0.0008142879156004517
+              ]
+            },
+            "goal_separation_m": 0.8,
+            "joint_assignment_rule": "maximum-participation-v1"
+          },
+          "choices": [
+            0,
+            4,
+            5
+          ],
+          "raw_choices": [
+            0,
+            4,
+            5
+          ],
+          "input_npz": "/mnt/net01e/followup03/gz-runs/corr6201-step-timing-plain-b-02/controller/policy-trace/0001.npz",
+          "evidence_io_wall_s": 0.008449048,
+          "raw_frontier_reconstruction": "offline from saved received grids; unavailable before candidate filters",
+          "nn_forward_expected": 1,
+          "physical_stop_verified": false,
+          "inference_start_sim": 20.0,
+          "inference_wall_ns": 1794479135492353969,
+          "inference_wall_s": 0.023467873,
+          "inference_sequence": 1,
+          "value": 4.715555191040039,
+          "logprob": -0.5007025003433228,
+          "entropy": 0.6704586744308472,
+          "conditional_options": [
+            2,
+            1,
+            1
+          ],
+          "joint_assignment_rule": "maximum-participation-v1",
+          "original_conditional_masks": [
+            [
+              true,
+              true,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              true,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          ],
+          "actual_conditional_masks": [
+            [
+              true,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          ],
+          "wall_ns": 1794479135525698751
+        }
+      },
+      "first_three_goal_requests": [
+        {
+          "request": {
+            "kind": "rl_actual_nav2_goal_request",
+            "sim": 20.0,
+            "robot": "tb1",
+            "token": 1,
+            "request_uuid": "84b37e524f784b7799e40e14e773e444",
+            "decision_id": 1,
+            "merge_map_target": [
+              0.8250000000000002,
+              0.8750000000000009
+            ],
+            "actual_goal_frame": "map",
+            "actual_goal_stamp": 20.0,
+            "actual_goal_position": [
+              0.10000000000000053,
+              1.0250000000000008,
+              0.0
+            ],
+            "actual_goal_quaternion": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "wall_ns": 1794479135533226818
+          },
+          "response": {
+            "kind": "rl_actual_nav2_goal_response",
+            "sim": 20.37,
+            "robot": "tb1",
+            "token": 1,
+            "request_uuid": "84b37e524f784b7799e40e14e773e444",
+            "accepted": true,
+            "accepted_uuid": "84b37e524f784b7799e40e14e773e444",
+            "wall_ns": 1794479135601300816
+          },
+          "result": {
+            "kind": "rl_actual_nav2_goal_result",
+            "sim": 28.650000000000002,
+            "robot": "tb1",
+            "token": 1,
+            "request_uuid": "84b37e524f784b7799e40e14e773e444",
+            "raw_status": 4,
+            "wall_ns": 1794479155016956210
+          },
+          "route_before_T95": {
+            "begin": 20.0,
+            "end": 28.650000000000002,
+            "samples": 87,
+            "first": {
+              "wall_unix": 1794479134.7349017,
+              "sim_s": 20.0,
+              "x": 0.7256539602749704,
+              "y": -0.15002623558993042,
+              "z": 0.007805888499280749,
+              "speed_xy": 6.703769526165847e-05,
+              "angular_z": 4.8436802431463725e-05
+            },
+            "last": {
+              "wall_unix": 1794479154.8565238,
+              "sim_s": 28.6,
+              "x": 0.9131004299298203,
+              "y": 0.6932531193123989,
+              "z": 0.007809295650346351,
+              "speed_xy": 0.00035700249153876307,
+              "angular_z": -0.14659992593596854
+            },
+            "path_m": 0.983183629950521,
+            "low_translation_sim_s": 3.3000000000000007,
+            "stationary_sim_s": 0.5
+          }
+        },
+        {
+          "request": {
+            "kind": "rl_actual_nav2_goal_request",
+            "sim": 20.0,
+            "robot": "tb2",
+            "token": 1,
+            "request_uuid": "69e641e310844956a54777aa61fafdb6",
+            "decision_id": 1,
+            "merge_map_target": [
+              -0.5249999999999995,
+              -0.3749999999999991
+            ],
+            "actual_goal_frame": "map",
+            "actual_goal_stamp": 20.0,
+            "actual_goal_position": [
+              -0.8749999999999991,
+              0.4250000000000008,
+              0.0
+            ],
+            "actual_goal_quaternion": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "wall_ns": 1794479135535607928
+          },
+          "response": {
+            "kind": "rl_actual_nav2_goal_response",
+            "sim": 20.37,
+            "robot": "tb2",
+            "token": 1,
+            "request_uuid": "69e641e310844956a54777aa61fafdb6",
+            "accepted": true,
+            "accepted_uuid": "69e641e310844956a54777aa61fafdb6",
+            "wall_ns": 1794479135635402041
+          },
+          "result": {
+            "kind": "rl_actual_nav2_goal_result",
+            "sim": 30.930000000000003,
+            "robot": "tb2",
+            "token": 1,
+            "request_uuid": "69e641e310844956a54777aa61fafdb6",
+            "raw_status": 4,
+            "wall_ns": 1794479160319268198
+          },
+          "route_before_T95": {
+            "begin": 20.0,
+            "end": 30.930000000000003,
+            "samples": 110,
+            "first": {
+              "wall_unix": 1794479134.734919,
+              "sim_s": 20.0,
+              "x": 0.3506108621110313,
+              "y": -0.8000243480719319,
+              "z": 0.007806213651843097,
+              "speed_xy": 6.762849386494998e-05,
+              "angular_z": 4.838245695554207e-05
+            },
+            "last": {
+              "wall_unix": 1794479160.173555,
+              "sim_s": 30.9,
+              "x": -0.31045855741138295,
+              "y": -0.3302335412958686,
+              "z": 0.007830725158152039,
+              "speed_xy": 0.00037318179962603205,
+              "angular_z": 0.13982263362809816
+            },
+            "path_m": 1.051982021399038,
+            "low_translation_sim_s": 5.5,
+            "stationary_sim_s": 0.5
+          }
+        },
+        {
+          "request": {
+            "kind": "rl_actual_nav2_goal_request",
+            "sim": 20.0,
+            "robot": "tb3",
+            "token": 1,
+            "request_uuid": "2536bc12532f4c39b8afb59f7958500a",
+            "decision_id": 1,
+            "merge_map_target": [
+              0.7250000000000005,
+              -1.8749999999999996
+            ],
+            "actual_goal_frame": "map",
+            "actual_goal_stamp": 20.0,
+            "actual_goal_position": [
+              -0.3749999999999991,
+              -1.0749999999999997,
+              0.0
+            ],
+            "actual_goal_quaternion": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "wall_ns": 1794479135537223739
+          },
+          "response": {
+            "kind": "rl_actual_nav2_goal_response",
+            "sim": 20.41,
+            "robot": "tb3",
+            "token": 1,
+            "request_uuid": "2536bc12532f4c39b8afb59f7958500a",
+            "accepted": true,
+            "accepted_uuid": "2536bc12532f4c39b8afb59f7958500a",
+            "wall_ns": 1794479135643512955
+          },
+          "result": {
+            "kind": "rl_actual_nav2_goal_result",
+            "sim": 29.62,
+            "robot": "tb3",
+            "token": 1,
+            "request_uuid": "2536bc12532f4c39b8afb59f7958500a",
+            "raw_status": 4,
+            "wall_ns": 1794479157194928767
+          },
+          "route_before_T95": {
+            "begin": 20.0,
+            "end": 29.62,
+            "samples": 97,
+            "first": {
+              "wall_unix": 1794479134.7349362,
+              "sim_s": 20.0,
+              "x": 1.1005612724033378,
+              "y": -0.8000221596040271,
+              "z": 0.007830038754458644,
+              "speed_xy": 5.935960553434902e-05,
+              "angular_z": 4.830113686961095e-05
+            },
+            "last": {
+              "wall_unix": 1794479157.1564193,
+              "sim_s": 29.6,
+              "x": 0.8466619901518966,
+              "y": -1.7166372377757648,
+              "z": 0.007813194754807526,
+              "speed_xy": 0.0004199458084627062,
+              "angular_z": 0.14389506281156508
+            },
+            "path_m": 1.0759387659240487,
+            "low_translation_sim_s": 4.5000000000000036,
+            "stationary_sim_s": 0.5
+          }
+        }
+      ],
+      "initial_coverage": 0.11068260701889703,
+      "first_goal_relative_sim": 4.0600000000000005,
+      "first_motion_relative_sim": 4.5600000000000005
+    },
+    "A1": {
+      "first_inference": {
+        "source_line": 375,
+        "event": {
+          "kind": "rl_real_inference",
+          "sim": 25.0,
+          "arm": "rl",
+          "sequence": 1,
+          "policy_start_sim": 25.0,
+          "policy_wall_s": 0.021192724932916462,
+          "decision_id": 1,
+          "observed_state_and_candidates": {
+            "contract": "rl04-shared-frontier-approach-v2",
+            "decision_id": 1,
+            "map_version": 1,
+            "sim_stamp": 25.0,
+            "trigger": null,
+            "map": {
+              "resolution": 0.05,
+              "origin": [
+                -5.8,
+                -5.6
+              ],
+              "stamp": 22.87,
+              "source": "/merge_map",
+              "frame": "merge_map",
+              "version": 1
+            },
+            "robots": [
+              {
+                "id": "tb1",
+                "pose": [
+                  0.7248556956640061,
+                  -0.15000008711129123,
+                  0.0012154407961075724
+                ],
+                "pose_stamp": 24.974,
+                "pose_source": "/tb1/odom + namespaced TF",
+                "velocity": [
+                  1.2326867543168409e-05,
+                  1.498258507808791e-08,
+                  4.930738323861774e-05
+                ],
+                "state": "idle",
+                "target": null,
+                "task_token": 0,
+                "action_uuid": null,
+                "last_status": "none",
+                "last_success": null,
+                "goal_duration_s": null,
+                "condition": "awaiting_observation",
+                "cancel_requested": false
+              },
+              {
+                "id": "tb2",
+                "pose": [
+                  0.3498627198226098,
+                  -0.800000078780305,
+                  0.00115693199333238
+                ],
+                "pose_stamp": 24.966,
+                "pose_source": "/tb2/odom + namespaced TF",
+                "velocity": [
+                  6.78974881610701e-06,
+                  7.855281136787867e-09,
+                  4.965191302013046e-05
+                ],
+                "state": "idle",
+                "target": null,
+                "task_token": 0,
+                "action_uuid": null,
+                "last_status": "none",
+                "last_success": null,
+                "goal_duration_s": null,
+                "condition": "awaiting_observation",
+                "cancel_requested": false
+              },
+              {
+                "id": "tb3",
+                "pose": [
+                  1.099874419233527,
+                  -0.8000000658322021,
+                  0.0010566243678858584
+                ],
+                "pose_stamp": 24.988,
+                "pose_source": "/tb3/odom + namespaced TF",
+                "velocity": [
+                  9.892811189900866e-06,
+                  1.0452989260241006e-08,
+                  4.9055116946643007e-05
+                ],
+                "state": "idle",
+                "target": null,
+                "task_token": 0,
+                "action_uuid": null,
+                "last_status": "none",
+                "last_success": null,
+                "goal_duration_s": null,
+                "condition": "awaiting_observation",
+                "cancel_requested": false
+              }
+            ],
+            "candidates": [
+              {
+                "index": 0,
+                "robot": "tb1",
+                "group_id": 21,
+                "position": [
+                  0.8250000000000002,
+                  0.8750000000000009
+                ],
+                "frame": "merge_map",
+                "reachable": true,
+                "path_cost_estimate_m": 1.0914213562373096,
+                "information_gain_proxy_m2": 0.20000000000000004,
+                "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+                "traditional_score": 4.032693169068419,
+                "traditional_eligible": true,
+                "valid": true,
+                "local_map_valid": true,
+                "kind": "frontier",
+                "shared_frontier_position": [
+                  0.8250000000000002,
+                  0.8750000000000009
+                ],
+                "remaining_shared_path_m": 0.0,
+                "unknown_boundary_cells": [],
+                "initial_route_prefix": [
+                  [
+                    0.7248556956640061,
+                    -0.15000008711129123
+                  ],
+                  [
+                    0.7250000000000005,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.7250000000000005,
+                    -0.12499999999999911
+                  ],
+                  [
+                    0.7250000000000005,
+                    -0.07499999999999929
+                  ],
+                  [
+                    0.7250000000000005,
+                    -0.024999999999999467
+                  ],
+                  [
+                    0.7250000000000005,
+                    0.025000000000000355
+                  ],
+                  [
+                    0.7250000000000005,
+                    0.07500000000000107
+                  ],
+                  [
+                    0.7250000000000005,
+                    0.1250000000000009
+                  ],
+                  [
+                    0.7250000000000005,
+                    0.1750000000000007
+                  ],
+                  [
+                    0.7250000000000005,
+                    0.22500000000000053
+                  ],
+                  [
+                    0.7250000000000005,
+                    0.24199967063848343
+                  ]
+                ]
+              },
+              {
+                "index": 1,
+                "robot": "tb1",
+                "group_id": 15,
+                "position": [
+                  -0.47499999999999964,
+                  -0.07499999999999929
+                ],
+                "frame": "merge_map",
+                "reachable": true,
+                "path_cost_estimate_m": 1.3121320343559646,
+                "information_gain_proxy_m2": 0.15000000000000002,
+                "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+                "traditional_score": 2.326382856211297,
+                "traditional_eligible": true,
+                "valid": true,
+                "local_map_valid": true,
+                "kind": "frontier",
+                "shared_frontier_position": [
+                  -0.47499999999999964,
+                  -0.07499999999999929
+                ],
+                "remaining_shared_path_m": 0.0,
+                "unknown_boundary_cells": [],
+                "initial_route_prefix": [
+                  [
+                    0.7248556956640061,
+                    -0.15000008711129123
+                  ],
+                  [
+                    0.7250000000000005,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.6750000000000007,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.6250000000000009,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.5750000000000002,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.5250000000000004,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.47500000000000053,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.4250000000000007,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.3750000000000009,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.17499999999999893
+                  ],
+                  [
+                    0.30800032936151817,
+                    -0.17499999999999893
+                  ]
+                ]
+              },
+              {
+                "index": 2,
+                "robot": "tb2",
+                "group_id": 10,
+                "position": [
+                  0.8250000000000002,
+                  -1.7749999999999995
+                ],
+                "frame": "merge_map",
+                "reachable": true,
+                "path_cost_estimate_m": 1.186396103067893,
+                "information_gain_proxy_m2": 0.23000000000000004,
+                "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+                "traditional_score": 3.9440385954977932,
+                "traditional_eligible": true,
+                "valid": true,
+                "local_map_valid": true,
+                "kind": "frontier",
+                "shared_frontier_position": [
+                  0.8250000000000002,
+                  -1.7749999999999995
+                ],
+                "remaining_shared_path_m": 0.0,
+                "unknown_boundary_cells": [],
+                "initial_route_prefix": [
+                  [
+                    0.3498627198226098,
+                    -0.800000078780305
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.8249999999999993
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.8749999999999991
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.9249999999999998
+                  ],
+                  [
+                    0.3750000000000009,
+                    -0.9749999999999996
+                  ],
+                  [
+                    0.3750000000000009,
+                    -1.0249999999999995
+                  ],
+                  [
+                    0.3750000000000009,
+                    -1.0749999999999993
+                  ],
+                  [
+                    0.3750000000000009,
+                    -1.1249999999999991
+                  ],
+                  [
+                    0.3750000000000009,
+                    -1.1749999999999998
+                  ],
+                  [
+                    0.4004777480271199,
+                    -1.200477748027119
+                  ]
+                ]
+              },
+              {
+                "index": 3,
+                "robot": "tb2",
+                "group_id": 15,
+                "position": [
+                  -0.47499999999999964,
+                  -0.12499999999999911
+                ],
+                "frame": "merge_map",
+                "reachable": true,
+                "path_cost_estimate_m": 1.2363961030678927,
+                "information_gain_proxy_m2": 0.15000000000000002,
+                "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+                "traditional_score": 2.770006843770212,
+                "traditional_eligible": true,
+                "valid": true,
+                "local_map_valid": true,
+                "kind": "frontier",
+                "shared_frontier_position": [
+                  -0.47499999999999964,
+                  -0.12499999999999911
+                ],
+                "remaining_shared_path_m": 0.0,
+                "unknown_boundary_cells": [],
+                "initial_route_prefix": [
+                  [
+                    0.3498627198226098,
+                    -0.800000078780305
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.8249999999999993
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.7749999999999995
+                  ],
+                  [
+                    0.3250000000000002,
+                    -0.7249999999999996
+                  ],
+                  [
+                    0.27500000000000036,
+                    -0.6749999999999989
+                  ],
+                  [
+                    0.27500000000000036,
+                    -0.6249999999999991
+                  ],
+                  [
+                    0.22500000000000053,
+                    -0.6249999999999991
+                  ],
+                  [
+                    0.1750000000000007,
+                    -0.6249999999999991
+                  ],
+                  [
+                    0.1250000000000009,
+                    -0.6249999999999991
+                  ],
+                  [
+                    0.0995222519728804,
+                    -0.5995222519728791
+                  ]
+                ]
+              },
+              {
+                "index": 4,
+                "robot": "tb3",
+                "group_id": 10,
+                "position": [
+                  0.8250000000000002,
+                  -1.8749999999999996
+                ],
+                "frame": "merge_map",
+                "reachable": true,
+                "path_cost_estimate_m": 1.1535533905932738,
+                "information_gain_proxy_m2": 0.23000000000000004,
+                "proxy": "associated shared-frontier cell area; approach gain may be delayed",
+                "traditional_score": 4.231483067033622,
+                "traditional_eligible": true,
+                "valid": true,
+                "local_map_valid": true,
+                "kind": "frontier",
+                "shared_frontier_position": [
+                  0.8250000000000002,
+                  -1.8749999999999996
+                ],
+                "remaining_shared_path_m": 0.0,
+                "unknown_boundary_cells": [],
+                "initial_route_prefix": [
+                  [
+                    1.099874419233527,
+                    -0.8000000658322021
+                  ],
+                  [
+                    1.0750000000000002,
+                    -0.8249999999999993
+                  ],
+                  [
+                    1.0750000000000002,
+                    -0.8749999999999991
+                  ],
+                  [
+                    1.0750000000000002,
+                    -0.9249999999999998
+                  ],
+                  [
+                    1.0750000000000002,
+                    -0.9749999999999996
+                  ],
+                  [
+                    1.0750000000000002,
+                    -1.0249999999999995
+                  ],
+                  [
+                    1.0750000000000002,
+                    -1.0749999999999993
+                  ],
+                  [
+                    1.0750000000000002,
+                    -1.1249999999999991
+                  ],
+                  [
+                    1.0750000000000002,
+                    -1.1749999999999998
+                  ],
+                  [
+                    1.0750000000000002,
+                    -1.2249999999999996
+                  ],
+                  [
+                    1.0750000000000002,
+                    -1.2317333948245726
+                  ]
+                ]
+              }
+            ],
+            "action_mask": [
+              [
+                true,
+                true,
+                false,
+                false,
+                false
+              ],
+              [
+                false,
+                false,
+                true,
+                true,
+                false
+              ],
+              [
+                false,
+                false,
+                false,
+                false,
+                true
+              ]
+            ],
+            "keep_mask": [
+              false,
+              false,
+              false
+            ],
+            "wait_mask": [
+              false,
+              false,
+              false
+            ],
+            "valid_counts": [
+              2,
+              2,
+              1
+            ],
+            "assigned": {
+              "tb1": null,
+              "tb2": null,
+              "tb3": null
+            },
+            "candidate_conflicts": [
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            "initial_route_rule": "first-idle-prefix-v1",
+            "initial_route_length_m": 0.442,
+            "initial_route_separation_m": 0.55,
+            "endpoint_candidate_conflicts": [
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            "initial_route_candidate_conflicts": [
+              [
+                1,
+                3
+              ]
+            ],
+            "history": [],
+            "halted": null,
+            "idle_body_goal_clearance_m": 0.55,
+            "idle_body_positions": {
+              "tb1": [
+                0.7248556956640061,
+                -0.15000008711129123,
+                0.0012154407961075724
+              ],
+              "tb2": [
+                0.3498627198226098,
+                -0.800000078780305,
+                0.00115693199333238
+              ],
+              "tb3": [
+                1.099874419233527,
+                -0.8000000658322021,
+                0.0010566243678858584
+              ]
+            },
+            "goal_separation_m": 0.8,
+            "joint_assignment_rule": "maximum-participation-v1"
+          },
+          "choices": [
+            0,
+            3,
+            4
+          ],
+          "raw_choices": [
+            0,
+            3,
+            4
+          ],
+          "input_npz": "/mnt/net01e/followup03/gz-runs/corr6201-step-timing-plain-a1-04/controller/policy-trace/0001.npz",
+          "evidence_io_wall_s": 0.009370342,
+          "raw_frontier_reconstruction": "offline from saved received grids; unavailable before candidate filters",
+          "nn_forward_expected": 1,
+          "physical_stop_verified": false,
+          "inference_start_sim": 25.0,
+          "inference_wall_ns": 1794482299365681088,
+          "inference_wall_s": 0.021188125,
+          "inference_sequence": 1,
+          "value": 4.589541435241699,
+          "logprob": 0.0,
+          "entropy": 0.0,
+          "conditional_options": [
+            1,
+            1,
+            1
+          ],
+          "joint_assignment_rule": "maximum-participation-v1",
+          "original_conditional_masks": [
+            [
+              true,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              true,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          ],
+          "actual_conditional_masks": [
+            [
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            [
+              false,
+              false,
+              false,
+              false,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          ],
+          "wall_ns": 1794482299397493250
+        }
+      },
+      "first_three_goal_requests": [
+        {
+          "request": {
+            "kind": "rl_actual_nav2_goal_request",
+            "sim": 25.0,
+            "robot": "tb1",
+            "token": 1,
+            "request_uuid": "fcd2146a6e0a444ab03d59173bb387c1",
+            "decision_id": 1,
+            "merge_map_target": [
+              0.8250000000000002,
+              0.8750000000000009
+            ],
+            "actual_goal_frame": "map",
+            "actual_goal_stamp": 25.0,
+            "actual_goal_position": [
+              0.10000000000000053,
+              1.0250000000000008,
+              0.0
+            ],
+            "actual_goal_quaternion": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "wall_ns": 1794482299403224951
+          },
+          "response": {
+            "kind": "rl_actual_nav2_goal_response",
+            "sim": 25.400000000000002,
+            "robot": "tb1",
+            "token": 1,
+            "request_uuid": "fcd2146a6e0a444ab03d59173bb387c1",
+            "accepted": true,
+            "accepted_uuid": "fcd2146a6e0a444ab03d59173bb387c1",
+            "wall_ns": 1794482299463304447
+          },
+          "result": {
+            "kind": "rl_actual_nav2_goal_result",
+            "sim": 33.64,
+            "robot": "tb1",
+            "token": 1,
+            "request_uuid": "fcd2146a6e0a444ab03d59173bb387c1",
+            "raw_status": 4,
+            "wall_ns": 1794482315927423552
+          },
+          "route_before_T95": {
+            "begin": 25.0,
+            "end": 33.64,
+            "samples": 87,
+            "first": {
+              "wall_unix": 1794482298.6375124,
+              "sim_s": 25.0,
+              "x": 0.7258022859642571,
+              "y": -0.1500324507095448,
+              "z": 0.007822652191182675,
+              "speed_xy": 5.5767767287447456e-05,
+              "angular_z": 4.902942381839361e-05
+            },
+            "last": {
+              "wall_unix": 1794482315.8383117,
+              "sim_s": 33.6,
+              "x": 0.8987886814285087,
+              "y": 0.6867069994136489,
+              "z": 0.0078101051970266375,
+              "speed_xy": 0.0003459221010640961,
+              "angular_z": -0.14598180574293035
+            },
+            "path_m": 0.9766437790642558,
+            "low_translation_sim_s": 3.3000000000000007,
+            "stationary_sim_s": 0.5
+          }
+        },
+        {
+          "request": {
+            "kind": "rl_actual_nav2_goal_request",
+            "sim": 25.0,
+            "robot": "tb2",
+            "token": 1,
+            "request_uuid": "f081daf114e34fbba45b55779deb2702",
+            "decision_id": 1,
+            "merge_map_target": [
+              -0.47499999999999964,
+              -0.12499999999999911
+            ],
+            "actual_goal_frame": "map",
+            "actual_goal_stamp": 25.0,
+            "actual_goal_position": [
+              -0.8249999999999993,
+              0.6750000000000008,
+              0.0
+            ],
+            "actual_goal_quaternion": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "wall_ns": 1794482299405189254
+          },
+          "response": {
+            "kind": "rl_actual_nav2_goal_response",
+            "sim": 25.400000000000002,
+            "robot": "tb2",
+            "token": 1,
+            "request_uuid": "f081daf114e34fbba45b55779deb2702",
+            "accepted": true,
+            "accepted_uuid": "f081daf114e34fbba45b55779deb2702",
+            "wall_ns": 1794482299500860449
+          },
+          "result": {
+            "kind": "rl_actual_nav2_goal_result",
+            "sim": 35.59,
+            "robot": "tb2",
+            "token": 1,
+            "request_uuid": "f081daf114e34fbba45b55779deb2702",
+            "raw_status": 4,
+            "wall_ns": 1794482319839217472
+          },
+          "route_before_T95": {
+            "begin": 25.0,
+            "end": 35.59,
+            "samples": 106,
+            "first": {
+              "wall_unix": 1794482298.6375303,
+              "sim_s": 25.0,
+              "x": 0.3507673214466716,
+              "y": -0.8000309934155199,
+              "z": 0.007820754623177613,
+              "speed_xy": 5.936597570653766e-05,
+              "angular_z": 4.865106083862761e-05
+            },
+            "last": {
+              "wall_unix": 1794482319.6383011,
+              "sim_s": 35.5,
+              "x": -0.2799357159745612,
+              "y": -0.20471427548808033,
+              "z": 0.00783736132259352,
+              "speed_xy": 0.00037580107731768555,
+              "angular_z": -0.14173615876376197
+            },
+            "path_m": 1.0308330959748335,
+            "low_translation_sim_s": 4.900000000000006,
+            "stationary_sim_s": 0.5
+          }
+        },
+        {
+          "request": {
+            "kind": "rl_actual_nav2_goal_request",
+            "sim": 25.0,
+            "robot": "tb3",
+            "token": 1,
+            "request_uuid": "e90039bb8e634dbb94f218345f7f1794",
+            "decision_id": 1,
+            "merge_map_target": [
+              0.8250000000000002,
+              -1.8749999999999996
+            ],
+            "actual_goal_frame": "map",
+            "actual_goal_stamp": 25.0,
+            "actual_goal_position": [
+              -0.27499999999999947,
+              -1.0749999999999997,
+              0.0
+            ],
+            "actual_goal_quaternion": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "wall_ns": 1794482299406555611
+          },
+          "response": {
+            "kind": "rl_actual_nav2_goal_response",
+            "sim": 25.400000000000002,
+            "robot": "tb3",
+            "token": 1,
+            "request_uuid": "e90039bb8e634dbb94f218345f7f1794",
+            "accepted": true,
+            "accepted_uuid": "e90039bb8e634dbb94f218345f7f1794",
+            "wall_ns": 1794482299502428053
+          },
+          "result": {
+            "kind": "rl_actual_nav2_goal_result",
+            "sim": 34.29,
+            "robot": "tb3",
+            "token": 1,
+            "request_uuid": "e90039bb8e634dbb94f218345f7f1794",
+            "raw_status": 4,
+            "wall_ns": 1794482317229688709
+          },
+          "route_before_T95": {
+            "begin": 25.0,
+            "end": 34.29,
+            "samples": 93,
+            "first": {
+              "wall_unix": 1794482298.6375449,
+              "sim_s": 25.0,
+              "x": 1.1007062963257745,
+              "y": -0.8000284859314098,
+              "z": 0.007815370956747746,
+              "speed_xy": 6.954043136040868e-05,
+              "angular_z": 4.817563515428216e-05
+            },
+            "last": {
+              "wall_unix": 1794482317.0407379,
+              "sim_s": 34.2,
+              "x": 0.9106782225317426,
+              "y": -1.6770993684414723,
+              "z": 0.007832756390402406,
+              "speed_xy": 0.0003900017824105646,
+              "angular_z": 0.1445487961992608
+            },
+            "path_m": 1.004805770489724,
+            "low_translation_sim_s": 4.400000000000002,
+            "stationary_sim_s": 0.5
+          }
+        }
+      ],
+      "initial_coverage": 0.11132536315721815,
+      "first_goal_relative_sim": 6.510000000000002,
+      "first_motion_relative_sim": 7.010000000000002
+    }
+  }
+}

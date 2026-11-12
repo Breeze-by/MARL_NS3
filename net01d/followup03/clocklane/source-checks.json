@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "syntax_files": [
+    "net01/gateway.py",
+    "net01/execution_profile.py"
+  ],
+  "new_profile_numeric_and_source_configuration_equal": true,
+  "reused_pure_checks": {
+    "defaultoff_original_handler_result_pump_order": true,
+    "profile_handler_error_original_propagation": true,
+    "profile_wait_error_original_propagation": true
+  },
+  "reused_source": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01/followup02/check_dispatch_profile.py",
+  "reused_scope": "Existing first3 actual drain/profile order/error checks only; no SDK or original f02 output write",
+  "ROS": 0,
+  "Node": 0,
+  "model": 0
+}

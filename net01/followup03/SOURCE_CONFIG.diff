@@ -1,0 +1,957 @@
+diff --git a/net01/boot_network.py b/net01/boot_network.py
+index dcbc481..3c7d315 100644
+--- a/net01/boot_network.py
++++ b/net01/boot_network.py
+@@ -35,7 +35,9 @@ def main():
+         DISPLAY=":92",QT_QPA_PLATFORM="offscreen",LIBGL_ALWAYS_SOFTWARE="1",
+         PYTHONDONTWRITEBYTECODE="1",GZ01_CASE=str(case),NET01_MODE=net["mode"],
+         NET01_SESSION_ID=str(net["session_id"]),NET01_SOCKET=net["socket_container"])
++    os.environ['NET01_DISPATCH_PROFILE']='1' if net.get('dispatch_profile',False) else '0'
+     os.environ['NET01_CONTROL_TRACE']='1' if net.get('control_trace',False) else '0'
++    os.environ['NET01_EXECUTION_PROFILE']=net.get('execution_profile','')
+     os.environ["GAZEBO_MODEL_PATH"]="/project/assets/gazebo_models:"+os.environ.get("GAZEBO_MODEL_PATH","")
+     os.environ.pop("GZ01_BATCH_GDB",None);os.environ.pop("GZ01_HOST_GDB",None)
+     result=dict(start_utc=datetime.now(timezone.utc).isoformat(),native_exit=None,outer_timeout=False,cleanup_timeout=False)
+diff --git a/net01/config/EXECUTION_PROFILE_PACE500_CLOCK100_Q10MS.json b/net01/config/EXECUTION_PROFILE_PACE500_CLOCK100_Q10MS.json
+new file mode 100644
+index 0000000..5ff0c01
+--- /dev/null
++++ b/net01/config/EXECUTION_PROFILE_PACE500_CLOCK100_Q10MS.json
+@@ -0,0 +1,16 @@
++{
++  "id": "pace500-clock100-q10ms",
++  "world_real_time_update_rate": 500,
++  "physics_max_step_size_unchanged": 0.001,
++  "clock_publish_rate_sim_hz": 100.0,
++  "native_step_quantum_ns": 10000000,
++  "qualification": {
++    "source_wall_s": 16,
++    "hard_wall_s": 30,
++    "clock_period_wall_s": 0.02,
++    "clock_increment_ns": 10000000,
++    "other_sources": "Original per-wall TF/odom/FB rates retained; conservatively denser per simulated second",
++    "peer": "Original 10Hz simulation-time timer"
++  },
++  "scope": "New matched execution profile; WallRate and sim-time frequencies differ; not pointwise equivalent to v1.1.0 runtime"
++}
+diff --git a/net01/execution_profile.py b/net01/execution_profile.py
+new file mode 100644
+index 0000000..6f3ced3
+--- /dev/null
++++ b/net01/execution_profile.py
+@@ -0,0 +1,10 @@
++"""The one preregistered NET01 wall/clock execution profile; old default retained."""
++import json
++from pathlib import Path
++
++PROFILE_ID="pace500-clock100-q10ms"
++
++def load_profile(identifier):
++    if identifier is None:return None
++    if identifier!=PROFILE_ID:raise ValueError("Unknown NET01 execution profile: "+identifier)
++    return json.loads((Path(__file__).with_name("config")/"EXECUTION_PROFILE_PACE500_CLOCK100_Q10MS.json").read_text())
+diff --git a/net01/gateway.py b/net01/gateway.py
+index f843c60..49339fd 100644
+--- a/net01/gateway.py
++++ b/net01/gateway.py
+@@ -6,11 +6,14 @@ All records are RAM captures, persisted only after the owned loop exits.
+ """
+ import argparse
+ from collections import deque
++import gc
+ import hashlib
+ import json
+ from pathlib import Path
++import resource
+ import signal
+ import time
++from execution_profile import load_profile
+ 
+ import rclpy
+ from rclpy.clock import Clock, ClockType
+@@ -34,15 +37,19 @@ from link_session import LinkSession
+ from topic_wire import TopicWire
+ 
+ 
+-def record_cpu_span(table,key,wall,cpu):
+-    elapsed=time.monotonic_ns()-wall;used=time.thread_time_ns()-cpu
++def record_cpu_span(table,key,wall,cpu,longspans=None,label=None):
++    end=time.monotonic_ns();cpu_end=time.thread_time_ns()
++    elapsed=end-wall;used=cpu_end-cpu
++    if longspans is not None and elapsed>=10_000_000:
++        longspans.append(dict(stage=label or key,begin_monotonic_ns=wall,end_monotonic_ns=end,
++            begin_thread_cpu_ns=cpu,end_thread_cpu_ns=cpu_end))
+     row=table.setdefault(key,dict(calls=0,wall_ns=0,thread_cpu_ns=0,max_wall_ns=0))
+     row['calls']+=1;row['wall_ns']+=elapsed;row['thread_cpu_ns']+=used
+     row['max_wall_ns']=max(row['max_wall_ns'],elapsed)
+ 
+ 
+ def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limit=None,
+-                        profile=None,entity_label=None):
++                        profile=None,entity_label=None,longspans=None,side=None):
+     """Bounded productive ready sets, in original SingleThreaded order.
+ 
+     Keep the executor's cached iterator across cap hits. Do not wait/rebuild an
+@@ -69,7 +76,8 @@ def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limi
+             ready_set['shutdown']=True
+             break
+         finally:
+-            if profile is not None:record_cpu_span(profile['wait'],wait_kind,wait_wall,wait_cpu)
++            if profile is not None:record_cpu_span(profile['wait'],wait_kind,wait_wall,wait_cpu,
++                    longspans,f'{side}:wait:{wait_kind}')
+         began=time.monotonic()
+         if profile is not None:handler_wall=time.monotonic_ns();handler_cpu=time.thread_time_ns()
+         try:
+@@ -77,7 +85,8 @@ def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limi
+             if handler.exception() is not None:raise handler.exception()
+             handler.result()
+         finally:
+-            if profile is not None:record_cpu_span(profile['handlers'],entity_label(entity),handler_wall,handler_cpu)
++            if profile is not None:record_cpu_span(profile['handlers'],entity_label(entity),handler_wall,handler_cpu,
++                    longspans,f'{side}:handler:{entity_label(entity)}')
+         completed.append((entity,began))
+         ready_set['productive']=True
+         if after_handler is not None:after_handler()
+@@ -85,8 +94,10 @@ def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limi
+ 
+ 
+ class Gateway:
+-    def __init__(self, mode, socket, directory, session_id, *, dispatch_profile=False,control_trace=False):
++    def __init__(self, mode, socket, directory, session_id, *, dispatch_profile=False,control_trace=False,execution_profile=None):
+         self.mode,self.directory,self.session_id=mode,Path(directory),session_id
++        self.execution_profile=load_profile(execution_profile)
++        self.step_quantum_ns=100_000_000 if self.execution_profile is None else self.execution_profile['native_step_quantum_ns']
+         self.records=[];self.direct=deque();self.direct_sequence=0
+         self.contexts=[];self.nodes=[];self.executors=[]
+         self.ready_sets={side:dict(productive=False) for side in ('C','R')}
+@@ -98,8 +109,10 @@ class Gateway:
+             side_span_semantics='max_wall/cpu are accumulated side service time per poll, including pump; not contiguous batches or single-callback spans')
+         self.cpu_profile=(dict(C=dict(wait={},handlers={}),R=dict(wait={},handlers={}),progress={})
+             if dispatch_profile else None)
++        self.profile_longspans=[] if dispatch_profile else None
+         self.profile_labels={}
+         self.last_poll=None
++        self.gc_events=[];self.gc_callback=None
+         for domain,side in ((91,"C"),(92,"R")):
+             context=Context()
+             rclpy.init(context=context,domain_id=domain,signal_handler_options=SignalHandlerOptions.NO)
+@@ -113,6 +126,7 @@ class Gateway:
+         self.guards={r:LocalStop(self.r,r,session_id) for r in (1,2,3)}
+         self.anchor=None;self.gz=None;self.previous_clock=None;self.step_pending=None
+         self.connected=False;self.failure=None;self.wires=None
++        self.hub_poll_closed=False
+         self.health_status=self.r.create_publisher(String,"/net01/gateway_state",
+             QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
+         self.clock_pub=self.c.create_publisher(ClockMessage,"/clock",qos_profile_sensor_data)
+@@ -125,6 +139,23 @@ class Gateway:
+         self.journal_pub=self.c.create_publisher(String,"/net01/controller_records",100)
+         self.journal_timer=self.c.create_timer(.02,self.export_controller_records,
+             clock=Clock(clock_type=ClockType.STEADY_TIME))
++        if dispatch_profile:
++            self.gc_callback=self.observe_gc
++            gc.callbacks.append(self.gc_callback)
++        # This process has the existing supervisor wall bound. Refcounting stays
++        # active; only automatic cyclic scans are deferred until teardown.
++        self.gc_original_enabled=gc.isenabled()
++        self.gc_runtime=dict(original_enabled=self.gc_original_enabled,
++            original_thresholds=gc.get_threshold(),
++            scope='Only this supervisor-bounded Gateway; deferred cycles can increase RAM, not a long-lived-service policy')
++        gc.disable()
++        self.gc_runtime['disabled_monotonic_ns']=time.monotonic_ns()
++        self.gc_runtime['processing_start_enabled']=gc.isenabled()
++
++    def observe_gc(self,phase,info):
++        self.gc_events.append(dict(phase=phase,generation=info['generation'],
++            monotonic_ns=time.monotonic_ns(),thread_cpu_ns=time.thread_time_ns(),
++            collected=info.get('collected'),uncollectable=info.get('uncollectable')))
+ 
+     def record(self,kind,**fields):
+         self.records.append(dict(dict(kind=kind,monotonic_ns=time.monotonic_ns(),gz_ns=self.gz),**fields))
+@@ -206,6 +237,10 @@ class Gateway:
+ 
+     def receive(self,meta,body,rpc):
+         self.record("destination_complete_message",meta=meta,rpc_id=rpc,cdr_bytes=len(body))
++        if self.failure is not None:
++            self.record("post_fault_business_discarded",meta=meta,rpc_id=rpc,
++                cdr_sha256=hashlib.sha256(body).hexdigest())
++            return
+         if self.link.receive(meta,body,rpc):return
+         if self.wires is None:raise RuntimeError("Business received before link qualification")
+         flow=meta["flow"]
+@@ -238,6 +273,13 @@ class Gateway:
+         self.health_status.publish(String(data=json.dumps(data)))
+ 
+     def export_controller_records(self):
++        if self.cpu_profile is None:return self._export_controller_records()
++        wall=time.monotonic_ns();cpu=time.thread_time_ns()
++        try:return self._export_controller_records()
++        finally:record_cpu_span(self.cpu_profile['progress'],'journal_call_inclusive',wall,cpu,
++            self.profile_longspans,'C:journal_call_inclusive')
++
++    def _export_controller_records(self):
+         # This is a C-side source. Only actual delivered flow95 reaches R runtime.
+         path=self.directory/"controller/allocation-events.jsonl"
+         if not path.exists() or self.wires is None:return
+@@ -260,6 +302,13 @@ class Gateway:
+         # Stay alive to spin real R Cancel/GetResult/PAUSE and zero publishers.
+ 
+     def poll(self):
++        if self.cpu_profile is None:return self._poll()
++        wall=time.monotonic_ns();cpu=time.thread_time_ns()
++        try:return self._poll()
++        finally:record_cpu_span(self.cpu_profile['progress'],'poll_inclusive',wall,cpu,
++            self.profile_longspans,'poll_inclusive')
++
++    def _poll(self):
+         now=time.monotonic()
+         if self.last_poll is not None:self.dispatch_stats['max_poll_gap_wall_s']=max(
+             self.dispatch_stats['max_poll_gap_wall_s'],now-self.last_poll)
+@@ -281,7 +330,7 @@ class Gateway:
+                 completed,_=drain_current_ready(executor,node,self.ready_sets[side],
+                     self.progress_transport,callback_limit=min(4,caps[side]-used[side]),
+                     profile=None if self.cpu_profile is None else self.cpu_profile[side],
+-                    entity_label=self.profile_entity)
++                    entity_label=self.profile_entity,longspans=self.profile_longspans,side=side)
+                 if side=='C':
+                     if completed:self.c_empty_until=0.
+                     elif not self.ready_sets[side]['shutdown']:
+@@ -314,23 +363,30 @@ class Gateway:
+         if self.cpu_profile is None:return self._progress_transport()
+         wall=time.monotonic_ns();cpu=time.thread_time_ns()
+         try:return self._progress_transport()
+-        finally:record_cpu_span(self.cpu_profile['progress'],'total_inclusive',wall,cpu)
++        finally:record_cpu_span(self.cpu_profile['progress'],'total_inclusive',wall,cpu,
++            self.profile_longspans,'progress_inclusive')
+ 
+     def _progress_transport(self):
+         # Called between completed ROS handlers as well as at the outer boundary.
+         # Never wait for native progress or replace actual receipts with a cache.
++        if not self.hub_poll_closed:
++            if self.cpu_profile is not None:wall=time.monotonic_ns();cpu=time.thread_time_ns()
++            try:self.hub.poll()
++            except (EOFError,ConnectionError,OSError) as error:
++                self.hub_poll_closed=True
++                self.record("owned_transport_poll_closed",error=repr(error))
++                self.fail(repr(error))
++            finally:
++                if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'hub_poll',wall,cpu,
++                    self.profile_longspans,'progress:hub_poll')
+         if self.failure:return
+-        if self.cpu_profile is not None:wall=time.monotonic_ns();cpu=time.thread_time_ns()
+-        try:self.hub.poll()
+-        finally:
+-            if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'hub_poll',wall,cpu)
+         if self.anchor is None or not self.hub.ready:return
+         latest=self.gz-self.anchor["offset_ns"]
+         if latest-self.hub.horizon_ns>120_000_000:
+             self.fail("mapped_ns3_clock_lag_above_0.12sim");return
+         if self.step_pending is not None and self.hub.horizon_ns>=self.step_pending:self.step_pending=None
+         if self.step_pending is None and latest>self.hub.horizon_ns:
+-            self.step_pending=min(latest,self.hub.horizon_ns+100_000_000)
++            self.step_pending=min(latest,self.hub.horizon_ns+self.step_quantum_ns)
+             self.hub.clock(self.step_pending)
+         if self.mode=="A":
+             if not self.connected:
+@@ -343,7 +399,8 @@ class Gateway:
+                     meta["endpoint_receive_monotonic_ns"]=time.monotonic_ns()
+                     self.receive(meta,body,rpc)
+             finally:
+-                if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'direct_batch',wall,cpu)
++                if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'direct_batch',wall,cpu,
++                    self.profile_longspans,'progress:direct_batch')
+         else:
+             if not self.link.sent and self.hub.horizon_ns>=600_000_000:self.link.begin()
+             if self.link.ready and not self.connected:
+@@ -351,7 +408,9 @@ class Gateway:
+ 
+     def persist(self):
+         data=dict(mode=self.mode,anchor=self.anchor,failure=self.failure,
+-            dispatch_stats=self.dispatch_stats,
++            execution_profile=self.execution_profile,
++            transport_poll_closed=self.hub_poll_closed,
++            dispatch_stats=self.dispatch_stats,gc_runtime=self.gc_runtime,
+             cleanup=self.cleanup,
+             records=self.records,link=self.link.events,
+             guards={str(r):dict(events=g.guard.events,actions=g.records,
+@@ -361,7 +420,8 @@ class Gateway:
+             data["topics"]={side:dict(captured=w.captured,delivered=w.delivered) for side,w in self.wires.items()}
+             data["bound_masks"]=self.bound_r.received
+         if self.cpu_profile is not None:
+-            data['dispatch_cpu_profile']=dict(aggregates=self.cpu_profile,
++            data['dispatch_cpu_profile']=dict(aggregates=self.cpu_profile,longspans=self.profile_longspans,gc_events=self.gc_events,
++                longspan_semantics='RAM spans >=10ms; end-order append. Poll includes all work; handler includes journal_call; progress total includes hub/direct. Inclusive parents and children must not be summed. Diagnostic timing overhead, not capacity proof.',
+                 semantics='wait and handler totals exclude progress; progress total_inclusive contains hub_poll/direct_batch; do not sum parent and children. Async handler measures executing step only, not pending Future time. RAM only, diagnostic opt-in.')
+         if self.hub.control_trace is not None:
+             data['clock_control_trace']=dict(events=self.hub.control_trace,
+@@ -372,6 +432,20 @@ class Gateway:
+             cleanup=self.cleanup))+"\n")
+ 
+     def close(self):
++        try:clean=self._close()
++        finally:
++            self.gc_runtime['processing_end_monotonic_ns']=time.monotonic_ns()
++            self.gc_runtime['processing_end_enabled']=gc.isenabled()
++            if self.gc_original_enabled:gc.enable()
++            else:gc.disable()
++            if self.gc_callback is not None:gc.callbacks.remove(self.gc_callback)
++            self.gc_runtime.update(restored_enabled=gc.isenabled(),
++                restored_thresholds=gc.get_threshold(),restored_monotonic_ns=time.monotonic_ns(),
++                peak_rss_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
++        self.persist()
++        return clean
++
++    def _close(self):
+         self.cleanup=dict(phase="after_supervisor_stop_and_owned_cleanup_attempts",
+             end_frame_flushed=False,executor_shutdown=[],resources_destroyed=False,
+             unresolved_C_RPC=[],unresolved_R_RPC=[],unresolved_local_cleanup_futures={})
+@@ -382,15 +456,20 @@ class Gateway:
+                 for r,action in self.action_r.items() for (f,i),response in action.requests.items() if response is None]
+         self.cleanup["unresolved_local_cleanup_futures"]={str(r):sum(not f.done() for f in guard.futures)
+             for r,guard in self.guards.items()}
+-        self.hub.end()
+         # This bounded flush is after stop/owned launch cleanup, never a guard
+         # delay in the active loop. A failed END remains a separate hub failure.
+-        until=time.monotonic()+3
+-        try:
+-            while self.hub.outgoing and time.monotonic()<until:self.hub.poll()
+-            self.cleanup["end_frame_flushed"]=not self.hub.outgoing
+-            if self.hub.outgoing:self.record("owned_END_not_fully_flushed")
+-        except (EOFError,ConnectionError,OSError) as error:self.record("owned_END_failed",error=repr(error))
++        if self.hub_poll_closed:
++            self.record("owned_END_not_sent_channel_closed")
++        else:
++            self.hub.end()
++            until=time.monotonic()+3
++            try:
++                while self.hub.outgoing and time.monotonic()<until:self.hub.poll()
++                self.cleanup["end_frame_flushed"]=not self.hub.outgoing
++                if self.hub.outgoing:self.record("owned_END_not_fully_flushed")
++            except (EOFError,ConnectionError,OSError) as error:
++                self.hub_poll_closed=True
++                self.record("owned_END_failed",error=repr(error))
+         self.hub.close()
+         for executor,node,context in zip(self.executors,self.nodes,self.contexts):
+             executor.remove_node(node)
+@@ -399,7 +478,6 @@ class Gateway:
+         self.cleanup["resources_destroyed"]=True
+         # Saved means successful persistence after bounded teardown, not a
+         # synthetic response/terminal for any unresolved callback above.
+-        self.persist()
+         return self.cleanup["end_frame_flushed"] and self.failure is None
+ 
+ 
+@@ -410,8 +488,10 @@ def main():
+     parser.add_argument("--directory",type=Path,required=True)
+     parser.add_argument("--session-id",type=int,required=True)
+     parser.add_argument('--control-trace',action='store_true')
++    parser.add_argument('--dispatch-profile',action='store_true')
++    parser.add_argument('--execution-profile')
+     args=parser.parse_args()
+-    node=Gateway(args.mode,args.socket,args.directory,args.session_id,control_trace=args.control_trace)
++    node=Gateway(args.mode,args.socket,args.directory,args.session_id,dispatch_profile=args.dispatch_profile,control_trace=args.control_trace,execution_profile=args.execution_profile)
+     stopping=False
+     def stop(signum,frame):
+         nonlocal stopping
+diff --git a/net01/native/CMakeLists.txt b/net01/native/CMakeLists.txt
+index 38096ad..c8d24bd 100644
+--- a/net01/native/CMakeLists.txt
++++ b/net01/native/CMakeLists.txt
+@@ -5,10 +5,16 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
+ if(NOT NS3_DIR OR NOT CONFIG_HEADER_DIR)
+   message(FATAL_ERROR "Explicit existing NS3_DIR and generated CONFIG_HEADER_DIR required")
+ endif()
++set(NS3_BUILD_DIR "${NS3_DIR}/build" CACHE PATH "Matching ns3 generated headers and libraries")
++set(NS3_LIBRARY_SUFFIX "-default" CACHE STRING "Exact ns3 library suffix; explicitly empty for official release")
+ add_executable(net01-payload payload_transport.cc)
+-target_include_directories(net01-payload PRIVATE "${NS3_DIR}/build/include" "${CONFIG_HEADER_DIR}")
++find_package(Threads REQUIRED)
++target_link_libraries(net01-payload PRIVATE Threads::Threads)
++target_include_directories(net01-payload PRIVATE "${NS3_BUILD_DIR}/include" "${CONFIG_HEADER_DIR}")
+ foreach(module wifi internet csma mobility propagation spectrum antenna energy network core traffic-control bridge)
+-  find_library(ns3_${module} NAMES ns3.40-${module}-default PATHS "${NS3_DIR}/build/lib" NO_DEFAULT_PATH REQUIRED)
++  # Reconfiguration must not retain a library found for a different tree/suffix.
++  unset(ns3_${module} CACHE)
++  find_library(ns3_${module} NAMES ns3.40-${module}${NS3_LIBRARY_SUFFIX} PATHS "${NS3_BUILD_DIR}/lib" NO_DEFAULT_PATH REQUIRED)
+   target_link_libraries(net01-payload PRIVATE "${ns3_${module}}")
+ endforeach()
+-set_target_properties(net01-payload PROPERTIES BUILD_RPATH "${NS3_DIR}/build/lib")
++set_target_properties(net01-payload PROPERTIES BUILD_RPATH "${NS3_BUILD_DIR}/lib")
+diff --git a/net01/native/event_ledger.h b/net01/native/event_ledger.h
+new file mode 100644
+index 0000000..31c14ed
+--- /dev/null
++++ b/net01/native/event_ledger.h
+@@ -0,0 +1,122 @@
++#pragma once
++// NET01 diagnostic ledger only. No simulator objects or payload bytes cross threads.
++#include <algorithm>
++#include <condition_variable>
++#include <cstdint>
++#include <deque>
++#include <exception>
++#include <fstream>
++#include <iomanip>
++#include <mutex>
++#include <sstream>
++#include <stdexcept>
++#include <string>
++#include <thread>
++#include <time.h>
++
++struct LedgerRecord {
++  enum Layout {Raw,Packet,Sniff,Drop,Node} layout=Raw;
++  uint64_t sequence=0,packetUid=0;
++  int64_t ns3=0,monotonic=0;
++  uint32_t node=0,packetBytes=0,frequency=0,reason=0;
++  double signal=0,noise=0;
++  std::string kind,fields;
++};
++
++class EventLedger {
++  static constexpr uint64_t capacity=16384;
++  std::ofstream stream;
++  std::thread writer;
++  std::mutex mutex;
++  std::condition_variable changed;
++  std::deque<LedgerRecord> pending;
++  bool asynchronous=false,stopping=false;
++  std::exception_ptr writeError;
++  uint64_t attempted=0,captured=0,written=0,flushed=0,flushTarget=0,peak=0,maxOwnedBytes=0;
++  int64_t writerCpu=0;
++  static int64_t cpu() {timespec t;clock_gettime(CLOCK_THREAD_CPUTIME_ID,&t);return int64_t(t.tv_sec)*1000000000+t.tv_nsec;}
++  void write(const LedgerRecord& r) {
++    stream<<"{\"kind\":\""<<r.kind<<"\",\"ns3_ns\":"<<r.ns3<<",\"monotonic_ns\":"<<r.monotonic;
++    if(r.layout==LedgerRecord::Raw)stream<<r.fields;
++    else {
++      stream<<",\"node\":"<<r.node;
++      if(r.layout!=LedgerRecord::Node)stream<<",\"packet_uid\":"<<r.packetUid<<",\"packet_bytes\":"<<r.packetBytes;
++      if(r.layout==LedgerRecord::Drop)stream<<",\"reason\":"<<r.reason;
++      if(r.layout==LedgerRecord::Sniff) {
++        std::ostringstream fields;fields<<std::setprecision(12)<<",\"frequency_mhz\":"<<r.frequency
++          <<",\"signal_dbm\":"<<r.signal<<",\"noise_dbm\":"<<r.noise<<",\"snr_db\":"<<r.signal-r.noise;
++        stream<<fields.str();
++      }
++    }
++    stream<<"}\n";
++  }
++  void work() {
++    const auto start=cpu();
++    try {
++      for(;;) {
++        LedgerRecord row;uint64_t mark=0;
++        {
++          std::unique_lock<std::mutex> lock(mutex);
++          changed.wait(lock,[&]{return stopping || !pending.empty() || flushTarget>flushed;});
++          if(written>=flushTarget && flushTarget>flushed)mark=written;
++          else if(!pending.empty()) {row=std::move(pending.front());pending.pop_front();}
++          else if(stopping)break;
++        }
++        if(mark) {
++          stream.flush();std::lock_guard<std::mutex> lock(mutex);flushed=mark;changed.notify_all();
++        } else {
++          if(row.sequence!=written+1)throw std::runtime_error("Ledger sequence mismatch");
++          write(row);std::lock_guard<std::mutex> lock(mutex);++written;
++        }
++      }
++      stream.flush();std::lock_guard<std::mutex> lock(mutex);flushed=written;
++    } catch(...) {std::lock_guard<std::mutex> lock(mutex);writeError=std::current_exception();}
++    writerCpu=cpu()-start;changed.notify_all();
++  }
++public:
++  void open(const std::string& path,bool enabled) {
++    asynchronous=enabled;stream.exceptions(std::ios::badbit|std::ios::failbit);stream.open(path);
++    if(asynchronous)writer=std::thread([this]{work();});
++  }
++  void raw(const std::string& kind,int64_t ns3,int64_t monotonic,const std::string& fields) {
++    if(!asynchronous) {
++      ++attempted;++captured;
++      stream<<"{\"kind\":\""<<kind<<"\",\"ns3_ns\":"<<ns3<<",\"monotonic_ns\":"<<monotonic<<fields<<"}\n";
++      ++written;return;
++    }
++    LedgerRecord row;row.kind=kind;row.ns3=ns3;row.monotonic=monotonic;row.fields=fields;capture(std::move(row));
++  }
++  void capture(LedgerRecord row) {
++    std::lock_guard<std::mutex> lock(mutex);++attempted;
++    if(writeError)std::rethrow_exception(writeError);
++    // captured-written includes the writer's inflight row, not just deque size.
++    if(captured-written>=capacity)throw std::runtime_error("Ledger pending capacity16384 exceeded");
++    row.sequence=++captured;
++    maxOwnedBytes=std::max<uint64_t>(maxOwnedBytes,sizeof(row)+row.kind.capacity()+row.fields.capacity());
++    pending.push_back(std::move(row));peak=std::max(peak,captured-written);changed.notify_one();
++  }
++  uint64_t barrier() {
++    if(!asynchronous)return captured; // Original serial buffering is unchanged.
++    std::unique_lock<std::mutex> lock(mutex);const auto target=captured;flushTarget=target;changed.notify_one();
++    changed.wait(lock,[&]{return flushed>=target || writeError;});
++    if(writeError)std::rethrow_exception(writeError);
++    return target;
++  }
++  void finish() {
++    if(writer.joinable()) {
++      {std::lock_guard<std::mutex> lock(mutex);stopping=true;changed.notify_one();}
++      writer.join();
++    }
++    if(writeError)std::rethrow_exception(writeError);
++    stream.flush();
++    if(attempted!=captured || captured!=written)throw std::runtime_error("Ledger captured/written mismatch");
++  }
++  void status(const std::string& path,int64_t finalNs3,int64_t modelCpu,const std::string& error) {
++    std::ofstream out(path);out.exceptions(std::ios::badbit|std::ios::failbit);
++    out<<"{\"async\":"<<(asynchronous?"true":"false")<<",\"captured\":"<<captured<<",\"written\":"<<written
++      <<",\"attempted\":"<<attempted<<",\"pending_capacity_records\":"<<capacity<<",\"peak_pending_including_inflight\":"<<peak
++      <<",\"max_record_owned_bytes\":"<<maxOwnedBytes<<",\"writer_cpu_ns\":"<<writerCpu
++      <<",\"model_cpu_ns\":"<<modelCpu<<",\"final_ns3_ns\":"<<finalNs3<<",\"failed\":"<<(error.empty()?"false":"true")<<"}\n";
++    out.close();
++  }
++};
+diff --git a/net01/native/payload_transport.cc b/net01/native/payload_transport.cc
+index 4f3a1e2..c47b134 100644
+--- a/net01/native/payload_transport.cc
++++ b/net01/native/payload_transport.cc
+@@ -7,6 +7,7 @@
+ #include "ns3/mobility-module.h"
+ #include "ns3/propagation-module.h"
+ #include "network_config.h"
++#include "event_ledger.h"
+ #include <array>
+ #include <cmath>
+ #include <chrono>
+@@ -18,11 +19,20 @@
+ #include <set>
+ #include <sstream>
+ #include <vector>
++#include <unistd.h>
+ 
+ using namespace ns3;
+ static constexpr uint32_t WIRE_HEADER=36, CHUNK=1200-WIRE_HEADER;
+-static std::ofstream ledger;
++static EventLedger ledger;
++static bool asyncLedger=false,simulatorDestroyAttempted=false;
++static std::string outputDirectory;
++static int64_t finalNs3=0,modelCpuStart=0;
+ static std::map<std::string,uint64_t> counts;
++static bool controlTrace=false;
++static bool cpuProfile=false;
++static int64_t activeHorizon=0;
++static uint64_t outputMessages=0,outputBytes=0;
++static int64_t outputWall=0,outputCpu=0;
+ static int64_t mono() {
+   return std::chrono::duration_cast<std::chrono::nanoseconds>(
+       std::chrono::steady_clock::now().time_since_epoch()).count();
+@@ -31,10 +41,52 @@ static int64_t threadCpu() {
+   timespec value;clock_gettime(CLOCK_THREAD_CPUTIME_ID,&value);
+   return int64_t(value.tv_sec)*1000000000+value.tv_nsec;
+ }
++enum CpuCategory {FieldsCpu,EventCpu,SniffCpu,TraceCpu,DropCpu,ReceiveCpu,TransmitCpu,CpuCategories};
++static const char* cpuNames[]={"fields","event","sniff","packet_trace","rx_drop","receive","transmit"};
++struct CpuTotal {uint64_t calls=0;int64_t inclusive=0,exclusive=0;};
++static std::array<CpuTotal,CpuCategories> cpuTotals;
++struct CpuScope {
++  CpuCategory category;CpuScope* parent=nullptr;int64_t begin=0,children=0;
++  static CpuScope* current;
++  explicit CpuScope(CpuCategory value):category(value) {
++    if(cpuProfile) {parent=current;begin=threadCpu();current=this;}
++  }
++  ~CpuScope() {
++    if(!cpuProfile)return;
++    const auto elapsed=threadCpu()-begin;auto& total=cpuTotals[category];
++    ++total.calls;total.inclusive+=elapsed;total.exclusive+=elapsed-children;
++    if(parent)parent->children+=elapsed;
++    current=parent;
++  }
++};
++CpuScope* CpuScope::current=nullptr;
++static void controlBoundary(const std::string& kind,const std::string& fields="") {
++  if(!controlTrace)return;
++  const auto line="NET01_CONTROL {\"kind\":\""+kind+"\",\"monotonic_ns\":"+std::to_string(mono())+
++    ",\"thread_cpu_ns\":"+std::to_string(threadCpu())+",\"ns3_ns\":"+std::to_string(Simulator::Now().GetNanoSeconds())+
++    ",\"horizon_ns\":"+std::to_string(activeHorizon)+fields+"}\n";
++  NS_ABORT_MSG_IF(::write(STDERR_FILENO,line.data(),line.size())!=static_cast<ssize_t>(line.size()),"Diagnostic boundary write failed");
++}
++static void cpuBoundary(const std::string& kind) {
++  if(!cpuProfile)return;
++  std::string fields=",\"cumulative_cpu\":{";
++  for(unsigned i=0;i<CpuCategories;++i) {
++    if(i)fields+=",";
++    const auto& total=cpuTotals[i];
++    fields+="\""+std::string(cpuNames[i])+"\":{\"calls\":"+std::to_string(total.calls)+
++      ",\"inclusive_ns\":"+std::to_string(total.inclusive)+",\"exclusive_ns\":"+std::to_string(total.exclusive)+"}";
++  }
++  fields+="},\"active_scope\":\""+std::string(CpuScope::current?cpuNames[CpuScope::current->category]:"none")+"\"";
++  controlBoundary(kind,fields);
++}
+ static void event(const std::string& kind,const std::string& fields="") {
++  CpuScope measure(EventCpu);
+   ++counts[kind];
+-  ledger<<"{\"kind\":\""<<kind<<"\",\"ns3_ns\":"<<Simulator::Now().GetNanoSeconds()
+-        <<",\"monotonic_ns\":"<<mono()<<fields<<"}\n";
++  ledger.raw(kind,Simulator::Now().GetNanoSeconds(),mono(),fields);
++}
++static LedgerRecord primitiveRecord(const std::string& kind,LedgerRecord::Layout layout) {
++  ++counts[kind];LedgerRecord row;row.kind=kind;row.layout=layout;
++  row.ns3=Simulator::Now().GetNanoSeconds();row.monotonic=mono();return row;
+ }
+ class Fragment : public Header {
+ public:
+@@ -57,6 +109,7 @@ public:
+   void Print(std::ostream& o) const override {o<<id<<":"<<offset<<"/"<<total;}
+ };
+ static std::string fields(const Fragment& h) {
++  CpuScope measure(FieldsCpu);
+   return ",\"message_id\":"+std::to_string(h.id)+",\"from\":"+std::to_string(h.from)+
+     ",\"to\":"+std::to_string(h.to)+",\"flow\":"+std::to_string(h.flow)+
+     ",\"offset\":"+std::to_string(h.offset)+",\"total\":"+std::to_string(h.total)+
+@@ -77,6 +130,7 @@ static void expire(uint64_t id) {
+   if(it!=pending.end()) {event("incomplete_expired",fields(it->second.h)+",\"received_bytes\":"+std::to_string(it->second.received));pending.erase(it);expired.insert(id);}
+ }
+ static void receive(Ptr<Socket> socket) {
++  CpuScope measure(ReceiveCpu);
+   Address address;
+   while(auto packet=socket->RecvFrom(address)) {
+     NS_ABORT_MSG_IF(packet->GetSize()<WIRE_HEADER,"Truncated NET01 UDP frame");
+@@ -96,29 +150,56 @@ static void receive(Ptr<Socket> socket) {
+     packet->CopyData(m.data.data()+h.offset,h.length);m.pieces[index]=true;m.received+=h.length;
+     if(m.received==h.total) {
+       event("message_deliver",fields(h));
++      const bool detailed=controlTrace && m.data.size()>=16384;
++      const auto outputFields=",\"message_id\":"+std::to_string(h.id)+",\"bytes\":"+std::to_string(m.data.size());
++      if(detailed)controlBoundary("rx_output_begin",outputFields);
++      if(detailed)cpuBoundary("cpu_large_output_checkpoint");
++      const auto outputBeginMono=controlTrace?mono():0,outputBeginCpu=controlTrace?threadCpu():0;
+       std::cout<<"RX "<<unsigned(h.from)<<" "<<unsigned(h.to)<<" "<<h.flow<<" "<<h.id<<" "<<h.source<<" "<<Simulator::Now().GetNanoSeconds()<<" "<<m.data.size()<<"\n";
+       std::cout.write(reinterpret_cast<const char*>(m.data.data()),m.data.size());std::cout<<"\n";std::cout.flush();
++      if(controlTrace) {++outputMessages;outputBytes+=m.data.size();outputWall+=mono()-outputBeginMono;outputCpu+=threadCpu()-outputBeginCpu;}
++      if(detailed)controlBoundary("rx_output_end",outputFields);
+       completed.insert(h.id);pending.erase(it);
+     }
+   }
+ }
+ static void simpleTrace(std::string kind,uint32_t node,Ptr<const Packet> packet) {
++  CpuScope measure(TraceCpu);
++  if(asyncLedger) {
++    auto row=primitiveRecord(kind,LedgerRecord::Packet);row.node=node;row.packetUid=packet->GetUid();row.packetBytes=packet->GetSize();
++    ledger.capture(std::move(row));return;
++  }
+   event(kind,",\"node\":"+std::to_string(node)+",\"packet_uid\":"+std::to_string(packet->GetUid())+",\"packet_bytes\":"+std::to_string(packet->GetSize()));
+ }
+ static void rxDrop(uint32_t node,Ptr<const Packet> packet,WifiPhyRxfailureReason reason) {
++  CpuScope measure(DropCpu);
++  if(asyncLedger) {
++    auto row=primitiveRecord("phy_rx_drop",LedgerRecord::Drop);row.node=node;row.packetUid=packet->GetUid();row.packetBytes=packet->GetSize();row.reason=static_cast<unsigned>(reason);
++    ledger.capture(std::move(row));return;
++  }
+   event("phy_rx_drop",",\"node\":"+std::to_string(node)+",\"packet_uid\":"+
+       std::to_string(packet->GetUid())+",\"packet_bytes\":"+std::to_string(packet->GetSize())+
+       ",\"reason\":"+std::to_string(static_cast<unsigned>(reason)));
+ }
+ static void sniff(uint32_t node,Ptr<const Packet> packet,uint16_t freq,WifiTxVector tx,MpduInfo mpdu,SignalNoiseDbm power,uint16_t sta) {
++  CpuScope measure(SniffCpu);
++  if(asyncLedger) {
++    auto row=primitiveRecord("wifi_sniffer_rx",LedgerRecord::Sniff);row.node=node;row.packetUid=packet->GetUid();row.packetBytes=packet->GetSize();row.frequency=freq;row.signal=power.signal;row.noise=power.noise;
++    ledger.capture(std::move(row));return;
++  }
+   std::ostringstream s;s<<std::setprecision(12)<<",\"node\":"<<node<<",\"packet_uid\":"<<packet->GetUid()
+     <<",\"packet_bytes\":"<<packet->GetSize()<<",\"frequency_mhz\":"<<freq<<",\"signal_dbm\":"<<power.signal
+     <<",\"noise_dbm\":"<<power.noise<<",\"snr_db\":"<<power.signal-power.noise;
+   event("wifi_sniffer_rx",s.str());
+ }
+-static void retry(uint32_t node,Mac48Address address) {event("mac_data_retry",",\"node\":"+std::to_string(node));}
+-static void finalDrop(uint32_t node,Mac48Address address) {event("mac_final_data_drop",",\"node\":"+std::to_string(node));}
++static void nodeEvent(const std::string& kind,uint32_t node) {
++  if(asyncLedger) {auto row=primitiveRecord(kind,LedgerRecord::Node);row.node=node;ledger.capture(std::move(row));}
++  else event(kind,",\"node\":"+std::to_string(node));
++}
++static void retry(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);nodeEvent("mac_data_retry",node);}
++static void finalDrop(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);nodeEvent("mac_final_data_drop",node);}
+ static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identity,std::vector<uint8_t> body) {
++  CpuScope measure(TransmitCpu);
+   for(uint32_t offset=0;offset<body.size();offset+=CHUNK) {
+     auto h=identity;h.offset=offset;h.length=std::min(CHUNK,static_cast<uint32_t>(body.size())-offset);
+     auto packet=Create<Packet>(body.data()+offset,h.length);packet->AddHeader(h);
+@@ -128,15 +209,16 @@ static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identit
+   }
+ }
+ 
+-int main(int argc,char** argv) {
++static int modelMain(int argc,char** argv) {
+   std::string directory,profile="B";
+-  bool controlTrace=false;
+   struct StepTrace {int64_t horizon,beginMono,beginCpu,beginNs3,endMono,endCpu,endNs3;};
+   std::vector<StepTrace> controlSteps;
+-  CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);cmd.Parse(argc,argv);
++  CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);
++  cmd.AddValue("cpuProfile","Diagnostic own-callback cumulative CPU only; use with controlTrace",cpuProfile);
++  cmd.AddValue("asyncLedger","Move diagnostic formatting to one bounded writer",asyncLedger);cmd.Parse(argc,argv);
++  // asyncLedger remains opt-in; the reference keeps serial formatting/buffering.
+   NS_ABORT_MSG_IF(directory.empty() || (profile!="B" && profile!="C"),"Explicit output and locked profile needed");
+-  ledger.open(directory+"/packet-ledger.jsonl");
+-  NS_ABORT_MSG_IF(!ledger,"Cannot open packet ledger");
++  outputDirectory=directory;ledger.open(directory+"/packet-ledger.jsonl",asyncLedger);
+   std::ofstream(directory+"/configured-lock.json")<<kRawConfig;
+   RngSeedManager::SetSeed(kSeed);RngSeedManager::SetRun(kRun);
+   Config::SetDefault("ns3::WifiMacQueue::MaxSize",QueueSizeValue(QueueSize(std::to_string(kQueuePackets)+"p")));
+@@ -224,11 +306,21 @@ int main(int argc,char** argv) {
+       NS_ABORT_MSG_IF(!in || horizon<Simulator::Now().GetNanoSeconds() || horizon-Simulator::Now().GetNanoSeconds()>100000000,"Invalid/nonmonotonic/>.1s horizon");
+       StepTrace trace{};
+       if(controlTrace)trace={horizon,mono(),threadCpu(),Simulator::Now().GetNanoSeconds(),0,0,0};
++      activeHorizon=horizon;
++      outputMessages=outputBytes=0;outputWall=outputCpu=0;
++      cpuBoundary("cpu_step_begin");
++      controlBoundary("step_begin");
+       Simulator::Stop(NanoSeconds(horizon-Simulator::Now().GetNanoSeconds()));Simulator::Run();
++      controlBoundary("step_end",",\"output_messages\":"+std::to_string(outputMessages)+",\"output_bytes\":"+std::to_string(outputBytes)+
++        ",\"output_wall_ns\":"+std::to_string(outputWall)+",\"output_cpu_ns\":"+std::to_string(outputCpu));
+       if(controlTrace) {
+         trace.endCpu=threadCpu();trace.endMono=mono();trace.endNs3=Simulator::Now().GetNanoSeconds();controlSteps.push_back(trace);
+       }
++      cpuBoundary("cpu_step_end");
+       event("horizon_return",",\"requested_horizon_ns\":"+std::to_string(horizon));
++      controlBoundary("ledger_barrier_begin");
++      ledger.barrier();
++      controlBoundary("ledger_barrier_end");
+       std::cout<<"STEP "<<Simulator::Now().GetNanoSeconds()<<"\n"<<std::flush;
+     } else if(op=="RADIO") {
+       int enabled;in>>enabled;
+@@ -247,6 +339,28 @@ int main(int argc,char** argv) {
+       <<",\"begin_thread_cpu_ns\":"<<t.beginCpu<<",\"begin_ns3_ns\":"<<t.beginNs3<<",\"end_monotonic_ns\":"<<t.endMono
+       <<",\"end_thread_cpu_ns\":"<<t.endCpu<<",\"end_ns3_ns\":"<<t.endNs3<<"}\n";
+   }
+-  std::ofstream summary(directory+"/native-summary.json");summary<<"{\"counts\":{";bool first=true;for(auto& [name,n]:counts){if(!first)summary<<",";first=false;summary<<"\""<<name<<"\":"<<n;}summary<<"},\"pending_incomplete\":"<<pending.size()<<",\"completed_messages\":"<<completed.size()<<",\"ns3_ns\":"<<Simulator::Now().GetNanoSeconds()<<"}\n";
+-  Simulator::Destroy();return 0;
++  finalNs3=Simulator::Now().GetNanoSeconds();
++  simulatorDestroyAttempted=true;Simulator::Destroy();
++  ledger.finish();
++  ledger.status(directory+"/ledger-status.json",finalNs3,threadCpu()-modelCpuStart,"");
++  std::ofstream summary(directory+"/native-summary.json");summary<<"{\"counts\":{";bool first=true;for(auto& [name,n]:counts){if(!first)summary<<",";first=false;summary<<"\""<<name<<"\":"<<n;}summary<<"},\"pending_incomplete\":"<<pending.size()<<",\"completed_messages\":"<<completed.size()<<",\"ns3_ns\":"<<finalNs3<<"}\n";
++  return 0;
++}
++
++int main(int argc,char** argv) {
++  modelCpuStart=threadCpu();
++  try {return modelMain(argc,argv);}
++  catch(const std::exception& error) {
++    const std::string firstError=error.what();
++    std::cerr<<"NET01 ledger/model failure: "<<firstError<<"\n";
++    if(!simulatorDestroyAttempted) {
++      finalNs3=Simulator::Now().GetNanoSeconds();
++      try {simulatorDestroyAttempted=true;Simulator::Destroy();}
++      catch(const std::exception& cleanup) {std::cerr<<"Simulator cleanup: "<<cleanup.what()<<"\n";}
++    }
++    try {ledger.finish();}catch(const std::exception& cleanup) {std::cerr<<"Ledger cleanup: "<<cleanup.what()<<"\n";}
++    try {ledger.status(outputDirectory+"/ledger-status.json",finalNs3,threadCpu()-modelCpuStart,firstError);}
++    catch(const std::exception& save) {std::cerr<<"Ledger status save failed: "<<save.what()<<"\n";}
++    return 1;
++  }
+ }
+diff --git a/net01/net_scene_launch.py b/net01/net_scene_launch.py
+index 5880cf7..3f53c3d 100644
+--- a/net01/net_scene_launch.py
++++ b/net01/net_scene_launch.py
+@@ -5,11 +5,13 @@ the separate original headquarters runs in C. NET01_SESSION_ID and the frozen
+ GZ01_PEER_GUARD profile are required. This file does not authorize a launch.
+ """
+ import importlib.util
++import json
+ from pathlib import Path
+ 
+ from launch import LaunchDescription
+-from launch.actions import ExecuteProcess, GroupAction, OpaqueFunction, SetEnvironmentVariable
++from launch.actions import ExecuteProcess, GroupAction, IncludeLaunchDescription, OpaqueFunction, SetEnvironmentVariable
+ from launch.utilities import perform_substitutions
++from execution_profile import load_profile
+ 
+ HERE=Path(__file__).resolve().parent
+ FROZEN_PATH=HERE.parent/'workspace/gz01/scene_launch.py'
+@@ -20,11 +22,32 @@ _spec.loader.exec_module(_frozen)
+ 
+ def launch_setup(context):
+     original=_frozen.launch_setup(context)
++    profile=load_profile(context.environment.get('NET01_EXECUTION_PROFILE') or None)
++    if profile is not None:
++        directory=Path(context.environment['BASE01_RUN_DIR'])
++        world=directory/'effective_world.sdf'
++        original_rate='<real_time_update_rate>1000</real_time_update_rate>'
++        world_text=world.read_text()
++        if world_text.count(original_rate)!=1:raise RuntimeError('Expected one original world wall update rate')
++        world.write_text(world_text.replace(original_rate,
++            f"<real_time_update_rate>{profile['world_real_time_update_rate']}</real_time_update_rate>"))
++        params=directory/'net01-clock-params.yaml'
++        params.write_text(f"/gazebo:\n  ros__parameters:\n    publish_rate: {profile['clock_publish_rate_sim_hz']}\n")
++        adaptation=world.with_suffix('.adaptation.json')
++        metadata=json.loads(adaptation.read_text())
++        metadata.update(ode_update_hz=profile['world_real_time_update_rate'],
++            execution_profile=profile['id'],clock_source=dict(node='/gazebo',parameter='publish_rate',
++                value=profile['clock_publish_rate_sim_hz'],params_file=str(params)))
++        adaptation.write_text(json.dumps(metadata,indent=2)+'\n')
++        (directory/'execution-profile.json').write_text(json.dumps(profile,indent=2)+'\n')
+     merge_script=str(_frozen.PHASE/'workspace/src/merge_map/merge_map/merge_map.py')
+     peer_script=str(FROZEN_PATH.with_name('peer_keepout.py'))
+     session_id=context.environment['NET01_SESSION_ID']
+     placed=[];counts={'merge':0,'peer':0}
+     for action in original:
++        if profile is not None and isinstance(action,IncludeLaunchDescription) and 'world' in dict(action.launch_arguments):
++            action=IncludeLaunchDescription(action.launch_description_source,
++                launch_arguments=[*action.launch_arguments,('params_file',str(params))])
+         # Only the original plain ExecuteProcess commands are inspected. Node
+         # command substitutions remain deferred to their original execution.
+         if type(action) is ExecuteProcess:
+diff --git a/net01/run_network_case.py b/net01/run_network_case.py
+index 9f214be..106e2de 100644
+--- a/net01/run_network_case.py
++++ b/net01/run_network_case.py
+@@ -22,7 +22,9 @@ import run_case as original
+ import rclpy
+ from std_msgs.msg import String
+ from std_srvs.srv import Trigger,Empty
++from rcl_interfaces.srv import GetParameters
+ from rclpy.qos import QoSProfile,DurabilityPolicy
++from execution_profile import load_profile
+ 
+ 
+ class NetworkObserver(original.Observer):
+@@ -63,35 +65,59 @@ class NetworkObserver(original.Observer):
+ 
+     def startup_navigation(self,deadline):
+         # One real, no-goal clock/pause test inside this admitted Gazebo start.
++        profile=load_profile(os.environ.get('NET01_EXECUTION_PROFILE') or None)
++        quantum_sim_s=.1 if profile is None else profile['native_step_quantum_ns']/1e9
++        if profile is not None:
++            response=self.call(GetParameters,'/gazebo/get_parameters',GetParameters.Request(names=['publish_rate']))
++            actual=response.values[0].double_value
++            self.event('network_execution_clock_parameter',node='/gazebo',parameter='publish_rate',
++                expected=profile['clock_publish_rate_sim_hz'],actual=actual,profile=profile['id'])
++            if actual!=profile['clock_publish_rate_sim_hz']:
++                raise RuntimeError('Actual gazebo publish_rate differs from admitted execution profile')
++        def reject_latched_failure():
++            if self.network_fault:raise RuntimeError('Network guardian INVALID: '+self.network_fault)
++            state=self.network_state
++            if state is not None:
++                if state['failure']:raise RuntimeError('Network gateway INVALID: '+state['failure'])
++                for robot,guard in state['guards'].items():
++                    if guard['fault']:raise RuntimeError(f'STA{robot} INVALID: '+guard['fault'])
+         request_ns=time.monotonic_ns()
+         self.call(Empty,"/pause_physics",Empty.Request())
+         completed_ns=time.monotonic_ns()
+         try:
+             while time.monotonic()<deadline:
+                 rclpy.spin_once(self,timeout_sec=.01)
+-                if self.network_state["gateway_monotonic_ns"]>completed_ns:break
+-            else:raise RuntimeError("Original startup deadline: no post-pause gateway clock baseline")
++                reject_latched_failure()
++                state=self.network_state
++                if (state is not None and state['gateway_monotonic_ns']>completed_ns
++                    and time.monotonic()-self.network_received<=.3 and state['anchor'] is not None
++                    and state['gz_ns']==int(round(self.sim*1e9))
++                    and state['ns3_ns']==state['gz_ns']-state['anchor']['offset_ns']):break
++            else:raise RuntimeError("Original startup deadline: no fresh aligned post-pause clock baseline")
+             before=dict(self.network_state);baseline_ns=time.monotonic_ns();baseline_R_sim=self.sim
+             until=time.monotonic()+.35
+             if until>deadline:raise RuntimeError("Original startup deadline leaves no pause observation window")
+-            while time.monotonic()<until:rclpy.spin_once(self,timeout_sec=.01)
++            while time.monotonic()<until:
++                rclpy.spin_once(self,timeout_sec=.01)
++                reject_latched_failure()
+             paused=dict(self.network_state);observed_ns=time.monotonic_ns();observed_R_sim=self.sim
+         finally:self.call(Empty,"/unpause_physics",Empty.Request())
+         anchor=before["anchor"]
+         if not anchor or paused["anchor"]!=anchor:raise RuntimeError("Network clock anchor changed")
+         if paused["gz_ns"]-before["gz_ns"]>100_000_000:
+-            raise RuntimeError("Gazebo /clock did not pause within fixed .1sim quantum")
++            raise RuntimeError("Gazebo /clock exceeded legacy .1sim pause advance bound")
+         if paused["ns3_ns"]>paused["gz_ns"]-anchor["offset_ns"]:
+             raise RuntimeError("ns-3 advanced beyond actual Gazebo clock")
+         if paused["ns3_ns"]-before["ns3_ns"]>100_000_000:
+-            raise RuntimeError("ns-3 progressed during Gazebo pause beyond one admitted horizon")
++            raise RuntimeError("ns-3 progressed during Gazebo pause beyond legacy .1sim advance bound")
+         self.event("real_clock_no_goal_pause_resume",before=before,paused=paused,
+             pause_request_monotonic_ns=request_ns,pause_completed_monotonic_ns=completed_ns,
+             baseline_monotonic_ns=baseline_ns,observed_monotonic_ns=observed_ns,
+             baseline_R_sim=baseline_R_sim,observed_R_sim=observed_R_sim,
+-            test_wall_s=.35,quantum_sim_s=.1,max_lag_sim_s=.12)
++            test_wall_s=.35,quantum_sim_s=quantum_sim_s,legacy_pause_advance_bound_sim_s=.1,max_lag_sim_s=.12)
+         while time.monotonic()<deadline:
+             rclpy.spin_once(self,timeout_sec=.01)
++            reject_latched_failure()
+             if not self.peer_error():break
+         else:raise RuntimeError("Original startup deadline: no fresh sources after clock resume")
+         super().startup_navigation(deadline)
+@@ -136,7 +162,9 @@ def popen(command,*args,**kwargs):
+         gateway=subprocess.Popen([sys.executable,"-B",str(HERE/"gateway.py"),
+             "--mode",os.environ["NET01_MODE"],"--socket",os.environ["NET01_SOCKET"],
+             "--session-id",os.environ["NET01_SESSION_ID"],"--directory",str(observer.directory)]+
+-            (['--control-trace'] if os.environ['NET01_CONTROL_TRACE']=='1' else []),
++            (['--control-trace'] if os.environ['NET01_CONTROL_TRACE']=='1' else [])+
++            (['--dispatch-profile'] if os.environ.get('NET01_DISPATCH_PROFILE')=='1' else [])+
++            (['--execution-profile',os.environ['NET01_EXECUTION_PROFILE']] if os.environ.get('NET01_EXECUTION_PROFILE') else []),
+             stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+         original.record_process(observer.directory,"network_gateway",gateway.pid)
+     elif len(command)>2 and command[:2]==["python3","-B"] and command[2]==str(FROZEN/"gz01/headquarters.py"):
+diff --git a/net01/tools/packet_hub.py b/net01/tools/packet_hub.py
+index ab02ec8..9474057 100644
+--- a/net01/tools/packet_hub.py
++++ b/net01/tools/packet_hub.py
+@@ -29,7 +29,7 @@ async def main(args):
+     command = [str(args.native.resolve()), f"--output={native_output.resolve()}", f"--profile={args.profile}"]
+     if args.control_trace:command.append('--controlTrace=1')
+     process = await asyncio.create_subprocess_exec(*command, stdin=asyncio.subprocess.PIPE,
+-        stdout=asyncio.subprocess.PIPE, stderr=stderr)
++        stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE if args.control_trace else stderr)
+     result = dict(argv=command, scope="Unix IPC to actual ns3 full-payload transport", status="FAIL")
+     server = None
+     owner = None
+@@ -41,26 +41,44 @@ async def main(args):
+     next_message = 0
+     known_horizon = 0
+     control_trace=[]
++    native_boundaries=[]
++    native_stderr=[]
+     def control_event(kind,**fields):
+         if args.control_trace:control_trace.append(dict(kind=kind,monotonic_ns=time.monotonic_ns(),**fields))
+ 
++    async def native_diagnostics():
++        while line := await process.stderr.readline():
++            received=time.monotonic_ns()
++            native_stderr.append(line)
++            if line.startswith(b'NET01_CONTROL '):
++                row=json.loads(line[len(b'NET01_CONTROL '):])
++                row['hub_receive_monotonic_ns']=received
++                native_boundaries.append(row)
++
++    diagnostics_task=asyncio.create_task(native_diagnostics()) if args.control_trace else None
++
+     async def native_rx():
+         try:
+             while line := await process.stdout.readline():
+                 words = line.decode().split()
+                 if words[0] == "RX":
+                     sender, receiver, flow, mid, source, stamp, size = map(int, words[1:])
++                    detailed=args.control_trace and size>=16384
++                    if detailed:control_event('hub_payload_read_begin',message_id=mid,bytes=size)
+                     payload = await process.stdout.readexactly(size)
+                     if await process.stdout.readexactly(1) != b"\n":
+                         raise ValueError("Native body framing mismatch")
++                    if detailed:control_event('hub_payload_read_end',message_id=mid,bytes=size)
+                     meta = dict(kind="delivered", sender=sender, receiver=receiver, flow=flow,
+                         message_id=mid, source_stamp_ns=source, ns3_rx_ns=stamp,
+                         hub_receive_monotonic_ns=time.monotonic_ns(), bytes=size)
+                     deliveries.append(meta)
+                     if owner is None:
+                         raise RuntimeError("Native delivery without an owned endpoint session")
++                    if detailed:control_event('hub_owner_output_begin',message_id=mid,bytes=size)
+                     owner.write(json.dumps(meta).encode()+b"\n"+payload)
+                     await owner.drain()
++                    if detailed:control_event('hub_owner_output_end',message_id=mid,bytes=size)
+                 elif words[0] == "STEP":
+                     control_event('hub_native_STEP_received',horizon_ns=int(words[1]))
+                     await received_steps.put(int(words[1]))
+@@ -164,6 +182,10 @@ async def main(args):
+             await process.wait()
+         if owner is not None:
+             owner.close()
++        if diagnostics_task is not None:
++            await diagnostics_task
++            stderr.writelines(native_stderr)
++            (args.output/'native-control-boundaries.json').write_text(json.dumps(native_boundaries,indent=2)+'\n')
+         stderr.close()
+         (args.output/"hub-ingress.json").write_text(json.dumps(ingress, indent=2)+"\n")
+         (args.output/"hub-deliveries.json").write_text(json.dumps(deliveries, indent=2)+"\n")

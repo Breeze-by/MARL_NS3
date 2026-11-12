@@ -1,0 +1,24 @@
+{
+  "stage": "NET-01E",
+  "branch": "net-01e/controller-replay",
+  "content_commit": "d5b783380a329a57b5f343e4d22c9cce9dacf9d8",
+  "production_candidate_commit": "d11529e8181e49ac8d211f30cdb3e6a5044ad0aa",
+  "report": "net01e/NET01E_FINAL_REPORT.md",
+  "independent_review": "net01e/reviews/NET01E_INDEPENDENT_REVIEW.md",
+  "checksum_manifest": {
+    "path": "net01e/SHA256SUMS",
+    "sha256": "42e681ad8c5d381772147265987621db25b48a9146d314844d4ed25bd52c3343",
+    "scope": "272 selected content files; metadata excludes its own identity"
+  },
+  "policy_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+  "overall": "BLOCKED / NO-GO NET-02",
+  "production_activation": false,
+  "new_gazebo_episodes": 0,
+  "planned_gazebo_max": 12,
+  "backup": {
+    "path": "/home/zhuyulab/ns3-workspace/net-01d/backups/net01e-final-handoff.bundle",
+    "scope": "Reachable Git history through final metadata commit, including source, corpus and new tracked raw evidence; old untracked raw evidence remains in original paths"
+  },
+  "remote_push": false,
+  "stop": "No additional experiments, policy changes or NET-02 started"
+}

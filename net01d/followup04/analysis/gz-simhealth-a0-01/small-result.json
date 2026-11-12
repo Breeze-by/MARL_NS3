@@ -1,0 +1,793 @@
+{
+  "preflight": true,
+  "smoke_started": true,
+  "observed_stop": true,
+  "error": null,
+  "end_reason": "simulation_budget",
+  "sim_elapsed": 180.0,
+  "wall_elapsed": 284.2284456479829,
+  "autonomy_start_sim": 22.83,
+  "natural_complete": false,
+  "hazard": null,
+  "active_cancel_pass": false,
+  "lifecycle_pause_healthy": true,
+  "engineering_closed_loop_pass": true,
+  "run_integrity": true,
+  "distances": {
+    "tb1": 10.091864100138311,
+    "tb2": 6.904987701974307,
+    "tb3": 19.156278492846223
+  },
+  "minimum_pair_distance": 0.7463074782353072,
+  "final_request_ownership": {
+    "closed": true,
+    "authority_stopped": true,
+    "requests": 14,
+    "unresolved_requests": [],
+    "owned_goals": {
+      "tb1": [
+        "27b60ae64f894e278db7e640c55b1733",
+        "7683ae2678224f80b8af67fa4cedbf19",
+        "b66a23757e154c5c94c4e00197176d89",
+        "cb4c8515cce94742ab5791aab79fa4b1",
+        "d4f75d6650f04b529c0b9a943b25265a",
+        "eb8df28c770941fab4a67e4260388ca5",
+        "f70c5771d1ec44968a9a6fabb58b0d0b"
+      ],
+      "tb2": [
+        "25e91375031649c0bb1e30294a992e33",
+        "3e6aacd89c214c9ea6b69b7f4e017dcd",
+        "55407e7d209642468882ea5f4892a1fb"
+      ],
+      "tb3": [
+        "045eb738e904443395ee038d1833ef7f",
+        "565f1b9e62484bae813eb529b64bdac5",
+        "ecd35dcb791942c990cf924f0507f26a",
+        "f747c1e4f775402f87029ad4fe50a294"
+      ]
+    },
+    "unterminated_UUIDs": {
+      "tb1": [],
+      "tb2": [],
+      "tb3": []
+    },
+    "record_errors": []
+  },
+  "action_statuses": {
+    "tb1": [
+      [
+        "27b60ae64f894e278db7e640c55b1733",
+        2
+      ],
+      [
+        "27b60ae64f894e278db7e640c55b1733",
+        4
+      ],
+      [
+        "7683ae2678224f80b8af67fa4cedbf19",
+        2
+      ],
+      [
+        "7683ae2678224f80b8af67fa4cedbf19",
+        4
+      ],
+      [
+        "b66a23757e154c5c94c4e00197176d89",
+        2
+      ],
+      [
+        "b66a23757e154c5c94c4e00197176d89",
+        4
+      ],
+      [
+        "cb4c8515cce94742ab5791aab79fa4b1",
+        2
+      ],
+      [
+        "cb4c8515cce94742ab5791aab79fa4b1",
+        3
+      ],
+      [
+        "cb4c8515cce94742ab5791aab79fa4b1",
+        5
+      ],
+      [
+        "d4f75d6650f04b529c0b9a943b25265a",
+        2
+      ],
+      [
+        "d4f75d6650f04b529c0b9a943b25265a",
+        4
+      ],
+      [
+        "eb8df28c770941fab4a67e4260388ca5",
+        2
+      ],
+      [
+        "eb8df28c770941fab4a67e4260388ca5",
+        4
+      ],
+      [
+        "f70c5771d1ec44968a9a6fabb58b0d0b",
+        2
+      ],
+      [
+        "f70c5771d1ec44968a9a6fabb58b0d0b",
+        4
+      ]
+    ],
+    "tb2": [
+      [
+        "25e91375031649c0bb1e30294a992e33",
+        2
+      ],
+      [
+        "25e91375031649c0bb1e30294a992e33",
+        4
+      ],
+      [
+        "3e6aacd89c214c9ea6b69b7f4e017dcd",
+        2
+      ],
+      [
+        "3e6aacd89c214c9ea6b69b7f4e017dcd",
+        4
+      ],
+      [
+        "55407e7d209642468882ea5f4892a1fb",
+        2
+      ],
+      [
+        "55407e7d209642468882ea5f4892a1fb",
+        4
+      ]
+    ],
+    "tb3": [
+      [
+        "045eb738e904443395ee038d1833ef7f",
+        2
+      ],
+      [
+        "045eb738e904443395ee038d1833ef7f",
+        4
+      ],
+      [
+        "565f1b9e62484bae813eb529b64bdac5",
+        2
+      ],
+      [
+        "565f1b9e62484bae813eb529b64bdac5",
+        4
+      ],
+      [
+        "ecd35dcb791942c990cf924f0507f26a",
+        2
+      ],
+      [
+        "ecd35dcb791942c990cf924f0507f26a",
+        4
+      ],
+      [
+        "f747c1e4f775402f87029ad4fe50a294",
+        2
+      ],
+      [
+        "f747c1e4f775402f87029ad4fe50a294",
+        4
+      ]
+    ]
+  },
+  "status": "A0_BUSINESS180_RVALID_HARNESS_EXIT0_CONTROLLER_EXIT1_NOT_ACCEPTED",
+  "runtime_commit": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "activation_commit": "67c5713",
+  "host_command_exit": 0,
+  "host_wall_s": 356.14917745802086,
+  "runner_exit": 0,
+  "hub_exit": 0,
+  "native_exit": 0,
+  "gateway_process_exit": 0,
+  "network_run_integrity": true,
+  "NN": 35,
+  "accepted_per_robot": {
+    "tb1": 7,
+    "tb2": 3,
+    "tb3": 4
+  },
+  "success_per_robot": {
+    "tb1": 6,
+    "tb2": 3,
+    "tb3": 4
+  },
+  "raw_canceled_per_robot": {
+    "tb1": 1,
+    "tb2": 0,
+    "tb3": 0
+  },
+  "controller_process_exit": 1,
+  "controller_teardown_error": "Fulluntimestamped rclpy take_message RuntimeError traceback retained; actualcontrollerexit1 observed afterbudgetSIGINT. Exactexceptiononset/type/unique cause UNRESOLVED",
+  "process_events": [
+    {
+      "utc": "2026-11-11T10:56:51.552447+00:00",
+      "wall": 1794394611.5524542,
+      "sim": 14.18,
+      "kind": "time_control_authority_evidence",
+      "basis": "not_created",
+      "pid": null,
+      "native_exit": null,
+      "original_authority_stopped": true
+    },
+    {
+      "utc": "2026-11-11T10:56:57.891202+00:00",
+      "wall": 1794394617.8912292,
+      "sim": 18.5,
+      "kind": "observed_stop",
+      "positions": {
+        "tb1": [
+          0.7256074740753632,
+          -0.15002410574531558,
+          0.007811807518280329,
+          6.12259776434145e-05,
+          4.908689168369197e-05
+        ],
+        "tb2": [
+          0.3505766247255423,
+          -0.8000228640012221,
+          0.007819135681622544,
+          5.870619405099577e-05,
+          4.858050239795684e-05
+        ],
+        "tb3": [
+          1.1004856156815288,
+          -0.8000189705605314,
+          0.007824925815958032,
+          6.820393502963783e-05,
+          4.828463913143513e-05
+        ]
+      },
+      "per_robot_wall": {
+        "tb1": 611659.373317512,
+        "tb2": 611659.373356807,
+        "tb3": 611659.373372406
+      },
+      "sim_advanced": 1.1000000000000014,
+      "drive_received": {
+        "tb1": [
+          18.497,
+          120.0,
+          18.46,
+          0.0,
+          0.0,
+          6.646899320087554e-06,
+          2.0824592366143058e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb2": [
+          18.485,
+          120.0,
+          18.46,
+          0.0,
+          0.0,
+          -6.6933707028711556e-06,
+          7.541256558701609e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb3": [
+          18.497,
+          120.0,
+          18.46,
+          0.0,
+          0.0,
+          -3.468782950916551e-05,
+          -2.0670373443462877e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "rpc_errors": [],
+      "authority_stopped": true,
+      "ownership_closed": true,
+      "owned_goals": {
+        "tb1": [],
+        "tb2": [],
+        "tb3": []
+      },
+      "request_ownership": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 0,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "lifecycle_pause_healthy": true
+    },
+    {
+      "utc": "2026-11-11T11:01:48.481973+00:00",
+      "wall": 1794394908.482001,
+      "sim": 202.83,
+      "kind": "smoke_bound",
+      "sim_elapsed": 180.0,
+      "wall_elapsed": 284.2284456479829,
+      "reason": "simulation_budget"
+    },
+    {
+      "utc": "2026-11-11T11:01:48.483145+00:00",
+      "wall": 1794394908.4831517,
+      "sim": 202.83,
+      "kind": "process_signal",
+      "process": "exploration",
+      "pid": 860524,
+      "signal": "SIGINT"
+    },
+    {
+      "utc": "2026-11-11T11:01:50.191015+00:00",
+      "wall": 1794394910.1910439,
+      "sim": 203.89,
+      "kind": "process_exit",
+      "process": "exploration",
+      "code": 1
+    },
+    {
+      "utc": "2026-11-11T11:01:50.191133+00:00",
+      "wall": 1794394910.1911387,
+      "sim": 203.89,
+      "kind": "time_control_authority_evidence",
+      "basis": "actual_process_poll",
+      "pid": 860524,
+      "native_exit": 1,
+      "original_authority_stopped": true
+    },
+    {
+      "utc": "2026-11-11T11:01:53.796643+00:00",
+      "wall": 1794394913.7966697,
+      "sim": 206.3,
+      "kind": "observed_stop",
+      "positions": {
+        "tb1": [
+          -2.9349628660961766,
+          4.650926956151817,
+          0.007819252885567458,
+          7.599945745942456e-05,
+          1.1276100819997165e-05
+        ],
+        "tb2": [
+          4.2026044344682605,
+          2.15949536112699,
+          0.007819123868577962,
+          5.9353946651277806e-05,
+          5.025513669122264e-05
+        ],
+        "tb3": [
+          4.93943713234625,
+          -2.1316252891849365,
+          0.007830667042467996,
+          6.056684434271779e-05,
+          5.148969115239819e-05
+        ]
+      },
+      "per_robot_wall": {
+        "tb1": 611955.278697476,
+        "tb2": 611955.278732142,
+        "tb3": 611955.278746287
+      },
+      "sim_advanced": 1.1000000000000227,
+      "drive_received": {
+        "tb1": [
+          206.279,
+          5483.0,
+          206.27,
+          0.0,
+          0.0,
+          -3.37308376278228e-05,
+          -3.035539395742406e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb2": [
+          206.267,
+          1738.0,
+          206.25,
+          0.0,
+          0.0,
+          -1.092012562177253e-05,
+          3.7526803595308886e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb3": [
+          206.279,
+          3630.0,
+          206.27,
+          0.0,
+          0.0,
+          -1.7624882496180542e-05,
+          -2.720292945863553e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "rpc_errors": [],
+      "authority_stopped": true,
+      "ownership_closed": true,
+      "owned_goals": {
+        "tb1": [
+          "27b60ae64f894e278db7e640c55b1733",
+          "7683ae2678224f80b8af67fa4cedbf19",
+          "b66a23757e154c5c94c4e00197176d89",
+          "cb4c8515cce94742ab5791aab79fa4b1",
+          "d4f75d6650f04b529c0b9a943b25265a",
+          "eb8df28c770941fab4a67e4260388ca5",
+          "f70c5771d1ec44968a9a6fabb58b0d0b"
+        ],
+        "tb2": [
+          "25e91375031649c0bb1e30294a992e33",
+          "3e6aacd89c214c9ea6b69b7f4e017dcd",
+          "55407e7d209642468882ea5f4892a1fb"
+        ],
+        "tb3": [
+          "045eb738e904443395ee038d1833ef7f",
+          "565f1b9e62484bae813eb529b64bdac5",
+          "ecd35dcb791942c990cf924f0507f26a",
+          "f747c1e4f775402f87029ad4fe50a294"
+        ]
+      },
+      "request_ownership": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 14,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "27b60ae64f894e278db7e640c55b1733",
+            "7683ae2678224f80b8af67fa4cedbf19",
+            "b66a23757e154c5c94c4e00197176d89",
+            "cb4c8515cce94742ab5791aab79fa4b1",
+            "d4f75d6650f04b529c0b9a943b25265a",
+            "eb8df28c770941fab4a67e4260388ca5",
+            "f70c5771d1ec44968a9a6fabb58b0d0b"
+          ],
+          "tb2": [
+            "25e91375031649c0bb1e30294a992e33",
+            "3e6aacd89c214c9ea6b69b7f4e017dcd",
+            "55407e7d209642468882ea5f4892a1fb"
+          ],
+          "tb3": [
+            "045eb738e904443395ee038d1833ef7f",
+            "565f1b9e62484bae813eb529b64bdac5",
+            "ecd35dcb791942c990cf924f0507f26a",
+            "f747c1e4f775402f87029ad4fe50a294"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "lifecycle_pause_healthy": true
+    },
+    {
+      "utc": "2026-11-11T11:01:53.894961+00:00",
+      "wall": 1794394913.8949945,
+      "sim": 206.3,
+      "kind": "process_signal",
+      "process": "bag",
+      "pid": 858856,
+      "signal": "SIGINT"
+    },
+    {
+      "utc": "2026-11-11T11:01:54.369796+00:00",
+      "wall": 1794394914.3698242,
+      "sim": 206.66,
+      "kind": "process_exit",
+      "process": "bag",
+      "code": 0
+    },
+    {
+      "utc": "2026-11-11T11:01:54.385093+00:00",
+      "wall": 1794394914.3851008,
+      "sim": 206.67,
+      "kind": "gateway_poststop_supervision",
+      "pid": 858854,
+      "begin_monotonic_ns": 611955867429131,
+      "initial_deadline_ns": 611975867429131,
+      "total_deadline_ns": 612015867429131,
+      "cleanup_deadline_ns": 612039965402062,
+      "hard_deadline_ns": 612519051881315,
+      "extension_eligible": true
+    },
+    {
+      "utc": "2026-11-11T11:01:54.385185+00:00",
+      "wall": 1794394914.3851907,
+      "sim": 206.67,
+      "kind": "process_signal",
+      "process": "network_gateway",
+      "pid": 858854,
+      "signal": "SIGINT",
+      "deadline_monotonic_ns": 611975867429131
+    },
+    {
+      "utc": "2026-11-11T11:01:54.749334+00:00",
+      "wall": 1794394914.749362,
+      "sim": 206.67,
+      "kind": "gateway_evidence_grace",
+      "pid": 858854,
+      "resources_closed": {
+        "phase": "resources_closed",
+        "pid": 858854,
+        "session_id": 2026111152,
+        "case": "/mnt/net01d/followup04/runs/gz-simhealth-a0-01",
+        "monotonic_ns": 611956224241093,
+        "safe_closed": true,
+        "cleanup": {
+          "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+          "end_frame_flushed": true,
+          "executor_shutdown": [
+            true,
+            true
+          ],
+          "resources_destroyed": true,
+          "unresolved_C_RPC": [],
+          "unresolved_R_RPC": [],
+          "unresolved_local_cleanup_futures": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "a0_registered_owned_unknown_or_active": {
+            "1": [],
+            "2": [],
+            "3": []
+          },
+          "a0_safety_connections": 0,
+          "main_thread_sampler": {
+            "joined": true,
+            "failure": null,
+            "stop_begin_mono_ns": 611956022581421,
+            "stop_end_mono_ns": 611956022782486,
+            "collector_cpu_ns": 8968365857,
+            "samples": 16698,
+            "skipped_periods": 43,
+            "proc_fds_remaining": 0,
+            "proc_close_errors": []
+          }
+        }
+      },
+      "grace_deadline_ns": 612005867429131,
+      "total_deadline_ns": 612015867429131
+    },
+    {
+      "utc": "2026-11-11T11:02:01.233571+00:00",
+      "wall": 1794394921.2336006,
+      "sim": 206.67,
+      "kind": "process_exit",
+      "process": "network_gateway",
+      "code": 0
+    },
+    {
+      "utc": "2026-11-11T11:02:01.233678+00:00",
+      "wall": 1794394921.2336855,
+      "sim": 206.67,
+      "kind": "network_gateway_before_launch_exit",
+      "native_exit": 0
+    },
+    {
+      "utc": "2026-11-11T11:02:01.233740+00:00",
+      "wall": 1794394921.2337456,
+      "sim": 206.67,
+      "kind": "process_signal",
+      "process": "launch",
+      "pid": 858855,
+      "signal": "SIGINT",
+      "signal_target": "owned_launch_parent_pid",
+      "timeout_wall_s": 20
+    },
+    {
+      "utc": "2026-11-11T11:02:04.936162+00:00",
+      "wall": 1794394924.9362009,
+      "sim": 206.67,
+      "kind": "process_exit",
+      "process": "launch",
+      "code": 0
+    }
+  ],
+  "controlled_exits": {
+    "coordinator": 0,
+    "clock_R": 0,
+    "clock_C": 0
+  },
+  "controller_final": {
+    "mode": "HOLD",
+    "failure": null,
+    "expected_shutdown": true,
+    "physics_failed": false,
+    "physical_ns": 206670000000,
+    "iterations": 206670,
+    "actual_clock_ns": 206670000000,
+    "native_ACK_ns": 206660000000,
+    "fixed_offset_ns": 10000000,
+    "physical_RPC_inflight": false,
+    "session_id": 2026111152,
+    "gateway_clock_ready": true,
+    "pending_holds": 0,
+    "authority_exited": true,
+    "progress_wall_timeout_ns": 2000000000,
+    "progress_started_monotonic_ns": 611659383876133,
+    "motion_armed_since_monotonic_ns": 611665734500958,
+    "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+    "actual_clock_progress_monotonic_ns": 611955857652199,
+    "native_ACK_progress_monotonic_ns": 611955861032945,
+    "physical_RPC_issued_monotonic_ns": null,
+    "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+    "token_wall_period_ns": 10000000,
+    "planned_realtime_factor": 1.0,
+    "actual_achieved_physical_rtf": 0.6270220662271433,
+    "physical_progress_sim_span_ns": 206670000000,
+    "physical_progress_wall_span_ns": 329605624956,
+    "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+    "next_earliest_wall_ns": 611847543876133,
+    "max_token_lateness_ns": 108312420438,
+    "late_tokens": 20664
+  },
+  "native_load": {
+    "exact_names": true,
+    "all_in_expected_root": true,
+    "actual_exe_matches": true,
+    "actual_parent_is_Hub": true
+  },
+  "native_evidence_storage": {
+    "backend": "owned_tmpfs_then_copy_after_native_exit",
+    "source": "/dev/shm/net01d-f04-gz-simhealth-a0-01",
+    "destination": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a0-01.network/native",
+    "available_tmpfs_bytes": 35263545344,
+    "MemAvailable_bytes": 82320265216,
+    "source_retained": true,
+    "native_exit": 0,
+    "source_files": {
+      "native-summary.json": 449,
+      "ledger-status.json": 250,
+      "control-step-trace.jsonl": 4464482,
+      "transport-config.json": 4101,
+      "wifi-3-0.pcap": 379321,
+      "wifi-2-0.pcap": 379321,
+      "wifi-1-0.pcap": 379321,
+      "wifi-0-0.pcap": 379138,
+      "configured-lock.json": 3994,
+      "packet-ledger.jsonl": 8293229
+    },
+    "source_bytes": 14283606,
+    "copied_files": {
+      "wifi-1-0.pcap": 379321,
+      "packet-ledger.jsonl": 8293229,
+      "control-step-trace.jsonl": 4464482,
+      "configured-lock.json": 3994,
+      "ledger-status.json": 250,
+      "wifi-3-0.pcap": 379321,
+      "wifi-2-0.pcap": 379321,
+      "native-summary.json": 449,
+      "wifi-0-0.pcap": 379138,
+      "transport-config.json": 4101
+    },
+    "copied_bytes": 14283606,
+    "complete": true,
+    "copy_wall_s": 0.025137668941169977
+  },
+  "A0_saved": {
+    "saved": true,
+    "direct_reference": true,
+    "business_wires_installed": false,
+    "registered_owned_unknown_or_active": 0,
+    "safety_connections": 0
+  },
+  "A0_policy_transport": "original direct DDS; Unix is UUID safety registration/evidence only",
+  "A0_business": {
+    "installed": false,
+    "native_ingress_messages": 0,
+    "native_delivered_messages": 0,
+    "direct_reference": true
+  },
+  "gateway_save": {
+    "saved": true,
+    "mode": "A",
+    "records": 20673,
+    "failure": null,
+    "cleanup": {
+      "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+      "end_frame_flushed": true,
+      "executor_shutdown": [
+        true,
+        true
+      ],
+      "resources_destroyed": true,
+      "unresolved_C_RPC": [],
+      "unresolved_R_RPC": [],
+      "unresolved_local_cleanup_futures": {
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "a0_registered_owned_unknown_or_active": {
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "a0_safety_connections": 0,
+      "main_thread_sampler": {
+        "joined": true,
+        "failure": null,
+        "stop_begin_mono_ns": 611956022581421,
+        "stop_end_mono_ns": 611956022782486,
+        "collector_cpu_ns": 8968365857,
+        "samples": 16698,
+        "skipped_periods": 43,
+        "proc_fds_remaining": 0,
+        "proc_close_errors": []
+      }
+    },
+    "persist_wall_s": 2.8069607550278306,
+    "peak_afterpersist_KiB": 356932
+  },
+  "source_held": {
+    "runtime": "aae271f49a8d041285b9a903b3f58d9546985574",
+    "diff_exit": 0,
+    "critical_diff": "",
+    "scope": "Existing45adapter paths; no hash"
+  },
+  "all_owned_gone": true,
+  "owned_source": "net01d/followup04/evidence/gz-simhealth-a0-01-owned-final.json",
+  "daemon_stop_source": "net01d/followup04/evidence/gz-simhealth-a0-01-owned-daemon-stop.json",
+  "activebag_access": "NONE; allwriters/ownedgonebeforecanonical",
+  "canonical": {
+    "exit": 0,
+    "invocations": 1,
+    "small": "metrics.small-result.json"
+  },
+  "actual_RTF": {
+    "autonomy_RTF": 0.6332934044994571,
+    "whole_coordinator_actualACK_RTF": 0.6270220662271433,
+    "scope": "OriginalObserver autonomy180sim/wall distinctfromwhole firsttoken\u2192latestactualACK"
+  },
+  "normal_receipt_sim_and_margin_distributions": "UNMEASURED_NO_GATEWAY_PARSE"
+}

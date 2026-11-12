@@ -1,0 +1,252 @@
+{
+  "status": "PASS_CONTROLLED_ROS_ONLY",
+  "checks": {
+    "unarmed_preflight_STOP_observed_without_permanent_revoke": true,
+    "tb2_fresh_original_arm": true,
+    "tb2_original_pending_UUID_registered": true,
+    "actual_accept_held_and_result_pending_before_local_hook": true,
+    "normal_first_HOLD_revoke_real_zero_pause_no_guard_fault_or_fake_terminal": true,
+    "late_accepted_after_normal_revoke_real_same_UUID_cancel_and_result5": true,
+    "normal_revoke_not_automatically_rearmed": true,
+    "tb1_actual_paused_R_clock_arm": true,
+    "tb1_original_pending_UUID_registered": true,
+    "simhealth_does_not_trip_at_old_wall300": true,
+    "real_2wall_progress_fault_not_manual_trip_or_only_HOLD": true,
+    "paused_actual_ROS_clock_and_actual_zero_PAUSE_commands": true,
+    "both_actual_local_PAUSE_responses_success": true,
+    "real_rclpy_HOLD_waiter_is_pending_before_watchdog": true,
+    "actual_HOLD_response_false_inflight_preserved_no_fake_ACK_or_second_token": true,
+    "controlled_physics_cleanup_reject_preserves_first_timeout": true
+  },
+  "profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+  "domain": 95,
+  "scope": "Real DDS controlled Action/local stop + actual admin callback; synthetic health/bound and paused ROS clock; no native/robot/Nav2/Gazebo/NN/physical-stop claim",
+  "central_network_future": "NOT_EXERCISED; controlled local client pending/terminal recorded, never substituted for C result",
+  "actual_controller_HOLD": {
+    "snapshot": {
+      "mode": "HOLD",
+      "failure": "physics_RPC_wall_timeout",
+      "expected_shutdown": false,
+      "physics_failed": true,
+      "physical_ns": null,
+      "iterations": null,
+      "actual_clock_ns": 100000000000,
+      "native_ACK_ns": 0,
+      "fixed_offset_ns": null,
+      "physical_RPC_inflight": true,
+      "session_id": 62,
+      "gateway_clock_ready": true,
+      "pending_holds": 1,
+      "authority_exited": false,
+      "progress_wall_timeout_ns": 2000000000,
+      "progress_started_monotonic_ns": 601634950369139,
+      "actual_clock_progress_monotonic_ns": 601634950369139,
+      "native_ACK_progress_monotonic_ns": 601634950369139,
+      "physical_RPC_issued_monotonic_ns": 601634950369139,
+      "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+      "token_wall_period_ns": 10000000,
+      "planned_realtime_factor": 1.0,
+      "actual_achieved_physical_rtf": null,
+      "physical_progress_sim_span_ns": null,
+      "physical_progress_wall_span_ns": null,
+      "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+      "next_earliest_wall_ns": 601634960369139,
+      "max_token_lateness_ns": 0,
+      "late_tokens": 0
+    },
+    "physical_issued_monotonic_ns": 601634950369139,
+    "response_observed_monotonic_ns": 601636954284946,
+    "controlled_service_calls": 1,
+    "physical_future_done_at_HOLD": false
+  },
+  "actual_watchdog_wall_s": 2.002234446001239,
+  "actual_fault_progress_context": {
+    "control_receipt_monotonic": 601634.880516382,
+    "last_sim_progress_wall": 601632.89974351,
+    "last_sim": 100.0,
+    "health_receipt_sim": 100.0,
+    "mask_receipt_sim": 100.0,
+    "control_mode": "RUN",
+    "control_failure": null
+  },
+  "original_UUIDs": {
+    "1": "040102030405060708090a0b0c0d0e0f",
+    "2": "040202030405060708090a0b0c0d0e0f"
+  },
+  "controls": {
+    "count": 235,
+    "first": {
+      "data": {
+        "session_id": 61,
+        "mode": "STOP_COUPLED",
+        "failure": null,
+        "authority_exited": true,
+        "expected_shutdown": false
+      },
+      "received_monotonic": 601632.83505735
+    },
+    "last": {
+      "data": {
+        "mode": "HOLD",
+        "failure": "physics_RPC_wall_timeout",
+        "expected_shutdown": false,
+        "physics_failed": true,
+        "physical_ns": null,
+        "iterations": null,
+        "actual_clock_ns": 100000000000,
+        "native_ACK_ns": 0,
+        "fixed_offset_ns": null,
+        "physical_RPC_inflight": true,
+        "session_id": 62,
+        "gateway_clock_ready": true,
+        "pending_holds": 1,
+        "authority_exited": false,
+        "progress_wall_timeout_ns": 2000000000,
+        "progress_started_monotonic_ns": 601634950369139,
+        "actual_clock_progress_monotonic_ns": 601634950369139,
+        "native_ACK_progress_monotonic_ns": 601634950369139,
+        "physical_RPC_issued_monotonic_ns": 601634950369139,
+        "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+        "token_wall_period_ns": 10000000,
+        "planned_realtime_factor": 1.0,
+        "actual_achieved_physical_rtf": null,
+        "physical_progress_sim_span_ns": null,
+        "physical_progress_wall_span_ns": null,
+        "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+        "next_earliest_wall_ns": 601634960369139,
+        "max_token_lateness_ns": 0,
+        "late_tokens": 0
+      },
+      "received_monotonic": 601636.953814191
+    }
+  },
+  "pauses": [
+    {
+      "robot": 2,
+      "command": 1,
+      "monotonic": 601632.880862962
+    },
+    {
+      "robot": 1,
+      "command": 1,
+      "monotonic": 601634.906089094
+    }
+  ],
+  "zero_counts": {
+    "1": 104,
+    "2": 204
+  },
+  "guard_events": {
+    "1": [
+      {
+        "kind": "armed",
+        "robot": "tb1",
+        "session_id": 61,
+        "sim": 100.0,
+        "monotonic": 601632.899752792
+      },
+      {
+        "kind": "latched_INVALID",
+        "reason": "R_sim_clock_progress_wall_timeout",
+        "robot": "tb1",
+        "session_id": 61,
+        "sim": 100.0,
+        "monotonic": 601634.901977956,
+        "receipt_clock_basis": "R-ros-sim-v1",
+        "progress_context": {
+          "control_receipt_monotonic": 601634.880516382,
+          "last_sim_progress_wall": 601632.89974351,
+          "last_sim": 100.0,
+          "health_receipt_sim": 100.0,
+          "mask_receipt_sim": 100.0,
+          "control_mode": "RUN",
+          "control_failure": null
+        }
+      }
+    ],
+    "2": [
+      {
+        "kind": "armed",
+        "robot": "tb2",
+        "session_id": 61,
+        "sim": 100.0,
+        "monotonic": 601632.859317636
+      },
+      {
+        "kind": "control_permission_revoked",
+        "reason": "authority_exited",
+        "sim": 100.0,
+        "monotonic": 601632.879240783,
+        "receipt_clock_basis": "R-ros-sim-v1"
+      }
+    ]
+  },
+  "local_records": {
+    "1": [
+      {
+        "kind": "actual_local_goal_response",
+        "uuid": "040102030405060708090a0b0c0d0e0f",
+        "accepted": true
+      },
+      {
+        "kind": "actual_local_cancel_response",
+        "uuid": "040102030405060708090a0b0c0d0e0f",
+        "return_code": 0,
+        "goals_canceling": [
+          "040102030405060708090a0b0c0d0e0f"
+        ]
+      },
+      {
+        "kind": "actual_local_pause_response",
+        "success": true
+      },
+      {
+        "kind": "actual_local_status_terminal",
+        "uuid": "040102030405060708090a0b0c0d0e0f",
+        "status": 5
+      },
+      {
+        "kind": "actual_local_GetResult",
+        "uuid": "040102030405060708090a0b0c0d0e0f",
+        "status": 5
+      }
+    ],
+    "2": [
+      {
+        "kind": "actual_control_permission_revoked",
+        "reason": "authority_exited",
+        "monotonic_ns": 601632879447216
+      },
+      {
+        "kind": "actual_local_goal_response",
+        "uuid": "040202030405060708090a0b0c0d0e0f",
+        "accepted": true
+      },
+      {
+        "kind": "actual_local_pause_response",
+        "success": true
+      },
+      {
+        "kind": "actual_local_cancel_response",
+        "uuid": "040202030405060708090a0b0c0d0e0f",
+        "return_code": 0,
+        "goals_canceling": [
+          "040202030405060708090a0b0c0d0e0f"
+        ]
+      },
+      {
+        "kind": "actual_local_status_terminal",
+        "uuid": "040202030405060708090a0b0c0d0e0f",
+        "status": 5
+      },
+      {
+        "kind": "actual_local_GetResult",
+        "uuid": "040202030405060708090a0b0c0d0e0f",
+        "status": 5
+      }
+    ]
+  },
+  "executor_shutdown": true,
+  "wall_used_s": 4.275773312081583,
+  "wall_remaining_s": 25.724222411983646
+}

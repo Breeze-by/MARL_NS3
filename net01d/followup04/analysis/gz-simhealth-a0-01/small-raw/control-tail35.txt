@@ -1,0 +1,35 @@
+[INFO] [1794394685.525436964] [headquarters_control_rl]: tb2 navigation result status=4
+[INFO] [1794394691.989330863] [headquarters_control_rl]: tb1 navigation goal accepted uuid=eb8df28c770941fab4a67e4260388ca5
+[INFO] [1794394691.993380024] [headquarters_control_rl]: tb2 navigation goal accepted uuid=3e6aacd89c214c9ea6b69b7f4e017dcd
+[INFO] [1794394708.591086539] [headquarters_control_rl]: tb2 navigation result status=4
+[INFO] [1794394713.152756213] [headquarters_control_rl]: tb1 navigation result status=4
+[INFO] [1794394716.739864630] [headquarters_control_rl]: tb1 navigation goal accepted uuid=b66a23757e154c5c94c4e00197176d89
+[INFO] [1794394723.266840651] [headquarters_control_rl]: tb3 navigation result status=4
+[INFO] [1794394724.788843265] [headquarters_control_rl]: tb3 navigation goal accepted uuid=ecd35dcb791942c990cf924f0507f26a
+[INFO] [1794394794.623784127] [headquarters_control_rl]: tb3 navigation result status=4
+[INFO] [1794394801.617365131] [headquarters_control_rl]: tb1 navigation result status=4
+[INFO] [1794394802.966148552] [headquarters_control_rl]: tb1 navigation goal accepted uuid=f70c5771d1ec44968a9a6fabb58b0d0b
+[INFO] [1794394877.906284590] [headquarters_control_rl]: tb1 navigation result status=4
+[INFO] [1794394881.392958775] [headquarters_control_rl]: tb1 navigation goal accepted uuid=d4f75d6650f04b529c0b9a943b25265a
+[INFO] [1794394887.474457944] [headquarters_control_rl]: tb1 navigation result status=4
+[INFO] [1794394889.263426323] [headquarters_control_rl]: tb1 navigation goal accepted uuid=cb4c8515cce94742ab5791aab79fa4b1
+Traceback (most recent call last):
+  File "/mnt/net01/a0_controller_bootstrap.py", line 64, in <module>
+    main()
+  File "/mnt/net01/a0_controller_bootstrap.py", line 52, in main
+    return frozen.main()
+  File "/mnt/workspace/gz01/headquarters.py", line 245, in main
+    rclpy.spin(node)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+    executor.spin_once()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 812, in spin_once
+    self._spin_once_impl(timeout_sec)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 809, in _spin_once_impl
+    raise handler.exception()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py", line 309, in _execute_coroutine_step
+    result = coro.send(None)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 478, in handler
+    arg = take_from_wait_list(entity)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 400, in _take_subscription
+    msg_info = sub.handle.take_message(sub.msg_type, sub.raw)
+RuntimeError: Unable to convert call argument to Python object (compile in debug mode for details)

@@ -1,0 +1,30 @@
+{
+  "id": "controlled1000-clock100-q10ms-pace10-raster",
+  "world_real_time_update_rate": 1000,
+  "physics_max_step_size_unchanged": 0.001,
+  "clock_publish_rate_sim_hz": 100.0,
+  "native_step_quantum_ns": 10000000,
+  "qualification": {
+    "source_wall_s": 16,
+    "hard_wall_s": 30,
+    "clock_period_wall_s": 0.02,
+    "clock_increment_ns": 10000000,
+    "other_sources": "Original TF/odom/feedback per wall unchanged, source clock subscribed from explicit MOCK_PHYSICS actual step service",
+    "peer": "Original10Hz sim timer, expected10Hz wall only if target1RTF is achieved; actual intervals measured, original gates unchanged",
+    "local_costmap_cells": [
+      200,
+      200
+    ],
+    "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
+    "not_generated_flows": [
+      "89 C merge_map",
+      "95 C controller journal"
+    ]
+  },
+  "scope": "Explicit opt-in common A0/A1/B/C execution profile with planned10wall-ms absolute token grid, target1RTF not guaranteed. Physical10sim-ms tokens and20sim-ms credit unchanged. Achieved sim progress changes wall workload/input availability and may change trajectories; rebuild all comparison references. Legacy source settings, ROS sim timers, safety gates, RF, QoS and frozen policy unchanged. Qualification uses MOCK_PHYSICS, never claims Gazebo; clock_period_wall_s is retained source configuration, not this physical pacer selector. BoundPeer explicitly selects the broadcast-v1 equivalent raster implementation; the original frozen reference remains unchanged on disk and by default. Gateway uses the existing default executor path, with no separate control clock lane. Finite byte/decoded-CDR equivalence and local CPU measurements do not establish Full freshness or RTF. Actual callback timing, wall workload/input availability and trajectories may change; matched A0/A1/B/C references must use this profile. qualification.not_generated_flows describes only the health-only fixture; unchanged Full stages still generate89/95. This is a candidate to evaluate callback-lane overhead, not an established root cause or speedup.",
+  "controlled_physics": true,
+  "physical_token_steps": 10,
+  "physical_lookahead_quanta": 2,
+  "token_wall_period_ns": 10000000,
+  "peer_mask_raster": "broadcast-v1"
+}

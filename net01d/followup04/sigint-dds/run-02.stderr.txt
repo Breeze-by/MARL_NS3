@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py", line 171, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+  File "/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py", line 168, in main
+    return driver(args.output)
+  File "/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py", line 135, in driver
+    code=process.wait(timeout=max(.001,min(5.,deadline-time.monotonic())))
+  File "/usr/lib/python3.10/subprocess.py", line 1209, in wait
+    return self._wait(timeout=timeout)
+  File "/usr/lib/python3.10/subprocess.py", line 1951, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/usr/bin/python3', '-B', '/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py', '--receiver-directory', '/mnt/net01d/followup04/sigint-dds/run-02']' timed out after 5.0 seconds

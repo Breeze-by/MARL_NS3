@@ -1,0 +1,30 @@
+{
+  "source_commit": "4f78de8",
+  "case": "stream-01",
+  "command": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "30s",
+    "python3",
+    "-B",
+    "net01d/followup02/native/run_native_tcp.py",
+    "--case",
+    "stream-01",
+    "--native",
+    "/home/zhuyulab/ns3-workspace/net-01d/build/followup02-native-tcp/net01-payload-tcp"
+  ],
+  "ELF_sha256": "1e8fdb4350ffd0b30826910714c9156179ec02241d7a4498f11583788f9212a8",
+  "fixed_sim_end_s": 8,
+  "active_wall_limit_s": 20,
+  "outer_wall_limit_s": 30,
+  "routes": "0<->1, 0<->2, 0<->3",
+  "probe": "64 bytes each direction before4.01sim; actual six RX required",
+  "payloads": "each direction160704 and1048576 bytes at4sim with original RPC8prefix",
+  "unchanged": "TCP defaults, radio B,0.5sim reassembly TTL, no ROS/Gazebo/NN",
+  "success": "Actual original IDs/source/body exact once; actual3 connects/3 accepts; partial-write path; Hub/native/storage success and owned cleanup; split/coalesced explicitly observed or not",
+  "failure": "Preserve first failure; no automatic retry/radio/ROS/Gazebo",
+  "review": "review/TCP_NATIVE_RUNNER_REVIEW.md"
+}

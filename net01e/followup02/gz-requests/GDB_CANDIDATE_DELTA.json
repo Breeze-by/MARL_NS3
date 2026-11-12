@@ -1,0 +1,42 @@
+{
+  "candidate": "net01e/followup02/gz-requests/corr6201-static-fp-gdb-b-02.candidate.json",
+  "source_commit": "fbad53d78dc28ab53367af00b02ff833cb8644fe",
+  "authorization_false_pending_Root": true,
+  "case_paths_fresh": [
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.network",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.time-control",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-fp-gdb-b-02.admission-used.json",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/ipc/sf-gdb02.sock",
+      "exists": false
+    },
+    {
+      "path": "/dev/shm/net01e-f02-sf-gdb-02",
+      "exists": false
+    }
+  ],
+  "same_static_common_revision": true,
+  "only_changed_existing_adapters": [
+    "boot_network.py",
+    "time_control_runtime.py"
+  ],
+  "frozen_source_binding_identical": true,
+  "world_scene_model_limits_identical": true,
+  "B_native_control_settings_identical": true,
+  "debugger_flag": true,
+  "new_case_total_after_START": 2,
+  "no_third": true
+}

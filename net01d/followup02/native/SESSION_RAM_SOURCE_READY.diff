@@ -1,0 +1,345 @@
+diff --git a/net01/host_run.py b/net01/host_run.py
+index 7b1bed2..2b982fa 100644
+--- a/net01/host_run.py
++++ b/net01/host_run.py
+@@ -90,6 +90,12 @@ def main():
+         native_env=dict(os.environ,LD_LIBRARY_PATH=str(libraries))
+         for name in ('LD_PRELOAD','LD_AUDIT'):native_env.pop(name,None)
+     bounded180=controlled_config(ready) is not None and ready['sim_budget']==180
++    ledger_mode=net.get('native_ledger_mode','serial')
++    if ledger_mode not in ('serial','session-ram-v1'):
++        raise ValueError('Unknown reviewed native ledger mode')
++    session_ram=ledger_mode=='session-ram-v1'
++    if session_ram and not bounded180:
++        raise ValueError('Session RAM candidate requires the existing bounded180 host owner')
+     runner_wall=ready['outer_wall']+ready['cleanup_wall']+10 if bounded180 else 1000
+     # Check the actual executable/header before any native model is started.
+     for key,path in (("binary",native),("generated_header",PHASE/net["native_identity"]["generated_header"]["relative_phase"])):
+@@ -114,6 +120,8 @@ def main():
+     hub_log=case.with_name(case.name+".hub.log").open("x")
+     host_begin=time.monotonic()
+     host_deadline=host_begin+runner_wall if bounded180 else None
++    if session_ram:command += ['--native-ledger-mode',ledger_mode,
++        '--finalize-hard-deadline-ns',str(int(host_deadline*1e9))]
+     def remaining(limit):
+         return limit if host_deadline is None else max(0.,min(limit,host_deadline-time.monotonic()))
+     try:
+@@ -148,10 +156,22 @@ def main():
+                     except subprocess.TimeoutExpired:
+                         terminate_recorded(case)
+                         os.killpg(runner.pid,signal.SIGKILL);result["runner_exit"]=runner.wait()
+-        try:result["hub_exit"]=hub.wait(timeout=remaining(15))
++        finalize_deadline=None
++        hub_wait=15
++        if session_ram:
++            marker=evidence/'poststop-finalize.json'
++            # END is normally read before the Gateway and runner exit. If not
++            # yet observed, this earlier host90s bound cannot add a second90s.
++            hub_wait=90
++            if marker.exists():
++                finalize=json.loads(marker.read_text());result['poststop_finalize']=finalize
++                finalize_deadline=finalize['deadline_monotonic_ns']/1e9
++                hub_wait=max(0.,finalize_deadline-time.monotonic())
++        try:result["hub_exit"]=hub.wait(timeout=remaining(hub_wait))
+         except subprocess.TimeoutExpired:
+-            result["hub_timeout_after_runner"]=True;os.killpg(hub.pid,signal.SIGINT)
+-            try:result["hub_exit"]=hub.wait(timeout=remaining(5))
++            result["hub_timeout_after_runner"]=True
++            os.killpg(hub.pid,signal.SIGKILL if session_ram else signal.SIGINT)
++            try:result["hub_exit"]=hub.wait(timeout=0 if session_ram else remaining(5))
+             except subprocess.TimeoutExpired:os.killpg(hub.pid,signal.SIGKILL);result["hub_exit"]=hub.wait()
+     except BaseException as error:
+         result["error"]=repr(error)
+diff --git a/net01/native/event_ledger.h b/net01/native/event_ledger.h
+index 2183717..746c42f 100644
+--- a/net01/native/event_ledger.h
++++ b/net01/native/event_ledger.h
+@@ -14,6 +14,7 @@
+ #include <string>
+ #include <thread>
+ #include <time.h>
++#include <vector>
+ 
+ namespace LedgerText {
+ template<class Integer> inline void integer(std::string& output,Integer value) {
+@@ -39,11 +40,15 @@ struct LedgerRecord {
+ 
+ class EventLedger {
+   static constexpr uint64_t capacity=16384;
++  static constexpr uint64_t sessionCapacity=32000000,sessionByteLimit=8ULL*1024*1024*1024;
+   std::ofstream stream;
+   std::thread writer;
+   std::mutex mutex;
+   std::condition_variable changed;
+   std::deque<LedgerRecord> pending;
++  std::vector<LedgerRecord> session;
++  bool sessionRam=false;
++  uint64_t sessionOwnedBytes=0;
+   bool asynchronous=false,stopping=false;
+   std::exception_ptr writeError;
+   uint64_t attempted=0,captured=0,written=0,flushed=0,flushTarget=0,peak=0,maxOwnedBytes=0;
+@@ -88,12 +93,21 @@ class EventLedger {
+     writerCpu=cpu()-start;changed.notify_all();
+   }
+ public:
+-  void open(const std::string& path,bool enabled) {
++  void open(const std::string& path,bool enabled,bool retainSession=false) {
++    if(enabled && retainSession)throw std::runtime_error("Session RAM and async ledger are mutually exclusive");
++    sessionRam=retainSession;
+     asynchronous=enabled;stream.exceptions(std::ios::badbit|std::ios::failbit);stream.open(path);
++    if(sessionRam) {
++      session.reserve(sessionCapacity);
++      // Include the whole ledger object and64KiB conservative fixed allowance
++      // for stream/deque bookkeeping, besides the reserved record storage.
++      sessionOwnedBytes=sizeof(*this)+65536+session.capacity()*sizeof(LedgerRecord);
++      if(sessionOwnedBytes>sessionByteLimit)throw std::runtime_error("Session ledger reserved capacity exceeds8GiB");
++    }
+     if(asynchronous)writer=std::thread([this]{work();});
+   }
+   void raw(const std::string& kind,int64_t ns3,int64_t monotonic,const std::string& fields) {
+-    if(!asynchronous) {
++    if(!asynchronous && !sessionRam) {
+       ++attempted;++captured;
+       std::string line;line.reserve(kind.size()+fields.size()+96);
+       line+="{\"kind\":\"";line+=kind;line+="\",\"ns3_ns\":";LedgerText::integer(line,ns3);
+@@ -104,6 +118,18 @@ public:
+     LedgerRecord row;row.kind=kind;row.ns3=ns3;row.monotonic=monotonic;row.fields=fields;capture(std::move(row));
+   }
+   void capture(LedgerRecord row) {
++    if(sessionRam) {
++      ++attempted;
++      // Count reserved record storage, both string capacities (including SSO
++      // conservatively), and64 bytes/string allocation/alignment allowance.
++      // This bounded owned-capacity accounting is deliberately not an RSS claim.
++      const uint64_t owned=row.kind.capacity()+1+row.fields.capacity()+1+128;
++      if(session.size()>=sessionCapacity || owned>sessionByteLimit-sessionOwnedBytes)
++        throw std::runtime_error("Session ledger32M/8GiB capacity exceeded; captured prefix retained");
++      row.sequence=++captured;sessionOwnedBytes+=owned;
++      maxOwnedBytes=std::max<uint64_t>(maxOwnedBytes,sizeof(row)+owned);
++      session.push_back(std::move(row));peak=std::max(peak,captured-written);return;
++    }
+     std::lock_guard<std::mutex> lock(mutex);++attempted;
+     if(writeError)std::rethrow_exception(writeError);
+     // captured-written includes the writer's inflight row, not just deque size.
+@@ -113,13 +139,20 @@ public:
+     pending.push_back(std::move(row));peak=std::max(peak,captured-written);changed.notify_one();
+   }
+   uint64_t barrier() {
+-    if(!asynchronous)return captured; // Original serial buffering is unchanged.
++    if(!asynchronous)return captured; // Serial and RAM modes do not wait for a writer.
+     std::unique_lock<std::mutex> lock(mutex);const auto target=captured;flushTarget=target;changed.notify_one();
+     changed.wait(lock,[&]{return flushed>=target || writeError;});
+     if(writeError)std::rethrow_exception(writeError);
+     return target;
+   }
+   void finish() {
++    if(sessionRam) {
++      while(written<captured) {
++        const auto& row=session[written];
++        if(row.sequence!=written+1)throw std::runtime_error("Session ledger sequence mismatch");
++        write(row);++written;
++      }
++    }
+     if(writer.joinable()) {
+       {std::lock_guard<std::mutex> lock(mutex);stopping=true;changed.notify_one();}
+       writer.join();
+@@ -133,7 +166,11 @@ public:
+     out<<"{\"async\":"<<(asynchronous?"true":"false")<<",\"captured\":"<<captured<<",\"written\":"<<written
+       <<",\"attempted\":"<<attempted<<",\"pending_capacity_records\":"<<capacity<<",\"peak_pending_including_inflight\":"<<peak
+       <<",\"max_record_owned_bytes\":"<<maxOwnedBytes<<",\"writer_cpu_ns\":"<<writerCpu
+-      <<",\"model_cpu_ns\":"<<modelCpu<<",\"final_ns3_ns\":"<<finalNs3<<",\"failed\":"<<(error.empty()?"false":"true")<<"}\n";
++      <<",\"model_cpu_ns\":"<<modelCpu<<",\"final_ns3_ns\":"<<finalNs3<<",\"failed\":"<<(error.empty()?"false":"true");
++    if(sessionRam)out<<",\"mode\":\"session-ram-v1\",\"record_size_bytes\":"<<sizeof(LedgerRecord)
++      <<",\"reserved_capacity_records\":"<<session.capacity()<<",\"owned_capacity_bytes\":"<<sessionOwnedBytes
++      <<",\"owned_capacity_limit_bytes\":"<<sessionByteLimit<<",\"capacity_accounting\":\"reserved vector+ledger object+64KiB bookkeeping+string capacities+64B per string allowance; not RSS\"";
++    out<<"}\n";
+     out.close();
+   }
+ };
+diff --git a/net01/native/payload_transport.cc b/net01/native/payload_transport.cc
+index df126d1..19a8d67 100644
+--- a/net01/native/payload_transport.cc
++++ b/net01/native/payload_transport.cc
+@@ -28,6 +28,7 @@ using namespace ns3;
+ static constexpr uint32_t WIRE_HEADER=36, CHUNK=1200-WIRE_HEADER;
+ static EventLedger ledger;
+ static bool asyncLedger=false,simulatorDestroyAttempted=false;
++static std::string ledgerMode="serial";
+ static std::string outputDirectory;
+ static int64_t finalNs3=0,modelCpuStart=0;
+ static std::map<std::string,uint64_t> counts;
+@@ -170,7 +171,7 @@ static void receive(Ptr<Socket> socket) {
+ }
+ static void simpleTrace(std::string kind,uint32_t node,Ptr<const Packet> packet) {
+   CpuScope measure(TraceCpu);
+-  if(asyncLedger) {
++  if(asyncLedger || ledgerMode=="session-ram-v1") {
+     auto row=primitiveRecord(kind,LedgerRecord::Packet);row.node=node;row.packetUid=packet->GetUid();row.packetBytes=packet->GetSize();
+     ledger.capture(std::move(row));return;
+   }
+@@ -182,7 +183,7 @@ static void simpleTrace(std::string kind,uint32_t node,Ptr<const Packet> packet)
+ }
+ static void rxDrop(uint32_t node,Ptr<const Packet> packet,WifiPhyRxfailureReason reason) {
+   CpuScope measure(DropCpu);
+-  if(asyncLedger) {
++  if(asyncLedger || ledgerMode=="session-ram-v1") {
+     auto row=primitiveRecord("phy_rx_drop",LedgerRecord::Drop);row.node=node;row.packetUid=packet->GetUid();row.packetBytes=packet->GetSize();row.reason=static_cast<unsigned>(reason);
+     ledger.capture(std::move(row));return;
+   }
+@@ -192,7 +193,7 @@ static void rxDrop(uint32_t node,Ptr<const Packet> packet,WifiPhyRxfailureReason
+ }
+ static void sniff(uint32_t node,Ptr<const Packet> packet,uint16_t freq,WifiTxVector tx,MpduInfo mpdu,SignalNoiseDbm power,uint16_t sta) {
+   CpuScope measure(SniffCpu);
+-  if(asyncLedger) {
++  if(asyncLedger || ledgerMode=="session-ram-v1") {
+     auto row=primitiveRecord("wifi_sniffer_rx",LedgerRecord::Sniff);row.node=node;row.packetUid=packet->GetUid();row.packetBytes=packet->GetSize();row.frequency=freq;row.signal=power.signal;row.noise=power.noise;
+     ledger.capture(std::move(row));return;
+   }
+@@ -207,7 +208,7 @@ static void sniff(uint32_t node,Ptr<const Packet> packet,uint16_t freq,WifiTxVec
+   event("wifi_sniffer_rx",values);
+ }
+ static void nodeEvent(const std::string& kind,uint32_t node) {
+-  if(asyncLedger) {auto row=primitiveRecord(kind,LedgerRecord::Node);row.node=node;ledger.capture(std::move(row));}
++  if(asyncLedger || ledgerMode=="session-ram-v1") {auto row=primitiveRecord(kind,LedgerRecord::Node);row.node=node;ledger.capture(std::move(row));}
+   else event(kind,",\"node\":"+std::to_string(node));
+ }
+ static void retry(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);nodeEvent("mac_data_retry",node);}
+@@ -232,10 +233,13 @@ static int modelMain(int argc,char** argv) {
+   CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);
+   cmd.AddValue("transport","Explicit udp, tcp-v1 or tcp-mtu-v2; no fallback",nativeTransport);
+   cmd.AddValue("cpuProfile","Diagnostic own-callback cumulative CPU only; use with controlTrace",cpuProfile);
+-  cmd.AddValue("asyncLedger","Move diagnostic formatting to one bounded writer",asyncLedger);cmd.Parse(argc,argv);
++  cmd.AddValue("asyncLedger","Move diagnostic formatting to one bounded writer",asyncLedger);
++  cmd.AddValue("ledgerMode","Explicit serial or session-ram-v1 diagnostic storage",ledgerMode);cmd.Parse(argc,argv);
+   // asyncLedger remains opt-in; the reference keeps serial formatting/buffering.
+   NS_ABORT_MSG_IF(directory.empty() || (profile!="B" && profile!="C") || (nativeTransport!="udp" && nativeTransport!="tcp-v1" && nativeTransport!="tcp-mtu-v2"),"Explicit output and locked profile needed");
+-  outputDirectory=directory;ledger.open(directory+"/packet-ledger.jsonl",asyncLedger);
++  outputDirectory=directory;
++  if(ledgerMode!="serial" && ledgerMode!="session-ram-v1")throw std::runtime_error("Unknown ledger mode");
++  ledger.open(directory+"/packet-ledger.jsonl",asyncLedger,ledgerMode=="session-ram-v1");
+   std::ofstream(directory+"/configured-lock.json")<<kRawConfig;
+   RngSeedManager::SetSeed(kSeed);RngSeedManager::SetRun(kRun);
+   Config::SetDefault("ns3::WifiMacQueue::MaxSize",QueueSizeValue(QueueSize(std::to_string(kQueuePackets)+"p")));
+diff --git a/net01/tools/packet_hub.py b/net01/tools/packet_hub.py
+index 8ff7e5a..bb1c2d7 100644
+--- a/net01/tools/packet_hub.py
++++ b/net01/tools/packet_hub.py
+@@ -38,7 +38,12 @@ def prepare_native_evidence(ram, destination):
+         MemAvailable_bytes=memory, source_retained=True)
+ 
+ 
+-def copy_native_evidence(storage, native_exit, control_trace):
++def check_finalize_deadline(deadline):
++    if deadline is not None and time.monotonic_ns()>=deadline:
++        raise TimeoutError('Post-stop evidence finalize deadline exhausted')
++
++
++def copy_native_evidence(storage, native_exit, control_trace, deadline=None):
+     started = time.monotonic()
+     storage['native_exit'] = native_exit
+     try:
+@@ -48,7 +53,17 @@ def copy_native_evidence(storage, native_exit, control_trace):
+         files = {str(path.relative_to(source)): path.stat().st_size
+             for path in source.rglob('*') if path.is_file()}
+         storage.update(source_files=files, source_bytes=sum(files.values()))
+-        shutil.copytree(source, destination)  # New destination only; retain RAM even on failure.
++        if deadline is None:
++            shutil.copytree(source, destination)  # Original default path.
++        else:
++            def bounded_copy(src,dst):
++                check_finalize_deadline(deadline)
++                with open(src,'rb') as reader,open(dst,'xb') as writer:
++                    while chunk:=reader.read(1024*1024):
++                        check_finalize_deadline(deadline);writer.write(chunk)
++                shutil.copystat(src,dst);check_finalize_deadline(deadline)
++                return dst
++            shutil.copytree(source,destination,copy_function=bounded_copy)
+         copied = {str(path.relative_to(destination)): path.stat().st_size
+             for path in destination.rglob('*') if path.is_file()}
+         storage.update(copied_files=copied, copied_bytes=sum(copied.values()))
+@@ -75,6 +90,9 @@ def copy_native_evidence(storage, native_exit, control_trace):
+ 
+ 
+ async def main(args):
++    session_ram=args.native_ledger_mode=='session-ram-v1'
++    if session_ram and args.finalize_hard_deadline_ns is None:
++        raise ValueError('Session RAM requires an explicit host hard deadline')
+     args.output.mkdir(parents=True, exist_ok=False)
+     native_output = args.output / "native"
+     storage = None
+@@ -91,6 +109,7 @@ async def main(args):
+     stderr = (args.output / "native.stderr.txt").open("xb")
+     command = [str(args.native.resolve()), f"--output={native_output.resolve()}", f"--profile={args.profile}"]
+     if args.native_transport != "udp":command.append("--transport="+args.native_transport)
++    if session_ram:command.append('--ledgerMode=session-ram-v1')
+     if args.control_trace:command.append('--controlTrace=1')
+     if args.native_cpu_profile:command.append('--cpuProfile=1')
+     process = await asyncio.create_subprocess_exec(*command, stdin=asyncio.subprocess.PIPE,
+@@ -113,6 +132,18 @@ async def main(args):
+     step_observer=socket.socket(socket.AF_UNIX,socket.SOCK_DGRAM) if args.step_observer else None
+     if step_observer is not None:step_observer.setblocking(False)
+     last_native_horizon=0
++    finalize=None
++    def start_finalize():
++        nonlocal finalize
++        if not session_ram or finalize is not None:return
++        now=time.monotonic_ns()
++        finalize=dict(END_monotonic_ns=now,
++            deadline_monotonic_ns=min(now+90_000_000_000,args.finalize_hard_deadline_ns),
++            scope='END+90s evidence only, bounded by host hard deadline; not original cleanup90 deduction')
++        temporary=args.output/'poststop-finalize.partial'
++        temporary.write_text(json.dumps(finalize,indent=2)+'\n')
++        temporary.replace(args.output/'poststop-finalize.json')
++        result['poststop_finalize']=finalize
+     def observe_native(kind,horizon):
+         # Administrative progress only; never payload, goal or policy input.
+         if step_observer is not None:
+@@ -223,6 +254,7 @@ async def main(args):
+                     process.stdin.write(f"RADIO {int(meta['enabled'])}\n".encode())
+                     await process.stdin.drain()
+                 elif op == "end":
++                    start_finalize()
+                     process.stdin.write(b"END\n")
+                     await process.stdin.drain()
+                     process.stdin.close()
+@@ -245,7 +277,9 @@ async def main(args):
+         await asyncio.wait_for(finished.wait(), timeout=args.wall)
+         if errors:
+             raise RuntimeError("; ".join(errors))
+-        native_exit = await asyncio.wait_for(process.wait(), timeout=10)
++        native_exit = await asyncio.wait_for(process.wait(), timeout=(
++            max(0.,(finalize['deadline_monotonic_ns']-time.monotonic_ns())/1e9)
++            if finalize is not None else 10))
+         await receive_task
+         if native_exit:
+             raise RuntimeError(f"Native exited {native_exit}")
+@@ -286,12 +320,18 @@ async def main(args):
+             args.socket.unlink()
+         copy_error = None
+         if storage is not None:
+-            try:copy_native_evidence(storage, process.returncode, args.control_trace)
++            try:copy_native_evidence(storage, process.returncode, args.control_trace,
++                None if finalize is None else finalize['deadline_monotonic_ns'])
+             except Exception as error:
+                 copy_error = error
+                 result['native_evidence_error'] = repr(error)
+                 result.setdefault('error', repr(error))  # Keep the first runtime error.
+                 result['status'] = 'FAIL'
++        if finalize is not None:
++            try:check_finalize_deadline(finalize['deadline_monotonic_ns'])
++            except TimeoutError as error:
++                result.setdefault('error',repr(error));result['status']='FAIL'
++                if copy_error is None:copy_error=error
+         (args.output/"result.json").write_text(json.dumps(result, indent=2)+"\n")
+         if late_observer_error is not None and not primary_failed:
+             raise late_observer_error
+@@ -306,6 +346,9 @@ if __name__ == "__main__":
+     parser.add_argument("--output", type=Path, required=True)
+     parser.add_argument("--profile", choices=("B", "C"), default="B")
+     parser.add_argument("--native-transport", choices=("udp","tcp-v1","tcp-mtu-v2"), default="udp")
++    parser.add_argument('--native-ledger-mode',choices=('serial','session-ram-v1'),default='serial')
++    parser.add_argument('--finalize-hard-deadline-ns',type=int,
++        help='Session RAM only: same absolute monotonic deadline enforced by its host owner')
+     parser.add_argument("--wall", type=float, default=120)
+     parser.add_argument("--allow-radio-fault", action="store_true", help="Independent no-motion negative fixture only")
+     parser.add_argument("--clock-source", choices=("synthetic","gazebo"), default="synthetic")

@@ -1,0 +1,70 @@
+[
+  {
+    "kind": "gateway_poststop_supervision",
+    "observed_monotonic_ns": 610106360690007,
+    "pid": 809540,
+    "begin_monotonic_ns": 610106360665240,
+    "initial_deadline_ns": 610126360665240,
+    "total_deadline_ns": 610166360665240,
+    "cleanup_deadline_ns": 610196342868355,
+    "hard_deadline_ns": 610171223801821,
+    "extension_eligible": true
+  },
+  {
+    "kind": "process_signal",
+    "observed_monotonic_ns": 610106360712973,
+    "process": "network_gateway",
+    "pid": 809540,
+    "signal": "SIGINT",
+    "deadline_monotonic_ns": 610126360665240
+  },
+  {
+    "kind": "gateway_evidence_grace",
+    "observed_monotonic_ns": 610106381630747,
+    "pid": 809540,
+    "resources_closed": {
+      "phase": "resources_closed",
+      "pid": 809540,
+      "session_id": 2026111151,
+      "case": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/run-01/persist_stall",
+      "monotonic_ns": 610106363877368,
+      "safe_closed": true,
+      "cleanup": {
+        "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+        "end_frame_flushed": true,
+        "executor_shutdown": [
+          true,
+          true
+        ],
+        "resources_destroyed": true,
+        "unresolved_C_RPC": [],
+        "unresolved_R_RPC": [],
+        "unresolved_local_cleanup_futures": {}
+      }
+    },
+    "grace_deadline_ns": 610156360665240,
+    "total_deadline_ns": 610166360665240
+  },
+  {
+    "kind": "process_signal",
+    "observed_monotonic_ns": 610156360866578,
+    "process": "network_gateway",
+    "pid": 809540,
+    "signal": "SIGTERM",
+    "deadline_monotonic_ns": 610161360665240
+  },
+  {
+    "kind": "process_signal",
+    "observed_monotonic_ns": 610161360843611,
+    "process": "network_gateway",
+    "pid": 809540,
+    "signal": "SIGKILL",
+    "deadline_monotonic_ns": 610166360665240
+  },
+  {
+    "kind": "process_exit",
+    "observed_monotonic_ns": 610161381118634,
+    "process": "network_gateway",
+    "code": -9
+  }
+]

@@ -1,0 +1,3015 @@
+{
+  "target_message_ids": [
+    2644,
+    2645,
+    2646,
+    2647,
+    2650,
+    2651,
+    2813,
+    2814,
+    2815,
+    2816,
+    2817,
+    2818
+  ],
+  "ingress": [
+    {
+      "kind": "send",
+      "sender": 0,
+      "receiver": 1,
+      "flow": 31,
+      "source_stamp_ns": 0,
+      "admission_ns": 2520000000,
+      "bytes": 1567,
+      "native_message_id": 2644,
+      "hub_ingress_monotonic_ns": 517272655379135
+    },
+    {
+      "kind": "send",
+      "sender": 0,
+      "receiver": 2,
+      "flow": 51,
+      "source_stamp_ns": 0,
+      "admission_ns": 2520000000,
+      "bytes": 1567,
+      "native_message_id": 2645,
+      "hub_ingress_monotonic_ns": 517272655578892
+    },
+    {
+      "kind": "send",
+      "sender": 0,
+      "receiver": 3,
+      "flow": 71,
+      "source_stamp_ns": 0,
+      "admission_ns": 2520000000,
+      "bytes": 1567,
+      "native_message_id": 2646,
+      "hub_ingress_monotonic_ns": 517272655791488
+    },
+    {
+      "kind": "send",
+      "sender": 0,
+      "receiver": 1,
+      "flow": 30,
+      "source_stamp_ns": 2500000000,
+      "admission_ns": 2520000000,
+      "bytes": 160674,
+      "native_message_id": 2647,
+      "hub_ingress_monotonic_ns": 517272658024791
+    },
+    {
+      "kind": "send",
+      "sender": 0,
+      "receiver": 2,
+      "flow": 50,
+      "source_stamp_ns": 2500000000,
+      "admission_ns": 2530000000,
+      "bytes": 160674,
+      "native_message_id": 2650,
+      "hub_ingress_monotonic_ns": 517272689053481
+    },
+    {
+      "kind": "send",
+      "sender": 0,
+      "receiver": 3,
+      "flow": 70,
+      "source_stamp_ns": 2500000000,
+      "admission_ns": 2530000000,
+      "bytes": 160674,
+      "native_message_id": 2651,
+      "hub_ingress_monotonic_ns": 517272689846731
+    },
+    {
+      "kind": "send",
+      "sender": 0,
+      "receiver": 1,
+      "flow": 31,
+      "source_stamp_ns": 0,
+      "admission_ns": 2620000000,
+      "bytes": 1582,
+      "native_message_id": 2813,
+      "hub_ingress_monotonic_ns": 517272932290099
+    },
+    {
+      "kind": "send",
+      "sender": 0,
+      "receiver": 2,
+      "flow": 51,
+      "source_stamp_ns": 0,
+      "admission_ns": 2620000000,
+      "bytes": 1582,
+      "native_message_id": 2814,
+      "hub_ingress_monotonic_ns": 517272933564142
+    },
+    {
+      "kind": "send",
+      "sender": 0,
+      "receiver": 3,
+      "flow": 71,
+      "source_stamp_ns": 0,
+      "admission_ns": 2630000000,
+      "bytes": 1582,
+      "native_message_id": 2815,
+      "hub_ingress_monotonic_ns": 517272945015307
+    },
+    {
+      "kind": "send",
+      "sender": 0,
+      "receiver": 1,
+      "flow": 30,
+      "source_stamp_ns": 2600000000,
+      "admission_ns": 2630000000,
+      "bytes": 160688,
+      "native_message_id": 2816,
+      "hub_ingress_monotonic_ns": 517272945231999
+    },
+    {
+      "kind": "send",
+      "sender": 0,
+      "receiver": 2,
+      "flow": 50,
+      "source_stamp_ns": 2600000000,
+      "admission_ns": 2630000000,
+      "bytes": 160688,
+      "native_message_id": 2817,
+      "hub_ingress_monotonic_ns": 517272945977342
+    },
+    {
+      "kind": "send",
+      "sender": 0,
+      "receiver": 3,
+      "flow": 70,
+      "source_stamp_ns": 2600000000,
+      "admission_ns": 2630000000,
+      "bytes": 160688,
+      "native_message_id": 2818,
+      "hub_ingress_monotonic_ns": 517272948806205
+    }
+  ],
+  "deliveries": [
+    {
+      "kind": "delivered",
+      "sender": 0,
+      "receiver": 1,
+      "flow": 31,
+      "message_id": 2644,
+      "source_stamp_ns": 0,
+      "ns3_rx_ns": 2520228985,
+      "hub_receive_monotonic_ns": 517272662254212,
+      "bytes": 1567
+    },
+    {
+      "kind": "delivered",
+      "sender": 0,
+      "receiver": 2,
+      "flow": 51,
+      "message_id": 2645,
+      "source_stamp_ns": 0,
+      "ns3_rx_ns": 2520757345,
+      "hub_receive_monotonic_ns": 517272665367921,
+      "bytes": 1567
+    },
+    {
+      "kind": "delivered",
+      "sender": 0,
+      "receiver": 3,
+      "flow": 71,
+      "message_id": 2646,
+      "source_stamp_ns": 0,
+      "ns3_rx_ns": 2522188414,
+      "hub_receive_monotonic_ns": 517272673101411,
+      "bytes": 1567
+    },
+    {
+      "kind": "delivered",
+      "sender": 0,
+      "receiver": 1,
+      "flow": 30,
+      "message_id": 2647,
+      "source_stamp_ns": 2500000000,
+      "ns3_rx_ns": 2526282445,
+      "hub_receive_monotonic_ns": 517272686500922,
+      "bytes": 160674
+    },
+    {
+      "kind": "delivered",
+      "sender": 0,
+      "receiver": 2,
+      "flow": 50,
+      "message_id": 2650,
+      "source_stamp_ns": 2500000000,
+      "ns3_rx_ns": 2535057507,
+      "hub_receive_monotonic_ns": 517272730880365,
+      "bytes": 160674
+    },
+    {
+      "kind": "delivered",
+      "sender": 0,
+      "receiver": 3,
+      "flow": 70,
+      "message_id": 2651,
+      "source_stamp_ns": 2500000000,
+      "ns3_rx_ns": 2539434545,
+      "hub_receive_monotonic_ns": 517272748263799,
+      "bytes": 160674
+    },
+    {
+      "kind": "delivered",
+      "sender": 0,
+      "receiver": 1,
+      "flow": 31,
+      "message_id": 2813,
+      "source_stamp_ns": 0,
+      "ns3_rx_ns": 2620203095,
+      "hub_receive_monotonic_ns": 517272938751773,
+      "bytes": 1582
+    },
+    {
+      "kind": "delivered",
+      "sender": 0,
+      "receiver": 2,
+      "flow": 51,
+      "message_id": 2814,
+      "source_stamp_ns": 0,
+      "ns3_rx_ns": 2620507108,
+      "hub_receive_monotonic_ns": 517272939658891,
+      "bytes": 1582
+    },
+    {
+      "kind": "delivered",
+      "sender": 0,
+      "receiver": 3,
+      "flow": 71,
+      "message_id": 2815,
+      "source_stamp_ns": 0,
+      "ns3_rx_ns": 2632037257,
+      "hub_receive_monotonic_ns": 517272976892884,
+      "bytes": 1582
+    },
+    {
+      "kind": "delivered",
+      "sender": 0,
+      "receiver": 1,
+      "flow": 30,
+      "message_id": 2816,
+      "source_stamp_ns": 2600000000,
+      "ns3_rx_ns": 2636161288,
+      "hub_receive_monotonic_ns": 517272997427826,
+      "bytes": 160688
+    }
+  ],
+  "hub_clock": [
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272381892985,
+      "horizon_ns": 2390000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272382116123,
+      "horizon_ns": 2390000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272393716116,
+      "horizon_ns": 2400000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272393723289,
+      "horizon_ns": 2400000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272393742612,
+      "horizon_ns": 2400000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272399419536,
+      "horizon_ns": 2400000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272399626928,
+      "horizon_ns": 2400000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272404201281,
+      "horizon_ns": 2410000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272404208065,
+      "horizon_ns": 2410000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272404231214,
+      "horizon_ns": 2410000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272409403367,
+      "horizon_ns": 2410000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272409597095,
+      "horizon_ns": 2410000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272417844666,
+      "horizon_ns": 2420000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272417852755,
+      "horizon_ns": 2420000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272417869863,
+      "horizon_ns": 2420000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272421774862,
+      "horizon_ns": 2420000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272421942828,
+      "horizon_ns": 2420000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272430390509,
+      "horizon_ns": 2430000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272430398593,
+      "horizon_ns": 2430000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272430425420,
+      "horizon_ns": 2430000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272435630848,
+      "horizon_ns": 2430000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272435800724,
+      "horizon_ns": 2430000000
+    },
+    {
+      "kind": "health_native_write_before",
+      "monotonic_ns": 517272443616980,
+      "flow": 31,
+      "message_id": 2505
+    },
+    {
+      "kind": "health_native_write_returned",
+      "monotonic_ns": 517272443656110,
+      "flow": 31,
+      "message_id": 2505
+    },
+    {
+      "kind": "health_native_drain_returned",
+      "monotonic_ns": 517272443667882,
+      "flow": 31,
+      "message_id": 2505
+    },
+    {
+      "kind": "health_native_write_before",
+      "monotonic_ns": 517272443823019,
+      "flow": 51,
+      "message_id": 2506
+    },
+    {
+      "kind": "health_native_write_returned",
+      "monotonic_ns": 517272443833641,
+      "flow": 51,
+      "message_id": 2506
+    },
+    {
+      "kind": "health_native_drain_returned",
+      "monotonic_ns": 517272443837508,
+      "flow": 51,
+      "message_id": 2506
+    },
+    {
+      "kind": "health_native_write_before",
+      "monotonic_ns": 517272444088078,
+      "flow": 71,
+      "message_id": 2507
+    },
+    {
+      "kind": "health_native_write_returned",
+      "monotonic_ns": 517272444110957,
+      "flow": 71,
+      "message_id": 2507
+    },
+    {
+      "kind": "health_native_drain_returned",
+      "monotonic_ns": 517272444120572,
+      "flow": 71,
+      "message_id": 2507
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272455842340,
+      "horizon_ns": 2440000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272455849960,
+      "horizon_ns": 2440000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272455869053,
+      "horizon_ns": 2440000000
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272457938578,
+      "message_id": 2505,
+      "bytes": 1583
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272457958548,
+      "message_id": 2505,
+      "bytes": 1583
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272457964342,
+      "message_id": 2505,
+      "bytes": 1583
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272458072127,
+      "message_id": 2505,
+      "bytes": 1583
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272460690149,
+      "message_id": 2506,
+      "bytes": 1583
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272460707740,
+      "message_id": 2506,
+      "bytes": 1583
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272460712425,
+      "message_id": 2506,
+      "bytes": 1583
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272460787278,
+      "message_id": 2506,
+      "bytes": 1583
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272462858682,
+      "message_id": 2507,
+      "bytes": 1583
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272462878684,
+      "message_id": 2507,
+      "bytes": 1583
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272462885124,
+      "message_id": 2507,
+      "bytes": 1583
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272462963987,
+      "message_id": 2507,
+      "bytes": 1583
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272490419314,
+      "message_id": 2511,
+      "bytes": 160689
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272490703920,
+      "message_id": 2511,
+      "bytes": 160689
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272490709890,
+      "message_id": 2511,
+      "bytes": 160689
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272490875691,
+      "message_id": 2511,
+      "bytes": 160689
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272499405186,
+      "horizon_ns": 2440000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272499652183,
+      "horizon_ns": 2440000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272504035517,
+      "horizon_ns": 2450000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272504042988,
+      "horizon_ns": 2450000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272504078193,
+      "horizon_ns": 2450000000
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272514594673,
+      "message_id": 2512,
+      "bytes": 160689
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272514878190,
+      "message_id": 2512,
+      "bytes": 160689
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272514884931,
+      "message_id": 2512,
+      "bytes": 160689
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272515097690,
+      "message_id": 2512,
+      "bytes": 160689
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272531758864,
+      "message_id": 2513,
+      "bytes": 160689
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272532095064,
+      "message_id": 2513,
+      "bytes": 160689
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272532102944,
+      "message_id": 2513,
+      "bytes": 160689
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272532309686,
+      "message_id": 2513,
+      "bytes": 160689
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272533391524,
+      "horizon_ns": 2450000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272533574722,
+      "horizon_ns": 2450000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272543711937,
+      "horizon_ns": 2460000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272543719288,
+      "horizon_ns": 2460000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272543740758,
+      "horizon_ns": 2460000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272550144319,
+      "horizon_ns": 2460000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272550316621,
+      "horizon_ns": 2460000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272557347545,
+      "horizon_ns": 2470000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272557355332,
+      "horizon_ns": 2470000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272557376704,
+      "horizon_ns": 2470000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272562053132,
+      "horizon_ns": 2470000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272562232206,
+      "horizon_ns": 2470000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272573125485,
+      "horizon_ns": 2480000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272573132653,
+      "horizon_ns": 2480000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272573153234,
+      "horizon_ns": 2480000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272578065209,
+      "horizon_ns": 2480000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272578234350,
+      "horizon_ns": 2480000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272591112318,
+      "horizon_ns": 2490000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272591120034,
+      "horizon_ns": 2490000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272591138627,
+      "horizon_ns": 2490000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272596530153,
+      "horizon_ns": 2490000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272596696786,
+      "horizon_ns": 2490000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272606649049,
+      "horizon_ns": 2500000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272606656433,
+      "horizon_ns": 2500000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272606685951,
+      "horizon_ns": 2500000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272612242338,
+      "horizon_ns": 2500000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272612413181,
+      "horizon_ns": 2500000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272621137320,
+      "horizon_ns": 2510000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272621146891,
+      "horizon_ns": 2510000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272621173016,
+      "horizon_ns": 2510000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272626489458,
+      "horizon_ns": 2510000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272626649304,
+      "horizon_ns": 2510000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272639085302,
+      "horizon_ns": 2520000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272639091718,
+      "horizon_ns": 2520000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272639109328,
+      "horizon_ns": 2520000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272644221386,
+      "horizon_ns": 2520000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272644383492,
+      "horizon_ns": 2520000000
+    },
+    {
+      "kind": "health_native_write_before",
+      "monotonic_ns": 517272655397632,
+      "flow": 31,
+      "message_id": 2644
+    },
+    {
+      "kind": "health_native_write_returned",
+      "monotonic_ns": 517272655432805,
+      "flow": 31,
+      "message_id": 2644
+    },
+    {
+      "kind": "health_native_drain_returned",
+      "monotonic_ns": 517272655443000,
+      "flow": 31,
+      "message_id": 2644
+    },
+    {
+      "kind": "health_native_write_before",
+      "monotonic_ns": 517272655586843,
+      "flow": 51,
+      "message_id": 2645
+    },
+    {
+      "kind": "health_native_write_returned",
+      "monotonic_ns": 517272655599209,
+      "flow": 51,
+      "message_id": 2645
+    },
+    {
+      "kind": "health_native_drain_returned",
+      "monotonic_ns": 517272655604038,
+      "flow": 51,
+      "message_id": 2645
+    },
+    {
+      "kind": "health_native_write_before",
+      "monotonic_ns": 517272655799671,
+      "flow": 71,
+      "message_id": 2646
+    },
+    {
+      "kind": "health_native_write_returned",
+      "monotonic_ns": 517272655816463,
+      "flow": 71,
+      "message_id": 2646
+    },
+    {
+      "kind": "health_native_drain_returned",
+      "monotonic_ns": 517272655821727,
+      "flow": 71,
+      "message_id": 2646
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272659218417,
+      "horizon_ns": 2530000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272659224620,
+      "horizon_ns": 2530000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272659238771,
+      "horizon_ns": 2530000000
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272662222917,
+      "message_id": 2644,
+      "bytes": 1567
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272662252037,
+      "message_id": 2644,
+      "bytes": 1567
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272662258279,
+      "message_id": 2644,
+      "bytes": 1567
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272662357809,
+      "message_id": 2644,
+      "bytes": 1567
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272665344275,
+      "message_id": 2645,
+      "bytes": 1567
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272665366129,
+      "message_id": 2645,
+      "bytes": 1567
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272665371888,
+      "message_id": 2645,
+      "bytes": 1567
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272665467439,
+      "message_id": 2645,
+      "bytes": 1567
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272673085753,
+      "message_id": 2646,
+      "bytes": 1567
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272673099986,
+      "message_id": 2646,
+      "bytes": 1567
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272673103378,
+      "message_id": 2646,
+      "bytes": 1567
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272673149842,
+      "message_id": 2646,
+      "bytes": 1567
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272686015115,
+      "message_id": 2647,
+      "bytes": 160674
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272686496992,
+      "message_id": 2647,
+      "bytes": 160674
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272686503787,
+      "message_id": 2647,
+      "bytes": 160674
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272686674415,
+      "message_id": 2647,
+      "bytes": 160674
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272688574389,
+      "horizon_ns": 2530000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272688769894,
+      "horizon_ns": 2530000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272702160952,
+      "horizon_ns": 2540000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272702167845,
+      "horizon_ns": 2540000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272702186648,
+      "horizon_ns": 2540000000
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272730459738,
+      "message_id": 2650,
+      "bytes": 160674
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272730876732,
+      "message_id": 2650,
+      "bytes": 160674
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272730884242,
+      "message_id": 2650,
+      "bytes": 160674
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272731094817,
+      "message_id": 2650,
+      "bytes": 160674
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272747903349,
+      "message_id": 2651,
+      "bytes": 160674
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272748260282,
+      "message_id": 2651,
+      "bytes": 160674
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272748266878,
+      "message_id": 2651,
+      "bytes": 160674
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272748452858,
+      "message_id": 2651,
+      "bytes": 160674
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272749529478,
+      "horizon_ns": 2540000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272749767651,
+      "horizon_ns": 2540000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272761059123,
+      "horizon_ns": 2550000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272761066041,
+      "horizon_ns": 2550000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272761093499,
+      "horizon_ns": 2550000000
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272771659361,
+      "message_id": 2709,
+      "bytes": 52822
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272771700794,
+      "message_id": 2709,
+      "bytes": 52822
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272771704330,
+      "message_id": 2709,
+      "bytes": 52822
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272771790772,
+      "message_id": 2709,
+      "bytes": 52822
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272778204282,
+      "message_id": 2700,
+      "bytes": 34806
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272778234729,
+      "message_id": 2700,
+      "bytes": 34806
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272778238511,
+      "message_id": 2700,
+      "bytes": 34806
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272778319238,
+      "message_id": 2700,
+      "bytes": 34806
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272780721318,
+      "horizon_ns": 2550000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272780915231,
+      "horizon_ns": 2550000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272789325934,
+      "horizon_ns": 2560000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272789332714,
+      "horizon_ns": 2560000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272789358927,
+      "horizon_ns": 2560000000
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272797403663,
+      "message_id": 2715,
+      "bytes": 42748
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272797444936,
+      "message_id": 2715,
+      "bytes": 42748
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272797449713,
+      "message_id": 2715,
+      "bytes": 42748
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272797546901,
+      "message_id": 2715,
+      "bytes": 42748
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272800103264,
+      "horizon_ns": 2560000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272800315533,
+      "horizon_ns": 2560000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272805336428,
+      "horizon_ns": 2570000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272805342911,
+      "horizon_ns": 2570000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272805363359,
+      "horizon_ns": 2570000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272809736366,
+      "horizon_ns": 2570000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272809912233,
+      "horizon_ns": 2570000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272831409309,
+      "horizon_ns": 2580000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272831416489,
+      "horizon_ns": 2580000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272831441599,
+      "horizon_ns": 2580000000
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272840609455,
+      "message_id": 2746,
+      "bytes": 53503
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272840663117,
+      "message_id": 2746,
+      "bytes": 53503
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272840668799,
+      "message_id": 2746,
+      "bytes": 53503
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272840795694,
+      "message_id": 2746,
+      "bytes": 53503
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272845748441,
+      "horizon_ns": 2580000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272845929058,
+      "horizon_ns": 2580000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272856097558,
+      "horizon_ns": 2590000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272856107716,
+      "horizon_ns": 2590000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272856137966,
+      "horizon_ns": 2590000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272861982457,
+      "horizon_ns": 2590000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272862272180,
+      "horizon_ns": 2590000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272877062239,
+      "horizon_ns": 2600000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272877069587,
+      "horizon_ns": 2600000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272877093804,
+      "horizon_ns": 2600000000
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272886904258,
+      "message_id": 2769,
+      "bytes": 53503
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272886946582,
+      "message_id": 2769,
+      "bytes": 53503
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272886951819,
+      "message_id": 2769,
+      "bytes": 53503
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272887091772,
+      "message_id": 2769,
+      "bytes": 53503
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272889304600,
+      "horizon_ns": 2600000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272889465849,
+      "horizon_ns": 2600000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272898727862,
+      "horizon_ns": 2610000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272898735652,
+      "horizon_ns": 2610000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272898755424,
+      "horizon_ns": 2610000000
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272904645279,
+      "horizon_ns": 2610000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272904797667,
+      "horizon_ns": 2610000000
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272919025304,
+      "horizon_ns": 2620000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272919032649,
+      "horizon_ns": 2620000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272919050124,
+      "horizon_ns": 2620000000
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272927294752,
+      "message_id": 2798,
+      "bytes": 53503
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272927338825,
+      "message_id": 2798,
+      "bytes": 53503
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272927343656,
+      "message_id": 2798,
+      "bytes": 53503
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272927447956,
+      "message_id": 2798,
+      "bytes": 53503
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272931417404,
+      "horizon_ns": 2620000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272931626252,
+      "horizon_ns": 2620000000
+    },
+    {
+      "kind": "health_native_write_before",
+      "monotonic_ns": 517272932295163,
+      "flow": 31,
+      "message_id": 2813
+    },
+    {
+      "kind": "health_native_write_returned",
+      "monotonic_ns": 517272932308278,
+      "flow": 31,
+      "message_id": 2813
+    },
+    {
+      "kind": "health_native_drain_returned",
+      "monotonic_ns": 517272932311813,
+      "flow": 31,
+      "message_id": 2813
+    },
+    {
+      "kind": "health_native_write_before",
+      "monotonic_ns": 517272933574190,
+      "flow": 51,
+      "message_id": 2814
+    },
+    {
+      "kind": "health_native_write_returned",
+      "monotonic_ns": 517272933591227,
+      "flow": 51,
+      "message_id": 2814
+    },
+    {
+      "kind": "health_native_drain_returned",
+      "monotonic_ns": 517272933595340,
+      "flow": 51,
+      "message_id": 2814
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272937048703,
+      "horizon_ns": 2630000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272937056446,
+      "horizon_ns": 2630000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272937074585,
+      "horizon_ns": 2630000000
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272938732837,
+      "message_id": 2813,
+      "bytes": 1582
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272938750070,
+      "message_id": 2813,
+      "bytes": 1582
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272938755035,
+      "message_id": 2813,
+      "bytes": 1582
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272938843394,
+      "message_id": 2813,
+      "bytes": 1582
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272939644755,
+      "message_id": 2814,
+      "bytes": 1582
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272939657384,
+      "message_id": 2814,
+      "bytes": 1582
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272939661287,
+      "message_id": 2814,
+      "bytes": 1582
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272939716711,
+      "message_id": 2814,
+      "bytes": 1582
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517272944797034,
+      "horizon_ns": 2630000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517272944965076,
+      "horizon_ns": 2630000000
+    },
+    {
+      "kind": "health_native_write_before",
+      "monotonic_ns": 517272945031727,
+      "flow": 71,
+      "message_id": 2815
+    },
+    {
+      "kind": "health_native_write_returned",
+      "monotonic_ns": 517272945050523,
+      "flow": 71,
+      "message_id": 2815
+    },
+    {
+      "kind": "health_native_drain_returned",
+      "monotonic_ns": 517272945055154,
+      "flow": 71,
+      "message_id": 2815
+    },
+    {
+      "kind": "hub_clock_frame_received",
+      "monotonic_ns": 517272964123074,
+      "horizon_ns": 2640000000
+    },
+    {
+      "kind": "hub_native_STEP_write",
+      "monotonic_ns": 517272964130137,
+      "horizon_ns": 2640000000
+    },
+    {
+      "kind": "hub_native_stdin_drain_returned",
+      "monotonic_ns": 517272964144085,
+      "horizon_ns": 2640000000
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272976867773,
+      "message_id": 2815,
+      "bytes": 1582
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272976891089,
+      "message_id": 2815,
+      "bytes": 1582
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272976897186,
+      "message_id": 2815,
+      "bytes": 1582
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272976974958,
+      "message_id": 2815,
+      "bytes": 1582
+    },
+    {
+      "kind": "hub_payload_read_begin",
+      "monotonic_ns": 517272996972354,
+      "message_id": 2816,
+      "bytes": 160688
+    },
+    {
+      "kind": "hub_payload_read_end",
+      "monotonic_ns": 517272997423753,
+      "message_id": 2816,
+      "bytes": 160688
+    },
+    {
+      "kind": "hub_owner_output_begin",
+      "monotonic_ns": 517272997430093,
+      "message_id": 2816,
+      "bytes": 160688
+    },
+    {
+      "kind": "hub_owner_output_end",
+      "monotonic_ns": 517272997608066,
+      "message_id": 2816,
+      "bytes": 160688
+    },
+    {
+      "kind": "hub_native_STEP_received",
+      "monotonic_ns": 517273011598213,
+      "horizon_ns": 2640000000
+    },
+    {
+      "kind": "hub_clock_response_drain_returned",
+      "monotonic_ns": 517273011811244,
+      "horizon_ns": 2640000000
+    }
+  ],
+  "native_boundaries": [
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272381638804,
+      "thread_cpu_ns": 2525000279,
+      "ns3_ns": 2390000000,
+      "horizon_ns": 2390000000,
+      "output_messages": 13,
+      "output_bytes": 1396,
+      "output_wall_ns": 112820,
+      "output_cpu_ns": 105890,
+      "hub_receive_monotonic_ns": 517272381772171
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272381654015,
+      "thread_cpu_ns": 2525016293,
+      "ns3_ns": 2390000000,
+      "horizon_ns": 2390000000,
+      "hub_receive_monotonic_ns": 517272381828078
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272381660277,
+      "thread_cpu_ns": 2525022801,
+      "ns3_ns": 2390000000,
+      "horizon_ns": 2390000000,
+      "hub_receive_monotonic_ns": 517272381841534
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272393757865,
+      "thread_cpu_ns": 2525995464,
+      "ns3_ns": 2390000000,
+      "horizon_ns": 2400000000,
+      "hub_receive_monotonic_ns": 517272393960736
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272399185514,
+      "thread_cpu_ns": 2531422470,
+      "ns3_ns": 2400000000,
+      "horizon_ns": 2400000000,
+      "output_messages": 12,
+      "output_bytes": 1952,
+      "output_wall_ns": 100597,
+      "output_cpu_ns": 92913,
+      "hub_receive_monotonic_ns": 517272399308395
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272399198869,
+      "thread_cpu_ns": 2531436278,
+      "ns3_ns": 2400000000,
+      "horizon_ns": 2400000000,
+      "hub_receive_monotonic_ns": 517272399358746
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272399203506,
+      "thread_cpu_ns": 2531441014,
+      "ns3_ns": 2400000000,
+      "horizon_ns": 2400000000,
+      "hub_receive_monotonic_ns": 517272399372661
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272404260519,
+      "thread_cpu_ns": 2531965639,
+      "ns3_ns": 2400000000,
+      "horizon_ns": 2410000000,
+      "hub_receive_monotonic_ns": 517272404438475
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272409153870,
+      "thread_cpu_ns": 2536858590,
+      "ns3_ns": 2410000000,
+      "horizon_ns": 2410000000,
+      "output_messages": 8,
+      "output_bytes": 2168,
+      "output_wall_ns": 86445,
+      "output_cpu_ns": 79914,
+      "hub_receive_monotonic_ns": 517272409280400
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272409169021,
+      "thread_cpu_ns": 2536874182,
+      "ns3_ns": 2410000000,
+      "horizon_ns": 2410000000,
+      "hub_receive_monotonic_ns": 517272409334187
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272409173406,
+      "thread_cpu_ns": 2536878432,
+      "ns3_ns": 2410000000,
+      "horizon_ns": 2410000000,
+      "hub_receive_monotonic_ns": 517272409348803
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272417895633,
+      "thread_cpu_ns": 2537698785,
+      "ns3_ns": 2410000000,
+      "horizon_ns": 2420000000,
+      "hub_receive_monotonic_ns": 517272418109376
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272421560256,
+      "thread_cpu_ns": 2541363099,
+      "ns3_ns": 2420000000,
+      "horizon_ns": 2420000000,
+      "output_messages": 5,
+      "output_bytes": 508,
+      "output_wall_ns": 51138,
+      "output_cpu_ns": 46957,
+      "hub_receive_monotonic_ns": 517272421663919
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272421571130,
+      "thread_cpu_ns": 2541374660,
+      "ns3_ns": 2420000000,
+      "horizon_ns": 2420000000,
+      "hub_receive_monotonic_ns": 517272421715850
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272421575257,
+      "thread_cpu_ns": 2541378828,
+      "ns3_ns": 2420000000,
+      "horizon_ns": 2420000000,
+      "hub_receive_monotonic_ns": 517272421729694
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272430435790,
+      "thread_cpu_ns": 2541878929,
+      "ns3_ns": 2420000000,
+      "horizon_ns": 2430000000,
+      "hub_receive_monotonic_ns": 517272430683772
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272435338108,
+      "thread_cpu_ns": 2546780586,
+      "ns3_ns": 2430000000,
+      "horizon_ns": 2430000000,
+      "output_messages": 8,
+      "output_bytes": 1464,
+      "output_wall_ns": 84037,
+      "output_cpu_ns": 78802,
+      "hub_receive_monotonic_ns": 517272435460576
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272435352751,
+      "thread_cpu_ns": 2546795913,
+      "ns3_ns": 2430000000,
+      "horizon_ns": 2430000000,
+      "hub_receive_monotonic_ns": 517272435530700
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272435356999,
+      "thread_cpu_ns": 2546800168,
+      "ns3_ns": 2430000000,
+      "horizon_ns": 2430000000,
+      "hub_receive_monotonic_ns": 517272435555905
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272455890638,
+      "thread_cpu_ns": 2553416103,
+      "ns3_ns": 2430000000,
+      "horizon_ns": 2440000000,
+      "hub_receive_monotonic_ns": 517272456045969
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272490031880,
+      "thread_cpu_ns": 2587554919,
+      "ns3_ns": 2438006499,
+      "horizon_ns": 2440000000,
+      "message_id": 2511,
+      "bytes": 160689,
+      "hub_receive_monotonic_ns": 517272490237920
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272490411440,
+      "thread_cpu_ns": 2587708760,
+      "ns3_ns": 2438006499,
+      "horizon_ns": 2440000000,
+      "message_id": 2511,
+      "bytes": 160689,
+      "hub_receive_monotonic_ns": 517272490919094
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272498963474,
+      "thread_cpu_ns": 2596259070,
+      "ns3_ns": 2440000000,
+      "horizon_ns": 2440000000,
+      "output_messages": 12,
+      "output_bytes": 166034,
+      "output_wall_ns": 474851,
+      "output_cpu_ns": 242336,
+      "hub_receive_monotonic_ns": 517272499239022
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272498980821,
+      "thread_cpu_ns": 2596277685,
+      "ns3_ns": 2440000000,
+      "horizon_ns": 2440000000,
+      "hub_receive_monotonic_ns": 517272499313349
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272498985315,
+      "thread_cpu_ns": 2596282262,
+      "ns3_ns": 2440000000,
+      "horizon_ns": 2440000000,
+      "hub_receive_monotonic_ns": 517272499329101
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272504086471,
+      "thread_cpu_ns": 2597627485,
+      "ns3_ns": 2440000000,
+      "horizon_ns": 2450000000,
+      "hub_receive_monotonic_ns": 517272504308701
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272514175791,
+      "thread_cpu_ns": 2607715674,
+      "ns3_ns": 2442583542,
+      "horizon_ns": 2450000000,
+      "message_id": 2512,
+      "bytes": 160689,
+      "hub_receive_monotonic_ns": 517272514484372
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272514478285,
+      "thread_cpu_ns": 2607871130,
+      "ns3_ns": 2442583542,
+      "horizon_ns": 2450000000,
+      "message_id": 2512,
+      "bytes": 160689,
+      "hub_receive_monotonic_ns": 517272515145000
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272531269500,
+      "thread_cpu_ns": 2624661190,
+      "ns3_ns": 2446932581,
+      "horizon_ns": 2450000000,
+      "message_id": 2513,
+      "bytes": 160689,
+      "hub_receive_monotonic_ns": 517272531533036
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272531769114,
+      "thread_cpu_ns": 2624857954,
+      "ns3_ns": 2446932581,
+      "horizon_ns": 2450000000,
+      "message_id": 2513,
+      "bytes": 160689,
+      "hub_receive_monotonic_ns": 517272532363581
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272533086261,
+      "thread_cpu_ns": 2626174837,
+      "ns3_ns": 2450000000,
+      "horizon_ns": 2450000000,
+      "output_messages": 42,
+      "output_bytes": 327346,
+      "output_wall_ns": 1047569,
+      "output_cpu_ns": 596638,
+      "hub_receive_monotonic_ns": 517272533293529
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272533101966,
+      "thread_cpu_ns": 2626191049,
+      "ns3_ns": 2450000000,
+      "horizon_ns": 2450000000,
+      "hub_receive_monotonic_ns": 517272533330966
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272533106233,
+      "thread_cpu_ns": 2626195355,
+      "ns3_ns": 2450000000,
+      "horizon_ns": 2450000000,
+      "hub_receive_monotonic_ns": 517272533345625
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272543765549,
+      "thread_cpu_ns": 2627461363,
+      "ns3_ns": 2450000000,
+      "horizon_ns": 2460000000,
+      "hub_receive_monotonic_ns": 517272543950463
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272549889478,
+      "thread_cpu_ns": 2633584098,
+      "ns3_ns": 2460000000,
+      "horizon_ns": 2460000000,
+      "output_messages": 20,
+      "output_bytes": 2168,
+      "output_wall_ns": 153047,
+      "output_cpu_ns": 145949,
+      "hub_receive_monotonic_ns": 517272549966263
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272549905323,
+      "thread_cpu_ns": 2633600747,
+      "ns3_ns": 2460000000,
+      "horizon_ns": 2460000000,
+      "hub_receive_monotonic_ns": 517272550086305
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272549910133,
+      "thread_cpu_ns": 2633605814,
+      "ns3_ns": 2460000000,
+      "horizon_ns": 2460000000,
+      "hub_receive_monotonic_ns": 517272550101907
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272557391044,
+      "thread_cpu_ns": 2634196414,
+      "ns3_ns": 2460000000,
+      "horizon_ns": 2470000000,
+      "hub_receive_monotonic_ns": 517272557570466
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272561797396,
+      "thread_cpu_ns": 2638600667,
+      "ns3_ns": 2470000000,
+      "horizon_ns": 2470000000,
+      "output_messages": 5,
+      "output_bytes": 1196,
+      "output_wall_ns": 54542,
+      "output_cpu_ns": 51354,
+      "hub_receive_monotonic_ns": 517272561911507
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272561842216,
+      "thread_cpu_ns": 2638647120,
+      "ns3_ns": 2470000000,
+      "horizon_ns": 2470000000,
+      "hub_receive_monotonic_ns": 517272561995857
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272561846975,
+      "thread_cpu_ns": 2638651881,
+      "ns3_ns": 2470000000,
+      "horizon_ns": 2470000000,
+      "hub_receive_monotonic_ns": 517272562027409
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272573170721,
+      "thread_cpu_ns": 2639686353,
+      "ns3_ns": 2470000000,
+      "horizon_ns": 2480000000,
+      "hub_receive_monotonic_ns": 517272573334287
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272577869457,
+      "thread_cpu_ns": 2644384206,
+      "ns3_ns": 2480000000,
+      "horizon_ns": 2480000000,
+      "output_messages": 10,
+      "output_bytes": 2256,
+      "output_wall_ns": 93737,
+      "output_cpu_ns": 87408,
+      "hub_receive_monotonic_ns": 517272577943046
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272577880822,
+      "thread_cpu_ns": 2644396377,
+      "ns3_ns": 2480000000,
+      "horizon_ns": 2480000000,
+      "hub_receive_monotonic_ns": 517272578016100
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272577886087,
+      "thread_cpu_ns": 2644401289,
+      "ns3_ns": 2480000000,
+      "horizon_ns": 2480000000,
+      "hub_receive_monotonic_ns": 517272578030028
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272591159897,
+      "thread_cpu_ns": 2645484562,
+      "ns3_ns": 2480000000,
+      "horizon_ns": 2490000000,
+      "hub_receive_monotonic_ns": 517272591300297
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272596296893,
+      "thread_cpu_ns": 2650620861,
+      "ns3_ns": 2490000000,
+      "horizon_ns": 2490000000,
+      "output_messages": 12,
+      "output_bytes": 1336,
+      "output_wall_ns": 115580,
+      "output_cpu_ns": 108085,
+      "hub_receive_monotonic_ns": 517272596370284
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272596309944,
+      "thread_cpu_ns": 2650634577,
+      "ns3_ns": 2490000000,
+      "horizon_ns": 2490000000,
+      "hub_receive_monotonic_ns": 517272596432747
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272596314374,
+      "thread_cpu_ns": 2650638966,
+      "ns3_ns": 2490000000,
+      "horizon_ns": 2490000000,
+      "hub_receive_monotonic_ns": 517272596455655
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272606708752,
+      "thread_cpu_ns": 2651537984,
+      "ns3_ns": 2490000000,
+      "horizon_ns": 2500000000,
+      "hub_receive_monotonic_ns": 517272606876952
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272612025446,
+      "thread_cpu_ns": 2656852827,
+      "ns3_ns": 2500000000,
+      "horizon_ns": 2500000000,
+      "output_messages": 11,
+      "output_bytes": 1892,
+      "output_wall_ns": 108273,
+      "output_cpu_ns": 103367,
+      "hub_receive_monotonic_ns": 517272612120429
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272612048199,
+      "thread_cpu_ns": 2656876747,
+      "ns3_ns": 2500000000,
+      "horizon_ns": 2500000000,
+      "hub_receive_monotonic_ns": 517272612184732
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272612055727,
+      "thread_cpu_ns": 2656884311,
+      "ns3_ns": 2500000000,
+      "horizon_ns": 2500000000,
+      "hub_receive_monotonic_ns": 517272612200858
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272621198814,
+      "thread_cpu_ns": 2657914989,
+      "ns3_ns": 2500000000,
+      "horizon_ns": 2510000000,
+      "hub_receive_monotonic_ns": 517272621390681
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272626299243,
+      "thread_cpu_ns": 2663015282,
+      "ns3_ns": 2510000000,
+      "horizon_ns": 2510000000,
+      "output_messages": 10,
+      "output_bytes": 2288,
+      "output_wall_ns": 100228,
+      "output_cpu_ns": 94134,
+      "hub_receive_monotonic_ns": 517272626375349
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272626314379,
+      "thread_cpu_ns": 2663030451,
+      "ns3_ns": 2510000000,
+      "horizon_ns": 2510000000,
+      "hub_receive_monotonic_ns": 517272626439154
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272626320027,
+      "thread_cpu_ns": 2663036229,
+      "ns3_ns": 2510000000,
+      "horizon_ns": 2510000000,
+      "hub_receive_monotonic_ns": 517272626453673
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272639125048,
+      "thread_cpu_ns": 2663943866,
+      "ns3_ns": 2510000000,
+      "horizon_ns": 2520000000,
+      "hub_receive_monotonic_ns": 517272639283750
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272644028011,
+      "thread_cpu_ns": 2668846340,
+      "ns3_ns": 2520000000,
+      "horizon_ns": 2520000000,
+      "output_messages": 10,
+      "output_bytes": 1104,
+      "output_wall_ns": 95540,
+      "output_cpu_ns": 89622,
+      "hub_receive_monotonic_ns": 517272644105381
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272644041967,
+      "thread_cpu_ns": 2668860413,
+      "ns3_ns": 2520000000,
+      "horizon_ns": 2520000000,
+      "hub_receive_monotonic_ns": 517272644164028
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272644047437,
+      "thread_cpu_ns": 2668866030,
+      "ns3_ns": 2520000000,
+      "horizon_ns": 2520000000,
+      "hub_receive_monotonic_ns": 517272644185242
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272659974341,
+      "thread_cpu_ns": 2672011304,
+      "ns3_ns": 2520000000,
+      "horizon_ns": 2530000000,
+      "hub_receive_monotonic_ns": 517272660075153
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272685475756,
+      "thread_cpu_ns": 2697510616,
+      "ns3_ns": 2526282445,
+      "horizon_ns": 2530000000,
+      "message_id": 2647,
+      "bytes": 160674,
+      "hub_receive_monotonic_ns": 517272685823580
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272686029617,
+      "thread_cpu_ns": 2697740963,
+      "ns3_ns": 2526282445,
+      "horizon_ns": 2530000000,
+      "message_id": 2647,
+      "bytes": 160674,
+      "hub_receive_monotonic_ns": 517272686700377
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272688126876,
+      "thread_cpu_ns": 2699836748,
+      "ns3_ns": 2530000000,
+      "horizon_ns": 2530000000,
+      "output_messages": 15,
+      "output_bytes": 167387,
+      "output_wall_ns": 700430,
+      "output_cpu_ns": 364342,
+      "hub_receive_monotonic_ns": 517272688442612
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272688145580,
+      "thread_cpu_ns": 2699856970,
+      "ns3_ns": 2530000000,
+      "horizon_ns": 2530000000,
+      "hub_receive_monotonic_ns": 517272688504792
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272688153371,
+      "thread_cpu_ns": 2699864226,
+      "ns3_ns": 2530000000,
+      "horizon_ns": 2530000000,
+      "hub_receive_monotonic_ns": 517272688518875
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272702205874,
+      "thread_cpu_ns": 2704859737,
+      "ns3_ns": 2530000000,
+      "horizon_ns": 2540000000,
+      "hub_receive_monotonic_ns": 517272702391010
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272729632185,
+      "thread_cpu_ns": 2732284034,
+      "ns3_ns": 2535057507,
+      "horizon_ns": 2540000000,
+      "message_id": 2650,
+      "bytes": 160674,
+      "hub_receive_monotonic_ns": 517272730155667
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272730442502,
+      "thread_cpu_ns": 2732495305,
+      "ns3_ns": 2535057507,
+      "horizon_ns": 2540000000,
+      "message_id": 2650,
+      "bytes": 160674,
+      "hub_receive_monotonic_ns": 517272731169423
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272747456188,
+      "thread_cpu_ns": 2749507513,
+      "ns3_ns": 2539434545,
+      "horizon_ns": 2540000000,
+      "message_id": 2651,
+      "bytes": 160674,
+      "hub_receive_monotonic_ns": 517272747712965
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272747888128,
+      "thread_cpu_ns": 2749676573,
+      "ns3_ns": 2539434545,
+      "horizon_ns": 2540000000,
+      "message_id": 2651,
+      "bytes": 160674,
+      "hub_receive_monotonic_ns": 517272748592491
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272749247434,
+      "thread_cpu_ns": 2751034855,
+      "ns3_ns": 2540000000,
+      "horizon_ns": 2540000000,
+      "output_messages": 28,
+      "output_bytes": 325328,
+      "output_wall_ns": 1392769,
+      "output_cpu_ns": 523082,
+      "hub_receive_monotonic_ns": 517272749426730
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272749262230,
+      "thread_cpu_ns": 2751050482,
+      "ns3_ns": 2540000000,
+      "horizon_ns": 2540000000,
+      "hub_receive_monotonic_ns": 517272749464517
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272749266700,
+      "thread_cpu_ns": 2751055038,
+      "ns3_ns": 2540000000,
+      "horizon_ns": 2540000000,
+      "hub_receive_monotonic_ns": 517272749478879
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272761119923,
+      "thread_cpu_ns": 2754688028,
+      "ns3_ns": 2540000000,
+      "horizon_ns": 2550000000,
+      "hub_receive_monotonic_ns": 517272761355801
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272771327082,
+      "thread_cpu_ns": 2764894137,
+      "ns3_ns": 2543406285,
+      "horizon_ns": 2550000000,
+      "message_id": 2709,
+      "bytes": 52822,
+      "hub_receive_monotonic_ns": 517272771513220
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272771391991,
+      "thread_cpu_ns": 2764959917,
+      "ns3_ns": 2543406285,
+      "horizon_ns": 2550000000,
+      "message_id": 2709,
+      "bytes": 52822,
+      "hub_receive_monotonic_ns": 517272771623102
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272777747334,
+      "thread_cpu_ns": 2771314433,
+      "ns3_ns": 2544396156,
+      "horizon_ns": 2550000000,
+      "message_id": 2700,
+      "bytes": 34806,
+      "hub_receive_monotonic_ns": 517272777978736
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272777803707,
+      "thread_cpu_ns": 2771371624,
+      "ns3_ns": 2544396156,
+      "horizon_ns": 2550000000,
+      "message_id": 2700,
+      "bytes": 34806,
+      "hub_receive_monotonic_ns": 517272778092682
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272780498460,
+      "thread_cpu_ns": 2774064207,
+      "ns3_ns": 2550000000,
+      "horizon_ns": 2550000000,
+      "output_messages": 39,
+      "output_bytes": 91672,
+      "output_wall_ns": 420144,
+      "output_cpu_ns": 407476,
+      "hub_receive_monotonic_ns": 517272780594062
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272780515468,
+      "thread_cpu_ns": 2774082898,
+      "ns3_ns": 2550000000,
+      "horizon_ns": 2550000000,
+      "hub_receive_monotonic_ns": 517272780669415
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272780520869,
+      "thread_cpu_ns": 2774087860,
+      "ns3_ns": 2550000000,
+      "horizon_ns": 2550000000,
+      "hub_receive_monotonic_ns": 517272780684334
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272789376640,
+      "thread_cpu_ns": 2775909896,
+      "ns3_ns": 2550000000,
+      "horizon_ns": 2560000000,
+      "hub_receive_monotonic_ns": 517272789562683
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272797063817,
+      "thread_cpu_ns": 2783586445,
+      "ns3_ns": 2552992977,
+      "horizon_ns": 2560000000,
+      "message_id": 2715,
+      "bytes": 42748,
+      "hub_receive_monotonic_ns": 517272797226424
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272797124789,
+      "thread_cpu_ns": 2783647955,
+      "ns3_ns": 2552992977,
+      "horizon_ns": 2560000000,
+      "message_id": 2715,
+      "bytes": 42748,
+      "hub_receive_monotonic_ns": 517272797352313
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272799869925,
+      "thread_cpu_ns": 2786391860,
+      "ns3_ns": 2560000000,
+      "horizon_ns": 2560000000,
+      "output_messages": 11,
+      "output_bytes": 43852,
+      "output_wall_ns": 143291,
+      "output_cpu_ns": 137516,
+      "hub_receive_monotonic_ns": 517272799968707
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272799889907,
+      "thread_cpu_ns": 2786412410,
+      "ns3_ns": 2560000000,
+      "horizon_ns": 2560000000,
+      "hub_receive_monotonic_ns": 517272800048771
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272799894597,
+      "thread_cpu_ns": 2786417799,
+      "ns3_ns": 2560000000,
+      "horizon_ns": 2560000000,
+      "hub_receive_monotonic_ns": 517272800063700
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272805374541,
+      "thread_cpu_ns": 2786948207,
+      "ns3_ns": 2560000000,
+      "horizon_ns": 2570000000,
+      "hub_receive_monotonic_ns": 517272805545995
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272809456914,
+      "thread_cpu_ns": 2791029496,
+      "ns3_ns": 2570000000,
+      "horizon_ns": 2570000000,
+      "output_messages": 6,
+      "output_bytes": 1256,
+      "output_wall_ns": 61556,
+      "output_cpu_ns": 57186,
+      "hub_receive_monotonic_ns": 517272809517343
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272809625281,
+      "thread_cpu_ns": 2791198830,
+      "ns3_ns": 2570000000,
+      "horizon_ns": 2570000000,
+      "hub_receive_monotonic_ns": 517272809683006
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272809632397,
+      "thread_cpu_ns": 2791205763,
+      "ns3_ns": 2570000000,
+      "horizon_ns": 2570000000,
+      "hub_receive_monotonic_ns": 517272809699482
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272831464239,
+      "thread_cpu_ns": 2793632780,
+      "ns3_ns": 2570000000,
+      "horizon_ns": 2580000000,
+      "hub_receive_monotonic_ns": 517272831620352
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272840116793,
+      "thread_cpu_ns": 2802284346,
+      "ns3_ns": 2571923756,
+      "horizon_ns": 2580000000,
+      "message_id": 2746,
+      "bytes": 53503,
+      "hub_receive_monotonic_ns": 517272840406928
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272840229308,
+      "thread_cpu_ns": 2802397439,
+      "ns3_ns": 2571923756,
+      "horizon_ns": 2580000000,
+      "message_id": 2746,
+      "bytes": 53503,
+      "hub_receive_monotonic_ns": 517272840557568
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272845533114,
+      "thread_cpu_ns": 2807700124,
+      "ns3_ns": 2580000000,
+      "horizon_ns": 2580000000,
+      "output_messages": 17,
+      "output_bytes": 56463,
+      "output_wall_ns": 264404,
+      "output_cpu_ns": 238861,
+      "hub_receive_monotonic_ns": 517272845614826
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272845549147,
+      "thread_cpu_ns": 2807716750,
+      "ns3_ns": 2580000000,
+      "horizon_ns": 2580000000,
+      "hub_receive_monotonic_ns": 517272845684028
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272845554558,
+      "thread_cpu_ns": 2807722394,
+      "ns3_ns": 2580000000,
+      "horizon_ns": 2580000000,
+      "hub_receive_monotonic_ns": 517272845698506
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272856170051,
+      "thread_cpu_ns": 2808386713,
+      "ns3_ns": 2580000000,
+      "horizon_ns": 2590000000,
+      "hub_receive_monotonic_ns": 517272856334870
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272861753227,
+      "thread_cpu_ns": 2813968625,
+      "ns3_ns": 2590000000,
+      "horizon_ns": 2590000000,
+      "output_messages": 15,
+      "output_bytes": 1676,
+      "output_wall_ns": 124213,
+      "output_cpu_ns": 116714,
+      "hub_receive_monotonic_ns": 517272861839872
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272861770117,
+      "thread_cpu_ns": 2813986732,
+      "ns3_ns": 2590000000,
+      "horizon_ns": 2590000000,
+      "hub_receive_monotonic_ns": 517272861899484
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272861775566,
+      "thread_cpu_ns": 2813991813,
+      "ns3_ns": 2590000000,
+      "horizon_ns": 2590000000,
+      "hub_receive_monotonic_ns": 517272861915171
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272877105428,
+      "thread_cpu_ns": 2815856666,
+      "ns3_ns": 2590000000,
+      "horizon_ns": 2600000000,
+      "hub_receive_monotonic_ns": 517272877306472
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272886542146,
+      "thread_cpu_ns": 2825292911,
+      "ns3_ns": 2592124904,
+      "horizon_ns": 2600000000,
+      "message_id": 2769,
+      "bytes": 53503,
+      "hub_receive_monotonic_ns": 517272886740341
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272886618356,
+      "thread_cpu_ns": 2825369913,
+      "ns3_ns": 2592124904,
+      "horizon_ns": 2600000000,
+      "message_id": 2769,
+      "bytes": 53503,
+      "hub_receive_monotonic_ns": 517272886858029
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272889090424,
+      "thread_cpu_ns": 2827840475,
+      "ns3_ns": 2600000000,
+      "horizon_ns": 2600000000,
+      "output_messages": 10,
+      "output_bytes": 55027,
+      "output_wall_ns": 161877,
+      "output_cpu_ns": 155112,
+      "hub_receive_monotonic_ns": 517272889182294
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272889111495,
+      "thread_cpu_ns": 2827862477,
+      "ns3_ns": 2600000000,
+      "horizon_ns": 2600000000,
+      "hub_receive_monotonic_ns": 517272889243404
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272889119152,
+      "thread_cpu_ns": 2827869759,
+      "ns3_ns": 2600000000,
+      "horizon_ns": 2600000000,
+      "hub_receive_monotonic_ns": 517272889280173
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272898774381,
+      "thread_cpu_ns": 2828874472,
+      "ns3_ns": 2600000000,
+      "horizon_ns": 2610000000,
+      "hub_receive_monotonic_ns": 517272898940735
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272904460454,
+      "thread_cpu_ns": 2834559659,
+      "ns3_ns": 2610000000,
+      "horizon_ns": 2610000000,
+      "output_messages": 15,
+      "output_bytes": 2916,
+      "output_wall_ns": 141718,
+      "output_cpu_ns": 134578,
+      "hub_receive_monotonic_ns": 517272904536647
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272904473723,
+      "thread_cpu_ns": 2834573557,
+      "ns3_ns": 2610000000,
+      "horizon_ns": 2610000000,
+      "hub_receive_monotonic_ns": 517272904596853
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272904478243,
+      "thread_cpu_ns": 2834578077,
+      "ns3_ns": 2610000000,
+      "horizon_ns": 2610000000,
+      "hub_receive_monotonic_ns": 517272904610673
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272919063580,
+      "thread_cpu_ns": 2836488490,
+      "ns3_ns": 2610000000,
+      "horizon_ns": 2620000000,
+      "hub_receive_monotonic_ns": 517272919220839
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272926938522,
+      "thread_cpu_ns": 2844362528,
+      "ns3_ns": 2611998052,
+      "horizon_ns": 2620000000,
+      "message_id": 2798,
+      "bytes": 53503,
+      "hub_receive_monotonic_ns": 517272927179722
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272927019296,
+      "thread_cpu_ns": 2844443778,
+      "ns3_ns": 2611998052,
+      "horizon_ns": 2620000000,
+      "message_id": 2798,
+      "bytes": 53503,
+      "hub_receive_monotonic_ns": 517272927484983
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272931209152,
+      "thread_cpu_ns": 2848632982,
+      "ns3_ns": 2620000000,
+      "horizon_ns": 2620000000,
+      "output_messages": 11,
+      "output_bytes": 54607,
+      "output_wall_ns": 176214,
+      "output_cpu_ns": 169884,
+      "hub_receive_monotonic_ns": 517272931287734
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272931222390,
+      "thread_cpu_ns": 2848646574,
+      "ns3_ns": 2620000000,
+      "horizon_ns": 2620000000,
+      "hub_receive_monotonic_ns": 517272931343887
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272931227448,
+      "thread_cpu_ns": 2848651863,
+      "ns3_ns": 2620000000,
+      "horizon_ns": 2620000000,
+      "hub_receive_monotonic_ns": 517272931357525
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272937093550,
+      "thread_cpu_ns": 2849512130,
+      "ns3_ns": 2620000000,
+      "horizon_ns": 2630000000,
+      "hub_receive_monotonic_ns": 517272937270795
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517272944602902,
+      "thread_cpu_ns": 2857020485,
+      "ns3_ns": 2630000000,
+      "horizon_ns": 2630000000,
+      "output_messages": 14,
+      "output_bytes": 5116,
+      "output_wall_ns": 146045,
+      "output_cpu_ns": 134722,
+      "hub_receive_monotonic_ns": 517272944682642
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517272944618408,
+      "thread_cpu_ns": 2857036904,
+      "ns3_ns": 2630000000,
+      "horizon_ns": 2630000000,
+      "hub_receive_monotonic_ns": 517272944744891
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517272944623648,
+      "thread_cpu_ns": 2857042104,
+      "ns3_ns": 2630000000,
+      "horizon_ns": 2630000000,
+      "hub_receive_monotonic_ns": 517272944758701
+    },
+    {
+      "kind": "step_begin",
+      "monotonic_ns": 517272964158393,
+      "thread_cpu_ns": 2863461619,
+      "ns3_ns": 2630000000,
+      "horizon_ns": 2640000000,
+      "hub_receive_monotonic_ns": 517272964418295
+    },
+    {
+      "kind": "rx_output_begin",
+      "monotonic_ns": 517272996405313,
+      "thread_cpu_ns": 2895705983,
+      "ns3_ns": 2636161288,
+      "horizon_ns": 2640000000,
+      "message_id": 2816,
+      "bytes": 160688,
+      "hub_receive_monotonic_ns": 517272996669273
+    },
+    {
+      "kind": "rx_output_end",
+      "monotonic_ns": 517272996943001,
+      "thread_cpu_ns": 2895850892,
+      "ns3_ns": 2636161288,
+      "horizon_ns": 2640000000,
+      "message_id": 2816,
+      "bytes": 160688,
+      "hub_receive_monotonic_ns": 517272997665024
+    },
+    {
+      "kind": "step_end",
+      "monotonic_ns": 517273011024750,
+      "thread_cpu_ns": 2909890690,
+      "ns3_ns": 2640000000,
+      "horizon_ns": 2640000000,
+      "output_messages": 14,
+      "output_bytes": 164634,
+      "output_wall_ns": 635053,
+      "output_cpu_ns": 235492,
+      "hub_receive_monotonic_ns": 517273011355796
+    },
+    {
+      "kind": "ledger_barrier_begin",
+      "monotonic_ns": 517273011046647,
+      "thread_cpu_ns": 2909913171,
+      "ns3_ns": 2640000000,
+      "horizon_ns": 2640000000,
+      "hub_receive_monotonic_ns": 517273011453388
+    },
+    {
+      "kind": "ledger_barrier_end",
+      "monotonic_ns": 517273011051640,
+      "thread_cpu_ns": 2909918260,
+      "ns3_ns": 2640000000,
+      "horizon_ns": 2640000000,
+      "hub_receive_monotonic_ns": 517273011471125
+    }
+  ],
+  "native_steps": [
+    {
+      "horizon_ns": 2390000000,
+      "begin_monotonic_ns": 517272376355443,
+      "begin_thread_cpu_ns": 2519720739,
+      "begin_ns3_ns": 2380000000,
+      "end_monotonic_ns": 517272381650200,
+      "end_thread_cpu_ns": 2525012369,
+      "end_ns3_ns": 2390000000
+    },
+    {
+      "horizon_ns": 2400000000,
+      "begin_monotonic_ns": 517272393751267,
+      "begin_thread_cpu_ns": 2525992142,
+      "begin_ns3_ns": 2390000000,
+      "end_monotonic_ns": 517272399195054,
+      "end_thread_cpu_ns": 2531432512,
+      "end_ns3_ns": 2400000000
+    },
+    {
+      "horizon_ns": 2410000000,
+      "begin_monotonic_ns": 517272404253120,
+      "begin_thread_cpu_ns": 2531961039,
+      "begin_ns3_ns": 2400000000,
+      "end_monotonic_ns": 517272409165425,
+      "end_thread_cpu_ns": 2536870301,
+      "end_ns3_ns": 2410000000
+    },
+    {
+      "horizon_ns": 2420000000,
+      "begin_monotonic_ns": 517272417888399,
+      "begin_thread_cpu_ns": 2537695097,
+      "begin_ns3_ns": 2410000000,
+      "end_monotonic_ns": 517272421567620,
+      "end_thread_cpu_ns": 2541371090,
+      "end_ns3_ns": 2420000000
+    },
+    {
+      "horizon_ns": 2430000000,
+      "begin_monotonic_ns": 517272430429945,
+      "begin_thread_cpu_ns": 2541876110,
+      "begin_ns3_ns": 2420000000,
+      "end_monotonic_ns": 517272435349106,
+      "end_thread_cpu_ns": 2546792188,
+      "end_ns3_ns": 2430000000
+    },
+    {
+      "horizon_ns": 2440000000,
+      "begin_monotonic_ns": 517272455883924,
+      "begin_thread_cpu_ns": 2553412665,
+      "begin_ns3_ns": 2430000000,
+      "end_monotonic_ns": 517272498976743,
+      "end_thread_cpu_ns": 2596273650,
+      "end_ns3_ns": 2440000000
+    },
+    {
+      "horizon_ns": 2450000000,
+      "begin_monotonic_ns": 517272504081305,
+      "begin_thread_cpu_ns": 2597624804,
+      "begin_ns3_ns": 2440000000,
+      "end_monotonic_ns": 517272533097718,
+      "end_thread_cpu_ns": 2626186781,
+      "end_ns3_ns": 2450000000
+    },
+    {
+      "horizon_ns": 2460000000,
+      "begin_monotonic_ns": 517272543755685,
+      "begin_thread_cpu_ns": 2627455009,
+      "begin_ns3_ns": 2450000000,
+      "end_monotonic_ns": 517272549901430,
+      "end_thread_cpu_ns": 2633596446,
+      "end_ns3_ns": 2460000000
+    },
+    {
+      "horizon_ns": 2470000000,
+      "begin_monotonic_ns": 517272557384639,
+      "begin_thread_cpu_ns": 2634192864,
+      "begin_ns3_ns": 2460000000,
+      "end_monotonic_ns": 517272561809946,
+      "end_thread_cpu_ns": 2638615182,
+      "end_ns3_ns": 2470000000
+    },
+    {
+      "horizon_ns": 2480000000,
+      "begin_monotonic_ns": 517272573163106,
+      "begin_thread_cpu_ns": 2639681754,
+      "begin_ns3_ns": 2470000000,
+      "end_monotonic_ns": 517272577877699,
+      "end_thread_cpu_ns": 2644393078,
+      "end_ns3_ns": 2480000000
+    },
+    {
+      "horizon_ns": 2490000000,
+      "begin_monotonic_ns": 517272591153221,
+      "begin_thread_cpu_ns": 2645481097,
+      "begin_ns3_ns": 2480000000,
+      "end_monotonic_ns": 517272596306529,
+      "end_thread_cpu_ns": 2650630997,
+      "end_ns3_ns": 2490000000
+    },
+    {
+      "horizon_ns": 2500000000,
+      "begin_monotonic_ns": 517272606700558,
+      "begin_thread_cpu_ns": 2651533144,
+      "begin_ns3_ns": 2490000000,
+      "end_monotonic_ns": 517272612041737,
+      "end_thread_cpu_ns": 2656869627,
+      "end_ns3_ns": 2500000000
+    },
+    {
+      "horizon_ns": 2510000000,
+      "begin_monotonic_ns": 517272621190173,
+      "begin_thread_cpu_ns": 2657910404,
+      "begin_ns3_ns": 2500000000,
+      "end_monotonic_ns": 517272626309124,
+      "end_thread_cpu_ns": 2663025377,
+      "end_ns3_ns": 2510000000
+    },
+    {
+      "horizon_ns": 2520000000,
+      "begin_monotonic_ns": 517272639118510,
+      "begin_thread_cpu_ns": 2663940333,
+      "begin_ns3_ns": 2510000000,
+      "end_monotonic_ns": 517272644038089,
+      "end_thread_cpu_ns": 2668856606,
+      "end_ns3_ns": 2520000000
+    },
+    {
+      "horizon_ns": 2530000000,
+      "begin_monotonic_ns": 517272659968229,
+      "begin_thread_cpu_ns": 2672008130,
+      "begin_ns3_ns": 2520000000,
+      "end_monotonic_ns": 517272688139279,
+      "end_thread_cpu_ns": 2699850572,
+      "end_ns3_ns": 2530000000
+    },
+    {
+      "horizon_ns": 2540000000,
+      "begin_monotonic_ns": 517272702198595,
+      "begin_thread_cpu_ns": 2704855982,
+      "begin_ns3_ns": 2530000000,
+      "end_monotonic_ns": 517272749257994,
+      "end_thread_cpu_ns": 2751046122,
+      "end_ns3_ns": 2540000000
+    },
+    {
+      "horizon_ns": 2550000000,
+      "begin_monotonic_ns": 517272761110374,
+      "begin_thread_cpu_ns": 2754682058,
+      "begin_ns3_ns": 2540000000,
+      "end_monotonic_ns": 517272780511308,
+      "end_thread_cpu_ns": 2774078746,
+      "end_ns3_ns": 2550000000
+    },
+    {
+      "horizon_ns": 2560000000,
+      "begin_monotonic_ns": 517272789369778,
+      "begin_thread_cpu_ns": 2775905894,
+      "begin_ns3_ns": 2550000000,
+      "end_monotonic_ns": 517272799885087,
+      "end_thread_cpu_ns": 2786407650,
+      "end_ns3_ns": 2560000000
+    },
+    {
+      "horizon_ns": 2570000000,
+      "begin_monotonic_ns": 517272805368983,
+      "begin_thread_cpu_ns": 2786945430,
+      "begin_ns3_ns": 2560000000,
+      "end_monotonic_ns": 517272809465681,
+      "end_thread_cpu_ns": 2791038944,
+      "end_ns3_ns": 2570000000
+    },
+    {
+      "horizon_ns": 2580000000,
+      "begin_monotonic_ns": 517272831456787,
+      "begin_thread_cpu_ns": 2793628466,
+      "begin_ns3_ns": 2570000000,
+      "end_monotonic_ns": 517272845544592,
+      "end_thread_cpu_ns": 2807712362,
+      "end_ns3_ns": 2580000000
+    },
+    {
+      "horizon_ns": 2590000000,
+      "begin_monotonic_ns": 517272856159954,
+      "begin_thread_cpu_ns": 2808380597,
+      "begin_ns3_ns": 2580000000,
+      "end_monotonic_ns": 517272861765143,
+      "end_thread_cpu_ns": 2813981186,
+      "end_ns3_ns": 2590000000
+    },
+    {
+      "horizon_ns": 2600000000,
+      "begin_monotonic_ns": 517272877096670,
+      "begin_thread_cpu_ns": 2815852829,
+      "begin_ns3_ns": 2590000000,
+      "end_monotonic_ns": 517272889104699,
+      "end_thread_cpu_ns": 2827855599,
+      "end_ns3_ns": 2600000000
+    },
+    {
+      "horizon_ns": 2610000000,
+      "begin_monotonic_ns": 517272898766896,
+      "begin_thread_cpu_ns": 2828870159,
+      "begin_ns3_ns": 2600000000,
+      "end_monotonic_ns": 517272904469766,
+      "end_thread_cpu_ns": 2834569668,
+      "end_ns3_ns": 2610000000
+    },
+    {
+      "horizon_ns": 2620000000,
+      "begin_monotonic_ns": 517272919057252,
+      "begin_thread_cpu_ns": 2836484915,
+      "begin_ns3_ns": 2610000000,
+      "end_monotonic_ns": 517272931218936,
+      "end_thread_cpu_ns": 2848643140,
+      "end_ns3_ns": 2620000000
+    },
+    {
+      "horizon_ns": 2630000000,
+      "begin_monotonic_ns": 517272937086536,
+      "begin_thread_cpu_ns": 2849508619,
+      "begin_ns3_ns": 2620000000,
+      "end_monotonic_ns": 517272944614355,
+      "end_thread_cpu_ns": 2857032794,
+      "end_ns3_ns": 2630000000
+    },
+    {
+      "horizon_ns": 2640000000,
+      "begin_monotonic_ns": 517272964152698,
+      "begin_thread_cpu_ns": 2863458675,
+      "begin_ns3_ns": 2630000000,
+      "end_monotonic_ns": 517273011042361,
+      "end_thread_cpu_ns": 2909908307,
+      "end_ns3_ns": 2640000000
+    }
+  ]
+}

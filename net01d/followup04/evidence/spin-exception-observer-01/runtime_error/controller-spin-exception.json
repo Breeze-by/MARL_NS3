@@ -1,0 +1,20 @@
+{
+  "pid": 877847,
+  "session_id": "2026111155",
+  "observed_monotonic_ns": 613927583112112,
+  "scope": "Raw spin exception observation, not a fault verdict; original handler remains authoritative",
+  "exception_type": "builtins.RuntimeError",
+  "exception_repr": "RuntimeError('runtime_error')",
+  "cause_repr": "ValueError('fixture original cause')",
+  "context_repr": "None",
+  "traceback": "ValueError: fixture original cause\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/zhuyulab/ns3-workspace/net-01d/workspace/net01/controller_bootstrap.py\", line 22, in spin\n    return original_spin(*args,**kwargs)\n  File \"/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/check_spin_exception_observer.py\", line 44, in _take_subscription\n    raise error\nRuntimeError: runtime_error\n",
+  "subscriptions": [
+    {
+      "filename": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/check_spin_exception_observer.py",
+      "line": 44,
+      "topic_name": "/fixture/topic",
+      "msg_type": "__main__.Message",
+      "raw": false
+    }
+  ]
+}

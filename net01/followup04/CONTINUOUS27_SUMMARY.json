@@ -1,0 +1,285 @@
+{
+  "status": "FAIL original real wall receipt gates",
+  "scope": "MOCK_PHYSICS actualWiFi pressure qualification,0Robot/Nav2/Goal/arm/Policy/NN/GZ; not a real physical safety pass",
+  "source_commit": "b7f5e92353d2580e90881d0b39342c840c56694f",
+  "raw": "runs/continuous-dds-27-ram-native-evidence-wifi",
+  "process": {
+    "scope": "MOCK_PHYSICS WiFi feasibility only; not real GZ clock/stop/180sim PASS",
+    "error": null,
+    "wall_s": 22.767853455035947,
+    "hard_wall_s": 30,
+    "exits": {
+      "coordinator": 0,
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "mock_physics": 0,
+      "source": 0
+    },
+    "profile": {
+      "id": "controlled1000-clock100-q10ms",
+      "world_real_time_update_rate": 1000,
+      "physics_max_step_size_unchanged": 0.001,
+      "clock_publish_rate_sim_hz": 100.0,
+      "native_step_quantum_ns": 10000000,
+      "qualification": {
+        "source_wall_s": 16,
+        "hard_wall_s": 30,
+        "clock_period_wall_s": 0.02,
+        "clock_increment_ns": 10000000,
+        "other_sources": "Original TF/odom/feedback per wall unchanged, source clock subscribed from explicit MOCK_PHYSICS actual step service",
+        "peer": "Original10Hz sim timer, expected5Hz wall at target.5RTF; actual intervals measured, original gates unchanged",
+        "local_costmap_cells": [
+          200,
+          200
+        ],
+        "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
+        "not_generated_flows": [
+          "89 C merge_map",
+          "95 C controller journal"
+        ]
+      },
+      "scope": "Explicit external controlled-time shared A/B profile; fixed.5RTF wall target and actual native credit, not policy/network optimization. Qualification uses MOCK_PHYSICS, never claims Gazebo.",
+      "controlled_physics": true,
+      "physical_token_steps": 10,
+      "physical_lookahead_quanta": 2,
+      "token_wall_period_ns": 20000000
+    },
+    "resource_control": "HOLD then STOP, keep actual ACK observer through native END",
+    "Gazebo": 0,
+    "Nav2": 0,
+    "Goal": 0,
+    "NN": 0
+  },
+  "resource_archive_owned": {
+    "monotonic_ns": 455158850511879,
+    "matching_exact_native_argv": [],
+    "signals_sent": [],
+    "hub_native_exit": 0,
+    "hub_status": "PASS",
+    "native_output_argv": [
+      "/home/zhuyulab/ns3-workspace/net-01/build/followup03-release-portable-native/net01-payload",
+      "--output=/dev/shm/net01-native-evidence-27",
+      "--profile=B",
+      "--controlTrace=1"
+    ],
+    "storage": {
+      "backend": "owned_tmpfs_then_copy_after_native_exit",
+      "source": "/dev/shm/net01-native-evidence-27",
+      "destination": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-27-ram-native-evidence-wifi/hub/native",
+      "available_tmpfs_bytes": 67169808384,
+      "MemAvailable_bytes": 115378700288,
+      "source_retained": true,
+      "native_exit": 0,
+      "source_files": {
+        "native-summary.json": 406,
+        "ledger-status.json": 252,
+        "control-step-trace.jsonl": 150494,
+        "wifi-3-0.pcap": 47278935,
+        "wifi-2-0.pcap": 47242625,
+        "wifi-1-0.pcap": 46489475,
+        "wifi-0-0.pcap": 47694299,
+        "configured-lock.json": 3994,
+        "packet-ledger.jsonl": 103121695
+      },
+      "source_bytes": 291982175,
+      "copied_files": {
+        "wifi-1-0.pcap": 46489475,
+        "packet-ledger.jsonl": 103121695,
+        "control-step-trace.jsonl": 150494,
+        "configured-lock.json": 3994,
+        "ledger-status.json": 252,
+        "wifi-3-0.pcap": 47278935,
+        "wifi-2-0.pcap": 47242625,
+        "native-summary.json": 406,
+        "wifi-0-0.pcap": 47694299
+      },
+      "copied_bytes": 291982175,
+      "complete": true,
+      "copy_wall_s": 0.4076288780197501
+    }
+  },
+  "ledger_status": {
+    "async": false,
+    "captured": 655862,
+    "written": 655862,
+    "attempted": 655862,
+    "pending_capacity_records": 16384,
+    "peak_pending_including_inflight": 0,
+    "max_record_owned_bytes": 0,
+    "writer_cpu_ns": 0,
+    "model_cpu_ns": 10263914282,
+    "final_ns3_ns": 7130000000,
+    "failed": false
+  },
+  "Peer": {
+    "frames": 71,
+    "ready": 64,
+    "ready_sequence_range": [
+      7,
+      70
+    ],
+    "original_ready_age_max_by_robot": {
+      "1": {
+        "source": 0.04999999999999982,
+        "receipt": 0.03565272397827357,
+        "correction": 0.20999999999999996
+      },
+      "2": {
+        "source": 0.04999999999999982,
+        "receipt": 0.050117765029426664,
+        "correction": 0.20999999999999996
+      },
+      "3": {
+        "source": 0.04999999999999982,
+        "receipt": 0.03311454301001504,
+        "correction": 0.20000000000000107
+      }
+    }
+  },
+  "boundmask_actual_receipt": {
+    "1": {
+      "accepted": 64,
+      "max_gap": {
+        "previous_sequence": 36,
+        "next_sequence": 37,
+        "lower_wall_s": 0.304386449,
+        "upper_wall_s": 0.304559643
+      }
+    },
+    "2": {
+      "accepted": 64,
+      "max_gap": {
+        "previous_sequence": 46,
+        "next_sequence": 47,
+        "lower_wall_s": 0.31300552,
+        "upper_wall_s": 0.313176881
+      }
+    },
+    "3": {
+      "accepted": 64,
+      "max_gap": {
+        "previous_sequence": 23,
+        "next_sequence": 24,
+        "lower_wall_s": 0.285848682,
+        "upper_wall_s": 0.286056143
+      }
+    }
+  },
+  "health_actual_receipt": {
+    "1": {
+      "received_live_ready": 64,
+      "max_receipt_bracket_gap": {
+        "previous_sequence": 46,
+        "next_sequence": 47,
+        "lower_wall_s": 0.30264291,
+        "upper_wall_s": 0.303220481
+      }
+    },
+    "2": {
+      "received_live_ready": 64,
+      "max_receipt_bracket_gap": {
+        "previous_sequence": 53,
+        "next_sequence": 54,
+        "lower_wall_s": 0.30533994,
+        "upper_wall_s": 0.305833121
+      }
+    },
+    "3": {
+      "received_live_ready": 64,
+      "max_receipt_bracket_gap": {
+        "previous_sequence": 53,
+        "next_sequence": 54,
+        "lower_wall_s": 0.307960857,
+        "upper_wall_s": 0.308473355
+      }
+    }
+  },
+  "health_bracket_semantics": "Actual DeliveryGuard.receive_health runs after matching destination_complete_message mono and before matching TopicWire publisher-before mono. Consecutive lower=next destination-prior publishBefore; upper=next publishBefore-prior destination. All3 lower>.3 prove true interval exceeded original limit.",
+  "original_native_Run_measurement": {
+    "max_offCPU": {
+      "H_sim": 1.07,
+      "wall_ms": 12.389161,
+      "CPU_ms": 10.914341,
+      "offCPU_ms": 1.47482
+    },
+    "max_wall": {
+      "H_sim": 6.93,
+      "wall_ms": 56.51095,
+      "CPU_ms": 55.702286,
+      "offCPU_ms": 0.808664
+    },
+    "scope": "Actual complete Run boundaries this single RAM case, no sampler/strace; substantially smaller offCPU than26 observed D/writev waits, not a guarantee or unique historicalcause claim."
+  },
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "retired_C_services": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+  "Gateway_failure": null,
+  "unarmed_guard_events": {
+    "1": 0,
+    "2": 0,
+    "3": 0
+  },
+  "Gateway_gc": {
+    "original_enabled": true,
+    "original_thresholds": [
+      700,
+      10,
+      10
+    ],
+    "scope": "Only this supervisor-bounded Gateway; deferred cycles can increase RAM, not a long-lived-service policy",
+    "disabled_monotonic_ns": 455123160550903,
+    "processing_start_enabled": false,
+    "processing_end_monotonic_ns": 455141220469566,
+    "processing_end_enabled": false,
+    "restored_enabled": true,
+    "restored_thresholds": [
+      700,
+      10,
+      10
+    ],
+    "restored_monotonic_ns": 455141291715358,
+    "peak_rss_KiB": 126552
+  },
+  "Peer_gc": {
+    "original_enabled": true,
+    "original_thresholds": [
+      700,
+      10,
+      10
+    ],
+    "scope": "Bounded NET BoundPeer processing only; refcounting unchanged",
+    "disabled_monotonic_ns": 455122981147317,
+    "processing_start_enabled": false,
+    "processing_end_monotonic_ns": 455141094986336,
+    "processing_end_enabled": false,
+    "peak_rss_KiB": 80368,
+    "restored_enabled": true,
+    "restored_thresholds": [
+      700,
+      10,
+      10
+    ],
+    "restored_monotonic_ns": 455141105829123
+  },
+  "candidate_conclusion": "Native evidence RAM/archive mechanism succeeds and no long Run offCPU here, but masktb1/tb2 and all3health actualreceipt exceed unchanged.3wall. Do not accept fullqualification fromexit0/64accepted/partialmechanism improvement. Preserve old24/25/26 andbothRAM/diskraw; no retry/B/Gazebo or source/TTL/rate tuning.",
+  "remaining_GZ_slot3": "UNUSED / NOT ADMITTED"
+}

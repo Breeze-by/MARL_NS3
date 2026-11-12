@@ -1,0 +1,18 @@
+{
+  "binary": {
+    "relative_phase": "build/network-full-payload/net01-payload",
+    "bytes": 349608,
+    "sha256": "8aa7c7c88b5445b278bb34f15023c697f09785ec311dfa77cb3ef3de3b7aa1ff"
+  },
+  "generated_header": {
+    "relative_phase": "build/network-full-payload/network_config.h",
+    "bytes": 4545,
+    "sha256": "66e64adf26c3d712ab149fe2d828ae8858d00c7172ef8adfacfc5bd7c2ff73a2"
+  },
+  "source_sha256": "6e5788cfc39117bc1d8ca80df7087df01e0b1393fd69f77a5882ba719f499f3e",
+  "generated_config_matches_NETWORK_LOCK_V3": true,
+  "build_command": "cmake --build net-01/build/network-full-payload -j2",
+  "build_exit": 0,
+  "link_command": "/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/net01-payload.dir/payload_transport.cc.o -o net01-payload  -Wl,-rpath,/home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-wifi-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-internet-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-csma-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-mobility-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-propagation-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-spectrum-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-antenna-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-energy-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-network-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-core-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-traffic-control-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-bridge-default.so",
+  "scope": "Actual external native executable and generated header, checked by host before subprocess start; existing ns3 source/libs unchanged"
+}

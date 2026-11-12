@@ -1,0 +1,64 @@
+{
+  "observed_utc": "2026-11-12T13:25:39.869636+00:00",
+  "recorded_PID_rows": [
+    {
+      "pid": 2126684,
+      "proc_exists": false
+    },
+    {
+      "pid": 2126685,
+      "proc_exists": false
+    },
+    {
+      "pid": 2126754,
+      "proc_exists": false
+    },
+    {
+      "pid": 2126755,
+      "proc_exists": false
+    },
+    {
+      "pid": 2126808,
+      "proc_exists": false
+    },
+    {
+      "pid": 2126809,
+      "proc_exists": false
+    }
+  ],
+  "remaining_exact_case_session_processes": [],
+  "host_remaining_owned_groups": [],
+  "native_exit": 0,
+  "native_exit_source": "Original Hub error-finalize subprocess wait; actual native PID not captured because IPC_LISTENING failed before load gate",
+  "native_model_started": true,
+  "ROS_runner_started": false,
+  "Gazebo_started": false,
+  "NN": 0,
+  "Goal": 0,
+  "physical_Gazebo_runs_in_followup04": 0,
+  "automatic_cleanup_receipt": {
+    "start_utc": "2026-11-12T13:23:21.473386+00:00",
+    "case": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup04/gz-runs/corr6201-common58-r01-a1",
+    "session_id": 2026111261,
+    "domain_id": 92,
+    "original_recorded_pids": [
+      2126684,
+      2126685,
+      2126754,
+      2126755,
+      2126808,
+      2126809
+    ],
+    "all_recorded_pids_gone": true,
+    "matches": [],
+    "signals": [],
+    "timeout_wall_s": 12,
+    "exit_code": null,
+    "exit_code_scope": "Not our child; never infer exit0",
+    "no_TERM_or_KILL": true,
+    "target_process_exited": null,
+    "cleanup_pass": true,
+    "end_utc": "2026-11-12T13:23:21.473756+00:00"
+  },
+  "scope": "Pre-Gazebo startup/environment failure resource cleanup only. No motion, no stop certificate, no canonical. Preserve incomplete native control trace and exact original errors."
+}

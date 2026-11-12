@@ -1,0 +1,194 @@
+{
+  "status": "EXPORTED_ONLY_NO_QUALIFICATION_CHANGE",
+  "cases": [
+    {
+      "arm": "A0",
+      "case": "net01d/followup04/runs/gz-simhealth-a0-01",
+      "read_counts": {
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a0-01.admission-used.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-a0-01.ready.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a0-01/small-result.json": 1,
+        "network-gateway.json": 1,
+        "a0-direct-safety.json": 1,
+        "result.json": 1,
+        "observer_timing.json": 1,
+        "events.jsonl": 1,
+        "peer-keepout.jsonl": 1,
+        "health-trace.json": 1,
+        "bound-mask-publications.jsonl": 1
+      },
+      "window": {
+        "status": "MEASURED_CLOCK_BRACKET",
+        "original_start_sim": 22.83,
+        "original_end_sim": 202.83,
+        "end_basis": "smoke_bound",
+        "original_autonomy_wall_s": 284.2284456479829,
+        "original_sim_elapsed_s": 180.0,
+        "actual_autonomy_RTF": 0.6332934044994571,
+        "lo_monotonic_ns": 611665727951178,
+        "hi_monotonic_ns": 611949949214262,
+        "first_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 611665728190124,
+          "gz_ns": 22830000000,
+          "gazebo_ns": 22830000000,
+          "R_callback_capture_monotonic_ns": 611665727951178,
+          "C_publish_return_monotonic_ns": 611665728103438
+        },
+        "last_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 611949949409022,
+          "gz_ns": 202820000000,
+          "gazebo_ns": 202820000000,
+          "R_callback_capture_monotonic_ns": 611949949214262,
+          "C_publish_return_monotonic_ns": 611949949334287
+        },
+        "last_autonomous_observer_end_monotonic_ns": 611949964290106,
+        "scope": "Discrete R-clock bracket inside original autonomous start/end and Observer last runtime mono cap; not exact Observer start/end. Partial failed phases remain partial; whole actual errors/faults retained independently."
+      },
+      "summary": "A0.json"
+    },
+    {
+      "arm": "A1",
+      "case": "net01d/followup04/runs/gz-simhealth-a1-03",
+      "read_counts": {
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a1-03.admission-used.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-a1-03.ready.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a1-03/small-result.json": 1,
+        "network-gateway.json": 1,
+        "result.json": 1,
+        "observer_timing.json": 1,
+        "events.jsonl": 1,
+        "peer-keepout.jsonl": 1,
+        "health-trace.json": 1,
+        "bound-mask-publications.jsonl": 1
+      },
+      "window": {
+        "status": "MEASURED_CLOCK_BRACKET",
+        "original_start_sim": 21.68,
+        "original_end_sim": 201.68,
+        "end_basis": "smoke_bound",
+        "original_autonomy_wall_s": 291.3829095560359,
+        "original_sim_elapsed_s": 180.0,
+        "actual_autonomy_RTF": 0.6177438487187052,
+        "lo_monotonic_ns": 606734412052726,
+        "hi_monotonic_ns": 607025793689467,
+        "first_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 606734412248054,
+          "gz_ns": 21680000000,
+          "gazebo_ns": 21680000000,
+          "R_callback_capture_monotonic_ns": 606734412052726,
+          "C_publish_return_monotonic_ns": 606734412164984
+        },
+        "last_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 607025793851353,
+          "gz_ns": 201670000000,
+          "gazebo_ns": 201670000000,
+          "R_callback_capture_monotonic_ns": 607025793689467,
+          "C_publish_return_monotonic_ns": 607025793786867
+        },
+        "last_autonomous_observer_end_monotonic_ns": 607025809344195,
+        "scope": "Discrete R-clock bracket inside original autonomous start/end and Observer last runtime mono cap; not exact Observer start/end. Partial failed phases remain partial; whole actual errors/faults retained independently."
+      },
+      "summary": "A1.json"
+    },
+    {
+      "arm": "B02",
+      "case": "net01d/followup04/runs/gz-simhealth-b1-02",
+      "read_counts": {
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.admission-used.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-b1-02.ready.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-b1-02/small-result.json": 1,
+        "network-gateway.json": 1,
+        "result.json": 1,
+        "observer_timing.json": 1,
+        "events.jsonl": 1,
+        "peer-keepout.jsonl": 1,
+        "health-trace.json": 1,
+        "bound-mask-publications.jsonl": 1
+      },
+      "window": {
+        "status": "MEASURED_CLOCK_BRACKET",
+        "original_start_sim": 15.53,
+        "original_end_sim": 195.53,
+        "end_basis": "smoke_bound",
+        "original_autonomy_wall_s": 425.14989125705324,
+        "original_sim_elapsed_s": 180.0,
+        "actual_autonomy_RTF": 0.4233800918254705,
+        "lo_monotonic_ns": 610405898456505,
+        "hi_monotonic_ns": 610831082755314,
+        "first_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 610405898683639,
+          "gz_ns": 15530000000,
+          "gazebo_ns": 15530000000,
+          "R_callback_capture_monotonic_ns": 610405898456505,
+          "C_publish_return_monotonic_ns": 610405898588015
+        },
+        "last_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 610831082937411,
+          "gz_ns": 195530000000,
+          "gazebo_ns": 195530000000,
+          "R_callback_capture_monotonic_ns": 610831082755314,
+          "C_publish_return_monotonic_ns": 610831082865355
+        },
+        "last_autonomous_observer_end_monotonic_ns": 610831090827026,
+        "scope": "Discrete R-clock bracket inside original autonomous start/end and Observer last runtime mono cap; not exact Observer start/end. Partial failed phases remain partial; whole actual errors/faults retained independently."
+      },
+      "summary": "B02.json"
+    },
+    {
+      "arm": "C",
+      "case": "net01d/followup04/runs/gz-simhealth-c1-01",
+      "read_counts": {
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.admission-used.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-c1-01.traced.ready.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-c1-01/small-result.json": 1,
+        "network-gateway.json": 1,
+        "result.json": 1,
+        "observer_timing.json": 1,
+        "events.jsonl": 1,
+        "peer-keepout.jsonl": 1,
+        "health-trace.json": 1,
+        "bound-mask-publications.jsonl": 1
+      },
+      "window": {
+        "status": "MEASURED_CLOCK_BRACKET",
+        "original_start_sim": 17.36,
+        "original_end_sim": 197.36,
+        "end_basis": "smoke_bound",
+        "original_autonomy_wall_s": 380.8343587940326,
+        "original_sim_elapsed_s": 180.0,
+        "actual_autonomy_RTF": 0.47264642972340043,
+        "lo_monotonic_ns": 614130492810762,
+        "hi_monotonic_ns": 614511331345331,
+        "first_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 614130493039162,
+          "gz_ns": 17360000000,
+          "gazebo_ns": 17360000000,
+          "R_callback_capture_monotonic_ns": 614130492810762,
+          "C_publish_return_monotonic_ns": 614130492957157
+        },
+        "last_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 614511331523356,
+          "gz_ns": 197360000000,
+          "gazebo_ns": 197360000000,
+          "R_callback_capture_monotonic_ns": 614511331345331,
+          "C_publish_return_monotonic_ns": 614511331463052
+        },
+        "last_autonomous_observer_end_monotonic_ns": 614511333449589,
+        "scope": "Discrete R-clock bracket inside original autonomous start/end and Observer last runtime mono cap; not exact Observer start/end. Partial failed phases remain partial; whole actual errors/faults retained independently."
+      },
+      "summary": "C.json"
+    }
+  ],
+  "source": "No runtime modules imported",
+  "ledger_reads": 0,
+  "PCAP_reads": 0,
+  "bag_reads": 0
+}

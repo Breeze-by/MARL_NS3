@@ -1,0 +1,1077 @@
+{
+  "scope": "Raw small component subset copied while original Gateway was loaded; no component judgement",
+  "guards": {
+    "1": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb1",
+          "session_id": 2026110912,
+          "sim": 1.06,
+          "monotonic": 519708.609425294
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_original_sources_stale",
+          "robot": "tb1",
+          "session_id": 2026110912,
+          "sim": 17.4,
+          "monotonic": 519741.288738863
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "status": 4
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00100000000000000": 4
+      }
+    },
+    "2": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb2",
+          "session_id": 2026110912,
+          "sim": 1.06,
+          "monotonic": 519708.6099503
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_original_sources_stale",
+          "robot": "tb2",
+          "session_id": 2026110912,
+          "sim": 17.4,
+          "monotonic": 519741.29023975
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "status": 4
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00200000000000000": 4
+      }
+    },
+    "3": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb3",
+          "session_id": 2026110912,
+          "sim": 1.06,
+          "monotonic": 519708.610347865
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_original_sources_stale",
+          "robot": "tb3",
+          "session_id": 2026110912,
+          "sim": 17.4,
+          "monotonic": 519741.294650648
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00301000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00301000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00301000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00301000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00301000000000000",
+          "status": 5
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00300000000000000": 5,
+        "0000000078c3ffc00301000000000000": 5
+      }
+    }
+  },
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "action_confirmation_states": {
+      "C": {
+        "enabled": true,
+        "failure": null,
+        "waiting": 0,
+        "unconfirmed": 0
+      },
+      "R": {
+        "1": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "2": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "3": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        }
+      }
+    },
+    "retired_C_services": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+  "topics": {
+    "C": {
+      "captured": [
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "daea7e43dd44045122ff9cc1ade084ea77b6dfd83a085795aba1b5dcfb86a9b7",
+          "source_stamp_ns": 400000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519708322146571,
+          "capture_node_sim_ns": 920000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 561,
+          "cdr_sha256": "52f59bf9742fc0041e5e096cc35dfaa3cdac013e8c818bcc98404d549f793dd5",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519708754469976,
+          "capture_node_sim_ns": 1110000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 561,
+          "cdr_sha256": "01b8ebaf6af6d6fe00d319533915d339abe17558a3de89bfe0346fdcdff77d2f",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519708771875229,
+          "capture_node_sim_ns": 1120000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 561,
+          "cdr_sha256": "26224976480d2839877945c7ccfa22ce78208ff6d65df26fdac797a9ad486add",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519708778447852,
+          "capture_node_sim_ns": 1120000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 304,
+          "cdr_sha256": "817e7c6d4d8bb045b552f43717f30c5cfa6d11624d5a398b2c5c1d27db78b0f0",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519708809874248,
+          "capture_node_sim_ns": 1130000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 304,
+          "cdr_sha256": "4ccf9f110a9789df7270ce1dd0b0855fff7ba63a943d5bff271ec18d9a02d3fc",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519708811518291,
+          "capture_node_sim_ns": 1130000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 304,
+          "cdr_sha256": "16b76d0548032f100e54689b8db31dce6756a2a9fce16f1ebd91c093d361e7cf",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519708830739573,
+          "capture_node_sim_ns": 1140000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "2e3f0fbef4a1e10ba35cf22876eff642e8c2280710c95e47b71571bc2dc52419",
+          "source_stamp_ns": 420000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519712355926094,
+          "capture_node_sim_ns": 2930000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "cd1db2c1b3747573772f15e2133cce2dc6a565600f1e137b167f0bd3e8f888d3",
+          "source_stamp_ns": 420000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519712391315125,
+          "capture_node_sim_ns": 2940000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "e4adb87e23ea69fced3d66ab48c79f81e2afe8a548feec4d2ab82f7ebd7f8798",
+          "source_stamp_ns": 2800000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519712430306803,
+          "capture_node_sim_ns": 2970000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "321cea51dbb9b8166606b7a1789b3ff7d7a07360319ba90e0e35940ae5accd0c",
+          "source_stamp_ns": 2810000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519717354645331,
+          "capture_node_sim_ns": 5430000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "085d983f4ebebdd6a8aa9ebc8d80343eebde088477be2ab2da429f02ee8285e1",
+          "source_stamp_ns": 2820000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519717381595671,
+          "capture_node_sim_ns": 5440000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "e4add2c96bced32cedf407f432e3ab0d5c3ac865230a050b0b239fc7402399f8",
+          "source_stamp_ns": 5400000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519717425625083,
+          "capture_node_sim_ns": 5470000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "da8dab604d2e1a0c44893edc6364d804eeec8357d1afcfd973d475446fb30d83",
+          "source_stamp_ns": 5410000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519722359592749,
+          "capture_node_sim_ns": 7930000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "05c77c5caaaa3ac4ff81bee568f1b0c76c85116f4165da40ae70a5b79966da64",
+          "source_stamp_ns": 5420000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519722382189173,
+          "capture_node_sim_ns": 7940000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "96863bf1c40f6346014f2d15a5002562bd01b250b105d3a79fd00eb11892010d",
+          "source_stamp_ns": 7800000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519722431561250,
+          "capture_node_sim_ns": 7970000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "08b19a6701fc37074254c539a1e67623d530b2496d220620c6b220fb8bc9204f",
+          "source_stamp_ns": 7810000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519727357299091,
+          "capture_node_sim_ns": 10430000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "2e0fce8181e29223175d98f54abbc6f3348127009f692b6f2fe23326dc6899ce",
+          "source_stamp_ns": 7820000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519727393399638,
+          "capture_node_sim_ns": 10450000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "8bef1bc99f14a4a0d41b0a53157055594dc3bfc0ce2847f6415a9a16318ffbb2",
+          "source_stamp_ns": 10400000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519727420117643,
+          "capture_node_sim_ns": 10460000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "541a8aace269082dad30b9100dd1e5838a78b7d0ec4b6878469a18f699fb8a90",
+          "source_stamp_ns": 10410000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519732354428626,
+          "capture_node_sim_ns": 12930000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "00bf98c609d7d5e060d0efb7b4c867ae556ec728f7a53815d49f4ceb77db6af9",
+          "source_stamp_ns": 10420000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519732390980683,
+          "capture_node_sim_ns": 12950000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "c734473516a41de649fa88aeb40a6bdeac473d34b99cfb0c15bd2cf3ec8c0614",
+          "source_stamp_ns": 12800000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519732419243572,
+          "capture_node_sim_ns": 12960000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 332,
+          "cdr_sha256": "a85685ded166868b3f8950ee4d0867a74713c7c649057ce65b4d247d2d03caab",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519733372329555,
+          "capture_node_sim_ns": 13430000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 332,
+          "cdr_sha256": "debafef20361cd33a9c30edda5224f8f6f84f6ce7e4f3b82456f7f3e86892698",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519733788818467,
+          "capture_node_sim_ns": 13650000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 331,
+          "cdr_sha256": "93785b36a279702eeeb16bd27d4875e358df1c81b331069a1b69cd0a18dad5d1",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519734307315181,
+          "capture_node_sim_ns": 13900000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "765f3794f9bf5d9c5e3bfd04602c0c25b24d279d221a75a24f3820f43e6e788e",
+          "source_stamp_ns": 12810000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519737337614926,
+          "capture_node_sim_ns": 15420000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "6f9b6ebb7ba974ec782965961e228bc4b0b421f5a609e39b4b9d81a882c68b4b",
+          "source_stamp_ns": 12820000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519737379578822,
+          "capture_node_sim_ns": 15430000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "b7e973d5f2c754776bf902e53cbeb03b933a2e4f3007ef7895ac095ebd5ea183",
+          "source_stamp_ns": 15400000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519737420160621,
+          "capture_node_sim_ns": 15460000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 609,
+          "cdr_sha256": "8fe85d10df4897d912109c3d368630f0f8949be31296b5cb0d30330257c145e9",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519740790451624,
+          "capture_node_sim_ns": 17150000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 326,
+          "cdr_sha256": "7871b9f13c88e015abe6ac9861fc52e53c5c846dc0180cfc4c0030d84c3083a2",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519740811687338,
+          "capture_node_sim_ns": 17160000000
+        }
+      ],
+      "delivered": []
+    },
+    "R": {
+      "captured": [],
+      "delivered": [
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 299,
+          "source_stamp_ns": 400000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519708322626700,
+          "endpoint_receive_monotonic_ns": 519708322913982,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "daea7e43dd44045122ff9cc1ade084ea77b6dfd83a085795aba1b5dcfb86a9b7",
+          "destination_node_sim_ns": 920000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519708323555565,
+          "publish_before_thread_cpu_ns": 2807088195,
+          "publish_after_monotonic_ns": 519708324137795,
+          "publish_after_thread_cpu_ns": 2807670115
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "native_id": 451,
+          "source_stamp_ns": 0,
+          "bytes": 569,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519708754579945,
+          "endpoint_receive_monotonic_ns": 519708754717125,
+          "cdr_bytes": 561,
+          "cdr_sha256": "52f59bf9742fc0041e5e096cc35dfaa3cdac013e8c818bcc98404d549f793dd5",
+          "destination_node_sim_ns": 1130000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519708754788596,
+          "publish_before_thread_cpu_ns": 3237586697,
+          "publish_after_monotonic_ns": 519708754971765,
+          "publish_after_thread_cpu_ns": 3237770295
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "native_id": 457,
+          "source_stamp_ns": 0,
+          "bytes": 569,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519708772065457,
+          "endpoint_receive_monotonic_ns": 519708772163316,
+          "cdr_bytes": 561,
+          "cdr_sha256": "01b8ebaf6af6d6fe00d319533915d339abe17558a3de89bfe0346fdcdff77d2f",
+          "destination_node_sim_ns": 1130000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519708772283473,
+          "publish_before_thread_cpu_ns": 3255080396,
+          "publish_after_monotonic_ns": 519708772428741,
+          "publish_after_thread_cpu_ns": 3255225549
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "native_id": 462,
+          "source_stamp_ns": 0,
+          "bytes": 569,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519708778553268,
+          "endpoint_receive_monotonic_ns": 519708778644702,
+          "cdr_bytes": 561,
+          "cdr_sha256": "26224976480d2839877945c7ccfa22ce78208ff6d65df26fdac797a9ad486add",
+          "destination_node_sim_ns": 1130000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519708778718173,
+          "publish_before_thread_cpu_ns": 3261514687,
+          "publish_after_monotonic_ns": 519708778855524,
+          "publish_after_thread_cpu_ns": 3261652109
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "native_id": 487,
+          "source_stamp_ns": 0,
+          "bytes": 312,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519708810018492,
+          "endpoint_receive_monotonic_ns": 519708810106484,
+          "cdr_bytes": 304,
+          "cdr_sha256": "817e7c6d4d8bb045b552f43717f30c5cfa6d11624d5a398b2c5c1d27db78b0f0",
+          "destination_node_sim_ns": 1140000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519708810216915,
+          "publish_before_thread_cpu_ns": 3292916476,
+          "publish_after_monotonic_ns": 519708810319646,
+          "publish_after_thread_cpu_ns": 3293019112
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "native_id": 488,
+          "source_stamp_ns": 0,
+          "bytes": 312,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519708811603007,
+          "endpoint_receive_monotonic_ns": 519708811679689,
+          "cdr_bytes": 304,
+          "cdr_sha256": "4ccf9f110a9789df7270ce1dd0b0855fff7ba63a943d5bff271ec18d9a02d3fc",
+          "destination_node_sim_ns": 1140000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519708811764175,
+          "publish_before_thread_cpu_ns": 3294463852,
+          "publish_after_monotonic_ns": 519708811866124,
+          "publish_after_thread_cpu_ns": 3294565842
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "native_id": 497,
+          "source_stamp_ns": 0,
+          "bytes": 312,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519708830863401,
+          "endpoint_receive_monotonic_ns": 519708830952662,
+          "cdr_bytes": 304,
+          "cdr_sha256": "16b76d0548032f100e54689b8db31dce6756a2a9fce16f1ebd91c093d361e7cf",
+          "destination_node_sim_ns": 1150000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519708831064726,
+          "publish_before_thread_cpu_ns": 3313729072,
+          "publish_after_monotonic_ns": 519708831172571,
+          "publish_after_thread_cpu_ns": 3313836758
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 2790,
+          "source_stamp_ns": 420000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519712356398841,
+          "endpoint_receive_monotonic_ns": 519712356492239,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "2e3f0fbef4a1e10ba35cf22876eff642e8c2280710c95e47b71571bc2dc52419",
+          "destination_node_sim_ns": 2930000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519712357087134,
+          "publish_before_thread_cpu_ns": 6828527134,
+          "publish_after_monotonic_ns": 519712357540473,
+          "publish_after_thread_cpu_ns": 6828981021
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 2809,
+          "source_stamp_ns": 420000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519712391787339,
+          "endpoint_receive_monotonic_ns": 519712391875529,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "cd1db2c1b3747573772f15e2133cce2dc6a565600f1e137b167f0bd3e8f888d3",
+          "destination_node_sim_ns": 2950000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519712392446695,
+          "publish_before_thread_cpu_ns": 6863865836,
+          "publish_after_monotonic_ns": 519712392732812,
+          "publish_after_thread_cpu_ns": 6864151054
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 2833,
+          "source_stamp_ns": 2800000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519712430815673,
+          "endpoint_receive_monotonic_ns": 519712430898396,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "e4adb87e23ea69fced3d66ab48c79f81e2afe8a548feec4d2ab82f7ebd7f8798",
+          "destination_node_sim_ns": 2970000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519712431433938,
+          "publish_before_thread_cpu_ns": 6902781829,
+          "publish_after_monotonic_ns": 519712431672582,
+          "publish_after_thread_cpu_ns": 6903018938
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 6112,
+          "source_stamp_ns": 2810000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519717355066887,
+          "endpoint_receive_monotonic_ns": 519717355150763,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "321cea51dbb9b8166606b7a1789b3ff7d7a07360319ba90e0e35940ae5accd0c",
+          "destination_node_sim_ns": 5430000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519717355642325,
+          "publish_before_thread_cpu_ns": 11812530224,
+          "publish_after_monotonic_ns": 519717355947959,
+          "publish_after_thread_cpu_ns": 11812835204
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 6123,
+          "source_stamp_ns": 2820000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519717382046923,
+          "endpoint_receive_monotonic_ns": 519717382153843,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "085d983f4ebebdd6a8aa9ebc8d80343eebde088477be2ab2da429f02ee8285e1",
+          "destination_node_sim_ns": 5440000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519717382642358,
+          "publish_before_thread_cpu_ns": 11839528433,
+          "publish_after_monotonic_ns": 519717382895028,
+          "publish_after_thread_cpu_ns": 11839779996
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 6152,
+          "source_stamp_ns": 5400000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519717426068495,
+          "endpoint_receive_monotonic_ns": 519717426167120,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "e4add2c96bced32cedf407f432e3ab0d5c3ac865230a050b0b239fc7402399f8",
+          "destination_node_sim_ns": 5470000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519717426710594,
+          "publish_before_thread_cpu_ns": 11883478197,
+          "publish_after_monotonic_ns": 519717426947840,
+          "publish_after_thread_cpu_ns": 11883714867
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 9410,
+          "source_stamp_ns": 5410000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519722359991806,
+          "endpoint_receive_monotonic_ns": 519722360080338,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "da8dab604d2e1a0c44893edc6364d804eeec8357d1afcfd973d475446fb30d83",
+          "destination_node_sim_ns": 7930000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519722360588885,
+          "publish_before_thread_cpu_ns": 16783688469,
+          "publish_after_monotonic_ns": 519722360871872,
+          "publish_after_thread_cpu_ns": 16783970532
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 9417,
+          "source_stamp_ns": 5420000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519722382689067,
+          "endpoint_receive_monotonic_ns": 519722382811560,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "05c77c5caaaa3ac4ff81bee568f1b0c76c85116f4165da40ae70a5b79966da64",
+          "destination_node_sim_ns": 7940000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519722383554877,
+          "publish_before_thread_cpu_ns": 16806653429,
+          "publish_after_monotonic_ns": 519722383800615,
+          "publish_after_thread_cpu_ns": 16806898100
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 9447,
+          "source_stamp_ns": 7800000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519722432085743,
+          "endpoint_receive_monotonic_ns": 519722432183327,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "96863bf1c40f6346014f2d15a5002562bd01b250b105d3a79fd00eb11892010d",
+          "destination_node_sim_ns": 7970000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519722432735460,
+          "publish_before_thread_cpu_ns": 16855757543,
+          "publish_after_monotonic_ns": 519722433015610,
+          "publish_after_thread_cpu_ns": 16856036703
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 12729,
+          "source_stamp_ns": 7810000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519727357737085,
+          "endpoint_receive_monotonic_ns": 519727357836959,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "08b19a6701fc37074254c539a1e67623d530b2496d220620c6b220fb8bc9204f",
+          "destination_node_sim_ns": 10430000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519727358362898,
+          "publish_before_thread_cpu_ns": 21772158455,
+          "publish_after_monotonic_ns": 519727358704883,
+          "publish_after_thread_cpu_ns": 21772499588
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 12749,
+          "source_stamp_ns": 7820000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519727393899865,
+          "endpoint_receive_monotonic_ns": 519727393980330,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "2e0fce8181e29223175d98f54abbc6f3348127009f692b6f2fe23326dc6899ce",
+          "destination_node_sim_ns": 10450000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519727394528325,
+          "publish_before_thread_cpu_ns": 21808283591,
+          "publish_after_monotonic_ns": 519727394838702,
+          "publish_after_thread_cpu_ns": 21808593639
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 12767,
+          "source_stamp_ns": 10400000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519727420564645,
+          "endpoint_receive_monotonic_ns": 519727420697481,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "8bef1bc99f14a4a0d41b0a53157055594dc3bfc0ce2847f6415a9a16318ffbb2",
+          "destination_node_sim_ns": 10460000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519727421260672,
+          "publish_before_thread_cpu_ns": 21834977885,
+          "publish_after_monotonic_ns": 519727421501338,
+          "publish_after_thread_cpu_ns": 21835217508
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 16034,
+          "source_stamp_ns": 10410000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519732354870524,
+          "endpoint_receive_monotonic_ns": 519732355044698,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "541a8aace269082dad30b9100dd1e5838a78b7d0ec4b6878469a18f699fb8a90",
+          "destination_node_sim_ns": 12930000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519732355603506,
+          "publish_before_thread_cpu_ns": 26758583938,
+          "publish_after_monotonic_ns": 519732355896024,
+          "publish_after_thread_cpu_ns": 26758876709
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 16053,
+          "source_stamp_ns": 10420000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519732391504001,
+          "endpoint_receive_monotonic_ns": 519732391614293,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "00bf98c609d7d5e060d0efb7b4c867ae556ec728f7a53815d49f4ceb77db6af9",
+          "destination_node_sim_ns": 12950000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519732392205234,
+          "publish_before_thread_cpu_ns": 26795143981,
+          "publish_after_monotonic_ns": 519732392502376,
+          "publish_after_thread_cpu_ns": 26795440277
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 16075,
+          "source_stamp_ns": 12800000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519732419722203,
+          "endpoint_receive_monotonic_ns": 519732419841573,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "c734473516a41de649fa88aeb40a6bdeac473d34b99cfb0c15bd2cf3ec8c0614",
+          "destination_node_sim_ns": 12960000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519732420379331,
+          "publish_before_thread_cpu_ns": 26823225065,
+          "publish_after_monotonic_ns": 519732420614337,
+          "publish_after_thread_cpu_ns": 26823458809
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "native_id": 16712,
+          "source_stamp_ns": 0,
+          "bytes": 340,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519733372518447,
+          "endpoint_receive_monotonic_ns": 519733372655358,
+          "cdr_bytes": 332,
+          "cdr_sha256": "a85685ded166868b3f8950ee4d0867a74713c7c649057ce65b4d247d2d03caab",
+          "destination_node_sim_ns": 13430000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519733372749484,
+          "publish_before_thread_cpu_ns": 27773295222,
+          "publish_after_monotonic_ns": 519733372931484,
+          "publish_after_thread_cpu_ns": 27773477586
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "native_id": 16952,
+          "source_stamp_ns": 0,
+          "bytes": 340,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519733788973824,
+          "endpoint_receive_monotonic_ns": 519733789328410,
+          "cdr_bytes": 332,
+          "cdr_sha256": "debafef20361cd33a9c30edda5224f8f6f84f6ce7e4f3b82456f7f3e86892698",
+          "destination_node_sim_ns": 13650000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519733789472317,
+          "publish_before_thread_cpu_ns": 28189140219,
+          "publish_after_monotonic_ns": 519733789625620,
+          "publish_after_thread_cpu_ns": 28189293558
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "native_id": 17195,
+          "source_stamp_ns": 0,
+          "bytes": 339,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519734307454652,
+          "endpoint_receive_monotonic_ns": 519734307534435,
+          "cdr_bytes": 331,
+          "cdr_sha256": "93785b36a279702eeeb16bd27d4875e358df1c81b331069a1b69cd0a18dad5d1",
+          "destination_node_sim_ns": 13910000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519734307631803,
+          "publish_before_thread_cpu_ns": 28706344274,
+          "publish_after_monotonic_ns": 519734307772441,
+          "publish_after_thread_cpu_ns": 28706485001
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 18297,
+          "source_stamp_ns": 12810000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519737338134472,
+          "endpoint_receive_monotonic_ns": 519737338244795,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "765f3794f9bf5d9c5e3bfd04602c0c25b24d279d221a75a24f3820f43e6e788e",
+          "destination_node_sim_ns": 15420000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519737338833846,
+          "publish_before_thread_cpu_ns": 31732571509,
+          "publish_after_monotonic_ns": 519737339113581,
+          "publish_after_thread_cpu_ns": 31732850984
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 18313,
+          "source_stamp_ns": 12820000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519737380104742,
+          "endpoint_receive_monotonic_ns": 519737380239632,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "6f9b6ebb7ba974ec782965961e228bc4b0b421f5a609e39b4b9d81a882c68b4b",
+          "destination_node_sim_ns": 15440000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519737380872785,
+          "publish_before_thread_cpu_ns": 31774586810,
+          "publish_after_monotonic_ns": 519737381144442,
+          "publish_after_thread_cpu_ns": 31774857489
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "native_id": 18329,
+          "source_stamp_ns": 15400000000,
+          "bytes": 53503,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519737420639644,
+          "endpoint_receive_monotonic_ns": 519737420766055,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "b7e973d5f2c754776bf902e53cbeb03b933a2e4f3007ef7895ac095ebd5ea183",
+          "destination_node_sim_ns": 15460000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519737421346247,
+          "publish_before_thread_cpu_ns": 31815020587,
+          "publish_after_monotonic_ns": 519737421625474,
+          "publish_after_thread_cpu_ns": 31815298611
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "native_id": 19555,
+          "source_stamp_ns": 0,
+          "bytes": 617,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519740790591907,
+          "endpoint_receive_monotonic_ns": 519740790689669,
+          "cdr_bytes": 609,
+          "cdr_sha256": "8fe85d10df4897d912109c3d368630f0f8949be31296b5cb0d30330257c145e9",
+          "destination_node_sim_ns": 17150000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519740790777468,
+          "publish_before_thread_cpu_ns": 35178349550,
+          "publish_after_monotonic_ns": 519740790935005,
+          "publish_after_thread_cpu_ns": 35178494711
+        },
+        {
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "native_id": 19567,
+          "source_stamp_ns": 0,
+          "bytes": 334,
+          "backend": "IDEAL-DIRECT-ADAPTER",
+          "endpoint_capture_monotonic_ns": 519740811855868,
+          "endpoint_receive_monotonic_ns": 519740811941820,
+          "cdr_bytes": 326,
+          "cdr_sha256": "7871b9f13c88e015abe6ac9861fc52e53c5c846dc0180cfc4c0030d84c3083a2",
+          "destination_node_sim_ns": 17160000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519740812040803,
+          "publish_before_thread_cpu_ns": 35199599301,
+          "publish_after_monotonic_ns": 519740812160190,
+          "publish_after_thread_cpu_ns": 35199718861
+        }
+      ]
+    }
+  }
+}

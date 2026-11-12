@@ -1,0 +1,29 @@
+{
+  "case": "gz-simhealth-c1-01",
+  "Gateway_original_reads": 0,
+  "native_ledger_reads": 0,
+  "PCAP_reads": 0,
+  "C89_reads": 0,
+  "Observer_events_original_streams": 1,
+  "events_scope": "process/stop/authority/gateway only",
+  "canonical_invocations": 1,
+  "activebag_accesses": 0,
+  "writer_and_allowned_gone": true,
+  "models": 1,
+  "retries": 0,
+  "source_or_model_changes_during_run": false,
+  "actualargv": "net01d/followup04/evidence/gz-simhealth-c1-01-launch.json",
+  "small_native_reads": [
+    "native-summary.json",
+    "ledger-status.json",
+    "transport-config.json",
+    "configured-lock.json"
+  ],
+  "primary_tool": "workspace/gz01/analyze_recorded.py",
+  "bag_read_scope": "Originalcomplete metadata/allshards once; nofilter/reindex/fabrication",
+  "original_ROI_and_quality_unchanged": true,
+  "metric_argv": "metrics.argv.json",
+  "metric_exit": "metrics.exit.json",
+  "canonical_stdout": "metrics.stdout.txt",
+  "allheavy_done": true
+}

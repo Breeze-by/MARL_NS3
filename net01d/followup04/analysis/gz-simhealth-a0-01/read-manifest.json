@@ -1,0 +1,30 @@
+{
+  "case": "gz-simhealth-a0-01",
+  "Gateway_original_reads": 0,
+  "A0_registry_original_small_reads": 1,
+  "native_ledger_reads": 0,
+  "PCAP_reads": 0,
+  "C89_reads": 0,
+  "Observer_events_original_streams": 1,
+  "events_scope": "process/stop/authority/gateway only",
+  "canonical_invocations": 1,
+  "activebag_accesses": 0,
+  "writer_and_allowned_gone": true,
+  "models": 1,
+  "retries": 0,
+  "source_or_model_changes_during_run": false,
+  "actualargv": "net01d/followup04/evidence/gz-simhealth-a0-01-launch.json",
+  "primary_tool": "workspace/gz01/analyze_recorded.py",
+  "bag_read_scope": "Originalcomplete metadata/allshards once; nofilter/reindex/fabrication",
+  "original_ROI_and_quality_unchanged": true,
+  "metric_argv": "metrics.argv.json",
+  "metric_exit": "metrics.exit.json",
+  "canonical_stdout": "metrics.stdout.txt",
+  "allheavy_done": true,
+  "A0_cached_snapshot_scope": {
+    "path": "small-raw/a0-direct-safety.json",
+    "bytes": 16852823,
+    "warning": "16.85MB: not a smallreviewinput; retained originalcopy, reviewers usea0-registry-selected.json/halt-and-cancel-selected.json",
+    "original_read_count": 1
+  }
+}

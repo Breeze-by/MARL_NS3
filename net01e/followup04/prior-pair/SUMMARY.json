@@ -1,0 +1,386 @@
+{
+  "partitions": {
+    "B": {
+      "T95_sim": 34.25,
+      "no_dispatched_goal_sim": 4.060000000000002,
+      "any_dispatched_goal_sim": 30.189999999999998,
+      "any_accepted_goal_sim": 29.819999999999997,
+      "dispatched_but_none_accepted_sim": 0.370000000000001,
+      "all_interval_boundaries": "Client actual request/response/result sim stamps; accepted interval implies ownership, not motion/RF latency"
+    },
+    "A1": {
+      "T95_sim": 62.010000000000005,
+      "no_dispatched_goal_sim": 6.510000000000005,
+      "any_dispatched_goal_sim": 55.5,
+      "any_accepted_goal_sim": 55.099999999999994,
+      "dispatched_but_none_accepted_sim": 0.4000000000000057,
+      "all_interval_boundaries": "Client actual request/response/result sim stamps; accepted interval implies ownership, not motion/RF latency"
+    }
+  },
+  "difference_A1_minus_B": {
+    "T95_sim": 27.760000000000005,
+    "no_dispatched_goal_sim": 2.450000000000003,
+    "any_dispatched_goal_sim": 25.310000000000002,
+    "any_accepted_goal_sim": 25.279999999999998,
+    "dispatched_but_none_accepted_sim": 0.03000000000000469
+  },
+  "first_decision_comparison": {
+    "B": {
+      "first_inference_G": 20.0,
+      "first_inference_relative_T0": 4.0600000000000005,
+      "map_metadata": {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 17.758,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "robot": "tb1",
+          "group_id": 21,
+          "position": [
+            0.8250000000000002,
+            0.8750000000000009
+          ],
+          "information_gain_proxy_m2": 0.20500000000000004,
+          "valid": true
+        },
+        {
+          "index": 1,
+          "robot": "tb1",
+          "group_id": 15,
+          "position": [
+            -0.47499999999999964,
+            -0.07499999999999929
+          ],
+          "information_gain_proxy_m2": 0.16500000000000004,
+          "valid": true
+        },
+        {
+          "index": 2,
+          "robot": "tb1",
+          "group_id": 20,
+          "position": [
+            1.1750000000000007,
+            0.22500000000000053
+          ],
+          "information_gain_proxy_m2": 0.0075000000000000015,
+          "valid": true
+        },
+        {
+          "index": 3,
+          "robot": "tb2",
+          "group_id": 6,
+          "position": [
+            0.6250000000000009,
+            -1.9249999999999994
+          ],
+          "information_gain_proxy_m2": 0.19250000000000003,
+          "valid": true
+        },
+        {
+          "index": 4,
+          "robot": "tb2",
+          "group_id": 15,
+          "position": [
+            -0.5249999999999995,
+            -0.3749999999999991
+          ],
+          "information_gain_proxy_m2": 0.16500000000000004,
+          "valid": true
+        },
+        {
+          "index": 5,
+          "robot": "tb3",
+          "group_id": 6,
+          "position": [
+            0.7250000000000005,
+            -1.8749999999999996
+          ],
+          "information_gain_proxy_m2": 0.19250000000000003,
+          "valid": true
+        }
+      ],
+      "choices": [
+        0,
+        4,
+        5
+      ],
+      "valid_counts": [
+        3,
+        2,
+        1
+      ],
+      "conditional_options": [
+        2,
+        1,
+        1
+      ],
+      "actual_conditional_masks": [
+        [
+          true,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      ],
+      "chosen_goals": [
+        {
+          "robot": "tb1",
+          "sim": 20.0,
+          "merge_map_target": [
+            0.8250000000000002,
+            0.8750000000000009
+          ]
+        },
+        {
+          "robot": "tb2",
+          "sim": 20.0,
+          "merge_map_target": [
+            -0.5249999999999995,
+            -0.3749999999999991
+          ]
+        },
+        {
+          "robot": "tb3",
+          "sim": 20.0,
+          "merge_map_target": [
+            0.7250000000000005,
+            -1.8749999999999996
+          ]
+        }
+      ]
+    },
+    "A1": {
+      "first_inference_G": 25.0,
+      "first_inference_relative_T0": 6.510000000000002,
+      "map_metadata": {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 22.87,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      },
+      "candidates": [
+        {
+          "index": 0,
+          "robot": "tb1",
+          "group_id": 21,
+          "position": [
+            0.8250000000000002,
+            0.8750000000000009
+          ],
+          "information_gain_proxy_m2": 0.20000000000000004,
+          "valid": true
+        },
+        {
+          "index": 1,
+          "robot": "tb1",
+          "group_id": 15,
+          "position": [
+            -0.47499999999999964,
+            -0.07499999999999929
+          ],
+          "information_gain_proxy_m2": 0.15000000000000002,
+          "valid": true
+        },
+        {
+          "index": 2,
+          "robot": "tb2",
+          "group_id": 10,
+          "position": [
+            0.8250000000000002,
+            -1.7749999999999995
+          ],
+          "information_gain_proxy_m2": 0.23000000000000004,
+          "valid": true
+        },
+        {
+          "index": 3,
+          "robot": "tb2",
+          "group_id": 15,
+          "position": [
+            -0.47499999999999964,
+            -0.12499999999999911
+          ],
+          "information_gain_proxy_m2": 0.15000000000000002,
+          "valid": true
+        },
+        {
+          "index": 4,
+          "robot": "tb3",
+          "group_id": 10,
+          "position": [
+            0.8250000000000002,
+            -1.8749999999999996
+          ],
+          "information_gain_proxy_m2": 0.23000000000000004,
+          "valid": true
+        }
+      ],
+      "choices": [
+        0,
+        3,
+        4
+      ],
+      "valid_counts": [
+        2,
+        2,
+        1
+      ],
+      "conditional_options": [
+        1,
+        1,
+        1
+      ],
+      "actual_conditional_masks": [
+        [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      ],
+      "chosen_goals": [
+        {
+          "robot": "tb1",
+          "sim": 25.0,
+          "merge_map_target": [
+            0.8250000000000002,
+            0.8750000000000009
+          ]
+        },
+        {
+          "robot": "tb2",
+          "sim": 25.0,
+          "merge_map_target": [
+            -0.47499999999999964,
+            -0.12499999999999911
+          ]
+        },
+        {
+          "robot": "tb3",
+          "sim": 25.0,
+          "merge_map_target": [
+            0.8250000000000002,
+            -1.8749999999999996
+          ]
+        }
+      ]
+    }
+  },
+  "postT95_total_tb3_path_m_85_to180_4": 0.009680856223592667,
+  "timing_caveat": "goal_reserved/goal_accepted and timeout_cancel_dispatched can use cached allocator/observation sim; request/response/result event node.now and original wall_ns retained separately. Do not turn 180.46 minus180 logical markers into precise RPC duration; CancelResponse receipt unrecorded in selected JSON."
+}

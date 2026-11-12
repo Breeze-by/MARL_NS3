@@ -1,0 +1,28 @@
+--- a/net01/boot_network.py
++++ b/net01/boot_network.py
+@@ -70,6 +70,14 @@
+     if net["mode"] not in ("A","B","C") or ready["arm"]!="rl":raise ValueError("Only fixed A/B/C RL")
+     for relative,expected in net["adapter_sha256"].items():
+         if frozen.sha(HERE/relative)!=expected:raise ValueError("Transport adapter changed: "+relative)
++    revision=net.get("common_execution_revision","net01e-common-v2")
++    if revision not in ("net01e-common-v2","static-footprint-common-v1"):
++        raise ValueError("Unreviewed common execution revision")
++    if revision=="static-footprint-common-v1":
++        relative="../net01e/followup02/static_footprint_launch.py"
++        if net["adapter_sha256"].get(relative)!=frozen.sha(HERE/relative):
++            raise ValueError("Admission must bind the candidate launch entry")
++    os.environ["NET01_COMMON_EXECUTION_REVISION"]=revision
+     case=Path(ready["case_path"]);case.parent.mkdir(parents=True,exist_ok=True)
+     used=case.with_name(case.name+".admission-used.json")
+     with used.open("x") as stream:json.dump(dict(ready_path=str(args.ready.resolve()),
+--- a/net01/run_network_case.py
++++ b/net01/run_network_case.py
+@@ -459,6 +459,8 @@
+         if command[2]!=str(FROZEN/"gz01/scene_launch.py"):
+             raise RuntimeError("Unexpected launch source at external adapter")
+         command[2]=str(HERE/"net_scene_launch.py")
++        if os.environ.get("NET01_COMMON_EXECUTION_REVISION")=="static-footprint-common-v1":
++            command[2]=str(HERE.parent/"net01e/followup02/static_footprint_launch.py")
+         if observer.controlled_time:
+             command.insert(2,"--noninteractive")
+         log=(observer.directory/"network-gateway.log").open("x")

@@ -1,0 +1,39 @@
+{
+  "monotonic_ns": 614012674302999,
+  "case": "gz-simhealth-c1-01",
+  "session": 2026111153,
+  "current_runtime": "bd663824d77983cb2b2721e90241ef97bf06461f",
+  "draft_runtime": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "exclusive_path_conflicts": [],
+  "domains91_92": [],
+  "models_builds": [],
+  "ports": [],
+  "X92_conflicts": [],
+  "resources": {
+    "MemAvailable_bytes": 82166697984,
+    "tmpfs_free_bytes": 35249270784,
+    "disk_free_bytes": 1632036270080
+  },
+  "native_presence": {
+    "executable": true,
+    "all13_present_expectedroot": true,
+    "scope": "No native/ldd/hash; actual host identity/maps gates remain mandatory"
+  },
+  "C_condition": {
+    "data_mode": "VhtMcs3",
+    "tx_power_dbm": 2.0,
+    "pathloss_exponent": 3.0
+  },
+  "radio_fault_injection": false,
+  "existing_READY_files": [
+    "gz-simhealth-c1-01.ready.json",
+    "gz-simhealth-c1-01.traced.ready.json"
+  ],
+  "authorization": "NoREADYselected/applied/noSTART; awaitRootnewtracedREADY/bundle/separateSTART",
+  "domain69": "untouched",
+  "models_started": 0,
+  "ROS_CLI": 0,
+  "activebag_open_SQL_PRAGMA": false,
+  "created_case_tmpfs": false,
+  "status": "CLEAR_RESOURCES_ONLY_NOT_ADMITTED"
+}

@@ -1,0 +1,86 @@
+{
+  "pid": 1084266,
+  "ppid": 1084213,
+  "domain": 97,
+  "signal_handler": "observer immediately delegates to original Python default_int_handler",
+  "signal_handler_options": "NO",
+  "raw": false,
+  "signal_observations": [
+    {
+      "handler_entry_monotonic_ns": 619892305199958,
+      "frames": [
+        {
+          "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+          "function": "_wait_for_ready_callbacks",
+          "line": 681
+        },
+        {
+          "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+          "function": "wait_for_ready_callbacks",
+          "line": 784
+        },
+        {
+          "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+          "function": "_spin_once_impl",
+          "line": 801
+        },
+        {
+          "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+          "function": "spin_once",
+          "line": 812
+        },
+        {
+          "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py",
+          "function": "spin",
+          "line": 229
+        },
+        {
+          "file": "/mnt/net01e/controller/continuous_dds.py",
+          "function": "receiver",
+          "line": 115
+        },
+        {
+          "file": "/mnt/net01e/controller/continuous_dds.py",
+          "function": "main",
+          "line": 306
+        },
+        {
+          "file": "/mnt/net01e/controller/continuous_dds.py",
+          "function": "<module>",
+          "line": 313
+        }
+      ]
+    }
+  ],
+  "count": 234,
+  "first_callback_monotonic_ns": 619880282260679,
+  "last_callback_monotonic_ns": 619892254972935,
+  "recent_callback_monotonic_ns": [
+    619891480738485,
+    619891532254761,
+    619891584483750,
+    619891635376550,
+    619891687271824,
+    619891738651176,
+    619891790632135,
+    619891842464291,
+    619891893961388,
+    619891945522300,
+    619891996996875,
+    619892048892803,
+    619892099807995,
+    619892151859641,
+    619892202850439,
+    619892254972935
+  ],
+  "post_handler_callback_count": 0,
+  "invalid_message_count": 0,
+  "subscription_created_monotonic_ns": 619880276510019,
+  "subscription_python_identity": 126424372892656,
+  "topic": "/net01e/controller/grid",
+  "msg_type": "nav_msgs.msg._occupancy_grid.OccupancyGrid",
+  "destroy_begin_monotonic_ns": 619892306951441,
+  "destroy_end_monotonic_ns": 619892312824962,
+  "context_ok_after_shutdown": false,
+  "finally_end_monotonic_ns": 619892313156171
+}

@@ -1,0 +1,113 @@
+{
+  "version": "net01-baseline-v2-before-first-packet",
+  "scope": "Pre-first-packet fixed configuration; native no-robot network prototype first, no Gazebo authorization",
+  "ns3_version": "3.40",
+  "rng_seed": 2026110901,
+  "rng_run": 1,
+  "standard": "802.11ac",
+  "channel_number": 42,
+  "band": "BAND_5GHZ",
+  "channel_width_mhz": 80,
+  "primary20_index": 0,
+  "frequency_hz": 5210000000.0,
+  "spatial_streams": 1,
+  "guard_interval_ns": 800,
+  "manager": "ConstantRateWifiManager",
+  "control_rate": "OfdmRate6Mbps",
+  "non_unicast_rate": "OfdmRate6Mbps",
+  "error_model": "NistErrorRateModel",
+  "noise_figure_db": 7.0,
+  "rx_sensitivity_dbm_20mhz": -101.0,
+  "cca_ed_dbm": -62.0,
+  "cca_sensitivity_dbm": -82.0,
+  "tx_gain_db": 0.0,
+  "rx_gain_db": 0.0,
+  "pathloss": "LogDistancePropagationLossModel",
+  "reference_distance_m": 1.0,
+  "reference_loss_db": 46.78453768787386,
+  "delay_model": "ConstantSpeedPropagationDelayModel",
+  "max_short_retry": 7,
+  "max_long_retry": 4,
+  "rts_threshold_bytes": 65535,
+  "mac_fragment_threshold_bytes": 65535,
+  "qos": true,
+  "mac_queue_packets": 1024,
+  "mac_max_delay_sim_s": 0.5,
+  "queue_memory_payload_bound_bytes": 1228800,
+  "queue_revision_before_first_packet": "PLAN original100p proposal rejected statically: UDP1200 includes36B header ->1164B body; 160000B mask needs138 packets, three414 plus three55000B maps144 before other state/Action. 1024p capacity fixed before any test result, no prioritization/reliable side channel. ns3 Packet/Mpdu object overhead not included in payload bound.",
+  "mtu_bytes": 1500,
+  "udp_datagram_bytes_max": 1200,
+  "fragment_header_bytes": 36,
+  "fragment_body_bytes_max": 1164,
+  "reassembly_deadline_sim_s": 0.5,
+  "partial_message": "never deliver incomplete; keep original source stamp; no hidden retransmit/blob recovery",
+  "ap_position_m": [
+    0,
+    0,
+    1.5
+  ],
+  "STA_static_prototype_positions_m": [
+    [
+      0.725,
+      -0.15,
+      0.15
+    ],
+    [
+      0.35,
+      -0.8,
+      0.15
+    ],
+    [
+      1.1,
+      -0.8,
+      0.15
+    ]
+  ],
+  "central_node_position_m": [
+    0,
+    0,
+    1.5
+  ],
+  "central_wire_bps": 1000000000,
+  "central_wire_delay_ns": 1000,
+  "ip_wifi_subnet": "10.31.0.0/24",
+  "AP_wifi_ip": "10.31.0.1",
+  "STA_wifi_ips": [
+    "10.31.0.11",
+    "10.31.0.12",
+    "10.31.0.13"
+  ],
+  "ip_wired_subnet": "10.32.0.0/24",
+  "AP_wired_ip": "10.32.0.1",
+  "central_wired_ip": "10.32.0.2",
+  "application_udp_port": 19001,
+  "profiles": {
+    "B": {
+      "data_mode": "VhtMcs9",
+      "tx_power_dbm": 16.0,
+      "pathloss_exponent": 2.0
+    },
+    "C": {
+      "data_mode": "VhtMcs3",
+      "tx_power_dbm": 2.0,
+      "pathloss_exponent": 3.0
+    }
+  },
+  "clock": {
+    "driver": "latest real Gazebo /clock for future coupled execution; controlled synthetic ticks ONLY for network prototype",
+    "quantum_sim_s": 0.1,
+    "max_horizon_sim_s": 0.1,
+    "max_observed_clock_lag_sim_s": 0.12,
+    "boundary_epsilon": 1e-06,
+    "ns3_never_ahead_of_latest_received_GZ_clock": true,
+    "Stop_argument": "H minus currentNs3Now, relative",
+    "same_H_UID_events": "may remain until next Run; do not assert fully flushed",
+    "source_stamp": "never used to inject into the past; preserved as source metadata",
+    "pause": "no ns3 time advance; no re-stamp/replay on resume; original wall heartbeat continues"
+  },
+  "SNR_semantics": "Not an independent fixed SNR: RSSI/noise/SNR derived from fixed geometry/channel/TxPower; log MonitorSnifferRx values, not fabricate from config",
+  "prototype_only_fault": "Explicit receiver discard of one identified actual received fragment to test reassembly safety, separately labeled; not a physical-network performance drop model",
+  "business_ip_tos": 0,
+  "business_AC": "AC_BE only; 802.11ac requires QoS support, no differentiated business priority",
+  "prepacket_API_revision": "V1 preserved; src/wifi/model/wifi-mac.cc:753 aborts for standard>=80211n with QosSupported=false. V2 enables required standard QoS, all business TOS0/BE, no test/packet/build result preceded revision."
+}

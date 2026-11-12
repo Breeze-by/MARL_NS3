@@ -1,0 +1,21 @@
+{
+  "candidate": "net01e/followup03/gz-requests/corr6201-step-timing-gdb-b-01.candidate.json",
+  "source_commit": "bc18d59c3d4601cbfbc14f42830540373b6f6e12",
+  "new_case_paths_fresh": true,
+  "source_network_count": 57,
+  "changed_existing_source": [
+    "time_controller.py"
+  ],
+  "added_source": [
+    "../net01e/followup03/time_control_plugin/time_control_plugin.cc",
+    "../net01e/followup03/time_control_plugin/CMakeLists.txt"
+  ],
+  "frozen_source_map_identical": true,
+  "scene_model_physics_limits_identical": true,
+  "B_native_profile_identical": true,
+  "control_config_other_than_diagnostic_identical": true,
+  "new_plugin_sha256": "63e7383bae3c2cae877632e504be8bc844651f4a8cdc6c43218bffb865917dcc",
+  "original_plugin_retained": true,
+  "only_first_single_diagnostic_requested": true,
+  "authorization_false": true
+}

@@ -1,0 +1,21 @@
+[
+  "bwrap",
+  "--unshare-user",
+  "--uid",
+  "0",
+  "--gid",
+  "0",
+  "--die-with-parent",
+  "--ro-bind",
+  "/",
+  "/",
+  "--tmpfs",
+  "/tmp",
+  "--bind",
+  "/home/zhuyulab/ns3-workspace/net-01/workspace/net01/followup04/evidence/time-sidecar-close-01",
+  "/tmp/owned-check",
+  "/usr/bin/python3",
+  "-B",
+  "-c",
+  "import json,os,signal,time\nfrom pathlib import Path\nstopping=False\nseen=None\ndef stop(signum,frame):\n global stopping,seen\n stopping=True;seen=signum\nsignal.signal(signal.SIGINT,stop)\nprint('CHILD_READY',flush=True)\ntry:\n while not stopping:signal.pause()\nfinally:\n time.sleep(.05)\n with Path('/tmp/owned-check/final.json').open('x') as stream:\n  json.dump(dict(flushed=True,pid=os.getpid(),handled_signal=seen,final_monotonic_ns=time.monotonic_ns()),stream)\n"
+]

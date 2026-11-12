@@ -1,0 +1,80 @@
+{
+  "pid": 1095130,
+  "ppid": 1095062,
+  "mode": "control",
+  "original_default_SIGINT": true,
+  "signal_handler_options": "NO",
+  "count": 3,
+  "callbacks": [
+    620200701350418,
+    620200752208779,
+    620200802711367
+  ],
+  "hook": {
+    "entry_monotonic_ns": 620200700594392,
+    "constructor_file": "/opt/ros/humble/local/lib/python3.10/dist-packages/nav_msgs/msg/_occupancy_grid.py",
+    "constructor_line": 86,
+    "constructor_code_identity_match": true,
+    "active_take_subscription_identity": 126032176827552,
+    "topic": "/net01e/controller/mechanism_grid",
+    "raw": false,
+    "frames": [
+      {
+        "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+        "function": "_take_subscription",
+        "line": 400
+      },
+      {
+        "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+        "function": "handler",
+        "line": 478
+      },
+      {
+        "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py",
+        "function": "_execute_coroutine_step",
+        "line": 309
+      },
+      {
+        "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py",
+        "function": "__call__",
+        "line": 293
+      },
+      {
+        "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+        "function": "_spin_once_impl",
+        "line": 807
+      },
+      {
+        "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+        "function": "spin_once",
+        "line": 812
+      },
+      {
+        "file": "/mnt/net01e/controller/mechanism_probe.py",
+        "function": "receiver",
+        "line": 81
+      },
+      {
+        "file": "/mnt/net01e/controller/mechanism_probe.py",
+        "function": "main",
+        "line": 267
+      },
+      {
+        "file": "/mnt/net01e/controller/mechanism_probe.py",
+        "function": "<module>",
+        "line": 274
+      }
+    ],
+    "intervention": false,
+    "signal_raise_returned": false
+  },
+  "subscription_created_monotonic_ns": 620200695542125,
+  "subscription_identity": 126032176827552,
+  "topic": "/net01e/controller/mechanism_grid",
+  "msg_type": "nav_msgs.msg._occupancy_grid.OccupancyGrid",
+  "raw": false,
+  "destroy_begin_monotonic_ns": 620200802782916,
+  "destroy_end_monotonic_ns": 620200809467032,
+  "context_ok_after_shutdown": false,
+  "finally_end_monotonic_ns": 620200809713657
+}

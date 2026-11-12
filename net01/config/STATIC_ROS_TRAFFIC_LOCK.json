@@ -1,0 +1,42 @@
+{
+  "scope": "Before first static ROS network run; no GZ/Action/control. Real domains91/92 DDS/CDR through native V3 WiFi",
+  "network_lock": "NETWORK_LOCK_V3.json",
+  "normal_load_sim_s": 2,
+  "publisher_quantum_sim_s": 0.1,
+  "masks": {
+    "count": 3,
+    "cells_each": 160000,
+    "rate_each_hz": 10
+  },
+  "health": {
+    "source_publishers": 1,
+    "source_hz": 10,
+    "STA_routes": 3
+  },
+  "odom": {
+    "robots": 3,
+    "hz_each": 30,
+    "batch_per_quantum_each": 3
+  },
+  "dynamic_tf": {
+    "robots": 3,
+    "hz_each": 100,
+    "batch_per_quantum_each": 10
+  },
+  "own_map": {
+    "robots": 3,
+    "cells_each": 55000,
+    "normal_hz_each": 0.2,
+    "initial_once_in_2s": true
+  },
+  "local_costmap": {
+    "robots": 3,
+    "cells_each": 3600,
+    "hz_each": 2
+  },
+  "static_tf_and_filterinfo": "Initial once; original transient-local QoS",
+  "clock": "Synthetic controlled ticks only; source stamps<=captured tick, not real Gazebo/TIME certification",
+  "negative": "After2s positive, real PHYoff new DDS map/mask, >.5sim MAC residence, PHYon new headers; no replay of blocked old CDR",
+  "max_fixture_wall_s": 75,
+  "reliability": "Local original DDS reliable/TL; application UDP remains partial-message loss/timeout, no implicit retry"
+}

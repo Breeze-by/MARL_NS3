@@ -1,0 +1,22 @@
+{
+  "pid": 820180,
+  "start_ticks": 61039091,
+  "domain": 92,
+  "case_marker": "GZ01_CASE=/mnt/net01d/followup04/runs/gz-simhealth-b1-02",
+  "session": 2026111147,
+  "argv": [
+    "rtk",
+    "proxy",
+    "bash",
+    "net01/ros-python.sh",
+    "-c",
+    "import os; os.execvp(\"ros2\", [\"ros2\",\"daemon\",\"stop\"])"
+  ],
+  "start_mono_ns": 610951077311599,
+  "end_mono_ns": 610957031288834,
+  "exit": 0,
+  "stdout": "The daemon has been stopped\n",
+  "stderr": "",
+  "immediate_pid_exists": false,
+  "domain69": "untouched"
+}

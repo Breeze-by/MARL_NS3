@@ -1,0 +1,167 @@
+{
+  "startup_clock_subscriptions": {
+    "R": 2,
+    "C": 1
+  },
+  "status": "PASS",
+  "frames": [
+    {
+      "kind": "observed_clock",
+      "horizon_ns": 0,
+      "bytes": 0
+    },
+    {
+      "kind": "send",
+      "sender": 1,
+      "receiver": 0,
+      "flow": 123,
+      "source_stamp_ns": 0,
+      "admission_ns": 0,
+      "bytes": 16
+    },
+    {
+      "kind": "send",
+      "sender": 1,
+      "receiver": 0,
+      "flow": 123,
+      "source_stamp_ns": 0,
+      "admission_ns": 0,
+      "bytes": 16
+    },
+    {
+      "kind": "send",
+      "sender": 1,
+      "receiver": 0,
+      "flow": 123,
+      "source_stamp_ns": 0,
+      "admission_ns": 0,
+      "bytes": 16
+    },
+    {
+      "kind": "send",
+      "sender": 1,
+      "receiver": 0,
+      "flow": 123,
+      "source_stamp_ns": 0,
+      "admission_ns": 0,
+      "bytes": 16
+    },
+    {
+      "kind": "observed_clock",
+      "horizon_ns": 10000000,
+      "bytes": 0
+    },
+    {
+      "kind": "clock",
+      "horizon_ns": 10000000,
+      "bytes": 0
+    }
+  ],
+  "business": [
+    {
+      "sequence": 1,
+      "monotonic_ns": 586388895835140,
+      "Gateway_gz": 10000000
+    },
+    {
+      "sequence": 2,
+      "monotonic_ns": 586388896191585,
+      "Gateway_gz": 10000000
+    },
+    {
+      "sequence": 3,
+      "monotonic_ns": 586388896567701,
+      "Gateway_gz": 10000000
+    },
+    {
+      "sequence": 4,
+      "monotonic_ns": 586388896890611,
+      "Gateway_gz": 10000000
+    }
+  ],
+  "clock_lane": {
+    "probes": 14,
+    "callbacks": 4,
+    "clock_callbacks": 4,
+    "wall_ns": 2105336,
+    "max_wall_ns": 356254,
+    "wait_kinds": {
+      "ready": 4,
+      "productive_set_end": 4,
+      "empty_set": 6
+    },
+    "idle_rejections": 3,
+    "scope": "At most one ready handler per nonblocking probe, at poll start and after each business handler; no separate STEP owner"
+  },
+  "clock_records": [
+    {
+      "kind": "fixed_clock_anchor",
+      "monotonic_ns": 586388895078921,
+      "gz_ns": null,
+      "gazebo_ns": 10000000,
+      "ns3_ns": 0,
+      "offset_ns": 10000000
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 586388895155783,
+      "gz_ns": 10000000,
+      "gazebo_ns": 10000000,
+      "R_callback_capture_monotonic_ns": 586388895033217,
+      "C_publish_return_monotonic_ns": 586388895077729
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 586388897822383,
+      "gz_ns": 20000000,
+      "gazebo_ns": 20000000,
+      "R_callback_capture_monotonic_ns": 586388897752910,
+      "C_publish_return_monotonic_ns": 586388897794299
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 586388900783724,
+      "gz_ns": 30000000,
+      "gazebo_ns": 30000000,
+      "R_callback_capture_monotonic_ns": 586388900704098,
+      "C_publish_return_monotonic_ns": 586388900744702
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 586388901493630,
+      "gz_ns": 25000000,
+      "gazebo_ns": 25000000,
+      "R_callback_capture_monotonic_ns": 586388901447576,
+      "C_publish_return_monotonic_ns": 586388901487761
+    }
+  ],
+  "original_failure": "gazebo_clock_rollback",
+  "checks": {
+    "defaultoff_explicit_reader_stays_on_R_no_extra_executor": true,
+    "new_executor_shares_R_context_without_C_R_list_change": true,
+    "control_node_false_simtime_no_parameter_services": true,
+    "only_explicit_control_clock_subscription_and_original_TimeSources": true,
+    "four_actual_DDS_business_handlers_queued_not_executed": true,
+    "actual_clock_ready_in_separate_executor": true,
+    "pollstart_relay_precedes_queued_business_once": true,
+    "real_relay_callback_before_first_business": true,
+    "complete_actual_IPC_frame": true,
+    "actual_single_Hub_FIFO_KNOWN_before_business_and_STEP": true,
+    "actual_empty_lane_allows_original_kernel_idle": true,
+    "actual_productive_control_cursor_cannot_idle": true,
+    "actual_IO_invalidates_control_empty_epoch": true,
+    "original_actual_clock_rollback_failure_preserved": true,
+    "separate_executor_shutdown_before_shared_context": true
+  },
+  "wall_s": 0.18001835292670876,
+  "executor_shutdown": [
+    true,
+    true
+  ],
+  "resources_closed": true,
+  "domains": {
+    "C": 131,
+    "R": 132
+  },
+  "scope": "Actual DDS/SDK and Unix FIFO only. READY/horizon peer is a fixture, not native ACK/physics. Real original methods, bounded clock handling; no robot, Guard, Action, cmd_vel, ns3, Gazebo or policy. No300ms/throughput certificate."
+}

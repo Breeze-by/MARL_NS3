@@ -1,0 +1,186 @@
+{
+  "status": "ROOT_ADMITTED_UNIQUE_RASTER_WIFI_FULL",
+  "execution_authorized": true,
+  "source_checkpoint": "91bee455a43fe3d328a3c3e5de7e049c59e65501",
+  "native_sha256_reused": "0cc771a18a3eb63ebbc4eb09ee942aaba27ea93211e07a7a0805d993dcc7c4f3",
+  "cwd": "/home/zhuyulab/ns3-workspace",
+  "argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net-01d/workspace/net01d/run_replay.py",
+    "--stage",
+    "full",
+    "--arm",
+    "B",
+    "--case",
+    "actual-phase-wifi-01",
+    "--output-dir",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup03/runs/tcp-raster-wifi-01",
+    "--payloads",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01",
+    "--native",
+    "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "--native-transport",
+    "tcp-mtu-v2",
+    "--dds-take-trace",
+    "--mock-phase",
+    "actual-corr6201",
+    "--native-evidence-ram",
+    "/dev/shm/net01d-f03-tcp-raster-wifi-01",
+    "--main-thread-sample",
+    "--adapter-qos-events",
+    "warning-free-v1",
+    "--execution-profile",
+    "controlled1000-clock100-q10ms-pace10-raster",
+    "--native-ledger-mode",
+    "serial"
+  ],
+  "output": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup03/runs/tcp-raster-wifi-01",
+  "RAM": "/dev/shm/net01d-f03-tcp-raster-wifi-01",
+  "normal_wall_s": 32,
+  "hard_wall_s": 60,
+  "guard_thresholds_unchanged": true,
+  "native_cpu_profile": false,
+  "dispatch_profile": true,
+  "control_trace": true,
+  "dds_take_trace": true,
+  "main_thread_sample": true,
+  "mock_phase": "actual-corr6201",
+  "scope": "Inert B original32normal/60hard no-motion Full draft: pace10 with equivalence-tested broadcast-v1 Peer raster and existing default Gateway executor path. No separate control-clock lane. Fixture transient ARM bootstrap recovery only; Guard, Action, source, QoS and safety unchanged. No run authorization.",
+  "Action": {
+    "normal": 3,
+    "negative_active": 1,
+    "normal_expected_statuses": [
+      4,
+      4,
+      5
+    ],
+    "negative": "original fourth tb3 accepted/GetResult pending then.8wall realRADIOoff; original local cancel/PAUSE and honest centralUNKNOWN"
+  },
+  "transport": "explicit tcp-mtu-v2,3 duplex links,MSS1448 before create,InitialCwnd10segments/14480B; defaultRTO1sim andHOL retained",
+  "protocol_change": "MSS is deployment-MTU calibration, not536 software bug; frame bytes/IDs/source/ownership/safety unchanged; packetization/windowbytes legitimately differ",
+  "required_before_execution": [
+    "Root and independent acceptance of actual tcp-raster-local-arm-01 A1 functional small evidence under source91bee455a43fe3d328a3c3e5de7e049c59e65501",
+    "Root explicit unique tcp-raster-wifi-01 activation/START after original immediate resource/owned/exclusive checks",
+    "One actual old0cc serial ELF/13DSO/maps proof during original32/60 run; preserve first failure and no retry"
+  ],
+  "automatic_retry": false,
+  "automatic_Gazebo": false,
+  "independent_packet_evidence": "net01d/followup02/analysis/ntcp-m2/v2-packetization.json",
+  "no_automatic_next_case": true,
+  "compiled_native_source_checkpoint": "ca9ea8c",
+  "gateway_cprofile": false,
+  "adapter_qos_events": "warning-free-v1",
+  "SDK_evidence": {
+    "qos_precondition": {
+      "result": "net01d/followup02/evidence/adapter-qos-event-sdk-01/check/result.json",
+      "review": "net01d/followup02/review/ADAPTER_QOS_EVENT_SOURCE_AND_SDK_REVIEW.md"
+    },
+    "terminal_quiet_current": {
+      "result": "net01d/followup02/evidence/gateway-tailquiet-sdk-01/check/result.json",
+      "review": "net01d/followup02/review/TERMINAL_QUIET_SOURCE_AND_SDK_REVIEW.md",
+      "actual_predicates": 26
+    }
+  },
+  "diagnostic_tradeoff": "No SDKautomatic incompatibleQoS warnings for these Gatewaypub/sub; explicitcallbacks/Actionbackendchecks/traces retained; lowerentitycap mayalterglobalpollbatchboundary",
+  "SDK_actual": "gateway-tailquiet-sdk-01 outer0/26predicatesPASS,original116/tail4,actualSDKresourcesclosed; nofullcapacityclaim",
+  "cap_semantics": "Original caps sumactualentities eachpoll; warningwaitable removal lowerscaps/canendbatch earlier; q4/cursor/Guard andbusinessrules unchanged, no promiseglobalinterleaving identical",
+  "warning_tradeoff": "Gateway endpoints no automatic incompatibleQoS WARN when unspecified; explicitcallback/Actionbackendchecks/traces remain",
+  "phase_snapshot_scope": "FirstactualCGoalcapture laterthan clientnormalstart to firstfaultobservedpollend/exit; originalclientmarkers judge32normal, notsnapshotduration",
+  "historical_lineage": {
+    "tcp-mtu-01": "Explicit tcp-mtu-v2/MSS1448 deploymentMTU baseline; notidle orwarningfree change",
+    "tcp-idle-01": "Originalreal-empty boundedselect idle candidate from0fa31b1",
+    "tcp-qos-01": "warning-free-v1 adapteronly defaultQoSwarning eventmanagement from844f546",
+    "tcp-tail-01": "Freshterminalquiet extension+smallcounterssnapshots from94fd77a; currentGateway baseline"
+  },
+  "source_rates_dataQoS_wireless_unchanged": "ROS simulation periods, original mixed wall-source definitions, QoS and RF unchanged; actual wall business rates change with achieved sim progress.",
+  "adapter_diagnostic_events": "warning-free-v1 remains sharedwith tcp-qos-01: defaultwarnings removed,explicitcallbacks/dataQoS preserved; capbatchboundarychange disclosed",
+  "current_unique_comparison": "Same raster-only pace10 target1RTF10wall-ms/q10/credit20 profile as ARM-fixed A1; original old0ccserial13libs and equivalent Peer raster. Gateway control-clock separate executor disabled through existing profile selection. A1 direct business and B ns3 WiFi have different native business load; no same-CPU or same-trajectory claim. No established Full qualification or causal performance conclusion.",
+  "Gateway_implementation": "91bee455a43fe3d328a3c3e5de7e049c59e65501: existing default executor path selected; production Gateway code unchanged. Peer broadcast-v1 raster; no separate control-clock executor. Only no-motion full_load_source ARM lifecycle recovery added.",
+  "native_build_identity": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/evidence/BUILD_IDENTITY.json",
+  "environment": {
+    "LD_LIBRARY_PATH": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+    "LD_PRELOAD": "UNSET",
+    "LD_AUDIT": "UNSET"
+  },
+  "compilation_difference": "BaselineC3compilerFPdefault vsnewdriver+all13DSO-ffp-contract=off plusLTO, portableO3/model/radio/source/headers unchanged",
+  "native_pair_evidence": "net01d/followup02/analysis/lto-fixed-pair/comparison.json; original115895rows/4PCAP/18RX",
+  "loader_observer": {
+    "script": "net01d/followup03/native/observe_raster_wifi_full.py",
+    "only": "Existing observe_lto_full.main with this false admission and unique f03/evidence/tcp-raster-wifi-01-loader; one actual old0cc ELF/13DSO/maps proof. Original harness owns all bounds/control/cleanup.",
+    "all13_required_root": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+  },
+  "observer_argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net01d/followup03/native/observe_raster_wifi_full.py"
+  ],
+  "observer_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "native_ledger_mode": "serial",
+  "execution_profile": "controlled1000-clock100-q10ms-pace10-raster",
+  "planned_token_wall_period_ns": 10000000,
+  "planned_realtime_factor": 1.0,
+  "actual_realtime_factor": null,
+  "actual_realtime_factor_note": "PENDING actual execution; target1x/profile and microbench do not establish achieved normalRTF,32normal,300ms or negative pass.",
+  "comparison_contract": "Matched A0/A1/B/C must use the same raster-only profile and ARM-fixed fixture source. Historical pace10 and separate-clock-executor results are distinct conditions.",
+  "qualification_criteria": {
+    "normal": "Original full32wall business window, three normal Goals and expected statuses4/4/5, all original phase/RPC/guard predicates; do not extend after failure",
+    "negative": "Original fourth accepted tb3 Goal/GetResult pending, then original0.8wall actual RADIO-off; local matching CANCELED/PAUSE, honest centralUNKNOWN",
+    "bounds": "Original60hardwall, original drain/finalization/owned-cleanup deadlines, no retry/extra negative window",
+    "safety": "Original300ms actual health/mask and200ms pose receipt gates; original .4sim odom and .55sim correction freshness, future tolerances and Action deadlines unchanged; no pre-fault HOLD or latched-fault reset.",
+    "time": "Every real physical ACK10sim-ms/10iterations, one inflight, physical/native credit<=20sim-ms, actual clock/native ACK provenance and actual achieved RTF",
+    "load": "Original payload templates/source definitions unchanged; measure actual source sim/wall cadence and generated-to-received ages.32wall is not equal simulated work after pacing change"
+  },
+  "baseline_rebuild_status": {
+    "A0": "NOT_RUN_RASTER_ONLY_ARM_FIXED_PROFILE",
+    "A1": "tcp-raster-local-arm-01 OBSERVER_EXIT0; actual small functional results and independent review PENDING",
+    "B": "NOT_RUN_RASTER_ONLY_ARM_FIXED_PROFILE",
+    "C": "NOT_RUN_RASTER_ONLY_ARM_FIXED_PROFILE"
+  },
+  "budget_note": "SOURCE_READY only. Original32normal/60hard/negative/drain/cleanup retained; no extra business/finalization window/retry.",
+  "root_decision": "One unique tcp-raster-wifi-01 original32normal60hard B after immediate exclusive/resource/owned/source checks. Same91bee ARMfixed raster-only source as independently accepted A1. A1 normal32/4,4,5/RPCdrain/SUPPLY_STOP cancellation proven; health gaps<=159.006ms/mask conservative<=174.746ms and RTF queue p95<=53.850ms measured separately. B must itself pass original300/200/.4/.55 and trueRFoff negative; no extrapolated B/Gazebo PASS. No retry/Gazebo automatic.",
+  "runtime_commit": "91bee455a43fe3d328a3c3e5de7e049c59e65501",
+  "case_identity": "tcp-raster-wifi-01",
+  "native_selection": "Original0cc native serial with same13LTO. --native-evidence-ram is original tmpfs evidence storage only; not session-ram-v1. No nativeTXcopy5a176/r2/sessionRAM candidates.",
+  "harness_case_selector": "--case actual-phase-wifi-01 retained: fixed parser selector for full/B/actual-corr6201/DDS; unique experiment identity is tcp-raster-wifi-01 via output/RAM/evidence.",
+  "unchanged_original_parameters": [
+    "32wall normal",
+    "60wall hard",
+    "3 normal Goals expected4/4/5",
+    "4th accepted tb3 Goal/GetResult request ACK with result pending, then .8wall actualRADIOoff negative",
+    "300ms health/mask and200ms pose receipt gates",
+    "payload/nativeold0ccserial/same13LTO",
+    "actual-corr6201 and originalmixedsim/wallsource rates",
+    "DDS take trace/main-thread sample/warning-free-v1",
+    "original drain/cleanup and firstfailure preservation"
+  ],
+  "peer_raster_candidate": {
+    "producer": "net01d_pace_profile",
+    "selection": "explicit newcommonprofile only; module-global peer_mask implementation choice in external adapter; frozen file unedited",
+    "equivalence": "15cases actual160000int8 grids exact; actualCDR compared outside established IDLpadding21..23 and decodedfields exact; raw firstfailure retained",
+    "timing": "Unique existing fixed6AB/BA microbenchmark: three-owner threadCPU48.924\u21926.075ms; excludes fullgrid/CDR/publication/native/network/Full",
+    "profile": "controlled1000-clock100-q10ms-pace10-raster",
+    "source_ready_only": true,
+    "review": "net01d/followup03/RASTER_REVIEW.md"
+  },
+  "admission_binding_commit": "PENDING_ROOT_ACTIVATION",
+  "clock_control_selection": "Original pace10 default Gateway executor path; profile has no gateway_control_clock_lane field. Existing single Gateway STEP owner, real-clock FIFO, token quantum and credit unchanged.",
+  "fixture_ARM_bootstrap": {
+    "source": "91bee455a43fe3d328a3c3e5de7e049c59e65501",
+    "scope": "No-motion full_load_source fixture only: transient rejected ARM with faultNone waits for a newer healthy gateway_state before another same safety ARM request. All requests/responses retained. No Goal retry, no latched-fault reset, no safety change.",
+    "test": "net01d/followup03/full-source-arm-check.json",
+    "previous_case": "tcp-raster-local-01 stalled pre-normal/0Goal is preserved; not a performance result."
+  },
+  "output_path_note": {
+    "wire_socket_path_bytes": 98,
+    "below_original_AF_UNIX_108byte_bound": true,
+    "unique_case": "tcp-raster-wifi-01",
+    "no_symlink_or_socket_logic_change": true
+  },
+  "root_activation_commit": "Recorded in Root START after committing this activation; runtime source is91bee455a43fe3d328a3c3e5de7e049c59e65501.",
+  "A1_independent_review": "net01d/followup03/analysis/tcp-raster-local-arm-01/INDEPENDENT_REVIEW.md"
+}

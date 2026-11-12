@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=1s",
+    "5s",
+    "python3",
+    "-B",
+    "net01d/followup04/check_spin_exception_observer.py",
+    "--admission",
+    "net01d/followup04/SPIN_EXCEPTION_OBSERVER_ADMISSION.json"
+  ],
+  "cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "runtime": "bd663824d77983cb2b2721e90241ef97bf06461f",
+  "start_monotonic_ns": 613927480848623,
+  "output": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/evidence/spin-exception-observer-01",
+  "scope": "Uniqueactualhelper/AST,0ROS/native/GZ/model"
+}

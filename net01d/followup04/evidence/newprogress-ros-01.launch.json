@@ -1,0 +1,24 @@
+{
+  "source_checkpoint": "c4ad853e7e5e8707a0e5a0be1426bc84b4bd2e1e",
+  "argv": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "net01d/followup04/evidence/newprogress-ros-01.time.txt",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "35s",
+    "bash",
+    "net01/ros-python.sh",
+    "net01d/followup04/check_progress_ros.py",
+    "--output",
+    "net01d/followup04/evidence/newprogress-ros-01",
+    "--ack-socket",
+    "/dev/shm/net01d-f04-progress-ros-01.ack"
+  ],
+  "ROS_domain": "actual default context init domain95 overrides wrapper env92",
+  "scope": "one controlledROS fixture; no native/GZ/robot",
+  "begin_monotonic_ns": 601631232987677,
+  "launcher_pid": 532935
+}

@@ -1,0 +1,432 @@
+{
+  "case": "corr6201-common58-r01-b",
+  "trace_count": 8,
+  "entries": [
+    {
+      "callback_index": 1,
+      "token": {
+        "record_index": 3,
+        "row": [
+          "physical_token",
+          707843940989720,
+          3455854062,
+          "RUN",
+          null,
+          0,
+          null,
+          707843940950543,
+          0
+        ]
+      },
+      "ACK": {
+        "record_index": 5,
+        "row": [
+          "post_physics_ACK",
+          707845700340011,
+          4037025545,
+          true,
+          0,
+          10000000,
+          0,
+          10,
+          10
+        ]
+      },
+      "server": {
+        "callback_index": 1,
+        "callback_enter_mono_ns": 707843941716047,
+        "step_begin_mono_ns": 707843941774595,
+        "step_end_mono_ns": 707845699549404,
+        "step_called": true,
+        "response_ready_mono_ns": 707845699588886
+      },
+      "all_mono_ordered": true,
+      "sum_matches_total": true,
+      "total_wall_s": 1.759350291,
+      "interval_wall_s": {
+        "token_to_callback": 0.000726327,
+        "callback_preparation": 5.8548e-05,
+        "inside_World_Step": 1.757774809,
+        "server_reply_preparation": 3.9482e-05,
+        "response_marker_to_client_ACK": 0.000751125
+      }
+    },
+    {
+      "callback_index": 2,
+      "token": {
+        "record_index": 7,
+        "row": [
+          "physical_token",
+          707845700556542,
+          4037240500,
+          "RUN",
+          10000000,
+          0,
+          null,
+          707843960950543,
+          1739593544
+        ]
+      },
+      "ACK": {
+        "record_index": 9,
+        "row": [
+          "post_physics_ACK",
+          707845712671034,
+          4042430403,
+          true,
+          10000000,
+          20000000,
+          10,
+          20,
+          10
+        ]
+      },
+      "server": {
+        "callback_index": 2,
+        "callback_enter_mono_ns": 707845700880574,
+        "step_begin_mono_ns": 707845700883780,
+        "step_end_mono_ns": 707845711966642,
+        "step_called": true,
+        "response_ready_mono_ns": 707845711981177
+      },
+      "all_mono_ordered": true,
+      "sum_matches_total": true,
+      "total_wall_s": 0.012114492,
+      "interval_wall_s": {
+        "token_to_callback": 0.000324032,
+        "callback_preparation": 3.206e-06,
+        "inside_World_Step": 0.011082862,
+        "server_reply_preparation": 1.4535e-05,
+        "response_marker_to_client_ACK": 0.000689857
+      }
+    },
+    {
+      "callback_index": 3,
+      "token": {
+        "record_index": 11,
+        "row": [
+          "physical_token",
+          707845712956181,
+          4042714269,
+          "RUN",
+          20000000,
+          0,
+          10000000,
+          707843980950543,
+          1731990129
+        ]
+      },
+      "ACK": {
+        "record_index": 14,
+        "row": [
+          "post_physics_ACK",
+          707845724155954,
+          4047324937,
+          true,
+          20000000,
+          30000000,
+          20,
+          30,
+          10
+        ]
+      },
+      "server": {
+        "callback_index": 3,
+        "callback_enter_mono_ns": 707845713285153,
+        "step_begin_mono_ns": 707845713289548,
+        "step_end_mono_ns": 707845723500948,
+        "step_called": true,
+        "response_ready_mono_ns": 707845723528034
+      },
+      "all_mono_ordered": true,
+      "sum_matches_total": true,
+      "total_wall_s": 0.011199773,
+      "interval_wall_s": {
+        "token_to_callback": 0.000328972,
+        "callback_preparation": 4.395e-06,
+        "inside_World_Step": 0.0102114,
+        "server_reply_preparation": 2.7086e-05,
+        "response_marker_to_client_ACK": 0.00062792
+      }
+    },
+    {
+      "callback_index": 4,
+      "token": {
+        "record_index": 16,
+        "row": [
+          "physical_token",
+          707845724398489,
+          4047565207,
+          "RUN",
+          30000000,
+          10000000,
+          10000000,
+          707844000950543,
+          1723431833
+        ]
+      },
+      "ACK": {
+        "record_index": 19,
+        "row": [
+          "post_physics_ACK",
+          707845737516729,
+          4052933052,
+          true,
+          30000000,
+          40000000,
+          30,
+          40,
+          10
+        ]
+      },
+      "server": {
+        "callback_index": 4,
+        "callback_enter_mono_ns": 707845724767006,
+        "step_begin_mono_ns": 707845724771790,
+        "step_end_mono_ns": 707845736552246,
+        "step_called": true,
+        "response_ready_mono_ns": 707845736581796
+      },
+      "all_mono_ordered": true,
+      "sum_matches_total": true,
+      "total_wall_s": 0.01311824,
+      "interval_wall_s": {
+        "token_to_callback": 0.000368517,
+        "callback_preparation": 4.784e-06,
+        "inside_World_Step": 0.011780456,
+        "server_reply_preparation": 2.955e-05,
+        "response_marker_to_client_ACK": 0.000934933
+      }
+    },
+    {
+      "callback_index": 5,
+      "token": {
+        "record_index": 21,
+        "row": [
+          "physical_token",
+          707845737743504,
+          4053159032,
+          "RUN",
+          40000000,
+          20000000,
+          10000000,
+          707844020950543,
+          1716779595
+        ]
+      },
+      "ACK": {
+        "record_index": 24,
+        "row": [
+          "post_physics_ACK",
+          707845749754677,
+          4058238078,
+          true,
+          40000000,
+          50000000,
+          40,
+          50,
+          10
+        ]
+      },
+      "server": {
+        "callback_index": 5,
+        "callback_enter_mono_ns": 707845738115593,
+        "step_begin_mono_ns": 707845738119235,
+        "step_end_mono_ns": 707845748752864,
+        "step_called": true,
+        "response_ready_mono_ns": 707845748765829
+      },
+      "all_mono_ordered": true,
+      "sum_matches_total": true,
+      "total_wall_s": 0.012011173,
+      "interval_wall_s": {
+        "token_to_callback": 0.000372089,
+        "callback_preparation": 3.642e-06,
+        "inside_World_Step": 0.010633629,
+        "server_reply_preparation": 1.2965e-05,
+        "response_marker_to_client_ACK": 0.000988848
+      }
+    },
+    {
+      "callback_index": 6,
+      "token": {
+        "record_index": 26,
+        "row": [
+          "physical_token",
+          707845750041598,
+          4058522928,
+          "RUN",
+          50000000,
+          30000000,
+          10000000,
+          707844040950543,
+          1709071850
+        ]
+      },
+      "ACK": {
+        "record_index": 29,
+        "row": [
+          "post_physics_ACK",
+          707845762947220,
+          4063519333,
+          true,
+          50000000,
+          60000000,
+          50,
+          60,
+          10
+        ]
+      },
+      "server": {
+        "callback_index": 6,
+        "callback_enter_mono_ns": 707845750500715,
+        "step_begin_mono_ns": 707845750505705,
+        "step_end_mono_ns": 707845761052331,
+        "step_called": true,
+        "response_ready_mono_ns": 707845761089036
+      },
+      "all_mono_ordered": true,
+      "sum_matches_total": true,
+      "total_wall_s": 0.012905622,
+      "interval_wall_s": {
+        "token_to_callback": 0.000459117,
+        "callback_preparation": 4.99e-06,
+        "inside_World_Step": 0.010546626,
+        "server_reply_preparation": 3.6705e-05,
+        "response_marker_to_client_ACK": 0.001858184
+      }
+    },
+    {
+      "callback_index": 7,
+      "token": {
+        "record_index": 31,
+        "row": [
+          "physical_token",
+          707845763171886,
+          4063743773,
+          "RUN",
+          60000000,
+          40000000,
+          10000000,
+          707844060950543,
+          1702208735
+        ]
+      },
+      "ACK": {
+        "record_index": 34,
+        "row": [
+          "post_physics_ACK",
+          707845774977236,
+          4068627292,
+          true,
+          60000000,
+          70000000,
+          60,
+          70,
+          10
+        ]
+      },
+      "server": {
+        "callback_index": 7,
+        "callback_enter_mono_ns": 707845763550346,
+        "step_begin_mono_ns": 707845763552643,
+        "step_end_mono_ns": 707845774439173,
+        "step_called": true,
+        "response_ready_mono_ns": 707845774483958
+      },
+      "all_mono_ordered": true,
+      "sum_matches_total": true,
+      "total_wall_s": 0.01180535,
+      "interval_wall_s": {
+        "token_to_callback": 0.00037846,
+        "callback_preparation": 2.297e-06,
+        "inside_World_Step": 0.01088653,
+        "server_reply_preparation": 4.4785e-05,
+        "response_marker_to_client_ACK": 0.000493278
+      }
+    },
+    {
+      "callback_index": 8,
+      "token": {
+        "record_index": 36,
+        "row": [
+          "physical_token",
+          707845775211189,
+          4068859165,
+          "RUN",
+          70000000,
+          50000000,
+          10000000,
+          707844080950543,
+          1694246625
+        ]
+      },
+      "ACK": {
+        "record_index": 39,
+        "row": [
+          "post_physics_ACK",
+          707845786394608,
+          4073258002,
+          true,
+          70000000,
+          80000000,
+          70,
+          80,
+          10
+        ]
+      },
+      "server": {
+        "callback_index": 8,
+        "callback_enter_mono_ns": 707845775490989,
+        "step_begin_mono_ns": 707845775493383,
+        "step_end_mono_ns": 707845785807831,
+        "step_called": true,
+        "response_ready_mono_ns": 707845785845327
+      },
+      "all_mono_ordered": true,
+      "sum_matches_total": true,
+      "total_wall_s": 0.011183419,
+      "interval_wall_s": {
+        "token_to_callback": 0.0002798,
+        "callback_preparation": 2.394e-06,
+        "inside_World_Step": 0.010314448,
+        "server_reply_preparation": 3.7496e-05,
+        "response_marker_to_client_ACK": 0.000549281
+      }
+    }
+  ],
+  "final": {
+    "mode": "HOLD",
+    "failure": null,
+    "expected_shutdown": true,
+    "physics_failed": false,
+    "physical_ns": 198530000000,
+    "iterations": 198530,
+    "actual_clock_ns": 198530000000,
+    "native_ACK_ns": 198510000000,
+    "fixed_offset_ns": 10000000,
+    "physical_RPC_inflight": false,
+    "session_id": 2026111262,
+    "gateway_clock_ready": true,
+    "pending_holds": 0,
+    "authority_exited": true,
+    "progress_wall_timeout_ns": 2000000000,
+    "progress_started_monotonic_ns": 707875945372878,
+    "motion_armed_since_monotonic_ns": 707882312594177,
+    "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+    "actual_clock_progress_monotonic_ns": 708308444659054,
+    "native_ACK_progress_monotonic_ns": 708308504220138,
+    "physical_RPC_issued_monotonic_ns": null,
+    "execution_profile": "controlled1000-clock100-q10ms-pace20-raster-simhealth",
+    "token_wall_period_ns": 20000000,
+    "planned_realtime_factor": 0.5,
+    "actual_achieved_physical_rtf": 0.4274011291556045,
+    "physical_progress_sim_span_ns": 198530000000,
+    "physical_progress_wall_span_ns": 464505090083,
+    "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+    "next_earliest_wall_ns": 708246585372878,
+    "max_token_lateness_ns": 61905645824,
+    "late_tokens": 19850
+  },
+  "scope": "Existing first8 monotonic marks only; not pureCPU/DDS latency"
+}

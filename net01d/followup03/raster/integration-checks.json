@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "syntax_files": [
+    "net01/bound_peer.py",
+    "net01/peer_mask_raster.py",
+    "net01/execution_profile.py"
+  ],
+  "new_profile_only_id_scope_and_raster_selection_differ": true,
+  "tested_helper_function_AST_unchanged": true,
+  "actual_selection_checks": [
+    {
+      "profile": null,
+      "selected": "original",
+      "correct_function_identity": true
+    },
+    {
+      "profile": "controlled1000-clock100-q10ms-pace10-clocklane",
+      "selected": "original",
+      "correct_function_identity": true
+    },
+    {
+      "profile": "controlled1000-clock100-q10ms-pace10-clocklane-raster",
+      "selected": "broadcast-v1",
+      "correct_function_identity": true
+    },
+    {
+      "profile": null,
+      "selected": "original",
+      "correct_function_identity": true
+    }
+  ],
+  "scope": "Exact BoundPeer constructor selection prefix/constants; no Node/ROS init or mask/benchmark rerun",
+  "Node": 0,
+  "ROS_init": 0,
+  "models": 0
+}

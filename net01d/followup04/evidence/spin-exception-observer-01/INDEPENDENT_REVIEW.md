@@ -1,0 +1,11 @@
+# Spin exception observer independent review
+
+**Limited observer-transparency acceptance.** Reviewed fixed sourcebd663824, actual helper/AST fixture and small result/exit/stdout/stderr plus both exception observations. Activationc617ba5 executes once:4cases PASS, actual exit0/0.637519097wall within5s, stderr empty. This reviewer ran no tests, ROS, models or large parsing.
+
+Normal invocation calls the original once with original arguments/keyword values, preserves returned object identity and emits no file/state event. RuntimeError preserves the same exception object, original cause/context and full chained traceback; actual existing fixture-frame metadata contains only public topic/type/raw, with no raw payload. An unreadable topic records its OSError while other metadata survives; unwritable diagnostic output preserves the same original KeyboardInterrupt and records only write-failure type. Source AST confirms bare re-raise and original-spin restoration in both bootstrap finally blocks.
+
+The actual NetworkObserver.event AST is exercised with three calls: only process_signal/exploration obtains one additional monotonic sample; bag signal and exploration exit pass unchanged, as do original kind/PID/signal/other fields. The recorded time is a **pre-killpg event-observation lower bound**, not completed signal send/delivery. It can compare observation order with the wrapper's same-clock exception observation, but cannot alone prove signal causation or exact exception creation time.
+
+The helper tests use dummy callables/subscription properties and injected event time, not actual DDS conversion or signal processing. Historical A0 controller1/process FAIL and both synthetic DDS diagnostic limitations remain unchanged; no conversion fix is established. The original frozen signal handler, exception handling, cleanup, Policy and safety/stop parameters remain authoritative.
+
+Together with accepted reporting-gate verification and the C static protocol review, this supports Root separately binding the traced source and admitting **one already planned fixed-condition C diagnostic episode**, subject to original resource/preflight/stop/exit/metric gates. Preserve old READY and prior failures. No C result, project GO, extra replay or automatic retry is signed here.

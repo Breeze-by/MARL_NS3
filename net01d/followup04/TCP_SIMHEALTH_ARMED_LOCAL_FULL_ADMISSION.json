@@ -1,0 +1,146 @@
+{
+  "status": "ONE_A1_ARMED_FULL_ADMITTED_AFTER_49_UNIT_AND_19_ROS_ACCEPT",
+  "execution_authorized": true,
+  "source_checkpoint": "2be7e229492d29817057fa8db166e38f114ca209",
+  "runtime_commit": "2be7e229492d29817057fa8db166e38f114ca209",
+  "case_identity": "tcp-arm-local-01",
+  "comparison_group": "A1",
+  "cwd": "/home/zhuyulab/ns3-workspace",
+  "argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net-01d/workspace/net01d/run_replay.py",
+    "--stage",
+    "full",
+    "--arm",
+    "A1",
+    "--case",
+    "actual-phase-local-01",
+    "--output-dir",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/tcp-arm-local-01",
+    "--payloads",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01",
+    "--native",
+    "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "--native-transport",
+    "tcp-mtu-v2",
+    "--dds-take-trace",
+    "--mock-phase",
+    "actual-corr6201",
+    "--native-evidence-ram",
+    "/dev/shm/net01d-f04-tcp-arm-local-01",
+    "--main-thread-sample",
+    "--adapter-qos-events",
+    "warning-free-v1",
+    "--execution-profile",
+    "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+    "--native-ledger-mode",
+    "serial"
+  ],
+  "output": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/tcp-arm-local-01",
+  "RAM": "/dev/shm/net01d-f04-tcp-arm-local-01",
+  "normal_wall_s": 32,
+  "hard_wall_s": 60,
+  "native_sha256_reused": "0cc771a18a3eb63ebbc4eb09ee942aaba27ea93211e07a7a0805d993dcc7c4f3",
+  "environment": {
+    "LD_LIBRARY_PATH": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+    "LD_PRELOAD": "UNSET",
+    "LD_AUDIT": "UNSET",
+    "LD_PROFILE": "UNSET",
+    "LD_PROFILE_OUTPUT": "UNSET"
+  },
+  "native_build_identity": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/evidence/BUILD_IDENTITY.json",
+  "native_ledger_mode": "serial",
+  "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+  "native_cpu_profile": false,
+  "gateway_cprofile": false,
+  "observer_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "observer_argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net01d/followup04/native/observe_simhealth_armed_local_full.py"
+  ],
+  "scope": "NewARM-activation lifecycle-source A1 originalno-motion Full only; firstANYsame-sessionRGuardARM activates globalclock/native2wall, physicalRPC2wall allmodes unchanged; original300SIMms/source/body/QoS/4UUID32normal60hard unchanged. Not a2be BFull or GZ qualification.",
+  "contract": {
+    "health_mask_receipt": "R ROS simulation clock,300ms",
+    "progress_watchdog": "actual monotonic wall2s; Rclock/nativeACK/inflightphysics; actualLocalStop routing required",
+    "source_and_other_gates": "Original odom.4sim/correction.55sim/future checks; Peer odom receipt.2wall and gateway process-status.3wall unchanged",
+    "time_control": "Same10sim-ms quantum/20sim-ms normal credit/oneinflight/actualACK; safeauthority-exited revocation nofakeguardfault or terminal",
+    "baseline": "Newprofile; f03wall300 historical cases are not matched scientific baselines"
+  },
+  "normal_criteria": "Original32wall normal,threeactualGoal statuses4/4/5,normalRPCdrain,no normalGuardfault; record actualsimwork and actualACKRTF separately; new independent admin/clock/native/physical2wall protection must not trip during normal; actual monitoring and original source freshness stay active",
+  "negative": "Original fourth accepted tb3 Goal/GetResult transport readiness then0.8wall SUPPLY_STOP of observation supplies only; local Action/PAUSE services continue. No RADIO_OFF. Preserve matchingUUID localCancel/GetResult5/PAUSE and report actual centralterminal or pendingUNKNOWN.",
+  "stop_criteria": "ActualsameUUID localCancel/GetResult5,zero+PAUSE,ownedexit; Cpending/null staysUNKNOWN until actual result; HOLDalone doesnotprove localstop",
+  "fault_stall_scope": "Progress-stall controlledROS episode separately pendingRootreview/START; do not append it after alreadylatchedRFoff episode",
+  "required_before_execution": [
+    "Source2be7e229492d29817057fa8db166e38f114ca209 fixed;49unit+19actualROSlimitedindependentacceptance received; require Root uniqueA1START after immediate resource/owner/exclusive/sourcepreflight",
+    "Only once necessaryexclusive output/RAM/loader/domain91/92/resources/sourcecritical checks; nonowned69untouched",
+    "Existing observer oneactualexe/Hubparent/13DSOmaps,originalEND/copy/owneddeadlines; nohashsweeps/build"
+  ],
+  "automatic_retry": false,
+  "automatic_Gazebo": false,
+  "no_automatic_next_case": true,
+  "source_prepare_only": false,
+  "source_runtime_inputs_held": "Original0ccserial/same13LTO and original4PCAP/fullledger/UID paths; native_evidence_ram is only original evidence tmpfs, not session-ram-v1. No nativeTXcopy/Pythonframecopy/CPUprofile/sampler/shim candidates.",
+  "predeclared_future_Gazebo_budget": {
+    "sim_s": 180,
+    "autonomy_wall_s": 720,
+    "outer_work_wall_s": 900,
+    "cleanup_wall_s": 90,
+    "host_force_wall_s": 1000,
+    "scope": "PROPOSED_ROOT_BOUND; noGZREADY/execution; fixedbeforeanyfutureSTART,notpostresultextension"
+  },
+  "run_full_entry": "Unchanged net01d/run_replay.py --stage full; original parser already accepts new ID via CONTROLLED_PROFILE_IDS; no extra run_full wrapper needed.",
+  "Action": {
+    "normal": 3,
+    "expected_normal_statuses": [
+      4,
+      4,
+      5
+    ],
+    "negative_active": 1,
+    "negative": "Original fourth accepted tb3 Goal/GetResult transport readiness then0.8wall SUPPLY_STOP of observation supplies only; local Action/PAUSE services continue. No RADIO_OFF. Preserve matchingUUID localCancel/GetResult5/PAUSE and report actual centralterminal or pendingUNKNOWN."
+  },
+  "qualification_scope": "Actual original no-motion Full ROS2/DDS controlled Action/source/Peer/Gateway/coordinator plus real old0cc ns3 process. Not fixedCPU replay, training, Gazebo, SLAM/Nav2 or robotmotion. A1 business remains actual ordered direct adaptation/native clock only; B full original business CDR traverses ns3 WiFi; native business CPU differs.",
+  "negative_window_scope": "Original0.8wall negative retained. New300ms receipt uses simulation time; if insufficient actual sim progress prevents observing an expected negative within original window, report FAIL/NOT_OBSERVED honestly, no extension, no injected terminal/fault.",
+  "sampling": {
+    "profile_and_clock_basis": "scope.json execution_profile; time-controller.json final/records; Gateway execution_profile and latched/ARM receipt_clock_basis; original monotonic receipt fields remain monotonic, separate sim fields.",
+    "coordinator_progress": "Original actual_clock/native_progress/post_physics_ACK records plus final authority_exited/progress_wall_timeout_ns/progress_started_monotonic_ns/actual_clock_progress_monotonic_ns/native_ACK_progress_monotonic_ns/physical_RPC_issued_monotonic_ns.; additionally actual_R_guard_ARM_watchdog_activation(receipt/Gatewaypublication/ANYarmedIDs), motion_armed_since_monotonic_ns; oldactualclock/nativeprogressstamps notsyntheticallyreset.",
+    "admin_guard_failure": "New-profile latched_INVALID.progress_context stores old control_receipt_monotonic/last_sim_progress_wall/last_sim/health_receipt_sim/mask_receipt_sim/control_mode/control_failure before late replacement; actual stop actions/UUID/cancel/GetResult/PAUSE remain existing records.",
+    "no_admin_per_packet_claim": "No new monitor or per-admin raw sampler is added. Only fault-time old snapshot context and existing coordinator records; domain95 actualLocalStop fixture separately verifies live control propagation/stall/cleanup.",
+    "retained_existing": "Original dispatch/control/DDS-take/main-thread diagnostics remain unchanged, no new cProfile/LD_PROFILE/LD_PRELOAD/sampler shim."
+  },
+  "native_runtime": {
+    "expected_ns3_names_count": 13,
+    "library_directory": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+    "actual_proof": "Existing one-shot observe_lto_full nativeexe/Hubparent/actualold13names+root/maps; originalprocess ownership/END/copy/exit preserved.",
+    "four_PCAP": "Original4wifi-{0,1,2,3}-0.pcap/fullserialledger integrity required by unchanged Hub; no reduced monitor condition."
+  },
+  "planned_token_wall_period_ns": 10000000,
+  "planned_realtime_factor": 1.0,
+  "actual_realtime_factor": "PENDING_MEASURED;wholeACK span and normalphase scope reported separately, target is not guarantee",
+  "loader_output": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/evidence/tcp-arm-local-01-loader",
+  "source_only_path_check": {
+    "wire_sock_host_bytes": 96,
+    "paths_absent": {
+      "output": true,
+      "RAM": true,
+      "loader": true
+    },
+    "scope": "Singleprospective shortname staticpathcheck only; actualpreflight notexecuted."
+  },
+  "source_lineage": {
+    "current_runtime": "2be7e229492d29817057fa8db166e38f114ca209",
+    "historical_C4": "c4ad853e7e5e8707a0e5a0be1426bc84b4bd2e1e",
+    "only_current_source_changes": [
+      "net01/time_control_state.py",
+      "net01/time_controller.py",
+      "net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER_SIMHEALTH.json scope"
+    ],
+    "B_transport_qualification": "C4 tcp-simhealth-wifi-01 actualFull/negative appliedRFoff no-new-delivery scope inherited for unchangedwire/source/Radio code only. No2beBFull has run or passed; currentA1stillfalse."
+  }
+}

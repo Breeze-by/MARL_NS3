@@ -1,0 +1,75 @@
+{
+  "scope": "Existing sealed records grouped by actual ready branch, no new runtime",
+  "results": {
+    "continuous-dds-03": {
+      "False": {
+        "n": 201,
+        "median_build_ms": 0.17147301696240902,
+        "min_build_ms": 0.10974600445479155,
+        "max_build_ms": 0.566233997233212
+      },
+      "True": {
+        "n": 45,
+        "median_build_ms": 17.212120990734547,
+        "min_build_ms": 16.236066003330052,
+        "max_build_ms": 21.416016039438546
+      }
+    },
+    "continuous-dds-04": {
+      "False": {
+        "n": 9,
+        "median_build_ms": 0.2057070378214121,
+        "min_build_ms": 0.11781102512031794,
+        "max_build_ms": 0.5487370071932673
+      },
+      "True": {
+        "n": 240,
+        "median_build_ms": 18.798582983436063,
+        "min_build_ms": 16.06005895882845,
+        "max_build_ms": 23.502424999605864
+      }
+    },
+    "continuous-dds-05": {
+      "False": {
+        "n": 9,
+        "median_build_ms": 0.19856897415593266,
+        "min_build_ms": 0.1260380377061665,
+        "max_build_ms": 0.582230044528842
+      },
+      "True": {
+        "n": 240,
+        "median_build_ms": 18.802506005158648,
+        "min_build_ms": 17.031408031471074,
+        "max_build_ms": 24.056882015429437
+      }
+    },
+    "net01-a-corridor-6201-03": {
+      "False": {
+        "n": 216,
+        "median_build_ms": 0.22407248616218567,
+        "min_build_ms": 0.11130800703540444,
+        "max_build_ms": 2.5782089796848595
+      },
+      "True": {
+        "n": 1179,
+        "median_build_ms": 19.764430995564908,
+        "min_build_ms": 17.04005798092112,
+        "max_build_ms": 26.816917990799993
+      }
+    },
+    "net01-a-corridor-6201-04": {
+      "False": {
+        "n": 327,
+        "median_build_ms": 0.19811798119917512,
+        "min_build_ms": 0.10764098260551691,
+        "max_build_ms": 2.4961489834822714
+      },
+      "True": {
+        "n": 921,
+        "median_build_ms": 20.12863801792264,
+        "min_build_ms": 16.32616203278303,
+        "max_build_ms": 25.7011610083282
+      }
+    }
+  }
+}

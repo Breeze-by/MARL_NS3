@@ -1,0 +1,39 @@
+{
+  "pid": 1106665,
+  "mode": "fixed",
+  "callbacks": [
+    620901013787610
+  ],
+  "original_submit_calls": [],
+  "events": [
+    {
+      "kind": "controller_stop_goal_not_submitted",
+      "robot": "tb1",
+      "token": 1,
+      "target": [
+        1.0,
+        2.0
+      ],
+      "sim": 620901.013799646,
+      "reason": "SIGINT received before external submission gate",
+      "actual_DDS_goal_sent": false,
+      "synthetic_Action_response": false,
+      "observed_monotonic_ns": 620901013802898
+    }
+  ],
+  "hook": {
+    "monotonic_ns": 620901013043176,
+    "constructor_file": "/opt/ros/humble/local/lib/python3.10/dist-packages/nav_msgs/msg/_occupancy_grid.py",
+    "exact_constructor_code": true,
+    "take_file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+    "take_line": 400,
+    "topic": "/net01e/controller/fixed_grid",
+    "raw": false,
+    "signal_request_monotonic_ns": 620901013069428,
+    "signal_return_monotonic_ns": 620901013118958
+  },
+  "context_ok_after_spin": true,
+  "destroy_begin_monotonic_ns": 620901014597812,
+  "destroy_end_monotonic_ns": 620901019298020,
+  "context_ok_after_shutdown": false
+}

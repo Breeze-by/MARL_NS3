@@ -1,0 +1,41 @@
+--- a/net01/time_control_runtime.py
++++ b/net01/time_control_runtime.py
+@@ -33,6 +33,7 @@
+     def __init__(self,ready,repo,case):
+         self.config=controlled_config(ready);self.repo=Path(repo);self.case=Path(case)
+         self.execution_profile=ready['network']['execution_profile']
++        self.debug_gzserver=ready.get("gzserver_batch_gdb",False)
+         self.phase=self.repo.parent;self.baseline=self.phase.parent/'base-01-econ'
+         self.session=ready['network']['session_id'];self.processes={};self.child_pids={};self.logs=[]
+         self.directory=self.case.with_name(self.case.name+'.time-control')
+@@ -48,10 +49,16 @@
+         return self.rootfs_command(['python3','-B',*arguments],domain)
+ 
+     def rootfs_command(self,arguments,domain):
++        debug_main=(self.debug_gzserver and arguments[:3]==
++            ['python3','-B','/mnt/net01/boot_network.py'])
++        debug_mounts=(['--ro-bind','/usr/bin/gdb','/tmp/gdb-host/gdb',
++            '--ro-bind','/lib/x86_64-linux-gnu','/tmp/gdb-host/lib',
++            '--ro-bind','/usr/share/gdb','/tmp/gdb-host/share'] if debug_main else [])
+         return ['bwrap','--unshare-user','--uid','0','--gid','0','--die-with-parent',
+             '--ro-bind',str(self.baseline/'isolation/rootfs'),'/', '--tmpfs','/tmp',
++            *debug_mounts,
+             '--bind',str(self.repo/'runtime-home'),'/root',
+-            '--ro-bind','/proc','/proc','--dev-bind','/dev','/dev','--ro-bind','/sys','/sys',
++            '--bind' if debug_main else '--ro-bind','/proc','/proc','--dev-bind','/dev','/dev','--ro-bind','/sys','/sys',
+             '--ro-bind',str(self.baseline),'/project','--bind',str(self.repo),'/mnt',
+             '--ro-bind','/home/zhuyulab/.local/lib/python3.10/site-packages','/tmp/rl02-python',
+             '--ro-bind',str(self.plugin),PLUGIN_CONTAINER,
+--- a/net01/boot_network.py
++++ b/net01/boot_network.py
+@@ -103,7 +103,9 @@
+         if os.environ.get('NET01_TIME_CONTROL')!='1' or not Path(os.environ['NET01_TIME_CONTROL_PLUGIN']).is_file():
+             raise ValueError('Controlled host artifact mounts/sidecars missing')
+     os.environ["GAZEBO_MODEL_PATH"]="/project/assets/gazebo_models:"+os.environ.get("GAZEBO_MODEL_PATH","")
+-    os.environ.pop("GZ01_BATCH_GDB",None);os.environ.pop("GZ01_HOST_GDB",None)
++    os.environ.pop("GZ01_HOST_GDB",None)
++    if ready.get("gzserver_batch_gdb",False):os.environ["GZ01_BATCH_GDB"]="1"
++    else:os.environ.pop("GZ01_BATCH_GDB",None)
+     result=dict(start_utc=datetime.now(timezone.utc).isoformat(),native_exit=None,outer_timeout=False,cleanup_timeout=False)
+     xvfb=runner=None
+     try:

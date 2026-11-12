@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "input": "/mnt/runs/net01-a-corridor-6201-10/network-gateway.json",
+  "output": "/mnt/runs/gateway-persist-fast-01/network-gateway.json",
+  "input_bytes": 194104625,
+  "scope": "Single real A10 JSON, default dumps exact text comparison; no original slow dump replay; 0Node/ROS/GZ/NN",
+  "read_and_parse_wall_s": 7.256879448948894,
+  "encode_wall_s": 8.612546771008056,
+  "exact_text_equal": true,
+  "write_and_close_wall_s": 0.5144373070215806,
+  "encode_write_wall_s": 9.126984078029636,
+  "output_bytes": 194104625,
+  "peak_test_RSS_KiB": 1088284
+}

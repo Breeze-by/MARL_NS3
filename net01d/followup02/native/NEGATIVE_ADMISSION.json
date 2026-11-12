@@ -1,0 +1,44 @@
+{
+  "runtime_source": "4f78de8",
+  "runner_source": "7cc6f5f",
+  "native": "1e8fdb4350ffd0b30826910714c9156179ec02241d7a4498f11583788f9212a8",
+  "cases": [
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=2s",
+        "30s",
+        "python3",
+        "-B",
+        "net01d/followup02/native/run_native_tcp.py",
+        "--case",
+        "radio-01",
+        "--native",
+        "/home/zhuyulab/ns3-workspace/net-01d/build/followup02-native-tcp/net01-payload-tcp"
+      ],
+      "scope": "real Range blackout4.20 to4.30sim; six directions160704bytes;8sim end;20activewall; no deadline PASS"
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=2s",
+        "30s",
+        "python3",
+        "-B",
+        "net01d/followup02/native/run_native_tcp.py",
+        "--case",
+        "budget-01",
+        "--native",
+        "/home/zhuyulab/ns3-workspace/net-01d/build/followup02-native-tcp/net01-payload-tcp"
+      ],
+      "scope": "fixed8MiB message exceeds8MiB framed endpoint cap; atomic rejection; original native1/HubFAIL retained; no partial tcp_write"
+    }
+  ],
+  "execution": "one each sequential, not retries; no automatic ROS/Gazebo"
+}

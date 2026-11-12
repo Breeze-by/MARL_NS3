@@ -1,0 +1,911 @@
+{
+  "continuation": "NET-01D followup01",
+  "base_branch": "net-01d/dispatch-continuation",
+  "base_commit": "ea51e56",
+  "prior_runtime": "81710e6739311a59ed4bef945a0fbd871d274a64",
+  "state": "FINAL BLOCKED/NO-GO: 2/2 candidates,4/4full,4/8GZ,cumulative99. Current8b84603 noGZ. No further run/repair authorized.",
+  "production_source_modified": true,
+  "new_full_load_budget": 4,
+  "new_full_load_starts": 4,
+  "major_repairs_budget": 2,
+  "major_repairs_implemented": 2,
+  "new_Gazebo_starts": 4,
+  "Gazebo_original_total_budget": 8,
+  "experiments": [
+    {
+      "case": "sdk-snapshot-01",
+      "type": "isolated SDK diagnostic tool start",
+      "actual_ROS_nodes": 0,
+      "actual_ns3_starts": 0,
+      "actual_Gazebo_starts": 0,
+      "status": "TOOL FAIL",
+      "exit_code": 126,
+      "wall_s": 3.908702753,
+      "error": "timeout cannot directly execute non-executable ros-python.sh: Permission denied",
+      "evidence": "net01d/followup01/evidence/sdk-snapshot-01",
+      "retry_automatic": false
+    },
+    {
+      "case": "sdk-snapshot-02",
+      "type": "real isolatedSDK diagnostic",
+      "domain": 117,
+      "status": "FAIL",
+      "exit_code": 1,
+      "outer_wall_s": 1.884554407,
+      "inner_wall_s": 0.195525901,
+      "checks_true": 7,
+      "checks_total": 8,
+      "actual_ROS_nodes": 8,
+      "actual_ns3_starts": 0,
+      "actual_Gazebo_starts": 0,
+      "actual_findings": "baseline productive tail rebuilds1; candidate0, no falseCcooldown, callback order/pumps/fifth/realasyncresponse true",
+      "failed_oracle": "Reset C deadline but retained last_wait_kind=empty_set from previous poll; predicate returned before new empty query",
+      "correction": "Clear stale last_wait_kind at same explicitly reset observation baseline; production unchanged",
+      "evidence": "net01d/followup01/evidence/sdk-snapshot-02"
+    },
+    {
+      "case": "sdk-snapshot-03",
+      "type": "real isolatedSDK diagnostic",
+      "domain": 117,
+      "status": "PASS",
+      "exit_code": 0,
+      "outer_wall_s": 1.754525711,
+      "inner_wall_s": 0.1805367269553244,
+      "checks_true": 8,
+      "checks_total": 8,
+      "actual_ROS_nodes": 8,
+      "actual_ns3_starts": 0,
+      "actual_Gazebo_starts": 0,
+      "oracle_revision": "Only clear stale last_wait_kind alongside explicit empty-query baseline reset; sdk02 FAIL retained",
+      "evidence": "net01d/followup01/evidence/sdk-snapshot-03"
+    },
+    {
+      "case": "dispatch-wifi-01",
+      "type": "full-load B no-motion regression",
+      "runtime_commit": "5d87d01",
+      "status": "LIMITED NORMAL/LOCAL NEGATIVE REGRESSION PASS; not realGazebo/physical qualification",
+      "raw_output": "net01d/followup01/runs/dispatch-wifi-01",
+      "RAM": "/dev/shm/net01d-dispatch-wifi-01",
+      "normal_wall_s": 32,
+      "hard_wall_s": 60,
+      "phase": "actual-corr6201",
+      "actual_Gazebo_starts": 0,
+      "Policy": 0,
+      "wall_s": 41.41240178106818,
+      "exits": {
+        "coordinator": 1,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 1,
+        "mock_physics": 0,
+        "merge": 0,
+        "source-tb1": 0,
+        "source-tb2": 0,
+        "source-tb3": 0,
+        "client": 0
+      },
+      "forced": [],
+      "error": null,
+      "FIRST_FAILURE_exists": false,
+      "normal_results": {
+        "3": 5,
+        "2": 4,
+        "1": 4
+      },
+      "fourth_local_GetResult": 5,
+      "PAUSE_success": true,
+      "central_fourth_Result": "UNKNOWN",
+      "Gateway_cleanup": {
+        "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+        "end_frame_flushed": true,
+        "executor_shutdown": [
+          false,
+          true
+        ],
+        "resources_destroyed": true,
+        "unresolved_C_RPC": [
+          {
+            "robot": 3,
+            "flow_offset": 3,
+            "rpc_id": 8702080105108733961
+          }
+        ],
+        "unresolved_R_RPC": [],
+        "unresolved_local_cleanup_futures": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "action_confirmation_states": {
+          "C": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          },
+          "R": {
+            "1": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            },
+            "2": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            },
+            "3": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 1,
+              "unconfirmed": 0
+            }
+          }
+        },
+        "retired_C_services": {
+          "1": [],
+          "2": [],
+          "3": []
+        }
+      },
+      "persist_wall_s": 1.9288831839803606,
+      "native_exit": 0,
+      "native_evidence_storage": {
+        "backend": "owned_tmpfs_then_copy_after_native_exit",
+        "source": "/dev/shm/net01d-dispatch-wifi-01",
+        "destination": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup01/runs/dispatch-wifi-01/hub/native",
+        "available_tmpfs_bytes": 62001094656,
+        "MemAvailable_bytes": 109126479872,
+        "source_retained": true,
+        "native_exit": 0,
+        "source_files": {
+          "native-summary.json": 434,
+          "ledger-status.json": 256,
+          "control-step-trace.jsonl": 370098,
+          "wifi-3-0.pcap": 104791483,
+          "wifi-2-0.pcap": 104818439,
+          "wifi-1-0.pcap": 104647911,
+          "wifi-0-0.pcap": 108492941,
+          "configured-lock.json": 3994,
+          "packet-ledger.jsonl": 215088682
+        },
+        "source_bytes": 638214238,
+        "copied_files": {
+          "wifi-1-0.pcap": 104647911,
+          "packet-ledger.jsonl": 215088682,
+          "control-step-trace.jsonl": 370098,
+          "configured-lock.json": 3994,
+          "ledger-status.json": 256,
+          "wifi-3-0.pcap": 104791483,
+          "wifi-2-0.pcap": 104818439,
+          "native-summary.json": 434,
+          "wifi-0-0.pcap": 108492941
+        },
+        "copied_bytes": 638214238,
+        "complete": true,
+        "copy_wall_s": 0.8573337089037523
+      },
+      "Hub_ingress": 18960,
+      "Hub_complete": 18502,
+      "normal_feedback_count": {
+        "1": 2129,
+        "2": 2159,
+        "3": 2119
+      },
+      "central_fourth_actual_result": null,
+      "central_fourth_pending": true,
+      "normal_numeric_evidence": "net01d/followup01/analysis/dispatch-wifi-01/normal-window.json",
+      "stage_delay_evidence": "net01d/followup01/analysis/dispatch-wifi-01/health-stage-delay.json",
+      "component_review": "net01d/followup01/review/DISPATCH_WIFI_01_REVIEW.md"
+    },
+    {
+      "case": "dispatch-local-01",
+      "type": "full-load A1 no-motion regression",
+      "runtime_commit": "5d87d01",
+      "status": "LIMITED NORMAL/LOCAL NEGATIVE REGRESSION PASS; not realGazebo/physical qualification",
+      "raw_output": "net01d/followup01/runs/dispatch-local-01",
+      "RAM": "/dev/shm/net01d-dispatch-local-01",
+      "normal_wall_s": 32,
+      "hard_wall_s": 60,
+      "phase": "actual-corr6201",
+      "actual_Gazebo_starts": 0,
+      "Policy": 0,
+      "wall_s": 40.39013935008552,
+      "exits": {
+        "coordinator": 1,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "mock_physics": 0,
+        "merge": 0,
+        "source-tb1": 0,
+        "source-tb2": 0,
+        "source-tb3": 0,
+        "client": 0
+      },
+      "forced": [],
+      "error": null,
+      "FIRST_FAILURE_exists": false,
+      "normal_results": {
+        "3": 5,
+        "2": 4,
+        "1": 4
+      },
+      "normal_feedback_count": {
+        "1": 2544,
+        "2": 2536,
+        "3": 2494
+      },
+      "fourth_local_GetResult": 5,
+      "central_fourth_actual_result": 5,
+      "central_fourth_pending": false,
+      "Gateway_cleanup": {
+        "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+        "end_frame_flushed": true,
+        "executor_shutdown": [
+          true,
+          true
+        ],
+        "resources_destroyed": true,
+        "unresolved_C_RPC": [],
+        "unresolved_R_RPC": [],
+        "unresolved_local_cleanup_futures": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "action_confirmation_states": {
+          "C": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          },
+          "R": {
+            "1": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            },
+            "2": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            },
+            "3": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            }
+          }
+        },
+        "retired_C_services": {
+          "1": [],
+          "2": [],
+          "3": []
+        }
+      },
+      "persist_wall_s": 1.5628863930469379,
+      "native_exit": 0,
+      "native_evidence_storage": {
+        "backend": "owned_tmpfs_then_copy_after_native_exit",
+        "source": "/dev/shm/net01d-dispatch-local-01",
+        "destination": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup01/runs/dispatch-local-01/hub/native",
+        "available_tmpfs_bytes": 61362864128,
+        "MemAvailable_bytes": 108481806336,
+        "source_retained": true,
+        "native_exit": 0,
+        "source_files": {
+          "native-summary.json": 262,
+          "ledger-status.json": 245,
+          "control-step-trace.jsonl": 358431,
+          "wifi-3-0.pcap": 32348,
+          "wifi-2-0.pcap": 32348,
+          "wifi-1-0.pcap": 32348,
+          "wifi-0-0.pcap": 32136,
+          "configured-lock.json": 3994,
+          "packet-ledger.jsonl": 594763
+        },
+        "source_bytes": 1086875,
+        "copied_files": {
+          "wifi-1-0.pcap": 32348,
+          "packet-ledger.jsonl": 594763,
+          "control-step-trace.jsonl": 358431,
+          "configured-lock.json": 3994,
+          "ledger-status.json": 245,
+          "wifi-3-0.pcap": 32348,
+          "wifi-2-0.pcap": 32348,
+          "native-summary.json": 262,
+          "wifi-0-0.pcap": 32136
+        },
+        "copied_bytes": 1086875,
+        "complete": true,
+        "copy_wall_s": 0.0062739100540056825
+      },
+      "normal_numeric_evidence": "net01d/followup01/analysis/dispatch-local-01/normal-window.json",
+      "stage_delay_evidence": "net01d/followup01/analysis/dispatch-local-01/health-stage-delay.json",
+      "component_review": "net01d/followup01/review/DISPATCH_LOCAL_01_REVIEW.md"
+    },
+    {
+      "case": "gz-a1-01",
+      "type": "actualGazeboA1 autonomous controlled engineering reference",
+      "runtime_commit": "5d87d01",
+      "ready_commit": "24334b8",
+      "status": "FAIL",
+      "actual_Gazebo_starts": 1,
+      "NET01D_Gazebo_slot": 1,
+      "historical_cumulative": 96,
+      "case_dir": "net01d/followup01/runs/gz-a1-01",
+      "three_spawn_success_in_original_launch_log": true,
+      "native": "original82bc",
+      "plugin": "originala49",
+      "witness": "original2560",
+      "dispatch_profile": false,
+      "control_trace": true,
+      "sim_budget": 120,
+      "startup_wall_s": 180,
+      "autonomy_wall_s": 420,
+      "outer_wall_s": 900,
+      "cleanup_wall_s": 90,
+      "not_A0": true,
+      "gazebo_started": true,
+      "autonomous_sim_elapsed": 33.3,
+      "autonomous_wall_elapsed": 66.84781772096176,
+      "first_guard_robot": 1,
+      "first_guard_mono_ns": 538993413484756,
+      "first_guard_Rsim": 51.41,
+      "first_guard_reason": "health_heartbeat_stale",
+      "result_last_reported_robot": 3,
+      "actual_inferences": 6,
+      "accepted_UUIDs": 6,
+      "SUCCEEDED_UUIDs": 4,
+      "CANCELED_UUIDs": 2,
+      "observed_stop": true,
+      "ownership_closed": true,
+      "PAUSE_success": true,
+      "Gateway_failure": null,
+      "Gateway_pending_confirmations_local": 0,
+      "GW_executor_shutdown": [
+        true,
+        true
+      ],
+      "gzserver_exit": "finished cleanly",
+      "Peer_merge_exit": -2,
+      "native_exit": 0,
+      "native_RAM_bytes": 3613334,
+      "native_copy_complete": true,
+      "native_copy_wall_s": 0.009232269017957151,
+      "sidecar_exits": {
+        "coordinator": 1,
+        "clock_R": 0,
+        "clock_C": 0
+      },
+      "forced_owned_groups": [],
+      "remaining_owned_groups": [],
+      "new_metric_evaluations": 1,
+      "narrow_evidence": [
+        "analysis/gz-a1-01/OBSERVER_STOP_AND_FAULT.json",
+        "analysis/gz-a1-01/ACTION_AND_CLOSURE.json"
+      ],
+      "metrics": "analysis/gz-a1-01/metrics/result.json"
+    },
+    {
+      "case": "gz-a1-p1",
+      "type": "actualGazeboA1 existingprofile diagnostic, not fairperformance reference",
+      "runtime_commit": "5d87d01",
+      "ready_commit": "7893853",
+      "status": "DIAGNOSTIC120 COMPLETED; original heartbeat NOTREPRODUCED, not causalfix/performancebaseline",
+      "actual_Gazebo_starts": 1,
+      "NET01D_Gazebo_slot": 2,
+      "historical_cumulative": 97,
+      "dispatch_profile": true,
+      "control_trace": true,
+      "new_algorithm_candidate": false,
+      "major_repairs_used": 1,
+      "case_dir": "net01d/followup01/runs/gz-a1-p1",
+      "three_real_spawn_success": true,
+      "latest_reported_real_sim": 67.3,
+      "sim_budget": 120,
+      "startup_wall_s": 180,
+      "autonomy_wall_s": 420,
+      "outer_wall_s": 900,
+      "cleanup_wall_s": 90,
+      "autonomous_sim_elapsed": 120.00000000000001,
+      "autonomous_wall_elapsed": 239.99029673298355,
+      "error": null,
+      "end_reason": "simulation_budget",
+      "observed_stop": true,
+      "hazard": null,
+      "request_ownership": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 11,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "4c5a6dc4a142460984b1b25de0ad8c7a",
+            "5689ff81866c406cb78bcde88bd03170",
+            "cfba60c375324d349206a4dc029249c2"
+          ],
+          "tb2": [
+            "1796ececaf694710b2fd1a3e8dff0e4f",
+            "2e30ca1c5cc34b29931295e11e20b5cb",
+            "5338fc6825ad448782817ebe736982f4"
+          ],
+          "tb3": [
+            "2039d879530840a1933d26369d16b90f",
+            "41cadefb2d5c4677a61ab07412ef73be",
+            "49efbde2deed414f9381ad9636b0ae56",
+            "4c422afc75004aeab899538548a1cd3a",
+            "798619716bf1436093b1d7655ca853b5"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "actual_inferences": 23,
+      "actual_acceptance_counts": {
+        "tb1": 3,
+        "tb2": 3,
+        "tb3": 5
+      },
+      "run_integrity": true,
+      "native_exit": 0,
+      "native_evidence_storage": {
+        "backend": "owned_tmpfs_then_copy_after_native_exit",
+        "source": "/dev/shm/net01d-gz-a1-p1",
+        "destination": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup01/runs/gz-a1-p1.network/native",
+        "available_tmpfs_bytes": 61356417024,
+        "MemAvailable_bytes": 108771106816,
+        "source_retained": true,
+        "native_exit": 0,
+        "source_files": {
+          "native-summary.json": 300,
+          "ledger-status.json": 250,
+          "control-step-trace.jsonl": 3033556,
+          "wifi-3-0.pcap": 256383,
+          "wifi-2-0.pcap": 256383,
+          "wifi-1-0.pcap": 256383,
+          "wifi-0-0.pcap": 256171,
+          "configured-lock.json": 3994,
+          "packet-ledger.jsonl": 5582939
+        },
+        "source_bytes": 9646359,
+        "copied_files": {
+          "wifi-1-0.pcap": 256383,
+          "packet-ledger.jsonl": 5582939,
+          "control-step-trace.jsonl": 3033556,
+          "configured-lock.json": 3994,
+          "ledger-status.json": 250,
+          "wifi-3-0.pcap": 256383,
+          "wifi-2-0.pcap": 256383,
+          "native-summary.json": 300,
+          "wifi-0-0.pcap": 256171
+        },
+        "copied_bytes": 9646359,
+        "complete": true,
+        "copy_wall_s": 0.017419753945432603
+      },
+      "Gateway_pending_confirmations_local": 0,
+      "GW_executor_shutdown": [
+        true,
+        true
+      ],
+      "sidecar_exits": {
+        "coordinator": 0,
+        "clock_R": 0,
+        "clock_C": 0
+      },
+      "forced_owned_groups": [],
+      "remaining_owned_groups": [],
+      "gzserver_exit": "finished cleanly",
+      "Peer_merge_exit": -2,
+      "new_metric_evaluations": 1,
+      "metrics": "analysis/gz-a1-p1/metrics/result.json"
+    },
+    {
+      "case": "sampler-check-01",
+      "type": "0Node stdlib observer capability check",
+      "status": "FAIL",
+      "exit_code": 1,
+      "outer_wall_s": 1.248473434,
+      "sleep_stack_samples": 4,
+      "CPU_stack_samples": 0,
+      "checks_true": 9,
+      "checks_total": 10,
+      "last_sample_wall_ms": 80.5534,
+      "last_sample_collector_CPU_ms": 2.186898,
+      "last_sample_main_CPU_ms": 79.212417,
+      "skipped_periods": 4,
+      "all_proc_reads_legal": true,
+      "kernel_sched_schedstats": 0,
+      "run_delay_interpretable": false,
+      "actual_ROS_nodes": 0,
+      "actual_ns3_starts": 0,
+      "actual_Gazebo_starts": 0,
+      "evidence": "net01d/followup01/evidence/sampler-check-01",
+      "next": "Only per-read timing observer diagnostic approved, no full/GZ"
+    },
+    {
+      "case": "sampler-check-02",
+      "type": "0Node per-procreadtiming diagnostic",
+      "status": "FAIL",
+      "exit_code": 1,
+      "outer_wall_s": 1.256690752,
+      "sleep_stack_samples": 4,
+      "CPU_stack_samples": 0,
+      "checks_true": 9,
+      "checks_total": 10,
+      "python_switch_interval_s": 0.005,
+      "last_sample_fields_wall_ms": {
+        "status": 20.74797,
+        "wchan": 30.804629,
+        "syscall": 15.539819,
+        "schedstat": 12.947421
+      },
+      "last_sample_fields_reader_CPU_ms": {
+        "status": 0.535756,
+        "wchan": 0.504888,
+        "syscall": 0.367448,
+        "schedstat": 0.337697
+      },
+      "last_sample_wall_ms": 80.55495,
+      "last_sample_main_CPU_ms": 79.136865,
+      "actual_ROS_nodes": 0,
+      "actual_ns3_starts": 0,
+      "actual_Gazebo_starts": 0,
+      "evidence": "net01d/followup01/evidence/sampler-check-02",
+      "interpretation": "All four Path open/read/close segments stretch under mainCPU; not isolated syscall cause, no oracle relaxation"
+    },
+    {
+      "case": "sampler-check-03",
+      "type": "0Node realstdlibobserver capability check",
+      "status": "PASS",
+      "exit_code": 0,
+      "outer_wall_s": 1.360625738,
+      "samples_total": 8,
+      "sleep_stack_samples": 4,
+      "CPU_stack_samples": 3,
+      "checks_true": 11,
+      "checks_total": 11,
+      "main_sleep_CPU_ns": 62427,
+      "main_CPU_phase_ns": 77797878,
+      "collector_CPU_ns": 5450266,
+      "skipped_periods": 0,
+      "proc_valid_reads": {
+        "status": 8,
+        "wchan": 8,
+        "syscall": 8,
+        "schedstat": 8
+      },
+      "kernel_sched_schedstats": 0,
+      "run_delay_interpretable": false,
+      "observer_joined": true,
+      "proc_FDs_remaining": 0,
+      "actual_ROS_nodes": 0,
+      "actual_ns3_starts": 0,
+      "actual_Gazebo_starts": 0,
+      "source_checkpoint": "b948879",
+      "evidence": "net01d/followup01/evidence/sampler-check-03",
+      "scope": "ObserverIO resource/capability only, no GatewaySDK/OSstall causality proof; firsttwoFAIL preserved"
+    },
+    {
+      "case": "dispatch-wifi-s1",
+      "type": "full B no-motion readonly sampler diagnostic",
+      "runtime_commit": "b948879",
+      "status": "LIMITED normal regression PASS; planned-negative Cunknown preserved; not GZ qualification",
+      "normal_wall_s": 32,
+      "hard_wall_s": 60,
+      "wall_s": 41.420044018,
+      "actual_Gazebo_starts": 0,
+      "normal_results": [
+        4,
+        4,
+        5
+      ],
+      "normal_health_per_robot": 153,
+      "normal_mask_per_robot": 154,
+      "health_gapmax_ms": 260.895,
+      "mask_gapuppermax_ms": 251.591,
+      "RTF": 0.479676,
+      "sampler_collector_CPU_s": 0.90009823,
+      "sampler_scope_CPU_percent_one_core": 2.543,
+      "sampler_alllife_skips": 3,
+      "sampler_normal_skips": 0,
+      "sampler_joined": true,
+      "central_fourth_Result": "UNKNOWN",
+      "fourth_local_GetResult": 5,
+      "native_exit": 0,
+      "copy_complete": true,
+      "copy_bytes": 613573554,
+      "copy_wall_s": 0.87289,
+      "analysis": "analysis/dispatch-wifi-s1/RESULT.md"
+    },
+    {
+      "case": "gz-b-s1",
+      "type": "actual GZ B three-observer diagnostic",
+      "runtime_commit": "b948879",
+      "ready_commit": "a28c5d4",
+      "status": "FAIL: real health seq382 incomplete UDP delivery -> original heartbeat protection",
+      "actual_Gazebo_starts": 1,
+      "NET01D_Gazebo_slot": 3,
+      "historical_cumulative": 98,
+      "autonomous_sim_elapsed": 22.1,
+      "autonomous_wall_elapsed": 50.956865473,
+      "first_guard_robot": 3,
+      "first_guard_Rsim": 38.28,
+      "first_guard_mono_ns": 543616487089303,
+      "actual_acceptances": 4,
+      "task_SUCCEEDED": 1,
+      "stop_CANCELED": 3,
+      "ownership_closed": true,
+      "observed_stop": true,
+      "PAUSE_success": true,
+      "central_GetResult_UNKNOWN": 3,
+      "R_response_unconfirmed": 1,
+      "GW_executor_shutdown": [
+        false,
+        true
+      ],
+      "native_exit": 0,
+      "copy_complete": true,
+      "copy_bytes": 1402871144,
+      "copy_wall_s": 1.865418071,
+      "persist_wall_s": 3.965204447,
+      "gzserver_exit": "clean",
+      "Peer_merge_exit": -2,
+      "main_thread_sampler_joined": true,
+      "sampler_alllife_skips": 10,
+      "sampler_collector_CPU_s": 2.805334159,
+      "new_metric_evaluations": 1,
+      "metrics": "analysis/gz-b-s1/metrics/result.json",
+      "final_quality_valid_coverage": 0.6342717572952822,
+      "T90": "NOT REACHED/right-censored",
+      "T95": "NOT REACHED/right-censored",
+      "first_fault_scope": "real network incomplete fragment delivery; exact PHY/MAC cause unresolved; subsequent Action unconfirmed not first cause"
+    },
+    {
+      "case": "gz-a1-s1",
+      "type": "actual GZ A1 matched-three-observer control, not blind retry",
+      "runtime_commit": "b948879",
+      "ready_commit": "70fcdc1",
+      "status": "FAIL: original heartbeat protection, causal owner under sole-reader analysis",
+      "actual_Gazebo_starts": 1,
+      "NET01D_Gazebo_slot": 4,
+      "A1_actual_starts": 3,
+      "historical_cumulative": 99,
+      "autonomous_sim_elapsed": 96.06,
+      "autonomous_wall_elapsed": 192.335086551,
+      "actual_acceptances": 10,
+      "task_SUCCEEDED": 10,
+      "stop_CANCELED": 0,
+      "ownership_closed": true,
+      "observed_stop": true,
+      "PAUSE_success": true,
+      "native_exit": 0,
+      "copy_complete": true,
+      "copy_bytes": 7998797,
+      "copy_wall_s": 0.015016605,
+      "gzserver_exit": -9,
+      "gzserver_exit_note": "poststop ROSlaunch SIGTERM10seconds escalation to SIGKILL; retained FAIL",
+      "Peer_merge_exit": 1,
+      "Peer_merge_note": "ExternalShutdownException during spin; original saved recording marker true",
+      "sidecar_exits": {
+        "coordinator": 1,
+        "clock_R": 0,
+        "clock_C": 0
+      },
+      "forced_sidecar_groups": [],
+      "remaining_sidecar_groups": [],
+      "new_metric_evaluations": 1,
+      "metrics": "analysis/gz-a1-s1/metrics/result.json",
+      "final_quality_valid_coverage": 0.9985859364956935,
+      "T90_sim_s": 61.89,
+      "T95_sim_s": 64.4,
+      "narrow_evidence": [
+        "analysis/gz-a1-s1/OBSERVER_STOP_AND_FAULT.json"
+      ],
+      "first_guard_robot": 1,
+      "first_guard_mono_ns": 544799850947753,
+      "first_guard_Rsim": 115.73,
+      "first_fault_owner": "C journal timer _export_controller_records readline; 6 continuous D/read/do_get_write_access samples; confirmed synchronous IO blocks dispatch",
+      "journal_inclusive_wall_ms": 127.313,
+      "journal_inclusive_CPU_ms": 0.458,
+      "GW_executor_shutdown": [
+        true,
+        true
+      ],
+      "Gateway_pending_confirmations_local": 0,
+      "sampler_samples": 12075,
+      "sampler_collector_CPU_s": 6.781829107,
+      "sampler_skipped_periods": 11,
+      "sampler_joined": true
+    },
+    {
+      "case": "owned-CLI-daemon-cleanup",
+      "type": "exact owned resource cleanup, not episode",
+      "actual_Gazebo_starts": 0,
+      "status": "Three owned oldcase domain92 CLI daemons required exact PID KILL after TERM; all precise PIDs gone",
+      "PIDs": [
+        3569184,
+        3679217,
+        3718925
+      ],
+      "scope": "case environment + exact argv/PGID identity; no killpg/domain69 action",
+      "evidence": [
+        "evidence/owned-daemon-cleanup.json",
+        "evidence/owned-daemon-force-cleanup.json",
+        "evidence/gz-b-s1-owned-daemon-cleanup.json",
+        "evidence/gz-a1-s1-postclose-owned.json",
+        "evidence/gz-a1-s1-owned-daemon-cleanup.json"
+      ]
+    },
+    {
+      "case": "journal-noatime-01",
+      "type": "0Node actual AST file semantic check on new owned ext4 fixture",
+      "status": "PASS limited file semantic capability",
+      "exit_code": 0,
+      "outer_wall_s": 1.47046869,
+      "checks_true": 25,
+      "checks_total": 25,
+      "actual_ROS_nodes": 0,
+      "actual_ns3_starts": 0,
+      "actual_Gazebo_starts": 0,
+      "candidate_kernel_flags": 294912,
+      "baseline_atime_updated": true,
+      "candidate_atime_unchanged": true,
+      "original_output_cursor_equivalent": true,
+      "FD_closed": true,
+      "evidence": "evidence/journal-noatime-01",
+      "scope": "Does not establish unique old atime cause or removal of all read waits"
+    },
+    {
+      "case": "dispatch-wifi-n1",
+      "type": "Fourth and last full B no-motion regression of O_NOATIME candidate",
+      "runtime_commit": "8b84603",
+      "status": "FAIL normal tb3 bound_mask_receipt_stale; 32normal/fourth-negative not reached",
+      "wall_s": 27.87624498794321,
+      "normal_wall_target_s": 32,
+      "hard_wall_s": 60,
+      "actual_Gazebo_starts": 0,
+      "actual_ns3_starts": 1,
+      "FIRST_FAILURE_sample_mono_ns": 545555910080605,
+      "Gateway_failure_at_sample": null,
+      "first_fault_exact": "PENDING sole-reader actualguard analysis, not assumed sample time",
+      "exits": {
+        "coordinator": 1,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 1,
+        "mock_physics": 0,
+        "merge": 0,
+        "source-tb1": 0,
+        "source-tb2": 0,
+        "source-tb3": 0,
+        "client": 0
+      },
+      "forced": [],
+      "first_error_preserved": true,
+      "local_cleanup_drained": true,
+      "local_cleanup_wait_s": 0.336323644,
+      "STOP_written_mono_ns": 545556251884132,
+      "normal_results_received": {},
+      "negative_phase_reached": false,
+      "native_exit": 0,
+      "copy_complete": true,
+      "copy_bytes": 402853833,
+      "copy_wall_s": 0.525426773,
+      "RAM_source_retained": true,
+      "Hub_ingress": 12594,
+      "Hub_complete": 12306,
+      "scope": "Native sub-result PASS only transport completion, not whole-case PASS; 288 uncompleted cannot all be called radio loss",
+      "first_guard_robot": 3,
+      "first_guard_mono_ns": 545555905396125,
+      "first_guard_reason": "bound_mask_receipt_stale",
+      "mask_old_sequence": 107,
+      "mask_old_receipt_age_bracket_ms": [
+        309.596,
+        309.724
+      ],
+      "next_mask_sequence108_R_receipt": "ABSENT in saved prefix",
+      "journal_calls": 1117,
+      "journal_call_max_wall_ms": 0.943,
+      "journal_timer_max_wall_ms": 1.085,
+      "journal_longspans_ge10ms": 0,
+      "normal_goal_CDR_equal": true,
+      "R_accepts": [
+        1,
+        1,
+        1
+      ],
+      "local_cancel_code": [
+        0,
+        0,
+        0
+      ],
+      "local_GetResult": [
+        5,
+        5,
+        5
+      ],
+      "PAUSE_success": [
+        true,
+        true,
+        true
+      ],
+      "central_GetResult_UNKNOWN": [
+        1,
+        2,
+        3
+      ],
+      "GW_executor_shutdown": [
+        false,
+        true
+      ],
+      "unresolved_local_cleanup_futures": {
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "narrow_evidence": "analysis/dispatch-wifi-n1/ACTION_AND_CLOSURE.json",
+      "first_guard_Rsim": 10.96,
+      "normal_active_to_guard_wall_s": 20.023983478,
+      "mask108_native_message_id": 12321,
+      "mask108_udp_fragments_tx": 139,
+      "mask108_udp_fragments_rx": 138,
+      "missing_offset": 0,
+      "missing_UID": 328519,
+      "exact_destination_PHY_drop_reason": "TXING (4)",
+      "native_END_ns": 10950000000,
+      "native_admission_ns": 10840000000,
+      "reassembly_deadline_sim_s": 0.5,
+      "end_right_censor_s": 0.11,
+      "permanent_loss_or_TTL_expiry_proved": false
+    }
+  ],
+  "old_evidence_modified": false,
+  "pushed": false,
+  "candidate_validation": "One snapshot-boundary repair supported by actualSDK and bounded no-motion regressions; all GZ failure histories retained",
+  "production_changes": [
+    "gateway.py: productive snapshot Timeout returns to scheduler; last_wait_kind; only actual empty starts unchanged C10ms"
+  ],
+  "planned_Gazebo": {
+    "actual_starts": 4,
+    "first_draft": "net01d/followup01/requests/net01d-a1-corridor-6201-01.draft.json",
+    "authorized": true,
+    "expected_first_cumulative": 96,
+    "old_historical": 95,
+    "maximum_this_NET01D": 8,
+    "per_arm_maximum": 2,
+    "first_ready": "net01d/followup01/requests/net01d-a1-corridor-6201-01.ready.json",
+    "allocation_after_first_failure": {
+      "A1": 3,
+      "B": 2,
+      "A0": 1,
+      "C": 1,
+      "reserve_by_root_specific_need": 1,
+      "total_max": 8,
+      "reason": "Root prospective after first nonwireless A1failure; no oldrun removed",
+      "diagnostic_draft": "net01d/followup01/requests/net01d-a1-p1.draft.json",
+      "diagnostic_authorized": true
+    },
+    "historical_cumulative": 99
+  },
+  "identified_major_defects": 2,
+  "major_repair_candidates": 2,
+  "major_repairs_validation": {
+    "snapshot_boundary": "real SDK and bounded regressions supported",
+    "journal_noatime": "25file checks PASS; N1 actual1117calls max.943ms/no10ms span supports observed path, but whole normalFAIL on mask stale and does not prove universal latency guarantee"
+  },
+  "acceptance_runtime": "8b84603",
+  "acceptance_runtime_Gazebo_starts": 0
+}

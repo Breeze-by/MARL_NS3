@@ -1,0 +1,60 @@
+{
+  "status": "COMPLETE,4/4 registered native starts; no retries or further runs",
+  "scope": "Synthetic ns3.40 actualWiFi,0ROS/Gazebo/Nav2/Goal/NN",
+  "build": [
+    {
+      "case": "build-01",
+      "configure": 0,
+      "build": 2,
+      "cause": "Missing ns3/propagation-module.h include; first source and full logs preserved"
+    },
+    {
+      "case": "build-02",
+      "build": 0,
+      "only_fix": "Add missing propagation include; no model/parameters/inputs changed"
+    }
+  ],
+  "native_starts": [
+    {
+      "case": "reliability-udp-01",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_s": 0.315314258,
+      "scope": "0 ROS/Gazebo/Nav2/Goal; synthetic native experiment",
+      "sim_s": 8,
+      "protocol_or_position_scope": "paired pre-registered synthetic application"
+    },
+    {
+      "case": "reliability-tcp-01",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_s": 0.315533012,
+      "scope": "0 ROS/Gazebo/Nav2/Goal; synthetic native experiment",
+      "sim_s": 8,
+      "protocol_or_position_scope": "paired pre-registered synthetic application"
+    },
+    {
+      "case": "position-immediate-01",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_s": 0.26534175,
+      "scope": "0 ROS/Gazebo/Nav2/Goal; synthetic native experiment",
+      "sim_s": 8,
+      "protocol_or_position_scope": "paired pre-registered synthetic application"
+    },
+    {
+      "case": "position-scheduled-01",
+      "exit_code": 0,
+      "timeout": false,
+      "wall_s": 0.26544285,
+      "scope": "0 ROS/Gazebo/Nav2/Goal; synthetic native experiment",
+      "sim_s": 8,
+      "protocol_or_position_scope": "paired pre-registered synthetic application"
+    }
+  ],
+  "real_Gazebo_starts": 0,
+  "production_files_changed": 0,
+  "old_82bc_changed": false,
+  "Git_operations": false,
+  "no_more_native_starts": true
+}

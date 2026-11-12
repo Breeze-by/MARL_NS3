@@ -1,0 +1,22 @@
+{
+  "primary_tool": "workspace/gz01/analyze_recorded.py",
+  "metric_sources": "bag_records.py/metrics.py unchanged",
+  "canonical_invocations": 1,
+  "case": "gz-simhealth-b1-01",
+  "all_owned_gone_before_bag_open": true,
+  "bag_read_scope": "Originalcomplete metadata/allshards; nofiltering/skipping/reindex/metadatafabrication",
+  "original_ROI_and_quality_unchanged": true,
+  "metric_argv": "metrics.argv.json",
+  "canonical_stdout": "Originaltooloutput; complete structured metrics/result.json",
+  "activebag_accesses": 0,
+  "Gateway_original_reads": 0,
+  "native_ledger_reads": 0,
+  "PCAP_reads": 0,
+  "C89_reads": 0,
+  "plots_generated": 0,
+  "source_or_model_changes": false,
+  "extra_models": 0,
+  "allheavy_done": true,
+  "Observer_events_original_streams": 1,
+  "Observer_events_scope": "Processsignal/exit and originalstop/smokebound only"
+}

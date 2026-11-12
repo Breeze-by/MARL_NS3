@@ -1,0 +1,1153 @@
+{
+  "project": "NET-01D",
+  "base_commit": "cee0c7024ccf06d88d7ff458a47c39cdf605a7f3",
+  "state": "STOPPED: actual-phase B first normal original source-age FAIL; no third repair round or Gazebo admission; final causal audit in progress",
+  "worktree": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "production_behavior_changes": [],
+  "experiments": [
+    {
+      "case": "health-profile-01",
+      "arm": "A1",
+      "scope": "P1 only; independent synthetic sources; actual Gateway local ordered backend; no Goal/89/95/arm/physical system",
+      "source_identity": "base cee0c702 plus then-current uncommitted five passive-observation source diffs, trace.py and replay roles/host; not unmodified base HEAD",
+      "command": "rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py --arm A1 --case health-profile-01",
+      "wall_s": 21.967807147011627,
+      "exits": {
+        "coordinator": 0,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "mock_physics": 0,
+        "source": 0
+      },
+      "forced": [],
+      "source_active_wall_s": 16.000440675008576,
+      "source_sim_ns": [
+        400000000,
+        8440000000
+      ],
+      "active_ticks": {
+        "odom": 241,
+        "wheel": 80,
+        "scan": 40
+      },
+      "skipped_configured_ticks": {
+        "odom": 0,
+        "wheel": 0,
+        "scan": 0
+      },
+      "source_counts_per_robot": {
+        "odom": [
+          241,
+          241,
+          241
+        ],
+        "both_wheel_TF": [
+          80,
+          80,
+          80
+        ],
+        "costmap": [
+          14,
+          14,
+          14
+        ],
+        "map": [
+          4,
+          4,
+          4
+        ],
+        "map_to_odom": [
+          801,
+          800,
+          800
+        ],
+        "feedback": [
+          1601,
+          1600,
+          1599
+        ]
+      },
+      "actual_health_updates": [
+        86,
+        86,
+        86
+      ],
+      "actual_guard_health_receipt_max_gap_wall_s": [
+        0.2660995660116896,
+        0.26613916299538687,
+        0.2662347859586589
+      ],
+      "accepted_masks": [
+        81,
+        81,
+        81
+      ],
+      "actual_mask_receipt_gap_upper_max_wall_s": [
+        0.217628724,
+        0.213385165,
+        0.213444548
+      ],
+      "Gateway_failure": null,
+      "END_flushed": true,
+      "executor_shutdown": [
+        true,
+        true
+      ],
+      "RPC_confirmation_localcleanup_pending": 0,
+      "health_cause_profile_analysis": "health/summary-01.json; no >100ms single function; max outer poll137.874ms CPU137.561ms, nested short interleaved work; raw publish return to C max21.102ms; oldB137ms not reproduced",
+      "P5": "NOT VERIFIED",
+      "Gazebo": 0,
+      "native_build": 0,
+      "raw_directory": "net01d/runs/health-profile-01",
+      "accepted_mask_sequences": {
+        "accepted": "5..85",
+        "rejected": "1..4 and86"
+      },
+      "health_freshness_limit": "unarmed receive_health True means no latchedfault, not each input state_fresh certificate"
+    },
+    {
+      "case": "health-profile-wifi-01",
+      "arm": "B",
+      "scope": "P1 only; same independent synthetic sources; actual V3 WiFi/RAM; no Goal/89/95/arm/physics",
+      "source_identity": "38e0050cbc5d5dd05073c3ee6c8f7b2f48e906c0 plus only the preregistered B host diff; no runtime source changes",
+      "command": "rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py --arm B --case health-profile-wifi-01 --native-evidence-ram /dev/shm/net01d-health-profile-wifi-01",
+      "wall_s": 23.127814481034875,
+      "exits": {
+        "coordinator": 0,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "mock_physics": 0,
+        "source": 0
+      },
+      "forced": [],
+      "source_active_wall_s": 16.000416991999373,
+      "source_sim_ns": [
+        650000000,
+        7790000000
+      ],
+      "active_ticks_delta": {
+        "odom": 214,
+        "wheel": 71,
+        "scan": 35
+      },
+      "skipped_configured_ticks_delta": {
+        "odom": 0,
+        "wheel": 0,
+        "scan": 0
+      },
+      "source_counts_per_robot": {
+        "odom": [
+          214,
+          214,
+          214
+        ],
+        "both_wheel_TF": [
+          71,
+          71,
+          71
+        ],
+        "costmap": [
+          13,
+          14,
+          14
+        ],
+        "map": [
+          4,
+          4,
+          4
+        ],
+        "map_to_odom": [
+          801,
+          800,
+          800
+        ],
+        "feedback": [
+          1601,
+          1600,
+          1599
+        ]
+      },
+      "actual_health_updates": [
+        75,
+        75,
+        74
+      ],
+      "all_actual_guard_health_receipt_max_gap_wall_s": [
+        0.30135472101392224,
+        0.3055959659977816,
+        0.3126508920104243
+      ],
+      "phase_limit": "All three >.3 intervals are seq7 readyfalse/missing_odom to seq8 firstready bootstrap, unarmed; whole-input overlimits retained. Ready-to-ready separate cohort is not whole-run/armed PASS.",
+      "accepted_masks": [
+        73,
+        73,
+        73
+      ],
+      "accepted_mask_sequences": "8..80",
+      "actual_mask_receipt_gap_upper_max_wall_s": [
+        0.277873738,
+        0.271716377,
+        0.283805682
+      ],
+      "Gateway_failure": null,
+      "guard_unarmed": true,
+      "END_flushed": true,
+      "executor_shutdown": [
+        true,
+        true
+      ],
+      "RPC_confirmation_localcleanup_pending": 0,
+      "ingress_messages": 10449,
+      "complete_messages": 10380,
+      "storage": {
+        "backend": "existing exclusive RAM then copy after actual native exit",
+        "RAM_source": "/dev/shm/net01d-health-profile-wifi-01",
+        "bytes_source_and_copied": 292711429,
+        "copy_complete": true,
+        "copy_wall_s": 0.38444231200264767,
+        "RAM_retained": true
+      },
+      "P5": "NOT VERIFIED",
+      "Gazebo": 0,
+      "native_build": 0,
+      "raw_directory": "net01d/runs/health-profile-wifi-01",
+      "bootstrap_overlimit_sequence_pair": [
+        7,
+        8
+      ],
+      "bootstrap_Peer_raw_publish_return_interval_wall_s": 0.28701024,
+      "ready_to_ready_intervals_per_flow": 72,
+      "ready_to_ready_actual_health_receipt_max_gap_wall_s": [
+        0.278257979,
+        0.281131403,
+        0.269613264
+      ],
+      "profile_summary": "health/summary-wifi-01.json and gap-wifi-01.json; old137ms not reproduced, no >100ms single owner. No behavioral repair selected."
+    },
+    {
+      "case": "full-load-local-01",
+      "arm": "A1",
+      "scope": "P5 attempt with real controlled Action/89/95/armed guards; first normal failure, fourth planned negative NOT REACHED",
+      "source_identity": "502ba02af7f970d925cd61de899633059e5681aa",
+      "command": "rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py --stage full --arm A1 --case full-load-local-01 --payloads /home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01",
+      "status": "FAIL",
+      "wall_s": 6.371344572980888,
+      "normal_requested_wall_s": 32,
+      "normal_t0_monotonic_ns": 515751883656048,
+      "normal_t0_sim_s": 1.11,
+      "normal_completed": false,
+      "first_failure_marker_monotonic_ns": 515752165523767,
+      "actual_first_guard_trip_monotonic_s": 515752.091970897,
+      "actual_first_guard_sim_s": 1.22,
+      "guard_faults": [
+        "health_original_sources_stale",
+        "health_original_sources_stale",
+        "health_original_sources_stale"
+      ],
+      "first_held_health": {
+        "sequence": 11,
+        "generated_sim": 1.1,
+        "tb1_correction_stamp": 0.66,
+        "consumer_correction_age_sim_s": 0.56,
+        "original_limit_sim_s": 0.55
+      },
+      "Gateway_failure": null,
+      "exits": {
+        "coordinator": 1,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "mock_physics": 0,
+        "merge": 0,
+        "source-tb1": 0,
+        "source-tb2": 0,
+        "source-tb3": 0,
+        "client": 0
+      },
+      "forced": [],
+      "actual_arms_success": [
+        true,
+        true,
+        true
+      ],
+      "normal_Goals_accepted": [
+        1,
+        1,
+        1
+      ],
+      "original_Goal_CDR_C_R_equal": true,
+      "actual_local_cancel_results": [
+        5,
+        5,
+        5
+      ],
+      "actual_local_PAUSE_success": [
+        true,
+        true,
+        true
+      ],
+      "C_result_snapshot": {
+        "tb1": 5,
+        "tb2": 5,
+        "tb3": "GetResult Future pending at client shutdown"
+      },
+      "fourth_Goal_sent": false,
+      "negative_phase_executed": false,
+      "Gateway_internal_RPC_confirmation_localcleanup": 0,
+      "Gateway_executor_shutdown": [
+        true,
+        true
+      ],
+      "END_flushed": true,
+      "persist_wall_s": 0.05329225503373891,
+      "actual_native_business_messages": 0,
+      "component_evidence": "net01d/review/FULL_LOAD_LOCAL_01_COMPONENTS.json",
+      "preliminary_causal_scope": "tb1 source→R callback first delay~1.025884wall and old TF queue; Rcapture→Cpub<.001/Peer thereafter<.002. Exact discovery/reader/scheduling source not yet unique; no source fix or warmup authorized. See runtime health narrow analysis.",
+      "P5": "FAIL, no B or GZ admission",
+      "raw_directory": "net01d/runs/full-load-local-01",
+      "Gazebo": 0
+    },
+    {
+      "case": "full-load-dds-audit-01",
+      "arm": "A1",
+      "scope": "Same full load plus opt-in SDK/source metadata, causal diagnostic not a behavioral repair",
+      "source_identity": "c4e95cf770513ac7b38cbf801b0c09522e9fbd56",
+      "command": "rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py --stage full --arm A1 --case full-load-dds-audit-01 --payloads /home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01 --dds-take-trace",
+      "status": "COMPLETED scoped normal and planned negative; old intermittent TF delay NOT REPRODUCED/NOT FIXED",
+      "wall_s": 41.08924942504382,
+      "normal_wall_s": 32.000097981,
+      "exits": {
+        "coordinator": 1,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "mock_physics": 0,
+        "merge": 0,
+        "source-tb1": 0,
+        "source-tb2": 0,
+        "source-tb3": 0,
+        "client": 0
+      },
+      "forced": [],
+      "normal_outcomes": [
+        4,
+        4,
+        5
+      ],
+      "normal_client_feedback_counts": [
+        2515,
+        2517,
+        2452
+      ],
+      "normal_RPC_status_drained": true,
+      "normal_armed_health_intakes_per_flow": 160,
+      "normal_actual_health_receipt_max_gap_wall_s": [
+        0.232919416,
+        0.232935786,
+        0.229730895
+      ],
+      "normal_intake_sample_new_state_max_source_ages_sim_s": {
+        "odom": 0.08,
+        "correction": 0.07,
+        "generation": 0.04
+      },
+      "normal_before_update_held_state_max_source_ages_sim_s": {
+        "odom": 0.18,
+        "correction": 0.17
+      },
+      "normal_freshness_sampling_limit": "health intake and Peer snapshot samples, not all guard timer continuous maxima",
+      "normal_Peer_ready_snapshots": 160,
+      "DDS_actual_takes_unique_source_bracket_matches": 6930,
+      "DDS_all_nine_writers_first_ordinal_matched_readers": 1,
+      "old_TF23_1s_delay": "NOT REPRODUCED; not proof of fix",
+      "fourth_actual_UUID": "0000000078c3ffc00301000000000000",
+      "fourth_accepted_and_GetResult_ACKed_pending_before_fault": true,
+      "negative": "A1 observation supply stop .8wall; local services continue",
+      "negative_actual_local_GetResult": 5,
+      "negative_actual_PAUSE_all_success": true,
+      "negative_local_future_pending": 0,
+      "negative_guard_faults": [
+        "health_original_sources_stale",
+        "health_original_sources_stale",
+        "health_original_sources_stale"
+      ],
+      "negative_central_actual_result_status": 5,
+      "Gateway_failure": null,
+      "Gateway_internal_RPC_confirmation_localcleanup": 0,
+      "Gateway_executor_shutdown": [
+        true,
+        true
+      ],
+      "END_flushed": true,
+      "persist_wall_s": 1.5673543420271017,
+      "Gateway_peak_afterpersist_KiB": 211600,
+      "analysis_paths": [
+        "health/dds-audit-analysis-01/normal-health.json",
+        "health/dds-audit-analysis-01/normal-health-raw-subset.json"
+      ],
+      "Gazebo": 0,
+      "raw_directory": "net01d/runs/full-load-dds-audit-01"
+    },
+    {
+      "case": "full-load-wifi-audit-01",
+      "arm": "B",
+      "scope": "P5 diagnostic same DDS/source profile and real V3/RAM; first normal failure before planned fourth/radio-off",
+      "source_identity": "b043830252515af1fa4d716566c5a53a73dd1515",
+      "command": "rtk proxy python3 -B net-01d/workspace/net01d/run_replay.py --stage full --arm B --case full-load-wifi-audit-01 --payloads /home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01 --dds-take-trace --native-evidence-ram /dev/shm/net01d-full-load-wifi-audit-01",
+      "status": "FAIL",
+      "wall_s": 10.273189365980215,
+      "normal_requested_wall_s": 32,
+      "normal_t0_monotonic_ns": 517268695264451,
+      "normal_t0_sim_s": 0.85,
+      "normal_completed": false,
+      "first_failure_marker_monotonic_ns": 517273052757240,
+      "guard_faults": [
+        "bound_mask_receipt_stale",
+        "bound_mask_receipt_stale",
+        "health_heartbeat_stale"
+      ],
+      "Gateway_failure": null,
+      "exits": {
+        "coordinator": 1,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 1,
+        "mock_physics": 0,
+        "merge": 0,
+        "source-tb1": 0,
+        "source-tb2": 0,
+        "source-tb3": 0,
+        "client": 0
+      },
+      "forced": [],
+      "actual_arms_success": [
+        true,
+        true,
+        true
+      ],
+      "normal_Goals_accepted": [
+        1,
+        1,
+        1
+      ],
+      "client_feedback_counts": [
+        386,
+        389,
+        386
+      ],
+      "C_GetResult_pending": [
+        2,
+        1,
+        3
+      ],
+      "C_results": {},
+      "R_all_controlled_servers_still_executing": false,
+      "R_all_original_UUIDs_cancelled": true,
+      "PAUSE_requests_received": [
+        true,
+        true,
+        true
+      ],
+      "fourth_Goal_sent": false,
+      "radio_off_executed": false,
+      "Gateway_C_RPC_pending": 3,
+      "Gateway_R_RPC_pending": 0,
+      "Gateway_R_response_confirmation_waiting": [
+        1,
+        1,
+        1
+      ],
+      "Gateway_local_cleanup_pending": [
+        0,
+        1,
+        0
+      ],
+      "Gateway_executor_shutdown": [
+        false,
+        true
+      ],
+      "END_flushed": true,
+      "resources_destroyed": true,
+      "persist_wall_s": 0.2865491369739175,
+      "peak_afterpersist_KiB": 101384,
+      "native_exit": 0,
+      "ingress_messages": 2933,
+      "complete_messages": 2809,
+      "RAM_copy": {
+        "bytes_source_and_copied": 82274649,
+        "complete": true,
+        "wall_s": 0.11360628495458513,
+        "RAM_original_retained": true
+      },
+      "causal_first_gap": "runtime owns source/receipt/native/metadata analysis; not assigned wholesale to radio or a new protocol bug",
+      "P5": "FAIL; no GZ admission",
+      "raw_directory": "net01d/runs/full-load-wifi-audit-01",
+      "Gazebo": 0
+    },
+    {
+      "case": "cleanup-drain-01",
+      "arm": "A1",
+      "source_identity": "580610d20bfc9f291bca1e3071f571452c7261e1",
+      "status": "FAIL",
+      "wall_s": 6.545338626019657,
+      "exits": {
+        "coordinator": 1,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "mock_physics": 0,
+        "merge": 0,
+        "source-tb1": 0,
+        "source-tb2": 0,
+        "source-tb3": 0,
+        "client": 0
+      },
+      "forced": [],
+      "error_preserved": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519025152116663, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+      "Gazebo": 0,
+      "raw_directory": "net01d/runs/cleanup-drain-01",
+      "mock_phase": "stress5ms",
+      "normal_requested_wall_s": 32,
+      "hard_wall_s": 20,
+      "STOP_written_monotonic_ns": 519025160967404,
+      "first_failure_local_cleanup_wait": {
+        "begin_monotonic_ns": 519025155135443,
+        "end_monotonic_ns": 519025160947058,
+        "bound_wall_s": 2.0,
+        "drained": true,
+        "first_error_preserved": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519025152116663, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+        "central_unknown_not_waited": true
+      },
+      "planned_normal_failure_path": true,
+      "normal32_claimed": false,
+      "regression": {
+        "passed": false,
+        "first_failure_preserved": true,
+        "trigger_monotonic_ns": 519024898117504,
+        "result": {
+          "scope": {
+            "arm": "A1",
+            "delivery": "IDEAL-DIRECT-ADAPTER; three real active controlled Goals, no fourth planned negative Goal",
+            "source_window_wall_s": null,
+            "hard_wall_s": 20,
+            "session_id": 2026110912,
+            "roles": [
+              "coordinator",
+              "hub/native",
+              "peer",
+              "gateway",
+              "mock_physics",
+              "source-tb1",
+              "source-tb2",
+              "source-tb3",
+              "merge",
+              "client"
+            ],
+            "profile": "controlled1000-clock100-q10ms",
+            "source_clock_contract": "frozen-source-clock",
+            "dispatch_profile": true,
+            "control_trace": true,
+            "guard": "Original actual masks/health and original actual arm services; normal automatic gates effective",
+            "source_sizes": "Six original Grid templates in explicit payload manifest; unchanged cells/frame/origin/shape, new fixture-time fields",
+            "source_rates": "odom30sim + odomTF; wheel10sim both in same message; scanheader5sim; costmap strict ROS>.5 in5wall poll; map5wall period; correction50wall latest_scan+.2; feedback100wall; exactzero_cmd20wall; Peer masks/health10sim unchanged",
+            "missing_flows": [],
+            "scope": "P5 no-motion complete business fixture; not real SLAM/Nav2/physics or scientific radio comparison",
+            "native": "/home/zhuyulab/ns3-workspace/net-01/build/followup03-release-portable-native/net01-payload",
+            "baseline": "/home/zhuyulab/ns3-workspace/base-01-econ",
+            "native_evidence_ram": null,
+            "Gazebo": 0,
+            "Nav2": 0,
+            "Goal": 3,
+            "NN": 0,
+            "arm_guard": true,
+            "stage": "unexpected_failure_cleanup_regression",
+            "normal_t0": "actual C client all three Action facades ready and first Goal about to send",
+            "dds_take_trace": true,
+            "source_window": "Independent R supplies prewarm plus whole client32wall normal window and negative, until SUPPLY_STOP/finalSTOP",
+            "normal_Goals": 3,
+            "negative_active_Goals": 0,
+            "payloads": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01",
+            "negative": "Observation-stop trigger uses unchanged unexpected FIRST_FAILURE path, not NEGATIVE_PHASE",
+            "normal_window_required": false,
+            "regression": "3 actual accepted Goals with ACKed GetResult pending, then stop observations without NEGATIVE_PHASE; use unchanged FIRST_FAILURE path and real local drain"
+          },
+          "error": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519025152116663, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+          "wall_s": 6.545338626019657,
+          "exits": {
+            "coordinator": 1,
+            "hub": 0,
+            "peer": 0,
+            "gateway": 0,
+            "mock_physics": 0,
+            "merge": 0,
+            "source-tb1": 0,
+            "source-tb2": 0,
+            "source-tb3": 0,
+            "client": 0
+          },
+          "forced": [],
+          "first_failure_local_cleanup_wait": {
+            "begin_monotonic_ns": 519025155135443,
+            "end_monotonic_ns": 519025160947058,
+            "bound_wall_s": 2.0,
+            "drained": true,
+            "first_error_preserved": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519025152116663, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+            "central_unknown_not_waited": true
+          },
+          "STOP_written_monotonic_ns": 519025160967404,
+          "negative_scope": "Actual local controlled cancellation; central negative Future may remain unknown; no claimed network recovery or physical stopping",
+          "judgement": "Process completion only; actual supply/health receipts/profile require offline review",
+          "cleanup_regression_pass": false
+        }
+      }
+    },
+    {
+      "case": "cleanup-drain-02",
+      "arm": "A1",
+      "source_identity": "81710e6739311a59ed4bef945a0fbd871d274a64",
+      "status": "LIMITED CLEANUP REGRESSION PASS",
+      "wall_s": 8.048319187015295,
+      "exits": {
+        "coordinator": 1,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "mock_physics": 0,
+        "merge": 0,
+        "source-tb1": 0,
+        "source-tb2": 0,
+        "source-tb3": 0,
+        "client": 0
+      },
+      "forced": [],
+      "error_preserved": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519604224647993, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+      "Gazebo": 0,
+      "raw_directory": "net01d/runs/cleanup-drain-02",
+      "mock_phase": "stress5ms",
+      "normal_requested_wall_s": 32,
+      "hard_wall_s": 20,
+      "STOP_written_monotonic_ns": 519604286712590,
+      "first_failure_local_cleanup_wait": {
+        "begin_monotonic_ns": 519604228204008,
+        "end_monotonic_ns": 519604286690401,
+        "bound_wall_s": 2.0,
+        "drained": true,
+        "first_error_preserved": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519604224647993, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+        "central_unknown_not_waited": true
+      },
+      "planned_normal_failure_path": true,
+      "normal32_claimed": false,
+      "regression": {
+        "passed": true,
+        "first_failure_preserved": true,
+        "trigger_monotonic_ns": 519603961664070,
+        "result": {
+          "scope": {
+            "arm": "A1",
+            "delivery": "IDEAL-DIRECT-ADAPTER; three real active controlled Goals, no fourth planned negative Goal",
+            "source_window_wall_s": null,
+            "hard_wall_s": 20,
+            "session_id": 2026110912,
+            "roles": [
+              "coordinator",
+              "hub/native",
+              "peer",
+              "gateway",
+              "mock_physics",
+              "source-tb1",
+              "source-tb2",
+              "source-tb3",
+              "merge",
+              "client"
+            ],
+            "profile": "controlled1000-clock100-q10ms",
+            "source_clock_contract": "frozen-source-clock",
+            "dispatch_profile": true,
+            "control_trace": true,
+            "guard": "Original actual masks/health and original actual arm services; normal automatic gates effective",
+            "source_sizes": "Six original Grid templates in explicit payload manifest; unchanged cells/frame/origin/shape, new fixture-time fields",
+            "source_rates": "odom30sim + odomTF; wheel10sim both in same message; scanheader5sim; costmap strict ROS>.5 in5wall poll; map5wall period; correction50wall latest_scan+.2; feedback100wall; exactzero_cmd20wall; Peer masks/health10sim unchanged",
+            "missing_flows": [],
+            "scope": "P5 no-motion complete business fixture; not real SLAM/Nav2/physics or scientific radio comparison",
+            "native": "/home/zhuyulab/ns3-workspace/net-01/build/followup03-release-portable-native/net01-payload",
+            "baseline": "/home/zhuyulab/ns3-workspace/base-01-econ",
+            "mock_phase": "stress5ms",
+            "native_evidence_ram": null,
+            "Gazebo": 0,
+            "Nav2": 0,
+            "Goal": 3,
+            "NN": 0,
+            "arm_guard": true,
+            "stage": "unexpected_failure_cleanup_regression",
+            "normal_t0": "actual C client all three Action facades ready and first Goal about to send",
+            "dds_take_trace": true,
+            "source_window": "Independent R supplies prewarm plus whole client32wall normal window and negative, until SUPPLY_STOP/finalSTOP",
+            "normal_Goals": 3,
+            "negative_active_Goals": 0,
+            "payloads": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01",
+            "negative": "Observation-stop trigger uses unchanged unexpected FIRST_FAILURE path, not NEGATIVE_PHASE",
+            "normal_window_required": false,
+            "regression": "3 actual accepted Goals with ACKed GetResult pending, then stop observations without NEGATIVE_PHASE; use unchanged FIRST_FAILURE path and real local drain"
+          },
+          "error": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519604224647993, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+          "wall_s": 8.048319187015295,
+          "exits": {
+            "coordinator": 1,
+            "hub": 0,
+            "peer": 0,
+            "gateway": 0,
+            "mock_physics": 0,
+            "merge": 0,
+            "source-tb1": 0,
+            "source-tb2": 0,
+            "source-tb3": 0,
+            "client": 0
+          },
+          "forced": [],
+          "first_failure_local_cleanup_wait": {
+            "begin_monotonic_ns": 519604228204008,
+            "end_monotonic_ns": 519604286690401,
+            "bound_wall_s": 2.0,
+            "drained": true,
+            "first_error_preserved": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519604224647993, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+            "central_unknown_not_waited": true
+          },
+          "STOP_written_monotonic_ns": 519604286712590,
+          "negative_scope": "Actual local controlled cancellation; central negative Future may remain unknown; no claimed network recovery or physical stopping",
+          "judgement": "Process completion only; actual supply/health receipts/profile require offline review",
+          "cleanup_regression_pass": true
+        }
+      }
+    },
+    {
+      "case": "actual-phase-local-01",
+      "arm": "A1",
+      "source_identity": "81710e6739311a59ed4bef945a0fbd871d274a64",
+      "status": "NORMAL32 AND PLANNED NEGATIVE COMPLETED; component evidence limited no-motion",
+      "wall_s": 41.396578992018476,
+      "exits": {
+        "coordinator": 1,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 0,
+        "mock_physics": 0,
+        "merge": 0,
+        "source-tb1": 0,
+        "source-tb2": 0,
+        "source-tb3": 0,
+        "client": 0
+      },
+      "forced": [],
+      "error_preserved": null,
+      "Gazebo": 0,
+      "raw_directory": "net01d/runs/actual-phase-local-01",
+      "mock_phase": "actual-corr6201",
+      "normal_requested_wall_s": 32,
+      "hard_wall_s": 60,
+      "STOP_written_monotonic_ns": 519741738224591,
+      "first_failure_local_cleanup_wait": null,
+      "normal_completed": true,
+      "C_normal_results": {
+        "2": 4,
+        "3": 5,
+        "1": 4
+      },
+      "feedback_count": {
+        "1": 2515,
+        "2": 2426,
+        "3": 2470
+      },
+      "negative_phase": {
+        "request_pending": false,
+        "result_pending": false,
+        "actual_result_status": 5,
+        "fourth_Goal_accepted": true
+      },
+      "Gateway_failure": null,
+      "Gateway_cleanup": {
+        "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+        "end_frame_flushed": true,
+        "executor_shutdown": [
+          true,
+          true
+        ],
+        "resources_destroyed": true,
+        "unresolved_C_RPC": [],
+        "unresolved_R_RPC": [],
+        "unresolved_local_cleanup_futures": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "action_confirmation_states": {
+          "C": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          },
+          "R": {
+            "1": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            },
+            "2": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            },
+            "3": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            }
+          }
+        },
+        "retired_C_services": {
+          "1": [],
+          "2": [],
+          "3": []
+        }
+      },
+      "persist_wall_s": 1.6047559999860823,
+      "storage": {
+        "backend": "owned_tmpfs_then_copy_after_native_exit",
+        "source": "/dev/shm/net01d-full-load-actual-phase-local-01",
+        "destination": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/runs/actual-phase-local-01/hub/native",
+        "available_tmpfs_bytes": 62142750720,
+        "MemAvailable_bytes": 109351915520,
+        "source_retained": true,
+        "native_exit": 0,
+        "source_files": {
+          "native-summary.json": 262,
+          "ledger-status.json": 245,
+          "control-step-trace.jsonl": 366912,
+          "wifi-3-0.pcap": 33088,
+          "wifi-2-0.pcap": 33088,
+          "wifi-1-0.pcap": 33088,
+          "wifi-0-0.pcap": 32876,
+          "configured-lock.json": 3994,
+          "packet-ledger.jsonl": 608419
+        },
+        "source_bytes": 1111972,
+        "copied_files": {
+          "wifi-1-0.pcap": 33088,
+          "packet-ledger.jsonl": 608419,
+          "control-step-trace.jsonl": 366912,
+          "configured-lock.json": 3994,
+          "ledger-status.json": 245,
+          "wifi-3-0.pcap": 33088,
+          "wifi-2-0.pcap": 33088,
+          "native-summary.json": 262,
+          "wifi-0-0.pcap": 32876
+        },
+        "copied_bytes": 1111972,
+        "complete": true,
+        "copy_wall_s": 0.005475161015056074
+      },
+      "ingress": 0,
+      "complete": 0,
+      "existing_raw_normal_offline_audit": {
+        "new_experiment": false,
+        "normal_wall_s": 32.000902911,
+        "normal_sim_s": 16.01,
+        "RTF": 0.500298,
+        "health_n_per_robot": [
+          160,
+          160,
+          160
+        ],
+        "all_armed_no_fault": true,
+        "health_receipt_gap_max_ms": [
+          221.852,
+          221.824,
+          225.383
+        ],
+        "mask_accepted_per_robot": [
+          160,
+          160,
+          160
+        ],
+        "mask_rejected_per_robot": [
+          0,
+          0,
+          0
+        ],
+        "mask_true_receipt_gap_upper_max_ms": [
+          228.158,
+          225.333,
+          225.11
+        ],
+        "incoming_odom_age_max_sim_ms": 70,
+        "incoming_corr_age_max_sim_ms": 40,
+        "held_odom_age_max_sim_ms": 170,
+        "held_corr_age_max_sim_ms": [
+          130,
+          130,
+          140
+        ],
+        "age_scope": "health intake actualRclock, not continuous guardtimermax",
+        "normal_TF_strict_join": 6719,
+        "normal_ACK_n": 1600,
+        "G_equals_E_all_normal_ACK": true,
+        "credit_max_sim_ms": 20,
+        "evidence": "net01d/health/actual-phase-local-01/normal-window.json"
+      }
+    },
+    {
+      "case": "actual-phase-wifi-01",
+      "arm": "B",
+      "source_identity": "81710e6739311a59ed4bef945a0fbd871d274a64",
+      "status": "FAIL",
+      "wall_s": 15.315861103998031,
+      "exits": {
+        "coordinator": 1,
+        "hub": 0,
+        "peer": 0,
+        "gateway": 1,
+        "mock_physics": 0,
+        "merge": 0,
+        "source-tb1": 0,
+        "source-tb2": 0,
+        "source-tb3": 0,
+        "client": 0
+      },
+      "forced": [],
+      "error_preserved": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519992457589963, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+      "Gazebo": 0,
+      "raw_directory": "net01d/runs/actual-phase-wifi-01",
+      "mock_phase": "actual-corr6201",
+      "normal_requested_wall_s": 32,
+      "hard_wall_s": 60,
+      "STOP_written_monotonic_ns": 519992556999037,
+      "first_failure_local_cleanup_wait": {
+        "begin_monotonic_ns": 519992462360098,
+        "end_monotonic_ns": 519992556966489,
+        "bound_wall_s": 2.0,
+        "drained": true,
+        "first_error_preserved": "RuntimeError('First normal guard/transport failure: {\"monotonic_ns\": 519992457589963, \"Gateway_failure\": null, \"guards\": {\"1\": \"health_original_sources_stale\", \"2\": \"health_original_sources_stale\", \"3\": \"health_original_sources_stale\"}}')",
+        "central_unknown_not_waited": true
+      },
+      "normal_completed": false,
+      "C_normal_results": {},
+      "feedback_count": {
+        "1": 525,
+        "2": 525,
+        "3": 525
+      },
+      "negative_phase": {
+        "request_pending": false,
+        "result_pending": false,
+        "actual_result_status": null,
+        "fourth_Goal_accepted": false
+      },
+      "Gateway_failure": null,
+      "Gateway_cleanup": {
+        "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+        "end_frame_flushed": true,
+        "executor_shutdown": [
+          false,
+          true
+        ],
+        "resources_destroyed": true,
+        "unresolved_C_RPC": [
+          {
+            "robot": 2,
+            "flow_offset": 3,
+            "rpc_id": 8702080105108733956
+          },
+          {
+            "robot": 1,
+            "flow_offset": 3,
+            "rpc_id": 8702080105108733957
+          },
+          {
+            "robot": 3,
+            "flow_offset": 3,
+            "rpc_id": 8702080105108733958
+          }
+        ],
+        "unresolved_R_RPC": [],
+        "unresolved_local_cleanup_futures": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "action_confirmation_states": {
+          "C": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          },
+          "R": {
+            "1": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 1,
+              "unconfirmed": 0
+            },
+            "2": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 1,
+              "unconfirmed": 0
+            },
+            "3": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 1,
+              "unconfirmed": 0
+            }
+          }
+        },
+        "retired_C_services": {
+          "1": [],
+          "2": [],
+          "3": []
+        }
+      },
+      "persist_wall_s": 0.49905548099195585,
+      "storage": {
+        "backend": "owned_tmpfs_then_copy_after_native_exit",
+        "source": "/dev/shm/net01d-full-load-actual-phase-wifi-01",
+        "destination": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/runs/actual-phase-wifi-01/hub/native",
+        "available_tmpfs_bytes": 62141612032,
+        "MemAvailable_bytes": 109351538688,
+        "source_retained": true,
+        "native_exit": 0,
+        "source_files": {
+          "native-summary.json": 401,
+          "ledger-status.json": 251,
+          "control-step-trace.jsonl": 97877,
+          "wifi-3-0.pcap": 26034472,
+          "wifi-2-0.pcap": 26059538,
+          "wifi-1-0.pcap": 25916444,
+          "wifi-0-0.pcap": 27285475,
+          "configured-lock.json": 3994,
+          "packet-ledger.jsonl": 53401887
+        },
+        "source_bytes": 158800339,
+        "copied_files": {
+          "wifi-1-0.pcap": 25916444,
+          "packet-ledger.jsonl": 53401887,
+          "control-step-trace.jsonl": 97877,
+          "configured-lock.json": 3994,
+          "ledger-status.json": 251,
+          "wifi-3-0.pcap": 26034472,
+          "wifi-2-0.pcap": 26059538,
+          "native-summary.json": 401,
+          "wifi-0-0.pcap": 27285475
+        },
+        "copied_bytes": 158800339,
+        "complete": true,
+        "copy_wall_s": 0.21430306998081505
+      },
+      "ingress": 4773,
+      "complete": 4593,
+      "network_scope": {
+        "business_ingress": 4767,
+        "business_complete": 4587,
+        "delivered_delay_p95_N_ms": 6.108973,
+        "delivered_delay_max_N_ms": 21.800361,
+        "pre_first_guard_admitted_eventually_complete": 4422,
+        "incomplete_total": 180,
+        "incomplete_after_fault_at_final_unadvanced_horizon": 177,
+        "not_a_radio_loss_rate": true,
+        "evidence": "net01d/review/ACTUAL_PHASE_WIFI_01_NETWORK_DELIVERY.json"
+      },
+      "first_source_age_fault": {
+        "first_guard_robot": 1,
+        "mono_ns": 519992417146585,
+        "Rclock_sim_s": 4.66,
+        "held_health_seq": 45,
+        "stale_source_robot": 2,
+        "held_correction_stamp_s": 4.1,
+        "age_sim_s": 0.56,
+        "unchanged_limit_sim_s": 0.55,
+        "incoming_seq46_ready_does_not_erase_previous_interval": true,
+        "source_TF_strict_matches": 1765,
+        "all9_writers_initial_matched_readers": 1,
+        "source_to_take_median_ms_range": [
+          616.9,
+          638.871
+        ],
+        "source_to_take_max_ms": 926.126,
+        "source_TS_to_received_TS_max_ms": 3.171,
+        "received_TS_not_proven_earliest_arrival": true,
+        "source_skip_count": 0,
+        "physical_ACK_count": 466,
+        "G_equals_E_all_ACK": true,
+        "credit_max_ns": 20000000,
+        "evidence": "net01d/health/actual-phase-wifi-01/FINDINGS.md"
+      }
+    }
+  ],
+  "Gazebo_budget": {
+    "maximum": 8,
+    "per_arm_maximum": 2,
+    "sim_per_run": 120,
+    "used": 0,
+    "A0": 0,
+    "A1": 0,
+    "B": 0,
+    "C": 0,
+    "user_sim_upper_bound": 180
+  },
+  "repair_rounds": {
+    "maximum": 2,
+    "used": 2,
+    "round1": {
+      "source": "580610d20bfc9f291bca1e3071f571452c7261e1",
+      "scope": "harness retains R services/Gateway after first failure while draining local cleanup within original hard bound, at most2wall",
+      "regression": "cleanup-drain-01 FAIL: Future.done marker preceded real GetResult done-callback evidence"
+    },
+    "round2": {
+      "source": "81710e6739311a59ed4bef945a0fbd871d274a64",
+      "scope": "marker also requires real cancel/GetResult terminal callbacks; explicit actual-corr6201 initialphase0 vs unchanged defaultstress5; sameRAM for new actual A1/B",
+      "regression": "cleanup-drain-02 limited cleanup PASS; actual-phase-local-01 normal/negative completed; actual-phase-wifi-01 normal source-age FAIL; STOP"
+    }
+  },
+  "frozen_identity_reused": {
+    "release": "MR3-RL-POLICY-v1.1.0",
+    "behavior_source": "76fd91cf937bd8d662302901dad063affbea3c38",
+    "checkpoint_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+    "native_sha256": "82bc8ecff7d1e88d826931be534335fac21971fa8e6a23731af805f291c7e184"
+  },
+  "P0": {
+    "HEAD_matches": true,
+    "frozen_tracked_path_diff_empty": true,
+    "old_raw_root": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs",
+    "old_three_cases_required_path_existence": true,
+    "full_old_raw_content_rehash": false,
+    "exact_actor_proc_snapshot_matches": [],
+    "DDS_graph_query_started": false,
+    "migration_dependencies_and_120sim_admission": "Dependency paths pending explicit binding; existing120 contract retained, not a defect",
+    "checkpoint_single_recheck": "root verified current checkpoint once against Manifest; producer did not recompute"
+  },
+  "pushed": false,
+  "old_evidence_modified": false,
+  "targeted_zero_node_checks": [
+    {
+      "case": "payload-check-01",
+      "exit_code": 0,
+      "wall_s": 2.392,
+      "scope": "Six actual generated-message deserialize/typed roundtrip and changed fixture-time restoration exact fields; 0ROSinit/Node",
+      "evidence": "net01d/health/payload-check-01"
+    },
+    {
+      "case": "dds-take-static-01",
+      "exit_code": 0,
+      "wall_s": 1.608,
+      "checks_passed": 6,
+      "scope": "Actual method transparency with fixedSDK message/None/exception/nonTF routing; noexecutorconstruction/ROSinit/Node",
+      "evidence": "net01d/health/dds-take-static-01"
+    }
+  ]
+}

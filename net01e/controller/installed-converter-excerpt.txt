@@ -1,0 +1,33 @@
+
+/home/zhuyulab/ns3-workspace/base-01-econ/isolation/rootfs/opt/ros/humble/lib/libnav_msgs__rosidl_generator_py.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000000055b3 <nav_msgs__msg__occupancy_grid__convert_to_py@@Base+0x53>:
+    55b3:	31 f6                	xor    %esi,%esi
+    55b5:	4c 89 e7             	mov    %r12,%rdi
+    55b8:	e8 a3 e0 ff ff       	call   3660 <PyObject_CallObject@plt>
+    55bd:	49 83 2c 24 01       	subq   $0x1,(%r12)
+    55c2:	49 89 c5             	mov    %rax,%r13
+    55c5:	0f 84 fd 01 00 00    	je     57c8 <nav_msgs__msg__occupancy_grid__convert_to_py@@Base+0x268>
+    55cb:	4d 85 ed             	test   %r13,%r13
+    55ce:	0f 84 cc 01 00 00    	je     57a0 <nav_msgs__msg__occupancy_grid__convert_to_py@@Base+0x240>
+
+/home/zhuyulab/ns3-workspace/base-01-econ/isolation/rootfs/opt/ros/humble/lib/libnav_msgs__rosidl_generator_py.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000000057a0 <nav_msgs__msg__occupancy_grid__convert_to_py@@Base+0x240>:
+    57a0:	45 31 ed             	xor    %r13d,%r13d
+    57a3:	48 83 c4 08          	add    $0x8,%rsp
+    57a7:	4c 89 e8             	mov    %r13,%rax
+    57aa:	5b                   	pop    %rbx
+    57ab:	5d                   	pop    %rbp
+    57ac:	41 5c                	pop    %r12
+    57ae:	41 5d                	pop    %r13
+    57b0:	41 5e                	pop    %r14
+    57b2:	41 5f                	pop    %r15
+    57b4:	c3                   	ret    
+    57b5:	0f 1f 00             	nopl   (%rax)

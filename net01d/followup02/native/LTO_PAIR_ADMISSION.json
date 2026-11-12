@@ -1,0 +1,37 @@
+{
+  "status": "rootadmittedunique reference then candidate; stopifanyarmFAIL",
+  "source": "c8ace75d0a3c02b3d5661d13590eec08224339be",
+  "execution_authorized": true,
+  "reference_ELF_sha256_reused": "c3e9913c4ad77cf76399f43f7e7aa559634b81440c360edc69b5ff20dc50d1d4",
+  "candidate_ELF_sha256_reused": "0cc771a18a3eb63ebbc4eb09ee942aaba27ea93211e07a7a0805d993dcc7c4f3",
+  "candidate_identity": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/evidence/BUILD_IDENTITY.json",
+  "FP_contract_difference": "Baselineoriginalcompilerdefault notexplicitoff; candidatedriver+13DSOexplicit-ffp-contract=off inadditionLTO. Notpureoneflag LTO attribution.",
+  "reference_command": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net01d/followup02/native/observe_lto_pair.py",
+    "--arm",
+    "reference"
+  ],
+  "candidate_command": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net01d/followup02/native/observe_lto_pair.py",
+    "--arm",
+    "candidate"
+  ],
+  "cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "sim_s": 8,
+  "active_wall_s": 20,
+  "hard_wall_s": 30,
+  "kill_after_s": 2,
+  "profile": "B",
+  "transport": "tcp-mtu-v2",
+  "payloads": 18,
+  "scope": "Native-onlyfixedpairbyte/event/PCAP/cost; 0ROS/Policy/Nav2/GZ; noautomaticfull",
+  "automatic_retry": false
+}

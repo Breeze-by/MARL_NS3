@@ -1,0 +1,62 @@
+{
+  "pid": 1106716,
+  "events": [
+    {
+      "kind": "controller_stop_goal_not_submitted",
+      "robot": "tb1",
+      "token": 2,
+      "target": [
+        1.0,
+        2.0
+      ],
+      "sim": 620907.245870278,
+      "reason": "SIGINT received before external submission gate",
+      "actual_DDS_goal_sent": false,
+      "synthetic_Action_response": false,
+      "observed_monotonic_ns": 620907245874853
+    },
+    {
+      "kind": "fixture_allocator_tick",
+      "monotonic_ns": 620907246659672
+    },
+    {
+      "kind": "fixture_allocator_stop",
+      "reason": "rl04_controller_shutdown",
+      "monotonic_ns": 620907246664014
+    },
+    {
+      "kind": "rl_halt_requested",
+      "sim": 620907.246943667,
+      "reason": "rl04_controller_shutdown",
+      "physical_stop_verified": false,
+      "observed_monotonic_ns": 620907246946632
+    },
+    {
+      "kind": "fixture_ledger_flush",
+      "reason": "rl04_real_ros_end",
+      "monotonic_ns": 620907249285776
+    }
+  ],
+  "status": [
+    {
+      "uuid": "0102030405060708090a0b0c0d0e0f10",
+      "status": 5,
+      "monotonic_ns": 620907253174447
+    }
+  ],
+  "original_submit_calls": [],
+  "scope": "Real DDS controlled Action; original halt/close, fixture allocator/ledger; no Policy/Nav2/motion",
+  "accepted_uuid": "0102030405060708090a0b0c0d0e0f10",
+  "accepted_observed_monotonic_ns": 620907235138417,
+  "callback_enter_monotonic_ns": 620907245805754,
+  "callback_return_monotonic_ns": 620907245877405,
+  "context_ok_before_original_close": true,
+  "original_close_begin_monotonic_ns": 620907246639283,
+  "original_close_end_monotonic_ns": 620907249881251,
+  "controller_context_ok_after_close": false,
+  "server_cancelled": [
+    "0102030405060708090a0b0c0d0e0f10"
+  ],
+  "witness_GetResult_status": 5,
+  "server_context_ok_after_shutdown": false
+}

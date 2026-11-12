@@ -1,0 +1,882 @@
+{
+  "scope": "Actual A0 typed DDS/admin and Unix safety interface; synthetic source, PAUSE/zero spies only",
+  "guards": {
+    "1": {
+      "actions": [
+        {
+          "kind": "actual_control_permission_revoked",
+          "reason": "authority_exited",
+          "monotonic_ns": 611441422741848
+        },
+        {
+          "kind": "a0_actual_response_evidence",
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "return_code": 0,
+          "goals_canceling": [
+            "0e0102030405060708090a0b0c0d0e0f"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "status": 5
+        },
+        {
+          "kind": "a0_actual_result_evidence",
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "status": 5
+        }
+      ],
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb1",
+          "session_id": 2026111154,
+          "sim": 100.04,
+          "monotonic": 611441.403653128
+        },
+        {
+          "kind": "control_permission_revoked",
+          "reason": "authority_exited",
+          "sim": 100.05,
+          "monotonic": 611441.422564197,
+          "receipt_clock_basis": "R-ros-sim-v1"
+        }
+      ],
+      "owned": [],
+      "accepted": [],
+      "terminals": {
+        "0e0102030405060708090a0b0c0d0e0f": 5
+      },
+      "fault": null,
+      "halted": true,
+      "pending": 0,
+      "receipt_clock_basis": "R-ros-sim-v1",
+      "health_receipt_sim": 100.07,
+      "mask_receipt_sim": 100.07,
+      "health_receipt_monotonic": 611441.454156862,
+      "mask_receipt_monotonic": 611441.456188228,
+      "may_send_goal": false
+    },
+    "2": {
+      "actions": [
+        {
+          "kind": "actual_control_permission_revoked",
+          "reason": "authority_exited",
+          "monotonic_ns": 611441423020131
+        },
+        {
+          "kind": "a0_actual_active_status",
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "status": 2,
+          "monotonic_ns": 611441433030867
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "return_code": 0,
+          "goals_canceling": [
+            "0e0202030405060708090a0b0c0d0e0f"
+          ]
+        },
+        {
+          "kind": "a0_actual_response_evidence",
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "status": 5
+        },
+        {
+          "kind": "a0_actual_result_evidence",
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "status": 5
+        }
+      ],
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb2",
+          "session_id": 2026111154,
+          "sim": 100.04,
+          "monotonic": 611441.403692487
+        },
+        {
+          "kind": "control_permission_revoked",
+          "reason": "authority_exited",
+          "sim": 100.05,
+          "monotonic": 611441.42294292,
+          "receipt_clock_basis": "R-ros-sim-v1"
+        }
+      ],
+      "owned": [],
+      "accepted": [],
+      "terminals": {
+        "0e0202030405060708090a0b0c0d0e0f": 5
+      },
+      "fault": null,
+      "halted": true,
+      "pending": 0,
+      "receipt_clock_basis": "R-ros-sim-v1",
+      "health_receipt_sim": 100.06,
+      "mask_receipt_sim": 100.07,
+      "health_receipt_monotonic": 611441.454212982,
+      "mask_receipt_monotonic": 611441.457406877,
+      "may_send_goal": false
+    }
+  },
+  "server_cancelled": {
+    "1": [
+      "0e0102030405060708090a0b0c0d0e0f"
+    ],
+    "2": [
+      "0e0202030405060708090a0b0c0d0e0f"
+    ]
+  },
+  "accepted_goals_cdr": {
+    "1": [
+      "000100006400000000000000040000006d617000000000000000f23f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f03f1900000061302d6e6f726d616c2d7265766f6b652d6669787475726500"
+    ],
+    "2": [
+      "000100006400000000000000040000006d617000000000000000014000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f03f1900000061302d6e6f726d616c2d7265766f6b652d6669787475726500"
+    ]
+  },
+  "source_events": [
+    {
+      "kind": "actual_goal_received_before_accept",
+      "robot": 1,
+      "monotonic_ns": 611441411366963,
+      "owned": [
+        "0e0102030405060708090a0b0c0d0e0f"
+      ]
+    },
+    {
+      "kind": "actual_goal_received_before_accept",
+      "robot": 2,
+      "monotonic_ns": 611441418567729,
+      "owned": [
+        "0e0202030405060708090a0b0c0d0e0f"
+      ]
+    },
+    {
+      "kind": "both_normal_revoke_before_actual_accept",
+      "monotonic_ns": 611441424405431,
+      "faults": {
+        "1": null,
+        "2": null
+      }
+    },
+    {
+      "kind": "actual_accept_return_after_revoke",
+      "robot": 1,
+      "monotonic_ns": 611441424704455,
+      "halted": true,
+      "fault": null
+    },
+    {
+      "kind": "actual_accept_return_after_revoke",
+      "robot": 2,
+      "monotonic_ns": 611441428078882,
+      "halted": true,
+      "fault": null
+    }
+  ],
+  "pauses": [
+    {
+      "robot": 1,
+      "command": 1,
+      "monotonic_ns": 611441437933537
+    },
+    {
+      "robot": 2,
+      "command": 1,
+      "monotonic_ns": 611441439793998
+    }
+  ],
+  "zeros": {
+    "1": {
+      "count": 5,
+      "all_exact": true
+    },
+    "2": {
+      "count": 5,
+      "all_exact": true
+    }
+  },
+  "direct_health": [
+    {
+      "robot": 1,
+      "sequence": 1,
+      "state": {
+        "ready": true,
+        "sequence": 1,
+        "generated_sim": 0.0,
+        "odom_stamps": {
+          "tb1": 0.0,
+          "tb2": 0.0,
+          "tb3": 0.0
+        },
+        "correction_stamps": {
+          "tb1": 0.0,
+          "tb2": 0.0,
+          "tb3": 0.0
+        }
+      },
+      "accepted": true,
+      "before_monotonic_ns": 611441336655431,
+      "after_monotonic_ns": 611441336704864,
+      "actual_receipt_monotonic_s": 611441.33666122,
+      "R_sim_ns": 100010000000,
+      "fault": null
+    },
+    {
+      "robot": 2,
+      "sequence": 1,
+      "state": {
+        "ready": true,
+        "sequence": 1,
+        "generated_sim": 0.0,
+        "odom_stamps": {
+          "tb1": 0.0,
+          "tb2": 0.0,
+          "tb3": 0.0
+        },
+        "correction_stamps": {
+          "tb1": 0.0,
+          "tb2": 0.0,
+          "tb3": 0.0
+        }
+      },
+      "accepted": true,
+      "before_monotonic_ns": 611441336718320,
+      "after_monotonic_ns": 611441336732189,
+      "actual_receipt_monotonic_s": 611441.336719608,
+      "R_sim_ns": 100010000000,
+      "fault": null
+    },
+    {
+      "robot": 1,
+      "sequence": 4,
+      "state": {
+        "ready": true,
+        "sequence": 4,
+        "generated_sim": 100.03,
+        "odom_stamps": {
+          "tb1": 100.03,
+          "tb2": 100.03,
+          "tb3": 100.03
+        },
+        "correction_stamps": {
+          "tb1": 100.03,
+          "tb2": 100.03,
+          "tb3": 100.03
+        }
+      },
+      "accepted": true,
+      "before_monotonic_ns": 611441394646029,
+      "after_monotonic_ns": 611441394693034,
+      "actual_receipt_monotonic_s": 611441.39465219,
+      "R_sim_ns": 100040000000,
+      "fault": null
+    },
+    {
+      "robot": 2,
+      "sequence": 4,
+      "state": {
+        "ready": true,
+        "sequence": 4,
+        "generated_sim": 100.03,
+        "odom_stamps": {
+          "tb1": 100.03,
+          "tb2": 100.03,
+          "tb3": 100.03
+        },
+        "correction_stamps": {
+          "tb1": 100.03,
+          "tb2": 100.03,
+          "tb3": 100.03
+        }
+      },
+      "accepted": true,
+      "before_monotonic_ns": 611441394706181,
+      "after_monotonic_ns": 611441394720242,
+      "actual_receipt_monotonic_s": 611441.394707868,
+      "R_sim_ns": 100040000000,
+      "fault": null
+    },
+    {
+      "robot": 1,
+      "sequence": 7,
+      "state": {
+        "ready": true,
+        "sequence": 7,
+        "generated_sim": 100.06,
+        "odom_stamps": {
+          "tb1": 100.06,
+          "tb2": 100.06,
+          "tb3": 100.06
+        },
+        "correction_stamps": {
+          "tb1": 100.06,
+          "tb2": 100.06,
+          "tb3": 100.06
+        }
+      },
+      "accepted": true,
+      "before_monotonic_ns": 611441454151722,
+      "after_monotonic_ns": 611441454197190,
+      "actual_receipt_monotonic_s": 611441.454156862,
+      "R_sim_ns": 100070000000,
+      "fault": null
+    },
+    {
+      "robot": 2,
+      "sequence": 7,
+      "state": {
+        "ready": true,
+        "sequence": 7,
+        "generated_sim": 100.06,
+        "odom_stamps": {
+          "tb1": 100.06,
+          "tb2": 100.06,
+          "tb3": 100.06
+        },
+        "correction_stamps": {
+          "tb1": 100.06,
+          "tb2": 100.06,
+          "tb3": 100.06
+        }
+      },
+      "accepted": true,
+      "before_monotonic_ns": 611441454211183,
+      "after_monotonic_ns": 611441454225566,
+      "actual_receipt_monotonic_s": 611441.454212982,
+      "R_sim_ns": 100070000000,
+      "fault": null
+    }
+  ],
+  "direct_masks": [
+    {
+      "robot": 1,
+      "binding": {
+        "version": "mask-publication-batch-v1",
+        "session_id": 2026111154,
+        "robot": "tb1",
+        "original_header": {
+          "stamp_sec": 0,
+          "stamp_nanosec": 0,
+          "frame_id": "odom"
+        },
+        "mask_cdr_bytes": 105,
+        "mask_cdr_sha256": "9f50a86fb9f21eb3778a7399ef8102656a1265201c4978213a899078777f6c80",
+        "health_cdr_sha256": "073ff2fc33e8a8c8c91beb9e4e6a134148a60ee21413276e3b0dc813ba70afd9",
+        "bound_state": {
+          "ready": true,
+          "generated_sim": 0.0,
+          "sequence": 1,
+          "odom_stamps": {
+            "tb1": 0.0,
+            "tb2": 0.0,
+            "tb3": 0.0
+          },
+          "correction_stamps": {
+            "tb1": 0.0,
+            "tb2": 0.0,
+            "tb3": 0.0
+          }
+        },
+        "captured_monotonic_ns": 611441327335855
+      },
+      "accepted": false,
+      "validation_before_monotonic_ns": 611441339776014,
+      "validation_after_monotonic_ns": 611441340287629,
+      "accept_after_monotonic_ns": 611441340357339,
+      "actual_receipt_monotonic_s": null,
+      "R_sim_ns": 100010000000
+    },
+    {
+      "robot": 2,
+      "binding": {
+        "version": "mask-publication-batch-v1",
+        "session_id": 2026111154,
+        "robot": "tb2",
+        "original_header": {
+          "stamp_sec": 0,
+          "stamp_nanosec": 0,
+          "frame_id": "odom"
+        },
+        "mask_cdr_bytes": 105,
+        "mask_cdr_sha256": "9f50a86fb9f21eb3778a7399ef8102656a1265201c4978213a899078777f6c80",
+        "health_cdr_sha256": "073ff2fc33e8a8c8c91beb9e4e6a134148a60ee21413276e3b0dc813ba70afd9",
+        "bound_state": {
+          "ready": true,
+          "generated_sim": 0.0,
+          "sequence": 1,
+          "odom_stamps": {
+            "tb1": 0.0,
+            "tb2": 0.0,
+            "tb3": 0.0
+          },
+          "correction_stamps": {
+            "tb1": 0.0,
+            "tb2": 0.0,
+            "tb3": 0.0
+          }
+        },
+        "captured_monotonic_ns": 611441327654510
+      },
+      "accepted": false,
+      "validation_before_monotonic_ns": 611441342740059,
+      "validation_after_monotonic_ns": 611441343187661,
+      "accept_after_monotonic_ns": 611441343251355,
+      "actual_receipt_monotonic_s": null,
+      "R_sim_ns": 100010000000
+    },
+    {
+      "robot": 1,
+      "binding": {
+        "version": "mask-publication-batch-v1",
+        "session_id": 2026111154,
+        "robot": "tb1",
+        "original_header": {
+          "stamp_sec": 100,
+          "stamp_nanosec": 30000000,
+          "frame_id": "odom"
+        },
+        "mask_cdr_bytes": 105,
+        "mask_cdr_sha256": "efd38135fb93fd64bb6fed83f66ddd124130258ce550df930a4e9004ee725b05",
+        "health_cdr_sha256": "41cb854984ace50dbc4f4877208e6833ec0de31c4404bda9924eaed4a2965d9b",
+        "bound_state": {
+          "ready": true,
+          "generated_sim": 100.03,
+          "sequence": 4,
+          "odom_stamps": {
+            "tb1": 100.03,
+            "tb2": 100.03,
+            "tb3": 100.03
+          },
+          "correction_stamps": {
+            "tb1": 100.03,
+            "tb2": 100.03,
+            "tb3": 100.03
+          }
+        },
+        "captured_monotonic_ns": 611441388054071
+      },
+      "accepted": true,
+      "validation_before_monotonic_ns": 611441397727054,
+      "validation_after_monotonic_ns": 611441398139336,
+      "accept_after_monotonic_ns": 611441398219156,
+      "actual_receipt_monotonic_s": 611441.3982037,
+      "R_sim_ns": 100040000000
+    },
+    {
+      "robot": 2,
+      "binding": {
+        "version": "mask-publication-batch-v1",
+        "session_id": 2026111154,
+        "robot": "tb2",
+        "original_header": {
+          "stamp_sec": 100,
+          "stamp_nanosec": 30000000,
+          "frame_id": "odom"
+        },
+        "mask_cdr_bytes": 105,
+        "mask_cdr_sha256": "efd38135fb93fd64bb6fed83f66ddd124130258ce550df930a4e9004ee725b05",
+        "health_cdr_sha256": "41cb854984ace50dbc4f4877208e6833ec0de31c4404bda9924eaed4a2965d9b",
+        "bound_state": {
+          "ready": true,
+          "generated_sim": 100.03,
+          "sequence": 4,
+          "odom_stamps": {
+            "tb1": 100.03,
+            "tb2": 100.03,
+            "tb3": 100.03
+          },
+          "correction_stamps": {
+            "tb1": 100.03,
+            "tb2": 100.03,
+            "tb3": 100.03
+          }
+        },
+        "captured_monotonic_ns": 611441388323475
+      },
+      "accepted": true,
+      "validation_before_monotonic_ns": 611441401461825,
+      "validation_after_monotonic_ns": 611441401958490,
+      "accept_after_monotonic_ns": 611441402048125,
+      "actual_receipt_monotonic_s": 611441.402033225,
+      "R_sim_ns": 100040000000
+    },
+    {
+      "robot": 1,
+      "binding": {
+        "version": "mask-publication-batch-v1",
+        "session_id": 2026111154,
+        "robot": "tb1",
+        "original_header": {
+          "stamp_sec": 100,
+          "stamp_nanosec": 60000000,
+          "frame_id": "odom"
+        },
+        "mask_cdr_bytes": 105,
+        "mask_cdr_sha256": "39f840269f5410096ee69f307ca81c3f894e4b2823c0234f0b6796e41c69a0ae",
+        "health_cdr_sha256": "eac22a842ff951f4fc9556d6361d0626c4af0cb586a137daa558bf55c42dd087",
+        "bound_state": {
+          "ready": true,
+          "generated_sim": 100.06,
+          "sequence": 7,
+          "odom_stamps": {
+            "tb1": 100.06,
+            "tb2": 100.06,
+            "tb3": 100.06
+          },
+          "correction_stamps": {
+            "tb1": 100.06,
+            "tb2": 100.06,
+            "tb3": 100.06
+          }
+        },
+        "captured_monotonic_ns": 611441449411959
+      },
+      "accepted": true,
+      "validation_before_monotonic_ns": 611441455709229,
+      "validation_after_monotonic_ns": 611441456128252,
+      "accept_after_monotonic_ns": 611441456202184,
+      "actual_receipt_monotonic_s": 611441.456188228,
+      "R_sim_ns": 100070000000
+    },
+    {
+      "robot": 2,
+      "binding": {
+        "version": "mask-publication-batch-v1",
+        "session_id": 2026111154,
+        "robot": "tb2",
+        "original_header": {
+          "stamp_sec": 100,
+          "stamp_nanosec": 60000000,
+          "frame_id": "odom"
+        },
+        "mask_cdr_bytes": 105,
+        "mask_cdr_sha256": "39f840269f5410096ee69f307ca81c3f894e4b2823c0234f0b6796e41c69a0ae",
+        "health_cdr_sha256": "eac22a842ff951f4fc9556d6361d0626c4af0cb586a137daa558bf55c42dd087",
+        "bound_state": {
+          "ready": true,
+          "generated_sim": 100.06,
+          "sequence": 7,
+          "odom_stamps": {
+            "tb1": 100.06,
+            "tb2": 100.06,
+            "tb3": 100.06
+          },
+          "correction_stamps": {
+            "tb1": 100.06,
+            "tb2": 100.06,
+            "tb3": 100.06
+          }
+        },
+        "captured_monotonic_ns": 611441449658094
+      },
+      "accepted": true,
+      "validation_before_monotonic_ns": 611441457036315,
+      "validation_after_monotonic_ns": 611441457356131,
+      "accept_after_monotonic_ns": 611441457420191,
+      "actual_receipt_monotonic_s": 611441.457406877,
+      "R_sim_ns": 100070000000
+    }
+  ],
+  "admin_receipts": [
+    {
+      "monotonic_ns": 611441333851607,
+      "data": {
+        "session_id": 2026111154,
+        "mode": "RUN",
+        "failure": null,
+        "authority_exited": false,
+        "expected_shutdown": false
+      }
+    },
+    {
+      "monotonic_ns": 611441350345674,
+      "data": {
+        "session_id": 2026111154,
+        "mode": "RUN",
+        "failure": null,
+        "authority_exited": false,
+        "expected_shutdown": false
+      }
+    },
+    {
+      "monotonic_ns": 611441368916740,
+      "data": {
+        "session_id": 2026111154,
+        "mode": "RUN",
+        "failure": null,
+        "authority_exited": false,
+        "expected_shutdown": false
+      }
+    },
+    {
+      "monotonic_ns": 611441392791562,
+      "data": {
+        "session_id": 2026111154,
+        "mode": "RUN",
+        "failure": null,
+        "authority_exited": false,
+        "expected_shutdown": false
+      }
+    },
+    {
+      "monotonic_ns": 611441411557185,
+      "data": {
+        "session_id": 2026111154,
+        "mode": "RUN",
+        "failure": null,
+        "authority_exited": false,
+        "expected_shutdown": false
+      }
+    },
+    {
+      "monotonic_ns": 611441422435137,
+      "data": {
+        "session_id": 2026111154,
+        "mode": "HOLD",
+        "failure": null,
+        "authority_exited": true,
+        "expected_shutdown": false
+      }
+    },
+    {
+      "monotonic_ns": 611441433598845,
+      "data": {
+        "session_id": 2026111154,
+        "mode": "HOLD",
+        "failure": null,
+        "authority_exited": true,
+        "expected_shutdown": false
+      }
+    },
+    {
+      "monotonic_ns": 611441452560939,
+      "data": {
+        "session_id": 2026111154,
+        "mode": "HOLD",
+        "failure": null,
+        "authority_exited": true,
+        "expected_shutdown": false
+      }
+    },
+    {
+      "monotonic_ns": 611441470813656,
+      "data": {
+        "session_id": 2026111154,
+        "mode": "HOLD",
+        "failure": null,
+        "authority_exited": true,
+        "expected_shutdown": false
+      }
+    },
+    {
+      "monotonic_ns": 611441491256204,
+      "data": {
+        "session_id": 2026111154,
+        "mode": "HOLD",
+        "failure": null,
+        "authority_exited": true,
+        "expected_shutdown": false
+      }
+    }
+  ],
+  "registry_before_close": {
+    "session_id": 2026111154,
+    "events": [
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611441407648094,
+        "request": {
+          "session_id": 2026111154,
+          "robot": 1,
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "token": 1,
+          "kind": "request",
+          "deadline_ns": 611441506677198
+        },
+        "reply": {
+          "session_id": 2026111154,
+          "robot": 1,
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "kind": "request",
+          "token": 1,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611441412277800,
+        "request": {
+          "session_id": 2026111154,
+          "robot": 2,
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "token": 1,
+          "kind": "request",
+          "deadline_ns": 611441510698502
+        },
+        "reply": {
+          "session_id": 2026111154,
+          "robot": 2,
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "kind": "request",
+          "token": 1,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611441427965496,
+        "request": {
+          "session_id": 2026111154,
+          "robot": 1,
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "token": 1,
+          "kind": "response",
+          "deadline_ns": 611441526329724,
+          "accepted": true,
+          "accepted_uuid": "0e0102030405060708090a0b0c0d0e0f"
+        },
+        "reply": {
+          "session_id": 2026111154,
+          "robot": 1,
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "kind": "response",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611441453416775,
+        "request": {
+          "session_id": 2026111154,
+          "robot": 2,
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "token": 1,
+          "kind": "response",
+          "deadline_ns": 611441552482544,
+          "accepted": true,
+          "accepted_uuid": "0e0202030405060708090a0b0c0d0e0f"
+        },
+        "reply": {
+          "session_id": 2026111154,
+          "robot": 2,
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "kind": "response",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611441486729584,
+        "request": {
+          "session_id": 2026111154,
+          "robot": 1,
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "token": 1,
+          "kind": "result",
+          "deadline_ns": 611441585868197,
+          "raw_status": 5
+        },
+        "reply": {
+          "session_id": 2026111154,
+          "robot": 1,
+          "uuid": "0e0102030405060708090a0b0c0d0e0f",
+          "kind": "result",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611441490993803,
+        "request": {
+          "session_id": 2026111154,
+          "robot": 2,
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "token": 1,
+          "kind": "result",
+          "deadline_ns": 611441589387905,
+          "raw_status": 5
+        },
+        "reply": {
+          "session_id": 2026111154,
+          "robot": 2,
+          "uuid": "0e0202030405060708090a0b0c0d0e0f",
+          "kind": "result",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      }
+    ],
+    "registrations": [
+      {
+        "robot": 1,
+        "uuid": "0e0102030405060708090a0b0c0d0e0f",
+        "token": 1,
+        "registered_monotonic_ns": 611441407640196
+      },
+      {
+        "robot": 2,
+        "uuid": "0e0202030405060708090a0b0c0d0e0f",
+        "token": 1,
+        "registered_monotonic_ns": 611441412271264
+      }
+    ],
+    "connections": 0,
+    "owned_unknown_or_active": {
+      "1": [],
+      "2": []
+    }
+  },
+  "registry_actual_close": {
+    "listener_fileno": -1,
+    "remaining_connections": 0,
+    "socket_exists": false
+  },
+  "executor_shutdown": [
+    true,
+    true,
+    true
+  ],
+  "context_ok_after_shutdown": false
+}

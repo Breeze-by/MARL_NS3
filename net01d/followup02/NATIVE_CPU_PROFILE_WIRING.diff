@@ -1,0 +1,52 @@
+--- before/net01/tools/packet_hub.py
++++ after/net01/tools/packet_hub.py
+@@ -92,10 +92,11 @@
+     command = [str(args.native.resolve()), f"--output={native_output.resolve()}", f"--profile={args.profile}"]
+     if args.native_transport == "tcp-v1":command.append("--transport=tcp-v1")
+     if args.control_trace:command.append('--controlTrace=1')
++    if args.native_cpu_profile:command.append('--cpuProfile=1')
+     process = await asyncio.create_subprocess_exec(*command, stdin=asyncio.subprocess.PIPE,
+         stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE if args.control_trace else stderr)
+     result = dict(argv=command, scope="Unix IPC to actual ns3 full-payload transport", status="FAIL",
+-                  native_transport=args.native_transport)
++                  native_transport=args.native_transport,native_cpu_profile=args.native_cpu_profile)
+     if storage is not None:result['native_evidence_storage'] = storage
+     server = None
+     owner = None
+@@ -309,6 +310,8 @@
+     parser.add_argument("--allow-radio-fault", action="store_true", help="Independent no-motion negative fixture only")
+     parser.add_argument("--clock-source", choices=("synthetic","gazebo"), default="synthetic")
+     parser.add_argument('--control-trace',action='store_true')
++    parser.add_argument('--native-cpu-profile',action='store_true',
++        help='Opt-in native CPU attribution, with added chrono/output overhead; use with control trace')
+     parser.add_argument('--native-evidence-ram',type=Path,
+         help='Explicit owned /dev/shm directory; copy all native evidence after actual exit')
+     parser.add_argument('--step-observer',type=Path,
+--- before/net01d/run_replay.py
++++ after/net01d/run_replay.py
+@@ -33,6 +33,7 @@
+     parser.add_argument('--output-dir',type=Path,help='Exclusive case output inside this repository; default legacy path unchanged')
+     parser.add_argument('--native',type=Path,default=NATIVE)
+     parser.add_argument('--native-transport',choices=('udp','tcp-v1'),default='udp')
++    parser.add_argument('--native-cpu-profile',action='store_true')
+     parser.add_argument('--baseline',type=Path,default=BASELINE)
+     parser.add_argument('--native-evidence-ram',type=Path)
+     parser.add_argument('--payloads',type=Path)
+@@ -120,7 +121,7 @@
+             'feedback100wall; exactzero_cmd20wall; Peer masks/health10sim unchanged',
+         missing_flows=[89,95],scope='P1 independent-source size/cadence approximation, not SLAM/full-system/P5',
+         native=str(args.native),baseline=str(args.baseline),
+-        native_transport=args.native_transport,
++        native_transport=args.native_transport,native_cpu_profile=args.native_cpu_profile,
+         mock_phase=args.mock_phase,main_thread_sample=args.main_thread_sample,
+         native_evidence_ram=None if args.native_evidence_ram is None else str(args.native_evidence_ram),
+         Gazebo=0,Nav2=0,Goal=0,NN=0,arm_guard=False)
+@@ -170,7 +171,7 @@
+             '--step-observer',str(base/'step.sock')]+
+             (['--allow-radio-fault'] if full and args.arm=='B' else [])+
+             ([] if args.native_evidence_ram is None else
+-                ['--native-evidence-ram',str(args.native_evidence_ram)]),
++                ['--native-evidence-ram',str(args.native_evidence_ram)])+([] if not args.native_cpu_profile else ['--native-cpu-profile']),
+             'IPC_LISTENING '+str(base/'wire.sock'))
+         children=Path('/proc')/str(processes['hub'].pid)/'task'/str(processes['hub'].pid)/'children'
+         identities['native_children']=children.read_text().split()

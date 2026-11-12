@@ -1,0 +1,35 @@
+{
+  "status": "FINAL producer delivery; encompassing Git commit reported to root after commit",
+  "base_root_review_commit": "690202b96902fb71570999c2949139d2108a96b7",
+  "B_admission_commit": "45bdfdbf468ab7a222fb5cd6e0a659eb9a6fa47c",
+  "production_runtime": "b7f5e92353d2580e90881d0b39342c840c56694f",
+  "fixture_only_source_clock": "8a9ecdc3462fc389b4891df51303dcffc660bc41",
+  "production_source_diff": "git diff690202b..b7f5e923; exact B changed-file binding: B01_ADAPTER_BINDING.json; no new production edits after B",
+  "model_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+  "Native_sha256": "82bc8ecff7d1e88d826931be534335fac21971fa8e6a23731af805f291c7e184",
+  "B_plugin_sha256": "a49b00dedab1f6c2352bdef1e9eb849dcdba2662a7990f9e15ebe75428941ecf",
+  "witness_sha256": "2560e229ab99b3cc9d7031aca4f0ce01795713e7f01b8bf08fcd049f67bd5a06",
+  "artifact_identity_sources": [
+    "B01_ADAPTER_BINDING.json",
+    "PLUGIN_LIFETIME_IDENTITY.json",
+    "A09_CONTROL_ARTIFACTS.json"
+  ],
+  "reports": [
+    "REPORT.md",
+    "RUN_LEDGER.json",
+    "A09_EVIDENCE_SUMMARY.json",
+    "A10_EVIDENCE_SUMMARY.json",
+    "B01_EVIDENCE_SUMMARY.json"
+  ],
+  "actual_Gazebo_budget": {
+    "used": 3,
+    "maximum": 3,
+    "cumulative": 95,
+    "C": "NOT RUN"
+  },
+  "outcome": "NET01 BLOCKED; actual B FAIL; no NET02",
+  "raw": "Original runs and RAM evidence remain in place; no raw/bag/build/rootfs copied into Git",
+  "validation": "One original offline evaluator per A09/A10/B, original plots of existing extracted data; no further experiments",
+  "independent_review": "Root-owned INDEPENDENT_REVIEW.md excluded from producer commit",
+  "push": false
+}

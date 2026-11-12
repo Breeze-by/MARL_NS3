@@ -1,0 +1,298 @@
+{
+  "status": "PASS_ZERO_ROBOT_LIFECYCLE_ONLY",
+  "tool_exit": 0,
+  "runtime_source": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "activation_commit": "4d8028c",
+  "actual_command": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "200s",
+    "python3",
+    "-B",
+    "net01d/followup04/gateway-exit/check.py",
+    "--directory",
+    "net01d/followup04/gateway-exit/run-01"
+  ],
+  "completed_utc": "2026-11-11T10:33:56.115231+00:00",
+  "completed_monotonic_ns": 610277597643197,
+  "cases": [
+    {
+      "case": "closed_slow_persist_exit0",
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/check.py",
+        "--directory",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/run-01/closed_slow_persist_exit0",
+        "--child",
+        "closed_slow_persist_exit0"
+      ],
+      "pid": 807980,
+      "exit": 0,
+      "wall_s": 22.205794139,
+      "resources_marker": true,
+      "saved": true,
+      "extension": true,
+      "phases": [
+        "close_begin",
+        "resources_closed",
+        "persist_begin",
+        "persist_end",
+        "close_return",
+        "fixture_child_main_return"
+      ],
+      "supervisor": "supervisor.json",
+      "owned_gone": true,
+      "signal_timing": [
+        {
+          "signal": "SIGINT",
+          "since_shutdown_s": 6.5663e-05,
+          "deadline_ns": 610078994682788
+        }
+      ],
+      "observed_exit_since_shutdown_s": 22.067634859,
+      "phase_timing": [
+        {
+          "phase": "close_begin",
+          "since_shutdown_s": 0.002312105
+        },
+        {
+          "phase": "resources_closed",
+          "since_shutdown_s": 0.002971072
+        },
+        {
+          "phase": "persist_begin",
+          "since_shutdown_s": 0.003477069
+        },
+        {
+          "phase": "persist_end",
+          "since_shutdown_s": 22.026634068
+        },
+        {
+          "phase": "close_return",
+          "since_shutdown_s": 22.026858943
+        },
+        {
+          "phase": "fixture_child_main_return",
+          "since_shutdown_s": 22.027069973
+        }
+      ],
+      "supervisor_path": "net01d/followup04/gateway-exit/run-01/closed_slow_persist_exit0/supervisor.json",
+      "phase_path": "net01d/followup04/gateway-exit/run-01/closed_slow_persist_exit0/network-gateway-close-phases.jsonl"
+    },
+    {
+      "case": "unclosed",
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/check.py",
+        "--directory",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/run-01/unclosed",
+        "--child",
+        "unclosed"
+      ],
+      "pid": 808702,
+      "exit": -9,
+      "wall_s": 25.159841302,
+      "resources_marker": false,
+      "saved": false,
+      "extension": false,
+      "phases": [
+        "close_begin"
+      ],
+      "supervisor": "supervisor.json",
+      "owned_gone": true,
+      "signal_timing": [
+        {
+          "signal": "SIGINT",
+          "since_shutdown_s": 5.1957e-05,
+          "deadline_ns": 610101202204157
+        },
+        {
+          "signal": "SIGTERM",
+          "since_shutdown_s": 20.000498795,
+          "deadline_ns": 610106202204157
+        },
+        {
+          "signal": "SIGKILL",
+          "since_shutdown_s": 25.000181605,
+          "deadline_ns": 610111202204157
+        }
+      ],
+      "observed_exit_since_shutdown_s": 25.020457381,
+      "phase_timing": [
+        {
+          "phase": "close_begin",
+          "since_shutdown_s": 0.002579781
+        }
+      ],
+      "supervisor_path": "net01d/followup04/gateway-exit/run-01/unclosed/supervisor.json",
+      "phase_path": "net01d/followup04/gateway-exit/run-01/unclosed/network-gateway-close-phases.jsonl"
+    },
+    {
+      "case": "persist_stall",
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/check.py",
+        "--directory",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/run-01/persist_stall",
+        "--child",
+        "persist_stall"
+      ],
+      "pid": 809540,
+      "exit": -9,
+      "wall_s": 55.158118619,
+      "resources_marker": true,
+      "saved": false,
+      "extension": true,
+      "phases": [
+        "close_begin",
+        "resources_closed",
+        "persist_begin"
+      ],
+      "supervisor": "supervisor.json",
+      "owned_gone": true,
+      "signal_timing": [
+        {
+          "signal": "SIGINT",
+          "since_shutdown_s": 4.7733e-05,
+          "deadline_ns": 610126360665240
+        },
+        {
+          "signal": "SIGTERM",
+          "since_shutdown_s": 50.000201338,
+          "deadline_ns": 610161360665240
+        },
+        {
+          "signal": "SIGKILL",
+          "since_shutdown_s": 55.000178371,
+          "deadline_ns": 610166360665240
+        }
+      ],
+      "observed_exit_since_shutdown_s": 55.020453394,
+      "phase_timing": [
+        {
+          "phase": "close_begin",
+          "since_shutdown_s": 0.002644178
+        },
+        {
+          "phase": "resources_closed",
+          "since_shutdown_s": 0.003212128
+        },
+        {
+          "phase": "persist_begin",
+          "since_shutdown_s": 0.003673983
+        }
+      ],
+      "supervisor_path": "net01d/followup04/gateway-exit/run-01/persist_stall/supervisor.json",
+      "phase_path": "net01d/followup04/gateway-exit/run-01/persist_stall/network-gateway-close-phases.jsonl"
+    },
+    {
+      "case": "saved_exit_stall",
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/check.py",
+        "--directory",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/run-01/saved_exit_stall",
+        "--child",
+        "saved_exit_stall"
+      ],
+      "pid": 811341,
+      "exit": -9,
+      "wall_s": 55.167740128,
+      "resources_marker": true,
+      "saved": true,
+      "extension": true,
+      "phases": [
+        "close_begin",
+        "resources_closed",
+        "persist_begin",
+        "persist_end",
+        "close_return"
+      ],
+      "supervisor": "supervisor.json",
+      "owned_gone": true,
+      "signal_timing": [
+        {
+          "signal": "SIGINT",
+          "since_shutdown_s": 4.5257e-05,
+          "deadline_ns": 610181526238018
+        },
+        {
+          "signal": "SIGTERM",
+          "since_shutdown_s": 50.00061002,
+          "deadline_ns": 610216526238018
+        },
+        {
+          "signal": "SIGKILL",
+          "since_shutdown_s": 55.000154087,
+          "deadline_ns": 610221526238018
+        }
+      ],
+      "observed_exit_since_shutdown_s": 55.020592804,
+      "phase_timing": [
+        {
+          "phase": "close_begin",
+          "since_shutdown_s": 0.000879608
+        },
+        {
+          "phase": "resources_closed",
+          "since_shutdown_s": 0.001493045
+        },
+        {
+          "phase": "persist_begin",
+          "since_shutdown_s": 0.001986687
+        },
+        {
+          "phase": "persist_end",
+          "since_shutdown_s": 0.002600975
+        },
+        {
+          "phase": "close_return",
+          "since_shutdown_s": 0.002800274
+        }
+      ],
+      "supervisor_path": "net01d/followup04/gateway-exit/run-01/saved_exit_stall/supervisor.json",
+      "phase_path": "net01d/followup04/gateway-exit/run-01/saved_exit_stall/network-gateway-close-phases.jsonl"
+    }
+  ],
+  "short_checks": {
+    "host_actual_command_branches": 3,
+    "invalid_marker_cases": [
+      "missing",
+      "stale_PID",
+      "session",
+      "case",
+      "old_monotonic"
+    ],
+    "default_no_extension_and_reentry_FSM": true,
+    "short_parent_bound_FSM": true,
+    "scope": "Actual extracted functions with injected clocks/signals, NOT real wall/ROS/physical proof"
+  },
+  "owned_pid_present": {
+    "807978": false,
+    "807980": false,
+    "808702": false,
+    "809540": false,
+    "811341": false
+  },
+  "measured_case_wall_total_s": 157.691494188,
+  "bounds": {
+    "actual_production_total_s": 60,
+    "per_child_fixture_parent_s": 65,
+    "suite_outer_s": 200
+  },
+  "source_scope": "Actual extracted production close/_close/persist/poststop_phase and new supervisor; fake Hub/executors/contexts/stop-seal precondition. No ROS/ns3/GZ/robotics.",
+  "limitations": [
+    "22s is injected delay plus tiny actual persistence, not351MB load or ROS capacity",
+    "Short command/proof/deadline tests are pure AST/FSM checks, not wall/physical measurements",
+    "Three expected negatives exit-9 remain failed processes, not normal exit",
+    "This does not prove or repair the historical B process outcome, identify its post-save GC/destructor cause, or authorize another run"
+  ],
+  "no_retry_or_source_modification": true
+}

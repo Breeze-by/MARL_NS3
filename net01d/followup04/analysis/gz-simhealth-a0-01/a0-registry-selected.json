@@ -1,0 +1,1004 @@
+{
+  "direct_reference": true,
+  "business_wires_installed": false,
+  "registry": {
+    "session_id": 2026111152,
+    "events": [
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611677831983370,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "27b60ae64f894e278db7e640c55b1733",
+          "token": 1,
+          "kind": "request",
+          "deadline_ns": 611677929778783
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "27b60ae64f894e278db7e640c55b1733",
+          "kind": "request",
+          "token": 1,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611677839794500,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "25e91375031649c0bb1e30294a992e33",
+          "token": 1,
+          "kind": "request",
+          "deadline_ns": 611677938562116
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "25e91375031649c0bb1e30294a992e33",
+          "kind": "request",
+          "token": 1,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611677847994906,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "045eb738e904443395ee038d1833ef7f",
+          "token": 1,
+          "kind": "request",
+          "deadline_ns": 611677945741317
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "045eb738e904443395ee038d1833ef7f",
+          "kind": "request",
+          "token": 1,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611677866324053,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "27b60ae64f894e278db7e640c55b1733",
+          "token": 1,
+          "kind": "response",
+          "deadline_ns": 611677964392348,
+          "accepted": true,
+          "accepted_uuid": "27b60ae64f894e278db7e640c55b1733"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "27b60ae64f894e278db7e640c55b1733",
+          "kind": "response",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611677902933135,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "25e91375031649c0bb1e30294a992e33",
+          "token": 1,
+          "kind": "response",
+          "deadline_ns": 611678001662372,
+          "accepted": true,
+          "accepted_uuid": "25e91375031649c0bb1e30294a992e33"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "25e91375031649c0bb1e30294a992e33",
+          "kind": "response",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611677908651455,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "045eb738e904443395ee038d1833ef7f",
+          "token": 1,
+          "kind": "response",
+          "deadline_ns": 611678005950795,
+          "accepted": true,
+          "accepted_uuid": "045eb738e904443395ee038d1833ef7f"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "045eb738e904443395ee038d1833ef7f",
+          "kind": "response",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611691210079687,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "27b60ae64f894e278db7e640c55b1733",
+          "token": 1,
+          "kind": "result",
+          "deadline_ns": 611691308706835,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "27b60ae64f894e278db7e640c55b1733",
+          "kind": "result",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611692196127003,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "045eb738e904443395ee038d1833ef7f",
+          "token": 1,
+          "kind": "result",
+          "deadline_ns": 611692294798273,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "045eb738e904443395ee038d1833ef7f",
+          "kind": "result",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611693712338753,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "7683ae2678224f80b8af67fa4cedbf19",
+          "token": 2,
+          "kind": "request",
+          "deadline_ns": 611693810679754
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "7683ae2678224f80b8af67fa4cedbf19",
+          "kind": "request",
+          "token": 2,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611693720105254,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "f747c1e4f775402f87029ad4fe50a294",
+          "token": 2,
+          "kind": "request",
+          "deadline_ns": 611693818168588
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "f747c1e4f775402f87029ad4fe50a294",
+          "kind": "request",
+          "token": 2,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611693768583284,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "7683ae2678224f80b8af67fa4cedbf19",
+          "token": 2,
+          "kind": "response",
+          "deadline_ns": 611693865466279,
+          "accepted": true,
+          "accepted_uuid": "7683ae2678224f80b8af67fa4cedbf19"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "7683ae2678224f80b8af67fa4cedbf19",
+          "kind": "response",
+          "token": 2,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611693775120185,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "f747c1e4f775402f87029ad4fe50a294",
+          "token": 2,
+          "kind": "response",
+          "deadline_ns": 611693872857074,
+          "accepted": true,
+          "accepted_uuid": "f747c1e4f775402f87029ad4fe50a294"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "f747c1e4f775402f87029ad4fe50a294",
+          "kind": "response",
+          "token": 2,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611695141167595,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "25e91375031649c0bb1e30294a992e33",
+          "token": 1,
+          "kind": "result",
+          "deadline_ns": 611695238156268,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "25e91375031649c0bb1e30294a992e33",
+          "kind": "result",
+          "token": 1,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611701687482028,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "55407e7d209642468882ea5f4892a1fb",
+          "token": 2,
+          "kind": "request",
+          "deadline_ns": 611701784850758
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "55407e7d209642468882ea5f4892a1fb",
+          "kind": "request",
+          "token": 2,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611701707337113,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "55407e7d209642468882ea5f4892a1fb",
+          "token": 2,
+          "kind": "response",
+          "deadline_ns": 611701804829817,
+          "accepted": true,
+          "accepted_uuid": "55407e7d209642468882ea5f4892a1fb"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "55407e7d209642468882ea5f4892a1fb",
+          "kind": "response",
+          "token": 2,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611723210713557,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "f747c1e4f775402f87029ad4fe50a294",
+          "token": 2,
+          "kind": "result",
+          "deadline_ns": 611723308650167,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "f747c1e4f775402f87029ad4fe50a294",
+          "kind": "result",
+          "token": 2,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611725597530361,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "565f1b9e62484bae813eb529b64bdac5",
+          "token": 3,
+          "kind": "request",
+          "deadline_ns": 611725695062157
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "565f1b9e62484bae813eb529b64bdac5",
+          "kind": "request",
+          "token": 3,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611725625171116,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "565f1b9e62484bae813eb529b64bdac5",
+          "token": 3,
+          "kind": "response",
+          "deadline_ns": 611725719610779,
+          "accepted": true,
+          "accepted_uuid": "565f1b9e62484bae813eb529b64bdac5"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "565f1b9e62484bae813eb529b64bdac5",
+          "kind": "response",
+          "token": 3,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611726510682602,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "7683ae2678224f80b8af67fa4cedbf19",
+          "token": 2,
+          "kind": "result",
+          "deadline_ns": 611726609181598,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "7683ae2678224f80b8af67fa4cedbf19",
+          "kind": "result",
+          "token": 2,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611727004773318,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "55407e7d209642468882ea5f4892a1fb",
+          "token": 2,
+          "kind": "result",
+          "deadline_ns": 611727103521953,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "55407e7d209642468882ea5f4892a1fb",
+          "kind": "result",
+          "token": 2,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611733445318198,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "eb8df28c770941fab4a67e4260388ca5",
+          "token": 3,
+          "kind": "request",
+          "deadline_ns": 611733542483225
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "eb8df28c770941fab4a67e4260388ca5",
+          "kind": "request",
+          "token": 3,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611733452860027,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "3e6aacd89c214c9ea6b69b7f4e017dcd",
+          "token": 3,
+          "kind": "request",
+          "deadline_ns": 611733551660386
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "3e6aacd89c214c9ea6b69b7f4e017dcd",
+          "kind": "request",
+          "token": 3,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611733467218291,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "eb8df28c770941fab4a67e4260388ca5",
+          "token": 3,
+          "kind": "response",
+          "deadline_ns": 611733565436483,
+          "accepted": true,
+          "accepted_uuid": "eb8df28c770941fab4a67e4260388ca5"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "eb8df28c770941fab4a67e4260388ca5",
+          "kind": "response",
+          "token": 3,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611733473887033,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "3e6aacd89c214c9ea6b69b7f4e017dcd",
+          "token": 3,
+          "kind": "response",
+          "deadline_ns": 611733572657952,
+          "accepted": true,
+          "accepted_uuid": "3e6aacd89c214c9ea6b69b7f4e017dcd"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "3e6aacd89c214c9ea6b69b7f4e017dcd",
+          "kind": "response",
+          "token": 3,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611750068491906,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "3e6aacd89c214c9ea6b69b7f4e017dcd",
+          "token": 3,
+          "kind": "result",
+          "deadline_ns": 611750166623928,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 2,
+          "uuid": "3e6aacd89c214c9ea6b69b7f4e017dcd",
+          "kind": "result",
+          "token": 3,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611754631676628,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "eb8df28c770941fab4a67e4260388ca5",
+          "token": 3,
+          "kind": "result",
+          "deadline_ns": 611754730972789,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "eb8df28c770941fab4a67e4260388ca5",
+          "kind": "result",
+          "token": 3,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611758200296638,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "b66a23757e154c5c94c4e00197176d89",
+          "token": 4,
+          "kind": "request",
+          "deadline_ns": 611758297980928
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "b66a23757e154c5c94c4e00197176d89",
+          "kind": "request",
+          "token": 4,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611758219325389,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "b66a23757e154c5c94c4e00197176d89",
+          "token": 4,
+          "kind": "response",
+          "deadline_ns": 611758316729903,
+          "accepted": true,
+          "accepted_uuid": "b66a23757e154c5c94c4e00197176d89"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "b66a23757e154c5c94c4e00197176d89",
+          "kind": "response",
+          "token": 4,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611764744485923,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "565f1b9e62484bae813eb529b64bdac5",
+          "token": 3,
+          "kind": "result",
+          "deadline_ns": 611764843540218,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "565f1b9e62484bae813eb529b64bdac5",
+          "kind": "result",
+          "token": 3,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611766251775995,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "ecd35dcb791942c990cf924f0507f26a",
+          "token": 4,
+          "kind": "request",
+          "deadline_ns": 611766350431495
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "ecd35dcb791942c990cf924f0507f26a",
+          "kind": "request",
+          "token": 4,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611766268186040,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "ecd35dcb791942c990cf924f0507f26a",
+          "token": 4,
+          "kind": "response",
+          "deadline_ns": 611766366164541,
+          "accepted": true,
+          "accepted_uuid": "ecd35dcb791942c990cf924f0507f26a"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "ecd35dcb791942c990cf924f0507f26a",
+          "kind": "response",
+          "token": 4,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611836098330797,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "ecd35dcb791942c990cf924f0507f26a",
+          "token": 4,
+          "kind": "result",
+          "deadline_ns": 611836196680252,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 3,
+          "uuid": "ecd35dcb791942c990cf924f0507f26a",
+          "kind": "result",
+          "token": 4,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611843097748213,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "b66a23757e154c5c94c4e00197176d89",
+          "token": 4,
+          "kind": "result",
+          "deadline_ns": 611843195900584,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "b66a23757e154c5c94c4e00197176d89",
+          "kind": "result",
+          "token": 4,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611844430924832,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "f70c5771d1ec44968a9a6fabb58b0d0b",
+          "token": 5,
+          "kind": "request",
+          "deadline_ns": 611844527701295
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "f70c5771d1ec44968a9a6fabb58b0d0b",
+          "kind": "request",
+          "token": 5,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611844444990641,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "f70c5771d1ec44968a9a6fabb58b0d0b",
+          "token": 5,
+          "kind": "response",
+          "deadline_ns": 611844543137853,
+          "accepted": true,
+          "accepted_uuid": "f70c5771d1ec44968a9a6fabb58b0d0b"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "f70c5771d1ec44968a9a6fabb58b0d0b",
+          "kind": "response",
+          "token": 5,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611919386536647,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "f70c5771d1ec44968a9a6fabb58b0d0b",
+          "token": 5,
+          "kind": "result",
+          "deadline_ns": 611919485282535,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "f70c5771d1ec44968a9a6fabb58b0d0b",
+          "kind": "result",
+          "token": 5,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611922820177455,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "d4f75d6650f04b529c0b9a943b25265a",
+          "token": 6,
+          "kind": "request",
+          "deadline_ns": 611922919021146
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "d4f75d6650f04b529c0b9a943b25265a",
+          "kind": "request",
+          "token": 6,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611922871402076,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "d4f75d6650f04b529c0b9a943b25265a",
+          "token": 6,
+          "kind": "response",
+          "deadline_ns": 611922968481903,
+          "accepted": true,
+          "accepted_uuid": "d4f75d6650f04b529c0b9a943b25265a"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "d4f75d6650f04b529c0b9a943b25265a",
+          "kind": "response",
+          "token": 6,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611928954408328,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "d4f75d6650f04b529c0b9a943b25265a",
+          "token": 6,
+          "kind": "result",
+          "deadline_ns": 611929053154305,
+          "raw_status": 4
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "d4f75d6650f04b529c0b9a943b25265a",
+          "kind": "result",
+          "token": 6,
+          "ok": true,
+          "event_observed": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611930722527420,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "cb4c8515cce94742ab5791aab79fa4b1",
+          "token": 7,
+          "kind": "request",
+          "deadline_ns": 611930821511557
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "cb4c8515cce94742ab5791aab79fa4b1",
+          "kind": "request",
+          "token": 7,
+          "ok": true,
+          "registered": true
+        }
+      },
+      {
+        "kind": "safety_registration_or_evidence",
+        "monotonic_ns": 611930741569284,
+        "request": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "cb4c8515cce94742ab5791aab79fa4b1",
+          "token": 7,
+          "kind": "response",
+          "deadline_ns": 611930838538250,
+          "accepted": true,
+          "accepted_uuid": "cb4c8515cce94742ab5791aab79fa4b1"
+        },
+        "reply": {
+          "session_id": 2026111152,
+          "robot": 1,
+          "uuid": "cb4c8515cce94742ab5791aab79fa4b1",
+          "kind": "response",
+          "token": 7,
+          "ok": true,
+          "event_observed": true
+        }
+      }
+    ],
+    "registrations": [
+      {
+        "robot": 1,
+        "uuid": "27b60ae64f894e278db7e640c55b1733",
+        "token": 1,
+        "registered_monotonic_ns": 611677831974989
+      },
+      {
+        "robot": 2,
+        "uuid": "25e91375031649c0bb1e30294a992e33",
+        "token": 1,
+        "registered_monotonic_ns": 611677839787435
+      },
+      {
+        "robot": 3,
+        "uuid": "045eb738e904443395ee038d1833ef7f",
+        "token": 1,
+        "registered_monotonic_ns": 611677847987843
+      },
+      {
+        "robot": 1,
+        "uuid": "7683ae2678224f80b8af67fa4cedbf19",
+        "token": 2,
+        "registered_monotonic_ns": 611693712330536
+      },
+      {
+        "robot": 3,
+        "uuid": "f747c1e4f775402f87029ad4fe50a294",
+        "token": 2,
+        "registered_monotonic_ns": 611693720097598
+      },
+      {
+        "robot": 2,
+        "uuid": "55407e7d209642468882ea5f4892a1fb",
+        "token": 2,
+        "registered_monotonic_ns": 611701687472911
+      },
+      {
+        "robot": 3,
+        "uuid": "565f1b9e62484bae813eb529b64bdac5",
+        "token": 3,
+        "registered_monotonic_ns": 611725597521264
+      },
+      {
+        "robot": 1,
+        "uuid": "eb8df28c770941fab4a67e4260388ca5",
+        "token": 3,
+        "registered_monotonic_ns": 611733445306491
+      },
+      {
+        "robot": 2,
+        "uuid": "3e6aacd89c214c9ea6b69b7f4e017dcd",
+        "token": 3,
+        "registered_monotonic_ns": 611733452853506
+      },
+      {
+        "robot": 1,
+        "uuid": "b66a23757e154c5c94c4e00197176d89",
+        "token": 4,
+        "registered_monotonic_ns": 611758200288335
+      },
+      {
+        "robot": 3,
+        "uuid": "ecd35dcb791942c990cf924f0507f26a",
+        "token": 4,
+        "registered_monotonic_ns": 611766251768025
+      },
+      {
+        "robot": 1,
+        "uuid": "f70c5771d1ec44968a9a6fabb58b0d0b",
+        "token": 5,
+        "registered_monotonic_ns": 611844430916321
+      },
+      {
+        "robot": 1,
+        "uuid": "d4f75d6650f04b529c0b9a943b25265a",
+        "token": 6,
+        "registered_monotonic_ns": 611922820167058
+      },
+      {
+        "robot": 1,
+        "uuid": "cb4c8515cce94742ab5791aab79fa4b1",
+        "token": 7,
+        "registered_monotonic_ns": 611930722519381
+      }
+    ],
+    "connections": 0,
+    "owned_unknown_or_active": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+  "policy_transport": "original direct DDS; Unix is UUID safety registration/evidence only"
+}

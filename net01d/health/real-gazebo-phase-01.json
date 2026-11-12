@@ -1,0 +1,368 @@
+{
+  "scope": "Read-only old actual Gazebo coor + independent R-clock CSV; no ledger/bag/simulation",
+  "cases": {
+    "net01-a-corridor-6201-10": {
+      "coordinator": "net-01/workspace/runs/net01-a-corridor-6201-10.time-control/coordinator.json",
+      "witness": "net-01/workspace/runs/net01-a-corridor-6201-10.time-control/clock-R.csv",
+      "ACK_count": 14322,
+      "witness_count": 14322,
+      "clock_value_unique_count": 14322,
+      "physical_steps_valid_contiguous": true,
+      "final": {
+        "mode": "HOLD",
+        "failure": null,
+        "expected_shutdown": true,
+        "physics_failed": false,
+        "physical_ns": 143220000000,
+        "iterations": 143220,
+        "actual_clock_ns": 143220000000,
+        "native_ACK_ns": 143210000000,
+        "fixed_offset_ns": 10000000,
+        "physical_RPC_inflight": false,
+        "session_id": 2026110925,
+        "gateway_clock_ready": true,
+        "pending_holds": 0,
+        "token_wall_period_ns": 20000000,
+        "next_earliest_wall_ns": 450326503399824,
+        "max_token_lateness_ns": 1802176783,
+        "late_tokens": 14319
+      },
+      "E_mod10ms_ns_histogram": {
+        "0": 14322
+      },
+      "E_minus_last_coor_observed_G_ns_histogram": {
+        "0": 14322
+      },
+      "E_minus_last_witness_callback_G_ns_histogram": {
+        "0": 14211,
+        "10000000": 110,
+        "20000000": 1
+      },
+      "exact_E_clock_sample_exists_count": 14322,
+      "exact_E_clock_already_observed_at_ACK_count": 14322,
+      "source_realtime_minus_callback_mono_offset_range_ns": [
+        1793782958517633665,
+        1793782958517644158
+      ],
+      "publisher_GIDs": [
+        "010f3cc01de2c22300000000000012030000000000000000"
+      ],
+      "unavailable_at_ACK": [],
+      "selected_ACKs": [
+        {
+          "coordinator_record_index": 5,
+          "ACK_observed_mono_ns": 450038817787381,
+          "before_ns": 0,
+          "after_ns": 10000000,
+          "before_iterations": 0,
+          "after_iterations": 10,
+          "completed_steps": 10,
+          "success": true,
+          "last_coordinator_observed_G_ns": 10000000,
+          "last_witness_callback_G_ns": 10000000,
+          "exact_E_clock_row": {
+            "clock_ns": 10000000,
+            "dds_source_timestamp_ns": 1794232997333474205,
+            "dds_received_timestamp_ns": 1794232997333823386,
+            "callback_monotonic_ns": 450038816327552,
+            "callback_realtime_ns": 1794232997333971779,
+            "callback_monotonic_after_ns": 450038816327640,
+            "publisher_gid": "010f3cc01de2c22300000000000012030000000000000000"
+          },
+          "exact_E_clock_observed_by_ACK": true
+        },
+        {
+          "coordinator_record_index": 8,
+          "ACK_observed_mono_ns": 450038837914402,
+          "before_ns": 10000000,
+          "after_ns": 20000000,
+          "before_iterations": 10,
+          "after_iterations": 20,
+          "completed_steps": 10,
+          "success": true,
+          "last_coordinator_observed_G_ns": 20000000,
+          "last_witness_callback_G_ns": 20000000,
+          "exact_E_clock_row": {
+            "clock_ns": 20000000,
+            "dds_source_timestamp_ns": 1794232997354331613,
+            "dds_received_timestamp_ns": 1794232997354530489,
+            "callback_monotonic_ns": 450038836986379,
+            "callback_realtime_ns": 1794232997354630610,
+            "callback_monotonic_after_ns": 450038836986463,
+            "publisher_gid": "010f3cc01de2c22300000000000012030000000000000000"
+          },
+          "exact_E_clock_observed_by_ACK": true
+        },
+        {
+          "coordinator_record_index": 41333,
+          "ACK_observed_mono_ns": 450246700086567,
+          "before_ns": 103310000000,
+          "after_ns": 103320000000,
+          "before_iterations": 103310,
+          "after_iterations": 103320,
+          "completed_steps": 10,
+          "success": true,
+          "last_coordinator_observed_G_ns": 103320000000,
+          "last_witness_callback_G_ns": 103320000000,
+          "exact_E_clock_row": {
+            "clock_ns": 103320000000,
+            "dds_source_timestamp_ns": 1794233205215157003,
+            "dds_received_timestamp_ns": 1794233205217113189,
+            "callback_monotonic_ns": 450246699602739,
+            "callback_realtime_ns": 1794233205217246990,
+            "callback_monotonic_after_ns": 450246699602851,
+            "publisher_gid": "010f3cc01de2c22300000000000012030000000000000000"
+          },
+          "exact_E_clock_observed_by_ACK": true
+        },
+        {
+          "coordinator_record_index": 41336,
+          "ACK_observed_mono_ns": 450246719548467,
+          "before_ns": 103320000000,
+          "after_ns": 103330000000,
+          "before_iterations": 103320,
+          "after_iterations": 103330,
+          "completed_steps": 10,
+          "success": true,
+          "last_coordinator_observed_G_ns": 103330000000,
+          "last_witness_callback_G_ns": 103330000000,
+          "exact_E_clock_row": {
+            "clock_ns": 103330000000,
+            "dds_source_timestamp_ns": 1794233205234317530,
+            "dds_received_timestamp_ns": 1794233205235063608,
+            "callback_monotonic_ns": 450246717662253,
+            "callback_realtime_ns": 1794233205235306482,
+            "callback_monotonic_after_ns": 450246717662580,
+            "publisher_gid": "010f3cc01de2c22300000000000012030000000000000000"
+          },
+          "exact_E_clock_observed_by_ACK": true
+        },
+        {
+          "coordinator_record_index": 41341,
+          "ACK_observed_mono_ns": 450246739918155,
+          "before_ns": 103330000000,
+          "after_ns": 103340000000,
+          "before_iterations": 103330,
+          "after_iterations": 103340,
+          "completed_steps": 10,
+          "success": true,
+          "last_coordinator_observed_G_ns": 103340000000,
+          "last_witness_callback_G_ns": 103340000000,
+          "exact_E_clock_row": {
+            "clock_ns": 103340000000,
+            "dds_source_timestamp_ns": 1794233205255134515,
+            "dds_received_timestamp_ns": 1794233205255683650,
+            "callback_monotonic_ns": 450246738160900,
+            "callback_realtime_ns": 1794233205255805132,
+            "callback_monotonic_after_ns": 450246738160985,
+            "publisher_gid": "010f3cc01de2c22300000000000012030000000000000000"
+          },
+          "exact_E_clock_observed_by_ACK": true
+        },
+        {
+          "coordinator_record_index": 57295,
+          "ACK_observed_mono_ns": 450326500870278,
+          "before_ns": 143210000000,
+          "after_ns": 143220000000,
+          "before_iterations": 143210,
+          "after_iterations": 143220,
+          "completed_steps": 10,
+          "success": true,
+          "last_coordinator_observed_G_ns": 143220000000,
+          "last_witness_callback_G_ns": 143220000000,
+          "exact_E_clock_row": {
+            "clock_ns": 143220000000,
+            "dds_source_timestamp_ns": 1794233285015863076,
+            "dds_received_timestamp_ns": 1794233285016478487,
+            "callback_monotonic_ns": 450326498960706,
+            "callback_realtime_ns": 1794233285016604938,
+            "callback_monotonic_after_ns": 450326498960788,
+            "publisher_gid": "010f3cc01de2c22300000000000012030000000000000000"
+          },
+          "exact_E_clock_observed_by_ACK": true
+        }
+      ]
+    },
+    "net01-b-corridor-6201-01": {
+      "coordinator": "net-01/workspace/runs/net01-b-corridor-6201-01.time-control/coordinator.json",
+      "witness": "net-01/workspace/runs/net01-b-corridor-6201-01.time-control/clock-R.csv",
+      "ACK_count": 10951,
+      "witness_count": 10951,
+      "clock_value_unique_count": 10951,
+      "physical_steps_valid_contiguous": true,
+      "final": {
+        "mode": "HOLD",
+        "failure": "guard:{\"robot\": 1, \"session_id\": 2026111001, \"reason\": \"health_heartbeat_stale\"}",
+        "expected_shutdown": false,
+        "physics_failed": false,
+        "physical_ns": 109510000000,
+        "iterations": 109510,
+        "actual_clock_ns": 109510000000,
+        "native_ACK_ns": 109500000000,
+        "fixed_offset_ns": 10000000,
+        "physical_RPC_inflight": false,
+        "session_id": 2026111001,
+        "gateway_clock_ready": true,
+        "pending_holds": 0,
+        "token_wall_period_ns": 20000000,
+        "next_earliest_wall_ns": 458223631909728,
+        "max_token_lateness_ns": 11794443180,
+        "late_tokens": 10947
+      },
+      "E_mod10ms_ns_histogram": {
+        "0": 10951
+      },
+      "E_minus_last_coor_observed_G_ns_histogram": {
+        "0": 10951
+      },
+      "E_minus_last_witness_callback_G_ns_histogram": {
+        "0": 10880,
+        "10000000": 71
+      },
+      "exact_E_clock_sample_exists_count": 10951,
+      "exact_E_clock_already_observed_at_ACK_count": 10951,
+      "source_realtime_minus_callback_mono_offset_range_ns": [
+        1793782958517628337,
+        1793782958517644159
+      ],
+      "publisher_GIDs": [
+        "010f3cc05ab07bfb00000000000012030000000000000000"
+      ],
+      "unavailable_at_ACK": [],
+      "selected_ACKs": [
+        {
+          "coordinator_record_index": 5,
+          "ACK_observed_mono_ns": 457983417720824,
+          "before_ns": 0,
+          "after_ns": 10000000,
+          "before_iterations": 0,
+          "after_iterations": 10,
+          "completed_steps": 10,
+          "success": true,
+          "last_coordinator_observed_G_ns": 10000000,
+          "last_witness_callback_G_ns": 10000000,
+          "exact_E_clock_row": {
+            "clock_ns": 10000000,
+            "dds_source_timestamp_ns": 1794240941933754316,
+            "dds_received_timestamp_ns": 1794240941933990762,
+            "callback_monotonic_ns": 457983416510352,
+            "callback_realtime_ns": 1794240941934154594,
+            "callback_monotonic_after_ns": 457983416510450,
+            "publisher_gid": "010f3cc05ab07bfb00000000000012030000000000000000"
+          },
+          "exact_E_clock_observed_by_ACK": true
+        },
+        {
+          "coordinator_record_index": 8,
+          "ACK_observed_mono_ns": 457983437120202,
+          "before_ns": 10000000,
+          "after_ns": 20000000,
+          "before_iterations": 10,
+          "after_iterations": 20,
+          "completed_steps": 10,
+          "success": true,
+          "last_coordinator_observed_G_ns": 20000000,
+          "last_witness_callback_G_ns": 20000000,
+          "exact_E_clock_row": {
+            "clock_ns": 20000000,
+            "dds_source_timestamp_ns": 1794240941953511373,
+            "dds_received_timestamp_ns": 1794240941953694637,
+            "callback_monotonic_ns": 457983436167425,
+            "callback_realtime_ns": 1794240941953811661,
+            "callback_monotonic_after_ns": 457983436167522,
+            "publisher_gid": "010f3cc05ab07bfb00000000000012030000000000000000"
+          },
+          "exact_E_clock_observed_by_ACK": true
+        },
+        {
+          "coordinator_record_index": 41333,
+          "ACK_observed_mono_ns": 458208145977920,
+          "before_ns": 103310000000,
+          "after_ns": 103320000000,
+          "before_iterations": 103310,
+          "after_iterations": 103320,
+          "completed_steps": 10,
+          "success": true,
+          "last_coordinator_observed_G_ns": 103320000000,
+          "last_witness_callback_G_ns": 103320000000,
+          "exact_E_clock_row": {
+            "clock_ns": 103320000000,
+            "dds_source_timestamp_ns": 1794241166661171449,
+            "dds_received_timestamp_ns": 1794241166661590324,
+            "callback_monotonic_ns": 458208144053052,
+            "callback_realtime_ns": 1794241166661697277,
+            "callback_monotonic_after_ns": 458208144053136,
+            "publisher_gid": "010f3cc05ab07bfb00000000000012030000000000000000"
+          },
+          "exact_E_clock_observed_by_ACK": true
+        },
+        {
+          "coordinator_record_index": 41336,
+          "ACK_observed_mono_ns": 458208160635003,
+          "before_ns": 103320000000,
+          "after_ns": 103330000000,
+          "before_iterations": 103320,
+          "after_iterations": 103330,
+          "completed_steps": 10,
+          "success": true,
+          "last_coordinator_observed_G_ns": 103330000000,
+          "last_witness_callback_G_ns": 103330000000,
+          "exact_E_clock_row": {
+            "clock_ns": 103330000000,
+            "dds_source_timestamp_ns": 1794241166675771575,
+            "dds_received_timestamp_ns": 1794241166676224688,
+            "callback_monotonic_ns": 458208158679964,
+            "callback_realtime_ns": 1794241166676324196,
+            "callback_monotonic_after_ns": 458208158680049,
+            "publisher_gid": "010f3cc05ab07bfb00000000000012030000000000000000"
+          },
+          "exact_E_clock_observed_by_ACK": true
+        },
+        {
+          "coordinator_record_index": 41345,
+          "ACK_observed_mono_ns": 458211285324932,
+          "before_ns": 103330000000,
+          "after_ns": 103340000000,
+          "before_iterations": 103330,
+          "after_iterations": 103340,
+          "completed_steps": 10,
+          "success": true,
+          "last_coordinator_observed_G_ns": 103340000000,
+          "last_witness_callback_G_ns": 103340000000,
+          "exact_E_clock_row": {
+            "clock_ns": 103340000000,
+            "dds_source_timestamp_ns": 1794241169800674064,
+            "dds_received_timestamp_ns": 1794241169801126122,
+            "callback_monotonic_ns": 458211283567659,
+            "callback_realtime_ns": 1794241169801211924,
+            "callback_monotonic_after_ns": 458211283567785,
+            "publisher_gid": "010f3cc05ab07bfb00000000000012030000000000000000"
+          },
+          "exact_E_clock_observed_by_ACK": true
+        },
+        {
+          "coordinator_record_index": 43814,
+          "ACK_observed_mono_ns": 458223626205740,
+          "before_ns": 109500000000,
+          "after_ns": 109510000000,
+          "before_iterations": 109500,
+          "after_iterations": 109510,
+          "completed_steps": 10,
+          "success": true,
+          "last_coordinator_observed_G_ns": 109510000000,
+          "last_witness_callback_G_ns": 109510000000,
+          "exact_E_clock_row": {
+            "clock_ns": 109510000000,
+            "dds_source_timestamp_ns": 1794241182141689755,
+            "dds_received_timestamp_ns": 1794241182142074011,
+            "callback_monotonic_ns": 458223624510792,
+            "callback_realtime_ns": 1794241182142155029,
+            "callback_monotonic_after_ns": 458223624510891,
+            "publisher_gid": "010f3cc05ab07bfb00000000000012030000000000000000"
+          },
+          "exact_E_clock_observed_by_ACK": true
+        }
+      ]
+    }
+  }
+}

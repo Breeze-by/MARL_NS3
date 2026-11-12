@@ -1,0 +1,528 @@
+{
+  "scope": "Raw small component subset copied while original Gateway was loaded; no component judgement",
+  "guards": {
+    "1": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb1",
+          "session_id": 2026110912,
+          "sim": 0.76,
+          "monotonic": 519983.52082766
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_original_sources_stale",
+          "robot": "tb1",
+          "session_id": 2026110912,
+          "sim": 4.66,
+          "monotonic": 519992.417146585
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00100000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00100000000000000",
+          "status": 5
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00100000000000000": 5
+      }
+    },
+    "2": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb2",
+          "session_id": 2026110912,
+          "sim": 0.79,
+          "monotonic": 519983.592527438
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_original_sources_stale",
+          "robot": "tb2",
+          "session_id": 2026110912,
+          "sim": 4.66,
+          "monotonic": 519992.424697831
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00200000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00200000000000000",
+          "status": 5
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00200000000000000": 5
+      }
+    },
+    "3": {
+      "events": [
+        {
+          "kind": "armed",
+          "robot": "tb3",
+          "session_id": 2026110912,
+          "sim": 0.79,
+          "monotonic": 519983.593085501
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "health_original_sources_stale",
+          "robot": "tb3",
+          "session_id": 2026110912,
+          "sim": 4.66,
+          "monotonic": 519992.426222059
+        }
+      ],
+      "actions": [
+        {
+          "kind": "actual_local_goal_response",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "accepted": true
+        },
+        {
+          "kind": "actual_local_status_terminal",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "status": 5
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "return_code": 0,
+          "goals_canceling": [
+            "0000000078c3ffc00300000000000000"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "0000000078c3ffc00300000000000000",
+          "status": 5
+        }
+      ],
+      "owned_unknown_or_active": [],
+      "terminals": {
+        "0000000078c3ffc00300000000000000": 5
+      }
+    }
+  },
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      false,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [
+      {
+        "robot": 2,
+        "flow_offset": 3,
+        "rpc_id": 8702080105108733956
+      },
+      {
+        "robot": 1,
+        "flow_offset": 3,
+        "rpc_id": 8702080105108733957
+      },
+      {
+        "robot": 3,
+        "flow_offset": 3,
+        "rpc_id": 8702080105108733958
+      }
+    ],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "action_confirmation_states": {
+      "C": {
+        "enabled": true,
+        "failure": null,
+        "waiting": 0,
+        "unconfirmed": 0
+      },
+      "R": {
+        "1": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 1,
+          "unconfirmed": 0
+        },
+        "2": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 1,
+          "unconfirmed": 0
+        },
+        "3": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 1,
+          "unconfirmed": 0
+        }
+      }
+    },
+    "retired_C_services": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+  "topics": {
+    "C": {
+      "captured": [
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "8d477b1499af329ccd0c7dd552ac098952688d1ddccb9f720048717ec7033f5c",
+          "source_stamp_ns": 470000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519983390517625,
+          "capture_node_sim_ns": 690000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 561,
+          "cdr_sha256": "6298869065b6fde400101373fbdfb62c77ba9492aae65593d9db44cf8c3e05f2",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519983735691278,
+          "capture_node_sim_ns": 850000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 561,
+          "cdr_sha256": "e73cd618c935fa9638f5b49c60eb97e907381da5256026d921bd0a7a0fb4ead5",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519983742492238,
+          "capture_node_sim_ns": 850000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 561,
+          "cdr_sha256": "57dbb7df18e77b4d38f18b712c312f1feabc230fc4168a29f5d3b6153ab65e4d",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519983744121067,
+          "capture_node_sim_ns": 850000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 304,
+          "cdr_sha256": "aa03d790f5927bd1b841b9819759a5014833fe288336f54831b9d0d9a00a26fd",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519983866072697,
+          "capture_node_sim_ns": 890000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 304,
+          "cdr_sha256": "944ed23252db7f61e5bfe66ae7fecf156aff2b259db265240c0921fb3e2b4304",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519983877272312,
+          "capture_node_sim_ns": 900000000
+        },
+        {
+          "flow": 95,
+          "robot": 1,
+          "bytes": 304,
+          "cdr_sha256": "247ea541b4d8bdb6ead6980c4f80e085dcf75d761b83f26be661b2c5b60dcd72",
+          "source_stamp_ns": 0,
+          "source_stamp_available": false,
+          "endpoint_capture_monotonic_ns": 519983887834145,
+          "capture_node_sim_ns": 900000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "2e8e7c53235ed0afa35b789d209dd3c962226f2a4af8e3ba6be78844dc059613",
+          "source_stamp_ns": 470000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519987945227598,
+          "capture_node_sim_ns": 2650000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "3988b3b28b9856ce7bb4c3de5a6ee746ecb7e57e03bc0797e1f0617d0703a91a",
+          "source_stamp_ns": 500000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519987986225044,
+          "capture_node_sim_ns": 2660000000
+        },
+        {
+          "flow": 89,
+          "robot": 1,
+          "bytes": 53495,
+          "cdr_sha256": "083610a254cdcd02e9771723cf019387d32ff0874c8d74379b36a19bf38a6269",
+          "source_stamp_ns": 2470000000,
+          "source_stamp_available": true,
+          "endpoint_capture_monotonic_ns": 519988053171723,
+          "capture_node_sim_ns": 2680000000
+        }
+      ],
+      "delivered": []
+    },
+    "R": {
+      "captured": [],
+      "delivered": [
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "message_id": 55,
+          "source_stamp_ns": 470000000,
+          "ns3_rx_ns": 681543367,
+          "hub_receive_monotonic_ns": 519983402497572,
+          "bytes": 53503,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "8d477b1499af329ccd0c7dd552ac098952688d1ddccb9f720048717ec7033f5c",
+          "destination_node_sim_ns": 710000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519983404130403,
+          "publish_before_thread_cpu_ns": 2392399067,
+          "publish_after_monotonic_ns": 519983404714581,
+          "publish_after_thread_cpu_ns": 2392982601
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "message_id": 170,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 840251023,
+          "hub_receive_monotonic_ns": 519983788131175,
+          "bytes": 569,
+          "cdr_bytes": 561,
+          "cdr_sha256": "6298869065b6fde400101373fbdfb62c77ba9492aae65593d9db44cf8c3e05f2",
+          "destination_node_sim_ns": 860000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519983789106971,
+          "publish_before_thread_cpu_ns": 2776670753,
+          "publish_after_monotonic_ns": 519983789279186,
+          "publish_after_thread_cpu_ns": 2776841966
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "message_id": 175,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 840270222,
+          "hub_receive_monotonic_ns": 519983788333516,
+          "bytes": 569,
+          "cdr_bytes": 561,
+          "cdr_sha256": "e73cd618c935fa9638f5b49c60eb97e907381da5256026d921bd0a7a0fb4ead5",
+          "destination_node_sim_ns": 860000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519983791539782,
+          "publish_before_thread_cpu_ns": 2779104420,
+          "publish_after_monotonic_ns": 519983791636251,
+          "publish_after_thread_cpu_ns": 2779198827
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "message_id": 176,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 840285100,
+          "hub_receive_monotonic_ns": 519983788367182,
+          "bytes": 569,
+          "cdr_bytes": 561,
+          "cdr_sha256": "57dbb7df18e77b4d38f18b712c312f1feabc230fc4168a29f5d3b6153ab65e4d",
+          "destination_node_sim_ns": 860000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519983791730172,
+          "publish_before_thread_cpu_ns": 2779292790,
+          "publish_after_monotonic_ns": 519983791785456,
+          "publish_after_thread_cpu_ns": 2779348888
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "message_id": 230,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 881365492,
+          "hub_receive_monotonic_ns": 519983876473097,
+          "bytes": 312,
+          "cdr_bytes": 304,
+          "cdr_sha256": "aa03d790f5927bd1b841b9819759a5014833fe288336f54831b9d0d9a00a26fd",
+          "destination_node_sim_ns": 910000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519983880848581,
+          "publish_before_thread_cpu_ns": 2868259432,
+          "publish_after_monotonic_ns": 519983880949459,
+          "publish_after_thread_cpu_ns": 2868359700
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "message_id": 234,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 890838161,
+          "hub_receive_monotonic_ns": 519983905785812,
+          "bytes": 312,
+          "cdr_bytes": 304,
+          "cdr_sha256": "944ed23252db7f61e5bfe66ae7fecf156aff2b259db265240c0921fb3e2b4304",
+          "destination_node_sim_ns": 920000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519983908776959,
+          "publish_before_thread_cpu_ns": 2896116628,
+          "publish_after_monotonic_ns": 519983908861451,
+          "publish_after_thread_cpu_ns": 2896200617
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 95,
+          "message_id": 241,
+          "source_stamp_ns": 0,
+          "ns3_rx_ns": 890849490,
+          "hub_receive_monotonic_ns": 519983905866578,
+          "bytes": 312,
+          "cdr_bytes": 304,
+          "cdr_sha256": "247ea541b4d8bdb6ead6980c4f80e085dcf75d761b83f26be661b2c5b60dcd72",
+          "destination_node_sim_ns": 920000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519983908953250,
+          "publish_before_thread_cpu_ns": 2896292563,
+          "publish_after_monotonic_ns": 519983909035795,
+          "publish_after_thread_cpu_ns": 2896374545
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "message_id": 2254,
+          "source_stamp_ns": 470000000,
+          "ns3_rx_ns": 2649585644,
+          "hub_receive_monotonic_ns": 519988024788901,
+          "bytes": 53503,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "2e8e7c53235ed0afa35b789d209dd3c962226f2a4af8e3ba6be78844dc059613",
+          "destination_node_sim_ns": 2670000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519988026979661,
+          "publish_before_thread_cpu_ns": 7002693255,
+          "publish_after_monotonic_ns": 519988027332285,
+          "publish_after_thread_cpu_ns": 7003043722
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "message_id": 2280,
+          "source_stamp_ns": 500000000,
+          "ns3_rx_ns": 2652257692,
+          "hub_receive_monotonic_ns": 519988041730253,
+          "bytes": 53503,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "3988b3b28b9856ce7bb4c3de5a6ee746ecb7e57e03bc0797e1f0617d0703a91a",
+          "destination_node_sim_ns": 2680000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519988046195419,
+          "publish_before_thread_cpu_ns": 7021872079,
+          "publish_after_monotonic_ns": 519988046464662,
+          "publish_after_thread_cpu_ns": 7022140571
+        },
+        {
+          "kind": "delivered",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 89,
+          "message_id": 2309,
+          "source_stamp_ns": 2470000000,
+          "ns3_rx_ns": 2671597808,
+          "hub_receive_monotonic_ns": 519988077604025,
+          "bytes": 53503,
+          "cdr_bytes": 53495,
+          "cdr_sha256": "083610a254cdcd02e9771723cf019387d32ff0874c8d74379b36a19bf38a6269",
+          "destination_node_sim_ns": 2700000000,
+          "publisher_returned": true,
+          "endpoint_publish_monotonic_ns": 519988078883435,
+          "publish_before_thread_cpu_ns": 7054559048,
+          "publish_after_monotonic_ns": 519988079208080,
+          "publish_after_thread_cpu_ns": 7054882470
+        }
+      ]
+    }
+  }
+}

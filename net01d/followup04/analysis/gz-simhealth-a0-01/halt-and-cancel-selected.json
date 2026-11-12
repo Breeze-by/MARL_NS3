@@ -1,0 +1,551 @@
+{
+  "scope": "Existing selected caches only; no extra originalevents/controller/Gateway/bag reads",
+  "uuid": "cb4c8515cce94742ab5791aab79fa4b1",
+  "original_budget_and_process": [
+    {
+      "utc": "2026-11-11T11:01:48.481973+00:00",
+      "wall": 1794394908.482001,
+      "sim": 202.83,
+      "kind": "smoke_bound",
+      "sim_elapsed": 180.0,
+      "wall_elapsed": 284.2284456479829,
+      "reason": "simulation_budget"
+    },
+    {
+      "utc": "2026-11-11T11:01:48.483145+00:00",
+      "wall": 1794394908.4831517,
+      "sim": 202.83,
+      "kind": "process_signal",
+      "process": "exploration",
+      "pid": 860524,
+      "signal": "SIGINT"
+    },
+    {
+      "utc": "2026-11-11T11:01:50.191015+00:00",
+      "wall": 1794394910.1910439,
+      "sim": 203.89,
+      "kind": "process_exit",
+      "process": "exploration",
+      "code": 1
+    }
+  ],
+  "allocator_halt_from_live_append_cache": [
+    {
+      "kind": "allocator_halted",
+      "sim": 202.83,
+      "reason": "rl04_controller_shutdown",
+      "wall_ns": 1794394908483686571
+    },
+    {
+      "kind": "rl_halt_requested",
+      "sim": 202.83,
+      "reason": "rl04_controller_shutdown",
+      "physical_stop_verified": false,
+      "wall_ns": 1794394908484242977
+    }
+  ],
+  "exception": {
+    "traceback": "small-raw/control-tail35.txt",
+    "complete_Traceback_present": true,
+    "exception": "RuntimeError: Unable to convert call argument to Python object (compile in debug mode for details)",
+    "timestamp": "UNMEASURED",
+    "message_type_subscription": "UNRESOLVED",
+    "source_stack": [
+      "net01/a0_controller_bootstrap.py:64 main",
+      "net01/a0_controller_bootstrap.py:52 frozen.main",
+      "workspace/gz01/headquarters.py:245 rclpy.spin(node)",
+      "rclpy/executors.py:400 sub.handle.take_message(sub.msg_type, sub.raw)"
+    ],
+    "classification": "Actual exit1 observed after budget SIGINT; exact exceptiononset/unique cause unresolved"
+  },
+  "actual_status_evidence": [
+    [
+      "cb4c8515cce94742ab5791aab79fa4b1",
+      2
+    ],
+    [
+      "cb4c8515cce94742ab5791aab79fa4b1",
+      3
+    ],
+    [
+      "cb4c8515cce94742ab5791aab79fa4b1",
+      5
+    ]
+  ],
+  "request_and_accept_registry_evidence": [
+    {
+      "kind": "safety_registration_or_evidence",
+      "monotonic_ns": 611930722527420,
+      "request": {
+        "session_id": 2026111152,
+        "robot": 1,
+        "uuid": "cb4c8515cce94742ab5791aab79fa4b1",
+        "token": 7,
+        "kind": "request",
+        "deadline_ns": 611930821511557
+      },
+      "reply": {
+        "session_id": 2026111152,
+        "robot": 1,
+        "uuid": "cb4c8515cce94742ab5791aab79fa4b1",
+        "kind": "request",
+        "token": 7,
+        "ok": true,
+        "registered": true
+      }
+    },
+    {
+      "kind": "safety_registration_or_evidence",
+      "monotonic_ns": 611930741569284,
+      "request": {
+        "session_id": 2026111152,
+        "robot": 1,
+        "uuid": "cb4c8515cce94742ab5791aab79fa4b1",
+        "token": 7,
+        "kind": "response",
+        "deadline_ns": 611930838538250,
+        "accepted": true,
+        "accepted_uuid": "cb4c8515cce94742ab5791aab79fa4b1"
+      },
+      "reply": {
+        "session_id": 2026111152,
+        "robot": 1,
+        "uuid": "cb4c8515cce94742ab5791aab79fa4b1",
+        "kind": "response",
+        "token": 7,
+        "ok": true,
+        "event_observed": true
+      }
+    }
+  ],
+  "cancel_request": {
+    "issuer": "UNRESOLVED_FROM_SELECTED_CACHE",
+    "monotonic_ns": null,
+    "source": "No separate actualCancel request/response cache present; do not infer caller fromstatus5"
+  },
+  "cancel_response": "UNRESOLVED_FROM_SELECTED_CACHE",
+  "GetResult_response5": "UNRESOLVED_FROM_SELECTED_CACHE; actual Nav2 status5 is not by itself GetResult response evidence",
+  "actual_phase_outcomes": {
+    "success13": "Original actualstatuses13\u00d74",
+    "raw_canceled1": {
+      "uuid": "cb4c8515cce94742ab5791aab79fa4b1",
+      "status": 5
+    },
+    "all14_closed": true,
+    "unresolved_requests": [],
+    "unterminated_UUIDs": {
+      "tb1": [],
+      "tb2": [],
+      "tb3": []
+    }
+  },
+  "observed_stop_events": [
+    {
+      "utc": "2026-11-11T10:56:57.891202+00:00",
+      "wall": 1794394617.8912292,
+      "sim": 18.5,
+      "kind": "observed_stop",
+      "positions": {
+        "tb1": [
+          0.7256074740753632,
+          -0.15002410574531558,
+          0.007811807518280329,
+          6.12259776434145e-05,
+          4.908689168369197e-05
+        ],
+        "tb2": [
+          0.3505766247255423,
+          -0.8000228640012221,
+          0.007819135681622544,
+          5.870619405099577e-05,
+          4.858050239795684e-05
+        ],
+        "tb3": [
+          1.1004856156815288,
+          -0.8000189705605314,
+          0.007824925815958032,
+          6.820393502963783e-05,
+          4.828463913143513e-05
+        ]
+      },
+      "per_robot_wall": {
+        "tb1": 611659.373317512,
+        "tb2": 611659.373356807,
+        "tb3": 611659.373372406
+      },
+      "sim_advanced": 1.1000000000000014,
+      "drive_received": {
+        "tb1": [
+          18.497,
+          120.0,
+          18.46,
+          0.0,
+          0.0,
+          6.646899320087554e-06,
+          2.0824592366143058e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb2": [
+          18.485,
+          120.0,
+          18.46,
+          0.0,
+          0.0,
+          -6.6933707028711556e-06,
+          7.541256558701609e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb3": [
+          18.497,
+          120.0,
+          18.46,
+          0.0,
+          0.0,
+          -3.468782950916551e-05,
+          -2.0670373443462877e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "rpc_errors": [],
+      "authority_stopped": true,
+      "ownership_closed": true,
+      "owned_goals": {
+        "tb1": [],
+        "tb2": [],
+        "tb3": []
+      },
+      "request_ownership": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 0,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "lifecycle_pause_healthy": true
+    },
+    {
+      "utc": "2026-11-11T11:01:53.796643+00:00",
+      "wall": 1794394913.7966697,
+      "sim": 206.3,
+      "kind": "observed_stop",
+      "positions": {
+        "tb1": [
+          -2.9349628660961766,
+          4.650926956151817,
+          0.007819252885567458,
+          7.599945745942456e-05,
+          1.1276100819997165e-05
+        ],
+        "tb2": [
+          4.2026044344682605,
+          2.15949536112699,
+          0.007819123868577962,
+          5.9353946651277806e-05,
+          5.025513669122264e-05
+        ],
+        "tb3": [
+          4.93943713234625,
+          -2.1316252891849365,
+          0.007830667042467996,
+          6.056684434271779e-05,
+          5.148969115239819e-05
+        ]
+      },
+      "per_robot_wall": {
+        "tb1": 611955.278697476,
+        "tb2": 611955.278732142,
+        "tb3": 611955.278746287
+      },
+      "sim_advanced": 1.1000000000000227,
+      "drive_received": {
+        "tb1": [
+          206.279,
+          5483.0,
+          206.27,
+          0.0,
+          0.0,
+          -3.37308376278228e-05,
+          -3.035539395742406e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb2": [
+          206.267,
+          1738.0,
+          206.25,
+          0.0,
+          0.0,
+          -1.092012562177253e-05,
+          3.7526803595308886e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb3": [
+          206.279,
+          3630.0,
+          206.27,
+          0.0,
+          0.0,
+          -1.7624882496180542e-05,
+          -2.720292945863553e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "rpc_errors": [],
+      "authority_stopped": true,
+      "ownership_closed": true,
+      "owned_goals": {
+        "tb1": [
+          "27b60ae64f894e278db7e640c55b1733",
+          "7683ae2678224f80b8af67fa4cedbf19",
+          "b66a23757e154c5c94c4e00197176d89",
+          "cb4c8515cce94742ab5791aab79fa4b1",
+          "d4f75d6650f04b529c0b9a943b25265a",
+          "eb8df28c770941fab4a67e4260388ca5",
+          "f70c5771d1ec44968a9a6fabb58b0d0b"
+        ],
+        "tb2": [
+          "25e91375031649c0bb1e30294a992e33",
+          "3e6aacd89c214c9ea6b69b7f4e017dcd",
+          "55407e7d209642468882ea5f4892a1fb"
+        ],
+        "tb3": [
+          "045eb738e904443395ee038d1833ef7f",
+          "565f1b9e62484bae813eb529b64bdac5",
+          "ecd35dcb791942c990cf924f0507f26a",
+          "f747c1e4f775402f87029ad4fe50a294"
+        ]
+      },
+      "request_ownership": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 14,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "27b60ae64f894e278db7e640c55b1733",
+            "7683ae2678224f80b8af67fa4cedbf19",
+            "b66a23757e154c5c94c4e00197176d89",
+            "cb4c8515cce94742ab5791aab79fa4b1",
+            "d4f75d6650f04b529c0b9a943b25265a",
+            "eb8df28c770941fab4a67e4260388ca5",
+            "f70c5771d1ec44968a9a6fabb58b0d0b"
+          ],
+          "tb2": [
+            "25e91375031649c0bb1e30294a992e33",
+            "3e6aacd89c214c9ea6b69b7f4e017dcd",
+            "55407e7d209642468882ea5f4892a1fb"
+          ],
+          "tb3": [
+            "045eb738e904443395ee038d1833ef7f",
+            "565f1b9e62484bae813eb529b64bdac5",
+            "ecd35dcb791942c990cf924f0507f26a",
+            "f747c1e4f775402f87029ad4fe50a294"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "lifecycle_pause_healthy": true
+    }
+  ],
+  "actual_final_stop_attempt": {
+    "stage": "final",
+    "entered_phase": "stop",
+    "success": true,
+    "authority_basis": "actual_process_poll",
+    "authority_pid": 860524,
+    "authority_exit": 1,
+    "observed_stop": {
+      "positions": {
+        "tb1": [
+          -2.9349628660961766,
+          4.650926956151817,
+          0.007819252885567458,
+          7.599945745942456e-05,
+          1.1276100819997165e-05
+        ],
+        "tb2": [
+          4.2026044344682605,
+          2.15949536112699,
+          0.007819123868577962,
+          5.9353946651277806e-05,
+          5.025513669122264e-05
+        ],
+        "tb3": [
+          4.93943713234625,
+          -2.1316252891849365,
+          0.007830667042467996,
+          6.056684434271779e-05,
+          5.148969115239819e-05
+        ]
+      },
+      "per_robot_wall": {
+        "tb1": 611955.278697476,
+        "tb2": 611955.278732142,
+        "tb3": 611955.278746287
+      },
+      "sim_advanced": 1.1000000000000227,
+      "drive_received": {
+        "tb1": [
+          206.279,
+          5483.0,
+          206.27,
+          0.0,
+          0.0,
+          -3.37308376278228e-05,
+          -3.035539395742406e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb2": [
+          206.267,
+          1738.0,
+          206.25,
+          0.0,
+          0.0,
+          -1.092012562177253e-05,
+          3.7526803595308886e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb3": [
+          206.279,
+          3630.0,
+          206.27,
+          0.0,
+          0.0,
+          -1.7624882496180542e-05,
+          -2.720292945863553e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "rpc_errors": [],
+      "authority_stopped": true,
+      "ownership_closed": true,
+      "owned_goals": {
+        "tb1": [
+          "27b60ae64f894e278db7e640c55b1733",
+          "7683ae2678224f80b8af67fa4cedbf19",
+          "b66a23757e154c5c94c4e00197176d89",
+          "cb4c8515cce94742ab5791aab79fa4b1",
+          "d4f75d6650f04b529c0b9a943b25265a",
+          "eb8df28c770941fab4a67e4260388ca5",
+          "f70c5771d1ec44968a9a6fabb58b0d0b"
+        ],
+        "tb2": [
+          "25e91375031649c0bb1e30294a992e33",
+          "3e6aacd89c214c9ea6b69b7f4e017dcd",
+          "55407e7d209642468882ea5f4892a1fb"
+        ],
+        "tb3": [
+          "045eb738e904443395ee038d1833ef7f",
+          "565f1b9e62484bae813eb529b64bdac5",
+          "ecd35dcb791942c990cf924f0507f26a",
+          "f747c1e4f775402f87029ad4fe50a294"
+        ]
+      },
+      "request_ownership": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 14,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "27b60ae64f894e278db7e640c55b1733",
+            "7683ae2678224f80b8af67fa4cedbf19",
+            "b66a23757e154c5c94c4e00197176d89",
+            "cb4c8515cce94742ab5791aab79fa4b1",
+            "d4f75d6650f04b529c0b9a943b25265a",
+            "eb8df28c770941fab4a67e4260388ca5",
+            "f70c5771d1ec44968a9a6fabb58b0d0b"
+          ],
+          "tb2": [
+            "25e91375031649c0bb1e30294a992e33",
+            "3e6aacd89c214c9ea6b69b7f4e017dcd",
+            "55407e7d209642468882ea5f4892a1fb"
+          ],
+          "tb3": [
+            "045eb738e904443395ee038d1833ef7f",
+            "565f1b9e62484bae813eb529b64bdac5",
+            "ecd35dcb791942c990cf924f0507f26a",
+            "f747c1e4f775402f87029ad4fe50a294"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "lifecycle_pause_healthy": true
+    },
+    "completed_monotonic_ns": 611955376994546
+  },
+  "source_notes": "Frozenheadquarters.main catchesKeyboardInterrupt/ExternalShutdownException, alwaysclose_controllerfinally; RuntimeError is unhandled. A0bootstrap finally restores wrappers/closesjournal. No production patch."
+}

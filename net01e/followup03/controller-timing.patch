@@ -1,0 +1,11 @@
+--- a/net01/time_controller.py
++++ b/net01/time_controller.py
+@@ -151,6 +151,8 @@
+             response=future.result();data=json.loads(response.message)
+             self.record('post_physics_ACK',response.success,data['before_ns'],data['after_ns'],
+                 data['before_iterations'],data['after_iterations'],data['completed_steps'])
++            if 'diagnostic_timing_v1' in data:
++                self.record('physics_step_server_timing_v1',data['diagnostic_timing_v1'])
+             if not response.success:
+                 self.state.inflight=False;self.state.fail('physics_RPC_rejected',physics=True)
+             else:

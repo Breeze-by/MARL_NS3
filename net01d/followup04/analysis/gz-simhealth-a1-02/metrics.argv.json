@@ -1,0 +1,17 @@
+[
+  "rtk",
+  "proxy",
+  "bash",
+  "net-01d/workspace/net01/ros-python.sh",
+  "/mnt/workspace/gz01/analyze_recorded.py",
+  "--case",
+  "/mnt/net01d/followup04/runs/gz-simhealth-a1-02",
+  "--world",
+  "/mnt/inputs/worlds/eval-corridor-common-6201.sdf",
+  "--assets",
+  "/project/assets/gazebo_models",
+  "--positions",
+  "0.7249999999999996,-0.1499999999999999;0.34999999999999964,-0.7999999999999999;1.0999999999999996,-0.7999999999999999",
+  "--output",
+  "/mnt/net01d/followup04/analysis/gz-simhealth-a1-02/metrics"
+]

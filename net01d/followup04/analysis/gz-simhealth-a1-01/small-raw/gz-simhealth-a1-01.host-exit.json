@@ -1,0 +1,134 @@
+{
+  "start_utc": "2026-11-11T08:36:53.646566+00:00",
+  "hub_argv": [
+    "/usr/bin/python3",
+    "-B",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01/tools/packet_hub.py",
+    "--socket",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a1-01.sock",
+    "--native",
+    "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "--output",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a1-01.network",
+    "--profile",
+    "B",
+    "--wall",
+    "1020",
+    "--clock-source",
+    "gazebo",
+    "--control-trace",
+    "--native-transport",
+    "tcp-mtu-v2",
+    "--native-evidence-ram",
+    "/dev/shm/net01d-f04-gz-simhealth-a1-01",
+    "--step-observer",
+    "net01d/followup04/runs/gz-simhealth-a1-01.time-control/ack.sock"
+  ],
+  "runner_exit": 1,
+  "runner_outer_wait_wall_s": 1000,
+  "native_loader_environment": {
+    "LD_LIBRARY_PATH": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+    "LD_PRELOAD": "UNSET",
+    "LD_AUDIT": "UNSET"
+  },
+  "native_load": {
+    "pid": 587039,
+    "hub_pid": 587032,
+    "parent_pid": 587032,
+    "argv": [
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+      "--output=/dev/shm/net01d-f04-gz-simhealth-a1-01",
+      "--profile=B",
+      "--transport=tcp-mtu-v2",
+      "--controlTrace=1"
+    ],
+    "exe": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "start_ticks": 60325803,
+    "mapped_ns3_paths": [
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-antenna.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-bridge.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-core.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-csma.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-energy.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-internet.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-mobility.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-network.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-propagation.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-spectrum.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-stats.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-traffic-control.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-wifi.so"
+    ],
+    "expected_root": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+    "exact_names": true,
+    "all_in_expected_root": true,
+    "actual_exe_matches": true,
+    "actual_parent_is_Hub": true
+  },
+  "hub_exit": 0,
+  "controlled_time": {
+    "exits": {
+      "coordinator": 0,
+      "clock_R": 0,
+      "clock_C": 0
+    },
+    "signals": {
+      "coordinator": [
+        "SIGINT_CHILD"
+      ],
+      "clock_R": [
+        "SIGINT_CHILD"
+      ],
+      "clock_C": [
+        "SIGINT_CHILD"
+      ]
+    },
+    "actual_bwrap_child_pids": {
+      "coordinator": 586859,
+      "clock_R": 586927,
+      "clock_C": 586980
+    },
+    "forced_owned_groups": [],
+    "remaining_owned_groups": [],
+    "scope": "Resource cleanup after actual Hub END/exit; no stopping certificate",
+    "coordinator_final": {
+      "mode": "HOLD",
+      "failure": null,
+      "expected_shutdown": true,
+      "physics_failed": false,
+      "physical_ns": 180570000000,
+      "iterations": 180570,
+      "actual_clock_ns": 180570000000,
+      "native_ACK_ns": 180560000000,
+      "fixed_offset_ns": 10000000,
+      "physical_RPC_inflight": false,
+      "session_id": 2026111143,
+      "gateway_clock_ready": true,
+      "pending_holds": 0,
+      "authority_exited": true,
+      "progress_wall_timeout_ns": 2000000000,
+      "progress_started_monotonic_ns": 603296708581235,
+      "actual_clock_progress_monotonic_ns": 603551828992482,
+      "native_ACK_progress_monotonic_ns": 603551832371458,
+      "physical_RPC_issued_monotonic_ns": null,
+      "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+      "token_wall_period_ns": 10000000,
+      "planned_realtime_factor": 1.0,
+      "actual_achieved_physical_rtf": 0.6302881455550312,
+      "physical_progress_sim_span_ns": 180570000000,
+      "physical_progress_wall_span_ns": 286488015479,
+      "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+      "next_earliest_wall_ns": 603460368581235,
+      "max_token_lateness_ns": 91458458085,
+      "late_tokens": 18054
+    },
+    "saved_clocks": {
+      "R": true,
+      "C": true
+    },
+    "integrity": true
+  },
+  "end_utc": "2026-11-11T08:42:11.638499+00:00",
+  "host_wall_s": 317.99107018194627,
+  "host_force_escalation_wall_s": 1000
+}

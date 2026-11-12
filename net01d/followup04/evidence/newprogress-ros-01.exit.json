@@ -1,0 +1,249 @@
+{
+  "source_checkpoint": "c4ad853e7e5e8707a0e5a0be1426bc84b4bd2e1e",
+  "argv": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "net01d/followup04/evidence/newprogress-ros-01.time.txt",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "35s",
+    "bash",
+    "net01/ros-python.sh",
+    "net01d/followup04/check_progress_ros.py",
+    "--output",
+    "net01d/followup04/evidence/newprogress-ros-01",
+    "--ack-socket",
+    "/dev/shm/net01d-f04-progress-ros-01.ack"
+  ],
+  "ROS_domain": "actual default context init domain95 overrides wrapper env92",
+  "scope": "one controlledROS fixture; no native/GZ/robot",
+  "begin_monotonic_ns": 601631232987677,
+  "launcher_pid": 532935,
+  "exit": 0,
+  "end_monotonic_ns": 601637386297120,
+  "observed_owned": [
+    {
+      "pid": 532935,
+      "ppid": 532927,
+      "pgid": 532935,
+      "state": "S",
+      "start_ticks": 60163123,
+      "argv": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "net01d/followup04/evidence/newprogress-ros-01.time.txt",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=2s",
+        "35s",
+        "bash",
+        "net01/ros-python.sh",
+        "net01d/followup04/check_progress_ros.py",
+        "--output",
+        "net01d/followup04/evidence/newprogress-ros-01",
+        "--ack-socket",
+        "/dev/shm/net01d-f04-progress-ros-01.ack"
+      ]
+    },
+    {
+      "pid": 532936,
+      "ppid": 532935,
+      "pgid": 532936,
+      "state": "S",
+      "start_ticks": 60163123,
+      "argv": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=2s",
+        "35s",
+        "bash",
+        "net01/ros-python.sh",
+        "net01d/followup04/check_progress_ros.py",
+        "--output",
+        "net01d/followup04/evidence/newprogress-ros-01",
+        "--ack-socket",
+        "/dev/shm/net01d-f04-progress-ros-01.ack"
+      ]
+    },
+    {
+      "pid": 532937,
+      "ppid": 532936,
+      "pgid": 532936,
+      "state": "S",
+      "start_ticks": 60163123,
+      "argv": [
+        "bwrap",
+        "--unshare-user",
+        "--uid",
+        "0",
+        "--gid",
+        "0",
+        "--die-with-parent",
+        "--ro-bind",
+        "/home/zhuyulab/ns3-workspace/base-01-econ/isolation/rootfs",
+        "/",
+        "--tmpfs",
+        "/tmp",
+        "--bind",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/runtime-home",
+        "/root",
+        "--ro-bind",
+        "/proc",
+        "/proc",
+        "--dev-bind",
+        "/dev",
+        "/dev",
+        "--ro-bind",
+        "/sys",
+        "/sys",
+        "--ro-bind",
+        "/home/zhuyulab/ns3-workspace/base-01-econ",
+        "/project",
+        "--bind",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+        "/mnt",
+        "--chdir",
+        "/mnt",
+        "--ro-bind",
+        "/home/zhuyulab/.local/lib/python3.10/site-packages",
+        "/tmp/rl02-python",
+        "/usr/bin/env",
+        "-i",
+        "PATH=/usr/sbin:/usr/bin:/sbin:/bin",
+        "HOME=/root",
+        "LANG=C.UTF-8",
+        "ROS_DOMAIN_ID=92",
+        "ROS_LOCALHOST_ONLY=1",
+        "RMW_IMPLEMENTATION=rmw_fastrtps_cpp",
+        "PYTHONNOUSERSITE=1",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "MKL_NUM_THREADS=1",
+        "/bin/bash",
+        "--noprofile",
+        "--norc",
+        "-c",
+        "\n    source /opt/ros/humble/setup.bash\n    source /project/workspace/install/setup.bash\n    export PYTHONPATH=/mnt/net01:/mnt/workspace/gz01:/mnt/workspace/rl04:/mnt/workspace/rl02:/mnt/workspace/rl01:/mnt/workspace/src/multi_robot_exploration:/tmp/rl02-python:${PYTHONPATH:-}\n    exec python3 -B \"$@\"\n  ",
+        "bash",
+        "net01d/followup04/check_progress_ros.py",
+        "--output",
+        "net01d/followup04/evidence/newprogress-ros-01",
+        "--ack-socket",
+        "/dev/shm/net01d-f04-progress-ros-01.ack"
+      ]
+    },
+    {
+      "pid": 532942,
+      "ppid": 532937,
+      "pgid": 532936,
+      "state": "R",
+      "start_ticks": 60163125,
+      "argv": [
+        "python3",
+        "-B",
+        "net01d/followup04/check_progress_ros.py",
+        "--output",
+        "net01d/followup04/evidence/newprogress-ros-01",
+        "--ack-socket",
+        "/dev/shm/net01d-f04-progress-ros-01.ack"
+      ]
+    },
+    {
+      "pid": 532949,
+      "ppid": 532942,
+      "pgid": 532936,
+      "state": "R",
+      "start_ticks": 60163127,
+      "argv": [
+        "/usr/bin/python3",
+        "/opt/ros/humble/_local_setup_util.py",
+        "sh",
+        "bash"
+      ]
+    },
+    {
+      "pid": 532956,
+      "ppid": 532942,
+      "pgid": 532936,
+      "state": "R",
+      "start_ticks": 60163145,
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/bin/register-python-argcomplete3",
+        "ros2"
+      ]
+    },
+    {
+      "pid": 532962,
+      "ppid": 532942,
+      "pgid": 532936,
+      "state": "R",
+      "start_ticks": 60163151,
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/bin/register-python-argcomplete3",
+        "rosidl"
+      ]
+    },
+    {
+      "pid": 532966,
+      "ppid": 532942,
+      "pgid": 532936,
+      "state": "R",
+      "start_ticks": 60163158,
+      "argv": [
+        "/usr/bin/python3",
+        "/opt/ros/humble/_local_setup_util.py",
+        "sh",
+        "bash"
+      ]
+    },
+    {
+      "pid": 532972,
+      "ppid": 532942,
+      "pgid": 532936,
+      "state": "R",
+      "start_ticks": 60163176,
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/bin/register-python-argcomplete3",
+        "ros2"
+      ]
+    },
+    {
+      "pid": 532974,
+      "ppid": 532942,
+      "pgid": 532936,
+      "state": "R",
+      "start_ticks": 60163182,
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/bin/register-python-argcomplete3",
+        "rosidl"
+      ]
+    },
+    {
+      "pid": 532977,
+      "ppid": 532942,
+      "pgid": 532936,
+      "state": "R",
+      "start_ticks": 60163189,
+      "argv": [
+        "/usr/bin/python3",
+        "/project/workspace/install/_local_setup_util_sh.py",
+        "sh",
+        "bash"
+      ]
+    }
+  ],
+  "wall_s": 6.153309443,
+  "owned_survivors": [],
+  "ack_exists_after_exit": false,
+  "original_status": "PASS_CONTROLLED_ROS_ONLY",
+  "actual_checks": 16,
+  "error": null
+}

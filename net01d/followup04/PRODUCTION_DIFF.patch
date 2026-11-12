@@ -1,0 +1,927 @@
+diff --git a/net01/a0_controller_bootstrap.py b/net01/a0_controller_bootstrap.py
+index 3ecdc44..3f0d7cb 100644
+--- a/net01/a0_controller_bootstrap.py
++++ b/net01/a0_controller_bootstrap.py
+@@ -11,7 +11,7 @@ from pathlib import Path
+ import sys
+ import time
+ 
+-from controller_bootstrap import owned_path_type
++from controller_bootstrap import owned_path_type,observed_spin
+ 
+ HERE=Path(__file__).resolve().parent
+ FROZEN=HERE.parent/'workspace'
+@@ -38,6 +38,7 @@ def main():
+         from a0_runtime import SafetyClient,install_hq_record_hook
+         original_path=frozen.Path
+         original_hq=frozen.GZHeadquarters
++        original_spin=frozen.rclpy.spin
+         class DirectHeadquarters(original_hq):
+             def __init__(self,*args,**kwargs):
+                 super().__init__(*args,**kwargs)
+@@ -49,8 +50,10 @@ def main():
+         frozen.Path=owned_path_type(directory,journal,state)
+         frozen.GZHeadquarters=DirectHeadquarters
+         try:
++            frozen.rclpy.spin=observed_spin(original_spin,directory,state)
+             return frozen.main()
+         finally:
++            frozen.rclpy.spin=original_spin
+             frozen.Path=original_path
+             frozen.GZHeadquarters=original_hq
+     finally:
+diff --git a/net01/a0_runtime.py b/net01/a0_runtime.py
+index dbca066..25e7478 100644
+--- a/net01/a0_runtime.py
++++ b/net01/a0_runtime.py
+@@ -37,7 +37,7 @@ class A0LocalStop(LocalStop):
+             self.owned.discard(uuid)
+         elif uuid not in self.terminals:
+             self.accepted.add(uuid)
+-            if self.guard.fault:
++            if self.guard.fault or self.guard.halted:
+                 self.cancel_owned(uuid)
+ 
+     def result_evidence(self, uuid, status):
+@@ -57,7 +57,7 @@ class A0LocalStop(LocalStop):
+                     self.records.append(dict(kind='a0_actual_active_status',uuid=uuid,status=status.status,
+                         monotonic_ns=time.monotonic_ns()))
+                 self.accepted.add(uuid)
+-                if self.guard.fault:
++                if self.guard.fault or self.guard.halted:
+                     self.cancel_owned(uuid)
+         super().observe_status(message)
+ 
+diff --git a/net01/boot_network.py b/net01/boot_network.py
+index 20f869b..8c3c7f2 100644
+--- a/net01/boot_network.py
++++ b/net01/boot_network.py
+@@ -8,6 +8,7 @@ from pathlib import Path
+ import signal
+ import subprocess
+ import sys
++import time
+ from time_control_runtime import controlled_config
+ 
+ HERE=Path(__file__).resolve().parent
+@@ -17,6 +18,7 @@ import boot as frozen
+ 
+ def main():
+     parser=argparse.ArgumentParser();parser.add_argument("--ready",type=Path,required=True)
++    parser.add_argument("--host-hard-deadline-ns",type=int)
+     args=parser.parse_args()
+     ready=frozen.validate_ready(args.ready)
+     net=ready["network"]
+@@ -33,6 +35,8 @@ def main():
+     bounds=(ready["sim_budget"],ready["startup_wall"],ready["autonomous_wall"],ready["outer_wall"],ready["cleanup_wall"])
+     allowed_bounds=(((120,180,420,900,90),(180,180,420,600,90)) if controlled is not None
+         else ((180,180,420,900,90),))
++    if controlled is not None and net.get('execution_profile')=='controlled1000-clock100-q10ms-pace10-raster-simhealth':
++        allowed_bounds+=((180,180,720,900,90),)
+     if bounds not in allowed_bounds:
+         raise ValueError("NET-01 fixed bounds changed")
+     qos_events=net.get('adapter_qos_events','sdk-default')
+@@ -73,6 +77,13 @@ def main():
+     try:
+         with case.with_name(case.name+".xvfb.log").open("x") as stream:
+             xvfb=subprocess.Popen(["Xvfb",":92","-screen","0","1280x800x24","-nolisten","tcp"],stdout=stream,stderr=subprocess.STDOUT)
++            # Same-host CLOCK_MONOTONIC survives the rootfs; these are the
++            # existing work/host bounds, not new phase budgets.
++            work_deadline_ns=time.monotonic_ns()+int(ready["outer_wall"]*1e9)
++            os.environ['NET01_RUNNER_WORK_DEADLINE_NS']=str(work_deadline_ns)
++            os.environ['NET01_HOST_HARD_DEADLINE_NS']=str(
++                work_deadline_ns if args.host_hard_deadline_ns is None else args.host_hard_deadline_ns)
++            os.environ['NET01_RUNNER_CLEANUP_WALL_S']=str(ready['cleanup_wall'])
+             runner=subprocess.Popen([sys.executable,"-B",str(HERE/"run_network_case.py"),"--ready",str(args.ready.resolve())],start_new_session=True)
+             case.with_name(case.name+".owned-runner.json").write_text(json.dumps(dict(
+                 pid=runner.pid,case=str(case),marker="GZ01_CASE="+str(case))))
+diff --git a/net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER_SIMHEALTH.json b/net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER_SIMHEALTH.json
+new file mode 100644
+index 0000000..0acc52c
+--- /dev/null
++++ b/net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER_SIMHEALTH.json
+@@ -0,0 +1,33 @@
++{
++  "id": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
++  "world_real_time_update_rate": 1000,
++  "physics_max_step_size_unchanged": 0.001,
++  "clock_publish_rate_sim_hz": 100.0,
++  "native_step_quantum_ns": 10000000,
++  "qualification": {
++    "source_wall_s": 16,
++    "hard_wall_s": 30,
++    "clock_period_wall_s": 0.02,
++    "clock_increment_ns": 10000000,
++    "other_sources": "Original TF/odom/feedback per wall unchanged, source clock subscribed from explicit MOCK_PHYSICS actual step service",
++    "peer": "Original10Hz sim timer, expected10Hz wall only if target1RTF is achieved; actual intervals measured, original gates unchanged",
++    "local_costmap_cells": [
++      200,
++      200
++    ],
++    "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
++    "not_generated_flows": [
++      "89 C merge_map",
++      "95 C controller journal"
++    ]
++  },
++  "scope": "Explicit new common discrete-event condition: same pace10 absolute planned token grid, target1RTF not guaranteed; physical10sim-ms/10iterations, single inflight and20sim-ms native credit, broadcast-v1 raster and default Gateway executor retained. Only health/mask300ms receipt deadlines (including external R Observer peer heartbeat) use actual R ROS simulation time; original monotonic receipt logs remain separately named. Source-age .4sim odom/.55sim correction and future rules, Peer odom receipt .2wall, Gateway process status .3wall, policy/model/source rates/QoS/RF remain unchanged. Independent2wall safeguards monitor active local R clock progress and independent TimeController administrative liveness/failure; coordinator bounds physical inflight ACK in every mode from each actual issue, and activates RUN clock/native ACK progress protection once on the first same-session status observing any actual R Guard armed. The separate armed-since monotonic baseline never renews on repeated status/ARM/HOLD-to-RUN, and actual clock/native progress stamps are never fabricated from bootstrap tokens; each deadline uses the later of armed-since and actual progress. Unarmed preflight retains the original startup180wall bound and per-physicalRPC2wall protection. Explicit preflight HOLD/STOP before ARM does not grant permission or permanently revoke future ARM; an armed HOLD without authority exit faults, and verified authority-exit STOP_OBSERVE (including its following HOLD before expected-shutdown is latched) revokes permission and uses actual UUID cancel/zero/PAUSE without synthesizing business outcomes. Authority-stopped stop observation has no business permission; physical inflight still has a2wall bound. All callback/timing/achieved workload/availability/trajectories can differ; rebuild matched A0/A1/B/C baselines. No wall-real-time deployment or physics/stop guarantee follows from this profile; frozen policy and physical evidence remain required. Post-stop Gateway evidence finalization is separate from active permissions: only after actual final stop/authority exit/seal and same-process resource-closure proof, the original20wall grace may use a fixed total60wall including reserved TERM/KILL, clipped to existing cleanup/outer/host absolute deadlines. No saved marker substitutes for normal process exit; original stop12 and all active safety thresholds remain unchanged.",
++  "controlled_physics": true,
++  "physical_token_steps": 10,
++  "physical_lookahead_quanta": 2,
++  "token_wall_period_ns": 10000000,
++  "peer_mask_raster": "broadcast-v1",
++  "health_mask_receipt_clock": "R-ros-sim-v1",
++  "progress_wall_timeout_s": 2.0,
++  "gateway_poststop_evidence_total_wall_s": 60
++}
+diff --git a/net01/controller_bootstrap.py b/net01/controller_bootstrap.py
+index 87f7e32..a4b5c97 100644
+--- a/net01/controller_bootstrap.py
++++ b/net01/controller_bootstrap.py
+@@ -10,11 +10,53 @@ import os
+ from pathlib import Path
+ import sys
+ import time
++import traceback
+ 
+ HERE=Path(__file__).resolve().parent
+ FROZEN=HERE.parent/"workspace"
+ 
+ 
++def observed_spin(original_spin,directory,state):
++    def spin(*args,**kwargs):
++        try:
++            return original_spin(*args,**kwargs)
++        except BaseException as error:
++            try:
++                observed=time.monotonic_ns()
++                state['spin_exception_observed_monotonic_ns']=observed
++                row=dict(pid=os.getpid(),session_id=os.environ.get('NET01_SESSION_ID'),
++                    observed_monotonic_ns=observed,
++                    scope='Raw spin exception observation, not a fault verdict; original handler remains authoritative',
++                    exception_type=type(error).__module__+'.'+type(error).__qualname__,
++                    exception_repr=repr(error),cause_repr=repr(error.__cause__),
++                    context_repr=repr(error.__context__),
++                    traceback=''.join(traceback.format_exception(type(error),error,error.__traceback__)),
++                    subscriptions=[])
++                tb=error.__traceback__
++                while tb is not None:
++                    if tb.tb_frame.f_code.co_name=='_take_subscription':
++                        item=dict(filename=tb.tb_frame.f_code.co_filename,line=tb.tb_lineno)
++                        sub=tb.tb_frame.f_locals.get('sub')
++                        value=None
++                        for name in ('topic_name','msg_type','raw'):
++                            try:
++                                value=getattr(sub,name)
++                                item[name]=(value.__module__+'.'+value.__qualname__
++                                    if name=='msg_type' else value)
++                            except BaseException as metadata_error:
++                                item[name+'_error']=type(metadata_error).__name__
++                        row['subscriptions'].append(item)
++                        del sub,value
++                    tb=tb.tb_next
++                del tb
++                with (directory/'controller-spin-exception.json').open('x') as stream:
++                    json.dump(row,stream,indent=2)
++            except BaseException as diagnostic_error:
++                state['spin_exception_record_failure']=type(diagnostic_error).__name__
++            raise
++    return spin
++
++
+ def owned_path_type(directory,journal,state):
+     base=type(Path())
+     target=directory/'allocation-events.jsonl'
+@@ -51,9 +93,14 @@ def main():
+             sys.path.insert(0,str(path))
+         import headquarters as frozen
+         original_path=frozen.Path
++        original_spin=frozen.rclpy.spin
+         frozen.Path=owned_path_type(directory,journal,state)
+-        try:return frozen.main()
+-        finally:frozen.Path=original_path
++        try:
++            frozen.rclpy.spin=observed_spin(original_spin,directory,state)
++            return frozen.main()
++        finally:
++            frozen.rclpy.spin=original_spin
++            frozen.Path=original_path
+     finally:
+         journal.close()
+         state.update(closed=journal.closed,finished_monotonic_ns=time.monotonic_ns())
+diff --git a/net01/delivery_guard.py b/net01/delivery_guard.py
+index e955bda..c026c81 100644
+--- a/net01/delivery_guard.py
++++ b/net01/delivery_guard.py
+@@ -4,7 +4,7 @@ from bound_peer import frozen
+ 
+ 
+ class DeliveryGuard:
+-    def __init__(self,robot,session_id,sim_now,stop,wall_now=time.monotonic):
++    def __init__(self,robot,session_id,sim_now,stop,wall_now=time.monotonic,*,execution_profile=None,control_stop=None):
+         self.robot=f"tb{robot}"
+         self.session_id=session_id
+         self.sim_now,self.wall_now,self.stop=sim_now,wall_now,stop
+@@ -13,12 +13,50 @@ class DeliveryGuard:
+         self.armed=False
+         self.fault=None
+         self.events=[]
++        self.receipt_clock_basis=(execution_profile or {}).get('health_mask_receipt_clock','monotonic-v1')
++        self.sim_health=self.receipt_clock_basis=='R-ros-sim-v1'
++        self.progress_wall_s=(execution_profile or {}).get('progress_wall_timeout_s')
++        self.health_receipt_sim=self.mask_receipt_sim=None
++        self.control=None;self.control_receipt=None;self.control_stop=control_stop
++        self.halted=False;self.last_sim=None;self.last_sim_progress_wall=None
++
++    def control_state(self,data):
++        if not self.sim_health or data['session_id']!=self.session_id:return
++        self.tick()  # A late admin snapshot cannot erase its preceding outage.
++        self.control=data;self.control_receipt=self.wall_now()
++        if self.armed and self.fault is None:
++            if data['failure']:
++                self.trip('time_control_failure:'+str(data['failure']))
++            elif data['authority_exited'] and (data['mode'] in ('STOP_COUPLED','FAULT_STOP_OBSERVE','HOLD') or data['expected_shutdown']):
++                self.halted=True;self.armed=False
++                self.events.append(dict(kind='control_permission_revoked',reason='authority_exited',
++                    sim=self.sim_now(),monotonic=self.wall_now(),receipt_clock_basis=self.receipt_clock_basis))
++                self.control_stop('authority_exited')
++            elif data['mode']=='HOLD':
++                self.trip('time_control_HOLD_while_armed')
++
++    def progress_reason(self,now,wall):
++        if self.halted:return 'control_permission_revoked'
++        if self.control is None:return 'time_control_state_missing'
++        if wall-self.control_receipt>self.progress_wall_s:return 'time_control_state_wall_timeout'
++        if self.control['failure']:return 'time_control_failure:'+str(self.control['failure'])
++        if self.control['mode']!='RUN':return 'time_control_not_RUN'
++        if self.armed:
++            if wall-self.last_sim_progress_wall>self.progress_wall_s:return 'R_sim_clock_progress_wall_timeout'
++            if now<self.last_sim:return 'R_sim_clock_rollback'
++            if now>self.last_sim:self.last_sim=now;self.last_sim_progress_wall=wall
++        return None
+ 
+     def reason(self):
+         if self.health is None or self.mask is None:return "missing_health_or_bound_mask"
+         now,wall=self.sim_now(),self.wall_now()
+-        if wall-self.health_receipt>.3:return "health_heartbeat_stale"
+-        if wall-self.mask_receipt>.3:return "bound_mask_receipt_stale"
++        if self.sim_health:
++            progress=self.progress_reason(now,wall)
++            if progress:return progress
++        health_age=now-self.health_receipt_sim if self.sim_health else wall-self.health_receipt
++        mask_age=now-self.mask_receipt_sim if self.sim_health else wall-self.mask_receipt
++        if health_age>.3:return "health_heartbeat_stale"
++        if mask_age>.3:return "bound_mask_receipt_stale"
+         if not frozen.state_fresh(self.health,now):return "health_original_sources_stale"
+         if not frozen.state_fresh(self.mask["bound_state"],now):return "bound_mask_original_sources_stale"
+         return None
+@@ -26,8 +64,15 @@ class DeliveryGuard:
+     def trip(self,reason):
+         if self.fault is None:
+             self.fault=reason
+-            self.events.append(dict(kind="latched_INVALID",reason=reason,robot=self.robot,
+-                session_id=self.session_id,sim=self.sim_now(),monotonic=self.wall_now()))
++            event=dict(kind="latched_INVALID",reason=reason,robot=self.robot,
++                session_id=self.session_id,sim=self.sim_now(),monotonic=self.wall_now(),receipt_clock_basis=self.receipt_clock_basis)
++            if self.sim_health:
++                event['progress_context']=dict(control_receipt_monotonic=self.control_receipt,
++                    last_sim_progress_wall=self.last_sim_progress_wall,last_sim=self.last_sim,
++                    health_receipt_sim=self.health_receipt_sim,mask_receipt_sim=self.mask_receipt_sim,
++                    control_mode=None if self.control is None else self.control['mode'],
++                    control_failure=None if self.control is None else self.control['failure'])
++            self.events.append(event)
+             self.stop(reason)
+ 
+     def tick(self):
+@@ -43,6 +88,7 @@ class DeliveryGuard:
+             return False
+         self.health=state
+         self.health_receipt=self.wall_now()
++        if self.sim_health:self.health_receipt_sim=self.sim_now()
+         self.tick()
+         return self.fault is None
+ 
+@@ -59,12 +105,14 @@ class DeliveryGuard:
+             return False
+         self.mask=binding
+         self.mask_receipt=self.wall_now()
++        if self.sim_health:self.mask_receipt_sim=self.sim_now()
+         self.tick()
+         return self.fault is None
+ 
+     def arm(self):
+         if self.fault is not None or self.reason() is not None:return False
+         self.armed=True
++        if self.sim_health:self.last_sim=self.sim_now();self.last_sim_progress_wall=self.wall_now()
+         self.events.append(dict(kind="armed",robot=self.robot,session_id=self.session_id,
+             sim=self.sim_now(),monotonic=self.wall_now()))
+         return True
+@@ -80,7 +128,7 @@ class LocalStop:
+     Use a steady clock even when the containing node follows /clock. The
+     external supervisor still performs the frozen physical-stop certification.
+     """
+-    def __init__(self,node,robot,session_id):
++    def __init__(self,node,robot,session_id,*,execution_profile=None):
+         import rclpy
+         from rclpy.clock import Clock,ClockType
+         from geometry_msgs.msg import Twist
+@@ -101,12 +149,13 @@ class LocalStop:
+         self.fault_pub=node.create_publisher(String,"/net01/guard_fault",10)
+         self.status_subscription=node.create_subscription(GoalStatusArray,
+             prefix+"/navigate_to_pose/_action/status",self.observe_status,qos_profile_action_status_default)
+-        self.guard=DeliveryGuard(robot,session_id,lambda:node.get_clock().now().nanoseconds/1e9,self.stop)
++        self.guard=DeliveryGuard(robot,session_id,lambda:node.get_clock().now().nanoseconds/1e9,self.stop,
++            execution_profile=execution_profile,control_stop=lambda reason:self.stop(reason,publish_fault=False))
+         self.timer=node.create_timer(.02,self.tick,clock=Clock(clock_type=ClockType.STEADY_TIME))
+ 
+     def tick(self):
+         self.guard.tick()
+-        if self.guard.fault:self.zero.publish(self.Twist())
++        if self.guard.fault or self.guard.halted:self.zero.publish(self.Twist())
+ 
+     def cancel_owned(self,uuid):
+         if uuid in self.stopped:return
+@@ -122,11 +171,13 @@ class LocalStop:
+             result.add_done_callback(lambda f:self.records.append(dict(kind="actual_local_GetResult",uuid=uuid,status=f.result().status)))
+         future.add_done_callback(cancelled)
+ 
+-    def stop(self,reason):
++    def stop(self,reason,*,publish_fault=True):
+         import json
+         from std_msgs.msg import String
+         self.zero.publish(self.Twist())
+-        self.fault_pub.publish(String(data=json.dumps(dict(robot=self.robot,session_id=self.guard.session_id,reason=reason))))
++        if publish_fault:
++            self.fault_pub.publish(String(data=json.dumps(dict(robot=self.robot,session_id=self.guard.session_id,reason=reason))))
++        else:self.records.append(dict(kind='actual_control_permission_revoked',reason=reason,monotonic_ns=time.monotonic_ns()))
+         # Pending requests remain unknown. Zero/pause happen immediately;
+         # a later real accepted response below triggers its exact UUID cancel.
+         for uuid in tuple(self.accepted):self.cancel_owned(uuid)
+@@ -145,7 +196,7 @@ class LocalStop:
+         if not response.accepted:self.owned.discard(uuid)
+         elif uuid not in self.terminals:
+             self.accepted.add(uuid)
+-            if self.guard.fault:self.cancel_owned(uuid)
++            if self.guard.fault or self.guard.halted:self.cancel_owned(uuid)
+ 
+     def observe_status(self,message):
+         for status in message.status_list:
+diff --git a/net01/execution_profile.py b/net01/execution_profile.py
+index 3047583..b8d13a9 100644
+--- a/net01/execution_profile.py
++++ b/net01/execution_profile.py
+@@ -10,11 +10,13 @@ PROFILE_FILES={
+     "controlled1000-clock100-q10ms-pace10-clocklane":"EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_CLOCKLANE.json",
+     "controlled1000-clock100-q10ms-pace10-clocklane-raster":"EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_CLOCKLANE_RASTER.json",
+     "controlled1000-clock100-q10ms-pace10-raster":"EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER.json",
++    "controlled1000-clock100-q10ms-pace10-raster-simhealth":"EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER_SIMHEALTH.json",
+ }
+ CONTROLLED_PROFILE_IDS=("controlled1000-clock100-q10ms","controlled1000-clock100-q10ms-pace10",
+     "controlled1000-clock100-q10ms-pace10-clocklane",
+     "controlled1000-clock100-q10ms-pace10-clocklane-raster",
+-    "controlled1000-clock100-q10ms-pace10-raster")
++    "controlled1000-clock100-q10ms-pace10-raster",
++    "controlled1000-clock100-q10ms-pace10-raster-simhealth")
+ 
+ def load_profile(identifier):
+     if identifier is None:return None
+diff --git a/net01/gateway.py b/net01/gateway.py
+index 47edb78..4529925 100644
+--- a/net01/gateway.py
++++ b/net01/gateway.py
+@@ -168,7 +168,13 @@ class Gateway:
+         self.c,self.r=self.nodes
+         self.hub=HubClient(socket,control_trace=control_trace);self.hub.receive=self.receive
+         self.link=LinkSession(self,session_id)
+-        self.guards={r:guardian_factory(self.r,r,session_id) for r in (1,2,3)}
++        self.sim_health=(self.execution_profile is not None and
++            self.execution_profile.get('health_mask_receipt_clock')=='R-ros-sim-v1')
++        guard_options={'execution_profile':self.execution_profile} if self.sim_health else {}
++        self.guards={r:guardian_factory(self.r,r,session_id,**guard_options) for r in (1,2,3)}
++        self.time_control_sub=(self.r.create_subscription(String,'/net01/time_control_state',
++            self.time_control_state,QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
++            if self.sim_health else None)
+         self.anchor=None;self.gz=None;self.previous_clock=None;self.step_pending=None
+         self.connected=False;self.failure=None;self.wires=None
+         self.last_status=None  # Actual existing timer snapshot, for fixture diagnostics only.
+@@ -244,6 +250,10 @@ class Gateway:
+     def record(self,kind,**fields):
+         self.records.append(dict(dict(kind=kind,monotonic_ns=time.monotonic_ns(),gz_ns=self.gz),**fields))
+ 
++    def time_control_state(self,message):
++        data=json.loads(message.data)
++        for guardian in self.guards.values():guardian.guard.control_state(data)
++
+     def clock(self,message):
+         capture_monotonic_ns=time.monotonic_ns()
+         gz=message.clock.sec*1_000_000_000+message.clock.nanosec
+@@ -699,6 +709,18 @@ class Gateway:
+                 action.reliability_tick()
+                 if self.failure:return
+ 
++    def poststop_phase(self,phase,**fields):
++        if self.execution_profile is None or not self.execution_profile.get('gateway_poststop_evidence_total_wall_s'):
++            return
++        row=dict(phase=phase,pid=os.getpid(),session_id=self.session_id,
++            case=str(self.directory.resolve()),monotonic_ns=time.monotonic_ns(),**fields)
++        with (self.directory/'network-gateway-close-phases.jsonl').open('a') as stream:
++            stream.write(json.dumps(row)+'\n')
++        if phase=='resources_closed':
++            temporary=self.directory/('network-gateway-resources-closed.'+str(os.getpid())+'.tmp')
++            with temporary.open('x') as stream:stream.write(json.dumps(row)+'\n')
++            temporary.replace(self.directory/'network-gateway-resources-closed.json')
++
+     def persist(self):
+         persist_begin=time.monotonic()
+         if self.central_map_captures is not None:self.persist_central_maps()
+@@ -721,7 +743,11 @@ class Gateway:
+             cleanup=self.cleanup,
+             records=self.records,link=self.link.events,
+             guards={str(r):dict(events=g.guard.events,actions=g.records,
+-                owned_unknown_or_active=sorted(g.owned),terminals=g.terminals) for r,g in self.guards.items()},
++                owned_unknown_or_active=sorted(g.owned),terminals=g.terminals,
++                receipt_clock_basis=g.guard.receipt_clock_basis,
++                health_receipt_monotonic=g.guard.health_receipt,mask_receipt_monotonic=g.guard.mask_receipt,
++                health_receipt_sim=g.guard.health_receipt_sim,mask_receipt_sim=g.guard.mask_receipt_sim,
++                control_permission_revoked=g.guard.halted) for r,g in self.guards.items()},
+             hub_deliveries=self.hub.deliveries)
+         if self.wires is not None:
+             data["topics"]={side:dict(captured=w.captured,delivered=w.delivered) for side,w in self.wires.items()}
+@@ -751,6 +777,7 @@ class Gateway:
+             peak_afterpersist_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss))+"\n")
+ 
+     def close(self):
++        self.poststop_phase("close_begin")
+         try:clean=self._close()
+         finally:
+             if self.main_thread_sampler is not None:
+@@ -763,10 +790,18 @@ class Gateway:
+             self.gc_runtime.update(restored_enabled=gc.isenabled(),
+                 restored_thresholds=gc.get_threshold(),restored_monotonic_ns=time.monotonic_ns(),
+                 peak_rss_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+-        self.persist()
+         if self.main_thread_sampler is not None:
+             status=self.cleanup['main_thread_sampler']
+             clean=clean and status['joined'] and status['failure'] is None
++        safe_closed=(clean and self.cleanup['resources_destroyed']
++            and all(self.cleanup['executor_shutdown'])
++            and not self.cleanup['unresolved_C_RPC'] and not self.cleanup['unresolved_R_RPC']
++            and not any(self.cleanup['unresolved_local_cleanup_futures'].values()))
++        self.poststop_phase('resources_closed',safe_closed=bool(safe_closed),cleanup=self.cleanup)
++        self.poststop_phase('persist_begin')
++        self.persist()
++        self.poststop_phase('persist_end')
++        self.poststop_phase('close_return',clean=bool(clean))
+         return clean
+ 
+     def _close(self):
+@@ -845,6 +880,7 @@ def main(*,gateway_factory=Gateway):
+             try:node.poll()
+             except Exception as error:node.fail(repr(error))
+     finally:clean=node.close()
++    node.poststop_phase("main_return",exit_code=0 if clean else 1)
+     return 0 if clean else 1
+ 
+ 
+diff --git a/net01/host_run.py b/net01/host_run.py
+index 2b982fa..33f5168 100644
+--- a/net01/host_run.py
++++ b/net01/host_run.py
+@@ -142,7 +142,9 @@ def main():
+         with case.with_name(case.name+".native.log").open("x") as log:
+             runner_command=(["bash",str(HERE/"ros-python.sh"),"/mnt/net01/boot_network.py",
+                 "--ready","/mnt/"+str(relative)] if controlled is None else
+-                controlled.python_command(['/mnt/net01/boot_network.py','--ready','/mnt/'+str(relative)]))
++                controlled.python_command(['/mnt/net01/boot_network.py','--ready','/mnt/'+str(relative)]+
++                    ([] if host_deadline is None else
++                        ['--host-hard-deadline-ns',str(int(host_deadline*1e9))])))
+             runner=subprocess.Popen(runner_command,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+             try:result["runner_exit"]=runner.wait(timeout=remaining(runner_wall))
+             except subprocess.TimeoutExpired:
+@@ -187,6 +189,9 @@ def main():
+         hub_log.close();result["end_utc"]=datetime.now(timezone.utc).isoformat()
+         result['host_wall_s']=time.monotonic()-host_begin
+         if bounded180:result['host_force_escalation_wall_s']=runner_wall
++        controller_path=case/'network-controller-exit.json'
++        result['controller_exit']=(json.loads(controller_path.read_text()) if controller_path.exists()
++            else dict(started=False,returncode=None,reason='missing controller exit evidence'))
+         outcome.write_text(json.dumps(result,indent=2))
+     saved={}
+     save_names=["network-gateway-saved.json","bound-mask-recording-saved.json","peer-recording-saved.json"]
+@@ -199,6 +204,7 @@ def main():
+     cleanup=saved["network-gateway-saved.json"].get("cleanup",{})
+     integrity=(all(row["saved"] for row in saved.values()) and result["runner_exit"]==0
+         and result["hub_exit"]==0 and gateway_exit["native_exit"]==0
++        and result['controller_exit']['started'] is True and result['controller_exit']['returncode']==0
+         and cleanup.get("resources_destroyed") is True and cleanup.get("end_frame_flushed") is True)
+     if controlled is not None:integrity=integrity and result['controlled_time']['integrity']
+     if direct_reference:
+@@ -207,7 +213,8 @@ def main():
+             actual.get('business_wires_installed') is False and \
+             actual.get('registered_owned_unknown_or_active')==0 and actual.get('safety_connections')==0
+     case.with_name(case.name+".network-integrity.json").write_text(json.dumps(dict(
+-        record_saves=saved,gateway_exit=gateway_exit,network_run_integrity=integrity,
++        record_saves=saved,gateway_exit=gateway_exit,controller_exit=result['controller_exit'],
++        network_run_integrity=integrity,
+         scope="Runtime/source/stop remain separately in original result; no metric PASS implied"),indent=2))
+     return 0 if integrity else 1
+ 
+diff --git a/net01/run_network_case.py b/net01/run_network_case.py
+index 19c6757..683b1b0 100644
+--- a/net01/run_network_case.py
++++ b/net01/run_network_case.py
+@@ -34,11 +34,22 @@ class NetworkObserver(original.Observer):
+         observer=self
+         self.network_state=None;self.network_received=None;self.received_controller=[]
+         self.network_fault=None
++        profile=load_profile(os.environ.get('NET01_EXECUTION_PROFILE') or None)
++        self.sim_health=(profile is not None and profile.get('health_mask_receipt_clock')=='R-ros-sim-v1')
++        self.peer_received_sim=None
+         self.controlled_time=os.environ.get('NET01_TIME_CONTROL')=='1'
+         self.direct_reference=os.environ.get('NET01_DIRECT_REFERENCE')=='1'
+         self.time_control_records=[]
+         self.time_stop_results=[];self.last_stop_result=None;self.current_stop_evidence=None
+         self.final_stop_phase=False;self.last_time_control_state=None
++        self.gateway_evidence_wall_s=(0 if profile is None else
++            profile.get('gateway_poststop_evidence_total_wall_s',0))
++        self.gateway_evidence_eligible=False;self.gateway_cleanup_deadline_ns=None
++        self.gateway_shutdown_started_ns=None
++        if self.gateway_evidence_wall_s:
++            self.gateway_hard_deadline_ns=min(int(os.environ['NET01_RUNNER_WORK_DEADLINE_NS']),
++                int(os.environ['NET01_HOST_HARD_DEADLINE_NS']))
++            self.gateway_cleanup_wall_s=float(os.environ['NET01_RUNNER_CLEANUP_WALL_S'])
+         self.subscriptions_kept.extend([
+             self.create_subscription(String,"/net01/gateway_state",self.network_status,
+                 QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)),
+@@ -56,6 +67,8 @@ class NetworkObserver(original.Observer):
+         self.received_controller.append(json.loads(message.data))
+ 
+     def event(self,kind,**fields):
++        if kind=='process_signal' and fields.get('process')=='exploration':
++            fields['controller_signal_event_monotonic_ns']=time.monotonic_ns()
+         super().event(kind,**fields)
+         if kind=='observed_stop' and self.controlled_time:self.current_stop_evidence=fields
+ 
+@@ -180,8 +193,39 @@ class NetworkObserver(original.Observer):
+                 except Exception as error:first_error=error
+         if first_error is not None:raise first_error
+ 
++    def peer_health(self,message):
++        super().peer_health(message)  # Retain original monotonic receipt/event fields.
++        if self.sim_health:
++            self.peer_received_sim=self.get_clock().now().nanoseconds/1e9
++            self.event('peer_receipt_clock',receipt_clock_basis='R-ros-sim-v1',
++                received_R_ros_sim=self.peer_received_sim,received_monotonic=self.peer_received,
++                sequence=self.peer_state['sequence'])
++
++    def sim_peer_error(self):
++        if not self.peer_guard:return None
++        if self.peer_state is None or self.sim is None or self.peer_received_sim is None:return 'peer state/clock missing'
++        now=self.get_clock().now().nanoseconds/1e9
++        age=now-self.peer_received_sim
++        wall_age=time.monotonic()-self.peer_received
++        if age>.3:
++            self.event('peer_heartbeat_stale_context',sequence=self.peer_state['sequence'],
++                generated_sim=self.peer_state['generated_sim'],observer_sim=self.sim,
++                receipt_clock_basis='R-ros-sim-v1',heartbeat_sim_age=age,heartbeat_wall_age=wall_age,
++                end_to_end_fresh=original.state_fresh(self.peer_state,self.sim),
++                peer_ready=self.peer_state['ready'],failures=self.peer_state['failures'])
++            return 'peer state heartbeat stale'
++        if not original.state_fresh(self.peer_state,self.sim):
++            return 'peer odom/source-time TF not fresh: '+str(dict(
++                sequence=self.peer_state['sequence'],generated_sim=self.peer_state['generated_sim'],
++                observer_sim=self.sim,heartbeat_sim_age=age,heartbeat_wall_age=wall_age,
++                consumer_ages={r:dict(source=self.sim-self.peer_state['odom_stamps'][r],
++                    correction=self.sim-self.peer_state['correction_stamps'][r]) for r in original.ROBOTS
++                    if r in self.peer_state['odom_stamps'] and r in self.peer_state['correction_stamps']},
++                ages=self.peer_state['ages'],failures=self.peer_state['failures']))
++        return None
++
+     def peer_error(self):
+-        error=super().peer_error()
++        error=self.sim_peer_error() if self.sim_health else super().peer_error()
+         if error:return error
+         if self.network_fault:return "Network guardian INVALID: "+self.network_fault
+         if self.network_state is None:return "Network gateway state missing"
+@@ -268,6 +312,13 @@ class NetworkObserver(original.Observer):
+         (self.directory/"network-gateway-exit.json").write_text(json.dumps(dict(
+             native_exit=None if gateway is None else gateway.poll(),
+             phase="after_original_stop_and_owned_launch_cleanup_attempts")))
++        (self.directory/"network-controller-exit.json").write_text(json.dumps(dict(
++            started=controller_process is not None,
++            pid=None if controller_process is None else controller_process.pid,
++            returncode=None if controller_process is None else controller_process.poll(),
++            session_id=int(os.environ['NET01_SESSION_ID']),case=str(self.directory.resolve()),
++            observed_monotonic_ns=time.monotonic_ns(),
++            phase="after_original_stop_and_owned_launch_cleanup_attempts")))
+         (self.directory/"received-controller-records.json").write_text(json.dumps(self.received_controller))
+         if self.controlled_time:
+             (self.directory/'time-control-observer.json').write_text(json.dumps(dict(
+@@ -301,16 +352,91 @@ def end_controlled_launch(process,observer):
+             return
+ 
+ 
++def gateway_closed_proof(process,observer,begin_ns,initial_deadline_ns):
++    path=observer.directory/'network-gateway-resources-closed.json'
++    try:row=json.loads(path.read_text())
++    except FileNotFoundError:return None
++    except json.JSONDecodeError:return None
++    if (row.get('phase')!='resources_closed' or row.get('safe_closed') is not True
++        or row.get('pid')!=process.pid or row.get('session_id')!=int(os.environ['NET01_SESSION_ID'])
++        or row.get('case')!=str(observer.directory.resolve())
++        or not begin_ns<=row.get('monotonic_ns',0)<=initial_deadline_ns):return None
++    cleanup=row.get('cleanup',{})
++    sampler=cleanup.get('main_thread_sampler')
++    if (cleanup.get('resources_destroyed') is not True or cleanup.get('end_frame_flushed') is not True
++        or cleanup.get('executor_shutdown')!=[True,True]
++        or cleanup.get('unresolved_C_RPC')!=[] or cleanup.get('unresolved_R_RPC')!=[]
++        or any(cleanup.get('unresolved_local_cleanup_futures',{'missing':1}).values())
++        or (sampler is not None and (not sampler['joined'] or sampler['failure'] is not None))):return None
++    states=cleanup.get('action_confirmation_states')
++    if states is not None and any(state['waiting'] or state['unconfirmed']
++        for state in (states['C'],*states['R'].values())):return None
++    return row
++
++
++def end_gateway(process,observer):
++    if process is None or process.poll() is not None:return
++    if not observer.gateway_evidence_wall_s:
++        return frozen_end_process(process,observer,'network_gateway')
++    if observer.gateway_shutdown_started_ns is None:
++        observer.gateway_shutdown_started_ns=time.monotonic_ns()
++    begin_ns=observer.gateway_shutdown_started_ns
++    # Fixed once: all phases share the same total, cleanup and parent bounds.
++    total_deadline_ns=min(begin_ns+int(observer.gateway_evidence_wall_s*1e9),
++        observer.gateway_hard_deadline_ns,
++        observer.gateway_cleanup_deadline_ns or observer.gateway_hard_deadline_ns)
++    initial_deadline_ns=min(begin_ns+20_000_000_000,total_deadline_ns-10_000_000_000)
++    eligible=(observer.gateway_evidence_eligible and observer.authority_stopped
++        and (controller_process is None or controller_process.poll() is not None))
++    proof=None
++    effective_total_ns=min(begin_ns+30_000_000_000,total_deadline_ns)
++    observer.event('gateway_poststop_supervision',pid=process.pid,begin_monotonic_ns=begin_ns,
++        initial_deadline_ns=initial_deadline_ns,total_deadline_ns=total_deadline_ns,
++        cleanup_deadline_ns=observer.gateway_cleanup_deadline_ns,
++        hard_deadline_ns=observer.gateway_hard_deadline_ns,extension_eligible=eligible)
++    for sig,deadline_ns in ((signal.SIGINT,initial_deadline_ns),
++            (signal.SIGTERM,None),(signal.SIGKILL,None)):
++        if sig==signal.SIGTERM:
++            deadline_ns=min(time.monotonic_ns()+5_000_000_000,effective_total_ns-5_000_000_000)
++        elif sig==signal.SIGKILL:
++            deadline_ns=min(time.monotonic_ns()+5_000_000_000,effective_total_ns)
++        observer.event('process_signal',process='network_gateway',pid=process.pid,signal=sig.name,
++            deadline_monotonic_ns=deadline_ns)
++        os.killpg(process.pid,sig)
++        while process.poll() is None:
++            now_ns=time.monotonic_ns()
++            if sig==signal.SIGINT and eligible and proof is None:
++                proof=gateway_closed_proof(process,observer,begin_ns,initial_deadline_ns)
++                if proof is not None:
++                    effective_total_ns=total_deadline_ns
++                    deadline_ns=total_deadline_ns-10_000_000_000
++                    observer.event('gateway_evidence_grace',pid=process.pid,
++                        resources_closed=proof,grace_deadline_ns=deadline_ns,
++                        total_deadline_ns=total_deadline_ns)
++            if now_ns>=deadline_ns:break
++            observer.stop_zeros()
++            rclpy.spin_once(observer,timeout_sec=min(.02,(deadline_ns-now_ns)/1e9))
++        if process.poll() is not None:
++            observer.event('process_exit',process='network_gateway',code=process.returncode)
++            return
++
++
+ def end_process(process,observer,name):
+-    if name=='exploration':observer.final_stop_phase=True
++    if name=='exploration':
++        observer.final_stop_phase=True
++        if observer.gateway_evidence_wall_s and observer.gateway_cleanup_deadline_ns is None:
++            observer.gateway_cleanup_deadline_ns=time.monotonic_ns()+int(observer.gateway_cleanup_wall_s*1e9)
++    if name=='network_gateway':return end_gateway(process,observer)
+     if name=='launch' and process is not None and observer.controlled_time:
+-        try:observer.seal_time_control()
++        try:
++            observer.seal_time_control()
++            observer.gateway_evidence_eligible=True
+         except Exception as error:
+             observer.event('time_control_seal_failed',detail=repr(error))
+             observer.hazard=observer.hazard or 'Controlled-time seal failed: '+repr(error)
+         # Keep actual Nav2/plugin services alive through the Gateway's real
+         # cancellation/GetResult cleanup and END flush, then destroy launch.
+-        frozen_end_process(gateway,observer,'network_gateway')
++        end_gateway(gateway,observer)
+         observer.event('network_gateway_before_launch_exit',
+             native_exit=None if gateway is None else gateway.poll())
+         return end_controlled_launch(process,observer)
+diff --git a/net01/time_control_state.py b/net01/time_control_state.py
+index d29aed8..ccadf8c 100644
+--- a/net01/time_control_state.py
++++ b/net01/time_control_state.py
+@@ -9,7 +9,7 @@ TOKEN_WALL_PERIOD_NS=20_000_000  # Historical default .5RTF planned target.
+ 
+ 
+ class TimeControlState:
+-    def __init__(self,token_wall_period_ns=TOKEN_WALL_PERIOD_NS):
++    def __init__(self,token_wall_period_ns=TOKEN_WALL_PERIOD_NS,progress_wall_timeout_ns=None):
+         if token_wall_period_ns not in (20_000_000,10_000_000):
+             raise ValueError('Unknown controlled-time planned wall period')
+         self.token_wall_period_ns=token_wall_period_ns
+@@ -20,6 +20,31 @@ class TimeControlState:
+         self.bootstrap_tokens=0;self.authority_exited=False
+         self.next_wall_ns=None;self.last_planned_wall_ns=None;self.last_lateness_ns=0
+         self.max_lateness_ns=0;self.late_tokens=0
++        self.progress_wall_timeout_ns=progress_wall_timeout_ns
++        self.progress_started_ns=None;self.clock_progress_ns=None;self.native_progress_ns=None
++        self.inflight_since_ns=None;self.motion_armed_since_ns=None
++
++    def check_progress(self,now_ns):
++        if self.progress_wall_timeout_ns is None:return None
++        reason=None;physics=False
++        if self.inflight and now_ns-self.inflight_since_ns>self.progress_wall_timeout_ns:
++            reason='physics_RPC_wall_timeout';physics=True
++        elif self.mode=='RUN' and self.motion_armed_since_ns is not None:
++            clock_base=(self.motion_armed_since_ns if self.clock_progress_ns is None else
++                max(self.motion_armed_since_ns,self.clock_progress_ns))
++            native_base=(self.motion_armed_since_ns if self.native_progress_ns is None else
++                max(self.motion_armed_since_ns,self.native_progress_ns))
++            if now_ns-clock_base>self.progress_wall_timeout_ns:reason='actual_clock_progress_wall_timeout'
++            elif now_ns-native_base>self.progress_wall_timeout_ns:reason='native_ACK_progress_wall_timeout'
++        if reason:self.fail(reason,physics=physics)
++        return reason
++
++
++    def observe_motion_armed(self,now_ns):
++        self.check_progress(now_ns)  # A repeated/late status cannot erase an expired interval.
++        if self.progress_wall_timeout_ns is None or self.motion_armed_since_ns is not None:return False
++        self.motion_armed_since_ns=now_ns
++        return True
+ 
+     def fail(self,reason,physics=False):
+         if self.failure is None:self.failure=reason
+@@ -29,9 +54,11 @@ class TimeControlState:
+             self.mode='FAULT_STOP_OBSERVE'
+         else:self.mode='HOLD'
+ 
+-    def clock(self,value):
++    def clock(self,value,now_ns=None):
++        if self.progress_wall_timeout_ns is not None:self.check_progress(now_ns)
+         if self.clock_ns is not None and value<self.clock_ns:
+             self.fail('actual_clock_rollback',physics=True);return
++        if self.progress_wall_timeout_ns is not None and (self.clock_ns is None or value>self.clock_ns):self.clock_progress_ns=now_ns
+         self.clock_ns=value
+ 
+     def set_anchor(self,offset):
+@@ -39,11 +66,13 @@ class TimeControlState:
+             self.fail('fixed_clock_anchor_changed');return
+         self.anchor=offset
+ 
+-    def native(self,kind,value):
++    def native(self,kind,value,now_ns=None):
++        if self.progress_wall_timeout_ns is not None:self.check_progress(now_ns)
+         if kind=='ready':
+             self.native_ready=True
+         elif kind=='step':
+             if value<self.native_ns:self.fail('actual_native_ACK_rollback');return
++            if self.progress_wall_timeout_ns is not None and value>self.native_ns:self.native_progress_ns=now_ns
+             self.native_ns=value
+         elif kind=='closed' and not self.expected_shutdown:
+             self.fail('native_closed_before_expected_shutdown')
+@@ -53,7 +82,8 @@ class TimeControlState:
+ 
+     def run(self):
+         if self.failure is not None or self.expected_shutdown:return False
+-        if self.mode!='RUN':self.next_wall_ns=None
++        if self.mode!='RUN':
++            self.next_wall_ns=None;self.progress_started_ns=None
+         self.mode='RUN';self.authority_exited=False;return True
+ 
+     def stop_observe(self,authority_exited):
+@@ -76,6 +106,7 @@ class TimeControlState:
+             self.physical_ns+QUANTUM_NS<=self.anchor+self.native_ns+LOOKAHEAD_NS)
+ 
+     def begin_step(self,now_ns):
++        self.check_progress(now_ns)
+         if not self.can_step(now_ns):raise RuntimeError('Unlicensed physical token')
+         planned=now_ns if self.next_wall_ns is None else self.next_wall_ns
+         self.last_planned_wall_ns=planned;self.last_lateness_ns=now_ns-planned
+@@ -83,10 +114,15 @@ class TimeControlState:
+         self.late_tokens+=int(self.last_lateness_ns>0)
+         self.next_wall_ns=planned+self.token_wall_period_ns
+         self.inflight=True
++        if self.progress_wall_timeout_ns is not None:
++            self.inflight_since_ns=now_ns
++            if self.progress_started_ns is None:
++                self.progress_started_ns=now_ns  # Token telemetry only, not an actual clock/native ACK.
+ 
+-    def complete_step(self,response):
++    def complete_step(self,response,now_ns=None):
++        if self.progress_wall_timeout_ns is not None:self.check_progress(now_ns)
+         if not self.inflight:raise RuntimeError('No physical token outstanding')
+-        self.inflight=False
++        self.inflight=False;self.inflight_since_ns=None
+         before,after=response['before_ns'],response['after_ns']
+         ib,ia=response['before_iterations'],response['after_iterations']
+         if (after-before!=QUANTUM_NS or ia-ib!=10 or response['completed_steps']!=10
+diff --git a/net01/time_controller.py b/net01/time_controller.py
+index 3eea1f7..f1f1500 100644
+--- a/net01/time_controller.py
++++ b/net01/time_controller.py
+@@ -15,6 +15,7 @@ from rclpy.callback_groups import ReentrantCallbackGroup
+ from rclpy.clock import Clock,ClockType
+ from rclpy.executors import SingleThreadedExecutor
+ from rclpy.node import Node
++from rclpy.task import Future
+ from rclpy.qos import QoSProfile,DurabilityPolicy,qos_profile_sensor_data
+ from rclpy.signals import SignalHandlerOptions
+ from rosgraph_msgs.msg import Clock as ClockMessage
+@@ -28,7 +29,10 @@ class TimeController(Node):
+     def __init__(self,ack_socket,output,session_id,execution_profile=CONTROLLED_PROFILE_IDS[0]):
+         super().__init__('net01_time_controller')
+         self.execution_profile=load_profile(execution_profile)
+-        self.state=TimeControlState(self.execution_profile['token_wall_period_ns'])
++        self.progress_wall_timeout_ns=(int(self.execution_profile['progress_wall_timeout_s']*1e9)
++            if self.execution_profile.get('health_mask_receipt_clock')=='R-ros-sim-v1' else None)
++        self.state=TimeControlState(self.execution_profile['token_wall_period_ns'],self.progress_wall_timeout_ns)
++        self.hold_waiters=[]
+         self.output=Path(output);self.records=[]
+         self.first_physical_token_wall_ns=None;self.first_physical_before_ns=None
+         self.last_physical_ACK_wall_ns=None
+@@ -64,7 +68,15 @@ class TimeController(Node):
+             actual_clock_ns=self.state.clock_ns,native_ACK_ns=self.state.native_ns,
+             fixed_offset_ns=self.state.anchor,physical_RPC_inflight=self.state.inflight,
+             session_id=self.session_id,gateway_clock_ready=self.state.gateway_clock_ready,
+-            pending_holds=self.pending_holds,
++            pending_holds=self.pending_holds,authority_exited=self.state.authority_exited,
++            progress_wall_timeout_ns=self.progress_wall_timeout_ns,
++            progress_started_monotonic_ns=self.state.progress_started_ns,
++            motion_armed_since_monotonic_ns=self.state.motion_armed_since_ns,
++            global_progress_activation_basis=(None if self.progress_wall_timeout_ns is None else
++                'First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token'),
++            actual_clock_progress_monotonic_ns=self.state.clock_progress_ns,
++            native_ACK_progress_monotonic_ns=self.state.native_progress_ns,
++            physical_RPC_issued_monotonic_ns=self.state.inflight_since_ns,
+             execution_profile=self.execution_profile['id'],
+             token_wall_period_ns=self.state.token_wall_period_ns,
+             planned_realtime_factor=QUANTUM_NS/self.state.token_wall_period_ns,
+@@ -78,11 +90,17 @@ class TimeController(Node):
+ 
+     def clock(self,message):
+         value=message.clock.sec*1_000_000_000+message.clock.nanosec
+-        self.state.clock(value);self.record('actual_clock',value)
++        self.state.clock(value,time.monotonic_ns() if self.progress_wall_timeout_ns is not None else None)
++        self.record('actual_clock',value)
+ 
+     def gateway(self,message):
+         data=json.loads(message.data)
+         if data['session_id']!=self.session_id:return
++        if self.progress_wall_timeout_ns is not None and any(g['armed'] for g in data['guards'].values()):
++            received=time.monotonic_ns()
++            if self.state.observe_motion_armed(received):
++                self.record('actual_R_guard_ARM_watchdog_activation',received,data['gateway_monotonic_ns'],
++                    tuple(robot for robot,g in data['guards'].items() if g['armed']))
+         prerequisite=(data['clock_reader_ready'],data['clock_writer_discovered'],data['clock_publishers'])
+         if prerequisite!=self.gateway_prerequisite:
+             self.record('actual_gateway_clock_prerequisite',self.session_id,*prerequisite,data['gateway_monotonic_ns'])
+@@ -103,7 +121,10 @@ class TimeController(Node):
+             self.state.hold();self.record('HOLD_requested',request.data)
+             pending=self.future
+             if pending is not None:
+-                await pending
++                if self.progress_wall_timeout_ns is None:await pending
++                else:
++                    waiter=Future();self.hold_waiters.append((waiter,pending))
++                    await waiter  # poll releases this on actual ACK or the independent wall timeout.
+                 self.finish_step()
+             response.success=(not self.state.physics_failed and self.state.mode=='HOLD'
+                 and not self.state.inflight)
+@@ -133,7 +154,7 @@ class TimeController(Node):
+             if not response.success:
+                 self.state.inflight=False;self.state.fail('physics_RPC_rejected',physics=True)
+             else:
+-                self.state.complete_step(data)
++                self.state.complete_step(data,time.monotonic_ns() if self.progress_wall_timeout_ns is not None else None)
+                 if not self.state.physics_failed:
+                     if self.first_physical_before_ns is None:self.first_physical_before_ns=data['before_ns']
+                     self.last_physical_ACK_wall_ns=time.monotonic_ns()
+@@ -146,9 +167,21 @@ class TimeController(Node):
+             try:body=self.socket.recv(4096)
+             except BlockingIOError:break
+             row=json.loads(body)
+-            self.state.native(row['kind'],row['horizon_ns'])
++            self.state.native(row['kind'],row['horizon_ns'],
++                time.monotonic_ns() if self.progress_wall_timeout_ns is not None else None)
+             self.record('actual_native_progress',row['kind'],row['horizon_ns'],row['monotonic_ns'])
++        previous_failure=self.state.failure
++        self.state.check_progress(time.monotonic_ns())
+         self.finish_step()
++        if self.progress_wall_timeout_ns is not None:
++            waiting=[]
++            for waiter,pending in self.hold_waiters:
++                if pending.done() or self.state.physics_failed:waiter.set_result(None)
++                else:waiting.append((waiter,pending))
++            self.hold_waiters=waiting
++            if self.state.failure!=previous_failure:
++                self.record('independent_progress_wall_failure',self.state.failure)
++                self.publish_state()
+         if self.state.can_step(time.monotonic_ns()) and self.step.service_is_ready():
+             issued=time.monotonic_ns();self.state.begin_step(issued)
+             if self.first_physical_token_wall_ns is None:self.first_physical_token_wall_ns=issued

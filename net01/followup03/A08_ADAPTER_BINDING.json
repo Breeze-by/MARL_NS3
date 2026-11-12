@@ -1,0 +1,54 @@
+{
+  "adapter_source_commit": "d21e20632736bf7bab4257e9faed5c148884ae08",
+  "adapter_sha256": {
+    "gateway.py": "5b15be88cc5f6c9b0c2c88ed05ee6c11fc18ed509e8b8d645a12b0c3a1e927de",
+    "run_network_case.py": "ecd488847ff9047576623876f87dfb164d18d2316684dc8df1cfe6d797faab9b",
+    "net_scene_launch.py": "584ab7accecc1b2c767971793033d5415637eaffaac66bcbdece22deccb3dd46",
+    "boot_network.py": "ef97e3b5afb1f4094474528134f395a79c03d670424057213987dfc4d1b2c94c",
+    "host_run.py": "fe3fc14d87343314b914ae6aec64951bde702267d40d70871ad1e9f79eb20416",
+    "ros-python.sh": "402578957bdb9e7aa294adac2d035dbfeb39a0d36207da79c311b8637cc931eb",
+    "action_wire.py": "d2ee515e0a0953512353281d29e6a8c9e71d19767c9d36038c859e500358acd5",
+    "topic_wire.py": "604d8615aeadda7a2f9fe54d7d035a4e041fb1273f08b30b255de3a2a79ee822",
+    "bound_mask_wire.py": "baad7af68ddba250c4adf870de603ec1b7eca1c9c9ef26299fc3f7ae01192527",
+    "bound_peer.py": "e3204f4b6fe809a83f0f2e340c796d1089915640898396ab6641f9f79d2ac6d1",
+    "delivery_guard.py": "bc5070ecf35953304f958871375905570596e7ec9f2a7edc7701a23d709397c5",
+    "hub_client.py": "d06029c9f6499a85e9d155b1e2cca80fe118f1a790f2e09516024db5b3193807",
+    "link_session.py": "c91e043cc86539f7cff746d4ef0abed6ef9429ffe7f0739d6a334909f4ec5de9",
+    "tools/packet_hub.py": "1a9d200527774dbee7fad6bfa1c70d5e5741604997ecf8d4f87ad5e07094233b",
+    "native/payload_transport.cc": "810c51a225dce2fbf5499a78faa6f89ee1f653fa8797f9f7cf6267b83e7c3cba",
+    "config/NETWORK_LOCK_V3.json": "a04fbd942781a81fdfa12320e6a542b20f984f727b182903f1cd05b07cb647b8",
+    "config/CHANNEL_FAULT_V1.json": "c32357d82e360c3dbc17dddbcedd3434c85fb07c5fdc4889ede0c6cc3da28434",
+    "check_composition_cleanup.py": "9671539f2f59131ec89a0ed795e9c0525de474a549aa7e20bc5e4155fc95ae2c",
+    "config/NATIVE_IDENTITY.json": "ebcd428cd3e057c1defbdbe82dc1b03ed5dd4dc3eb4199d164c29dabf5e327f0",
+    "config/recorder-qos.yaml": "c044780c4ea0cf82bdf85717142acd7ce64d1d123c142816a1caf45b2d4d39a8",
+    "execution_profile.py": "b01bbe7fc5c5c3e620ab2e02706b0ca0fecdf7668e646cd32f7567f686f05017",
+    "config/EXECUTION_PROFILE_PACE500_CLOCK100_Q10MS.json": "6b6d99d938fd1eb4e51feef5e0afe835887e989c632b5e527e8bf97ea6d78eb3",
+    "native/event_ledger.h": "2b7f0ac3aef8b9659436e3e4b2a6ff6f2e5d78c806657b1a92f73807f3ea53e3",
+    "native/CMakeLists.txt": "7c8dbe443c226e28270d34f62ac1425882c0f81f578dca8a9afdae41b3545a3b"
+  },
+  "native_identity": {
+    "binary": {
+      "relative_phase": "build/followup03-release-portable-native/net01-payload",
+      "bytes": 394928,
+      "sha256": "82bc8ecff7d1e88d826931be534335fac21971fa8e6a23731af805f291c7e184"
+    },
+    "generated_header": {
+      "relative_phase": "build/network-full-payload/network_config.h",
+      "bytes": 4545,
+      "sha256": "66e64adf26c3d712ab149fe2d828ae8858d00c7172ef8adfacfc5bd7c2ff73a2"
+    },
+    "source_sha256": "810c51a225dce2fbf5499a78faa6f89ee1f653fa8797f9f7cf6267b83e7c3cba",
+    "generated_config_matches_NETWORK_LOCK_V3": true,
+    "build_command": "cmake --build net-01/build/followup03-release-portable-native -j2",
+    "build_exit": 0,
+    "scope": "Same ns3.40 source; official Release-portable O3/ASSERT LOG OFF/nativeISA OFF, no LTO/fastmath; model params/V3 unchanged. Old O2 default/assert-log libs unchanged",
+    "identity_relative_repo": "net01/followup03/RELEASE_NATIVE_IDENTITY.json",
+    "dependency_identity_commit": "d5528e2",
+    "ns3_build_root": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build",
+    "library_suffix": "",
+    "all_ldd_ns3_new_root": true,
+    "serial_logger": true,
+    "cpu_profile": false
+  },
+  "scope": "Only adapter bindings. Frozen core/scene/model identities reused from A07. No rehash of historical data."
+}

@@ -1,0 +1,153 @@
+{
+  "status": "FAIL",
+  "checks": {},
+  "domains": [
+    91,
+    92
+  ],
+  "session_id": 5002,
+  "scope": "Actual Gateway/real DDS controlled Action servers/actual ns3 WiFi; no Nav2/Gazebo/Policy",
+  "health_bound_source": "synthetic fresh fixture intake only; not radio health/mask qualification",
+  "nonzero_velocity_publishers": 0,
+  "physical_stop_certified": false,
+  "preflight": {
+    "R_action_or_lifecycle_services": [
+      "/tb1/lifecycle_manager_navigation/manage_nodes",
+      "/tb1/navigate_to_pose/_action/cancel_goal",
+      "/tb1/navigate_to_pose/_action/get_result",
+      "/tb1/navigate_to_pose/_action/send_goal",
+      "/tb2/lifecycle_manager_navigation/manage_nodes",
+      "/tb2/navigate_to_pose/_action/cancel_goal",
+      "/tb2/navigate_to_pose/_action/get_result",
+      "/tb2/navigate_to_pose/_action/send_goal",
+      "/tb3/lifecycle_manager_navigation/manage_nodes",
+      "/tb3/navigate_to_pose/_action/cancel_goal",
+      "/tb3/navigate_to_pose/_action/get_result",
+      "/tb3/navigate_to_pose/_action/send_goal"
+    ],
+    "foreign_cmd_vel_readers": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+  "error": "AssertionError('isolated_domain_no_real_Action_lifecycle_or_robot_driver_before_fixture')",
+  "confirmation_state": {
+    "C": {
+      "status": {
+        "enabled": true,
+        "failure": null,
+        "waiting": 0,
+        "unconfirmed": 0
+      },
+      "events": [
+        {
+          "kind": "reliable_transport_stopped",
+          "monotonic": 507231.752598048,
+          "reason": "owned_shutdown"
+        }
+      ],
+      "transfers": []
+    },
+    "R": {
+      "1": {
+        "status": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "events": [
+          {
+            "kind": "reliable_transport_stopped",
+            "monotonic": 507231.752605642,
+            "reason": "owned_shutdown"
+          }
+        ],
+        "transfers": []
+      },
+      "2": {
+        "status": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "events": [
+          {
+            "kind": "reliable_transport_stopped",
+            "monotonic": 507231.752607857,
+            "reason": "owned_shutdown"
+          }
+        ],
+        "transfers": []
+      },
+      "3": {
+        "status": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "events": [
+          {
+            "kind": "reliable_transport_stopped",
+            "monotonic": 507231.752609943,
+            "reason": "owned_shutdown"
+          }
+        ],
+        "transfers": []
+      }
+    }
+  },
+  "Gateway_clean_return": true,
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "action_confirmation_states": {
+      "C": {
+        "enabled": true,
+        "failure": null,
+        "waiting": 0,
+        "unconfirmed": 0
+      },
+      "R": {
+        "1": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "2": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "3": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        }
+      }
+    },
+    "retired_C_services": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  }
+}

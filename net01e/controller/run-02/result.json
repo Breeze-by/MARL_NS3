@@ -1,0 +1,78 @@
+{
+  "parent_pid": 1084213,
+  "parent_ppid": 1084203,
+  "domain": 97,
+  "start_monotonic_ns": 619879710609363,
+  "status": "NOT_REPRODUCED_ONE_OBSERVED_SIGINT",
+  "published": 239,
+  "pre_signal_published": 234,
+  "post_signal_published": 5,
+  "signals": [
+    {
+      "pid": 1084266,
+      "signal": "SIGINT",
+      "before_monotonic_ns": 619892282562950,
+      "after_monotonic_ns": 619892282603872
+    }
+  ],
+  "first_publish_monotonic_ns": 619880280554802,
+  "last_publish_monotonic_ns": 619892511852491,
+  "scope": "Synthetic real DDS only; no historical payload or root-cause claim",
+  "payload": {
+    "width": 400,
+    "height": 400,
+    "CDR_bytes": 160104,
+    "exact_data_values": [
+      -1,
+      0,
+      100
+    ],
+    "finite_metadata": true,
+    "roundtrip_equal": true,
+    "period_wall_s": 0.05,
+    "signal_after_wall_s": 12.0,
+    "max_publishes": 340
+  },
+  "receiver_pid": 1084266,
+  "receiver_argv": [
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/net01e/controller/continuous_dds.py",
+    "--receiver-directory",
+    "/mnt/net01e/controller/run-02"
+  ],
+  "receiver_ready": {
+    "pid": 1084266,
+    "ppid": 1084213,
+    "domain": 97,
+    "signal_handler": "observer immediately delegates to original Python default_int_handler",
+    "signal_handler_options": "NO",
+    "raw": false,
+    "signal_observations": [],
+    "count": 0,
+    "first_callback_monotonic_ns": null,
+    "last_callback_monotonic_ns": null,
+    "recent_callback_monotonic_ns": [],
+    "post_handler_callback_count": 0,
+    "invalid_message_count": 0,
+    "subscription_created_monotonic_ns": 619880276510019,
+    "subscription_python_identity": 126424372892656,
+    "topic": "/net01e/controller/grid",
+    "msg_type": "nav_msgs.msg._occupancy_grid.OccupancyGrid"
+  },
+  "receiver_exit_observed_monotonic_ns": 619892541742919,
+  "receiver_raw_exit": -2,
+  "exception": {
+    "observed_monotonic_ns": 619892305408783,
+    "type": "builtins.KeyboardInterrupt",
+    "repr": "KeyboardInterrupt()",
+    "cause": "None",
+    "context": "None",
+    "traceback": "Traceback (most recent call last):\n  File \"/mnt/net01e/controller/continuous_dds.py\", line 115, in receiver\n    rclpy.spin(node)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py\", line 229, in spin\n    executor.spin_once()\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 812, in spin_once\n    self._spin_once_impl(timeout_sec)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 801, in _spin_once_impl\n    handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 784, in wait_for_ready_callbacks\n    return next(self._cb_iter)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 681, in _wait_for_ready_callbacks\n    wait_set.wait(timeout_nsec)\n  File \"/mnt/net01e/controller/continuous_dds.py\", line 79, in observed_sigint\n    return original_handler(number, frame)\nKeyboardInterrupt\n",
+    "subscriptions": []
+  },
+  "end_monotonic_ns": 619892551169804,
+  "receiver_final_raw_exit": -2,
+  "receiver_gone": true,
+  "parent_context_ok": false
+}

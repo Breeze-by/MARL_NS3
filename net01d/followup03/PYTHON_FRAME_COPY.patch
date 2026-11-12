@@ -1,0 +1,29 @@
+--- a/net01/hub_client.py
++++ b/net01/hub_client.py
+@@ -22,11 +22,13 @@
+         self.control_frames=deque()
+         self.tx_queued=0;self.tx_flushed=0
+ 
+-    def frame(self, meta, body=b""):
+-        frame=json.dumps(dict(meta, bytes=len(body))).encode()+b"\n"+body
+-        self.outgoing.extend(frame)
++    def frame(self, meta, *bodies):
++        body_bytes=sum(len(body) for body in bodies)
++        header=json.dumps(dict(meta, bytes=body_bytes)).encode()+b"\n"
++        self.outgoing.extend(header)
++        for body in bodies:self.outgoing.extend(body)
+         if self.control_trace is not None:
+-            begin=self.tx_queued;self.tx_queued+=len(frame)
++            begin=self.tx_queued;self.tx_queued+=len(header)+body_bytes
+             health=meta['kind']=='send' and meta.get('flow') in (31,51,71)
+             if meta['kind'] in ('clock','observed_clock') or health:
+                 row=dict(kind='health_frame' if health else 'clock_frame',operation=meta['kind'],
+@@ -39,7 +41,7 @@
+         # RPC identity is transmitted, never reconstructed from a source-side table.
+         meta=dict(kind="send", sender=sender, receiver=receiver, flow=flow,source_stamp_ns=source_stamp_ns)
+         if admission_ns is not None:meta["admission_ns"]=admission_ns
+-        self.frame(meta, struct.pack("!Q", rpc_id)+cdr)
++        self.frame(meta, struct.pack("!Q", rpc_id),cdr)
+ 
+     def clock(self, horizon_ns):
+         self.frame(dict(kind="clock", horizon_ns=horizon_ns))

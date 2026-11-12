@@ -1,0 +1,174 @@
+{
+  "scope": "ENCLOSED TASK COMPONENT",
+  "analysis_version": "gz01-recorded-v2",
+  "source_case": "/mnt/net01d/followup04/runs/gz-simhealth-a1-03",
+  "world": "/mnt/inputs/worlds/eval-corridor-common-6201.sdf",
+  "start_sim": 21.68,
+  "end_sim": 201.68,
+  "autonomy_sim_s": 180.0,
+  "reference_bounds": [
+    -5.800000000000001,
+    -5.6000000000000005,
+    7.25,
+    5.300000000000001
+  ],
+  "reference_shape": [
+    218,
+    261
+  ],
+  "boundary_connected_cells": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "reference_free_area_m2": 38.89500000000001,
+  "initial_source": {
+    "receipt_sim": 21.43,
+    "source_stamp": 20.859
+  },
+  "initial_coverage": 0.11068260701889703,
+  "final_coverage": 0.9982645584265329,
+  "added_coverage": 0.887581951407636,
+  "final_metrics": {
+    "receipt_sim": 200.62,
+    "source_stamp": 200.071,
+    "elapsed_sim_s": 178.94,
+    "reference_free_cells": 15558,
+    "reference_free_area_m2": 38.89500000000001,
+    "correct_free_cells": 15531,
+    "coverage": 0.9982645584265329,
+    "correct_free_area_m2": 38.82750000000001,
+    "unknown_reachable_area_m2": 0.0075000000000000015,
+    "false_occupied_reachable_area_m2": 0.06000000000000001,
+    "false_free_physical_area_m2": 1.0075000000000003,
+    "free_precision_physical": 0.9824614848985986,
+    "predicted_occupied_cells": 2333,
+    "occupied_alignment_median_m": 0.0,
+    "occupied_alignment_p95_m": 0.05,
+    "known_truth_obstacle_cells": 2141,
+    "known_obstacle_recall_within_0_10m": 1.0,
+    "map_quality_warnings": [],
+    "map_quality_valid": true,
+    "alignment_assessment": "within_predeclared_diagnostics"
+  },
+  "raw_thresholds": {
+    "0.5": {
+      "elapsed_sim_s": 8.57,
+      "receipt_sim": 30.25,
+      "initially_reached": false
+    },
+    "0.8": {
+      "elapsed_sim_s": 32.65,
+      "receipt_sim": 54.33,
+      "initially_reached": false
+    },
+    "0.9": {
+      "elapsed_sim_s": 35.85,
+      "receipt_sim": 57.53,
+      "initially_reached": false
+    },
+    "0.95": {
+      "elapsed_sim_s": 41.48,
+      "receipt_sim": 63.16,
+      "initially_reached": false
+    },
+    "0.98": {
+      "elapsed_sim_s": 53.93,
+      "receipt_sim": 75.61,
+      "initially_reached": false
+    }
+  },
+  "quality_valid_thresholds": {
+    "0.5": {
+      "elapsed_sim_s": 8.57,
+      "receipt_sim": 30.25,
+      "initially_reached": false
+    },
+    "0.8": {
+      "elapsed_sim_s": 32.65,
+      "receipt_sim": 54.33,
+      "initially_reached": false
+    },
+    "0.9": {
+      "elapsed_sim_s": 35.85,
+      "receipt_sim": 57.53,
+      "initially_reached": false
+    },
+    "0.95": {
+      "elapsed_sim_s": 41.48,
+      "receipt_sim": 63.16,
+      "initially_reached": false
+    },
+    "0.98": {
+      "elapsed_sim_s": 53.93,
+      "receipt_sim": 75.61,
+      "initially_reached": false
+    }
+  },
+  "quality_valid_samples": 169,
+  "samples": 175,
+  "end_reason": "simulation_budget",
+  "raw_run_end_reason": "simulation_budget",
+  "raw_run_error": null,
+  "natural_completion_verified": false,
+  "caveats": [
+    "Map receipt/bag ROS time used, never min-source header backdating.",
+    "Strict metric uses fixed declared world/common alignment, no fitted map transform.",
+    "Existing original budget outcome retained; retrospective threshold is not a natural policy terminal.",
+    "Reference region is not expanded to arbitrary ground-plane padding."
+  ],
+  "last_primary_sample": {
+    "receipt_sim": 200.62,
+    "source_stamp": 200.071,
+    "elapsed_sim_s": 178.94,
+    "reference_free_cells": 15558,
+    "reference_free_area_m2": 38.89500000000001,
+    "correct_free_cells": 15531,
+    "coverage": 0.9982645584265329,
+    "correct_free_area_m2": 38.82750000000001,
+    "unknown_reachable_area_m2": 0.0075000000000000015,
+    "false_occupied_reachable_area_m2": 0.06000000000000001,
+    "false_free_physical_area_m2": 1.0075000000000003,
+    "free_precision_physical": 0.9824614848985986,
+    "predicted_occupied_cells": 2333,
+    "occupied_alignment_median_m": 0.0,
+    "occupied_alignment_p95_m": 0.05,
+    "known_truth_obstacle_cells": 2141,
+    "known_obstacle_recall_within_0_10m": 1.0,
+    "map_quality_warnings": [],
+    "map_quality_valid": true,
+    "alignment_assessment": "within_predeclared_diagnostics"
+  },
+  "robot_metrics": {
+    "tb1": {
+      "path_m": 12.682936402044433,
+      "goals": 3,
+      "succeeded": 3,
+      "aborted": 0,
+      "canceled": 0,
+      "motion_participation": true,
+      "local_added_correct_area_m2": 25.767500000000005
+    },
+    "tb2": {
+      "path_m": 9.920482788736424,
+      "goals": 3,
+      "succeeded": 3,
+      "aborted": 0,
+      "canceled": 0,
+      "motion_participation": true,
+      "local_added_correct_area_m2": 26.867500000000007
+    },
+    "tb3": {
+      "path_m": 20.67784935229005,
+      "goals": 4,
+      "succeeded": 4,
+      "aborted": 0,
+      "canceled": 0,
+      "motion_participation": true,
+      "local_added_correct_area_m2": 25.405000000000005
+    }
+  },
+  "canonical_invocations": 1,
+  "canonical_exit": 0
+}

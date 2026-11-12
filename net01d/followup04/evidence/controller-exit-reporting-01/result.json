@@ -1,0 +1,341 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "exit0",
+      "child_pid": 863834,
+      "actual_child_returncode": 0,
+      "host_record": {
+        "runner_exit": 0,
+        "hub_exit": 0,
+        "controlled_time": {
+          "integrity": true
+        },
+        "controller_exit": {
+          "started": true,
+          "pid": 863834,
+          "returncode": 0,
+          "session_id": 2026111154,
+          "case": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/evidence/controller-exit-reporting-01/exit0",
+          "observed_monotonic_ns": 612891112579246,
+          "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+        }
+      },
+      "network_record": {
+        "record_saves": {
+          "network-gateway-saved.json": {
+            "saved": true,
+            "cleanup": {
+              "resources_destroyed": true,
+              "end_frame_flushed": true
+            }
+          },
+          "bound-mask-recording-saved.json": {
+            "saved": true
+          },
+          "peer-recording-saved.json": {
+            "saved": true
+          },
+          "a0-direct-safety-saved.json": {
+            "saved": true,
+            "direct_reference": true,
+            "business_wires_installed": false,
+            "registered_owned_unknown_or_active": 0,
+            "safety_connections": 0
+          }
+        },
+        "gateway_exit": {
+          "native_exit": 0
+        },
+        "controller_exit": {
+          "started": true,
+          "pid": 863834,
+          "returncode": 0,
+          "session_id": 2026111154,
+          "case": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/evidence/controller-exit-reporting-01/exit0",
+          "observed_monotonic_ns": 612891112579246,
+          "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+        },
+        "network_run_integrity": true,
+        "scope": "Runtime/source/stop remain separately in original result; no metric PASS implied"
+      },
+      "actual_return": 0,
+      "expected_return": 0
+    },
+    {
+      "case": "exit1",
+      "child_pid": 863835,
+      "actual_child_returncode": 1,
+      "host_record": {
+        "runner_exit": 0,
+        "hub_exit": 0,
+        "controlled_time": {
+          "integrity": true
+        },
+        "controller_exit": {
+          "started": true,
+          "pid": 863835,
+          "returncode": 1,
+          "session_id": 2026111154,
+          "case": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/evidence/controller-exit-reporting-01/exit1",
+          "observed_monotonic_ns": 612891179246966,
+          "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+        }
+      },
+      "network_record": {
+        "record_saves": {
+          "network-gateway-saved.json": {
+            "saved": true,
+            "cleanup": {
+              "resources_destroyed": true,
+              "end_frame_flushed": true
+            }
+          },
+          "bound-mask-recording-saved.json": {
+            "saved": true
+          },
+          "peer-recording-saved.json": {
+            "saved": true
+          },
+          "a0-direct-safety-saved.json": {
+            "saved": true,
+            "direct_reference": true,
+            "business_wires_installed": false,
+            "registered_owned_unknown_or_active": 0,
+            "safety_connections": 0
+          }
+        },
+        "gateway_exit": {
+          "native_exit": 0
+        },
+        "controller_exit": {
+          "started": true,
+          "pid": 863835,
+          "returncode": 1,
+          "session_id": 2026111154,
+          "case": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/evidence/controller-exit-reporting-01/exit1",
+          "observed_monotonic_ns": 612891179246966,
+          "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+        },
+        "network_run_integrity": false,
+        "scope": "Runtime/source/stop remain separately in original result; no metric PASS implied"
+      },
+      "actual_return": 1,
+      "expected_return": 1
+    },
+    {
+      "case": "not_created",
+      "child_pid": null,
+      "actual_child_returncode": null,
+      "host_record": {
+        "runner_exit": 0,
+        "hub_exit": 0,
+        "controlled_time": {
+          "integrity": true
+        },
+        "controller_exit": {
+          "started": false,
+          "pid": null,
+          "returncode": null,
+          "session_id": 2026111154,
+          "case": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/evidence/controller-exit-reporting-01/not_created",
+          "observed_monotonic_ns": 612891181481790,
+          "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+        }
+      },
+      "network_record": {
+        "record_saves": {
+          "network-gateway-saved.json": {
+            "saved": true,
+            "cleanup": {
+              "resources_destroyed": true,
+              "end_frame_flushed": true
+            }
+          },
+          "bound-mask-recording-saved.json": {
+            "saved": true
+          },
+          "peer-recording-saved.json": {
+            "saved": true
+          },
+          "a0-direct-safety-saved.json": {
+            "saved": true,
+            "direct_reference": true,
+            "business_wires_installed": false,
+            "registered_owned_unknown_or_active": 0,
+            "safety_connections": 0
+          }
+        },
+        "gateway_exit": {
+          "native_exit": 0
+        },
+        "controller_exit": {
+          "started": false,
+          "pid": null,
+          "returncode": null,
+          "session_id": 2026111154,
+          "case": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/evidence/controller-exit-reporting-01/not_created",
+          "observed_monotonic_ns": 612891181481790,
+          "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+        },
+        "network_run_integrity": false,
+        "scope": "Runtime/source/stop remain separately in original result; no metric PASS implied"
+      },
+      "actual_return": 1,
+      "expected_return": 1
+    },
+    {
+      "case": "alive",
+      "child_pid": 863836,
+      "actual_child_returncode": null,
+      "host_record": {
+        "runner_exit": 0,
+        "hub_exit": 0,
+        "controlled_time": {
+          "integrity": true
+        },
+        "controller_exit": {
+          "started": true,
+          "pid": 863836,
+          "returncode": null,
+          "session_id": 2026111154,
+          "case": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/evidence/controller-exit-reporting-01/alive",
+          "observed_monotonic_ns": 612891184021275,
+          "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+        }
+      },
+      "network_record": {
+        "record_saves": {
+          "network-gateway-saved.json": {
+            "saved": true,
+            "cleanup": {
+              "resources_destroyed": true,
+              "end_frame_flushed": true
+            }
+          },
+          "bound-mask-recording-saved.json": {
+            "saved": true
+          },
+          "peer-recording-saved.json": {
+            "saved": true
+          },
+          "a0-direct-safety-saved.json": {
+            "saved": true,
+            "direct_reference": true,
+            "business_wires_installed": false,
+            "registered_owned_unknown_or_active": 0,
+            "safety_connections": 0
+          }
+        },
+        "gateway_exit": {
+          "native_exit": 0
+        },
+        "controller_exit": {
+          "started": true,
+          "pid": 863836,
+          "returncode": null,
+          "session_id": 2026111154,
+          "case": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/evidence/controller-exit-reporting-01/alive",
+          "observed_monotonic_ns": 612891184021275,
+          "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+        },
+        "network_run_integrity": false,
+        "scope": "Runtime/source/stop remain separately in original result; no metric PASS implied"
+      },
+      "actual_return": 1,
+      "expected_return": 1
+    },
+    {
+      "case": "missing",
+      "child_pid": 863837,
+      "actual_child_returncode": 0,
+      "host_record": {
+        "runner_exit": 0,
+        "hub_exit": 0,
+        "controlled_time": {
+          "integrity": true
+        },
+        "controller_exit": {
+          "started": false,
+          "returncode": null,
+          "reason": "missing controller exit evidence"
+        }
+      },
+      "network_record": {
+        "record_saves": {
+          "network-gateway-saved.json": {
+            "saved": true,
+            "cleanup": {
+              "resources_destroyed": true,
+              "end_frame_flushed": true
+            }
+          },
+          "bound-mask-recording-saved.json": {
+            "saved": true
+          },
+          "peer-recording-saved.json": {
+            "saved": true
+          },
+          "a0-direct-safety-saved.json": {
+            "saved": true,
+            "direct_reference": true,
+            "business_wires_installed": false,
+            "registered_owned_unknown_or_active": 0,
+            "safety_connections": 0
+          }
+        },
+        "gateway_exit": {
+          "native_exit": 0
+        },
+        "controller_exit": {
+          "started": false,
+          "returncode": null,
+          "reason": "missing controller exit evidence"
+        },
+        "network_run_integrity": false,
+        "scope": "Runtime/source/stop remain separately in original result; no metric PASS implied"
+      },
+      "actual_return": 1,
+      "expected_return": 1
+    }
+  ],
+  "source_checkpoint": "197a21aa86b45fc67be41f9b6cd5ec811cc29125",
+  "actual_AST": {
+    "persist_source": "net01/run_network_case.py",
+    "persist_lines": [
+      313,
+      319
+    ],
+    "host_source": "net01/host_run.py",
+    "load_lines": [
+      192,
+      195
+    ],
+    "integrity_source": "Actual main body from saved={} through final return; A0/control gates retained"
+  },
+  "start_monotonic_ns": 612891047554007,
+  "end_monotonic_ns": 612891253477381,
+  "owned_children": [
+    {
+      "pid": 863834,
+      "returncode": 0,
+      "alive": false
+    },
+    {
+      "pid": 863835,
+      "returncode": 1,
+      "alive": false
+    },
+    {
+      "pid": 863836,
+      "returncode": -15,
+      "alive": false
+    },
+    {
+      "pid": 863837,
+      "returncode": 0,
+      "alive": false
+    }
+  ],
+  "scope": "Reporting only; zero ROS/native/Gazebo/Policy/bag, no old evidence changes"
+}

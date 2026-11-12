@@ -1,0 +1,88 @@
+{
+  "execution_authorized": true,
+  "status": "ROOT_ADMITTED_GATEWAY_STAGE_ONE_READ_PER_ACTUAL_CASE",
+  "cases": [
+    {
+      "arm": "A0",
+      "case": "net01d/followup04/runs/gz-simhealth-a0-01",
+      "initial_planned_runtime_not_authority": "aae271f49a8d041285b9a903b3f58d9546985574",
+      "source_identity_rule": "Read actual case.admission-used.json -> ready_path -> explicit runtime_base/candidate/adapter_source fields. Never inherit another arm runtime.",
+      "observed_small_summary": "net01d/followup04/analysis/gz-simhealth-a0-01/small-result.json",
+      "independent_review": "net01d/followup04/analysis/gz-simhealth-a0-01/INDEPENDENT_REVIEW.md",
+      "reviewed_case_verdict": {
+        "status": "PROCESS_INTEGRITY_FAIL",
+        "controller_exit": 1,
+        "original_raw": {
+          "host_exit": 0,
+          "runner_exit": 0,
+          "network_run_integrity": true
+        },
+        "scope": "Preserve actual A0 postbudget controller1 despite original raw success;180sim canonical component remains separately usable, no A0 acceptance"
+      }
+    },
+    {
+      "arm": "A1",
+      "case": "net01d/followup04/runs/gz-simhealth-a1-03",
+      "initial_planned_runtime_not_authority": "2be7e229492d29817057fa8db166e38f114ca209",
+      "source_identity_rule": "Read actual case.admission-used.json -> ready_path -> explicit runtime_base/candidate/adapter_source fields. Never inherit another arm runtime.",
+      "observed_small_summary": "net01d/followup04/analysis/gz-simhealth-a1-03/small-result.json",
+      "independent_review": "net01d/followup04/analysis/gz-simhealth-a1-03/INDEPENDENT_REVIEW.md",
+      "reviewed_case_verdict": {
+        "status": "SEE_ACTUAL_SUMMARY_AND_REVIEW_NOT_RECLASSIFIED",
+        "scope": "No process/qualification PASS inferred by this exporter"
+      }
+    },
+    {
+      "arm": "B02",
+      "case": "net01d/followup04/runs/gz-simhealth-b1-02",
+      "initial_planned_runtime_not_authority": "aae271f49a8d041285b9a903b3f58d9546985574",
+      "source_identity_rule": "Read actual case.admission-used.json -> ready_path -> explicit runtime_base/candidate/adapter_source fields. Never inherit another arm runtime.",
+      "observed_small_summary": "net01d/followup04/analysis/gz-simhealth-b1-02/small-result.json",
+      "independent_review": "net01d/followup04/analysis/gz-simhealth-b1-02/INDEPENDENT_REVIEW.md",
+      "reviewed_case_verdict": {
+        "status": "SEE_ACTUAL_SUMMARY_AND_REVIEW_NOT_RECLASSIFIED",
+        "scope": "No process/qualification PASS inferred by this exporter"
+      }
+    },
+    {
+      "arm": "C",
+      "case": "net01d/followup04/runs/gz-simhealth-c1-01",
+      "initial_planned_runtime_not_authority": "bd663824d77983cb2b2721e90241ef97bf06461f",
+      "source_identity_rule": "Read actual case.admission-used.json -> ready_path -> explicit runtime_base/candidate/adapter_source fields. Never inherit another arm runtime.",
+      "observed_small_summary": "net01d/followup04/analysis/gz-simhealth-c1-01/small-result.json",
+      "independent_review": "net01d/followup04/analysis/gz-simhealth-c1-01/INDEPENDENT_REVIEW.md",
+      "reviewed_case_verdict": {
+        "status": "SEE_ACTUAL_SUMMARY_AND_REVIEW_NOT_RECLASSIFIED",
+        "scope": "No process/qualification PASS inferred by this exporter"
+      }
+    }
+  ],
+  "command": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net01d/followup04/costs/export_costs.py",
+    "--directory",
+    "net01d/followup04/analysis/costs-four-arm-01"
+  ],
+  "command_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "rule": "One sequential final Gateway JSON decode percase, optional A0 direct-safety one JSON. No full cache copy, legacy exporter import, native ledger/PCAP/bag/model/ROS/Torch call.",
+  "pending": [],
+  "normal_window": "Original result/autonomy start/end plus actual Rclock relay mono bracket capped by final autonomous Observer runtime window; partial failed phase retains actual elapsed, never180padding",
+  "optional_native_substep": {
+    "execution_authorized": false,
+    "status": "PLAN_ONLY_SEPARATE_ROOT_ADMISSION_REQUIRED",
+    "cases": [
+      "B02",
+      "C"
+    ],
+    "ledger_reads_per_case": 1,
+    "PCAP_reads": 0,
+    "input": "Each case .network/native/packet-ledger.jsonl, full single stream, plus the first-stage selected *-native-targets.jsonl only; no Gateway reload/oldB1 read",
+    "scope": "Aggregate ipc_ingress/tcp_write/message_deliver by actual messageID/direction/flow. Derive application model service and wall model scheduling spans, never PHY airtime or permessageCPU; details in PLAN.md"
+  },
+  "no_source_protocol_policy_or_threshold_change": true,
+  "no_hash_scan": true,
+  "root_review": "All four case writers/owned exited; actual final Cbd663 primaryR and process summaries ready. Root read plan and independent source review accepted clock/cohort/provenance/denominator corrections. One sequential load per Gateway+A0 independent safety only; no native/PCAP/bag/ROS/NN/GZ or new qualification."
+}

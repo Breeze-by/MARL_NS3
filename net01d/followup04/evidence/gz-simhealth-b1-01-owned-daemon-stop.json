@@ -1,0 +1,21 @@
+{
+  "exact_owned": {
+    "pid": 729505,
+    "start_ticks": 60766091,
+    "argv": "/usr/bin/python3 -c from ros2cli.daemon.daemonize import main; main() --name ros2-daemon --ros-domain-id 92 --rmw-implementation rmw_fastrtps_cpp ",
+    "case_marker": "GZ01_CASE=/mnt/net01d/followup04/runs/gz-simhealth-b1-01"
+  },
+  "argv": [
+    "bash",
+    "net01/ros-python.sh",
+    "-c",
+    "import os; os.execvp(\"ros2\", [\"ros2\", \"daemon\", \"stop\"])"
+  ],
+  "exit": 0,
+  "stdout": "The daemon has been stopped\n",
+  "stderr": "",
+  "begin_monotonic_ns": 608201315924029,
+  "end_monotonic_ns": 608202742096096,
+  "immediate_pid_present": true,
+  "nonowned69": "untouched"
+}

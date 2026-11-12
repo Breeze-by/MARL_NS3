@@ -1,0 +1,145 @@
+{
+  "scope": "One CPUoff serial native-only pair; all comparisons exact except real mono; no capacity/GZ/safety PASS",
+  "baseline": {
+    "case": "native-ledger-serial-01",
+    "result": {
+      "argv": [
+        "/home/zhuyulab/ns3-workspace/net-01/build/followup03-async-ledger/net01-payload",
+        "--output=/home/zhuyulab/ns3-workspace/net-01/workspace/runs/native-ledger-serial-01/native",
+        "--profile=B",
+        "--controlTrace=1",
+        "--cpuProfile=0",
+        "--asyncLedger=0"
+      ],
+      "native_exit": 0,
+      "error": null,
+      "wall_s": 0.26511707302415743,
+      "total_process_cpu_s": 0.259746,
+      "status": "MEASURED",
+      "scope": "Native CPU diagnostic ONLY; no ROS, real-time qualification, policy or safety validation",
+      "ready": true,
+      "received": [
+        3,
+        2,
+        6,
+        4,
+        1,
+        5,
+        12,
+        7,
+        10,
+        9,
+        8,
+        11
+      ],
+      "missing": [],
+      "steps": [
+        100000000,
+        200000000,
+        300000000,
+        400000000,
+        500000000,
+        600000000,
+        700000000,
+        800000000,
+        900000000,
+        1000000000,
+        1100000000
+      ],
+      "received_exact": true,
+      "ledger": {
+        "async": false,
+        "captured": 7883,
+        "written": 7883,
+        "attempted": 7883,
+        "pending_capacity_records": 16384,
+        "peak_pending_including_inflight": 0,
+        "max_record_owned_bytes": 0,
+        "writer_cpu_ns": 0,
+        "model_cpu_ns": 206066939,
+        "final_ns3_ns": 1100000000,
+        "failed": false
+      }
+    },
+    "run_cpu_ns": 118963459,
+    "run_wall_ns": 119230307,
+    "through_barrier_wall_ns": 119248987,
+    "barrier_wall_ns": 4216,
+    "raw": "runs/native-ledger-serial-01"
+  },
+  "candidate": {
+    "case": "native-release-portable-01",
+    "result": {
+      "argv": [
+        "/home/zhuyulab/ns3-workspace/net-01/build/followup03-release-portable-native/net01-payload",
+        "--output=/home/zhuyulab/ns3-workspace/net-01/workspace/runs/native-release-portable-01/native",
+        "--profile=B",
+        "--controlTrace=1",
+        "--cpuProfile=0",
+        "--asyncLedger=0"
+      ],
+      "native_exit": 0,
+      "error": null,
+      "wall_s": 0.19425800599856302,
+      "total_process_cpu_s": 0.189095,
+      "status": "MEASURED",
+      "scope": "Native CPU diagnostic ONLY; no ROS, real-time qualification, policy or safety validation",
+      "ready": true,
+      "received": [
+        3,
+        2,
+        6,
+        4,
+        1,
+        5,
+        12,
+        7,
+        10,
+        9,
+        8,
+        11
+      ],
+      "missing": [],
+      "steps": [
+        100000000,
+        200000000,
+        300000000,
+        400000000,
+        500000000,
+        600000000,
+        700000000,
+        800000000,
+        900000000,
+        1000000000,
+        1100000000
+      ],
+      "received_exact": true,
+      "ledger": {
+        "async": false,
+        "captured": 7883,
+        "written": 7883,
+        "attempted": 7883,
+        "pending_capacity_records": 16384,
+        "peak_pending_including_inflight": 0,
+        "max_record_owned_bytes": 0,
+        "writer_cpu_ns": 0,
+        "model_cpu_ns": 139667603,
+        "final_ns3_ns": 1100000000,
+        "failed": false
+      },
+      "comparison": {
+        "ledger_events_except_mono_equal": true,
+        "stdout_protocol_and_payload_exact": true,
+        "pcap_bytes_equal": true
+      }
+    },
+    "run_cpu_ns": 77037982,
+    "run_wall_ns": 77283575,
+    "through_barrier_wall_ns": 77308926,
+    "barrier_wall_ns": 6005,
+    "raw": "runs/native-release-portable-01"
+  },
+  "Run_CPU_relative_change": -0.3524231503725862,
+  "build_change": "Original O2+ASSERT/LOG versus same-source official O3 Release-portable, ASSERT/LOG OFF/nativeISA OFF; no PHY/V3 parameter change",
+  "equivalence_limit": "Fixed burst only; not all potential network trajectories"
+}

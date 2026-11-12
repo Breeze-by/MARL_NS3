@@ -1,0 +1,22 @@
+{
+  "source_checkpoint": "c4ad853e7e5e8707a0e5a0be1426bc84b4bd2e1e",
+  "argv": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "net01d/followup04/evidence/legacy-ros-01.time.txt",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "35s",
+    "bash",
+    "net01/ros-python.sh",
+    "net01/check_local_guard.py",
+    "--output",
+    "net01d/followup04/evidence/legacy-ros-01"
+  ],
+  "ROS_domain": "actual rclpy.init domain95 overrides wrapper env92",
+  "scope": "one original controlledROS fixture; no native/GZ/robot",
+  "begin_monotonic_ns": 601594637747388,
+  "launcher_pid": 531674
+}

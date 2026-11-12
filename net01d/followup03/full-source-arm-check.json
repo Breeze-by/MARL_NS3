@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "scope": "Actual fixture gateway_state/inline ARM AST; no ROS, models or navigation Goal retries",
+  "source": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/full_load_source.py",
+  "transient_records": [
+    {
+      "kind": "actual_local_arm_request",
+      "status_revision": 1
+    },
+    {
+      "kind": "actual_local_arm_response",
+      "status_revision": 1,
+      "success": false,
+      "message": "{\"robot\": 1, \"fault\": null, \"reason\": \"health_original_sources_stale\"}"
+    },
+    {
+      "kind": "actual_local_arm_request",
+      "status_revision": 3
+    },
+    {
+      "kind": "actual_local_arm_response",
+      "status_revision": 3,
+      "success": true,
+      "message": "{\"robot\": 1, \"fault\": null, \"reason\": null}"
+    }
+  ],
+  "latched_fault_records": [
+    {
+      "kind": "actual_local_arm_request",
+      "status_revision": 1
+    },
+    {
+      "kind": "actual_local_arm_response",
+      "status_revision": 1,
+      "success": false,
+      "message": "{\"robot\": 1, \"fault\": \"latched_fault\", \"reason\": \"health_original_sources_stale\"}"
+    }
+  ],
+  "checks": [
+    "transient rejection retained",
+    "same snapshot no repeat",
+    "new unhealthy snapshot no repeat",
+    "new healthy snapshot retries ARM and succeeds",
+    "success no repeat",
+    "latched rejection never retries"
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "scope": "Limited synthetic-clock full-load WiFi qualification only; no GZ/Nav2/Goal/arm/NN; not network physical safety PASS",
+  "runtime": "df73d2750c6241e77fa173df26156bbb40814a50",
+  "raw": "runs/continuous-dds-17-release-paced-wifi",
+  "process": {
+    "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+    "error": null,
+    "wall_s": 22.26836014998844,
+    "hard_wall_s": 30,
+    "execution_profile": {
+      "id": "pace500-clock100-q10ms",
+      "world_real_time_update_rate": 500,
+      "physics_max_step_size_unchanged": 0.001,
+      "clock_publish_rate_sim_hz": 100.0,
+      "native_step_quantum_ns": 10000000,
+      "qualification": {
+        "source_wall_s": 16,
+        "hard_wall_s": 30,
+        "clock_period_wall_s": 0.02,
+        "clock_increment_ns": 10000000,
+        "other_sources": "Original per-wall TF/odom/FB rates retained; conservatively denser per simulated second",
+        "peer": "Original 10Hz simulation-time timer"
+      },
+      "scope": "New matched execution profile; WallRate and sim-time frequencies differ; not pointwise equivalent to v1.1.0 runtime"
+    },
+    "exits": {
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "source": 0
+    },
+    "Gazebo": 0,
+    "NN": 0,
+    "wrapper_pids": {
+      "hub": 1798190,
+      "peer": 1798193,
+      "gateway": 1798194,
+      "source": 1798195
+    },
+    "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior"
+  },
+  "gateway_failure": null,
+  "max_clock_event_envelope_lag_sim_s": 0.09,
+  "clock_lag_source": "Merged saved Gateway Rclock and actual clock_return receipt monotonic events; original evaluated .12 gate also unchanged",
+  "source_window_wall_s": 16.024260691017844,
+  "health": [
+    {
+      "robot": 1,
+      "actual_received": 80,
+      "max_consecutive_publish_return_gap_wall_ms": 288.112317
+    },
+    {
+      "robot": 2,
+      "actual_received": 80,
+      "max_consecutive_publish_return_gap_wall_ms": 288.559196
+    },
+    {
+      "robot": 3,
+      "actual_received": 80,
+      "max_consecutive_publish_return_gap_wall_ms": 274.446298
+    }
+  ],
+  "masks": [
+    {
+      "robot": 1,
+      "complete_received": 81,
+      "source_gate_accepted": 80,
+      "bootstrap_rejected": 1,
+      "ready_seq_first": 9,
+      "ready_seq_last": 88,
+      "max_consecutive_accepted_RX_gap_wall_ms": 283.507342
+    },
+    {
+      "robot": 2,
+      "complete_received": 81,
+      "source_gate_accepted": 80,
+      "bootstrap_rejected": 1,
+      "ready_seq_first": 9,
+      "ready_seq_last": 88,
+      "max_consecutive_accepted_RX_gap_wall_ms": 275.255698
+    },
+    {
+      "robot": 3,
+      "complete_received": 81,
+      "source_gate_accepted": 80,
+      "bootstrap_rejected": 1,
+      "ready_seq_first": 9,
+      "ready_seq_last": 88,
+      "max_consecutive_accepted_RX_gap_wall_ms": 284.74905
+    }
+  ],
+  "health_source_age_at_actual_ROS_publish": {
+    "odom_min_sim_s": 0.06,
+    "odom_max_sim_s": 0.16,
+    "correction_min_sim_s": -0.14,
+    "correction_max_sim_s": 0.45,
+    "method": "Actual destination_node_sim joined by saved actual CDR identity to original same-batch health fields, 80/80 per robot"
+  },
+  "held_source_age_max_independent_review": {
+    "odom_sim_s": 0.23,
+    "correction_sim_s": 0.52,
+    "scope": "Independent root/metric audit over original relayclock and publications; .4/.55 gates never widened"
+  },
+  "native_ingress": 12376,
+  "native_complete": 12052,
+  "ingress_minus_whole_complete": 324,
+  "native_counts": {
+    "actual_clock_horizon_known": 866,
+    "horizon_return": 867,
+    "ipc_ingress": 12376,
+    "mac_data_retry": 33732,
+    "mac_rx": 46696,
+    "mac_tx": 47011,
+    "message_deliver": 12052,
+    "model_ready": 1,
+    "phy_rx_drop": 46790,
+    "phy_rx_end": 166284,
+    "phy_tx_end": 71039,
+    "transport_end": 1,
+    "udp_rx": 46672,
+    "udp_tx": 46999,
+    "wifi_sniffer_rx": 166192
+  },
+  "pending_incomplete_at_end": 0,
+  "postfault_discards": 0,
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "guards": {
+    "1": {
+      "events": [],
+      "actions": [],
+      "owned_unknown_or_active": [],
+      "terminals": {}
+    },
+    "2": {
+      "events": [],
+      "actions": [],
+      "owned_unknown_or_active": [],
+      "terminals": {}
+    },
+    "3": {
+      "events": [],
+      "actions": [],
+      "owned_unknown_or_active": [],
+      "terminals": {}
+    }
+  },
+  "source_stop_semantics": "Source stopped normally after fixed16wall; following timer/producer cessation belongs to teardown, not network loss. END and owned exit all0. 324 ingress not completed retain real V3 loss; critical health/mask delivery does not imply all-business zero loss.",
+  "limitations": [
+    "Unarmed guards are not an armed safety proof",
+    "Perwall synthetic TF/odom/FB overspec does not prove real Gazebo lower-rate receipt gaps",
+    "Real Gazebo100Hz clock/SDF500/pause/physicalstop and Action+Policy integration still pending A07 admission"
+  ]
+}

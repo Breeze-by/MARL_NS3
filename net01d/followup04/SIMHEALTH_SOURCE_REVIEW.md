@@ -1,0 +1,65 @@
+# Sim-health contract independent source review
+
+**LIMITED SOURCE ACCEPT:** supports the separately admitted real ROS/LocalStop fixture first. No Full or Gazebo qualification is established. This reviewer changed no production source and ran no test/model. The user explicitly authorized this new simulation contract; all old results retain their original time basis and status.
+
+Reviewed the actual execution-profile/Guard/LocalStop/State/TimeController/Gateway/NetworkObserver diffs, new profile JSON, A0's two late-accept/status overrides and saved `evidence/contract-02/result.json`. The latter reports37 actual-AST/pure-State checks PASS with synthetic clocks/I/O spies, **not DDS or actual service success**. Earlier failures/results remain preserved.
+
+## Receipt clocks and independent wall protection
+
+The new profile alone selects `.3` seconds of **actual R ROS simulation receipt age**. New health/mask simulation receipt fields are separate; original `health_receipt`/`mask_receipt` remain monotonic wall values and saved fields explicitly name their units. Both arrival methods still check the previous interval before refreshing, retain sequence ordering, and preserve original source-age/future checks. The external Observer overrides only its Peer receipt heartbeat in this profile and retains the original receipt/event logging and `state_fresh` checks. Old profiles keep the original wall300 branches; saved diagnostic schema gains named fields but does not silently change units.
+
+Peer odom receipt200wall-ms, Gateway status300wall-ms, source periods/stamps, original `.4/.55` source-age limits, physical quantum/credit, RF/QoS, frozen policy/weights and real-robot wall rules are unchanged. Only the explicit new profile enables these semantics; it is not a retroactive repair/pass for f03.
+
+Local Guard uses its existing STEADY timer and monotonic time to check independent coordinator administration age and lack of local R-clock progress over2wall seconds while armed. Repeated administration cannot refresh the local clock-progress deadline. The TimeController is a separate process using monotonic polling, independent of advancing ROS simulation time, and checks actual-clock/native-ACK progress after its first token plus physical-RPC inflight age in RUN, HOLD and stop-observation modes. It retains one inflight token and actual ACK validation; late progress is checked before refresh. A local liveness fault calls the real existing LocalStop zero/UUID cancel/PAUSE path, not merely a coordinator HOLD. The original separate Observer Gateway-status and outer owned-process protections remain necessary if the Gateway itself cannot run callbacks.
+
+These are source-level paths, not hard-real-time or crash-coverage proof. The new real ROS fixture must establish actual STEADY behavior with stopped sim time, real stop-service calls and actual late-UUID handling; subsequent no-motion cases need the new profile explicitly. The37 synthetic checks alone cannot establish that integration.
+
+## Authority, stop observation and HOLD waiting
+
+Unarmed preflight `stop_observe` does not set permanent local halt; later healthy RUN can still ARM. Once armed, verified authority exit in a healthy stop phase permanently revokes permission: normal halt disables re-ARM and actually zeroes/cancels/pauses without fabricating a Guard fault, terminal outcome or known central result. Accepted responses arriving later still cancel the exact UUID, including A0's response-evidence/active-status overrides. Fault-based stops remain fault-based.
+
+The initial ordering defect—failure plus authority-exit/FAULT_STOP_OBSERVE taking the normal-halt branch—has been corrected: incoming coordinator failure takes priority. The existing full safety-stop observation phase still grants no business permission. Physics inflight timeout remains active there.
+
+The additional normal-HOLD boundary is now corrected and the final predicate was reread: a first observed healthy snapshot `authority_exited=true, mode=HOLD, expected_shutdown=false` takes normal revocation, including when a depth1 reader did not process the preceding STOP snapshot. This matches normal seal's false-HOLD→expected-shutdown sequence. Failure still takes priority; HOLD without authority exit still faults. No threshold or fault reset was introduced. The separately owned updated synthetic/real ROS fixtures are intended to cover this first-HOLD case; this review does not invent their actual results.
+
+TimeController's new HOLD waiter follows the original physical Future and is released on actual completion or physical wall-timeout. Release is not an ACK: response success still requires no physics failure, HOLD and no inflight token. Timeout preserves failure/outstanding physical evidence and cannot grant another token or expected seal. Legacy profiles retain their original await path.
+
+## Admission limit
+
+No remaining blocking source issue is identified in this snapshot. Support root admitting one isolated real ROS domain95 LocalStop clock-stall/normal-revocation/late-accept fixture under its own bounds. Only after its actual evidence is reviewed should root separately admit original32/60 A1, then decide B; no new Gazebo or automatic pair follows from this source review. Missing actual cancel/PAUSE/clock-stall evidence remains unverified, and the original failed wall300 contract remains NO-GO.
+
+## Small post-review additions
+
+Reread the final fault-event addition: only the new profile captures `progress_context` inside `trip`, including the previous administrative receipt, local progress timestamp and simulation receipts before any late administration refresh. It changes no decision predicate and does not overwrite monotonic fields or manufacture final administrative evidence.
+
+Reread the two-line `boot_network.py` addition. Only controlled execution with the exact new simhealth profile admits the additional tuple **(180sim,180startup,720autonomy,900outer,90cleanup)**. Existing tuples/profiles remain; frozen boot, stop12 and physical180sim/decision130 limits are not changed. Existing host arithmetic gives1000wall force containment for this newly declared request condition. This is a prospective f04 wall-budget condition, not a rewrite of the completed f03 420/600/700 cases or extra simulated autonomy. It does not authorize a Gazebo run; all real ROS/Full/GZ execution remains separately gated at this review cutoff.
+
+## Actual controlled-ROS review
+
+Read `evidence/ROS_LOCALSTOP_WINDOW_RESULT.json`, the actual `legacy-ros-01` / **`newprogress-ros-01`** launch/exit and original result files, and the new fixture's small TimeController result. The launch argv explicitly selects `check_progress_ros.py --output .../newprogress-ros-01`; the ack socket retains its separate `progress-ros-01.ack` name. Evidence is tied to source checkpoint `c4ad853e7e5e8707a0e5a0be1426bc84b4bd2e1e`. No path was inferred from the earlier shorthand, and no test was rerun.
+
+The original legacy fixture passes14 checks: with actual ROS simulation clock paused, the unchanged old wall guard trips after **0.304109 wall seconds**, performs owned UUID cancellation/GetResult5/PAUSE, preserves pending-state honesty and does not cancel the foreign Goal. The new domain95 fixture passes16 checks using actual DDS/controlled Action services, synthetic health/bound state and a paused actual ROS clock. It does not trip at old wall300ms; it then trips through the real STEADY/progress path after **2.002234446 wall seconds**, with fresh administrative RUN messages and captured old clock-progress context. Actual local zero/PAUSE and matching UUID Cancel/GetResult5 succeed. Normal first-HOLD authority-exit revocation has no fabricated Guard fault or terminal result; a later accepted exact UUID is actually canceled and re-ARM remains blocked.
+
+The actual rclpy HOLD waiter returns false at **2.003915807 wall seconds** from physical issue, with physics failure latched, one controlled service call, original physical Future still incomplete/inflight and ACK0 at that response. There is no second token or synthetic successful ACK. Subsequent controlled cleanup rejects the fixture request and clears inflight while retaining the first timeout; the final controller failure is not rewritten as healthy. These are real middleware/Future/local-control results, **not native delivery, Gazebo physics, physical stopping, NN or central network-Future validation**.
+
+Both launches exit0 within their original35wall outer limits, executor shutdown succeeds, observed owned survivors are empty and the new ack socket is gone. **LIMITED ROS ACCEPT:** no blocking finding for root to separately admit one A1 original32normal/60hard no-motion Full with this fixed new profile/source and original criteria. That run must establish its own normal, negative, clock/native and owned-cleanup results. B requires the A1 result and a separate decision; no Gazebo or automatic pair is authorized here. Old wall300 and f03 failures remain unchanged.
+
+## SOURCE_READY lifecycle amendment after A1-02
+
+Read only the final three-file amendment (`time_control_state.py`, `time_controller.py`, simhealth profile scope). **LIMITED SOURCE ACCEPT for targeted State/unit and real ROS activation checks; not direct Full/Gazebo admission.** Earlier C4 tests/results above remain their own historical source evidence.
+
+Global clock/native progress now activates once on the first **same-session** Gateway status reporting **any** actual R Guard armed. It does not wait for all robots, a Goal or a Policy call. `motion_armed_since_ns` is separate from first-token telemetry and actual clock/native progress timestamps. Deadline bases use the later of activation and real progress (activation if no progress exists). Repeated/late ARM status first checks the old interval, cannot renew the activation baseline, and does not clear an existing failure. HOLD/RUN does not reset that separate baseline.
+
+The physical inflight2wall branch remains first and independent of ARM/mode; late ACK still checks before updating, one-token/actual-response validation is untouched. `begin_step` no longer writes fake clock/native progress timestamps from an issued token. Old profiles do not enable the new logic. Profile change is explanatory scope only; no source, receipt300SIM-ms, LocalStop, radio, physical or stop-threshold change is introduced.
+
+No blocking discrepancy from the reviewed minimum proposal is identified. Retain A1-02's C4 startup FAIL. The assigned unit update and actual DDS `guards:false→true` activation extension must be reviewed before one separately admitted A1 original32/60 verifies automatic real-R activation. Unchanged C4 B transport evidence must not be labeled new-source B Full; this source review grants no automatic GZ retry or B run.
+
+## Actual lifecycle increment review
+
+Read `contract-04/result.json`, `newprogress-ros-02-summary.json`, original launch/exit and original result checks. Runtime is **2be7e229492d29817057fa8db166e38f114ca209**, fixture82edafe. The49 deterministic actual-AST/pure-State checks pass, including unarmed bootstrap without forged progress, unconditional physical2wall bounds, one-Guard activation, wrong-session rejection, unchanged stamps, repeated/HOLD-RUN baseline stability and late-interval latching. This is unit evidence, not DDS/physical proof.
+
+The actual domain95 ROS fixture passes19 checks. Same-session false Guards leave activation null; then only tb1 armed latches **605599181087317**; a repeated armed snapshot leaves it unchanged. Actual clock stamp **605599177894681** and native-progress **null** remain identical before/after activation and repetition. This confirms the real administration callback selects the intended lifetime without fabricating an ACK/progress observation.
+
+LocalStop still actually trips after **2.001259230wall seconds** with paused R clock/fresh administration and performs exact owned Cancel/GetResult5/PAUSE. Normal first-HOLD revocation and late actual accepted UUID cancellation remain exercised. Actual rclpy HOLD returns false after **2.004128166wall seconds** from physical issue, with one controlled physics request, original Future incomplete/inflight and ACK0 at response; cleanup later rejects the fixture request while preserving timeout. These are real controlled ROS/Future/local-stop facts, not Gazebo or native delivery.
+
+Launch argv confirms the actual `newprogress-ros-02` output/socket, exit0 within35wall outer bound, no observed owned survivors and no remaining ACK socket. **LIMITED LIFECYCLE ROS ACCEPT:** no necessary blocker is identified for root to separately admit one new-source A1 original32normal/60hard Full to verify automatic actual R-status activation under load. No extra B32 is required merely for symmetry if the source remains this reviewed lifecycle-only change; cite C4 B only for unchanged transport/blackout evidence, never as new-source B Full. New GZ admission remains separate and requires the new A1 result; old C4/f03 failures remain preserved.

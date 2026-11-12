@@ -1,0 +1,56 @@
+{
+  "scope": "Exact sampled R health intake source ages during fixed normal interval; not continuous guard-timer age maxima",
+  "normal_begin_mono_ns": 516787191815625,
+  "normal_done_mono_ns": 516819191913606,
+  "normal_wall_s": 32.000097981,
+  "by_flow": {
+    "31": {
+      "intake_n": 160,
+      "all_armed": true,
+      "all_no_fault": true,
+      "receipt_interval_max_ms": 232.91941598290578,
+      "intervals_above300ms": 0,
+      "incoming_generated_age_max_sim_s": 0.03999999999999915,
+      "incoming_odom_age_max_sim_s": 0.08000000000000007,
+      "incoming_correction_age_max_sim_s": 0.06999999999999984,
+      "incoming_correction_future_max_sim_s": 0.1700000000000017,
+      "previous_held_odom_age_at_intake_max_sim_s": 0.17999999999999972,
+      "previous_held_correction_age_at_intake_max_sim_s": 0.16999999999999993,
+      "receipt_intervals_include_old_receipt_before_t0": true
+    },
+    "51": {
+      "intake_n": 160,
+      "all_armed": true,
+      "all_no_fault": true,
+      "receipt_interval_max_ms": 232.93578601442277,
+      "intervals_above300ms": 0,
+      "incoming_generated_age_max_sim_s": 0.03999999999999915,
+      "incoming_odom_age_max_sim_s": 0.08000000000000007,
+      "incoming_correction_age_max_sim_s": 0.06999999999999984,
+      "incoming_correction_future_max_sim_s": 0.1700000000000017,
+      "previous_held_odom_age_at_intake_max_sim_s": 0.17999999999999972,
+      "previous_held_correction_age_at_intake_max_sim_s": 0.16999999999999993,
+      "receipt_intervals_include_old_receipt_before_t0": true
+    },
+    "71": {
+      "intake_n": 160,
+      "all_armed": true,
+      "all_no_fault": true,
+      "receipt_interval_max_ms": 229.73089502193034,
+      "intervals_above300ms": 0,
+      "incoming_generated_age_max_sim_s": 0.03999999999999915,
+      "incoming_odom_age_max_sim_s": 0.08000000000000185,
+      "incoming_correction_age_max_sim_s": 0.06999999999999984,
+      "incoming_correction_future_max_sim_s": 0.1700000000000017,
+      "previous_held_odom_age_at_intake_max_sim_s": 0.17999999999999972,
+      "previous_held_correction_age_at_intake_max_sim_s": 0.16999999999999993,
+      "receipt_intervals_include_old_receipt_before_t0": true
+    }
+  },
+  "Peer_source_normal_snapshot_n": 160,
+  "Peer_source_all_ready": true,
+  "Peer_max_odom_receipt_age_wall_s": 0.08659074397291988,
+  "Peer_max_odom_source_age_sim_s": 0.0400000000000027,
+  "Peer_max_correction_source_age_sim_s": 0.040000000000000036,
+  "limitations": "R age maxima are exact at recorded health-intake samples. No per-timer Rsim/source-age row exists, so do not call them continuous maxima. All normal no-fault events remain separate evidence."
+}

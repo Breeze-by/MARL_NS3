@@ -1,0 +1,28 @@
+{
+  "delivery": "NET01D followup02 continued correctness review, 2026-11-11",
+  "branch": "net-01d/continued-correctness",
+  "source_base": "0027c67e086c68270a714d831c90b99a5edec666",
+  "runtime_pace_source": "7f1357dbf5a6bcfac1e9ed5c024fba5e9d1d1dfe",
+  "heavy_diagnostic_admission_commit": "240a4d2d1c7b214a3b7b691c93617b0ae24d9007",
+  "final_commit_location": "git log -1 after this delivery commit; metadata does not self-embed its containing commit",
+  "frozen_policy": {
+    "tag": "MR3-RL-POLICY-v1.1.0",
+    "commit": "a014ef11d4b77fe45832268467993dfdeb4398f6",
+    "checkpoint": "checkpoint-00512.pt",
+    "sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+    "identity_scope": "Previously verified immutable release identity reused; no repeated model hash or policy change in this continuation"
+  },
+  "actual_new_profile_Gazebo_runs": 0,
+  "overall": "NET01D BLOCKED; no NET02",
+  "evidence_roots": {
+    "original_cases": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup02/runs",
+    "native_LTO": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02",
+    "Gazebo_rootfs": "/home/zhuyulab/ns3-workspace/base-01-econ/isolation/rootfs",
+    "backups": "/home/zhuyulab/ns3-workspace/net-01d/backups"
+  },
+  "storage_scope": "Git/bundle contains sources, selected small raw evidence, review/results and SHA index. Large original bags/PCAP/ledger and external runtime/rootfs remain in original paths, not claimed contained in source bundle.",
+  "known_unrecoverable_gap": "gz-b4-01 original RAM ledger0/status missing after native SIGTERM; no synthetic replacement",
+  "remote_pushed": false,
+  "source_patch_scope": "Production net01 and replay sources plus native diagnostic C/Python, staged state relative to0027c67; generated data and reports listed separately",
+  "other_untracked": "Older inert drafts and intermediate large derivative exports retained, not deleted or promoted as runtime sources."
+}

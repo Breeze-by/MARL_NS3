@@ -1,0 +1,37 @@
+{
+  "parent_pid": 1084213,
+  "parent_ppid": 1084203,
+  "domain": 97,
+  "start_monotonic_ns": 619879710609363,
+  "status": "STARTED",
+  "published": 0,
+  "pre_signal_published": 0,
+  "post_signal_published": 0,
+  "signals": [],
+  "first_publish_monotonic_ns": null,
+  "last_publish_monotonic_ns": null,
+  "scope": "Synthetic real DDS only; no historical payload or root-cause claim",
+  "payload": {
+    "width": 400,
+    "height": 400,
+    "CDR_bytes": 160104,
+    "exact_data_values": [
+      -1,
+      0,
+      100
+    ],
+    "finite_metadata": true,
+    "roundtrip_equal": true,
+    "period_wall_s": 0.05,
+    "signal_after_wall_s": 12.0,
+    "max_publishes": 340
+  },
+  "receiver_pid": 1084266,
+  "receiver_argv": [
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/net01e/controller/continuous_dds.py",
+    "--receiver-directory",
+    "/mnt/net01e/controller/run-02"
+  ]
+}

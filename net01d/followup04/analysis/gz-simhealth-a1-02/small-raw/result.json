@@ -1,0 +1,162 @@
+{
+  "preflight": false,
+  "smoke_started": false,
+  "observed_stop": true,
+  "error": "Preflight missing: ['model_states', 'tb1/model_state', 'tb1/drive', 'tb1/scan', 'tb1/odom', 'tb1/map', 'tb1/contacts', 'tb2/model_state', 'tb2/drive', 'tb2/scan', 'tb2/odom', 'tb2/map', 'tb2/contacts', 'tb3/model_state', 'tb3/drive', 'tb3/scan', 'tb3/odom', 'tb3/map', 'tb3/contacts', 'merge_map/map', 'tb1/TF map->base_scan', 'tb2/TF map->base_scan', 'tb3/TF map->base_scan', 'peer state/clock missing']",
+  "end_reason": "fatal_error",
+  "sim_elapsed": 0.0,
+  "wall_elapsed": 0.0,
+  "natural_complete": false,
+  "threshold_reached": null,
+  "arm": "rl",
+  "scene": "/mnt/inputs/scenes/regression-corridor-common-6201-dwb-v1.json",
+  "system_variant": "peer-compact-v1",
+  "launch_request_utc": "2026-11-11T08:53:28.872828+00:00",
+  "launch_exit_utc": "2026-11-11T08:56:53.651250+00:00",
+  "gazebo_started": true,
+  "gzserver_pid": 615884,
+  "peer_recording": {
+    "saved": true,
+    "rows": 135,
+    "last_sequence": 135,
+    "phase": "after_peer_spin_exit"
+  },
+  "counts": {
+    "tb1/tf_static": 2,
+    "tb2/tf_static": 2,
+    "tb3/tf_static": 2,
+    "tb1/cmd_vel": 457,
+    "tb1/zero_command_topic": 457,
+    "tb2/cmd_vel": 457,
+    "tb2/zero_command_topic": 457,
+    "tb3/cmd_vel": 457,
+    "tb3/zero_command_topic": 457,
+    "tb1/odom": 396,
+    "tb1/drive": 396,
+    "tb1/joint_states": 531,
+    "tb1/tf": 1682,
+    "tb2/odom": 396,
+    "tb2/drive": 396,
+    "tb2/joint_states": 531,
+    "tb2/tf": 1677,
+    "tb3/drive": 396,
+    "tb3/joint_states": 531,
+    "tb3/odom": 396,
+    "tb3/tf": 1665,
+    "model_states": 135,
+    "tb1/model_state": 135,
+    "tb2/model_state": 135,
+    "tb3/model_state": 135,
+    "tb1/contacts": 134,
+    "tb2/contacts": 134,
+    "tb3/contacts": 134,
+    "tb1/scan": 67,
+    "tb2/scan": 67,
+    "tb3/scan": 67,
+    "tb3/map": 4,
+    "tb1/map": 4,
+    "tb2/map": 4,
+    "merge_map/map": 10
+  },
+  "map_changes": {
+    "tb3": 1,
+    "tb1": 1,
+    "tb2": 1,
+    "merge_map": 1
+  },
+  "distances": {
+    "tb1": 0.0006437663681056419,
+    "tb2": 0.0006509937088090955,
+    "tb3": 0.0006504758523027566
+  },
+  "max_displacement": {
+    "tb1": 0.0004603072058732822,
+    "tb2": 0.00046152965720832066,
+    "tb3": 0.0004615264239391887
+  },
+  "max_speed": {
+    "tb1": 0.000443238504205343,
+    "tb2": 0.0004726048381657632,
+    "tb3": 0.00047260483813576907
+  },
+  "minimum_pair_distance": 0.749999777999527,
+  "action_statuses": {
+    "tb1": [],
+    "tb2": [],
+    "tb3": []
+  },
+  "hazard": "Controlled-time seal failed: RuntimeError('Expected seal lacks final physical stop/authority/RPC closure')",
+  "diagnostic_stop_pass": false,
+  "baseline_smoke_pass": false,
+  "engineering_evidence": {
+    "engineering_closed_loop_pass": false,
+    "facts": {
+      "bounded_run": false,
+      "no_hazard": false,
+      "observed_stop": true,
+      "actual_NN_three_choices": false,
+      "three_owned_accepted": false,
+      "three_feedback": false,
+      "three_real_movement": false,
+      "SLAM_and_merge_growth": false,
+      "terminal_feedback_to_new_owner": false,
+      "no_owner_overlap": true,
+      "request_reservation_linkage": true,
+      "no_rejected_RL_actions": true
+    },
+    "terminal_to_new_owner_witnesses": [],
+    "owner_overlap": [],
+    "target_link_errors": [],
+    "actual_inferences": 0,
+    "accepted_per_robot": {
+      "tb1": 0,
+      "tb2": 0,
+      "tb3": 0
+    }
+  },
+  "final_request_ownership": {
+    "closed": true,
+    "authority_stopped": true,
+    "requests": 0,
+    "unresolved_requests": [],
+    "owned_goals": {
+      "tb1": [],
+      "tb2": [],
+      "tb3": []
+    },
+    "unterminated_UUIDs": {
+      "tb1": [],
+      "tb2": [],
+      "tb3": []
+    },
+    "record_errors": []
+  },
+  "active_cancel_pass": false,
+  "engineering_closed_loop_pass": false,
+  "lifecycle_pause_healthy": false,
+  "participation": {
+    "tb1": {
+      "path_m": 0.0006437663681056419,
+      "actual_goals": 0,
+      "effective_motion": false
+    },
+    "tb2": {
+      "path_m": 0.0006509937088090955,
+      "actual_goals": 0,
+      "effective_motion": false
+    },
+    "tb3": {
+      "path_m": 0.0006504758523027566,
+      "actual_goals": 0,
+      "effective_motion": false
+    }
+  },
+  "run_integrity": false,
+  "observer_records_saved": {
+    "events": 1873,
+    "trajectory_rows": 405,
+    "drive_rows": 1188,
+    "map_snapshots": 8,
+    "tf_snapshots": 1
+  }
+}

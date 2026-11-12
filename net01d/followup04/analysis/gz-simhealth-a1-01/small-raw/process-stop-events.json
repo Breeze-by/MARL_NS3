@@ -1,0 +1,406 @@
+{
+  "original_rows": 16877,
+  "read_passes": 2,
+  "events": [
+    {
+      "utc": "2026-11-11T08:37:30.987588+00:00",
+      "wall": 1794386250.9876242,
+      "sim": 14.23,
+      "kind": "navigation_pause",
+      "robot": "tb1",
+      "success": true
+    },
+    {
+      "utc": "2026-11-11T08:37:32.260416+00:00",
+      "wall": 1794386252.2604454,
+      "sim": 15.02,
+      "kind": "navigation_pause",
+      "robot": "tb2",
+      "success": true
+    },
+    {
+      "utc": "2026-11-11T08:37:33.562680+00:00",
+      "wall": 1794386253.5627103,
+      "sim": 15.83,
+      "kind": "navigation_pause",
+      "robot": "tb3",
+      "success": true
+    },
+    {
+      "utc": "2026-11-11T08:37:35.214953+00:00",
+      "wall": 1794386255.2149813,
+      "sim": 16.9,
+      "kind": "observed_stop",
+      "positions": {
+        "tb1": [
+          0.7255651305050506,
+          -0.15002239530793102,
+          0.007822136864151438,
+          5.708091375643127e-05,
+          4.882809455250077e-05
+        ],
+        "tb2": [
+          0.3505295825408002,
+          -0.8000208559826655,
+          0.00782797386805047,
+          5.706096201821928e-05,
+          4.869943842278063e-05
+        ],
+        "tb3": [
+          1.1004692178806867,
+          -0.8000182064459904,
+          0.00782914776849686,
+          5.670328263551526e-05,
+          4.8556372498462306e-05
+        ]
+      },
+      "per_robot_wall": {
+        "tb1": 603296.696998027,
+        "tb2": 603296.697065551,
+        "tb3": 603296.697082671
+      },
+      "sim_advanced": 0.9999999999999982,
+      "drive_received": {
+        "tb1": [
+          16.898,
+          100.0,
+          16.86,
+          0.0,
+          0.0,
+          -2.6038707788465916e-07,
+          1.3903622451461009e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb2": [
+          16.875,
+          100.0,
+          16.86,
+          0.0,
+          0.0,
+          -3.267462925388121e-05,
+          -1.856494672990544e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb3": [
+          16.874,
+          100.0,
+          16.86,
+          0.0,
+          0.0,
+          -3.114984426475383e-05,
+          -1.699706479703679e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "rpc_errors": [],
+      "authority_stopped": true,
+      "ownership_closed": true,
+      "owned_goals": {
+        "tb1": [],
+        "tb2": [],
+        "tb3": []
+      },
+      "request_ownership": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 0,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "lifecycle_pause_healthy": true
+    },
+    {
+      "utc": "2026-11-11T08:37:41.724057+00:00",
+      "wall": 1794386261.724079,
+      "sim": 21.05,
+      "kind": "exploration_command",
+      "argv": [
+        "python3",
+        "-B",
+        "/mnt/workspace/gz01/headquarters.py",
+        "--joint-participation",
+        "--arm",
+        "rl",
+        "--system-variant",
+        "peer-compact-v1",
+        "--checkpoint",
+        "/mnt/runs/formal-01/checkpoint-00512.pt",
+        "--checkpoint-sha256",
+        "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+        "--run-dir",
+        "/mnt/net01d/followup04/runs/gz-simhealth-a1-01/controller",
+        "--ros-args",
+        "-p",
+        "use_sim_time:=true"
+      ]
+    },
+    {
+      "utc": "2026-11-11T08:41:44.961156+00:00",
+      "wall": 1794386504.9611626,
+      "sim": 177.25,
+      "kind": "process_signal",
+      "process": "exploration",
+      "pid": 589479,
+      "signal": "SIGINT"
+    },
+    {
+      "utc": "2026-11-11T08:41:46.550337+00:00",
+      "wall": 1794386506.550378,
+      "sim": 178.28,
+      "kind": "process_exit",
+      "process": "exploration",
+      "code": 0
+    },
+    {
+      "utc": "2026-11-11T08:41:48.166964+00:00",
+      "wall": 1794386508.1669888,
+      "sim": 179.23,
+      "kind": "navigation_pause",
+      "robot": "tb1",
+      "success": true
+    },
+    {
+      "utc": "2026-11-11T08:41:48.267163+00:00",
+      "wall": 1794386508.2671914,
+      "sim": 179.29,
+      "kind": "navigation_pause",
+      "robot": "tb2",
+      "success": true
+    },
+    {
+      "utc": "2026-11-11T08:41:48.435834+00:00",
+      "wall": 1794386508.4358668,
+      "sim": 179.4,
+      "kind": "navigation_pause",
+      "robot": "tb3",
+      "success": true
+    },
+    {
+      "utc": "2026-11-11T08:41:50.240258+00:00",
+      "wall": 1794386510.240285,
+      "sim": 180.5,
+      "kind": "observed_stop",
+      "positions": {
+        "tb1": [
+          -4.165524492953758,
+          4.350448403421763,
+          0.0078079754505727544,
+          6.606120022261814e-05,
+          5.1413174634918096e-05
+        ],
+        "tb2": [
+          -4.563158314105501,
+          -0.09732558460124531,
+          0.007808859229355472,
+          6.245831950269357e-05,
+          5.189557851782306e-05
+        ],
+        "tb3": [
+          6.305051683164213,
+          1.9519881390583724,
+          0.007813195987313861,
+          6.665527547405132e-05,
+          4.254418875403863e-05
+        ]
+      },
+      "per_robot_wall": {
+        "tb1": 603551.722349983,
+        "tb2": 603551.722393692,
+        "tb3": 603551.722408188
+      },
+      "sim_advanced": 1.0,
+      "drive_received": {
+        "tb1": [
+          180.472,
+          2265.0,
+          180.47,
+          0.0,
+          0.0,
+          -8.051025989744527e-06,
+          6.731391179585805e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb2": [
+          180.483,
+          1576.0,
+          180.47,
+          0.0,
+          0.0,
+          -2.089366637899872e-05,
+          -5.690972846606822e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb3": [
+          180.482,
+          3988.0,
+          180.47,
+          0.0,
+          0.0,
+          -3.419985421928697e-05,
+          -2.1808526379129742e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "rpc_errors": [],
+      "authority_stopped": true,
+      "ownership_closed": true,
+      "owned_goals": {
+        "tb1": [
+          "45624187a6b8470e97304a714b06514c",
+          "afdfdee7ec5b4c60a9068269e4e1c885",
+          "c017ead49dd4404b8da697dadbd9d733"
+        ],
+        "tb2": [
+          "cf7e553d047e448e925886f4d24ddb8f",
+          "dafd945da5ea479e844f14e80fad0aa5"
+        ],
+        "tb3": [
+          "1f46b717b97b4a629d417499a8880ee0",
+          "6d332975fff4471791b350fcca33512a",
+          "97fc3cc5a9ff441e852c36bcf34a7902",
+          "a90839da1efb410e877d98dac2d6d159"
+        ]
+      },
+      "request_ownership": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 9,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "45624187a6b8470e97304a714b06514c",
+            "afdfdee7ec5b4c60a9068269e4e1c885",
+            "c017ead49dd4404b8da697dadbd9d733"
+          ],
+          "tb2": [
+            "cf7e553d047e448e925886f4d24ddb8f",
+            "dafd945da5ea479e844f14e80fad0aa5"
+          ],
+          "tb3": [
+            "1f46b717b97b4a629d417499a8880ee0",
+            "6d332975fff4471791b350fcca33512a",
+            "97fc3cc5a9ff441e852c36bcf34a7902",
+            "a90839da1efb410e877d98dac2d6d159"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "lifecycle_pause_healthy": true
+    },
+    {
+      "utc": "2026-11-11T08:41:50.361084+00:00",
+      "wall": 1794386510.3610935,
+      "sim": 180.57,
+      "kind": "process_signal",
+      "process": "network_gateway",
+      "pid": 587132,
+      "signal": "SIGINT"
+    },
+    {
+      "utc": "2026-11-11T08:42:05.013245+00:00",
+      "wall": 1794386525.013279,
+      "sim": 180.57,
+      "kind": "process_exit",
+      "process": "network_gateway",
+      "code": 0
+    },
+    {
+      "utc": "2026-11-11T08:42:05.013418+00:00",
+      "wall": 1794386525.013424,
+      "sim": 180.57,
+      "kind": "process_signal",
+      "process": "launch",
+      "pid": 587133,
+      "signal": "SIGINT",
+      "signal_target": "owned_launch_parent_pid",
+      "timeout_wall_s": 20
+    },
+    {
+      "utc": "2026-11-11T08:42:08.161980+00:00",
+      "wall": 1794386528.1620224,
+      "sim": 180.57,
+      "kind": "process_exit",
+      "process": "launch",
+      "code": 0
+    },
+    {
+      "utc": "2026-11-11T08:37:29.931391+00:00",
+      "wall": 1794386249.9313986,
+      "sim": 13.53,
+      "kind": "time_control_authority_evidence",
+      "basis": "not_created",
+      "pid": null,
+      "native_exit": null,
+      "original_authority_stopped": true
+    },
+    {
+      "utc": "2026-11-11T08:41:44.959884+00:00",
+      "wall": 1794386504.959917,
+      "sim": 177.25,
+      "kind": "error",
+      "detail": "Controller, launch or bag exited during autonomous interval"
+    },
+    {
+      "utc": "2026-11-11T08:41:46.550524+00:00",
+      "wall": 1794386506.5505362,
+      "sim": 178.28,
+      "kind": "time_control_authority_evidence",
+      "basis": "actual_process_poll",
+      "pid": 589479,
+      "native_exit": 0,
+      "original_authority_stopped": true
+    }
+  ],
+  "second_pass_scope": "Only missed error and time_control_authority_evidence fields; original3.8MB events, not Gateway/native"
+}

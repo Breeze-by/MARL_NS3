@@ -1,0 +1,24 @@
+{
+  "scope": "Independent diagnostic ELF; old network-full-payload binary/header and ns3 build unchanged",
+  "adapter_commit": "d6ebf7c6d8c438a59ca164e94f371940fd33facb",
+  "binary": {
+    "path": "/home/zhuyulab/ns3-workspace/net-01/build/control-trace/net01-payload",
+    "bytes": 356088,
+    "sha256": "0eca7fe2d191b27ede633855064e9cea80b0468720ae2a4f0acf074abde0aece"
+  },
+  "source": {
+    "path": "net-01/workspace/net01/native/payload_transport.cc",
+    "sha256": "4fb70c52deb947aa53e2f035c2caa94ac4e471ecfec413096ede163736480588"
+  },
+  "reused_generated_header": {
+    "relative_phase": "build/network-full-payload/network_config.h",
+    "bytes": 4545,
+    "sha256": "66e64adf26c3d712ab149fe2d828ae8858d00c7172ef8adfacfc5bd7c2ff73a2"
+  },
+  "configure": "cmake -S net-01/workspace/net01/native -B net-01/build/control-trace -DCMAKE_BUILD_TYPE=Release -DNS3_DIR=/home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40 -DCONFIG_HEADER_DIR=/home/zhuyulab/ns3-workspace/net-01/build/network-full-payload",
+  "build": "cmake --build net-01/build/control-trace -j2",
+  "build_exit": 0,
+  "controlTrace_default": false,
+  "request": "rtk proxy python3 -B net-01/workspace/net01/followup01/continuous_dds.py --name continuous-dds-13 --feedback-hz 100 --dispatch-profile --control-trace --native /home/zhuyulab/ns3-workspace/net-01/build/control-trace/net01-payload",
+  "notes": "No network/model/time/scheduling parameter change. All new trace RAM until normal existing teardown; native source exactly validated STEP before/after Stop/Run. Socket/drain stages are not native ACKs."
+}

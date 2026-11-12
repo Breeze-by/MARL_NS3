@@ -1,0 +1,237 @@
+{
+  "source_checkpoint": "c4ad853e7e5e8707a0e5a0be1426bc84b4bd2e1e",
+  "argv": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "net01d/followup04/evidence/legacy-ros-01.time.txt",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "35s",
+    "bash",
+    "net01/ros-python.sh",
+    "net01/check_local_guard.py",
+    "--output",
+    "net01d/followup04/evidence/legacy-ros-01"
+  ],
+  "ROS_domain": "actual rclpy.init domain95 overrides wrapper env92",
+  "scope": "one original controlledROS fixture; no native/GZ/robot",
+  "begin_monotonic_ns": 601594637747388,
+  "launcher_pid": 531674,
+  "exit": 0,
+  "end_monotonic_ns": 601596819121228,
+  "observed_owned": [
+    {
+      "pid": 531674,
+      "ppid": 531666,
+      "pgid": 531674,
+      "state": "S",
+      "start_ticks": 60159463,
+      "argv": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "net01d/followup04/evidence/legacy-ros-01.time.txt",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=2s",
+        "35s",
+        "bash",
+        "net01/ros-python.sh",
+        "net01/check_local_guard.py",
+        "--output",
+        "net01d/followup04/evidence/legacy-ros-01"
+      ]
+    },
+    {
+      "pid": 531675,
+      "ppid": 531674,
+      "pgid": 531675,
+      "state": "S",
+      "start_ticks": 60159464,
+      "argv": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=2s",
+        "35s",
+        "bash",
+        "net01/ros-python.sh",
+        "net01/check_local_guard.py",
+        "--output",
+        "net01d/followup04/evidence/legacy-ros-01"
+      ]
+    },
+    {
+      "pid": 531676,
+      "ppid": 531675,
+      "pgid": 531675,
+      "state": "S",
+      "start_ticks": 60159464,
+      "argv": [
+        "bwrap",
+        "--unshare-user",
+        "--uid",
+        "0",
+        "--gid",
+        "0",
+        "--die-with-parent",
+        "--ro-bind",
+        "/home/zhuyulab/ns3-workspace/base-01-econ/isolation/rootfs",
+        "/",
+        "--tmpfs",
+        "/tmp",
+        "--bind",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/runtime-home",
+        "/root",
+        "--ro-bind",
+        "/proc",
+        "/proc",
+        "--dev-bind",
+        "/dev",
+        "/dev",
+        "--ro-bind",
+        "/sys",
+        "/sys",
+        "--ro-bind",
+        "/home/zhuyulab/ns3-workspace/base-01-econ",
+        "/project",
+        "--bind",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+        "/mnt",
+        "--chdir",
+        "/mnt",
+        "--ro-bind",
+        "/home/zhuyulab/.local/lib/python3.10/site-packages",
+        "/tmp/rl02-python",
+        "/usr/bin/env",
+        "-i",
+        "PATH=/usr/sbin:/usr/bin:/sbin:/bin",
+        "HOME=/root",
+        "LANG=C.UTF-8",
+        "ROS_DOMAIN_ID=92",
+        "ROS_LOCALHOST_ONLY=1",
+        "RMW_IMPLEMENTATION=rmw_fastrtps_cpp",
+        "PYTHONNOUSERSITE=1",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "MKL_NUM_THREADS=1",
+        "/bin/bash",
+        "--noprofile",
+        "--norc",
+        "-c",
+        "\n    source /opt/ros/humble/setup.bash\n    source /project/workspace/install/setup.bash\n    export PYTHONPATH=/mnt/net01:/mnt/workspace/gz01:/mnt/workspace/rl04:/mnt/workspace/rl02:/mnt/workspace/rl01:/mnt/workspace/src/multi_robot_exploration:/tmp/rl02-python:${PYTHONPATH:-}\n    exec python3 -B \"$@\"\n  ",
+        "bash",
+        "net01/check_local_guard.py",
+        "--output",
+        "net01d/followup04/evidence/legacy-ros-01"
+      ]
+    },
+    {
+      "pid": 531682,
+      "ppid": 531676,
+      "pgid": 531675,
+      "state": "S",
+      "start_ticks": 60159465,
+      "argv": [
+        "python3",
+        "-B",
+        "net01/check_local_guard.py",
+        "--output",
+        "net01d/followup04/evidence/legacy-ros-01"
+      ]
+    },
+    {
+      "pid": 531688,
+      "ppid": 531682,
+      "pgid": 531675,
+      "state": "R",
+      "start_ticks": 60159468,
+      "argv": [
+        "/usr/bin/python3",
+        "/opt/ros/humble/_local_setup_util.py",
+        "sh",
+        "bash"
+      ]
+    },
+    {
+      "pid": 531694,
+      "ppid": 531682,
+      "pgid": 531675,
+      "state": "R",
+      "start_ticks": 60159485,
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/bin/register-python-argcomplete3",
+        "ros2"
+      ]
+    },
+    {
+      "pid": 531696,
+      "ppid": 531682,
+      "pgid": 531675,
+      "state": "R",
+      "start_ticks": 60159492,
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/bin/register-python-argcomplete3",
+        "rosidl"
+      ]
+    },
+    {
+      "pid": 531699,
+      "ppid": 531682,
+      "pgid": 531675,
+      "state": "R",
+      "start_ticks": 60159498,
+      "argv": [
+        "/usr/bin/python3",
+        "/opt/ros/humble/_local_setup_util.py",
+        "sh",
+        "bash"
+      ]
+    },
+    {
+      "pid": 531711,
+      "ppid": 531682,
+      "pgid": 531675,
+      "state": "R",
+      "start_ticks": 60159516,
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/bin/register-python-argcomplete3",
+        "ros2"
+      ]
+    },
+    {
+      "pid": 531713,
+      "ppid": 531682,
+      "pgid": 531675,
+      "state": "R",
+      "start_ticks": 60159523,
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/bin/register-python-argcomplete3",
+        "rosidl"
+      ]
+    },
+    {
+      "pid": 531716,
+      "ppid": 531682,
+      "pgid": 531675,
+      "state": "R",
+      "start_ticks": 60159529,
+      "argv": [
+        "/usr/bin/python3",
+        "/project/workspace/install/_local_setup_util_sh.py",
+        "sh",
+        "bash"
+      ]
+    }
+  ],
+  "wall_s": 2.18137384,
+  "owned_survivors": [],
+  "original_status": "PASS",
+  "actual_checks": 14
+}

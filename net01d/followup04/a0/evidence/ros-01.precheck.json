@@ -1,0 +1,23 @@
+{
+  "authorized": true,
+  "runtime_source": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "domain96_udp_ports": [],
+  "fixture_process_conflicts": [],
+  "output_exists": false,
+  "safety_socket_exists": false,
+  "argv": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "35s",
+    "bash",
+    "net01/ros-python.sh",
+    "/mnt/net01d/followup04/a0/check_a0_contract_ros.py",
+    "--output",
+    "/mnt/net01d/followup04/a0/evidence/ros-01"
+  ],
+  "utc": "2026-11-11T10:53:07.847949+00:00",
+  "monotonic_ns": 611429330371313
+}

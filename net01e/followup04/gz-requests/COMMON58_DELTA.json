@@ -1,0 +1,22 @@
+{
+  "base_binding": "net01e/followup03/gz-requests/COMMON_BINDING_STEP_TIMING.json",
+  "new_binding": "net01e/followup04/gz-requests/COMMON_BINDING_58.json",
+  "old_paths": 57,
+  "new_paths": 58,
+  "changed_existing": {
+    "host_run.py": {
+      "before": "ecb366835fb11e7f8abe83a396038e3b4eef4821952c659a4e487a2966e67b81",
+      "after": "b856064ee37e4056a83d43c5cb09f8349469665c8b4b5668da7cb7382e9c5ca9"
+    }
+  },
+  "added": {
+    "cli_daemon_cleanup.py": "c78292fd5f428cb74b4328cbf23c031fe53c34297d4323ff1af61310998a4544"
+  },
+  "removed": [],
+  "hash_source": "Already sealed net01e/followup03/FINAL_SHA256SUMS; no fresh hashes computed",
+  "unchanged_existing_count": 56,
+  "frozen_worktree_map_unchanged": true,
+  "actual_parameters_unchanged": true,
+  "all_original_budget_guard_fields_inherited": true,
+  "postrun_hook_validation": "First fresh actual full case pending; no old result rewritten"
+}

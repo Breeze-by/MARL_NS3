@@ -1,0 +1,28 @@
+--- a/net01/gateway.py
++++ b/net01/gateway.py
+@@ -68,14 +68,14 @@
+             wait_kind='ready'
+         except TimeoutException:
+             wait_kind='productive_set_end' if ready_set['productive'] else 'empty_set'
+-            if not ready_set['productive']:break
+             ready_set['productive']=False
+-            continue
++            break
+         except ShutdownException:
+             wait_kind='shutdown'
+             ready_set['shutdown']=True
+             break
+         finally:
++            ready_set['last_wait_kind']=wait_kind
+             if profile is not None:record_cpu_span(profile['wait'],wait_kind,wait_wall,wait_cpu,
+                     longspans,f'{side}:wait:{wait_kind}')
+         began=time.monotonic()
+@@ -397,7 +397,7 @@
+                     entity_label=self.profile_entity,longspans=self.profile_longspans,side=side)
+                 if side=='C':
+                     if completed:self.c_empty_until=0.
+-                    elif not self.ready_sets[side]['shutdown']:
++                    elif self.ready_sets[side].get('last_wait_kind')=='empty_set':
+                         # Only an actually empty public query starts this fixed
+                         # deadline; skipped probes never extend it. No sleep.
+                         self.c_empty_until=time.monotonic()+.010

@@ -1,0 +1,23 @@
+{
+  "authorized": true,
+  "runtime": "197a",
+  "activation": "e05d3cf",
+  "domain": 97,
+  "active_DDS_ports": [],
+  "output_exists": false,
+  "argv": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "35s",
+    "bash",
+    "net01/ros-python.sh",
+    "/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py",
+    "--output",
+    "/mnt/net01d/followup04/sigint-dds/run-02"
+  ],
+  "utc": "2026-11-11T11:21:13.576698+00:00",
+  "monotonic_ns": 613115059112421
+}

@@ -1,0 +1,122 @@
+{
+  "status": "PASS_ZERO_ROBOT_LIFECYCLE_ONLY",
+  "scope": "ZeroRobot mock resources; actual close/persist/supervisor, no ROS/ns3/GZ",
+  "cases": [
+    {
+      "case": "closed_slow_persist_exit0",
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/check.py",
+        "--directory",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/run-01/closed_slow_persist_exit0",
+        "--child",
+        "closed_slow_persist_exit0"
+      ],
+      "pid": 807980,
+      "exit": 0,
+      "wall_s": 22.205794139,
+      "resources_marker": true,
+      "saved": true,
+      "extension": true,
+      "phases": [
+        "close_begin",
+        "resources_closed",
+        "persist_begin",
+        "persist_end",
+        "close_return",
+        "fixture_child_main_return"
+      ],
+      "supervisor": "supervisor.json",
+      "owned_gone": true
+    },
+    {
+      "case": "unclosed",
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/check.py",
+        "--directory",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/run-01/unclosed",
+        "--child",
+        "unclosed"
+      ],
+      "pid": 808702,
+      "exit": -9,
+      "wall_s": 25.159841302,
+      "resources_marker": false,
+      "saved": false,
+      "extension": false,
+      "phases": [
+        "close_begin"
+      ],
+      "supervisor": "supervisor.json",
+      "owned_gone": true
+    },
+    {
+      "case": "persist_stall",
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/check.py",
+        "--directory",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/run-01/persist_stall",
+        "--child",
+        "persist_stall"
+      ],
+      "pid": 809540,
+      "exit": -9,
+      "wall_s": 55.158118619,
+      "resources_marker": true,
+      "saved": false,
+      "extension": true,
+      "phases": [
+        "close_begin",
+        "resources_closed",
+        "persist_begin"
+      ],
+      "supervisor": "supervisor.json",
+      "owned_gone": true
+    },
+    {
+      "case": "saved_exit_stall",
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/check.py",
+        "--directory",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/run-01/saved_exit_stall",
+        "--child",
+        "saved_exit_stall"
+      ],
+      "pid": 811341,
+      "exit": -9,
+      "wall_s": 55.167740128,
+      "resources_marker": true,
+      "saved": true,
+      "extension": true,
+      "phases": [
+        "close_begin",
+        "resources_closed",
+        "persist_begin",
+        "persist_end",
+        "close_return"
+      ],
+      "supervisor": "supervisor.json",
+      "owned_gone": true
+    }
+  ],
+  "short_checks": {
+    "host_actual_command_branches": 3,
+    "invalid_marker_cases": [
+      "missing",
+      "stale_PID",
+      "session",
+      "case",
+      "old_monotonic"
+    ],
+    "default_no_extension_and_reentry_FSM": true,
+    "short_parent_bound_FSM": true,
+    "scope": "Actual extracted functions with injected clocks/signals, NOT real wall/ROS/physical proof"
+  }
+}

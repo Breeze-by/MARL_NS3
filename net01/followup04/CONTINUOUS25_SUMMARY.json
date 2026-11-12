@@ -1,0 +1,623 @@
+{
+  "status": "DIAGNOSTIC FAIL / incomplete END; not qualification",
+  "source_commit": "2ec984f79854b1ca7367747fab0f1720218215a6",
+  "raw": "runs/continuous-dds-25-native-wait-diagnostic",
+  "command": "rtk proxy python3 -B net-01/workspace/net01/followup04/check_controlled_wifi.py --name continuous-dds-25-native-wait-diagnostic --native /home/zhuyulab/ns3-workspace/net-01/workspace/net01/followup04/native_wait25.sh",
+  "process": {
+    "scope": "MOCK_PHYSICS WiFi feasibility only; not real GZ clock/stop/180sim PASS",
+    "error": "Hard bound forced owned role: hub",
+    "wall_s": 29.271825160016306,
+    "hard_wall_s": 30,
+    "exits": {
+      "coordinator": 0,
+      "hub": -9,
+      "peer": 0,
+      "gateway": 0,
+      "mock_physics": 0,
+      "source": 0
+    },
+    "profile": {
+      "id": "controlled1000-clock100-q10ms",
+      "world_real_time_update_rate": 1000,
+      "physics_max_step_size_unchanged": 0.001,
+      "clock_publish_rate_sim_hz": 100.0,
+      "native_step_quantum_ns": 10000000,
+      "qualification": {
+        "source_wall_s": 16,
+        "hard_wall_s": 30,
+        "clock_period_wall_s": 0.02,
+        "clock_increment_ns": 10000000,
+        "other_sources": "Original TF/odom/feedback per wall unchanged, source clock subscribed from explicit MOCK_PHYSICS actual step service",
+        "peer": "Original10Hz sim timer, expected5Hz wall at target.5RTF; actual intervals measured, original gates unchanged",
+        "local_costmap_cells": [
+          200,
+          200
+        ],
+        "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
+        "not_generated_flows": [
+          "89 C merge_map",
+          "95 C controller journal"
+        ]
+      },
+      "scope": "Explicit external controlled-time shared A/B profile; fixed.5RTF wall target and actual native credit, not policy/network optimization. Qualification uses MOCK_PHYSICS, never claims Gazebo.",
+      "controlled_physics": true,
+      "physical_token_steps": 10,
+      "physical_lookahead_quanta": 2,
+      "token_wall_period_ns": 20000000
+    },
+    "resource_control": "HOLD then STOP, keep actual ACK observer through native END",
+    "Gazebo": 0,
+    "Nav2": 0,
+    "Goal": 0,
+    "NN": 0
+  },
+  "owned_native_exit": {
+    "monotonic_ns": 452910694415386,
+    "scope": "Exact original strace -o trace path and exact native binary+this case --output argv; no signals or broad kill",
+    "native_PID_from_trace": 2249069,
+    "native_PID_proc_exists": false,
+    "matching_owned_actors": [],
+    "owned_complete": true,
+    "END": "Hub forced SIGKILL; no complete native END evidence",
+    "signals_sent": []
+  },
+  "trace": {
+    "original_preserved": "/dev/shm/net01-native-wait-25",
+    "persistent_copy": "runs/continuous-dds-25-native-wait-diagnostic/native-wait-trace",
+    "syscalls_bytes": 16273004,
+    "clock_start": {
+      "monotonic_before_ns": 452790933851605,
+      "realtime_ns": 1794235749451504955,
+      "monotonic_after_ns": 452790933861837
+    },
+    "clock_end": {
+      "monotonic_before_ns": 452827828101820,
+      "realtime_ns": 1794235786345754654,
+      "monotonic_after_ns": 452827828111026
+    }
+  },
+  "analysis": {
+    "scope": "Single strace-observed diagnostic; complete live StepTrace/threadCPU was lost when hub hit hard bound. Adjacent in-Run ledger gaps are surrogate event intervals, never fabricated exact STEP CPU/offCPU. -s0 suppressed stderr JSON so step bodies cannot be recovered from trace.",
+    "raw": "runs/continuous-dds-25-native-wait-diagnostic",
+    "clock_alignment_realtime_minus_mono_ns": 1793782958517648234,
+    "strace_counts": {
+      "read": 3427,
+      "pread64": 4,
+      "futex": 1,
+      "writev": 80899,
+      "write": 15043
+    },
+    "longest_non_read_syscalls": [
+      {
+        "call": "writev",
+        "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+        "duration_ms": 4.787,
+        "start_mono_ns": 452802109401750,
+        "line": "2249069 1794235760.627050 writev(4</home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap>, [...], 2) = 1288 <0.004787>"
+      },
+      {
+        "call": "writev",
+        "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/packet-ledger.jsonl",
+        "duration_ms": 3.803,
+        "start_mono_ns": 452798692184726,
+        "line": "2249069 1794235757.209833 writev(3</home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/packet-ledger.jsonl>, [...], 2) = 8229 <0.003803>"
+      },
+      {
+        "call": "writev",
+        "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-3-0.pcap",
+        "duration_ms": 3.618,
+        "start_mono_ns": 452798758405782,
+        "line": "2249069 1794235757.276054 writev(7</home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-3-0.pcap>, [...], 2) = 8206 <0.003618>"
+      },
+      {
+        "call": "writev",
+        "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-1-0.pcap",
+        "duration_ms": 3.399,
+        "start_mono_ns": 452800812341654,
+        "line": "2249069 1794235759.329990 writev(5</home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-1-0.pcap>, [...], 2) = 1288 <0.003399>"
+      },
+      {
+        "call": "writev",
+        "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-3-0.pcap",
+        "duration_ms": 3.031,
+        "start_mono_ns": 452801533660822,
+        "line": "2249069 1794235760.051309 writev(7</home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-3-0.pcap>, [...], 2) = 1288 <0.003031>"
+      },
+      {
+        "call": "writev",
+        "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-1-0.pcap",
+        "duration_ms": 3.0,
+        "start_mono_ns": 452800720753558,
+        "line": "2249069 1794235759.238402 writev(5</home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-1-0.pcap>, [...], 2) = 1828 <0.003000>"
+      },
+      {
+        "call": "writev",
+        "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/packet-ledger.jsonl",
+        "duration_ms": 2.955,
+        "start_mono_ns": 452798748122774,
+        "line": "2249069 1794235757.265771 writev(3</home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/packet-ledger.jsonl>, [...], 2) = 8258 <0.002955>"
+      },
+      {
+        "call": "writev",
+        "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/packet-ledger.jsonl",
+        "duration_ms": 2.938,
+        "start_mono_ns": 452798770126742,
+        "line": "2249069 1794235757.287775 writev(3</home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/packet-ledger.jsonl>, [...], 2) = 8231 <0.002938>"
+      },
+      {
+        "call": "writev",
+        "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/packet-ledger.jsonl",
+        "duration_ms": 2.938,
+        "start_mono_ns": 452805949055638,
+        "line": "2249069 1794235764.466704 writev(3</home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/packet-ledger.jsonl>, [...], 2) = 8234 <0.002938>"
+      },
+      {
+        "call": "writev",
+        "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+        "duration_ms": 2.914,
+        "start_mono_ns": 452799776168854,
+        "line": "2249069 1794235758.293817 writev(4</home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap>, [...], 2) = 8892 <0.002914>"
+      }
+    ],
+    "ledger_events_parsed": 449523,
+    "incomplete_ledger_lines": 1,
+    "longest_in_Run_adjacent_event_gaps": [
+      {
+        "previous": {
+          "kind": "wifi_sniffer_rx",
+          "ns3_ns": 1815797305,
+          "monotonic_ns": 452800831487473,
+          "node": 3,
+          "packet_uid": 67914,
+          "packet_bytes": 32,
+          "frequency_mhz": 5210,
+          "signal_dbm": -36.4341557325,
+          "noise_dbm": -93.9659851845,
+          "snr_db": 57.531829452
+        },
+        "next": {
+          "kind": "mac_rx",
+          "ns3_ns": 1815911453,
+          "monotonic_ns": 452800841978795,
+          "node": 3,
+          "packet_uid": 66777,
+          "packet_bytes": 1236
+        },
+        "gap_wall_ms": 10.491322,
+        "overlapping_syscalls": [
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452800835372694,
+            "duration_ms": 2.616
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452800838139798,
+            "duration_ms": 0.119
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452800832021654,
+            "duration_ms": 0.108
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452800833939862,
+            "duration_ms": 0.103
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452800840920726,
+            "duration_ms": 0.084
+          }
+        ],
+        "overlapping_syscall_duration_sum_ms": 5.78
+      },
+      {
+        "previous": {
+          "kind": "wifi_sniffer_rx",
+          "ns3_ns": 1733114703,
+          "monotonic_ns": 452800324634595,
+          "node": 3,
+          "packet_uid": 63311,
+          "packet_bytes": 32,
+          "frequency_mhz": 5210,
+          "signal_dbm": -36.4341557325,
+          "noise_dbm": -93.9659851845,
+          "snr_db": 57.531829452
+        },
+        "next": {
+          "kind": "phy_rx_drop",
+          "ns3_ns": 1733184702,
+          "monotonic_ns": 452800334846052,
+          "node": 2,
+          "packet_uid": 60947,
+          "packet_bytes": 1266,
+          "reason": 4
+        },
+        "gap_wall_ms": 10.211457,
+        "overlapping_syscalls": [
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-2-0.pcap",
+            "start_mono_ns": 452800333948822,
+            "duration_ms": 0.108
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-2-0.pcap",
+            "start_mono_ns": 452800331250582,
+            "duration_ms": 0.068
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452800325429654,
+            "duration_ms": 0.062
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-2-0.pcap",
+            "start_mono_ns": 452800334229654,
+            "duration_ms": 0.056
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452800330320790,
+            "duration_ms": 0.041
+          }
+        ],
+        "overlapping_syscall_duration_sum_ms": 2.41
+      },
+      {
+        "previous": {
+          "kind": "wifi_sniffer_rx",
+          "ns3_ns": 826550515,
+          "monotonic_ns": 452795097454332,
+          "node": 0,
+          "packet_uid": 10768,
+          "packet_bytes": 32,
+          "frequency_mhz": 5210,
+          "signal_dbm": -34.9091431622,
+          "noise_dbm": -93.9659851845,
+          "snr_db": 59.0568420224
+        },
+        "next": {
+          "kind": "mac_rx",
+          "ns3_ns": 826790669,
+          "monotonic_ns": 452795105725882,
+          "node": 3,
+          "packet_uid": 9766,
+          "packet_bytes": 1236
+        },
+        "gap_wall_ms": 8.27155,
+        "overlapping_syscalls": [
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452795101477782,
+            "duration_ms": 2.711
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452795104687766,
+            "duration_ms": 0.07
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452795104415894,
+            "duration_ms": 0.059
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452795098374806,
+            "duration_ms": 0.047
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452795098237846,
+            "duration_ms": 0.044
+          }
+        ],
+        "overlapping_syscall_duration_sum_ms": 3.767
+      },
+      {
+        "previous": {
+          "kind": "mac_tx",
+          "ns3_ns": 2021798208,
+          "monotonic_ns": 452802108193293,
+          "node": 0,
+          "packet_uid": 79662,
+          "packet_bytes": 1236
+        },
+        "next": {
+          "kind": "mac_tx",
+          "ns3_ns": 2021809272,
+          "monotonic_ns": 452802116062943,
+          "node": 0,
+          "packet_uid": 79663,
+          "packet_bytes": 1236
+        },
+        "gap_wall_ms": 7.86965,
+        "overlapping_syscalls": [
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452802109401750,
+            "duration_ms": 4.787
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452802115387542,
+            "duration_ms": 0.069
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452802115015830,
+            "duration_ms": 0.064999
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452802114676630,
+            "duration_ms": 0.064
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452802115140758,
+            "duration_ms": 0.06
+          }
+        ],
+        "overlapping_syscall_duration_sum_ms": 5.653999
+      },
+      {
+        "previous": {
+          "kind": "wifi_sniffer_rx",
+          "ns3_ns": 1822159353,
+          "monotonic_ns": 452800972280426,
+          "node": 3,
+          "packet_uid": 69176,
+          "packet_bytes": 32,
+          "frequency_mhz": 5210,
+          "signal_dbm": -36.4341557325,
+          "noise_dbm": -93.9659851845,
+          "snr_db": 57.531829452
+        },
+        "next": {
+          "kind": "mac_rx",
+          "ns3_ns": 1822282500,
+          "monotonic_ns": 452800980115423,
+          "node": 2,
+          "packet_uid": 67019,
+          "packet_bytes": 1236
+        },
+        "gap_wall_ms": 7.834997,
+        "overlapping_syscalls": [
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452800974620822,
+            "duration_ms": 2.757
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452800977818774,
+            "duration_ms": 0.171
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452800977530774,
+            "duration_ms": 0.071
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452800972967830,
+            "duration_ms": 0.049
+          },
+          {
+            "call": "writev",
+            "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+            "start_mono_ns": 452800974377878,
+            "duration_ms": 0.038
+          }
+        ],
+        "overlapping_syscall_duration_sum_ms": 3.924
+      }
+    ],
+    "known_incomplete": "No complete native END/control-step-trace, final stdin read unfinished. Hub ownedPG SIGKILL; actualnative/tracer confirmed absent. Cannot claim 24\u2019s offCPU rootcause uniquely reproduced/solved."
+  },
+  "syscall_total_durations": [
+    {
+      "call": "read",
+      "fd_target": "pipe:[35062338]",
+      "count": 3409,
+      "total_duration_s": 4.561035000000018
+    },
+    {
+      "call": "writev",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/packet-ledger.jsonl",
+      "count": 8503,
+      "total_duration_s": 0.4554399999999942
+    },
+    {
+      "call": "writev",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-0-0.pcap",
+      "count": 18234,
+      "total_duration_s": 0.41516700000001727
+    },
+    {
+      "call": "writev",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-1-0.pcap",
+      "count": 18057,
+      "total_duration_s": 0.41053700000001064
+    },
+    {
+      "call": "writev",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-3-0.pcap",
+      "count": 18013,
+      "total_duration_s": 0.40952300000000824
+    },
+    {
+      "call": "writev",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/wifi-2-0.pcap",
+      "count": 18091,
+      "total_duration_s": 0.3970720000000064
+    },
+    {
+      "call": "write",
+      "fd_target": "pipe:[35062339]",
+      "count": 13203,
+      "total_duration_s": 0.2606239999999888
+    },
+    {
+      "call": "write",
+      "fd_target": "pipe:[35062340]",
+      "count": 1840,
+      "total_duration_s": 0.030113000000000337
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-internet.so",
+      "count": 1,
+      "total_duration_s": 0.001339
+    },
+    {
+      "call": "writev",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-25-native-wait-diagnostic/hub/native/configured-lock.json",
+      "count": 1,
+      "total_duration_s": 5.2e-05
+    },
+    {
+      "call": "pread64",
+      "fd_target": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "count": 4,
+      "total_duration_s": 4.599999999999999e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-wifi.so",
+      "count": 1,
+      "total_duration_s": 1.8e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-csma.so",
+      "count": 1,
+      "total_duration_s": 1.8e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-energy.so",
+      "count": 1,
+      "total_duration_s": 1.6e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6",
+      "count": 1,
+      "total_duration_s": 1.6e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-mobility.so",
+      "count": 1,
+      "total_duration_s": 1.5e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-propagation.so",
+      "count": 1,
+      "total_duration_s": 1.5e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-network.so",
+      "count": 1,
+      "total_duration_s": 1.5e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-core.so",
+      "count": 1,
+      "total_duration_s": 1.5e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "count": 1,
+      "total_duration_s": 1.5e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-stats.so",
+      "count": 1,
+      "total_duration_s": 1.5e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30",
+      "count": 1,
+      "total_duration_s": 1.4e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+      "count": 1,
+      "total_duration_s": 1.4e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-spectrum.so",
+      "count": 1,
+      "total_duration_s": 1.4e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-antenna.so",
+      "count": 1,
+      "total_duration_s": 1.4e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-traffic-control.so",
+      "count": 1,
+      "total_duration_s": 1.4e-05
+    },
+    {
+      "call": "futex",
+      "fd_target": "0x7023e202977c",
+      "count": 1,
+      "total_duration_s": 1.4e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+      "count": 1,
+      "total_duration_s": 1.3e-05
+    },
+    {
+      "call": "read",
+      "fd_target": "/home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-bridge.so",
+      "count": 1,
+      "total_duration_s": 1.3e-05
+    }
+  ],
+  "conclusion": "No captured hundreds-ms write/writev/fsync/futex/sleep corresponding to24 offCPU165ms. Longest non-read4.787ms PCAPwritev; stdinread waiting is not Run CPU. Complete StepTrace/threadCPU lost on hard-killed Hub, so cannot reconstruct exact longest25 Run/offCPU. In-Run adjacent ledger event gaps are limited surrogate evidence only; strace perturbation and untraced scheduler/pagefault/kernel activity prevent unique causality. No qualification/B/newGZ/retry claim.",
+  "remaining_Gazebo_slot3": "UNUSED / NOT ADMITTED"
+}

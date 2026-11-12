@@ -1,0 +1,27 @@
+{
+  "branch": "net-01d/discrete-time-contract",
+  "review_base": "a903e88319445b41b16076864863113d20451c28",
+  "final_external_runtime": "bd663824d77983cb2b2721e90241ef97bf06461f",
+  "release_commit": "a014ef11d4b77fe45832268467993dfdeb4398f6",
+  "release_tag": "MR3-RL-POLICY-v1.1.0",
+  "frozen_behavior_source": "76fd91cf937bd8d662302901dad063affbea3c38",
+  "checkpoint": "checkpoint-00512.pt",
+  "checkpoint_SHA256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+  "frozen_workspace_diff_since_release": [],
+  "modified_production_paths": [
+    "net01/a0_controller_bootstrap.py",
+    "net01/a0_runtime.py",
+    "net01/boot_network.py",
+    "net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER_SIMHEALTH.json",
+    "net01/controller_bootstrap.py",
+    "net01/delivery_guard.py",
+    "net01/execution_profile.py",
+    "net01/gateway.py",
+    "net01/host_run.py",
+    "net01/run_network_case.py",
+    "net01/time_control_state.py",
+    "net01/time_controller.py"
+  ],
+  "diff": "PRODUCTION_DIFF.patch",
+  "delivery_scope": "Independent bounded discrete-time NET-01D followup04. Final report commit and evidence sums finalized after report review; this file records immutable runtime/release identities, not a self-referential HEAD."
+}

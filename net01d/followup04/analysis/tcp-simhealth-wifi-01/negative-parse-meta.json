@@ -1,0 +1,19 @@
+{
+  "original_native_ledger_reads": 1,
+  "native_rows": 1772314,
+  "native_bytes": 291370463,
+  "parse_wall_s": 15.206255545956083,
+  "no_Gateway_original_reads": 0,
+  "selection": "Only actual blackout and post-event business metadata plus last3perflow pre-event completions. Packet payload ledger not duplicated.",
+  "no_model_or_PCAP_decode": true,
+  "Hub_reads": {
+    "native_ledger_stream": 1,
+    "native_ledger_rows": 1772314,
+    "Hub_ingress_JSON": 2,
+    "Hub_deliveries_JSON": 2,
+    "Hub_note": "First read schema/sample,second bounded window selection; selected caches now retained, no further reads needed.",
+    "source_bound_publications_JSONL": 1,
+    "Gateway_original": 0,
+    "PCAPdecode": 0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "observed_utc": "2026-11-12T11:15:40.902081+00:00",
+  "source": "net01/tools/packet_hub.py::prepare_native_evidence original byte formulas, readonly observation only; does not mkdir RAM or call producer",
+  "tmpfs_available_bytes": 25087197184,
+  "MemAvailable_bytes": 72610738176,
+  "tmpfs_minimum_bytes": 17179869184,
+  "MemAvailable_minimum_bytes": 25769803776,
+  "tmpfs_pass": true,
+  "MemAvailable_pass": true,
+  "actual_producer_resource_expression_pass": true,
+  "fresh_paths": {
+    "net01e/followup03/gz-runs/corr6201-step-timing-plain-a1-04": true,
+    "net01e/followup03/gz-runs/corr6201-step-timing-plain-a1-04.network": true,
+    "net01e/followup03/gz-runs/corr6201-step-timing-plain-a1-04.time-control": true,
+    "net01e/followup03/ipc/st-a04.sock": true,
+    "/dev/shm/net01e-f03-st-a04": true,
+    "net01e/followup03/gz-requests/corr6201-step-timing-plain-a1-04.ready.json": true
+  },
+  "scope": "Preparation only, not resource reservation or execution/isolation approval. Actual producer guard remains authoritative at START."
+}

@@ -1,0 +1,18 @@
+{
+  "execution_authorized": true,
+  "status": "SOURCE_ONLY_WAIT_ROOT_SOURCE_REVIEW_AND_SINGLE_START",
+  "child_entry": "net01e/followup01/gateway_active_probe.py",
+  "source_or_rate_or_QoS_or_safety_changes": false,
+  "production_source_changes": false,
+  "new_private_take_hook": false,
+  "extra_take_or_reserialize": false,
+  "new_cProfile": false,
+  "snapshots": [
+    "first_public_poll_entry_gz_at_least_50sim",
+    "first_fault_complete_public_poll_return"
+  ],
+  "maximum_execution_count": 1,
+  "automatic_retry": false,
+  "root_START": "One A1 active-01 RAM-counter phase observation admitted by Root and independent Reviewer; unchanged source/guard/rate; no automatic retry or Gazebo",
+  "reviewed_source_commit": "7d08314e4fd46eb4f6bc2bdb5acc565489a26963"
+}

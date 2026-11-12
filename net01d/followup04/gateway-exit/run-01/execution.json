@@ -1,0 +1,51 @@
+{
+  "actual_command": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "200s",
+    "python3",
+    "-B",
+    "net01d/followup04/gateway-exit/check.py",
+    "--directory",
+    "net01d/followup04/gateway-exit/run-01"
+  ],
+  "runtime_source": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "activation_commit": "4d8028c",
+  "observed_utc": "2026-11-11T10:30:37.834705+00:00",
+  "observed_monotonic_ns": 610079317117763,
+  "processes": [
+    {
+      "pid": 807978,
+      "cmdline": [
+        "python3",
+        "-B",
+        "net01d/followup04/gateway-exit/check.py",
+        "--directory",
+        "net01d/followup04/gateway-exit/run-01"
+      ],
+      "status_ppid": "807975",
+      "start_ticks": "61005871"
+    },
+    {
+      "pid": 807980,
+      "cmdline": [
+        "/usr/bin/python3",
+        "-B",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/check.py",
+        "--directory",
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/gateway-exit/run-01/closed_slow_persist_exit0",
+        "--child",
+        "closed_slow_persist_exit0"
+      ],
+      "status_ppid": "807978",
+      "start_ticks": "61005885"
+    }
+  ],
+  "tool_session": 2779,
+  "tool_exit": 0,
+  "completed_utc": "2026-11-11T10:33:56.115231+00:00",
+  "completed_monotonic_ns": 610277597643197
+}

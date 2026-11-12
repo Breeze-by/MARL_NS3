@@ -1,0 +1,874 @@
+{
+  "scope": "Read-only reduction of previously saved old actual-phase-wifi-01 profile; whole lifetime includes bootstrap/fault cleanup. No new trial; inclusive entries are not summed with their children.",
+  "source": "net01d/health/actual-phase-wifi-01/health-control-subset.json",
+  "dispatch_stats": {
+    "C": {
+      "batches": 1220,
+      "callbacks": 1249,
+      "cap_hits": 1,
+      "max_wall_s": 0.08691560808802024,
+      "max_cpu_s": 0.08662208199999943,
+      "empty_recheck_started": 429,
+      "empty_recheck_skips": 2097
+    },
+    "R": {
+      "batches": 1220,
+      "callbacks": 7055,
+      "cap_hits": 59,
+      "max_wall_s": 0.15550704597262666,
+      "max_cpu_s": 0.15523049500000097
+    },
+    "guard_timers": {
+      "1": {
+        "calls": 499,
+        "max_gap_wall_s": 0.06353768397821113,
+        "last": 519992.695389738
+      },
+      "2": {
+        "calls": 489,
+        "max_gap_wall_s": 0.0810784759814851,
+        "last": 519992.703447862
+      },
+      "3": {
+        "calls": 471,
+        "max_gap_wall_s": 0.07705688604619354,
+        "last": 519992.683075943
+      }
+    },
+    "max_poll_gap_wall_s": 0.22720268700504676,
+    "schedule": "C/R cached handlers alternate in fixed quantum4; stop after a pair when either initial cap is used",
+    "side_span_semantics": "max_wall/cpu are accumulated side service time per poll, including pump; not contiguous batches or single-callback spans"
+  },
+  "whole_lifetime_aggregate_groups": {
+    "C:wait": [
+      {
+        "label": "empty_set",
+        "calls": 1042,
+        "wall_ns": 1097007796,
+        "thread_cpu_ns": 1081186261,
+        "max_wall_ns": 5874218,
+        "wall_ms": 1097.007796,
+        "cpu_ms": 1081.186261,
+        "mean_cpu_us": 1037.6067763915548
+      },
+      {
+        "label": "ready",
+        "calls": 1249,
+        "wall_ns": 895852317,
+        "thread_cpu_ns": 888274453,
+        "max_wall_ns": 2180822,
+        "wall_ms": 895.852317,
+        "cpu_ms": 888.274453,
+        "mean_cpu_us": 711.1885132105684
+      },
+      {
+        "label": "productive_set_end",
+        "calls": 725,
+        "wall_ns": 77442559,
+        "thread_cpu_ns": 77434330,
+        "max_wall_ns": 253516,
+        "wall_ms": 77.442559,
+        "cpu_ms": 77.43433,
+        "mean_cpu_us": 106.8059724137931
+      }
+    ],
+    "C:handlers": [
+      {
+        "label": "journal_timer",
+        "calls": 540,
+        "wall_ns": 214465935,
+        "thread_cpu_ns": 214459864,
+        "max_wall_ns": 1222908,
+        "wall_ms": 214.465935,
+        "cpu_ms": 214.459864,
+        "mean_cpu_us": 397.14789629629627
+      },
+      {
+        "label": "subscription:/clock",
+        "calls": 404,
+        "wall_ns": 99432386,
+        "thread_cpu_ns": 99625149,
+        "max_wall_ns": 398566,
+        "wall_ms": 99.432386,
+        "cpu_ms": 99.625149,
+        "mean_cpu_us": 246.59690346534651
+      },
+      {
+        "label": "flow30:/net01/tb1/peer_mask_bound",
+        "calls": 41,
+        "wall_ns": 89618495,
+        "thread_cpu_ns": 89688996,
+        "max_wall_ns": 2887073,
+        "wall_ms": 89.618495,
+        "cpu_ms": 89.688996,
+        "mean_cpu_us": 2187.536487804878
+      },
+      {
+        "label": "flow50:/net01/tb2/peer_mask_bound",
+        "calls": 41,
+        "wall_ns": 63246881,
+        "thread_cpu_ns": 63347739,
+        "max_wall_ns": 2060709,
+        "wall_ms": 63.246881,
+        "cpu_ms": 63.347739,
+        "mean_cpu_us": 1545.0668048780487
+      },
+      {
+        "label": "flow70:/net01/tb3/peer_mask_bound",
+        "calls": 41,
+        "wall_ns": 61652002,
+        "thread_cpu_ns": 61741211,
+        "max_wall_ns": 2066169,
+        "wall_ms": 61.652002,
+        "cpu_ms": 61.741211,
+        "mean_cpu_us": 1505.883195121951
+      },
+      {
+        "label": "flow31:/peer_keepout_state",
+        "calls": 40,
+        "wall_ns": 19569003,
+        "thread_cpu_ns": 19561252,
+        "max_wall_ns": 638976,
+        "wall_ms": 19.569003,
+        "cpu_ms": 19.561252,
+        "mean_cpu_us": 489.0313
+      },
+      {
+        "label": "flow71:/peer_keepout_state",
+        "calls": 40,
+        "wall_ns": 14519245,
+        "thread_cpu_ns": 14502961,
+        "max_wall_ns": 570472,
+        "wall_ms": 14.519245,
+        "cpu_ms": 14.502961,
+        "mean_cpu_us": 362.574025
+      },
+      {
+        "label": "flow51:/peer_keepout_state",
+        "calls": 40,
+        "wall_ns": 13498217,
+        "thread_cpu_ns": 13434869,
+        "max_wall_ns": 524377,
+        "wall_ms": 13.498217,
+        "cpu_ms": 13.434869,
+        "mean_cpu_us": 335.87172499999997
+      },
+      {
+        "label": "flow89:/merge_map",
+        "calls": 4,
+        "wall_ns": 5192082,
+        "thread_cpu_ns": 5200893,
+        "max_wall_ns": 1565440,
+        "wall_ms": 5.192082,
+        "cpu_ms": 5.200893,
+        "mean_cpu_us": 1300.22325
+      },
+      {
+        "label": "central_readiness_expiry",
+        "calls": 40,
+        "wall_ns": 3105445,
+        "thread_cpu_ns": 3106886,
+        "max_wall_ns": 119644,
+        "wall_ms": 3.105445,
+        "cpu_ms": 3.106886,
+        "mean_cpu_us": 77.67214999999999
+      },
+      {
+        "label": "flow95:/net01/controller_records",
+        "calls": 6,
+        "wall_ns": 2346633,
+        "thread_cpu_ns": 2351805,
+        "max_wall_ns": 463753,
+        "wall_ms": 2.346633,
+        "cpu_ms": 2.351805,
+        "mean_cpu_us": 391.9675
+      },
+      {
+        "label": "Service:/tb2/navigate_to_pose/_action/send_goal",
+        "calls": 2,
+        "wall_ns": 1766910,
+        "thread_cpu_ns": 1769737,
+        "max_wall_ns": 1582054,
+        "wall_ms": 1.76691,
+        "cpu_ms": 1.769737,
+        "mean_cpu_us": 884.8685
+      },
+      {
+        "label": "Service:/tb1/navigate_to_pose/_action/send_goal",
+        "calls": 2,
+        "wall_ns": 1056661,
+        "thread_cpu_ns": 1058755,
+        "max_wall_ns": 806797,
+        "wall_ms": 1.056661,
+        "cpu_ms": 1.058755,
+        "mean_cpu_us": 529.3775
+      },
+      {
+        "label": "flow32:/tb1/peer_keepout_filter_info",
+        "calls": 1,
+        "wall_ns": 784168,
+        "thread_cpu_ns": 785353,
+        "max_wall_ns": 784168,
+        "wall_ms": 0.784168,
+        "cpu_ms": 0.785353,
+        "mean_cpu_us": 785.353
+      },
+      {
+        "label": "Service:/tb2/navigate_to_pose/_action/get_result",
+        "calls": 1,
+        "wall_ns": 743307,
+        "thread_cpu_ns": 745261,
+        "max_wall_ns": 743307,
+        "wall_ms": 0.743307,
+        "cpu_ms": 0.745261,
+        "mean_cpu_us": 745.261
+      },
+      {
+        "label": "Service:/tb3/navigate_to_pose/_action/send_goal",
+        "calls": 2,
+        "wall_ns": 715312,
+        "thread_cpu_ns": 716830,
+        "max_wall_ns": 587874,
+        "wall_ms": 0.715312,
+        "cpu_ms": 0.71683,
+        "mean_cpu_us": 358.415
+      },
+      {
+        "label": "Service:/tb3/navigate_to_pose/_action/get_result",
+        "calls": 1,
+        "wall_ns": 460759,
+        "thread_cpu_ns": 461962,
+        "max_wall_ns": 460759,
+        "wall_ms": 0.460759,
+        "cpu_ms": 0.461962,
+        "mean_cpu_us": 461.962
+      },
+      {
+        "label": "Service:/tb1/navigate_to_pose/_action/get_result",
+        "calls": 1,
+        "wall_ns": 395828,
+        "thread_cpu_ns": 396875,
+        "max_wall_ns": 395828,
+        "wall_ms": 0.395828,
+        "cpu_ms": 0.396875,
+        "mean_cpu_us": 396.875
+      },
+      {
+        "label": "flow52:/tb2/peer_keepout_filter_info",
+        "calls": 1,
+        "wall_ns": 359982,
+        "thread_cpu_ns": 360837,
+        "max_wall_ns": 359982,
+        "wall_ms": 0.359982,
+        "cpu_ms": 0.360837,
+        "mean_cpu_us": 360.837
+      },
+      {
+        "label": "flow72:/tb3/peer_keepout_filter_info",
+        "calls": 1,
+        "wall_ns": 253916,
+        "thread_cpu_ns": 254659,
+        "max_wall_ns": 253916,
+        "wall_ms": 0.253916,
+        "cpu_ms": 0.254659,
+        "mean_cpu_us": 254.659
+      }
+    ],
+    "R:wait": [
+      {
+        "label": "ready",
+        "calls": 7055,
+        "wall_ns": 1612699863,
+        "thread_cpu_ns": 1600656196,
+        "max_wall_ns": 3010475,
+        "wall_ms": 1612.699863,
+        "cpu_ms": 1600.656196,
+        "mean_cpu_us": 226.88252246633593
+      },
+      {
+        "label": "empty_set",
+        "calls": 1502,
+        "wall_ns": 783758659,
+        "thread_cpu_ns": 727596502,
+        "max_wall_ns": 770661,
+        "wall_ms": 783.758659,
+        "cpu_ms": 727.596502,
+        "mean_cpu_us": 484.4184434087883
+      },
+      {
+        "label": "productive_set_end",
+        "calls": 889,
+        "wall_ns": 119801160,
+        "thread_cpu_ns": 119500257,
+        "max_wall_ns": 810953,
+        "wall_ms": 119.80116,
+        "cpu_ms": 119.500257,
+        "mean_cpu_us": 134.42098650168728
+      }
+    ],
+    "R:handlers": [
+      {
+        "label": "flow23:/tb1/tf",
+        "calls": 588,
+        "wall_ns": 451315240,
+        "thread_cpu_ns": 451738000,
+        "max_wall_ns": 2371443,
+        "wall_ms": 451.31524,
+        "cpu_ms": 451.738,
+        "mean_cpu_us": 768.2619047619047
+      },
+      {
+        "label": "flow43:/tb2/tf",
+        "calls": 588,
+        "wall_ns": 351641813,
+        "thread_cpu_ns": 351997128,
+        "max_wall_ns": 1143485,
+        "wall_ms": 351.641813,
+        "cpu_ms": 351.997128,
+        "mean_cpu_us": 598.6345714285715
+      },
+      {
+        "label": "flow63:/tb3/tf",
+        "calls": 589,
+        "wall_ns": 345959759,
+        "thread_cpu_ns": 345810412,
+        "max_wall_ns": 4788007,
+        "wall_ms": 345.959759,
+        "cpu_ms": 345.810412,
+        "mean_cpu_us": 587.1144516129033
+      },
+      {
+        "label": "control_clock",
+        "calls": 466,
+        "wall_ns": 165071464,
+        "thread_cpu_ns": 165360613,
+        "max_wall_ns": 626978,
+        "wall_ms": 165.071464,
+        "cpu_ms": 165.360613,
+        "mean_cpu_us": 354.8511008583691
+      },
+      {
+        "label": "gateway_status_timer",
+        "calls": 216,
+        "wall_ns": 144184107,
+        "thread_cpu_ns": 144338251,
+        "max_wall_ns": 1606527,
+        "wall_ms": 144.184107,
+        "cpu_ms": 144.338251,
+        "mean_cpu_us": 668.2326435185186
+      },
+      {
+        "label": "flow22:/tb1/odom",
+        "calls": 120,
+        "wall_ns": 108529724,
+        "thread_cpu_ns": 108720358,
+        "max_wall_ns": 1285595,
+        "wall_ms": 108.529724,
+        "cpu_ms": 108.720358,
+        "mean_cpu_us": 906.0029833333333
+      },
+      {
+        "label": "flow226:/tb1/navigate_to_pose/_action/feedback",
+        "calls": 535,
+        "wall_ns": 106031058,
+        "thread_cpu_ns": 106221732,
+        "max_wall_ns": 517200,
+        "wall_ms": 106.031058,
+        "cpu_ms": 106.221732,
+        "mean_cpu_us": 198.54529345794393
+      },
+      {
+        "label": "guard_timer_tb1",
+        "calls": 499,
+        "wall_ns": 96297131,
+        "thread_cpu_ns": 96393398,
+        "max_wall_ns": 512398,
+        "wall_ms": 96.297131,
+        "cpu_ms": 96.393398,
+        "mean_cpu_us": 193.17314228456914
+      },
+      {
+        "label": "subscription:/clock",
+        "calls": 364,
+        "wall_ns": 94884032,
+        "thread_cpu_ns": 95113103,
+        "max_wall_ns": 952004,
+        "wall_ms": 94.884032,
+        "cpu_ms": 95.113103,
+        "mean_cpu_us": 261.2997335164835
+      },
+      {
+        "label": "flow42:/tb2/odom",
+        "calls": 120,
+        "wall_ns": 84373522,
+        "thread_cpu_ns": 84571951,
+        "max_wall_ns": 1062134,
+        "wall_ms": 84.373522,
+        "cpu_ms": 84.571951,
+        "mean_cpu_us": 704.7662583333333
+      },
+      {
+        "label": "flow62:/tb3/odom",
+        "calls": 120,
+        "wall_ns": 81697806,
+        "thread_cpu_ns": 81765194,
+        "max_wall_ns": 1222349,
+        "wall_ms": 81.697806,
+        "cpu_ms": 81.765194,
+        "mean_cpu_us": 681.3766166666667
+      },
+      {
+        "label": "flow246:/tb2/navigate_to_pose/_action/feedback",
+        "calls": 536,
+        "wall_ns": 80203233,
+        "thread_cpu_ns": 80420504,
+        "max_wall_ns": 358193,
+        "wall_ms": 80.203233,
+        "cpu_ms": 80.420504,
+        "mean_cpu_us": 150.03825373134327
+      },
+      {
+        "label": "flow266:/tb3/navigate_to_pose/_action/feedback",
+        "calls": 535,
+        "wall_ns": 74459463,
+        "thread_cpu_ns": 74611167,
+        "max_wall_ns": 405120,
+        "wall_ms": 74.459463,
+        "cpu_ms": 74.611167,
+        "mean_cpu_us": 139.46012523364485
+      },
+      {
+        "label": "guard_timer_tb2",
+        "calls": 489,
+        "wall_ns": 66125554,
+        "thread_cpu_ns": 66216648,
+        "max_wall_ns": 884309,
+        "wall_ms": 66.125554,
+        "cpu_ms": 66.216648,
+        "mean_cpu_us": 135.4123680981595
+      },
+      {
+        "label": "flow26:/tb1/cmd_vel",
+        "calls": 198,
+        "wall_ns": 63911911,
+        "thread_cpu_ns": 64124488,
+        "max_wall_ns": 618594,
+        "wall_ms": 63.911911,
+        "cpu_ms": 64.124488,
+        "mean_cpu_us": 323.8610505050505
+      },
+      {
+        "label": "flow66:/tb3/cmd_vel",
+        "calls": 200,
+        "wall_ns": 60743735,
+        "thread_cpu_ns": 60719514,
+        "max_wall_ns": 594531,
+        "wall_ms": 60.743735,
+        "cpu_ms": 60.719514,
+        "mean_cpu_us": 303.59757
+      },
+      {
+        "label": "flow46:/tb2/cmd_vel",
+        "calls": 199,
+        "wall_ns": 56976624,
+        "thread_cpu_ns": 57143221,
+        "max_wall_ns": 585158,
+        "wall_ms": 56.976624,
+        "cpu_ms": 57.143221,
+        "mean_cpu_us": 287.15186432160806
+      },
+      {
+        "label": "guard_timer_tb3",
+        "calls": 471,
+        "wall_ns": 54685028,
+        "thread_cpu_ns": 54785771,
+        "max_wall_ns": 794291,
+        "wall_ms": 54.685028,
+        "cpu_ms": 54.785771,
+        "mean_cpu_us": 116.31798513800425
+      },
+      {
+        "label": "action_readiness_tb1",
+        "calls": 40,
+        "wall_ns": 48121908,
+        "thread_cpu_ns": 48203831,
+        "max_wall_ns": 2521067,
+        "wall_ms": 48.121908,
+        "cpu_ms": 48.203831,
+        "mean_cpu_us": 1205.095775
+      },
+      {
+        "label": "action_readiness_tb2",
+        "calls": 40,
+        "wall_ns": 32182668,
+        "thread_cpu_ns": 32256139,
+        "max_wall_ns": 1148598,
+        "wall_ms": 32.182668,
+        "cpu_ms": 32.256139,
+        "mean_cpu_us": 806.403475
+      },
+      {
+        "label": "action_readiness_tb3",
+        "calls": 40,
+        "wall_ns": 27287366,
+        "thread_cpu_ns": 27339110,
+        "max_wall_ns": 1122641,
+        "wall_ms": 27.287366,
+        "cpu_ms": 27.33911,
+        "mean_cpu_us": 683.47775
+      },
+      {
+        "label": "flow45:/tb2/local_costmap/costmap",
+        "calls": 8,
+        "wall_ns": 8393261,
+        "thread_cpu_ns": 8408680,
+        "max_wall_ns": 1215567,
+        "wall_ms": 8.393261,
+        "cpu_ms": 8.40868,
+        "mean_cpu_us": 1051.085
+      },
+      {
+        "label": "flow25:/tb1/local_costmap/costmap",
+        "calls": 8,
+        "wall_ns": 7877654,
+        "thread_cpu_ns": 7890932,
+        "max_wall_ns": 1149077,
+        "wall_ms": 7.877654,
+        "cpu_ms": 7.890932,
+        "mean_cpu_us": 986.3665
+      },
+      {
+        "label": "flow65:/tb3/local_costmap/costmap",
+        "calls": 8,
+        "wall_ns": 7652333,
+        "thread_cpu_ns": 7668997,
+        "max_wall_ns": 1320994,
+        "wall_ms": 7.652333,
+        "cpu_ms": 7.668997,
+        "mean_cpu_us": 958.624625
+      },
+      {
+        "label": "NoneType",
+        "calls": 30,
+        "wall_ns": 3536622,
+        "thread_cpu_ns": 3543205,
+        "max_wall_ns": 706114,
+        "wall_ms": 3.536622,
+        "cpu_ms": 3.543205,
+        "mean_cpu_us": 118.10683333333333
+      },
+      {
+        "label": "flow21:/tb1/map",
+        "calls": 2,
+        "wall_ns": 2463462,
+        "thread_cpu_ns": 2465858,
+        "max_wall_ns": 1294991,
+        "wall_ms": 2.463462,
+        "cpu_ms": 2.465858,
+        "mean_cpu_us": 1232.929
+      },
+      {
+        "label": "flow61:/tb3/map",
+        "calls": 2,
+        "wall_ns": 2012338,
+        "thread_cpu_ns": 2016373,
+        "max_wall_ns": 1018253,
+        "wall_ms": 2.012338,
+        "cpu_ms": 2.016373,
+        "mean_cpu_us": 1008.1865
+      },
+      {
+        "label": "flow41:/tb2/map",
+        "calls": 2,
+        "wall_ns": 1636227,
+        "thread_cpu_ns": 1640029,
+        "max_wall_ns": 856092,
+        "wall_ms": 1.636227,
+        "cpu_ms": 1.640029,
+        "mean_cpu_us": 820.0145
+      },
+      {
+        "label": "subscription:/tb1/navigate_to_pose/_action/status",
+        "calls": 2,
+        "wall_ns": 1094733,
+        "thread_cpu_ns": 1096506,
+        "max_wall_ns": 658856,
+        "wall_ms": 1.094733,
+        "cpu_ms": 1.096506,
+        "mean_cpu_us": 548.253
+      },
+      {
+        "label": "Client:/tb1/navigate_to_pose/_action/get_result",
+        "calls": 4,
+        "wall_ns": 845449,
+        "thread_cpu_ns": 846498,
+        "max_wall_ns": 411301,
+        "wall_ms": 0.845449,
+        "cpu_ms": 0.846498,
+        "mean_cpu_us": 211.6245
+      },
+      {
+        "label": "flow24:/tb1/tf_static",
+        "calls": 1,
+        "wall_ns": 744755,
+        "thread_cpu_ns": 746440,
+        "max_wall_ns": 744755,
+        "wall_ms": 0.744755,
+        "cpu_ms": 0.74644,
+        "mean_cpu_us": 746.44
+      },
+      {
+        "label": "Service:/net01/tb1/arm",
+        "calls": 1,
+        "wall_ns": 667865,
+        "thread_cpu_ns": 668522,
+        "max_wall_ns": 667865,
+        "wall_ms": 0.667865,
+        "cpu_ms": 0.668522,
+        "mean_cpu_us": 668.522
+      },
+      {
+        "label": "Client:/tb1/navigate_to_pose/_action/cancel_goal",
+        "calls": 2,
+        "wall_ns": 623392,
+        "thread_cpu_ns": 624789,
+        "max_wall_ns": 570283,
+        "wall_ms": 0.623392,
+        "cpu_ms": 0.624789,
+        "mean_cpu_us": 312.3945
+      },
+      {
+        "label": "subscription:/tb2/navigate_to_pose/_action/status",
+        "calls": 2,
+        "wall_ns": 578443,
+        "thread_cpu_ns": 580580,
+        "max_wall_ns": 375631,
+        "wall_ms": 0.578443,
+        "cpu_ms": 0.58058,
+        "mean_cpu_us": 290.29
+      },
+      {
+        "label": "flow44:/tb2/tf_static",
+        "calls": 1,
+        "wall_ns": 568967,
+        "thread_cpu_ns": 570176,
+        "max_wall_ns": 568967,
+        "wall_ms": 0.568967,
+        "cpu_ms": 0.570176,
+        "mean_cpu_us": 570.176
+      },
+      {
+        "label": "Client:/tb3/navigate_to_pose/_action/cancel_goal",
+        "calls": 2,
+        "wall_ns": 522352,
+        "thread_cpu_ns": 523284,
+        "max_wall_ns": 465617,
+        "wall_ms": 0.522352,
+        "cpu_ms": 0.523284,
+        "mean_cpu_us": 261.642
+      },
+      {
+        "label": "flow64:/tb3/tf_static",
+        "calls": 1,
+        "wall_ns": 513353,
+        "thread_cpu_ns": 514471,
+        "max_wall_ns": 513353,
+        "wall_ms": 0.513353,
+        "cpu_ms": 0.514471,
+        "mean_cpu_us": 514.471
+      },
+      {
+        "label": "subscription:/tb3/navigate_to_pose/_action/status",
+        "calls": 2,
+        "wall_ns": 489202,
+        "thread_cpu_ns": 490473,
+        "max_wall_ns": 291900,
+        "wall_ms": 0.489202,
+        "cpu_ms": 0.490473,
+        "mean_cpu_us": 245.2365
+      },
+      {
+        "label": "Client:/tb3/navigate_to_pose/_action/get_result",
+        "calls": 4,
+        "wall_ns": 481426,
+        "thread_cpu_ns": 483417,
+        "max_wall_ns": 240507,
+        "wall_ms": 0.481426,
+        "cpu_ms": 0.483417,
+        "mean_cpu_us": 120.85425
+      },
+      {
+        "label": "Service:/net01/tb2/arm",
+        "calls": 1,
+        "wall_ns": 477053,
+        "thread_cpu_ns": 478241,
+        "max_wall_ns": 477053,
+        "wall_ms": 0.477053,
+        "cpu_ms": 0.478241,
+        "mean_cpu_us": 478.241
+      },
+      {
+        "label": "Client:/tb2/navigate_to_pose/_action/cancel_goal",
+        "calls": 2,
+        "wall_ns": 473566,
+        "thread_cpu_ns": 474946,
+        "max_wall_ns": 421879,
+        "wall_ms": 0.473566,
+        "cpu_ms": 0.474946,
+        "mean_cpu_us": 237.473
+      },
+      {
+        "label": "Client:/tb2/navigate_to_pose/_action/get_result",
+        "calls": 4,
+        "wall_ns": 413398,
+        "thread_cpu_ns": 414003,
+        "max_wall_ns": 167569,
+        "wall_ms": 0.413398,
+        "cpu_ms": 0.414003,
+        "mean_cpu_us": 103.50075
+      },
+      {
+        "label": "flow247:/tb2/navigate_to_pose/_action/status",
+        "calls": 2,
+        "wall_ns": 350837,
+        "thread_cpu_ns": 351258,
+        "max_wall_ns": 248626,
+        "wall_ms": 0.350837,
+        "cpu_ms": 0.351258,
+        "mean_cpu_us": 175.629
+      },
+      {
+        "label": "flow227:/tb1/navigate_to_pose/_action/status",
+        "calls": 2,
+        "wall_ns": 325939,
+        "thread_cpu_ns": 326638,
+        "max_wall_ns": 223427,
+        "wall_ms": 0.325939,
+        "cpu_ms": 0.326638,
+        "mean_cpu_us": 163.319
+      },
+      {
+        "label": "Service:/net01/tb3/arm",
+        "calls": 1,
+        "wall_ns": 309346,
+        "thread_cpu_ns": 310006,
+        "max_wall_ns": 309346,
+        "wall_ms": 0.309346,
+        "cpu_ms": 0.310006,
+        "mean_cpu_us": 310.006
+      },
+      {
+        "label": "Client:/tb1/navigate_to_pose/_action/send_goal",
+        "calls": 1,
+        "wall_ns": 279530,
+        "thread_cpu_ns": 279983,
+        "max_wall_ns": 279530,
+        "wall_ms": 0.27953,
+        "cpu_ms": 0.279983,
+        "mean_cpu_us": 279.983
+      },
+      {
+        "label": "flow267:/tb3/navigate_to_pose/_action/status",
+        "calls": 2,
+        "wall_ns": 235674,
+        "thread_cpu_ns": 236230,
+        "max_wall_ns": 139317,
+        "wall_ms": 0.235674,
+        "cpu_ms": 0.23623,
+        "mean_cpu_us": 118.115
+      },
+      {
+        "label": "Client:/tb3/navigate_to_pose/_action/send_goal",
+        "calls": 1,
+        "wall_ns": 224573,
+        "thread_cpu_ns": 225896,
+        "max_wall_ns": 224573,
+        "wall_ms": 0.224573,
+        "cpu_ms": 0.225896,
+        "mean_cpu_us": 225.896
+      },
+      {
+        "label": "Client:/tb1/lifecycle_manager_navigation/manage_nodes",
+        "calls": 1,
+        "wall_ns": 184904,
+        "thread_cpu_ns": 184924,
+        "max_wall_ns": 184904,
+        "wall_ms": 0.184904,
+        "cpu_ms": 0.184924,
+        "mean_cpu_us": 184.924
+      },
+      {
+        "label": "Client:/tb3/lifecycle_manager_navigation/manage_nodes",
+        "calls": 1,
+        "wall_ns": 182411,
+        "thread_cpu_ns": 182592,
+        "max_wall_ns": 182411,
+        "wall_ms": 0.182411,
+        "cpu_ms": 0.182592,
+        "mean_cpu_us": 182.592
+      },
+      {
+        "label": "Client:/tb2/lifecycle_manager_navigation/manage_nodes",
+        "calls": 1,
+        "wall_ns": 147574,
+        "thread_cpu_ns": 148025,
+        "max_wall_ns": 147574,
+        "wall_ms": 0.147574,
+        "cpu_ms": 0.148025,
+        "mean_cpu_us": 148.025
+      },
+      {
+        "label": "Client:/tb2/navigate_to_pose/_action/send_goal",
+        "calls": 1,
+        "wall_ns": 143469,
+        "thread_cpu_ns": 144025,
+        "max_wall_ns": 143469,
+        "wall_ms": 0.143469,
+        "cpu_ms": 0.144025,
+        "mean_cpu_us": 144.025
+      }
+    ],
+    "progress": [
+      {
+        "label": "hub_poll",
+        "calls": 9524,
+        "wall_ns": 2216064931,
+        "thread_cpu_ns": 2213571046,
+        "max_wall_ns": 13459986,
+        "wall_ms": 2216.064931,
+        "cpu_ms": 2213.571046,
+        "mean_cpu_us": 232.42031142377152
+      },
+      {
+        "label": "total_inclusive",
+        "calls": 9524,
+        "wall_ns": 2573808369,
+        "thread_cpu_ns": 2569150648,
+        "max_wall_ns": 61463602,
+        "wall_ms": 2573.808369,
+        "cpu_ms": 2569.150648,
+        "mean_cpu_us": 269.7554229315414
+      },
+      {
+        "label": "poll_inclusive",
+        "calls": 1220,
+        "wall_ns": 10820820218,
+        "thread_cpu_ns": 10711536027,
+        "max_wall_ns": 226946974,
+        "wall_ms": 10820.820218,
+        "cpu_ms": 10711.536027,
+        "mean_cpu_us": 8779.947563114754
+      },
+      {
+        "label": "journal_call_inclusive",
+        "calls": 540,
+        "wall_ns": 154392128,
+        "thread_cpu_ns": 154534445,
+        "max_wall_ns": 1096863,
+        "wall_ms": 154.392128,
+        "cpu_ms": 154.534445,
+        "mean_cpu_us": 286.17489814814815
+      }
+    ]
+  }
+}

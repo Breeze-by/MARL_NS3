@@ -1,0 +1,784 @@
+{
+  "preflight": true,
+  "smoke_started": true,
+  "observed_stop": true,
+  "error": null,
+  "end_reason": "simulation_budget",
+  "sim_elapsed": 180.0,
+  "wall_elapsed": 425.14989125705324,
+  "autonomy_start_sim": 15.53,
+  "natural_complete": false,
+  "hazard": null,
+  "active_cancel_pass": false,
+  "lifecycle_pause_healthy": true,
+  "engineering_closed_loop_pass": true,
+  "run_integrity": true,
+  "distances": {
+    "tb1": 19.619272375894884,
+    "tb2": 5.8184116095399485,
+    "tb3": 14.283087873666537
+  },
+  "minimum_pair_distance": 0.7354057074462081,
+  "final_request_ownership": {
+    "closed": true,
+    "authority_stopped": true,
+    "requests": 11,
+    "unresolved_requests": [],
+    "owned_goals": {
+      "tb1": [
+        "2e63b29656fa48a79a09b219f2557f0d",
+        "3f851967caf443d197a00c94d74a0880",
+        "45bc2ce6745c402494d28f7a6a9da7a2",
+        "a7ce820a3065436b81612258e848f771",
+        "e4d0773c958a4331874292a6f7ffb098"
+      ],
+      "tb2": [
+        "3ea4fdaf03114d0090d5f97d5be5b3ae",
+        "60823a2d0e5843548d0122ca3129df66"
+      ],
+      "tb3": [
+        "4a6c61edd48a4d4f893bab1f740b672e",
+        "5af6139633304895a93d001c7b7edbfa",
+        "5daf249ef8d644c3b716da3d5b61ae80",
+        "cea98b47d9174836a72c9a0d6c3b1d9d"
+      ]
+    },
+    "unterminated_UUIDs": {
+      "tb1": [],
+      "tb2": [],
+      "tb3": []
+    },
+    "record_errors": []
+  },
+  "action_statuses": {
+    "tb1": [
+      [
+        "2e63b29656fa48a79a09b219f2557f0d",
+        2
+      ],
+      [
+        "2e63b29656fa48a79a09b219f2557f0d",
+        4
+      ],
+      [
+        "3f851967caf443d197a00c94d74a0880",
+        2
+      ],
+      [
+        "3f851967caf443d197a00c94d74a0880",
+        4
+      ],
+      [
+        "45bc2ce6745c402494d28f7a6a9da7a2",
+        2
+      ],
+      [
+        "45bc2ce6745c402494d28f7a6a9da7a2",
+        4
+      ],
+      [
+        "a7ce820a3065436b81612258e848f771",
+        2
+      ],
+      [
+        "a7ce820a3065436b81612258e848f771",
+        4
+      ],
+      [
+        "e4d0773c958a4331874292a6f7ffb098",
+        2
+      ],
+      [
+        "e4d0773c958a4331874292a6f7ffb098",
+        4
+      ]
+    ],
+    "tb2": [
+      [
+        "3ea4fdaf03114d0090d5f97d5be5b3ae",
+        2
+      ],
+      [
+        "3ea4fdaf03114d0090d5f97d5be5b3ae",
+        4
+      ],
+      [
+        "60823a2d0e5843548d0122ca3129df66",
+        2
+      ],
+      [
+        "60823a2d0e5843548d0122ca3129df66",
+        4
+      ]
+    ],
+    "tb3": [
+      [
+        "4a6c61edd48a4d4f893bab1f740b672e",
+        2
+      ],
+      [
+        "4a6c61edd48a4d4f893bab1f740b672e",
+        4
+      ],
+      [
+        "5af6139633304895a93d001c7b7edbfa",
+        2
+      ],
+      [
+        "5af6139633304895a93d001c7b7edbfa",
+        4
+      ],
+      [
+        "5daf249ef8d644c3b716da3d5b61ae80",
+        2
+      ],
+      [
+        "5daf249ef8d644c3b716da3d5b61ae80",
+        4
+      ],
+      [
+        "cea98b47d9174836a72c9a0d6c3b1d9d",
+        2
+      ],
+      [
+        "cea98b47d9174836a72c9a0d6c3b1d9d",
+        4
+      ]
+    ]
+  },
+  "status": "BUSINESS180_COMPLETE_POSTSTOP_EXIT0_PRIMARY_R_VALID",
+  "runtime_commit": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "activation_commit": "15a5af764d19c3520444d135ee239c6898cfdd3c",
+  "host_command_exit": 0,
+  "host_wall_s": 516.9299458980095,
+  "runner_exit": 0,
+  "hub_exit": 0,
+  "native_exit": 0,
+  "gateway_process_exit": 0,
+  "gateway_exit_field_semantics": "network-gateway-exit.native_exit is ROS Gateway process, nativeleaf independently0",
+  "network_run_integrity": true,
+  "NN": 36,
+  "accepted_per_robot": {
+    "tb1": 5,
+    "tb2": 2,
+    "tb3": 4
+  },
+  "success_per_robot": {
+    "tb1": 5,
+    "tb2": 2,
+    "tb3": 4
+  },
+  "controlled_exits": {
+    "coordinator": 0,
+    "clock_R": 0,
+    "clock_C": 0
+  },
+  "controller_final": {
+    "mode": "HOLD",
+    "failure": null,
+    "expected_shutdown": true,
+    "physics_failed": false,
+    "physical_ns": 198050000000,
+    "iterations": 198050,
+    "actual_clock_ns": 198050000000,
+    "native_ACK_ns": 198040000000,
+    "fixed_offset_ns": 10000000,
+    "physical_RPC_inflight": false,
+    "session_id": 2026111147,
+    "gateway_clock_ready": true,
+    "pending_holds": 0,
+    "authority_exited": true,
+    "progress_wall_timeout_ns": 2000000000,
+    "progress_started_monotonic_ns": 610399562990155,
+    "motion_armed_since_monotonic_ns": 610405951909251,
+    "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+    "actual_clock_progress_monotonic_ns": 610837001151473,
+    "native_ACK_progress_monotonic_ns": 610837008874870,
+    "physical_RPC_issued_monotonic_ns": null,
+    "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+    "token_wall_period_ns": 10000000,
+    "planned_realtime_factor": 1.0,
+    "actual_achieved_physical_rtf": 0.42135564338093057,
+    "physical_progress_sim_span_ns": 198050000000,
+    "physical_progress_wall_span_ns": 470030491133,
+    "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+    "next_earliest_wall_ns": 610584902990155,
+    "max_token_lateness_ns": 252095221932,
+    "late_tokens": 19802
+  },
+  "native_load": {
+    "exact_names": true,
+    "all_in_expected_root": true,
+    "actual_exe_matches": true,
+    "actual_parent_is_Hub": true
+  },
+  "native_evidence_storage": {
+    "backend": "owned_tmpfs_then_copy_after_native_exit",
+    "source": "/dev/shm/net01d-f04-gz-simhealth-b1-02",
+    "destination": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.network/native",
+    "available_tmpfs_bytes": 43517665280,
+    "MemAvailable_bytes": 90262405120,
+    "source_retained": true,
+    "native_exit": 0,
+    "source_files": {
+      "native-summary.json": 632,
+      "ledger-status.json": 261,
+      "control-step-trace.jsonl": 4346360,
+      "transport-config.json": 4131,
+      "wifi-3-0.pcap": 1272538319,
+      "wifi-2-0.pcap": 1262834120,
+      "wifi-1-0.pcap": 1281185739,
+      "wifi-0-0.pcap": 1309953111,
+      "configured-lock.json": 3994,
+      "packet-ledger.jsonl": 3123224761
+    },
+    "source_bytes": 8254091428,
+    "copied_files": {
+      "wifi-1-0.pcap": 1281185739,
+      "packet-ledger.jsonl": 3123224761,
+      "control-step-trace.jsonl": 4346360,
+      "configured-lock.json": 3994,
+      "ledger-status.json": 261,
+      "wifi-3-0.pcap": 1272538319,
+      "wifi-2-0.pcap": 1262834120,
+      "native-summary.json": 632,
+      "wifi-0-0.pcap": 1309953111,
+      "transport-config.json": 4131
+    },
+    "copied_bytes": 8254091428,
+    "complete": true,
+    "copy_wall_s": 13.356666114996187
+  },
+  "gateway_save": {
+    "saved": true,
+    "mode": "B",
+    "records": 335143,
+    "failure": null,
+    "cleanup": {
+      "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+      "end_frame_flushed": true,
+      "executor_shutdown": [
+        true,
+        true
+      ],
+      "resources_destroyed": true,
+      "unresolved_C_RPC": [],
+      "unresolved_R_RPC": [],
+      "unresolved_local_cleanup_futures": {
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "action_confirmation_states": {
+        "C": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "R": {
+          "1": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          },
+          "2": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          },
+          "3": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          }
+        }
+      },
+      "retired_C_services": {
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "main_thread_sampler": {
+        "joined": true,
+        "failure": null,
+        "stop_begin_mono_ns": 610837294240589,
+        "stop_end_mono_ns": 610837294625982,
+        "collector_cpu_ns": 13301914476,
+        "samples": 23688,
+        "skipped_periods": 43,
+        "proc_fds_remaining": 0,
+        "proc_close_errors": []
+      }
+    },
+    "persist_wall_s": 21.214580095023848,
+    "peak_afterpersist_KiB": 1776224
+  },
+  "source_held": {
+    "runtime": "aae271f49a8d041285b9a903b3f58d9546985574",
+    "diff_exit": 0,
+    "critical_diff": "",
+    "scope": "Existing43 adapter paths; no rehash"
+  },
+  "all_owned_gone": true,
+  "activebag_access": "NONE; allwriters/ownedgone beforecanonical",
+  "canonical": {
+    "exit": 0,
+    "invocations": 1,
+    "small": "metrics.small-result.json",
+    "stdout": "metrics.stdout.txt",
+    "stderr": "metrics.stderr.txt"
+  },
+  "poststop": {
+    "phases": [
+      {
+        "phase": "close_begin",
+        "pid": 818244,
+        "session_id": 2026111147,
+        "case": "/mnt/net01d/followup04/runs/gz-simhealth-b1-02",
+        "monotonic_ns": 610837023156665
+      },
+      {
+        "phase": "resources_closed",
+        "pid": 818244,
+        "session_id": 2026111147,
+        "case": "/mnt/net01d/followup04/runs/gz-simhealth-b1-02",
+        "monotonic_ns": 610839117674858,
+        "safe_closed": true,
+        "cleanup": {
+          "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+          "end_frame_flushed": true,
+          "executor_shutdown": [
+            true,
+            true
+          ],
+          "resources_destroyed": true,
+          "unresolved_C_RPC": [],
+          "unresolved_R_RPC": [],
+          "unresolved_local_cleanup_futures": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "action_confirmation_states": {
+            "C": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            },
+            "R": {
+              "1": {
+                "enabled": true,
+                "failure": null,
+                "waiting": 0,
+                "unconfirmed": 0
+              },
+              "2": {
+                "enabled": true,
+                "failure": null,
+                "waiting": 0,
+                "unconfirmed": 0
+              },
+              "3": {
+                "enabled": true,
+                "failure": null,
+                "waiting": 0,
+                "unconfirmed": 0
+              }
+            }
+          },
+          "retired_C_services": {
+            "1": [],
+            "2": [],
+            "3": []
+          },
+          "main_thread_sampler": {
+            "joined": true,
+            "failure": null,
+            "stop_begin_mono_ns": 610837294240589,
+            "stop_end_mono_ns": 610837294625982,
+            "collector_cpu_ns": 13301914476,
+            "samples": 23688,
+            "skipped_periods": 43,
+            "proc_fds_remaining": 0,
+            "proc_close_errors": []
+          }
+        }
+      },
+      {
+        "phase": "persist_begin",
+        "pid": 818244,
+        "session_id": 2026111147,
+        "case": "/mnt/net01d/followup04/runs/gz-simhealth-b1-02",
+        "monotonic_ns": 610839119048040
+      },
+      {
+        "phase": "persist_end",
+        "pid": 818244,
+        "session_id": 2026111147,
+        "case": "/mnt/net01d/followup04/runs/gz-simhealth-b1-02",
+        "monotonic_ns": 610860334752869
+      },
+      {
+        "phase": "close_return",
+        "pid": 818244,
+        "session_id": 2026111147,
+        "case": "/mnt/net01d/followup04/runs/gz-simhealth-b1-02",
+        "monotonic_ns": 610860335062661,
+        "clean": true
+      },
+      {
+        "phase": "main_return",
+        "pid": 818244,
+        "session_id": 2026111147,
+        "case": "/mnt/net01d/followup04/runs/gz-simhealth-b1-02",
+        "monotonic_ns": 610860335246703,
+        "exit_code": 0
+      }
+    ],
+    "close_begin_to_main_return_wall_s": 23.312090038,
+    "resource_closed_to_main_return_wall_s": 21.217571845,
+    "phase_persist_wall_s": 21.215704829,
+    "events": [
+      {
+        "utc": "2026-11-11T10:43:15.533577+00:00",
+        "wall": 1794393795.533586,
+        "sim": 198.05,
+        "kind": "gateway_poststop_supervision",
+        "pid": 818244,
+        "begin_monotonic_ns": 610837015915084,
+        "initial_deadline_ns": 610857015915084,
+        "total_deadline_ns": 610897015915084,
+        "cleanup_deadline_ns": 610921091891784,
+        "hard_deadline_ns": 611260723944594,
+        "extension_eligible": true
+      },
+      {
+        "utc": "2026-11-11T10:43:17.639997+00:00",
+        "wall": 1794393797.6400433,
+        "sim": 198.05,
+        "kind": "gateway_evidence_grace",
+        "pid": 818244,
+        "resources_closed": {
+          "phase": "resources_closed",
+          "pid": 818244,
+          "session_id": 2026111147,
+          "case": "/mnt/net01d/followup04/runs/gz-simhealth-b1-02",
+          "monotonic_ns": 610839117674858,
+          "safe_closed": true,
+          "cleanup": {
+            "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+            "end_frame_flushed": true,
+            "executor_shutdown": [
+              true,
+              true
+            ],
+            "resources_destroyed": true,
+            "unresolved_C_RPC": [],
+            "unresolved_R_RPC": [],
+            "unresolved_local_cleanup_futures": {
+              "1": 0,
+              "2": 0,
+              "3": 0
+            },
+            "action_confirmation_states": {
+              "C": {
+                "enabled": true,
+                "failure": null,
+                "waiting": 0,
+                "unconfirmed": 0
+              },
+              "R": {
+                "1": {
+                  "enabled": true,
+                  "failure": null,
+                  "waiting": 0,
+                  "unconfirmed": 0
+                },
+                "2": {
+                  "enabled": true,
+                  "failure": null,
+                  "waiting": 0,
+                  "unconfirmed": 0
+                },
+                "3": {
+                  "enabled": true,
+                  "failure": null,
+                  "waiting": 0,
+                  "unconfirmed": 0
+                }
+              }
+            },
+            "retired_C_services": {
+              "1": [],
+              "2": [],
+              "3": []
+            },
+            "main_thread_sampler": {
+              "joined": true,
+              "failure": null,
+              "stop_begin_mono_ns": 610837294240589,
+              "stop_end_mono_ns": 610837294625982,
+              "collector_cpu_ns": 13301914476,
+              "samples": 23688,
+              "skipped_periods": 43,
+              "proc_fds_remaining": 0,
+              "proc_close_errors": []
+            }
+          }
+        },
+        "grace_deadline_ns": 610887015915084,
+        "total_deadline_ns": 610897015915084
+      },
+      {
+        "utc": "2026-11-11T10:43:43.437614+00:00",
+        "wall": 1794393823.4376216,
+        "sim": 198.05,
+        "kind": "network_gateway_before_launch_exit",
+        "native_exit": 0
+      }
+    ],
+    "signals": [
+      {
+        "utc": "2026-11-11T10:43:09.609634+00:00",
+        "wall": 1794393789.6096416,
+        "sim": 195.53,
+        "kind": "process_signal",
+        "process": "exploration",
+        "pid": 820700,
+        "signal": "SIGINT"
+      },
+      {
+        "utc": "2026-11-11T10:43:15.016289+00:00",
+        "wall": 1794393795.0163324,
+        "sim": 197.8,
+        "kind": "process_signal",
+        "process": "bag",
+        "pid": 818246,
+        "signal": "SIGINT"
+      },
+      {
+        "utc": "2026-11-11T10:43:15.533629+00:00",
+        "wall": 1794393795.533635,
+        "sim": 198.05,
+        "kind": "process_signal",
+        "process": "network_gateway",
+        "pid": 818244,
+        "signal": "SIGINT",
+        "deadline_monotonic_ns": 610857015915084
+      },
+      {
+        "utc": "2026-11-11T10:43:43.437753+00:00",
+        "wall": 1794393823.437759,
+        "sim": 198.05,
+        "kind": "process_signal",
+        "process": "launch",
+        "pid": 818245,
+        "signal": "SIGINT",
+        "signal_target": "owned_launch_parent_pid",
+        "timeout_wall_s": 20
+      }
+    ],
+    "exits": [
+      {
+        "utc": "2026-11-11T10:43:11.383970+00:00",
+        "wall": 1794393791.3840032,
+        "sim": 196.31,
+        "kind": "process_exit",
+        "process": "exploration",
+        "code": 0
+      },
+      {
+        "utc": "2026-11-11T10:43:15.514581+00:00",
+        "wall": 1794393795.5146203,
+        "sim": 198.04,
+        "kind": "process_exit",
+        "process": "bag",
+        "code": 0
+      },
+      {
+        "utc": "2026-11-11T10:43:43.437423+00:00",
+        "wall": 1794393823.4374628,
+        "sim": 198.05,
+        "kind": "process_exit",
+        "process": "network_gateway",
+        "code": 0
+      },
+      {
+        "utc": "2026-11-11T10:43:47.721323+00:00",
+        "wall": 1794393827.7213674,
+        "sim": 198.05,
+        "kind": "process_exit",
+        "process": "launch",
+        "code": 0
+      }
+    ]
+  },
+  "actual_RTF": {
+    "autonomy_RTF": 0.4233800918254705,
+    "autonomy_scope": "OriginalObserver180sim/autonomywall",
+    "whole_coordinator_actualACK_RTF": 0.42135564338093057,
+    "whole_scope": "Firsttoken throughlatestactualACK; notphaseRTF"
+  },
+  "clock_health_scope": {
+    "failure": null,
+    "physics_failed": false,
+    "inflight": false,
+    "normal_credit_and_receipt_sim_distributions": "UNMEASURED_NO_GATEWAY_OR_NATIVE_PARSE"
+  },
+  "global_ARM": {
+    "final_baseline_monotonic_ns": 610405951909251,
+    "actual_activation_count": "UNMEASURED_NO_RECORDS_PARSE"
+  },
+  "final_stop_attempt": {
+    "stage": "final",
+    "entered_phase": "stop",
+    "success": true,
+    "authority_basis": "actual_process_poll",
+    "authority_pid": 820700,
+    "authority_exit": 0,
+    "observed_stop": {
+      "positions": {
+        "tb1": [
+          5.523796698031098,
+          2.286350892314906,
+          0.007815184914637306,
+          7.13180809020385e-05,
+          5.113465380667515e-05
+        ],
+        "tb2": [
+          -4.7162372481073325,
+          -0.319707918652188,
+          0.007810941180272064,
+          6.211633515709588e-05,
+          4.169111801303221e-05
+        ],
+        "tb3": [
+          -4.307591405348837,
+          -4.508225798836592,
+          0.007825846518557453,
+          6.266564671752483e-05,
+          4.137785589557647e-05
+        ]
+      },
+      "per_robot_wall": {
+        "tb1": 610836.382848179,
+        "tb2": 610836.382929753,
+        "tb3": 610836.382958632
+      },
+      "sim_advanced": 0.700000000000017,
+      "drive_received": {
+        "tb1": [
+          197.778,
+          5386.0,
+          197.77,
+          0.0,
+          0.0,
+          -1.7947504459853755e-05,
+          -2.929080019085367e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb2": [
+          197.778,
+          2325.0,
+          197.76,
+          0.0,
+          0.0,
+          8.799767628784752e-06,
+          2.102319112171362e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb3": [
+          197.783,
+          4529.0,
+          197.78,
+          0.0,
+          0.0,
+          -1.5841445120523786e-05,
+          -3.855392114532437e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "rpc_errors": [],
+      "authority_stopped": true,
+      "ownership_closed": true,
+      "owned_goals": {
+        "tb1": [
+          "2e63b29656fa48a79a09b219f2557f0d",
+          "3f851967caf443d197a00c94d74a0880",
+          "45bc2ce6745c402494d28f7a6a9da7a2",
+          "a7ce820a3065436b81612258e848f771",
+          "e4d0773c958a4331874292a6f7ffb098"
+        ],
+        "tb2": [
+          "3ea4fdaf03114d0090d5f97d5be5b3ae",
+          "60823a2d0e5843548d0122ca3129df66"
+        ],
+        "tb3": [
+          "4a6c61edd48a4d4f893bab1f740b672e",
+          "5af6139633304895a93d001c7b7edbfa",
+          "5daf249ef8d644c3b716da3d5b61ae80",
+          "cea98b47d9174836a72c9a0d6c3b1d9d"
+        ]
+      },
+      "request_ownership": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 11,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "2e63b29656fa48a79a09b219f2557f0d",
+            "3f851967caf443d197a00c94d74a0880",
+            "45bc2ce6745c402494d28f7a6a9da7a2",
+            "a7ce820a3065436b81612258e848f771",
+            "e4d0773c958a4331874292a6f7ffb098"
+          ],
+          "tb2": [
+            "3ea4fdaf03114d0090d5f97d5be5b3ae",
+            "60823a2d0e5843548d0122ca3129df66"
+          ],
+          "tb3": [
+            "4a6c61edd48a4d4f893bab1f740b672e",
+            "5af6139633304895a93d001c7b7edbfa",
+            "5daf249ef8d644c3b716da3d5b61ae80",
+            "cea98b47d9174836a72c9a0d6c3b1d9d"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "lifecycle_pause_healthy": true
+    },
+    "completed_monotonic_ns": 610836498313109
+  },
+  "scope": "Poststop regression functional/exit evidence; notindependentacceptance orNET02, noactivecancelDemonstration",
+  "all_owned_source": "net01d/followup04/evidence/gz-simhealth-b1-02-owned-final.json",
+  "daemon_stop_source": "net01d/followup04/evidence/gz-simhealth-b1-02-owned-daemon-stop.json"
+}

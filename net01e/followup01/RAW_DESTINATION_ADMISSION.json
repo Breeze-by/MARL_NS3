@@ -1,0 +1,21 @@
+{
+  "execution_authorized": true,
+  "status": "SOURCE_ONLY_WAIT_ROOT_AND_INDEPENDENT_REVIEW",
+  "candidate": "net01e/followup01/raw_destination_wire.py",
+  "qualification": "net01e/followup01/check_raw_destination.py",
+  "expected_children": [
+    "typed_and_raw_six_message_classes_0",
+    "original_bad_CDR_1",
+    "candidate_bad_CDR_1"
+  ],
+  "domain": 97,
+  "output_relative_repo": "net01e/followup01/raw-destination-01",
+  "outer_wall_s": 35,
+  "inner_wall_s": 30,
+  "parent_success_means_all_expected_unit_cases_passed": true,
+  "production_activation": false,
+  "source_QoS_rate_queue_guard_changes": false,
+  "automatic_retry": false,
+  "root_START": "One explicit real-DDS typed/raw semantic qualification and recorded negative children admitted by Root/independent reviewer; no production activation",
+  "reviewed_source_commit": "6f88f7cd33475afa29f638c592061693172f9d79"
+}

@@ -1,0 +1,199 @@
+{
+  "preflight": true,
+  "smoke_started": true,
+  "observed_stop": true,
+  "error": null,
+  "end_reason": "simulation_budget",
+  "sim_elapsed": 180.0,
+  "wall_elapsed": 412.16064355999697,
+  "autonomy_start_sim": 16.33,
+  "natural_complete": false,
+  "hazard": null,
+  "active_cancel_pass": false,
+  "lifecycle_pause_healthy": true,
+  "engineering_closed_loop_pass": true,
+  "run_integrity": true,
+  "distances": {
+    "tb1": 17.258740823022055,
+    "tb2": 5.373828406974219,
+    "tb3": 15.900303632235293
+  },
+  "minimum_pair_distance": 0.7230468943330897,
+  "final_request_ownership": {
+    "closed": true,
+    "authority_stopped": true,
+    "requests": 10,
+    "unresolved_requests": [],
+    "owned_goals": {
+      "tb1": [
+        "6b9b7f78c479443ebf7ecdbe983ad958",
+        "8cd566038ed64231a30599c72e30f98d",
+        "99554d7f73ee4924b934115bf28f30f0",
+        "df4e5c455b6548e39081e2b68d36d178"
+      ],
+      "tb2": [
+        "13c83312ca74422d9e3d0fb854be081b",
+        "c4007b9e1b524b6681bf3d16166d2499"
+      ],
+      "tb3": [
+        "0a68c9514bce42909e08aade32223570",
+        "122b99fcb5964981be191e21958deb37",
+        "2ef63ab820f14c58a546fe798010dd9d",
+        "8e8bbef455e7415596b5c27f854b5d64"
+      ]
+    },
+    "unterminated_UUIDs": {
+      "tb1": [],
+      "tb2": [],
+      "tb3": []
+    },
+    "record_errors": []
+  },
+  "host_wall_s": 502.1069287720602,
+  "runner_exit": 0,
+  "hub_exit": 0,
+  "NN": 36,
+  "accepted_per_robot": {
+    "tb1": 4,
+    "tb2": 2,
+    "tb3": 4
+  },
+  "action_statuses": {
+    "tb1": [
+      [
+        "6b9b7f78c479443ebf7ecdbe983ad958",
+        2
+      ],
+      [
+        "6b9b7f78c479443ebf7ecdbe983ad958",
+        4
+      ],
+      [
+        "8cd566038ed64231a30599c72e30f98d",
+        2
+      ],
+      [
+        "8cd566038ed64231a30599c72e30f98d",
+        4
+      ],
+      [
+        "99554d7f73ee4924b934115bf28f30f0",
+        2
+      ],
+      [
+        "99554d7f73ee4924b934115bf28f30f0",
+        4
+      ],
+      [
+        "df4e5c455b6548e39081e2b68d36d178",
+        2
+      ],
+      [
+        "df4e5c455b6548e39081e2b68d36d178",
+        4
+      ]
+    ],
+    "tb2": [
+      [
+        "13c83312ca74422d9e3d0fb854be081b",
+        2
+      ],
+      [
+        "13c83312ca74422d9e3d0fb854be081b",
+        4
+      ],
+      [
+        "c4007b9e1b524b6681bf3d16166d2499",
+        2
+      ],
+      [
+        "c4007b9e1b524b6681bf3d16166d2499",
+        4
+      ]
+    ],
+    "tb3": [
+      [
+        "0a68c9514bce42909e08aade32223570",
+        2
+      ],
+      [
+        "0a68c9514bce42909e08aade32223570",
+        4
+      ],
+      [
+        "122b99fcb5964981be191e21958deb37",
+        2
+      ],
+      [
+        "122b99fcb5964981be191e21958deb37",
+        4
+      ],
+      [
+        "2ef63ab820f14c58a546fe798010dd9d",
+        2
+      ],
+      [
+        "2ef63ab820f14c58a546fe798010dd9d",
+        4
+      ],
+      [
+        "8e8bbef455e7415596b5c27f854b5d64",
+        2
+      ],
+      [
+        "8e8bbef455e7415596b5c27f854b5d64",
+        4
+      ]
+    ]
+  },
+  "network_run_integrity": false,
+  "gateway_failure": null,
+  "native_exit": 0,
+  "native_copy_complete": true,
+  "copied_bytes": 8266837171,
+  "controller_final": {
+    "mode": "HOLD",
+    "failure": null,
+    "expected_shutdown": true,
+    "physics_failed": false,
+    "physical_ns": 198800000000,
+    "iterations": 198800,
+    "actual_clock_ns": 198800000000,
+    "native_ACK_ns": 198790000000,
+    "fixed_offset_ns": 10000000,
+    "physical_RPC_inflight": false,
+    "session_id": 2026111144,
+    "gateway_clock_ready": true,
+    "pending_holds": 0,
+    "authority_exited": true,
+    "progress_wall_timeout_ns": 2000000000,
+    "progress_started_monotonic_ns": 607670464864112,
+    "motion_armed_since_monotonic_ns": 607676928170510,
+    "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+    "actual_clock_progress_monotonic_ns": 608094826959701,
+    "native_ACK_progress_monotonic_ns": 608094833919613,
+    "physical_RPC_issued_monotonic_ns": null,
+    "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+    "token_wall_period_ns": 10000000,
+    "planned_realtime_factor": 1.0,
+    "actual_achieved_physical_rtf": 0.43357989366147187,
+    "physical_progress_sim_span_ns": 198800000000,
+    "physical_progress_wall_span_ns": 458508346227,
+    "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+    "next_earliest_wall_ns": 607855854864112,
+    "max_token_lateness_ns": 238970677158,
+    "late_tokens": 19877
+  },
+  "controlled_exits": {
+    "coordinator": 0,
+    "clock_R": 0,
+    "clock_C": 0
+  },
+  "no_forced_groups": true,
+  "native_load": {
+    "exact_names": true,
+    "all_in_expected_root": true,
+    "actual_exe_matches": true,
+    "actual_parent_is_Hub": true
+  }
+}

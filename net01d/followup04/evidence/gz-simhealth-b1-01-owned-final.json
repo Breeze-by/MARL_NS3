@@ -1,0 +1,39 @@
+{
+  "registered_and_observed_pids": [
+    727311,
+    727312,
+    727379,
+    727380,
+    727434,
+    727435,
+    727488,
+    727495,
+    727542,
+    727580,
+    727581,
+    727582,
+    727722,
+    729505,
+    729999
+  ],
+  "remaining_owned": [],
+  "domains91_92": [
+    {
+      "pid": 729505,
+      "domain": "92",
+      "case_marker": true
+    }
+  ],
+  "exact_case_daemons": [
+    {
+      "pid": 729505,
+      "start_ticks": 60766091,
+      "argv": "/usr/bin/python3 -c from ros2cli.daemon.daemonize import main; main() --name ros2-daemon --ros-domain-id 92 --rmw-implementation rmw_fastrtps_cpp ",
+      "case_marker": "GZ01_CASE=/mnt/net01d/followup04/runs/gz-simhealth-b1-01"
+    }
+  ],
+  "nonowned69": "untouched",
+  "all_owned_gone": true,
+  "domains91_92_after": [],
+  "observed_monotonic_ns": 608219252055623
+}

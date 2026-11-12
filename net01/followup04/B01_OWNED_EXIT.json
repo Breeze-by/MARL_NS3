@@ -1,0 +1,82 @@
+{
+  "scope": "Exact recorded root PGIDs and thiscase nativeoutput argv only; readonly/no signals",
+  "monotonic_ns": 458528163334983,
+  "recorded_roots": [
+    {
+      "role": "network_gateway",
+      "pid": 2273324
+    },
+    {
+      "role": "launch",
+      "pid": 2273325
+    },
+    {
+      "role": "bag",
+      "pid": 2273326
+    },
+    {
+      "role": "controller",
+      "pid": 2274460
+    },
+    {
+      "role": "owned_runner",
+      "pid": 2273310
+    }
+  ],
+  "survivors": [
+    {
+      "pid": 2274402,
+      "pgid": 2273310,
+      "argv": [
+        "/usr/bin/python3",
+        "-c",
+        "from ros2cli.daemon.daemonize import main; main()",
+        "--name",
+        "ros2-daemon",
+        "--ros-domain-id",
+        "92",
+        "--rmw-implementation",
+        "rmw_fastrtps_cpp"
+      ]
+    }
+  ],
+  "sidecar_remaining_owned_groups": [],
+  "sidecar_child_proc_exists": {
+    "coordinator": false,
+    "clock_R": false,
+    "clock_C": false
+  },
+  "host_runner_exit": 1,
+  "hub_exit": 0,
+  "native_exit": 0,
+  "signals_sent": [],
+  "first_readonly_tool_error": "Path.with_name rejected slash before result write, no signals/files mutated; corrected path only",
+  "owned_daemon_cleanup": {
+    "pid": 2274402,
+    "pgid": 2273310,
+    "argv": [
+      "/usr/bin/python3",
+      "-c",
+      "from ros2cli.daemon.daemonize import main; main()",
+      "--name",
+      "ros2-daemon",
+      "--ros-domain-id",
+      "92",
+      "--rmw-implementation",
+      "rmw_fastrtps_cpp"
+    ],
+    "exact_case_environment": "GZ01_CASE=/mnt/runs/net01-b-corridor-6201-01",
+    "environment_matches": true,
+    "owned_identity": true,
+    "signals": [
+      {
+        "signal": "SIGINT",
+        "monotonic_ns": 458594953882684
+      }
+    ],
+    "proc_exists": false,
+    "active_after": false,
+    "scope": "Only exact currentcase Domain92 daemon PID; no other process/group signals"
+  },
+  "remaining_active_after_cleanup": []
+}

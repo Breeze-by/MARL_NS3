@@ -1,0 +1,20 @@
+{
+  "pid": 1106692,
+  "spin_begin_monotonic_ns": 620902562536304,
+  "idle_wait_limit_wall_s": 0.05,
+  "stop_requested": true,
+  "signal_requests": [
+    {
+      "signal": 2,
+      "handler_monotonic_ns": 620902814275684,
+      "interrupted_file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+      "interrupted_function": "_wait_for_ready_callbacks",
+      "interrupted_line": 681
+    }
+  ],
+  "submissions": [],
+  "semantics": "Gate admission is entry to original send_goal, not DDS send or Nav2 acceptance",
+  "spin_boundary_exit_monotonic_ns": 620902814501110,
+  "context_ok_at_boundary": true,
+  "spin_adapter_finished_monotonic_ns": 620902814594436
+}

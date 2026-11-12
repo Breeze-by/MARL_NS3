@@ -1,0 +1,13 @@
+# Post-stop Gateway exit audit (read-only)
+
+Gateway ROS PID727580 was SIGKILLed by the existing `workspace/gz01/run_case.py:582–595` 20s SIGINT +5s SIGTERM escalation. `net01/run_network_case.py:345` invokes that routine before launch shutdown; `:302–304` stores this process poll under the misleading `native_exit` key. Nativeleaf727495 and Hub727488 both actually exited0. Boot outer/cleanup timeout flags are false; this is not the 900/1000wall outer deadline.
+
+Original cached events: SIGINT1794391053.363204 → TERM1073.3645766 → KILL1078.3745718 → exit−9 1078.4344184. Gateway main JSON is351,717,800B (stat only, no content read), mtime1074.0760918; saved-marker mtime1074.6351116,1.270535s after TERM and3.739460s before KILL. Reported persist19.589717wall includes C89 persistence/snapshots/JSON encode+write. Resource/END/executor/RPC closure was recorded complete, but process exit failed. Saved means persistence succeeded, never normal process exit.
+
+`Gateway.persist:761–765` writes main JSON then saved marker; `close:780–785` then returns and main returns to SystemExit (`:863–866`). No post-save phase marker/stack exists. Thus serialization/persistence consumed most of the25s escalation window, while the final post-save time cannot be uniquely attributed to Python object/refcount/GC/native-resource finalization. Filesystem realtime mtimes are not new monotonic callback measurements. Empty Gateway stderr supplies no missing diagnosis.
+
+Minimal proposed fix, not implemented: add a few append-only monotonic stage markers (resource closure with real proof, persist begin/end, main return), and let only verified safe-closed evidence finalization consume the **already predeclared remaining cleanup90/host1000** budget, with an absolute deadline and separate process-exit failure. Keep original stop12/active budgets, safety gates and pre-proof failure escalation; no reset/extension after outcome and no saved-as-exit0 or `os._exit` workaround. No GC optimization is justified yet.
+
+Proposed zeroRobot validation reuses actual Gateway close/persist and supervisor with the existing two-domain SDK/UnixReady fixture, no ns3/GZ/robotics: normal bounded synthetic capture→real exit0; persist-stall after valid closure→evidenceFAIL; pre-close/unresolved closure→original failure escalation; saved then stuck process→integrityFAIL. Instrument stages/signal/deadline/returncode and owned-PID disappearance. Exact fixture budget and changes need Root review. No test/replay or source modification was performed here; this B remains network-integrity FAIL.
+
+Full selected facts, caveats and plan: `GATEWAY_EXIT_AUDIT.json`. Raw small events reused from producer cache; no raw events, Gateway JSON, ledger or bag were parsed.

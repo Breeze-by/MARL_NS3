@@ -1,0 +1,215 @@
+{
+  "status": "FAIL",
+  "scope": "MOCK_PHYSICS full-pressure real WiFi qualification,0GZ/Goal/arm/NN. Exit0 and60accepted do not prove originalwall gates. No retry/B admitted.",
+  "source_commit": "3e5c8c6fefe958cb125eddd3dfe3610076970613",
+  "raw": "runs/continuous-dds-24-controlled-wifi",
+  "process": {
+    "scope": "MOCK_PHYSICS WiFi feasibility only; not real GZ clock/stop/180sim PASS",
+    "error": null,
+    "wall_s": 23.542297295003664,
+    "hard_wall_s": 30,
+    "exits": {
+      "coordinator": 0,
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "mock_physics": 0,
+      "source": 0
+    },
+    "profile": {
+      "id": "controlled1000-clock100-q10ms",
+      "world_real_time_update_rate": 1000,
+      "physics_max_step_size_unchanged": 0.001,
+      "clock_publish_rate_sim_hz": 100.0,
+      "native_step_quantum_ns": 10000000,
+      "qualification": {
+        "source_wall_s": 16,
+        "hard_wall_s": 30,
+        "clock_period_wall_s": 0.02,
+        "clock_increment_ns": 10000000,
+        "other_sources": "Original TF/odom/feedback per wall unchanged, source clock subscribed from explicit MOCK_PHYSICS actual step service",
+        "peer": "Original10Hz sim timer, expected5Hz wall at target.5RTF; actual intervals measured, original gates unchanged",
+        "local_costmap_cells": [
+          200,
+          200
+        ],
+        "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
+        "not_generated_flows": [
+          "89 C merge_map",
+          "95 C controller journal"
+        ]
+      },
+      "scope": "Explicit external controlled-time shared A/B profile; fixed.5RTF wall target and actual native credit, not policy/network optimization. Qualification uses MOCK_PHYSICS, never claims Gazebo.",
+      "controlled_physics": true,
+      "physical_token_steps": 10,
+      "physical_lookahead_quanta": 2,
+      "token_wall_period_ns": 20000000
+    },
+    "resource_control": "HOLD then STOP, keep actual ACK observer through native END",
+    "Gazebo": 0,
+    "Nav2": 0,
+    "Goal": 0,
+    "NN": 0
+  },
+  "critical_limits": {
+    "mask_seq54_to55_lower_wall_s": [
+      0.419759524,
+      0.46750507,
+      0.480634396
+    ],
+    "mask_seq54_to55_upper_wall_s": [
+      0.420001498,
+      0.467715405,
+      0.480847253
+    ],
+    "health_max_publish_gap_wall_s": [
+      0.463156038,
+      0.423990757,
+      0.423866373
+    ],
+    "all_certainly_over_original_0_3wall": true
+  },
+  "narrow_timeline": {
+    "peer54_entry_mono_s": 451725.338927361,
+    "peer55_entry_mono_s": 451725.619906831,
+    "peer54_health_publish_before_mono_s": 451725.393671629,
+    "peer55_health_publish_before_mono_s": 451725.677630262,
+    "peer54_to55_health_source_gap_wall_s": 0.283958633,
+    "C_clock5_50_publish_return_mono_s": 451725.618492762,
+    "next_peer_entry_after_C_clock_ms": 1.414069,
+    "native_H5_52": {
+      "begin_mono_ns": 451725686354478,
+      "end_mono_ns": 451725885415085,
+      "wall_ms": 199.060607,
+      "thread_CPU_ms": 33.831476,
+      "first_large_rx_output_begin_mono_ns": 451725878453398,
+      "before_first_large_output_wall_ms": 192.09892,
+      "before_first_large_output_CPU_ms": 29.183123,
+      "total_output_wall_ms": 2.728503,
+      "limitation": "Run offCPU is observed; it does not uniquely distinguish OS scheduling/kernel I/O/other wait. Not attributed uniquely to GC or stdout."
+    },
+    "R_clock5_53_capture_mono_ns": 451725684274870,
+    "R_clock5_54_capture_mono_ns": 451725894450308,
+    "Peer56_entry_mono_s": 451726.074022023,
+    "C_clock5_60_publish_return_mono_s": 451726.072644793,
+    "mask_chain": [
+      {
+        "sequence": 54,
+        "robot": "tb1",
+        "message_id": 10105,
+        "peer_binding_capture_mono_ns": 451725394835643,
+        "hub_ingress_mono_ns": 451725410730466,
+        "native_actual_rx_ns": 5428265684,
+        "native_rx_output_begin_mono_ns": 451725461380932,
+        "hub_receive_mono_ns": 451725462837094,
+        "accept_before_mono_ns": 451725466885159,
+        "accept_after_mono_ns": 451725467031322
+      },
+      {
+        "sequence": 54,
+        "robot": "tb2",
+        "message_id": 10106,
+        "peer_binding_capture_mono_ns": 451725396323065,
+        "hub_ingress_mono_ns": 451725412069466,
+        "native_actual_rx_ns": 5432693722,
+        "native_rx_output_begin_mono_ns": 451725487459679,
+        "hub_receive_mono_ns": 451725488691609,
+        "accept_before_mono_ns": 451725492364734,
+        "accept_after_mono_ns": 451725492470789
+      },
+      {
+        "sequence": 54,
+        "robot": "tb3",
+        "message_id": 10107,
+        "peer_binding_capture_mono_ns": 451725397682058,
+        "hub_ingress_mono_ns": 451725413552116,
+        "native_actual_rx_ns": 5437246767,
+        "native_rx_output_begin_mono_ns": 451725509334577,
+        "hub_receive_mono_ns": 451725510967642,
+        "accept_before_mono_ns": 451725514179521,
+        "accept_after_mono_ns": 451725514281995
+      },
+      {
+        "sequence": 55,
+        "robot": "tb1",
+        "message_id": 10319,
+        "peer_binding_capture_mono_ns": 451725678824544,
+        "hub_ingress_mono_ns": 451725683927467,
+        "native_actual_rx_ns": 5515814400,
+        "native_rx_output_begin_mono_ns": 451725878453398,
+        "hub_receive_mono_ns": 451725883716502,
+        "accept_before_mono_ns": 451725886790846,
+        "accept_after_mono_ns": 451725886886657
+      },
+      {
+        "sequence": 55,
+        "robot": "tb2",
+        "message_id": 10320,
+        "peer_binding_capture_mono_ns": 451725680410047,
+        "hub_ingress_mono_ns": 451725886110331,
+        "native_actual_rx_ns": 5525942474,
+        "native_rx_output_begin_mono_ns": 451725941260738,
+        "hub_receive_mono_ns": 451725942874799,
+        "accept_before_mono_ns": 451725959975859,
+        "accept_after_mono_ns": 451725960080139
+      },
+      {
+        "sequence": 55,
+        "robot": "tb3",
+        "message_id": 10321,
+        "peer_binding_capture_mono_ns": 451725681833700,
+        "hub_ingress_mono_ns": 451725886982706,
+        "native_actual_rx_ns": 5530776515,
+        "native_rx_output_begin_mono_ns": 451725991208464,
+        "hub_receive_mono_ns": 451725992511589,
+        "accept_before_mono_ns": 451725994916391,
+        "accept_after_mono_ns": 451725995026774
+      }
+    ],
+    "layer_conclusion": "Additional seq54\u219255 gap mainly precedes actual native delivery in Run/offCPU, with later Peer56 source cadence also delayed by coupled clock progress. Peer55 source gap283.959ms is below.3 and its timer begins1.414ms after Cclock5.50; nativeRX\u2192accept8.34/18.72/3.71ms cannot alone explain420\u2013481ms gaps. No unique underlying Run-wait rootcause established."
+  },
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "retired_C_services": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+  "gateway_failure": null,
+  "GW_gc_runtime": {
+    "original_enabled": true,
+    "original_thresholds": [
+      700,
+      10,
+      10
+    ],
+    "scope": "Only this supervisor-bounded Gateway; deferred cycles can increase RAM, not a long-lived-service policy",
+    "disabled_monotonic_ns": 451711125220655,
+    "processing_start_enabled": false,
+    "processing_end_monotonic_ns": 451729109907173,
+    "processing_end_enabled": false,
+    "restored_enabled": true,
+    "restored_thresholds": [
+      700,
+      10,
+      10
+    ],
+    "restored_monotonic_ns": 451729171092355,
+    "peak_rss_KiB": 129720
+  },
+  "candidate_stop": "Preserve FAIL; no new run/parameter change/remaining Gazebo/B permission."
+}

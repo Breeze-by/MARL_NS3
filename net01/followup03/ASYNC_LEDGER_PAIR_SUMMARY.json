@@ -1,0 +1,165 @@
+{
+  "scope": "One native-only controlled pair; 0ROS/GZ/Goal/NN, cpuProfileoff; not capacity or deployment acceptance",
+  "source_commit": "a90d67a16e9500d01988b7775844d5d628cece60",
+  "cases": [
+    {
+      "case": "native-ledger-serial-01",
+      "raw": "runs/native-ledger-serial-01",
+      "result": {
+        "argv": [
+          "/home/zhuyulab/ns3-workspace/net-01/build/followup03-async-ledger/net01-payload",
+          "--output=/home/zhuyulab/ns3-workspace/net-01/workspace/runs/native-ledger-serial-01/native",
+          "--profile=B",
+          "--controlTrace=1",
+          "--cpuProfile=0",
+          "--asyncLedger=0"
+        ],
+        "native_exit": 0,
+        "error": null,
+        "wall_s": 0.26511707302415743,
+        "total_process_cpu_s": 0.259746,
+        "status": "MEASURED",
+        "scope": "Native CPU diagnostic ONLY; no ROS, real-time qualification, policy or safety validation",
+        "ready": true,
+        "received": [
+          3,
+          2,
+          6,
+          4,
+          1,
+          5,
+          12,
+          7,
+          10,
+          9,
+          8,
+          11
+        ],
+        "missing": [],
+        "steps": [
+          100000000,
+          200000000,
+          300000000,
+          400000000,
+          500000000,
+          600000000,
+          700000000,
+          800000000,
+          900000000,
+          1000000000,
+          1100000000
+        ],
+        "received_exact": true,
+        "ledger": {
+          "async": false,
+          "captured": 7883,
+          "written": 7883,
+          "attempted": 7883,
+          "pending_capacity_records": 16384,
+          "peak_pending_including_inflight": 0,
+          "max_record_owned_bytes": 0,
+          "writer_cpu_ns": 0,
+          "model_cpu_ns": 206066939,
+          "final_ns3_ns": 1100000000,
+          "failed": false
+        }
+      },
+      "target_step": {
+        "horizon_ns": 1100000000,
+        "run_wall_ns": 119230307,
+        "run_cpu_ns": 118963459,
+        "barrier_wall_ns": 4216,
+        "barrier_cpu_ns": 4308,
+        "through_barrier_wall_ns": 119248987
+      }
+    },
+    {
+      "case": "native-ledger-async-01",
+      "raw": "runs/native-ledger-async-01",
+      "result": {
+        "argv": [
+          "/home/zhuyulab/ns3-workspace/net-01/build/followup03-async-ledger/net01-payload",
+          "--output=/home/zhuyulab/ns3-workspace/net-01/workspace/runs/native-ledger-async-01/native",
+          "--profile=B",
+          "--controlTrace=1",
+          "--cpuProfile=0",
+          "--asyncLedger=1"
+        ],
+        "native_exit": 0,
+        "error": null,
+        "wall_s": 0.2653708540019579,
+        "total_process_cpu_s": 0.306589,
+        "status": "MEASURED",
+        "scope": "Native CPU diagnostic ONLY; no ROS, real-time qualification, policy or safety validation",
+        "ready": true,
+        "received": [
+          3,
+          2,
+          6,
+          4,
+          1,
+          5,
+          12,
+          7,
+          10,
+          9,
+          8,
+          11
+        ],
+        "missing": [],
+        "steps": [
+          100000000,
+          200000000,
+          300000000,
+          400000000,
+          500000000,
+          600000000,
+          700000000,
+          800000000,
+          900000000,
+          1000000000,
+          1100000000
+        ],
+        "received_exact": true,
+        "ledger": {
+          "async": true,
+          "captured": 7883,
+          "written": 7883,
+          "attempted": 7883,
+          "pending_capacity_records": 16384,
+          "peak_pending_including_inflight": 37,
+          "max_record_owned_bytes": 279,
+          "writer_cpu_ns": 47060291,
+          "model_cpu_ns": 205066832,
+          "final_ns3_ns": 1100000000,
+          "failed": false
+        },
+        "comparison": {
+          "ledger_events_except_mono_equal": true,
+          "stdout_protocol_and_payload_exact": true,
+          "pcap_bytes_equal": true
+        }
+      },
+      "target_step": {
+        "horizon_ns": 1100000000,
+        "run_wall_ns": 115224019,
+        "run_cpu_ns": 114882114,
+        "barrier_wall_ns": 50929,
+        "barrier_cpu_ns": 15515,
+        "through_barrier_wall_ns": 115290838
+      }
+    }
+  ],
+  "run_cpu_relative_change": -0.034307551531432834,
+  "model_whole_cpu_relative_change": -0.004853311282505102,
+  "total_process_cpu_relative_change": 0.18034156445142568,
+  "wall_relative_change": 0.0009572411723832719,
+  "mechanism": "PASS limited fixed-burst semantic comparison, captured==written and bounded queue; no overflow/write-failure runtime injection performed",
+  "producer_decision": "Do not promote as performance repair: small Run improvement, negligible whole-model/wall benefit, total CPU increased. No automatic full-B qualification.",
+  "limitations": [
+    "Single pair is not a statistical performance claim",
+    "STEP Run ends before async flush barrier; through-barrier wall reported separately",
+    "Model CPU and writer CPU are distinct; total process CPU includes initialization/teardown and other runtime overhead",
+    "PCAP and full ledger not disabled; raw fields(h) formatting remains model-side"
+  ]
+}

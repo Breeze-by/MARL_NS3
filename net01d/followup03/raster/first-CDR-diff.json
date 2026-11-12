@@ -1,0 +1,25 @@
+{
+  "reference_bytes": 160104,
+  "candidate_bytes": 160104,
+  "differing_bytes": 3,
+  "differences": [
+    {
+      "offset": 21,
+      "reference": 255,
+      "candidate": 89
+    },
+    {
+      "offset": 22,
+      "reference": 255,
+      "candidate": 0
+    },
+    {
+      "offset": 23,
+      "reference": 255,
+      "candidate": 0
+    }
+  ],
+  "reference_prefix_hex": "000100000300000015cd5b07050000006f646f6d00ffffff0000000000000000cdcc4c3d900100009001000000000000008023c03333333333b321c00000000000000000000000000000000000000000000000000000000000000000000000000000f03f00710200ffffffffffffffff",
+  "candidate_prefix_hex": "000100000300000015cd5b07050000006f646f6d005900000000000000000000cdcc4c3d900100009001000000000000008023c03333333333b321c00000000000000000000000000000000000000000000000000000000000000000000000000000f03f00710200ffffffffffffffff",
+  "tail_after104_equal": true
+}

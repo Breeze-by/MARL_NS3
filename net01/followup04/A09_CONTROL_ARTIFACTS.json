@@ -1,0 +1,16 @@
+{
+  "scope": "New control artifact binding only; plugin build not runtime/physical PASS; witness received17 calibration fields only",
+  "plugin": {
+    "relative_phase": "build/time-control-followup04/libnet01_time_control.so",
+    "bytes": 4746752,
+    "sha256": "e22425f8a862a6bbe7c3a13217ea21a408f42fc2435efb14f54e1ae330bed5f1",
+    "source_commit": "e7b783282b4e2766fdb7e058da028f128326a8bb",
+    "build_evidence_relative_phase": "build/time-control-followup04/build.process-exit.json"
+  },
+  "witness": {
+    "relative_phase": "workspace/build/clock-witness-followup04/net01-clock-witness",
+    "bytes": 718592,
+    "sha256": "2560e229ab99b3cc9d7031aca4f0ce01795713e7f01b8bf08fcd049f67bd5a06",
+    "identity_reused_from": "net01/followup04/evidence/clock-witness-build-02/binary-identity.json"
+  }
+}

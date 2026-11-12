@@ -1,0 +1,127 @@
+{
+  "last_two_live_reads": [
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "python3",
+        "-B",
+        "-"
+      ],
+      "cwd": "/home/zhuyulab/ns3-workspace",
+      "source": "one-shot tool heredoc, no persisted runtime monitor",
+      "status_sample_wall_since_launch_request_s": 240.712,
+      "status_sample_begin_monotonic_rounded_ns": 603495331712762,
+      "status_sample_precision_ns": 500000,
+      "exact_SQL_begin_monotonic_ns": null,
+      "exact_SQL_end_monotonic_ns": null,
+      "monotonic_limit": "Sample time was taken before opening SQLite and rounded to1ms; exact connection/query begin/end were not recorded. Do not present this as exact lock overlap.",
+      "tool_reported_command_elapsed_s": 0.225232133,
+      "selected_latest_numeric_shard": "bag_0.db3",
+      "query_clock": "SELECT data FROM messages WHERE topic_id IN (SELECT id FROM topics WHERE name='/clock') ORDER BY timestamp DESC LIMIT 1",
+      "query_odom": "SELECT data FROM messages WHERE topic_id IN (SELECT id FROM topics WHERE name=?) ORDER BY timestamp DESC LIMIT 1",
+      "odom_parameters": [
+        "/tb1/odom",
+        "/tb2/odom",
+        "/tb3/odom"
+      ],
+      "URI_mode": "file:<absolute selected shard>?mode=ro",
+      "timeout_s": 0.5,
+      "connection_close": "Explicit con.close after3odom andclock reads, before printing/appending snapshot; one-shot process exited0",
+      "all_commands_are_reads": true,
+      "observed_snapshot": {
+        "wall_s": 240.712,
+        "host_exit": false,
+        "latest_committed_R_clock_s": 143.68,
+        "bag_shard": "bag_0.db3",
+        "latest_odom": {
+          "tb1": {
+            "header_sim": 143.65,
+            "frame": "odom",
+            "child": "base_footprint",
+            "x": -4.9454584529016845,
+            "y": 4.396026055524387
+          },
+          "tb2": {
+            "header_sim": 143.661,
+            "frame": "odom",
+            "child": "base_footprint",
+            "x": -4.926374025322785,
+            "y": 0.5821382994355114
+          },
+          "tb3": {
+            "header_sim": 143.66,
+            "frame": "odom",
+            "child": "base_footprint",
+            "x": 2.039546779060285,
+            "y": 3.180804457993299
+          }
+        },
+        "scope": "Latest committed Rbag clock and exactly3Odometry records, no Node/CLI; not live physicalACK."
+      }
+    },
+    {
+      "argv": [
+        "rtk",
+        "proxy",
+        "python3",
+        "-B",
+        "-"
+      ],
+      "cwd": "/home/zhuyulab/ns3-workspace",
+      "source": "one-shot tool heredoc, no persisted runtime monitor",
+      "status_sample_wall_since_launch_request_s": 291.53,
+      "status_sample_begin_monotonic_rounded_ns": 603546149712762,
+      "status_sample_precision_ns": 500000,
+      "exact_SQL_begin_monotonic_ns": null,
+      "exact_SQL_end_monotonic_ns": null,
+      "monotonic_limit": "Sample time was taken before opening SQLite and rounded to1ms; exact connection/query begin/end were not recorded. Do not present this as exact lock overlap.",
+      "tool_reported_command_elapsed_s": 1.026304097,
+      "selected_latest_numeric_shard": "bag_1.db3",
+      "query_clock": "SELECT data FROM messages WHERE topic_id IN (SELECT id FROM topics WHERE name='/clock') ORDER BY timestamp DESC LIMIT 1",
+      "query_odom": "SELECT data FROM messages WHERE topic_id IN (SELECT id FROM topics WHERE name=?) ORDER BY timestamp DESC LIMIT 1",
+      "odom_parameters": [
+        "/tb1/odom",
+        "/tb2/odom",
+        "/tb3/odom"
+      ],
+      "URI_mode": "file:<absolute selected shard>?mode=ro",
+      "timeout_s": 0.5,
+      "connection_close": "Explicit con.close after3odom andclock reads, before printing/appending snapshot; one-shot process exited0",
+      "all_commands_are_reads": true,
+      "observed_snapshot": {
+        "wall_s": 291.53,
+        "host_exit": false,
+        "latest_committed_R_clock_s": 177.08,
+        "bag_shard": "bag_1.db3",
+        "latest_odom": {
+          "tb1": {
+            "x": -4.945643645567881,
+            "y": 4.395977400767064,
+            "position_change_since_previous_snapshot_m": 0.0001914774373737847
+          },
+          "tb2": {
+            "x": -4.926559033053419,
+            "y": 0.5820898028649906,
+            "position_change_since_previous_snapshot_m": 0.00019125840568882786
+          },
+          "tb3": {
+            "x": 4.96414726030533,
+            "y": 3.0529054861575644,
+            "position_change_since_previous_snapshot_m": 2.927395791808034
+          }
+        }
+      }
+    }
+  ],
+  "writer_stderr_pre_exception_timestamps_unix_s": [
+    "1794386463.508784438",
+    "1794386463.510448799"
+  ],
+  "writer_exception": "terminate called after throwing rosbag2_storage_plugins::SqliteException; SQLite error(5): database is locked",
+  "exact_exception_monotonic_ns": null,
+  "exception_clock_limit": "Timestamped writingcache/openDB lines precede exception; exception line has no own timestamp. No fabricated exact exception mono.",
+  "direct_failure": "Recorder SQLITE_BUSY abort; exact returncode not saved by original early-exit path.",
+  "live_SQL_after_failure": "STOPPED; no active-writerSQL forfuturecases",
+  "causal_limit": "Read-only SQLite can holdSHAREDlock, but exact query connection windows/exceptionmono were not instrumented; no unique monitorcausality proved."
+}

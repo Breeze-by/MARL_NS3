@@ -1,0 +1,532 @@
+{
+  "control_responses": [
+    {
+      "operation": "hold",
+      "success": true,
+      "state": {
+        "mode": "HOLD",
+        "failure": null,
+        "expected_shutdown": false,
+        "physics_failed": false,
+        "physical_ns": 4420000000,
+        "iterations": 4420,
+        "actual_clock_ns": 4420000000,
+        "native_ACK_ns": 4390000000,
+        "fixed_offset_ns": 10000000,
+        "physical_RPC_inflight": false,
+        "session_id": 2026111147,
+        "gateway_clock_ready": true,
+        "pending_holds": 1,
+        "authority_exited": false,
+        "progress_wall_timeout_ns": 2000000000,
+        "progress_started_monotonic_ns": 610366972709009,
+        "motion_armed_since_monotonic_ns": null,
+        "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+        "actual_clock_progress_monotonic_ns": 610379781465747,
+        "native_ACK_progress_monotonic_ns": 610379758746046,
+        "physical_RPC_issued_monotonic_ns": null,
+        "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+        "token_wall_period_ns": 10000000,
+        "planned_realtime_factor": 1.0,
+        "actual_achieved_physical_rtf": 0.3450154007962899,
+        "physical_progress_sim_span_ns": 4420000000,
+        "physical_progress_wall_span_ns": 12811022319,
+        "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+        "next_earliest_wall_ns": 610371392709009,
+        "max_token_lateness_ns": 8384455096,
+        "late_tokens": 441
+      },
+      "monotonic_ns": 610379792697674
+    },
+    {
+      "operation": "run",
+      "success": true,
+      "state": {
+        "mode": "RUN",
+        "failure": null,
+        "expected_shutdown": false,
+        "physics_failed": false,
+        "physical_ns": 4420000000,
+        "iterations": 4420,
+        "actual_clock_ns": 4420000000,
+        "native_ACK_ns": 4410000000,
+        "fixed_offset_ns": 10000000,
+        "physical_RPC_inflight": false,
+        "session_id": 2026111147,
+        "gateway_clock_ready": true,
+        "pending_holds": 0,
+        "authority_exited": false,
+        "progress_wall_timeout_ns": 2000000000,
+        "progress_started_monotonic_ns": null,
+        "motion_armed_since_monotonic_ns": null,
+        "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+        "actual_clock_progress_monotonic_ns": 610379781465747,
+        "native_ACK_progress_monotonic_ns": 610379869098381,
+        "physical_RPC_issued_monotonic_ns": null,
+        "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+        "token_wall_period_ns": 10000000,
+        "planned_realtime_factor": 1.0,
+        "actual_achieved_physical_rtf": 0.3450154007962899,
+        "physical_progress_sim_span_ns": 4420000000,
+        "physical_progress_wall_span_ns": 12811022319,
+        "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+        "next_earliest_wall_ns": null,
+        "max_token_lateness_ns": 8384455096,
+        "late_tokens": 441
+      },
+      "monotonic_ns": 610380265947142
+    },
+    {
+      "operation": "stop_observe",
+      "success": true,
+      "state": {
+        "mode": "STOP_COUPLED",
+        "failure": null,
+        "expected_shutdown": false,
+        "physics_failed": false,
+        "physical_ns": 10240000000,
+        "iterations": 10240,
+        "actual_clock_ns": 10240000000,
+        "native_ACK_ns": 10210000000,
+        "fixed_offset_ns": 10000000,
+        "physical_RPC_inflight": false,
+        "session_id": 2026111147,
+        "gateway_clock_ready": true,
+        "pending_holds": 0,
+        "authority_exited": true,
+        "progress_wall_timeout_ns": 2000000000,
+        "progress_started_monotonic_ns": 610380263738868,
+        "motion_armed_since_monotonic_ns": null,
+        "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+        "actual_clock_progress_monotonic_ns": 610393893443371,
+        "native_ACK_progress_monotonic_ns": 610393867266434,
+        "physical_RPC_issued_monotonic_ns": null,
+        "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+        "token_wall_period_ns": 10000000,
+        "planned_realtime_factor": 1.0,
+        "actual_achieved_physical_rtf": 0.38035445491959036,
+        "physical_progress_sim_span_ns": 10240000000,
+        "physical_progress_wall_span_ns": 26922255984,
+        "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+        "next_earliest_wall_ns": 610386083738868,
+        "max_token_lateness_ns": 8384455096,
+        "late_tokens": 1022
+      },
+      "monotonic_ns": 610393931264316
+    },
+    {
+      "operation": "run",
+      "success": true,
+      "state": {
+        "mode": "RUN",
+        "failure": null,
+        "expected_shutdown": false,
+        "physics_failed": false,
+        "physical_ns": 12700000000,
+        "iterations": 12700,
+        "actual_clock_ns": 12700000000,
+        "native_ACK_ns": 12680000000,
+        "fixed_offset_ns": 10000000,
+        "physical_RPC_inflight": true,
+        "session_id": 2026111147,
+        "gateway_clock_ready": true,
+        "pending_holds": 0,
+        "authority_exited": false,
+        "progress_wall_timeout_ns": 2000000000,
+        "progress_started_monotonic_ns": null,
+        "motion_armed_since_monotonic_ns": null,
+        "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+        "actual_clock_progress_monotonic_ns": 610399544863012,
+        "native_ACK_progress_monotonic_ns": 610399538480057,
+        "physical_RPC_issued_monotonic_ns": 610399547531084,
+        "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+        "token_wall_period_ns": 10000000,
+        "planned_realtime_factor": 1.0,
+        "actual_achieved_physical_rtf": 0.38988010593664196,
+        "physical_progress_sim_span_ns": 12700000000,
+        "physical_progress_wall_span_ns": 32574116521,
+        "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+        "next_earliest_wall_ns": null,
+        "max_token_lateness_ns": 11003792216,
+        "late_tokens": 1269
+      },
+      "monotonic_ns": 610399554994778
+    },
+    {
+      "operation": "stop_observe",
+      "success": true,
+      "state": {
+        "mode": "STOP_COUPLED",
+        "failure": null,
+        "expected_shutdown": false,
+        "physics_failed": false,
+        "physical_ns": 196310000000,
+        "iterations": 196310,
+        "actual_clock_ns": 196310000000,
+        "native_ACK_ns": 196300000000,
+        "fixed_offset_ns": 10000000,
+        "physical_RPC_inflight": true,
+        "session_id": 2026111147,
+        "gateway_clock_ready": true,
+        "pending_holds": 0,
+        "authority_exited": true,
+        "progress_wall_timeout_ns": 2000000000,
+        "progress_started_monotonic_ns": 610399562990155,
+        "motion_armed_since_monotonic_ns": 610405951909251,
+        "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+        "actual_clock_progress_monotonic_ns": 610832861132560,
+        "native_ACK_progress_monotonic_ns": 610832867715488,
+        "physical_RPC_issued_monotonic_ns": 610832863321136,
+        "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+        "token_wall_period_ns": 10000000,
+        "planned_realtime_factor": 1.0,
+        "actual_achieved_physical_rtf": 0.421365745487094,
+        "physical_progress_sim_span_ns": 196310000000,
+        "physical_progress_wall_span_ns": 465889793137,
+        "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+        "next_earliest_wall_ns": 610583172990155,
+        "max_token_lateness_ns": 249700330981,
+        "late_tokens": 19629
+      },
+      "monotonic_ns": 610832878241846
+    },
+    {
+      "operation": "hold",
+      "success": true,
+      "state": {
+        "mode": "HOLD",
+        "failure": null,
+        "expected_shutdown": false,
+        "physics_failed": false,
+        "physical_ns": 198050000000,
+        "iterations": 198050,
+        "actual_clock_ns": 198050000000,
+        "native_ACK_ns": 198030000000,
+        "fixed_offset_ns": 10000000,
+        "physical_RPC_inflight": false,
+        "session_id": 2026111147,
+        "gateway_clock_ready": true,
+        "pending_holds": 1,
+        "authority_exited": true,
+        "progress_wall_timeout_ns": 2000000000,
+        "progress_started_monotonic_ns": 610399562990155,
+        "motion_armed_since_monotonic_ns": 610405951909251,
+        "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+        "actual_clock_progress_monotonic_ns": 610837001151473,
+        "native_ACK_progress_monotonic_ns": 610836998457457,
+        "physical_RPC_issued_monotonic_ns": null,
+        "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+        "token_wall_period_ns": 10000000,
+        "planned_realtime_factor": 1.0,
+        "actual_achieved_physical_rtf": 0.42135564338093057,
+        "physical_progress_sim_span_ns": 198050000000,
+        "physical_progress_wall_span_ns": 470030491133,
+        "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+        "next_earliest_wall_ns": 610584902990155,
+        "max_token_lateness_ns": 252095221932,
+        "late_tokens": 19802
+      },
+      "monotonic_ns": 610837009038444
+    },
+    {
+      "operation": "hold",
+      "success": true,
+      "state": {
+        "mode": "HOLD",
+        "failure": null,
+        "expected_shutdown": true,
+        "physics_failed": false,
+        "physical_ns": 198050000000,
+        "iterations": 198050,
+        "actual_clock_ns": 198050000000,
+        "native_ACK_ns": 198040000000,
+        "fixed_offset_ns": 10000000,
+        "physical_RPC_inflight": false,
+        "session_id": 2026111147,
+        "gateway_clock_ready": true,
+        "pending_holds": 1,
+        "authority_exited": true,
+        "progress_wall_timeout_ns": 2000000000,
+        "progress_started_monotonic_ns": 610399562990155,
+        "motion_armed_since_monotonic_ns": 610405951909251,
+        "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+        "actual_clock_progress_monotonic_ns": 610837001151473,
+        "native_ACK_progress_monotonic_ns": 610837008874870,
+        "physical_RPC_issued_monotonic_ns": null,
+        "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+        "token_wall_period_ns": 10000000,
+        "planned_realtime_factor": 1.0,
+        "actual_achieved_physical_rtf": 0.42135564338093057,
+        "physical_progress_sim_span_ns": 198050000000,
+        "physical_progress_wall_span_ns": 470030491133,
+        "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+        "next_earliest_wall_ns": 610584902990155,
+        "max_token_lateness_ns": 252095221932,
+        "late_tokens": 19802
+      },
+      "monotonic_ns": 610837015726086
+    }
+  ],
+  "stop_attempts": [
+    {
+      "stage": "preflight",
+      "entered_phase": "preflight",
+      "success": true,
+      "authority_basis": "not_created",
+      "authority_pid": null,
+      "authority_exit": null,
+      "observed_stop": {
+        "positions": {
+          "tb1": [
+            0.7254358128533802,
+            -0.15001674476546323,
+            0.007818546149710918,
+            5.707840810867485e-05,
+            4.882257038480472e-05
+          ],
+          "tb2": [
+            0.35040057920789824,
+            -0.800015319414208,
+            0.007813813778129656,
+            6.866028967438525e-05,
+            4.83512598722184e-05
+          ],
+          "tb3": [
+            1.1003410738729005,
+            -0.8000127130117668,
+            0.007811353069427585,
+            6.635264926558915e-05,
+            4.853733931485963e-05
+          ]
+        },
+        "per_robot_wall": {
+          "tb1": 610399.548180915,
+          "tb2": 610399.548231948,
+          "tb3": 610399.54824488
+        },
+        "sim_advanced": 0.6999999999999993,
+        "drive_received": {
+          "tb1": [
+            12.682,
+            105.0,
+            12.64,
+            0.0,
+            0.0,
+            6.602605111089369e-06,
+            2.095057864358823e-05,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tb2": [
+            12.682,
+            105.0,
+            12.64,
+            0.0,
+            0.0,
+            -3.4844223472690555e-05,
+            -2.0808071902934464e-05,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tb3": [
+            12.687,
+            106.0,
+            12.68,
+            0.0,
+            0.0,
+            -2.438711033743282e-05,
+            -1.0440594980338125e-05,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "rpc_errors": [],
+        "authority_stopped": true,
+        "ownership_closed": true,
+        "owned_goals": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "request_ownership": {
+          "closed": true,
+          "authority_stopped": true,
+          "requests": 0,
+          "unresolved_requests": [],
+          "owned_goals": {
+            "tb1": [],
+            "tb2": [],
+            "tb3": []
+          },
+          "unterminated_UUIDs": {
+            "tb1": [],
+            "tb2": [],
+            "tb3": []
+          },
+          "record_errors": []
+        },
+        "lifecycle_pause_healthy": true
+      },
+      "completed_monotonic_ns": 610399548664511
+    },
+    {
+      "stage": "final",
+      "entered_phase": "stop",
+      "success": true,
+      "authority_basis": "actual_process_poll",
+      "authority_pid": 820700,
+      "authority_exit": 0,
+      "observed_stop": {
+        "positions": {
+          "tb1": [
+            5.523796698031098,
+            2.286350892314906,
+            0.007815184914637306,
+            7.13180809020385e-05,
+            5.113465380667515e-05
+          ],
+          "tb2": [
+            -4.7162372481073325,
+            -0.319707918652188,
+            0.007810941180272064,
+            6.211633515709588e-05,
+            4.169111801303221e-05
+          ],
+          "tb3": [
+            -4.307591405348837,
+            -4.508225798836592,
+            0.007825846518557453,
+            6.266564671752483e-05,
+            4.137785589557647e-05
+          ]
+        },
+        "per_robot_wall": {
+          "tb1": 610836.382848179,
+          "tb2": 610836.382929753,
+          "tb3": 610836.382958632
+        },
+        "sim_advanced": 0.700000000000017,
+        "drive_received": {
+          "tb1": [
+            197.778,
+            5386.0,
+            197.77,
+            0.0,
+            0.0,
+            -1.7947504459853755e-05,
+            -2.929080019085367e-06,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tb2": [
+            197.778,
+            2325.0,
+            197.76,
+            0.0,
+            0.0,
+            8.799767628784752e-06,
+            2.102319112171362e-05,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tb3": [
+            197.783,
+            4529.0,
+            197.78,
+            0.0,
+            0.0,
+            -1.5841445120523786e-05,
+            -3.855392114532437e-06,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "rpc_errors": [],
+        "authority_stopped": true,
+        "ownership_closed": true,
+        "owned_goals": {
+          "tb1": [
+            "2e63b29656fa48a79a09b219f2557f0d",
+            "3f851967caf443d197a00c94d74a0880",
+            "45bc2ce6745c402494d28f7a6a9da7a2",
+            "a7ce820a3065436b81612258e848f771",
+            "e4d0773c958a4331874292a6f7ffb098"
+          ],
+          "tb2": [
+            "3ea4fdaf03114d0090d5f97d5be5b3ae",
+            "60823a2d0e5843548d0122ca3129df66"
+          ],
+          "tb3": [
+            "4a6c61edd48a4d4f893bab1f740b672e",
+            "5af6139633304895a93d001c7b7edbfa",
+            "5daf249ef8d644c3b716da3d5b61ae80",
+            "cea98b47d9174836a72c9a0d6c3b1d9d"
+          ]
+        },
+        "request_ownership": {
+          "closed": true,
+          "authority_stopped": true,
+          "requests": 11,
+          "unresolved_requests": [],
+          "owned_goals": {
+            "tb1": [
+              "2e63b29656fa48a79a09b219f2557f0d",
+              "3f851967caf443d197a00c94d74a0880",
+              "45bc2ce6745c402494d28f7a6a9da7a2",
+              "a7ce820a3065436b81612258e848f771",
+              "e4d0773c958a4331874292a6f7ffb098"
+            ],
+            "tb2": [
+              "3ea4fdaf03114d0090d5f97d5be5b3ae",
+              "60823a2d0e5843548d0122ca3129df66"
+            ],
+            "tb3": [
+              "4a6c61edd48a4d4f893bab1f740b672e",
+              "5af6139633304895a93d001c7b7edbfa",
+              "5daf249ef8d644c3b716da3d5b61ae80",
+              "cea98b47d9174836a72c9a0d6c3b1d9d"
+            ]
+          },
+          "unterminated_UUIDs": {
+            "tb1": [],
+            "tb2": [],
+            "tb3": []
+          },
+          "record_errors": []
+        },
+        "lifecycle_pause_healthy": true
+      },
+      "completed_monotonic_ns": 610836498313109
+    }
+  ]
+}

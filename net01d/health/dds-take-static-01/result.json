@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scope": "Actual override methods with fake handle/node; no executor constructor, ROS init, Node, transport or simulation",
+  "checks": {
+    "same_one_take_same_message_actual_metadata_object_retained": true,
+    "None_take_original_return_and_context_order": true,
+    "original_exception_identity_and_context_exit_preserved": true,
+    "nonTF_delegates_original_SDK_without_trace": true,
+    "execute_await_and_readiness_implementation_inherited_unchanged": true,
+    "trace_JSON_serializable_with_zero_received_stamp_retained": true
+  }
+}

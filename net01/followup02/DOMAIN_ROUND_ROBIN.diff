@@ -1,0 +1,95 @@
+diff --git a/net01/gateway.py b/net01/gateway.py
+index cb12492..e96a5d1 100644
+--- a/net01/gateway.py
++++ b/net01/gateway.py
+@@ -34,14 +34,15 @@ from link_session import LinkSession
+ from topic_wire import TopicWire
+ 
+ 
+-def drain_current_ready(executor,node,ready_set,after_handler=None):
++def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limit=None):
+     """Bounded productive ready sets, in original SingleThreaded order.
+ 
+     Keep the executor's cached iterator across cap hits. Do not wait/rebuild an
+     empty waitset for every other-domain callback or favor any topic/timer.
+     Timeout0 also ends a productive set; it does not mean readers are empty.
+     """
+-    cap=sum(len(tuple(getattr(node,name))) for name in
++    cap=callback_limit if callback_limit is not None else sum(
++        len(tuple(getattr(node,name))) for name in
+         ('subscriptions','timers','clients','services','guards','waitables'))
+     completed=[]
+     while len(completed)<cap:
+@@ -50,7 +51,9 @@ def drain_current_ready(executor,node,ready_set,after_handler=None):
+             if not ready_set['productive']:break
+             ready_set['productive']=False
+             continue
+-        except ShutdownException:break
++        except ShutdownException:
++            ready_set['shutdown']=True
++            break
+         began=time.monotonic()
+         handler()
+         if handler.exception() is not None:raise handler.exception()
+@@ -69,7 +72,9 @@ class Gateway:
+         self.ready_sets={side:dict(productive=False) for side in ('C','R')}
+         self.dispatch_stats=dict(C=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
+             R=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
+-            guard_timers={},max_poll_gap_wall_s=0.)
++            guard_timers={},max_poll_gap_wall_s=0.,
++            schedule='C/R cached handlers alternate; stop after a pair when either initial cap is used',
++            side_span_semantics='max_wall/cpu are accumulated side service time per poll, including pump; not contiguous batches or single-callback spans')
+         self.last_poll=None
+         for domain,side in ((91,"C"),(92,"R")):
+             context=Context()
+@@ -211,19 +216,37 @@ class Gateway:
+         if self.last_poll is not None:self.dispatch_stats['max_poll_gap_wall_s']=max(
+             self.dispatch_stats['max_poll_gap_wall_s'],now-self.last_poll)
+         self.last_poll=now
+-        for side,executor,node in zip(('C','R'),self.executors,self.nodes):
+-            before=time.monotonic();cpu=time.thread_time()
+-            completed,cap=drain_current_ready(executor,node,self.ready_sets[side],self.progress_transport)
+-            stat=self.dispatch_stats[side];stat['batches']+=1;stat['callbacks']+=len(completed)
+-            stat['cap_hits']+=int(len(completed)==cap)
+-            stat['max_wall_s']=max(stat['max_wall_s'],time.monotonic()-before)
+-            stat['max_cpu_s']=max(stat['max_cpu_s'],time.thread_time()-cpu)
+-            for entity,began in completed:
+-                for robot,guard in self.guards.items():
+-                    if entity is guard.timer:
+-                        timer=self.dispatch_stats['guard_timers'].setdefault(str(robot),dict(calls=0,max_gap_wall_s=0.,last=None))
+-                        if timer['last'] is not None:timer['max_gap_wall_s']=max(timer['max_gap_wall_s'],began-timer['last'])
+-                        timer['calls']+=1;timer['last']=began
++        caps={side:sum(len(tuple(getattr(node,name))) for name in
++            ('subscriptions','timers','clients','services','guards','waitables'))
++            for side,node in zip(('C','R'),self.nodes)}
++        used={side:0 for side in ('C','R')}
++        spans={side:dict(wall=0.,cpu=0.) for side in ('C','R')}
++        for state in self.ready_sets.values():state['shutdown']=False
++        while True:
++            productive=False
++            for side,executor,node in zip(('C','R'),self.executors,self.nodes):
++                if self.ready_sets[side]['shutdown']:continue
++                before=time.monotonic();cpu=time.thread_time()
++                completed,_=drain_current_ready(executor,node,self.ready_sets[side],
++                    self.progress_transport,callback_limit=1)
++                spans[side]['wall']+=time.monotonic()-before
++                spans[side]['cpu']+=time.thread_time()-cpu
++                used[side]+=len(completed)
++                productive=productive or bool(completed)
++                for entity,began in completed:
++                    for robot,guard in self.guards.items():
++                        if entity is guard.timer:
++                            timer=self.dispatch_stats['guard_timers'].setdefault(str(robot),dict(calls=0,max_gap_wall_s=0.,last=None))
++                            if timer['last'] is not None:timer['max_gap_wall_s']=max(timer['max_gap_wall_s'],began-timer['last'])
++                            timer['calls']+=1;timer['last']=began
++            # An empty side is tried again after the other side does work.
++            # Once either cap is used, defer all remaining work to the next poll.
++            if not productive or any(used[side]>=caps[side] for side in ('C','R')):break
++        for side in ('C','R'):
++            stat=self.dispatch_stats[side];stat['batches']+=1;stat['callbacks']+=used[side]
++            stat['cap_hits']+=int(used[side]==caps[side])
++            stat['max_wall_s']=max(stat['max_wall_s'],spans[side]['wall'])
++            stat['max_cpu_s']=max(stat['max_cpu_s'],spans[side]['cpu'])
+         self.progress_transport()
+ 
+     def progress_transport(self):

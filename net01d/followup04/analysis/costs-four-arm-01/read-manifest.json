@@ -1,0 +1,91 @@
+{
+  "activation": "d5039d0",
+  "tool_exit": 0,
+  "scope": "Exactly one final Gateway decode perarm; A0 additional direct-safety decode once. Original files not reopened for this summary.",
+  "cases": {
+    "A0": {
+      "read_counts": {
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a0-01.admission-used.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-a0-01.ready.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a0-01/small-result.json": 1,
+        "network-gateway.json": 1,
+        "a0-direct-safety.json": 1,
+        "result.json": 1,
+        "observer_timing.json": 1,
+        "events.jsonl": 1,
+        "peer-keepout.jsonl": 1,
+        "health-trace.json": 1,
+        "bound-mask-publications.jsonl": 1
+      },
+      "Gateway_decode": {
+        "bytes": 54002497,
+        "read_decode_wall_s": 1.3718339410843328
+      },
+      "A0_safety_decode": {
+        "bytes": 16852823,
+        "read_decode_wall_s": 1.0892038330202922
+      }
+    },
+    "A1": {
+      "read_counts": {
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a1-03.admission-used.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-a1-03.ready.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a1-03/small-result.json": 1,
+        "network-gateway.json": 1,
+        "result.json": 1,
+        "observer_timing.json": 1,
+        "events.jsonl": 1,
+        "peer-keepout.jsonl": 1,
+        "health-trace.json": 1,
+        "bound-mask-publications.jsonl": 1
+      },
+      "Gateway_decode": {
+        "bytes": 272555766,
+        "read_decode_wall_s": 10.772631324944086
+      },
+      "A0_safety_decode": null
+    },
+    "B02": {
+      "read_counts": {
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.admission-used.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-b1-02.ready.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-b1-02/small-result.json": 1,
+        "network-gateway.json": 1,
+        "result.json": 1,
+        "observer_timing.json": 1,
+        "events.jsonl": 1,
+        "peer-keepout.jsonl": 1,
+        "health-trace.json": 1,
+        "bound-mask-publications.jsonl": 1
+      },
+      "Gateway_decode": {
+        "bytes": 362709308,
+        "read_decode_wall_s": 14.327157389954664
+      },
+      "A0_safety_decode": null
+    },
+    "C": {
+      "read_counts": {
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.admission-used.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-c1-01.traced.ready.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-c1-01/small-result.json": 1,
+        "network-gateway.json": 1,
+        "result.json": 1,
+        "observer_timing.json": 1,
+        "events.jsonl": 1,
+        "peer-keepout.jsonl": 1,
+        "health-trace.json": 1,
+        "bound-mask-publications.jsonl": 1
+      },
+      "Gateway_decode": {
+        "bytes": 350030939,
+        "read_decode_wall_s": 13.85691463504918
+      },
+      "A0_safety_decode": null
+    }
+  },
+  "native_ledger_reads": 0,
+  "PCAP_reads": 0,
+  "bag_reads": 0,
+  "full_Gateway_cache_copies": 0
+}

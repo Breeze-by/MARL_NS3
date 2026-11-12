@@ -1,0 +1,33 @@
+--- a/net01/host_run.py
++++ b/net01/host_run.py
+@@ -15,6 +15,7 @@
+ import sys
+ import time
+ from time_control_runtime import ControlledRuntime,controlled_config
++from cli_daemon_cleanup import cleanup_owned_cli_daemon
+ 
+ HERE=Path(__file__).resolve().parent
+ REPO=HERE.parent
+@@ -192,6 +193,14 @@
+         controller_path=case/'network-controller-exit.json'
+         result['controller_exit']=(json.loads(controller_path.read_text()) if controller_path.exists()
+             else dict(started=False,returncode=None,reason='missing controller exit evidence'))
++        # Post-run only: all original owners/sidecars have ended above.
++        try:
++            result['cli_daemon_cleanup']=cleanup_owned_cli_daemon(
++                case,net['session_id'],net['domain_R'],
++                case.with_name(case.name+'.cli-daemon-cleanup'))
++        except Exception as cleanup_error:
++            # Persist the original error/exit facts as well as cleanup failure.
++            result['cli_daemon_cleanup']=dict(cleanup_pass=False,error=repr(cleanup_error))
+         outcome.write_text(json.dumps(result,indent=2))
+     saved={}
+     save_names=["network-gateway-saved.json","bound-mask-recording-saved.json","peer-recording-saved.json"]
+@@ -205,6 +214,7 @@
+     integrity=(all(row["saved"] for row in saved.values()) and result["runner_exit"]==0
+         and result["hub_exit"]==0 and gateway_exit["native_exit"]==0
+         and result['controller_exit']['started'] is True and result['controller_exit']['returncode']==0
++        and result['cli_daemon_cleanup']['cleanup_pass'] is True
+         and cleanup.get("resources_destroyed") is True and cleanup.get("end_frame_flushed") is True)
+     if controlled is not None:integrity=integrity and result['controlled_time']['integrity']
+     if direct_reference:

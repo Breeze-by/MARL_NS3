@@ -1,0 +1,453 @@
+{
+  "original_events_streams": 1,
+  "selection": "Original process/smoke-bound/stop/authority and gateway evidence events only",
+  "rows": [
+    {
+      "utc": "2026-11-11T10:35:52.434042+00:00",
+      "wall": 1794393352.4340506,
+      "sim": 10.21,
+      "kind": "time_control_authority_evidence",
+      "basis": "not_created",
+      "pid": null,
+      "native_exit": null,
+      "original_authority_stopped": true
+    },
+    {
+      "utc": "2026-11-11T10:35:58.066107+00:00",
+      "wall": 1794393358.0661333,
+      "sim": 12.7,
+      "kind": "observed_stop",
+      "positions": {
+        "tb1": [
+          0.7254358128533802,
+          -0.15001674476546323,
+          0.007818546149710918,
+          5.707840810867485e-05,
+          4.882257038480472e-05
+        ],
+        "tb2": [
+          0.35040057920789824,
+          -0.800015319414208,
+          0.007813813778129656,
+          6.866028967438525e-05,
+          4.83512598722184e-05
+        ],
+        "tb3": [
+          1.1003410738729005,
+          -0.8000127130117668,
+          0.007811353069427585,
+          6.635264926558915e-05,
+          4.853733931485963e-05
+        ]
+      },
+      "per_robot_wall": {
+        "tb1": 610399.548180915,
+        "tb2": 610399.548231948,
+        "tb3": 610399.54824488
+      },
+      "sim_advanced": 0.6999999999999993,
+      "drive_received": {
+        "tb1": [
+          12.682,
+          105.0,
+          12.64,
+          0.0,
+          0.0,
+          6.602605111089369e-06,
+          2.095057864358823e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb2": [
+          12.682,
+          105.0,
+          12.64,
+          0.0,
+          0.0,
+          -3.4844223472690555e-05,
+          -2.0808071902934464e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb3": [
+          12.687,
+          106.0,
+          12.68,
+          0.0,
+          0.0,
+          -2.438711033743282e-05,
+          -1.0440594980338125e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "rpc_errors": [],
+      "authority_stopped": true,
+      "ownership_closed": true,
+      "owned_goals": {
+        "tb1": [],
+        "tb2": [],
+        "tb3": []
+      },
+      "request_ownership": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 0,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "lifecycle_pause_healthy": true
+    },
+    {
+      "utc": "2026-11-11T10:43:09.608501+00:00",
+      "wall": 1794393789.6085167,
+      "sim": 195.53,
+      "kind": "smoke_bound",
+      "sim_elapsed": 180.0,
+      "wall_elapsed": 425.14989125705324,
+      "reason": "simulation_budget"
+    },
+    {
+      "utc": "2026-11-11T10:43:09.609634+00:00",
+      "wall": 1794393789.6096416,
+      "sim": 195.53,
+      "kind": "process_signal",
+      "process": "exploration",
+      "pid": 820700,
+      "signal": "SIGINT"
+    },
+    {
+      "utc": "2026-11-11T10:43:11.383970+00:00",
+      "wall": 1794393791.3840032,
+      "sim": 196.31,
+      "kind": "process_exit",
+      "process": "exploration",
+      "code": 0
+    },
+    {
+      "utc": "2026-11-11T10:43:11.384083+00:00",
+      "wall": 1794393791.384089,
+      "sim": 196.31,
+      "kind": "time_control_authority_evidence",
+      "basis": "actual_process_poll",
+      "pid": 820700,
+      "native_exit": 0,
+      "original_authority_stopped": true
+    },
+    {
+      "utc": "2026-11-11T10:43:14.901004+00:00",
+      "wall": 1794393794.9010339,
+      "sim": 197.8,
+      "kind": "observed_stop",
+      "positions": {
+        "tb1": [
+          5.523796698031098,
+          2.286350892314906,
+          0.007815184914637306,
+          7.13180809020385e-05,
+          5.113465380667515e-05
+        ],
+        "tb2": [
+          -4.7162372481073325,
+          -0.319707918652188,
+          0.007810941180272064,
+          6.211633515709588e-05,
+          4.169111801303221e-05
+        ],
+        "tb3": [
+          -4.307591405348837,
+          -4.508225798836592,
+          0.007825846518557453,
+          6.266564671752483e-05,
+          4.137785589557647e-05
+        ]
+      },
+      "per_robot_wall": {
+        "tb1": 610836.382848179,
+        "tb2": 610836.382929753,
+        "tb3": 610836.382958632
+      },
+      "sim_advanced": 0.700000000000017,
+      "drive_received": {
+        "tb1": [
+          197.778,
+          5386.0,
+          197.77,
+          0.0,
+          0.0,
+          -1.7947504459853755e-05,
+          -2.929080019085367e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb2": [
+          197.778,
+          2325.0,
+          197.76,
+          0.0,
+          0.0,
+          8.799767628784752e-06,
+          2.102319112171362e-05,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tb3": [
+          197.783,
+          4529.0,
+          197.78,
+          0.0,
+          0.0,
+          -1.5841445120523786e-05,
+          -3.855392114532437e-06,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "rpc_errors": [],
+      "authority_stopped": true,
+      "ownership_closed": true,
+      "owned_goals": {
+        "tb1": [
+          "2e63b29656fa48a79a09b219f2557f0d",
+          "3f851967caf443d197a00c94d74a0880",
+          "45bc2ce6745c402494d28f7a6a9da7a2",
+          "a7ce820a3065436b81612258e848f771",
+          "e4d0773c958a4331874292a6f7ffb098"
+        ],
+        "tb2": [
+          "3ea4fdaf03114d0090d5f97d5be5b3ae",
+          "60823a2d0e5843548d0122ca3129df66"
+        ],
+        "tb3": [
+          "4a6c61edd48a4d4f893bab1f740b672e",
+          "5af6139633304895a93d001c7b7edbfa",
+          "5daf249ef8d644c3b716da3d5b61ae80",
+          "cea98b47d9174836a72c9a0d6c3b1d9d"
+        ]
+      },
+      "request_ownership": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 11,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "2e63b29656fa48a79a09b219f2557f0d",
+            "3f851967caf443d197a00c94d74a0880",
+            "45bc2ce6745c402494d28f7a6a9da7a2",
+            "a7ce820a3065436b81612258e848f771",
+            "e4d0773c958a4331874292a6f7ffb098"
+          ],
+          "tb2": [
+            "3ea4fdaf03114d0090d5f97d5be5b3ae",
+            "60823a2d0e5843548d0122ca3129df66"
+          ],
+          "tb3": [
+            "4a6c61edd48a4d4f893bab1f740b672e",
+            "5af6139633304895a93d001c7b7edbfa",
+            "5daf249ef8d644c3b716da3d5b61ae80",
+            "cea98b47d9174836a72c9a0d6c3b1d9d"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "lifecycle_pause_healthy": true
+    },
+    {
+      "utc": "2026-11-11T10:43:15.016289+00:00",
+      "wall": 1794393795.0163324,
+      "sim": 197.8,
+      "kind": "process_signal",
+      "process": "bag",
+      "pid": 818246,
+      "signal": "SIGINT"
+    },
+    {
+      "utc": "2026-11-11T10:43:15.514581+00:00",
+      "wall": 1794393795.5146203,
+      "sim": 198.04,
+      "kind": "process_exit",
+      "process": "bag",
+      "code": 0
+    },
+    {
+      "utc": "2026-11-11T10:43:15.533577+00:00",
+      "wall": 1794393795.533586,
+      "sim": 198.05,
+      "kind": "gateway_poststop_supervision",
+      "pid": 818244,
+      "begin_monotonic_ns": 610837015915084,
+      "initial_deadline_ns": 610857015915084,
+      "total_deadline_ns": 610897015915084,
+      "cleanup_deadline_ns": 610921091891784,
+      "hard_deadline_ns": 611260723944594,
+      "extension_eligible": true
+    },
+    {
+      "utc": "2026-11-11T10:43:15.533629+00:00",
+      "wall": 1794393795.533635,
+      "sim": 198.05,
+      "kind": "process_signal",
+      "process": "network_gateway",
+      "pid": 818244,
+      "signal": "SIGINT",
+      "deadline_monotonic_ns": 610857015915084
+    },
+    {
+      "utc": "2026-11-11T10:43:17.639997+00:00",
+      "wall": 1794393797.6400433,
+      "sim": 198.05,
+      "kind": "gateway_evidence_grace",
+      "pid": 818244,
+      "resources_closed": {
+        "phase": "resources_closed",
+        "pid": 818244,
+        "session_id": 2026111147,
+        "case": "/mnt/net01d/followup04/runs/gz-simhealth-b1-02",
+        "monotonic_ns": 610839117674858,
+        "safe_closed": true,
+        "cleanup": {
+          "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+          "end_frame_flushed": true,
+          "executor_shutdown": [
+            true,
+            true
+          ],
+          "resources_destroyed": true,
+          "unresolved_C_RPC": [],
+          "unresolved_R_RPC": [],
+          "unresolved_local_cleanup_futures": {
+            "1": 0,
+            "2": 0,
+            "3": 0
+          },
+          "action_confirmation_states": {
+            "C": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            },
+            "R": {
+              "1": {
+                "enabled": true,
+                "failure": null,
+                "waiting": 0,
+                "unconfirmed": 0
+              },
+              "2": {
+                "enabled": true,
+                "failure": null,
+                "waiting": 0,
+                "unconfirmed": 0
+              },
+              "3": {
+                "enabled": true,
+                "failure": null,
+                "waiting": 0,
+                "unconfirmed": 0
+              }
+            }
+          },
+          "retired_C_services": {
+            "1": [],
+            "2": [],
+            "3": []
+          },
+          "main_thread_sampler": {
+            "joined": true,
+            "failure": null,
+            "stop_begin_mono_ns": 610837294240589,
+            "stop_end_mono_ns": 610837294625982,
+            "collector_cpu_ns": 13301914476,
+            "samples": 23688,
+            "skipped_periods": 43,
+            "proc_fds_remaining": 0,
+            "proc_close_errors": []
+          }
+        }
+      },
+      "grace_deadline_ns": 610887015915084,
+      "total_deadline_ns": 610897015915084
+    },
+    {
+      "utc": "2026-11-11T10:43:43.437423+00:00",
+      "wall": 1794393823.4374628,
+      "sim": 198.05,
+      "kind": "process_exit",
+      "process": "network_gateway",
+      "code": 0
+    },
+    {
+      "utc": "2026-11-11T10:43:43.437614+00:00",
+      "wall": 1794393823.4376216,
+      "sim": 198.05,
+      "kind": "network_gateway_before_launch_exit",
+      "native_exit": 0
+    },
+    {
+      "utc": "2026-11-11T10:43:43.437753+00:00",
+      "wall": 1794393823.437759,
+      "sim": 198.05,
+      "kind": "process_signal",
+      "process": "launch",
+      "pid": 818245,
+      "signal": "SIGINT",
+      "signal_target": "owned_launch_parent_pid",
+      "timeout_wall_s": 20
+    },
+    {
+      "utc": "2026-11-11T10:43:47.721323+00:00",
+      "wall": 1794393827.7213674,
+      "sim": 198.05,
+      "kind": "process_exit",
+      "process": "launch",
+      "code": 0
+    }
+  ]
+}

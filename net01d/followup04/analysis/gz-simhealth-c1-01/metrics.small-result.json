@@ -1,0 +1,144 @@
+{
+  "scope": "ENCLOSED TASK COMPONENT",
+  "analysis_version": "gz01-recorded-v2",
+  "source_case": "/mnt/net01d/followup04/runs/gz-simhealth-c1-01",
+  "world": "/mnt/inputs/worlds/eval-corridor-common-6201.sdf",
+  "start_sim": 17.36,
+  "end_sim": 197.36,
+  "autonomy_sim_s": 180.0,
+  "reference_free_area_m2": 38.89500000000001,
+  "initial_source": {
+    "receipt_sim": 17.08,
+    "source_stamp": 16.715
+  },
+  "initial_coverage": 0.11119681192955393,
+  "final_coverage": 0.998907314564854,
+  "added_coverage": 0.8877105026353002,
+  "final_metrics": {
+    "receipt_sim": 196.59,
+    "source_stamp": 196.13,
+    "elapsed_sim_s": 179.23000000000002,
+    "reference_free_cells": 15558,
+    "reference_free_area_m2": 38.89500000000001,
+    "correct_free_cells": 15541,
+    "coverage": 0.998907314564854,
+    "correct_free_area_m2": 38.852500000000006,
+    "unknown_reachable_area_m2": 0.0025000000000000005,
+    "false_occupied_reachable_area_m2": 0.04000000000000001,
+    "false_free_physical_area_m2": 1.2000000000000002,
+    "free_precision_physical": 0.9791802212101497,
+    "predicted_occupied_cells": 2148,
+    "occupied_alignment_median_m": 0.0,
+    "occupied_alignment_p95_m": 0.05,
+    "known_truth_obstacle_cells": 2020,
+    "known_obstacle_recall_within_0_10m": 0.9975247524752475,
+    "map_quality_warnings": [],
+    "map_quality_valid": true,
+    "alignment_assessment": "within_predeclared_diagnostics"
+  },
+  "raw_thresholds": {
+    "0.5": {
+      "elapsed_sim_s": 8.45,
+      "receipt_sim": 25.81,
+      "initially_reached": false
+    },
+    "0.8": {
+      "elapsed_sim_s": 30.53,
+      "receipt_sim": 47.89,
+      "initially_reached": false
+    },
+    "0.9": {
+      "elapsed_sim_s": 34.9,
+      "receipt_sim": 52.26,
+      "initially_reached": false
+    },
+    "0.95": {
+      "elapsed_sim_s": 37.15,
+      "receipt_sim": 54.51,
+      "initially_reached": false
+    },
+    "0.98": {
+      "elapsed_sim_s": 70.96,
+      "receipt_sim": 88.32,
+      "initially_reached": false
+    }
+  },
+  "quality_valid_thresholds": {
+    "0.5": {
+      "elapsed_sim_s": 8.45,
+      "receipt_sim": 25.81,
+      "initially_reached": false
+    },
+    "0.8": {
+      "elapsed_sim_s": 30.53,
+      "receipt_sim": 47.89,
+      "initially_reached": false
+    },
+    "0.9": {
+      "elapsed_sim_s": 34.9,
+      "receipt_sim": 52.26,
+      "initially_reached": false
+    },
+    "0.95": {
+      "elapsed_sim_s": 37.15,
+      "receipt_sim": 54.51,
+      "initially_reached": false
+    },
+    "0.98": {
+      "elapsed_sim_s": 70.96,
+      "receipt_sim": 88.32,
+      "initially_reached": false
+    }
+  },
+  "quality_valid_samples": 223,
+  "samples": 229,
+  "observed_stop_sim": 200.1,
+  "post_task_observed_stop": true,
+  "stop_error": null,
+  "end_reason": "simulation_budget",
+  "raw_run_error": null,
+  "first_error": null,
+  "natural_completion_verified": false,
+  "calls": {
+    "Node": 0,
+    "NN": 0,
+    "environment_step": 0,
+    "optimizer": 0,
+    "Gazebo": 0,
+    "actual_Action": 0
+  },
+  "caveats": [
+    "Map receipt/bag ROS time used, never min-source header backdating.",
+    "Strict metric uses fixed declared world/common alignment, no fitted map transform.",
+    "Existing original budget outcome retained; retrospective threshold is not a natural policy terminal.",
+    "Reference region is not expanded to arbitrary ground-plane padding."
+  ],
+  "robot_metrics": {
+    "tb1": {
+      "path_m": 19.087938253413864,
+      "goals": 4,
+      "succeeded": 4,
+      "aborted": 0,
+      "canceled": 0,
+      "motion_participation": true
+    },
+    "tb2": {
+      "path_m": 15.125522460054539,
+      "goals": 4,
+      "succeeded": 4,
+      "aborted": 0,
+      "canceled": 0,
+      "motion_participation": true
+    },
+    "tb3": {
+      "path_m": 12.599952836039161,
+      "goals": 3,
+      "succeeded": 3,
+      "aborted": 0,
+      "canceled": 0,
+      "motion_participation": true
+    }
+  },
+  "reference_free_cells": 15558,
+  "source": "Originalcanonicaltool once; noROI/quality/phase rule change"
+}

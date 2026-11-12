@@ -1,0 +1,120 @@
+{
+  "status": "ROOT ADMITTED unique full no-motionLTOcompilation qualification",
+  "execution_authorized": true,
+  "source_checkpoint": "fbe269dd9f98f869b289ec81361b7fc20886642b",
+  "native_sha256_reused": "0cc771a18a3eb63ebbc4eb09ee942aaba27ea93211e07a7a0805d993dcc7c4f3",
+  "cwd": "/home/zhuyulab/ns3-workspace",
+  "argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net-01d/workspace/net01d/run_replay.py",
+    "--stage",
+    "full",
+    "--arm",
+    "B",
+    "--case",
+    "actual-phase-wifi-01",
+    "--output-dir",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup02/runs/tcp-lto-01",
+    "--payloads",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01",
+    "--native",
+    "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "--native-transport",
+    "tcp-mtu-v2",
+    "--dds-take-trace",
+    "--mock-phase",
+    "actual-corr6201",
+    "--native-evidence-ram",
+    "/dev/shm/net01d-f02-tcp-lto-01",
+    "--main-thread-sample",
+    "--adapter-qos-events",
+    "warning-free-v1"
+  ],
+  "output": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup02/runs/tcp-lto-01",
+  "RAM": "/dev/shm/net01d-f02-tcp-lto-01",
+  "normal_wall_s": 32,
+  "hard_wall_s": 60,
+  "guard_thresholds_unchanged": true,
+  "native_cpu_profile": false,
+  "dispatch_profile": true,
+  "control_trace": true,
+  "dds_take_trace": true,
+  "main_thread_sample": true,
+  "mock_phase": "actual-corr6201",
+  "scope": "One actual full32wall realROS qualification; not communicationoptimization or scientificperformanceproof, 0Nav2Policy/Gazebo; firstfailurepreserved",
+  "Action": {
+    "normal": 3,
+    "negative_active": 1,
+    "normal_expected_statuses": [
+      4,
+      4,
+      5
+    ],
+    "negative": "original fourth tb3 accepted/GetResult pending then.8wall realRADIOoff; original local cancel/PAUSE and honest centralUNKNOWN"
+  },
+  "transport": "explicit tcp-mtu-v2,3 duplex links,MSS1448 before create,InitialCwnd10segments/14480B; defaultRTO1sim andHOL retained",
+  "protocol_change": "MSS is deployment-MTU calibration, not536 software bug; frame bytes/IDs/source/ownership/safety unchanged; packetization/windowbytes legitimately differ",
+  "required_before_execution": [
+    "rootreviewactualobserver/admission",
+    "rootuniqueexplicitfulladmission",
+    "originalresource/owned/exclusiveprecheck"
+  ],
+  "automatic_retry": false,
+  "automatic_Gazebo": false,
+  "independent_packet_evidence": "analysis/ntcp-m2/v2-packetization.json",
+  "no_automatic_next_case": true,
+  "compiled_native_source_checkpoint": "ca9ea8c",
+  "gateway_cprofile": false,
+  "adapter_qos_events": "warning-free-v1",
+  "SDK_evidence": {
+    "qos_precondition": {
+      "result": "evidence/adapter-qos-event-sdk-01/check/result.json",
+      "review": "review/ADAPTER_QOS_EVENT_SOURCE_AND_SDK_REVIEW.md"
+    },
+    "terminal_quiet_current": {
+      "result": "evidence/gateway-tailquiet-sdk-01/check/result.json",
+      "review": "review/TERMINAL_QUIET_SOURCE_AND_SDK_REVIEW.md",
+      "actual_predicates": 26
+    }
+  },
+  "diagnostic_tradeoff": "No SDKautomatic incompatibleQoS warnings for these Gatewaypub/sub; explicitcallbacks/Actionbackendchecks/traces retained; lowerentitycap mayalterglobalpollbatchboundary",
+  "SDK_actual": "gateway-tailquiet-sdk-01 outer0/26predicatesPASS,original116/tail4,actualSDKresourcesclosed; nofullcapacityclaim",
+  "cap_semantics": "Original caps sumactualentities eachpoll; warningwaitable removal lowerscaps/canendbatch earlier; q4/cursor/Guard andbusinessrules unchanged, no promiseglobalinterleaving identical",
+  "warning_tradeoff": "Gateway endpoints no automatic incompatibleQoS WARN when unspecified; explicitcallback/Actionbackendchecks/traces remain",
+  "phase_snapshot_scope": "FirstactualCGoalcapture laterthan clientnormalstart to firstfaultobservedpollend/exit; originalclientmarkers judge32normal, notsnapshotduration",
+  "historical_lineage": {
+    "tcp-mtu-01": "Explicit tcp-mtu-v2/MSS1448 deploymentMTU baseline; notidle orwarningfree change",
+    "tcp-idle-01": "Originalreal-empty boundedselect idle candidate from0fa31b1",
+    "tcp-qos-01": "warning-free-v1 adapteronly defaultQoSwarning eventmanagement from844f546",
+    "tcp-tail-01": "Freshterminalquiet extension+smallcounterssnapshots from94fd77a; currentGateway baseline"
+  },
+  "source_rates_dataQoS_wireless_unchanged": true,
+  "adapter_diagnostic_events": "warning-free-v1 remains sharedwith tcp-qos-01: defaultwarnings removed,explicitcallbacks/dataQoS preserved; capbatchboundarychange disclosed",
+  "current_unique_comparison": "tcp-tail-01 to tcp-lto-01: native driver+13DSO compilationprofile LTO plus explicitFPcontractoff only; source/protocol/safety retained, notpureoneflagLTO",
+  "Gateway_implementation": "94fd77a unchanged Gateway code; newobserver committed in fbe269d",
+  "native_build_identity": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/evidence/BUILD_IDENTITY.json",
+  "environment": {
+    "LD_LIBRARY_PATH": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+    "LD_PRELOAD": "UNSET",
+    "LD_AUDIT": "UNSET"
+  },
+  "compilation_difference": "BaselineC3compilerFPdefault vsnewdriver+all13DSO-ffp-contract=off plusLTO, portableO3/model/radio/source/headers unchanged",
+  "native_pair_evidence": "analysis/lto-fixed-pair/comparison.json; 115895strictorderedrows/4PCAP/18RXexact, onepair only",
+  "loader_observer": {
+    "script": "net01d/followup02/native/observe_lto_full.py",
+    "only": "ownedHub/native actualREADY oncedso/maps; no controlorprotocoloperation",
+    "reuse": "observe_lto_pair.proc/owned_tree",
+    "all13_required_root": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+  },
+  "observer_argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net01d/followup02/native/observe_lto_full.py"
+  ],
+  "observer_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace"
+}

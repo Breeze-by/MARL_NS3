@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "checks": {
+    "source_original_fields_immutable": true,
+    "source_exactly_one_original_send": true,
+    "source_records_each_original_edge_header": true,
+    "source_capture_nodesim_from_actual_clock": true,
+    "destination_publish_once_all_fields_unchanged": true,
+    "destination_times_bracket_actual_publisher_call": true,
+    "same_captured_body_hash_not_second_serializer": true,
+    "publisher_exception_identity_preserved": true,
+    "publisher_exception_still_recorded_once": true,
+    "peer_original_called_once_same_input_and_return": true,
+    "peer_original_input_fields_unchanged": true,
+    "peer_held_header_before_after_observed": true,
+    "peer_exception_identity_preserved": true,
+    "peer_exception_one_call_and_final_metadata": true
+  },
+  "scope": "Actual wrapper methods with value-only typed TF and controlled original-call substitutes; no Buffer semantics or runtime latency claim",
+  "ROS_Node": 0,
+  "Gazebo": 0,
+  "NN": 0
+}

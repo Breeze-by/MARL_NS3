@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/net01/followup05/check_reliable_wifi.py", line 258, in <module>
+    if __name__=='__main__':main()
+  File "/mnt/net01/followup05/check_reliable_wifi.py", line 208, in main
+    check('all_actual_Action_CDR_bytes_equal_captured_full_payload',all(
+  File "/mnt/net01/followup05/check_reliable_wifi.py", line 49, in check
+    assert value,name
+AssertionError: all_actual_Action_CDR_bytes_equal_captured_full_payload

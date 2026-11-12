@@ -1,0 +1,57 @@
+{
+  "execution_authorized": true,
+  "status": "ROOT_ADMITTED_ONE_ISOLATED_NO_ROBOT_RUN",
+  "case": "one_sigint_DDS_run-01",
+  "historical_case": "gz-simhealth-a0-01",
+  "historical_runtime": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "script": "net01d/followup04/sigint-dds/check_sigint_dds.py",
+  "command": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "35s",
+    "bash",
+    "net01/ros-python.sh",
+    "/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py",
+    "--output",
+    "/mnt/net01d/followup04/sigint-dds/run-01"
+  ],
+  "command_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "output_relative_repo": "net01d/followup04/sigint-dds/run-01",
+  "domain": 97,
+  "source_wall_s": 12,
+  "source_Hz": 20,
+  "message": {
+    "type": "nav_msgs.msg.OccupancyGrid",
+    "width": 400,
+    "height": 400,
+    "data_bytes": 160000,
+    "raw": false,
+    "frame_id": "odom",
+    "resolution_m": 0.05,
+    "QoS": "RELIABLE/TRANSIENT_LOCAL/KEEP_LAST depth1",
+    "CDR_bytes": "MEASURED_ONCE_AT_RUN_NOT_ASSUMED"
+  },
+  "receiver_signal": "Exactly one os.kill(receiver_PID,SIGINT) after fixed12wall supply; original Python default_int_handler with rclpy SignalHandlerOptions.NO, not forced into conversion",
+  "bounds": {
+    "inner_wall_s": 30,
+    "outer_wall_s": 35,
+    "outer_kill_after_s": 2,
+    "post_signal_exit_wait_s": 5,
+    "failure_cleanup": "ownedSIGTERM/1s thenSIGKILL/1s; neversecondSIGINT"
+  },
+  "scope": "Real localDDS installed rootfs/Humble/FastRTPS message conversion and exception observation only; no originalcontroller/Goal/Nav2/robot/NN/native/GZ/scientific qualification",
+  "observation": "Receiver top-level bare re-raises original BaseException after recording mono/type/cause/context/full traceback and existing _take_subscription frame public topic/type/raw; normal finally cleanup unchanged in meaning",
+  "outcome": "Same generic RuntimeError observed => diagnostic observation, not attribution/fix. Ordinary KeyboardInterrupt or no matching RuntimeError => NOT_REPRODUCED. Preserve real nonzero child/outer exit; nocatchsuccess/no retry.",
+  "prerequisites": [
+    "Root source review/pin and explicitunique START",
+    "No current model/timedwork, domain97 and uniqueoutput clear at actualSTART"
+  ],
+  "production_or_system_source_changes": false,
+  "private_take_or_type_monkeypatch": false,
+  "repeat_or_model_authorization": false,
+  "root_review": "Root and independent reviewer read actual source/plan; single fixed invocation, preserve first outcome/no retry/no robot/Nav2/Policy/native/Gazebo claims",
+  "runtime_source_commit": "197a21aa86b45fc67be41f9b6cd5ec811cc29125"
+}

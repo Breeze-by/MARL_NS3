@@ -1,0 +1,107 @@
+{
+  "status": "POSTSTOP_GATEWAY_ROS_SIGKILL_CONFIRMED_EXIT_STAGE_UNRESOLVED",
+  "original_result_unchanged": "hostexit1/network_run_integrityfalse; business/run_integrity and physicalstop separately true; no PASS override",
+  "evidence_read_scope": {
+    "process_events": "small-raw/process-stop-events.json producer cache; raw events not reread",
+    "small_result": "small-result.json",
+    "gateway_log": "tail20 bytes0",
+    "gateway_JSON": "stat only; contents not opened",
+    "native_ledger": "NOT_READ",
+    "models_or_tests": "NOT_RUN"
+  },
+  "process": {
+    "gateway_ros_pid": 727580,
+    "native_leaf_pid": 727495,
+    "Hub_pid": 727488,
+    "gateway_exit": -9,
+    "native_leaf_exit": 0,
+    "Hub_exit": 0
+  },
+  "actual_wall_s": {
+    "Gateway_SIGINT": 1794391053.363204,
+    "Gateway_SIGTERM": 1794391073.3645766,
+    "Gateway_SIGKILL": 1794391078.3745718,
+    "Gateway_exit_minus9": 1794391078.4344184,
+    "launch_SIGINT": 1794391078.4345608,
+    "launch_exit0": 1794391082.6723123,
+    "main_JSON_mtime": 1794391074.0760918,
+    "saved_mtime": 1794391074.6351116
+  },
+  "intervalseconds": {
+    "SIGINT_to_SIGTERM": 20.001372575759888,
+    "SIGTERM_to_SIGKILL": 5.009995222091675,
+    "saved_mtime_to_SIGKILL": 3.7394602298736572,
+    "SIGTERM_to_saved_mtime": 1.2705349922180176,
+    "reported_persist_wall": 19.58971658302471
+  },
+  "original_deadlines": {
+    "source": "workspace/gz01/run_case.py:582-595",
+    "stages": [
+      {
+        "signal": "SIGINT",
+        "wait_wall_s": 20
+      },
+      {
+        "signal": "SIGTERM",
+        "wait_wall_s": 5
+      },
+      {
+        "signal": "SIGKILL",
+        "wait_wall_s": 5
+      }
+    ],
+    "callsite": "net01/run_network_case.py:345 frozen_end_process(gateway, observer, network_gateway), before controlled launch shutdown",
+    "boot_outer_timeout": false,
+    "boot_cleanup_timeout": false,
+    "configured_work_outer_wall_s": 900,
+    "configured_cleanup_wall_s": 90,
+    "configured_host_wall_s": 1000,
+    "stop_wall_s": 12
+  },
+  "known_close": {
+    "resources_destroyed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "END_flushed": true,
+    "RPC_local_confirmation_pending": 0,
+    "sampler_joined": true,
+    "saved": true,
+    "main_JSON_bytes": 351717800,
+    "saved_file_bytes": 1051
+  },
+  "limits": [
+    "mtime is filesystem realtime, not new monotonic callback instrumentation; kept distinct from process-event realtime and duration fields",
+    "saved file is written after main JSON by actual persist source, but no post-persist/main-return/interpreter-finalization markers or stack exist",
+    "reported persist spans passive C89 persistence, snapshots and JSON encode/write, not isolated serialization CPU or filesystem I/O",
+    "After saved write, remaining approximately3.739wall until SIGKILL cannot distinguish persist-local deallocation, close/main return, interpreter GC/refcounts or remaining native Python resource finalization",
+    "SIGTERM handler merely reasserts stopping, so it does not abort a close/persist already executing; no stderr trace"
+  ],
+  "minimal_candidate_NOT_IMPLEMENTED": {
+    "files": [
+      "net01/gateway.py",
+      "net01/run_network_case.py"
+    ],
+    "safety": "Keep original active/physical stop12, UUIDcancel/zero/PAUSE, resource/END/RPC checks, source/time/radio/model and host/work budgets unchanged",
+    "phase": "Tiny append-only monotonic stage record: safe resource-close attempt complete with existing clean fields, evidence persist begin/end, close return/main return. Stage markers never substitute for real exit0",
+    "supervision": "Only after real safety-close proof, treat persistence and final process exit as evidence finalization inside already predeclared remaining cleanup90 and host1000 hard deadline. Do not reset a rolling deadline, extend autonomy, skip failed closure, or accept saved/-9. Before proof, keep original fail/kill escalation. Explicit finite final-exit bound must remain and report timedout stage",
+    "not_selected_yet": "No GC/resource-free optimization chosen from missing post-save stacks; no os._exit/timeout extension/saved-as-PASS workaround"
+  },
+  "isolated_validation_plan_NOT_RUN": {
+    "source": "Reuse actual Gateway close/persist and actual supervisor path; existing SDK two-domain+UnixReady fixture can supply zeroRobot constructor/lifecycle, no ns3/Gazebo/Nav2/Policy",
+    "cases": [
+      "Bounded synthetic RAM capture producing report plus normal real process exit: distinguish resourceclose/persist/mainreturn/exit and preserve outputs",
+      "Controlled persist stall after verified resourceclose: fail evidence at fixed remaining budget, never safetyPASS/processPASS from saved or earlier marker",
+      "Controlled pre-close stall or unresolved actual cleanup proof: old fail escalation, no evidence-phase exemption",
+      "Saved marker then controlled post-close process stall: actual nonzero/killed exit remains integrityFAIL"
+    ],
+    "measurements": [
+      "monotonic signal/stage/exit records",
+      "process returncode and owned PID disappearance",
+      "actual report saved/END/RPC/close result",
+      "threadCPU/processCPU/wall for persist and post-persist separately if needed, no claimed pristine runtime gain"
+    ],
+    "qualification": "Diagnostic zeroRobot fixture only; no retrospective B PASS, no automatic full/GZ replay. Root must approve exact changes and fixed fixture budgets first"
+  }
+}

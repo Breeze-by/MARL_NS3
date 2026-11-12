@@ -1,0 +1,699 @@
+{
+  "scope": "One negative no-DDS-bypass boundary analysis only; not phaseCPU/p95/PCAPdecode/wholequalification. No Gateway original read.",
+  "actual_native_blackout": {
+    "kind": "channel_blackout",
+    "ns3_ns": 20230000000,
+    "monotonic_ns": 602296120523186,
+    "fault_definition": "transparent-range-gate-v1"
+  },
+  "actual_gate_source": "payload_transport RADIO synchronously sets RangePropagationLossModel MaxRange0 then emits channel_blackout; this is applied native event, not host request.",
+  "native_after_actual_cut": {
+    "kind_counts": {
+      "channel_blackout": 1,
+      "ipc_ingress": 369,
+      "tcp_tx": 413,
+      "mac_tx": 413,
+      "phy_tx_end": 3218,
+      "mac_data_retry": 3217,
+      "mac_final_data_drop": 3082,
+      "tcp_write": 788,
+      "horizon_return": 31,
+      "actual_clock_horizon_known": 30,
+      "transport_end": 1
+    },
+    "flow_counts": {
+      "43": 51,
+      "46": 43,
+      "266": 29,
+      "63": 50,
+      "23": 50,
+      "26": 43,
+      "22": 9,
+      "66": 42,
+      "42": 9,
+      "62": 9,
+      "31": 3,
+      "51": 3,
+      "71": 3,
+      "30": 3,
+      "50": 3,
+      "70": 3,
+      "228": 3,
+      "248": 3,
+      "268": 3,
+      "65": 1,
+      "45": 1,
+      "267": 1,
+      "263": 3,
+      "25": 1
+    },
+    "directions": {
+      "R_to_C": 351,
+      "C_to_R": 18
+    },
+    "counts_scope": "Native monotonic timestamps >=actual channel_blackout event; payload ingress may include old queued source data, classified separately below.",
+    "new_whole_native_SEND_payloads": 369,
+    "new_TCP_application_frames": 0,
+    "new_complete_Hub_business_deliveries": 0,
+    "count_definitions": {
+      "ipc_ingress": "Once per complete SEND/SENDAT body from Hub (RPC-prefix+serialized business payload in this business window), before tcpTransmit splits it; not perTCPchunk.",
+      "tcp_frame_rx": "One parsed36-byte application-header+CHUNK<=1164 payload frame, passed to receiveFragment; not necessarily fullROSbody, not a TCPsegment. Zero newframes plus zeroHubdeliveries establishes no new completed business delivery aftercut."
+    }
+  },
+  "Hub_after_actual_cut": {
+    "new_ingress": 368,
+    "deliveries": 0,
+    "native_post_ingress_known_to_Hub": 369,
+    "Hub_ingress_after_cut_matching_native_post": 368,
+    "delivery_cache_classification": []
+  },
+  "source_bound_masks": {
+    "actual_post_cut_publications": 9,
+    "post_cut_sequences_by_robot": {
+      "tb1": [
+        203,
+        204,
+        205
+      ],
+      "tb2": [
+        203,
+        204,
+        205
+      ],
+      "tb3": [
+        203,
+        204,
+        205
+      ]
+    },
+    "source_to_post_native_mask_chains": [
+      {
+        "native_ingress": {
+          "kind": "ipc_ingress",
+          "ns3_ns": 20310000000,
+          "monotonic_ns": 602296179944815,
+          "from": 0,
+          "to": 1,
+          "flow": 30,
+          "message_id": 20207,
+          "body_bytes": 160683,
+          "source_stamp_ns": 20300000000,
+          "admission_ns": 20310000000
+        },
+        "Hub_ingress": {
+          "kind": "send",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 30,
+          "source_stamp_ns": 20300000000,
+          "admission_ns": 20310000000,
+          "bytes": 160683,
+          "native_message_id": 20207,
+          "hub_ingress_monotonic_ns": 602296179450939
+        },
+        "source_match_count": 1,
+        "source_sequence": 203,
+        "source_publication": {
+          "version": "mask-publication-batch-v1",
+          "session_id": 2026110912,
+          "robot": "tb1",
+          "original_header": {
+            "stamp_sec": 20,
+            "stamp_nanosec": 300000000,
+            "frame_id": "odom"
+          },
+          "mask_cdr_bytes": 160104,
+          "mask_cdr_sha256": "41d6271bb0712b62822473790a1d26603fd36ec3da4d7d6525925ceaecc51a49",
+          "health_cdr_sha256": "6acc8574d30a7b7522a5a06e7d56ee71ae3240671f0673a84ef8923e8918e028",
+          "bound_state": {
+            "ready": true,
+            "generated_sim": 20.3,
+            "sequence": 203,
+            "odom_stamps": {
+              "tb3": 20.21,
+              "tb2": 20.22,
+              "tb1": 20.23
+            },
+            "correction_stamps": {
+              "tb3": 20.31,
+              "tb2": 20.38,
+              "tb1": 20.29
+            }
+          },
+          "captured_monotonic_ns": 602296166047667
+        },
+        "new_source_after_actual_blackout": true,
+        "native_complete_after_blackout": false
+      },
+      {
+        "native_ingress": {
+          "kind": "ipc_ingress",
+          "ns3_ns": 20310000000,
+          "monotonic_ns": 602296180725012,
+          "from": 0,
+          "to": 2,
+          "flow": 50,
+          "message_id": 20208,
+          "body_bytes": 160683,
+          "source_stamp_ns": 20300000000,
+          "admission_ns": 20310000000
+        },
+        "Hub_ingress": {
+          "kind": "send",
+          "sender": 0,
+          "receiver": 2,
+          "flow": 50,
+          "source_stamp_ns": 20300000000,
+          "admission_ns": 20310000000,
+          "bytes": 160683,
+          "native_message_id": 20208,
+          "hub_ingress_monotonic_ns": 602296180096101
+        },
+        "source_match_count": 1,
+        "source_sequence": 203,
+        "source_publication": {
+          "version": "mask-publication-batch-v1",
+          "session_id": 2026110912,
+          "robot": "tb2",
+          "original_header": {
+            "stamp_sec": 20,
+            "stamp_nanosec": 300000000,
+            "frame_id": "odom"
+          },
+          "mask_cdr_bytes": 160104,
+          "mask_cdr_sha256": "c60ef9c43c6c685e1cb41d0ef9f2d87e3f48599e1dcb5413c91e3cd6b123f7db",
+          "health_cdr_sha256": "6acc8574d30a7b7522a5a06e7d56ee71ae3240671f0673a84ef8923e8918e028",
+          "bound_state": {
+            "ready": true,
+            "generated_sim": 20.3,
+            "sequence": 203,
+            "odom_stamps": {
+              "tb3": 20.21,
+              "tb2": 20.22,
+              "tb1": 20.23
+            },
+            "correction_stamps": {
+              "tb3": 20.31,
+              "tb2": 20.38,
+              "tb1": 20.29
+            }
+          },
+          "captured_monotonic_ns": 602296167780173
+        },
+        "new_source_after_actual_blackout": true,
+        "native_complete_after_blackout": false
+      },
+      {
+        "native_ingress": {
+          "kind": "ipc_ingress",
+          "ns3_ns": 20310000000,
+          "monotonic_ns": 602296181494229,
+          "from": 0,
+          "to": 3,
+          "flow": 70,
+          "message_id": 20209,
+          "body_bytes": 160683,
+          "source_stamp_ns": 20300000000,
+          "admission_ns": 20310000000
+        },
+        "Hub_ingress": {
+          "kind": "send",
+          "sender": 0,
+          "receiver": 3,
+          "flow": 70,
+          "source_stamp_ns": 20300000000,
+          "admission_ns": 20310000000,
+          "bytes": 160683,
+          "native_message_id": 20209,
+          "hub_ingress_monotonic_ns": 602296180854081
+        },
+        "source_match_count": 1,
+        "source_sequence": 203,
+        "source_publication": {
+          "version": "mask-publication-batch-v1",
+          "session_id": 2026110912,
+          "robot": "tb3",
+          "original_header": {
+            "stamp_sec": 20,
+            "stamp_nanosec": 300000000,
+            "frame_id": "odom"
+          },
+          "mask_cdr_bytes": 160104,
+          "mask_cdr_sha256": "3c864bffd931c3f165de2e6884a1655dd3e0dc5a24cca75bcead9b9cc4191f74",
+          "health_cdr_sha256": "6acc8574d30a7b7522a5a06e7d56ee71ae3240671f0673a84ef8923e8918e028",
+          "bound_state": {
+            "ready": true,
+            "generated_sim": 20.3,
+            "sequence": 203,
+            "odom_stamps": {
+              "tb3": 20.21,
+              "tb2": 20.22,
+              "tb1": 20.23
+            },
+            "correction_stamps": {
+              "tb3": 20.31,
+              "tb2": 20.38,
+              "tb1": 20.29
+            }
+          },
+          "captured_monotonic_ns": 602296169310790
+        },
+        "new_source_after_actual_blackout": true,
+        "native_complete_after_blackout": false
+      },
+      {
+        "native_ingress": {
+          "kind": "ipc_ingress",
+          "ns3_ns": 20400000000,
+          "monotonic_ns": 602296286258089,
+          "from": 0,
+          "to": 1,
+          "flow": 30,
+          "message_id": 20268,
+          "body_bytes": 160698,
+          "source_stamp_ns": 20400000000,
+          "admission_ns": 20400000000
+        },
+        "Hub_ingress": {
+          "kind": "send",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 30,
+          "source_stamp_ns": 20400000000,
+          "admission_ns": 20400000000,
+          "bytes": 160698,
+          "native_message_id": 20268,
+          "hub_ingress_monotonic_ns": 602296285702949
+        },
+        "source_match_count": 1,
+        "source_sequence": 204,
+        "source_publication": {
+          "version": "mask-publication-batch-v1",
+          "session_id": 2026110912,
+          "robot": "tb1",
+          "original_header": {
+            "stamp_sec": 20,
+            "stamp_nanosec": 400000000,
+            "frame_id": "odom"
+          },
+          "mask_cdr_bytes": 160104,
+          "mask_cdr_sha256": "52481b308a97412028b0448d73c388e2c8d7d2d5affa62e78c738a5774cce79a",
+          "health_cdr_sha256": "8adaf003f8d59093b1cf501d21b70397a9cab1007fe7c5b5e2cd42b9b02af61f",
+          "bound_state": {
+            "ready": false,
+            "generated_sim": 20.400000000000002,
+            "sequence": 204,
+            "odom_stamps": {
+              "tb3": 20.21,
+              "tb2": 20.22,
+              "tb1": 20.23
+            },
+            "correction_stamps": {
+              "tb3": 20.31,
+              "tb2": 20.38,
+              "tb1": 20.29
+            }
+          },
+          "captured_monotonic_ns": 602296272471731
+        },
+        "new_source_after_actual_blackout": true,
+        "native_complete_after_blackout": false
+      },
+      {
+        "native_ingress": {
+          "kind": "ipc_ingress",
+          "ns3_ns": 20400000000,
+          "monotonic_ns": 602296287233626,
+          "from": 0,
+          "to": 2,
+          "flow": 50,
+          "message_id": 20269,
+          "body_bytes": 160698,
+          "source_stamp_ns": 20400000000,
+          "admission_ns": 20400000000
+        },
+        "Hub_ingress": {
+          "kind": "send",
+          "sender": 0,
+          "receiver": 2,
+          "flow": 50,
+          "source_stamp_ns": 20400000000,
+          "admission_ns": 20400000000,
+          "bytes": 160698,
+          "native_message_id": 20269,
+          "hub_ingress_monotonic_ns": 602296286589223
+        },
+        "source_match_count": 1,
+        "source_sequence": 204,
+        "source_publication": {
+          "version": "mask-publication-batch-v1",
+          "session_id": 2026110912,
+          "robot": "tb2",
+          "original_header": {
+            "stamp_sec": 20,
+            "stamp_nanosec": 400000000,
+            "frame_id": "odom"
+          },
+          "mask_cdr_bytes": 160104,
+          "mask_cdr_sha256": "30548fd1563f8c1d6e6f14ff1f809b6b60088cf4e3ab80586247682ca1291ece",
+          "health_cdr_sha256": "8adaf003f8d59093b1cf501d21b70397a9cab1007fe7c5b5e2cd42b9b02af61f",
+          "bound_state": {
+            "ready": false,
+            "generated_sim": 20.400000000000002,
+            "sequence": 204,
+            "odom_stamps": {
+              "tb3": 20.21,
+              "tb2": 20.22,
+              "tb1": 20.23
+            },
+            "correction_stamps": {
+              "tb3": 20.31,
+              "tb2": 20.38,
+              "tb1": 20.29
+            }
+          },
+          "captured_monotonic_ns": 602296274078750
+        },
+        "new_source_after_actual_blackout": true,
+        "native_complete_after_blackout": false
+      },
+      {
+        "native_ingress": {
+          "kind": "ipc_ingress",
+          "ns3_ns": 20400000000,
+          "monotonic_ns": 602296287751427,
+          "from": 0,
+          "to": 3,
+          "flow": 70,
+          "message_id": 20270,
+          "body_bytes": 160698,
+          "source_stamp_ns": 20400000000,
+          "admission_ns": 20400000000
+        },
+        "Hub_ingress": {
+          "kind": "send",
+          "sender": 0,
+          "receiver": 3,
+          "flow": 70,
+          "source_stamp_ns": 20400000000,
+          "admission_ns": 20400000000,
+          "bytes": 160698,
+          "native_message_id": 20270,
+          "hub_ingress_monotonic_ns": 602296287443082
+        },
+        "source_match_count": 1,
+        "source_sequence": 204,
+        "source_publication": {
+          "version": "mask-publication-batch-v1",
+          "session_id": 2026110912,
+          "robot": "tb3",
+          "original_header": {
+            "stamp_sec": 20,
+            "stamp_nanosec": 400000000,
+            "frame_id": "odom"
+          },
+          "mask_cdr_bytes": 160104,
+          "mask_cdr_sha256": "3d658c38d4b707fdfb0bd6fb982960c13309ba71fd08a748dab25ba2ebae4f10",
+          "health_cdr_sha256": "8adaf003f8d59093b1cf501d21b70397a9cab1007fe7c5b5e2cd42b9b02af61f",
+          "bound_state": {
+            "ready": false,
+            "generated_sim": 20.400000000000002,
+            "sequence": 204,
+            "odom_stamps": {
+              "tb3": 20.21,
+              "tb2": 20.22,
+              "tb1": 20.23
+            },
+            "correction_stamps": {
+              "tb3": 20.31,
+              "tb2": 20.38,
+              "tb1": 20.29
+            }
+          },
+          "captured_monotonic_ns": 602296275546313
+        },
+        "new_source_after_actual_blackout": true,
+        "native_complete_after_blackout": false
+      },
+      {
+        "native_ingress": {
+          "kind": "ipc_ingress",
+          "ns3_ns": 20500000000,
+          "monotonic_ns": 602296360368718,
+          "from": 0,
+          "to": 1,
+          "flow": 30,
+          "message_id": 20324,
+          "body_bytes": 160684,
+          "source_stamp_ns": 20500000000,
+          "admission_ns": 20510000000
+        },
+        "Hub_ingress": {
+          "kind": "send",
+          "sender": 0,
+          "receiver": 1,
+          "flow": 30,
+          "source_stamp_ns": 20500000000,
+          "admission_ns": 20510000000,
+          "bytes": 160684,
+          "native_message_id": 20324,
+          "hub_ingress_monotonic_ns": 602296359894369
+        },
+        "source_match_count": 1,
+        "source_sequence": 205,
+        "source_publication": {
+          "version": "mask-publication-batch-v1",
+          "session_id": 2026110912,
+          "robot": "tb1",
+          "original_header": {
+            "stamp_sec": 20,
+            "stamp_nanosec": 500000000,
+            "frame_id": "odom"
+          },
+          "mask_cdr_bytes": 160104,
+          "mask_cdr_sha256": "ce5f3c72195bbe066225cc9473bdd75e948ed307dc08d260c1d1e0bcffb06f01",
+          "health_cdr_sha256": "343fc1db2476dac9751d58475bbc204f42c7bfc837c8cbf23e6a486e4ef629dc",
+          "bound_state": {
+            "ready": false,
+            "generated_sim": 20.5,
+            "sequence": 205,
+            "odom_stamps": {
+              "tb3": 20.21,
+              "tb2": 20.22,
+              "tb1": 20.23
+            },
+            "correction_stamps": {
+              "tb3": 20.31,
+              "tb2": 20.38,
+              "tb1": 20.29
+            }
+          },
+          "captured_monotonic_ns": 602296344466044
+        },
+        "new_source_after_actual_blackout": true,
+        "native_complete_after_blackout": false
+      },
+      {
+        "native_ingress": {
+          "kind": "ipc_ingress",
+          "ns3_ns": 20510000000,
+          "monotonic_ns": 602296368469046,
+          "from": 0,
+          "to": 2,
+          "flow": 50,
+          "message_id": 20325,
+          "body_bytes": 160684,
+          "source_stamp_ns": 20500000000,
+          "admission_ns": 20510000000
+        },
+        "Hub_ingress": {
+          "kind": "send",
+          "sender": 0,
+          "receiver": 2,
+          "flow": 50,
+          "source_stamp_ns": 20500000000,
+          "admission_ns": 20510000000,
+          "bytes": 160684,
+          "native_message_id": 20325,
+          "hub_ingress_monotonic_ns": 602296367936375
+        },
+        "source_match_count": 1,
+        "source_sequence": 205,
+        "source_publication": {
+          "version": "mask-publication-batch-v1",
+          "session_id": 2026110912,
+          "robot": "tb2",
+          "original_header": {
+            "stamp_sec": 20,
+            "stamp_nanosec": 500000000,
+            "frame_id": "odom"
+          },
+          "mask_cdr_bytes": 160104,
+          "mask_cdr_sha256": "66df0d68cfc2d2912603b51d649f44cc9a9b8216bf2f3bef0717f6b22b3c36b8",
+          "health_cdr_sha256": "343fc1db2476dac9751d58475bbc204f42c7bfc837c8cbf23e6a486e4ef629dc",
+          "bound_state": {
+            "ready": false,
+            "generated_sim": 20.5,
+            "sequence": 205,
+            "odom_stamps": {
+              "tb3": 20.21,
+              "tb2": 20.22,
+              "tb1": 20.23
+            },
+            "correction_stamps": {
+              "tb3": 20.31,
+              "tb2": 20.38,
+              "tb1": 20.29
+            }
+          },
+          "captured_monotonic_ns": 602296345973163
+        },
+        "new_source_after_actual_blackout": true,
+        "native_complete_after_blackout": false
+      },
+      {
+        "native_ingress": {
+          "kind": "ipc_ingress",
+          "ns3_ns": 20510000000,
+          "monotonic_ns": 602296368891071,
+          "from": 0,
+          "to": 3,
+          "flow": 70,
+          "message_id": 20326,
+          "body_bytes": 160684,
+          "source_stamp_ns": 20500000000,
+          "admission_ns": 20510000000
+        },
+        "Hub_ingress": {
+          "kind": "send",
+          "sender": 0,
+          "receiver": 3,
+          "flow": 70,
+          "source_stamp_ns": 20500000000,
+          "admission_ns": 20510000000,
+          "bytes": 160684,
+          "native_message_id": 20326,
+          "hub_ingress_monotonic_ns": 602296368611173
+        },
+        "source_match_count": 1,
+        "source_sequence": 205,
+        "source_publication": {
+          "version": "mask-publication-batch-v1",
+          "session_id": 2026110912,
+          "robot": "tb3",
+          "original_header": {
+            "stamp_sec": 20,
+            "stamp_nanosec": 500000000,
+            "frame_id": "odom"
+          },
+          "mask_cdr_bytes": 160104,
+          "mask_cdr_sha256": "c9023b2c935df0d6a35812d9162fb4454a53cdab7c28f914f55efa1ebfe9dbbb",
+          "health_cdr_sha256": "343fc1db2476dac9751d58475bbc204f42c7bfc837c8cbf23e6a486e4ef629dc",
+          "bound_state": {
+            "ready": false,
+            "generated_sim": 20.5,
+            "sequence": 205,
+            "odom_stamps": {
+              "tb3": 20.21,
+              "tb2": 20.22,
+              "tb1": 20.23
+            },
+            "correction_stamps": {
+              "tb3": 20.31,
+              "tb2": 20.38,
+              "tb1": 20.29
+            }
+          },
+          "captured_monotonic_ns": 602296347404512
+        },
+        "new_source_after_actual_blackout": true,
+        "native_complete_after_blackout": false
+      }
+    ],
+    "identity_scope": "Actual originalHeader stamp/owner uniquely joins immutable bound publication metadata to native SEND source_stamp/flow/receiver and Hub messageid. R consumer accepted/held sequence is UNMEASURED without Gateway; generated_sim is not receipt_sim.",
+    "last_native_TCP_frame_source_sequences_before_blackout": [
+      {
+        "source_sequence": 202,
+        "scope": "Source identity of the last cached nativeTCP applicationframe, not fullbody acceptance. ActualRconsumer held/acceptedseq UNMEASURED without Gateway.",
+        "last_native_TCP_application_frame_before_blackout": {
+          "kind": "tcp_frame_rx",
+          "ns3_ns": 20222589233,
+          "monotonic_ns": 602296098521132,
+          "message_id": 20129,
+          "from": 0,
+          "to": 1,
+          "flow": 30,
+          "offset": 160632,
+          "total": 160697,
+          "body_bytes": 65,
+          "source_stamp_ns": 20200000000
+        }
+      },
+      {
+        "source_sequence": 202,
+        "scope": "Source identity of the last cached nativeTCP applicationframe, not fullbody acceptance. ActualRconsumer held/acceptedseq UNMEASURED without Gateway.",
+        "last_native_TCP_application_frame_before_blackout": {
+          "kind": "tcp_frame_rx",
+          "ns3_ns": 20224144265,
+          "monotonic_ns": 602296110890588,
+          "message_id": 20130,
+          "from": 0,
+          "to": 2,
+          "flow": 50,
+          "offset": 160632,
+          "total": 160697,
+          "body_bytes": 65,
+          "source_stamp_ns": 20200000000
+        }
+      },
+      {
+        "source_sequence": 202,
+        "scope": "Source identity of the last cached nativeTCP applicationframe, not fullbody acceptance. ActualRconsumer held/acceptedseq UNMEASURED without Gateway.",
+        "last_native_TCP_application_frame_before_blackout": {
+          "kind": "tcp_frame_rx",
+          "ns3_ns": 20225094276,
+          "monotonic_ns": 602296115087536,
+          "message_id": 20131,
+          "from": 0,
+          "to": 3,
+          "flow": 70,
+          "offset": 160632,
+          "total": 160697,
+          "body_bytes": 65,
+          "source_stamp_ns": 20200000000
+        }
+      }
+    ]
+  },
+  "central_result": "Actual fourth CGetResult remains pending/statusnull=UNKNOWN; real local matchingUUID5/PAUSE does not claim Cdelivery. See small-summary.json.",
+  "interpretation": "After actual appliedgate369wholeSENDpayloads were admitted (368Hubingress snapshots aftergate,1precutHubqueued payload);0new TCPapplicationframes and0Hub businessdeliveries followed. Sources genuinely generated9new boundmasks seq203/204/205 for3robots aftergate; lastcachednativeframe belongs toseq202, not proof ofRheldseq. Centralresult remainsUNKNOWN. No pre-cut cache is called an idealbypass; this evidence supports this appliedcut no-new-business-completion scope only.",
+  "raw_input_reads": {
+    "native_ledger_stream": 1,
+    "native_ledger_rows": 1772314,
+    "Hub_ingress_JSON": 2,
+    "Hub_deliveries_JSON": 2,
+    "Hub_note": "First read schema/sample,second bounded window selection; selected caches now retained, no further reads needed.",
+    "source_bound_publications_JSONL": 1,
+    "Gateway_original": 0,
+    "PCAPdecode": 0
+  },
+  "no_new_model_or_source_changes": true,
+  "pre_cut_Hub_queued_payloads_native_admitted_after_cut": {
+    "count": 1,
+    "native_rows": [
+      {
+        "kind": "ipc_ingress",
+        "ns3_ns": 20230000000,
+        "monotonic_ns": 602296120540029,
+        "from": 2,
+        "to": 0,
+        "flow": 43,
+        "message_id": 20166,
+        "body_bytes": 100,
+        "source_stamp_ns": 0,
+        "admission_ns": 20240000000
+      }
+    ],
+    "scope": "These IDs were found in originalHub ingress lookup but absent from Hubpostcutwindow; therefore queued/captured before appliedcut, not novelpostcut source nor bypass. ExactHubprecutmono not retained and not reread."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "source_commit": "a90d67a16e9500d01988b7775844d5d628cece60",
+  "scope": "One optional asynchronous diagnostic ledger; original ns3 libraries/V3/header reused",
+  "binary": {
+    "path": "/home/zhuyulab/ns3-workspace/net-01/build/followup03-async-ledger/net01-payload",
+    "bytes": 390832,
+    "sha256": "0bd9b1bfb2d542d5c2eb5aea25d852b46e54535109eacb2e43e69e80d17842bd"
+  },
+  "sources": [
+    {
+      "path": "net01/native/payload_transport.cc",
+      "sha256": "810c51a225dce2fbf5499a78faa6f89ee1f653fa8797f9f7cf6267b83e7c3cba"
+    },
+    {
+      "path": "net01/native/event_ledger.h",
+      "sha256": "2b7f0ac3aef8b9659436e3e4b2a6ff6f2e5d78c806657b1a92f73807f3ea53e3"
+    },
+    {
+      "path": "net01/native/CMakeLists.txt",
+      "sha256": "d6763d79ea1c4d95993c8a77766fa951ce41f81f3334e586b422c74d54e61fe4"
+    }
+  ],
+  "reused_generated_header": {
+    "relative_phase": "build/network-full-payload/network_config.h",
+    "bytes": 4545,
+    "sha256": "66e64adf26c3d712ab149fe2d828ae8858d00c7172ef8adfacfc5bd7c2ff73a2"
+  },
+  "configure": "cmake -S net-01/workspace/net01/native -B net-01/build/followup03-async-ledger -DCMAKE_BUILD_TYPE=Release -DNS3_DIR=/home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40 -DCONFIG_HEADER_DIR=/home/zhuyulab/ns3-workspace/net-01/build/network-full-payload",
+  "build": "cmake --build net-01/build/followup03-async-ledger -j2",
+  "configure_exit": 0,
+  "build_exit": 0,
+  "pending_capacity_records": 16384,
+  "default_async": false,
+  "old_binary_not_overwritten": "build/followup03-cpu/net01-payload"
+}

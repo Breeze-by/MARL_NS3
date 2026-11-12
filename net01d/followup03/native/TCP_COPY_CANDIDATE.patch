@@ -1,0 +1,17 @@
+--- a/net01d/followup02/native/tcp_stream_draft.inc
++++ b/net01d/followup02/native/tcp_stream_draft.inc
+@@ -187,10 +187,12 @@
+   endpoint.peakQueuedBytes=std::max(endpoint.peakQueuedBytes,endpoint.queuedBytes);
+   for(uint32_t offset=0;offset<body.size();offset+=CHUNK) {
+     header.offset=offset;header.length=std::min<uint32_t>(CHUNK,body.size()-offset);
+-    auto packet=Create<Packet>(body.data()+offset,header.length);packet->AddHeader(header);
++    auto packet=Create<Packet>(header.length);packet->AddHeader(header);
+     TcpFrame frame;frame.header=header;frame.bytes.resize(packet->GetSize());
+     frame.streamBegin=endpoint.nextStreamByte;endpoint.nextStreamByte+=frame.bytes.size();
+-    packet->CopyData(frame.bytes.data(),frame.bytes.size());endpoint.outgoing.push_back(std::move(frame));
++    packet->CopyData(frame.bytes.data(),WIRE_HEADER);
++    std::copy_n(body.data()+offset,header.length,frame.bytes.data()+WIRE_HEADER);
++    endpoint.outgoing.push_back(std::move(frame));
+   }
+   if(endpoint.socket)tcpPump(endpoint.socket);
+ }

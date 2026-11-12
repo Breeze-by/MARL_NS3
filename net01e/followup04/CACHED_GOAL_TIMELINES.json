@@ -1,0 +1,3200 @@
+[
+  {
+    "slot": 1,
+    "pair": 1,
+    "arm": "A1",
+    "case": "corr6201-common58-r01-a1-fresh02",
+    "session_id": 2026111267,
+    "T0_G": 18.73,
+    "first_NN_G": 25.0,
+    "first_goal_relative_s": 6.27,
+    "initial_coverage_pct": 11.286797788918884,
+    "T90_sim_s": 34.66,
+    "T95_sim_s": 39.459999999999994,
+    "T98_sim_s": 52.06999999999999,
+    "raw_T95_sim_s": 39.459999999999994,
+    "last_map_elapsed_s": 179.66,
+    "final_coverage_pct": 99.83931096541973,
+    "final_quality_valid": true,
+    "quality_valid_samples": 217,
+    "samples": 217,
+    "path_tb1_m": 9.181075471876163,
+    "path_tb2_m": 11.977983503582461,
+    "path_tb3_m": 21.893642063038996,
+    "total_path_m": 43.05270103849762,
+    "goals": 11,
+    "raw_succeeded": 11,
+    "raw_aborted": 0,
+    "raw_canceled": 0,
+    "high_level_failures": 0,
+    "timeout_failures": 0,
+    "actual_NN": 35,
+    "autonomy_sim_s": 180.0,
+    "autonomy_wall_s": 359.98584961891174,
+    "actual_physical_rtf": 0.49749299220931975,
+    "observed_stop": true,
+    "lifecycle_pause": true,
+    "run_integrity": true,
+    "runner_exit": 0,
+    "Hub_exit": 0,
+    "controller_exit": 0,
+    "automatic_cleanup_pass": true,
+    "automatic_cleanup_wait_wall_s": 0.2512264569522813,
+    "known_PID_count": 56,
+    "all_owned_gone": true,
+    "ownership_closed": true,
+    "minimum_pair_distance_m": 0.734950056163804,
+    "hazard": null,
+    "natural_completion_verified": false,
+    "first_observation": {
+      "sim": 25.0,
+      "decision_id": 1,
+      "choices": [
+        0,
+        4,
+        5
+      ],
+      "raw_choices": [
+        0,
+        4,
+        5
+      ],
+      "conditional_options": [
+        1,
+        2,
+        1
+      ],
+      "policy_wall_s": 0.02266676793806255,
+      "map": {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 23.021,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      },
+      "robots": [
+        {
+          "id": "tb1",
+          "pose": [
+            0.7248556956640061,
+            -0.15000008711129123,
+            0.0012154407961075724
+          ],
+          "pose_stamp": 24.968,
+          "pose_source": "/tb1/odom + namespaced TF",
+          "velocity": [
+            1.2326867543168409e-05,
+            1.498258507808791e-08,
+            4.930738323861774e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb2",
+          "pose": [
+            0.3498647604911979,
+            -0.8000000764384712,
+            0.001138535970331749
+          ],
+          "pose_stamp": 24.986,
+          "pose_source": "/tb2/odom + namespaced TF",
+          "velocity": [
+            6.002294462621554e-06,
+            6.833831103034738e-09,
+            4.913587246849106e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb3",
+          "pose": [
+            1.099875010813123,
+            -0.800000065208454,
+            0.0010516235124102616
+          ],
+          "pose_stamp": 24.975,
+          "pose_source": "/tb3/odom + namespaced TF",
+          "velocity": [
+            3.205505844078814e-05,
+            3.3709865574733833e-08,
+            4.878560051681422e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        }
+      ],
+      "candidate_count": 6,
+      "candidate_targets": [
+        {
+          "robot": "tb1",
+          "index": 0,
+          "position": [
+            0.8250000000000002,
+            0.8750000000000009
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb1",
+          "index": 1,
+          "position": [
+            -0.47499999999999964,
+            -0.17499999999999893
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 2,
+          "position": [
+            0.22500000000000053,
+            0.27500000000000036
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 3,
+          "position": [
+            0.5750000000000002,
+            -1.9249999999999994
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 4,
+          "position": [
+            -0.5749999999999993,
+            -0.3249999999999993
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb3",
+          "index": 5,
+          "position": [
+            0.7750000000000004,
+            -1.8749999999999996
+          ],
+          "valid": true
+        }
+      ]
+    },
+    "task_timelines": {
+      "tb1": {
+        "dispatched_ownership_intervals": [
+          [
+            25.0,
+            33.84
+          ],
+          [
+            35.0,
+            56.370000000000005
+          ],
+          [
+            60.00000000000001,
+            84.71000000000001
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            25.430000000000003,
+            33.84
+          ],
+          [
+            35.46,
+            56.370000000000005
+          ],
+          [
+            60.720000000000006,
+            84.71000000000001
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 125.07999999999998,
+        "pending_response_s": 1.610000000000003,
+        "accepted_active_s": 53.31,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 3,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 33.84,
+            "robot": "tb1",
+            "token": 1,
+            "uuid": "5c2e1d1d2237496aa6c68396a7023945",
+            "target": [
+              0.8250000000000002,
+              0.8750000000000009
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490198989414128
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 56.370000000000005,
+            "robot": "tb1",
+            "token": 2,
+            "uuid": "cbb8b28db11240ebb0b36e54081b832a",
+            "target": [
+              -0.3249999999999993,
+              4.275
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490244052000880
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 84.71000000000001,
+            "robot": "tb1",
+            "token": 3,
+            "uuid": "83e3bcb0a0bd4dc0b374a8a82b25095c",
+            "target": [
+              -4.475,
+              4.375000000000002
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490300715258067
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "tb2": {
+        "dispatched_ownership_intervals": [
+          [
+            25.0,
+            36.27
+          ],
+          [
+            40.0,
+            61.730000000000004
+          ],
+          [
+            65.0,
+            82.56
+          ],
+          [
+            85.0,
+            97.16000000000001
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            25.430000000000003,
+            36.27
+          ],
+          [
+            40.52,
+            61.730000000000004
+          ],
+          [
+            65.66000000000001,
+            82.56
+          ],
+          [
+            85.43,
+            97.16000000000001
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 117.27999999999997,
+        "pending_response_s": 2.040000000000024,
+        "accepted_active_s": 60.67999999999999,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 4,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 36.27,
+            "robot": "tb2",
+            "token": 1,
+            "uuid": "2953588dedb84a56aac8c928059f2ae8",
+            "target": [
+              -0.5749999999999993,
+              -0.3249999999999993
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490203853854032
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 61.730000000000004,
+            "robot": "tb2",
+            "token": 2,
+            "uuid": "61c038458e71401da1821444a9b5f1a5",
+            "target": [
+              0.27500000000000036,
+              3.7250000000000014
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490254767251891
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 82.56,
+            "robot": "tb2",
+            "token": 3,
+            "uuid": "bb27db2fab75495f8dcb817ffb22a5d2",
+            "target": [
+              3.7750000000000012,
+              1.9750000000000005
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490296415588708
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 97.16000000000001,
+            "robot": "tb2",
+            "token": 4,
+            "uuid": "bb6c7a1a48594d4197efc86d0a04dabe",
+            "target": [
+              6.425000000000002,
+              2.1750000000000007
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490325620614583
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "tb3": {
+        "dispatched_ownership_intervals": [
+          [
+            25.0,
+            34.5
+          ],
+          [
+            35.0,
+            53.970000000000006
+          ],
+          [
+            55.0,
+            84.97
+          ],
+          [
+            85.0,
+            135.43
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            25.46,
+            34.5
+          ],
+          [
+            35.46,
+            53.970000000000006
+          ],
+          [
+            55.730000000000004,
+            84.97
+          ],
+          [
+            85.44000000000001,
+            135.43
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 71.13,
+        "pending_response_s": 2.0900000000000176,
+        "accepted_active_s": 106.78,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 4,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 34.5,
+            "robot": "tb3",
+            "token": 1,
+            "uuid": "b61d4c4df4d34427a85359607e5667a7",
+            "target": [
+              0.7750000000000004,
+              -1.8749999999999996
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490200306581819
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 53.970000000000006,
+            "robot": "tb3",
+            "token": 2,
+            "uuid": "28ead1fc7a6c48edb3fc127cc7055971",
+            "target": [
+              -0.12499999999999911,
+              -4.875
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490239253220150
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 84.97,
+            "robot": "tb3",
+            "token": 3,
+            "uuid": "88ba6bd2047842a386fd9347c07ec581",
+            "target": [
+              5.375000000000001,
+              -1.9749999999999996
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490301240864778
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 135.43,
+            "robot": "tb3",
+            "token": 4,
+            "uuid": "d56f458117fb471cab10d230dcdb1f13",
+            "target": [
+              -4.5249999999999995,
+              -4.875
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490402172617727
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      }
+    },
+    "final_quality": {
+      "receipt_sim": 198.39,
+      "source_stamp": 198.02,
+      "elapsed_sim_s": 179.66,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 15533,
+      "coverage": 0.9983931096541973,
+      "correct_free_area_m2": 38.83250000000001,
+      "unknown_reachable_area_m2": 0.0,
+      "false_occupied_reachable_area_m2": 0.06250000000000001,
+      "false_free_physical_area_m2": 0.7825000000000002,
+      "free_precision_physical": 0.9863067634963689,
+      "predicted_occupied_cells": 2430,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.05,
+      "known_truth_obstacle_cells": 2100,
+      "known_obstacle_recall_within_0_10m": 1.0,
+      "map_quality_warnings": [],
+      "map_quality_valid": true,
+      "alignment_assessment": "within_predeclared_diagnostics"
+    }
+  },
+  {
+    "slot": 2,
+    "pair": 1,
+    "arm": "B",
+    "case": "corr6201-common58-r01-b",
+    "session_id": 2026111262,
+    "T0_G": 16.13,
+    "first_NN_G": 20.0,
+    "first_goal_relative_s": 3.870000000000001,
+    "initial_coverage_pct": 11.029695333590436,
+    "T90_sim_s": 32.16,
+    "T95_sim_s": 35.61,
+    "T98_sim_s": 90.97,
+    "raw_T95_sim_s": 35.61,
+    "last_map_elapsed_s": 179.97,
+    "final_coverage_pct": 99.95500707031752,
+    "final_quality_valid": true,
+    "quality_valid_samples": 244,
+    "samples": 254,
+    "path_tb1_m": 20.863503845566758,
+    "path_tb2_m": 5.904868596687917,
+    "path_tb3_m": 11.915820161082275,
+    "total_path_m": 38.684192603336946,
+    "goals": 11,
+    "raw_succeeded": 10,
+    "raw_aborted": 1,
+    "raw_canceled": 0,
+    "high_level_failures": 1,
+    "timeout_failures": 0,
+    "actual_NN": 36,
+    "autonomy_sim_s": 180.0,
+    "autonomy_wall_s": 420.4628734588623,
+    "actual_physical_rtf": 0.4274011291556045,
+    "observed_stop": true,
+    "lifecycle_pause": true,
+    "run_integrity": true,
+    "runner_exit": 0,
+    "Hub_exit": 0,
+    "controller_exit": 0,
+    "automatic_cleanup_pass": true,
+    "automatic_cleanup_wait_wall_s": 0.25125194201245904,
+    "known_PID_count": 56,
+    "all_owned_gone": true,
+    "ownership_closed": true,
+    "minimum_pair_distance_m": 0.7343329556430073,
+    "hazard": null,
+    "natural_completion_verified": false,
+    "first_observation": {
+      "sim": 20.0,
+      "decision_id": 1,
+      "choices": [
+        0,
+        3,
+        6
+      ],
+      "raw_choices": [
+        0,
+        3,
+        6
+      ],
+      "conditional_options": [
+        2,
+        2,
+        1
+      ],
+      "policy_wall_s": 0.0216646270127967,
+      "map": {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 17.72,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      },
+      "robots": [
+        {
+          "id": "tb1",
+          "pose": [
+            0.7248843808819878,
+            -0.15000005572640204,
+            0.0009730455673939613
+          ],
+          "pose_stamp": 19.958,
+          "pose_source": "/tb1/odom + namespaced TF",
+          "velocity": [
+            6.805679017190485e-06,
+            6.622237890800722e-09,
+            4.9528000424971985e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb2",
+          "pose": [
+            0.3498915150729658,
+            -0.8000000490055172,
+            0.0009112158768482359
+          ],
+          "pose_stamp": 19.974,
+          "pose_source": "/tb2/odom + namespaced TF",
+          "velocity": [
+            1.7371183403363294e-05,
+            1.5828902497775873e-08,
+            4.8447449104610114e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb3",
+          "pose": [
+            1.0999034684201965,
+            -0.8000000387114381,
+            0.0008109273173444971
+          ],
+          "pose_stamp": 19.98,
+          "pose_source": "/tb3/odom + namespaced TF",
+          "velocity": [
+            1.382713634546005e-05,
+            1.1212805041039123e-08,
+            5.0051661682607054e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        }
+      ],
+      "candidate_count": 7,
+      "candidate_targets": [
+        {
+          "robot": "tb1",
+          "index": 0,
+          "position": [
+            0.8250000000000002,
+            0.8750000000000009
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb1",
+          "index": 1,
+          "position": [
+            -0.47499999999999964,
+            -0.17499999999999893
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb1",
+          "index": 2,
+          "position": [
+            1.1750000000000007,
+            0.22500000000000053
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 3,
+          "position": [
+            0.1250000000000009,
+            0.1250000000000009
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 4,
+          "position": [
+            0.6750000000000007,
+            -1.7749999999999995
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 5,
+          "position": [
+            -0.4249999999999998,
+            -0.3249999999999993
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb3",
+          "index": 6,
+          "position": [
+            0.8750000000000009,
+            -1.8249999999999993
+          ],
+          "valid": true
+        }
+      ]
+    },
+    "task_timelines": {
+      "tb1": {
+        "dispatched_ownership_intervals": [
+          [
+            20.0,
+            28.85
+          ],
+          [
+            30.000000000000004,
+            51.540000000000006
+          ],
+          [
+            55.0,
+            79.93
+          ],
+          [
+            80.0,
+            118.19000000000001
+          ],
+          [
+            120.00000000000001,
+            130.74
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            20.380000000000003,
+            28.85
+          ],
+          [
+            30.48,
+            51.540000000000006
+          ],
+          [
+            55.470000000000006,
+            79.93
+          ],
+          [
+            80.46000000000001,
+            118.19000000000001
+          ],
+          [
+            120.46000000000001,
+            130.74
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 75.74999999999999,
+        "pending_response_s": 2.250000000000007,
+        "accepted_active_s": 102.00000000000001,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 5,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 28.85,
+            "robot": "tb1",
+            "token": 1,
+            "uuid": "0e46d6fafe53435f97081522096a0132",
+            "target": [
+              0.8250000000000002,
+              0.8750000000000009
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490870004690977
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 51.540000000000006,
+            "robot": "tb1",
+            "token": 2,
+            "uuid": "3f2a78510ad74c47b2cd9041ac8e5d3c",
+            "target": [
+              -0.3249999999999993,
+              4.425000000000001
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490924259500966
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 79.93,
+            "robot": "tb1",
+            "token": 3,
+            "uuid": "2bb20eb2a9c3489e8e5f0ca3532e7c0f",
+            "target": [
+              -4.574999999999999,
+              4.225000000000001
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490991840966450
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 118.19000000000001,
+            "robot": "tb1",
+            "token": 4,
+            "uuid": "6a3857969acf47a7a6fdf89d59962124",
+            "target": [
+              3.7750000000000012,
+              1.825000000000001
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491082379182362
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 130.74,
+            "robot": "tb1",
+            "token": 5,
+            "uuid": "00b2cc686a2d47459e5f5ac12ca25dad",
+            "target": [
+              6.275000000000001,
+              2.325000000000001
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491111536670289
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "tb2": {
+        "dispatched_ownership_intervals": [
+          [
+            20.0,
+            28.85
+          ],
+          [
+            30.000000000000004,
+            57.95
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            20.400000000000002,
+            28.85
+          ],
+          [
+            30.48,
+            57.95
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 143.2,
+        "pending_response_s": 0.879999999999999,
+        "accepted_active_s": 35.92,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 2,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 28.85,
+            "robot": "tb2",
+            "token": 1,
+            "uuid": "946fc000ab2b4db0888eb3dfc06bd88a",
+            "target": [
+              0.1250000000000009,
+              0.1250000000000009
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490870007388786
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 57.95,
+            "robot": "tb2",
+            "token": 2,
+            "uuid": "7ed4dd88dde74b9fb8fccf697b712a0e",
+            "target": [
+              -5.0249999999999995,
+              0.07500000000000107
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490939647290261
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "tb3": {
+        "dispatched_ownership_intervals": [
+          [
+            20.0,
+            28.94
+          ],
+          [
+            30.000000000000004,
+            49.89
+          ],
+          [
+            50.0,
+            72.08
+          ],
+          [
+            75.0,
+            100.55000000000001
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            20.400000000000002,
+            28.94
+          ],
+          [
+            30.470000000000002,
+            49.89
+          ],
+          [
+            50.46,
+            72.08
+          ],
+          [
+            75.46000000000001,
+            100.55000000000001
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 103.53999999999999,
+        "pending_response_s": 1.7900000000000098,
+        "accepted_active_s": 74.67,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 3,
+          "aborted": 1,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 1,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 28.94,
+            "robot": "tb3",
+            "token": 1,
+            "uuid": "cc66d9a071a64822a9d9e3ba26902582",
+            "target": [
+              0.8750000000000009,
+              -1.8249999999999993
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490870195482178
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 49.89,
+            "robot": "tb3",
+            "token": 2,
+            "uuid": "d356baa746d648f6b005cb2262fd9a41",
+            "target": [
+              -0.47499999999999964,
+              -4.574999999999999
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794490920134897337
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 72.08,
+            "robot": "tb3",
+            "token": 3,
+            "uuid": "478a3297a9a5411db34cdfe71fea106e",
+            "target": [
+              6.175000000000002,
+              -2.3749999999999996
+            ],
+            "status": "aborted",
+            "wall_ns": 1794490973232793677
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 100.55000000000001,
+            "robot": "tb3",
+            "token": 4,
+            "uuid": "d860f0f4c04347a9b7d1a7e9f2cbfb55",
+            "target": [
+              5.775000000000001,
+              -2.2749999999999995
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491041084254912
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      }
+    },
+    "final_quality": {
+      "receipt_sim": 196.1,
+      "source_stamp": 195.33,
+      "elapsed_sim_s": 179.97,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 15551,
+      "coverage": 0.9995500707031753,
+      "correct_free_area_m2": 38.877500000000005,
+      "unknown_reachable_area_m2": 0.0,
+      "false_occupied_reachable_area_m2": 0.0175,
+      "false_free_physical_area_m2": 0.7800000000000001,
+      "free_precision_physical": 0.9862977602108037,
+      "predicted_occupied_cells": 2415,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.05,
+      "known_truth_obstacle_cells": 1997,
+      "known_obstacle_recall_within_0_10m": 1.0,
+      "map_quality_warnings": [],
+      "map_quality_valid": true,
+      "alignment_assessment": "within_predeclared_diagnostics"
+    }
+  },
+  {
+    "slot": 3,
+    "pair": 2,
+    "arm": "B",
+    "case": "corr6201-common58-r02-b",
+    "session_id": 2026111263,
+    "T0_G": 16.93,
+    "first_NN_G": 25.0,
+    "first_goal_relative_s": 8.07,
+    "initial_coverage_pct": 11.029695333590436,
+    "T90_sim_s": 36.29,
+    "T95_sim_s": 40.42,
+    "T98_sim_s": 99.31,
+    "raw_T95_sim_s": 40.42,
+    "last_map_elapsed_s": 179.89,
+    "final_coverage_pct": 99.93572438616789,
+    "final_quality_valid": true,
+    "quality_valid_samples": 232,
+    "samples": 246,
+    "path_tb1_m": 19.21121221200833,
+    "path_tb2_m": 5.036360659581893,
+    "path_tb3_m": 20.433066200377308,
+    "total_path_m": 44.68063907196753,
+    "goals": 10,
+    "raw_succeeded": 10,
+    "raw_aborted": 0,
+    "raw_canceled": 0,
+    "high_level_failures": 0,
+    "timeout_failures": 0,
+    "actual_NN": 35,
+    "autonomy_sim_s": 180.0,
+    "autonomy_wall_s": 408.07592582702637,
+    "actual_physical_rtf": 0.43908701778631243,
+    "observed_stop": true,
+    "lifecycle_pause": true,
+    "run_integrity": true,
+    "runner_exit": 0,
+    "Hub_exit": 0,
+    "controller_exit": 0,
+    "automatic_cleanup_pass": true,
+    "automatic_cleanup_wait_wall_s": 0.25121808610856533,
+    "known_PID_count": 56,
+    "all_owned_gone": true,
+    "ownership_closed": true,
+    "minimum_pair_distance_m": 0.7339884666917588,
+    "hazard": null,
+    "natural_completion_verified": false,
+    "first_observation": {
+      "sim": 25.0,
+      "decision_id": 1,
+      "choices": [
+        0,
+        3,
+        6
+      ],
+      "raw_choices": [
+        0,
+        3,
+        6
+      ],
+      "conditional_options": [
+        2,
+        2,
+        1
+      ],
+      "policy_wall_s": 0.02251308597624302,
+      "map": {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 22.66,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      },
+      "robots": [
+        {
+          "id": "tb1",
+          "pose": [
+            0.7248556956640061,
+            -0.15000008711129123,
+            0.0012154407961075724
+          ],
+          "pose_stamp": 24.989,
+          "pose_source": "/tb1/odom + namespaced TF",
+          "velocity": [
+            1.2326867543168409e-05,
+            1.498258507808791e-08,
+            4.930738323861774e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb2",
+          "pose": [
+            0.34986610860624173,
+            -0.8000000749107584,
+            0.0011268379583241107
+          ],
+          "pose_stamp": 24.958,
+          "pose_source": "/tb2/odom + namespaced TF",
+          "velocity": [
+            3.7578622197999916e-06,
+            4.234503583695983e-09,
+            4.87992975352579e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb3",
+          "pose": [
+            1.09987650225345,
+            -0.8000000636490431,
+            0.0010399201455805421
+          ],
+          "pose_stamp": 24.978,
+          "pose_source": "/tb3/odom + namespaced TF",
+          "velocity": [
+            3.686715980987344e-06,
+            3.8338916016960304e-09,
+            4.9687410497944685e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        }
+      ],
+      "candidate_count": 7,
+      "candidate_targets": [
+        {
+          "robot": "tb1",
+          "index": 0,
+          "position": [
+            0.8250000000000002,
+            0.8750000000000009
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb1",
+          "index": 1,
+          "position": [
+            -0.4249999999999998,
+            -0.22499999999999964
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb1",
+          "index": 2,
+          "position": [
+            1.1750000000000007,
+            0.22500000000000053
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 3,
+          "position": [
+            0.1250000000000009,
+            0.1250000000000009
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 4,
+          "position": [
+            0.6250000000000009,
+            -1.8249999999999993
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 5,
+          "position": [
+            -0.5249999999999995,
+            -0.3749999999999991
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb3",
+          "index": 6,
+          "position": [
+            0.8750000000000009,
+            -1.8249999999999993
+          ],
+          "valid": true
+        }
+      ]
+    },
+    "task_timelines": {
+      "tb1": {
+        "dispatched_ownership_intervals": [
+          [
+            25.0,
+            33.74
+          ],
+          [
+            35.0,
+            56.46
+          ],
+          [
+            60.00000000000001,
+            85.75
+          ],
+          [
+            90.0,
+            128.35
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            25.37,
+            33.74
+          ],
+          [
+            35.47,
+            56.46
+          ],
+          [
+            60.50000000000001,
+            85.75
+          ],
+          [
+            90.47,
+            128.35
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 85.70000000000002,
+        "pending_response_s": 1.8099999999999987,
+        "accepted_active_s": 92.49,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 4,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 33.74,
+            "robot": "tb1",
+            "token": 1,
+            "uuid": "b6dfa001896f4cfba11ba401f9dc4cc2",
+            "target": [
+              0.8250000000000002,
+              0.8750000000000009
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491719542118078
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 56.46,
+            "robot": "tb1",
+            "token": 2,
+            "uuid": "9f082048fe1f40ff811980f8b754c6f4",
+            "target": [
+              -0.3249999999999993,
+              4.425000000000001
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491772249435928
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 85.75,
+            "robot": "tb1",
+            "token": 3,
+            "uuid": "a073e11a0dda467e9ad25bf279f76741",
+            "target": [
+              -4.7749999999999995,
+              4.975000000000001
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491840001157801
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 128.35,
+            "robot": "tb1",
+            "token": 4,
+            "uuid": "b70178c7c1904bcc8c7bf5b4e1dcbc35",
+            "target": [
+              3.9750000000000005,
+              2.2750000000000004
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491933671038486
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "tb2": {
+        "dispatched_ownership_intervals": [
+          [
+            25.0,
+            34.02
+          ],
+          [
+            35.0,
+            61.14
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            25.37,
+            34.02
+          ],
+          [
+            35.47,
+            61.14
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 144.84,
+        "pending_response_s": 0.8399999999999999,
+        "accepted_active_s": 34.32000000000001,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 2,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 34.02,
+            "robot": "tb2",
+            "token": 1,
+            "uuid": "1c45cccecc104621b253d5e709c3c538",
+            "target": [
+              0.1250000000000009,
+              0.1250000000000009
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491720158168748
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 61.14,
+            "robot": "tb2",
+            "token": 2,
+            "uuid": "0e5b1193105142b4ac6f4dc2b97eb92d",
+            "target": [
+              -4.175,
+              -0.17499999999999893
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491783266831245
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "tb3": {
+        "dispatched_ownership_intervals": [
+          [
+            25.0,
+            33.940000000000005
+          ],
+          [
+            35.0,
+            54.59
+          ],
+          [
+            55.0,
+            79.74000000000001
+          ],
+          [
+            80.0,
+            127.69000000000001
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            25.400000000000002,
+            33.940000000000005
+          ],
+          [
+            35.47,
+            54.59
+          ],
+          [
+            55.550000000000004,
+            79.74000000000001
+          ],
+          [
+            80.54,
+            127.69000000000001
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 79.03999999999996,
+        "pending_response_s": 1.9600000000000115,
+        "accepted_active_s": 99.00000000000001,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 4,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 33.940000000000005,
+            "robot": "tb3",
+            "token": 1,
+            "uuid": "5d054f7915374ec0bbb574f62bfe542d",
+            "target": [
+              0.8750000000000009,
+              -1.8249999999999993
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491720019664444
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 54.59,
+            "robot": "tb3",
+            "token": 2,
+            "uuid": "987519f6c18d492e9590117aa30d63f2",
+            "target": [
+              -0.3249999999999993,
+              -4.824999999999999
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491767871666389
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 79.74000000000001,
+            "robot": "tb3",
+            "token": 3,
+            "uuid": "478cdbf7c74c40e79ed80b9bc0054915",
+            "target": [
+              -4.574999999999999,
+              -4.675
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491826270763008
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 127.69000000000001,
+            "robot": "tb3",
+            "token": 4,
+            "uuid": "b2d64b73e56a428e94df1d977d670520",
+            "target": [
+              6.425000000000002,
+              -2.1249999999999996
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794491932160906518
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      }
+    },
+    "final_quality": {
+      "receipt_sim": 196.82,
+      "source_stamp": 194.68,
+      "elapsed_sim_s": 179.89,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 15548,
+      "coverage": 0.9993572438616789,
+      "correct_free_area_m2": 38.870000000000005,
+      "unknown_reachable_area_m2": 0.0,
+      "false_occupied_reachable_area_m2": 0.025000000000000005,
+      "false_free_physical_area_m2": 0.9875000000000002,
+      "free_precision_physical": 0.9827057793345009,
+      "predicted_occupied_cells": 2541,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.05,
+      "known_truth_obstacle_cells": 2194,
+      "known_obstacle_recall_within_0_10m": 0.995897903372835,
+      "map_quality_warnings": [],
+      "map_quality_valid": true,
+      "alignment_assessment": "within_predeclared_diagnostics"
+    }
+  },
+  {
+    "slot": 4,
+    "pair": 2,
+    "arm": "A1",
+    "case": "corr6201-common58-r02-a1",
+    "session_id": 2026111264,
+    "T0_G": 18.3,
+    "first_NN_G": 25.0,
+    "first_goal_relative_s": 6.699999999999999,
+    "initial_coverage_pct": 11.068260701889702,
+    "T90_sim_s": 49.760000000000005,
+    "T95_sim_s": 62.25,
+    "T98_sim_s": 112.26,
+    "raw_T95_sim_s": 62.25,
+    "last_map_elapsed_s": 179.85,
+    "final_coverage_pct": 99.82645584265329,
+    "final_quality_valid": true,
+    "quality_valid_samples": 206,
+    "samples": 217,
+    "path_tb1_m": 21.606130343541565,
+    "path_tb2_m": 12.54917683348324,
+    "path_tb3_m": 8.109812142349185,
+    "total_path_m": 42.265119319373994,
+    "goals": 12,
+    "raw_succeeded": 11,
+    "raw_aborted": 1,
+    "raw_canceled": 0,
+    "high_level_failures": 1,
+    "timeout_failures": 0,
+    "actual_NN": 35,
+    "autonomy_sim_s": 180.0,
+    "autonomy_wall_s": 359.98338174819946,
+    "actual_physical_rtf": 0.49757450371100725,
+    "observed_stop": true,
+    "lifecycle_pause": true,
+    "run_integrity": true,
+    "runner_exit": 0,
+    "Hub_exit": 0,
+    "controller_exit": 0,
+    "automatic_cleanup_pass": true,
+    "automatic_cleanup_wait_wall_s": 0.2511515209916979,
+    "known_PID_count": 56,
+    "all_owned_gone": true,
+    "ownership_closed": true,
+    "minimum_pair_distance_m": 0.5903409095692543,
+    "hazard": null,
+    "natural_completion_verified": false,
+    "first_observation": {
+      "sim": 25.0,
+      "decision_id": 1,
+      "choices": [
+        1,
+        3,
+        -2
+      ],
+      "raw_choices": [
+        1,
+        3,
+        -2
+      ],
+      "conditional_options": [
+        3,
+        1,
+        1
+      ],
+      "policy_wall_s": 0.025565468007698655,
+      "map": {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 22.7,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      },
+      "robots": [
+        {
+          "id": "tb1",
+          "pose": [
+            0.7248556956640061,
+            -0.15000008711129123,
+            0.0012154407961075724
+          ],
+          "pose_stamp": 24.988,
+          "pose_source": "/tb1/odom + namespaced TF",
+          "velocity": [
+            1.2326867543168409e-05,
+            1.498258507808791e-08,
+            4.930738323861774e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb2",
+          "pose": [
+            0.34986198931801443,
+            -0.8000000796272313,
+            0.0011619443214377254
+          ],
+          "pose_stamp": 24.933,
+          "pose_source": "/tb2/odom + namespaced TF",
+          "velocity": [
+            2.7977903926617266e-05,
+            3.250878122345794e-08,
+            4.869923910271456e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb3",
+          "pose": [
+            1.0998778267036833,
+            -0.8000000622800824,
+            0.0010282036084562393
+          ],
+          "pose_stamp": 24.98,
+          "pose_source": "/tb3/odom + namespaced TF",
+          "velocity": [
+            1.8368707100966173e-05,
+            1.8886777579606803e-08,
+            4.9327050814145694e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        }
+      ],
+      "candidate_count": 5,
+      "candidate_targets": [
+        {
+          "robot": "tb1",
+          "index": 0,
+          "position": [
+            0.8250000000000002,
+            0.8750000000000009
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb1",
+          "index": 1,
+          "position": [
+            -0.4249999999999998,
+            -0.17499999999999893
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb1",
+          "index": 2,
+          "position": [
+            1.1750000000000007,
+            0.22500000000000053
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 3,
+          "position": [
+            0.6750000000000007,
+            -1.7749999999999995
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb3",
+          "index": 4,
+          "position": [
+            0.7750000000000004,
+            -1.8749999999999996
+          ],
+          "valid": true
+        }
+      ]
+    },
+    "task_timelines": {
+      "tb1": {
+        "dispatched_ownership_intervals": [
+          [
+            25.0,
+            37.07
+          ],
+          [
+            45.0,
+            70.81
+          ],
+          [
+            75.0,
+            103.09
+          ],
+          [
+            105.0,
+            139.54000000000002
+          ],
+          [
+            140.0,
+            152.73000000000002
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            25.39,
+            37.07
+          ],
+          [
+            45.59,
+            70.81
+          ],
+          [
+            75.57000000000001,
+            103.09
+          ],
+          [
+            105.49000000000001,
+            139.54000000000002
+          ],
+          [
+            140.45000000000002,
+            152.73000000000002
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 66.75999999999996,
+        "pending_response_s": 2.4900000000000375,
+        "accepted_active_s": 110.75,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 5,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 37.07,
+            "robot": "tb1",
+            "token": 1,
+            "uuid": "e27b72d417954a858c933d5a48028edc",
+            "target": [
+              -0.4249999999999998,
+              -0.17499999999999893
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794492530635826773
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 70.81,
+            "robot": "tb1",
+            "token": 2,
+            "uuid": "03dd72fe97a44f5fb972960417e4a0b3",
+            "target": [
+              -0.22499999999999964,
+              4.475000000000001
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794492598128728443
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 103.09,
+            "robot": "tb1",
+            "token": 3,
+            "uuid": "a3334ef4e4e841ce98c3c1548a7908b2",
+            "target": [
+              -4.2749999999999995,
+              4.425000000000001
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794492662690172132
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 139.54000000000002,
+            "robot": "tb1",
+            "token": 4,
+            "uuid": "bd9f6c3322e14fe38b185c2b31e90f0f",
+            "target": [
+              3.7250000000000005,
+              2.2250000000000005
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794492735581894293
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 152.73000000000002,
+            "robot": "tb1",
+            "token": 5,
+            "uuid": "73e949f3d55c4f18b03425d62aefee4b",
+            "target": [
+              6.525000000000001,
+              2.2250000000000005
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794492761982420898
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "tb2": {
+        "dispatched_ownership_intervals": [
+          [
+            25.0,
+            33.02
+          ],
+          [
+            35.0,
+            53.150000000000006
+          ],
+          [
+            55.0,
+            81.44000000000001
+          ],
+          [
+            85.0,
+            117.9
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            25.39,
+            33.02
+          ],
+          [
+            35.28,
+            53.150000000000006
+          ],
+          [
+            55.59,
+            81.44000000000001
+          ],
+          [
+            85.53,
+            117.9
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 94.48999999999998,
+        "pending_response_s": 1.7900000000000063,
+        "accepted_active_s": 83.72000000000003,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 3,
+          "aborted": 1,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 1,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 33.02,
+            "robot": "tb2",
+            "token": 1,
+            "uuid": "655784c34586460bb611d9a92a7f7100",
+            "target": [
+              0.6750000000000007,
+              -1.7749999999999995
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794492522566485888
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 53.150000000000006,
+            "robot": "tb2",
+            "token": 2,
+            "uuid": "b03547d0888d46a4817925c1c5caa921",
+            "target": [
+              -0.07499999999999929,
+              -4.7749999999999995
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794492562811199472
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 81.44000000000001,
+            "robot": "tb2",
+            "token": 3,
+            "uuid": "faefa7c16cc8430e854b479c605d14dd",
+            "target": [
+              5.175000000000002,
+              -2.1249999999999996
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794492619385553259
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 117.9,
+            "robot": "tb2",
+            "token": 4,
+            "uuid": "c29f5979f42448948a121afe6456b43d",
+            "target": [
+              -4.925,
+              -4.5249999999999995
+            ],
+            "status": "aborted",
+            "wall_ns": 1794492692322173480
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "tb3": {
+        "dispatched_ownership_intervals": [
+          [
+            35.0,
+            66.05
+          ],
+          [
+            70.0,
+            89.17
+          ],
+          [
+            90.0,
+            112.69000000000001
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            35.29,
+            66.05
+          ],
+          [
+            70.53,
+            89.17
+          ],
+          [
+            90.49000000000001,
+            112.69000000000001
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 107.08999999999999,
+        "pending_response_s": 1.3100000000000094,
+        "accepted_active_s": 71.6,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 3,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 66.05,
+            "robot": "tb3",
+            "token": 1,
+            "uuid": "8d6aaf4e29f7414cbab216e79ed0c971",
+            "target": [
+              1.2250000000000005,
+              -1.7249999999999996
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794492588597874671
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 89.17,
+            "robot": "tb3",
+            "token": 2,
+            "uuid": "f13a999351f84a5fa39a4ea949cd6e5e",
+            "target": [
+              -0.27499999999999947,
+              -4.225
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794492634851372221
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 112.69000000000001,
+            "robot": "tb3",
+            "token": 3,
+            "uuid": "418c59d92e3143b09538930033222ef2",
+            "target": [
+              -3.775,
+              -4.375
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794492681891293373
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      }
+    },
+    "final_quality": {
+      "receipt_sim": 198.15,
+      "source_stamp": 197.71,
+      "elapsed_sim_s": 179.85,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 15531,
+      "coverage": 0.9982645584265329,
+      "correct_free_area_m2": 38.82750000000001,
+      "unknown_reachable_area_m2": 0.0,
+      "false_occupied_reachable_area_m2": 0.06750000000000002,
+      "false_free_physical_area_m2": 1.1575000000000002,
+      "free_precision_physical": 0.9798301023742104,
+      "predicted_occupied_cells": 2397,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.05,
+      "known_truth_obstacle_cells": 2164,
+      "known_obstacle_recall_within_0_10m": 0.9986136783733827,
+      "map_quality_warnings": [],
+      "map_quality_valid": true,
+      "alignment_assessment": "within_predeclared_diagnostics"
+    }
+  },
+  {
+    "slot": 5,
+    "pair": 3,
+    "arm": "A1",
+    "case": "corr6201-common58-r03-a1",
+    "session_id": 2026111265,
+    "T0_G": 18.11,
+    "first_NN_G": 25.0,
+    "first_goal_relative_s": 6.890000000000001,
+    "initial_coverage_pct": 11.138963877105027,
+    "T90_sim_s": 67.01,
+    "T95_sim_s": 72.01,
+    "T98_sim_s": 74.51,
+    "raw_T95_sim_s": 72.01,
+    "last_map_elapsed_s": 179.8,
+    "final_coverage_pct": 99.87787633371899,
+    "final_quality_valid": true,
+    "quality_valid_samples": 204,
+    "samples": 217,
+    "path_tb1_m": 8.141062597282252,
+    "path_tb2_m": 9.88416576497506,
+    "path_tb3_m": 15.791006121936919,
+    "total_path_m": 33.81623448419423,
+    "goals": 11,
+    "raw_succeeded": 11,
+    "raw_aborted": 0,
+    "raw_canceled": 0,
+    "high_level_failures": 0,
+    "timeout_failures": 0,
+    "actual_NN": 35,
+    "autonomy_sim_s": 180.0,
+    "autonomy_wall_s": 359.9889862537384,
+    "actual_physical_rtf": 0.49695687195503924,
+    "observed_stop": true,
+    "lifecycle_pause": true,
+    "run_integrity": true,
+    "runner_exit": 0,
+    "Hub_exit": 0,
+    "controller_exit": 0,
+    "automatic_cleanup_pass": true,
+    "automatic_cleanup_wait_wall_s": 0.25195012299809605,
+    "known_PID_count": 56,
+    "all_owned_gone": true,
+    "ownership_closed": true,
+    "minimum_pair_distance_m": 0.7336696736575564,
+    "hazard": null,
+    "natural_completion_verified": false,
+    "first_observation": {
+      "sim": 25.0,
+      "decision_id": 1,
+      "choices": [
+        0,
+        5,
+        7
+      ],
+      "raw_choices": [
+        0,
+        5,
+        7
+      ],
+      "conditional_options": [
+        2,
+        2,
+        1
+      ],
+      "policy_wall_s": 0.028547379071824253,
+      "map": {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 22.514,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      },
+      "robots": [
+        {
+          "id": "tb1",
+          "pose": [
+            0.7248556956640061,
+            -0.15000008711129123,
+            0.0012154407961075724
+          ],
+          "pose_stamp": 24.976,
+          "pose_source": "/tb1/odom + namespaced TF",
+          "velocity": [
+            1.2326867543168409e-05,
+            1.498258507808791e-08,
+            4.930738323861774e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb2",
+          "pose": [
+            0.3498614381957232,
+            -0.8000000802691678,
+            0.0011669492669565801
+          ],
+          "pose_stamp": 24.972,
+          "pose_source": "/tb2/odom + namespaced TF",
+          "velocity": [
+            1.19818420154229e-05,
+            1.398220810354115e-08,
+            4.911996679235517e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb3",
+          "pose": [
+            1.0998766204062684,
+            -0.8000000635263358,
+            0.001038245597191216
+          ],
+          "pose_stamp": 24.997,
+          "pose_source": "/tb3/odom + namespaced TF",
+          "velocity": [
+            3.069545410578994e-05,
+            3.1869431530381824e-08,
+            4.890085481756538e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        }
+      ],
+      "candidate_count": 8,
+      "candidate_targets": [
+        {
+          "robot": "tb1",
+          "index": 0,
+          "position": [
+            0.8250000000000002,
+            0.8750000000000009
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb1",
+          "index": 1,
+          "position": [
+            -0.47499999999999964,
+            -0.17499999999999893
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb1",
+          "index": 2,
+          "position": [
+            1.1750000000000007,
+            0.22500000000000053
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 3,
+          "position": [
+            0.27500000000000036,
+            0.6750000000000007
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 4,
+          "position": [
+            0.6750000000000007,
+            -1.8749999999999996
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 5,
+          "position": [
+            -0.5249999999999995,
+            -0.27499999999999947
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 6,
+          "position": [
+            0.22500000000000053,
+            0.27500000000000036
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb3",
+          "index": 7,
+          "position": [
+            0.6750000000000007,
+            -1.7749999999999995
+          ],
+          "valid": true
+        }
+      ]
+    },
+    "task_timelines": {
+      "tb1": {
+        "dispatched_ownership_intervals": [
+          [
+            25.0,
+            33.68
+          ],
+          [
+            35.0,
+            56.25
+          ],
+          [
+            60.00000000000001,
+            79.48
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            25.41,
+            33.68
+          ],
+          [
+            35.45,
+            56.25
+          ],
+          [
+            60.61000000000001,
+            79.48
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 130.59,
+        "pending_response_s": 1.4700000000000024,
+        "accepted_active_s": 47.94,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 3,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 33.68,
+            "robot": "tb1",
+            "token": 1,
+            "uuid": "c77f20601b5e453d829a64caf25af8f2",
+            "target": [
+              0.8250000000000002,
+              0.8750000000000009
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493158160877962
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 56.25,
+            "robot": "tb1",
+            "token": 2,
+            "uuid": "860c4e459d07408da32ba451ae547585",
+            "target": [
+              -0.3249999999999993,
+              4.375000000000002
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493203294782765
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 79.48,
+            "robot": "tb1",
+            "token": 3,
+            "uuid": "477b0775fdc34828ae61a3ffa4e897c9",
+            "target": [
+              -3.2249999999999996,
+              5.025
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493249757124951
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "tb2": {
+        "dispatched_ownership_intervals": [
+          [
+            25.0,
+            35.86
+          ],
+          [
+            40.0,
+            66.03
+          ],
+          [
+            70.0,
+            88.60000000000001
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            25.450000000000003,
+            35.86
+          ],
+          [
+            40.45,
+            66.03
+          ],
+          [
+            70.47,
+            88.60000000000001
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 124.50999999999999,
+        "pending_response_s": 1.3700000000000045,
+        "accepted_active_s": 54.120000000000005,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 3,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 35.86,
+            "robot": "tb2",
+            "token": 1,
+            "uuid": "b99152c894db477b94e766e367857589",
+            "target": [
+              -0.5249999999999995,
+              -0.27499999999999947
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493162517665388
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 66.03,
+            "robot": "tb2",
+            "token": 2,
+            "uuid": "bec66f04ce504efba3a60b5ed46e1c84",
+            "target": [
+              0.27500000000000036,
+              3.825000000000001
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493222851378962
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 88.60000000000001,
+            "robot": "tb2",
+            "token": 3,
+            "uuid": "2f61d2905f8e4fedad32738f4655c7cc",
+            "target": [
+              4.2250000000000005,
+              2.325000000000001
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493268008699900
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "tb3": {
+        "dispatched_ownership_intervals": [
+          [
+            25.0,
+            34.660000000000004
+          ],
+          [
+            35.0,
+            45.46
+          ],
+          [
+            50.0,
+            58.870000000000005
+          ],
+          [
+            60.00000000000001,
+            93.88000000000001
+          ],
+          [
+            95.0,
+            117.98
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            25.450000000000003,
+            34.660000000000004
+          ],
+          [
+            35.45,
+            45.46
+          ],
+          [
+            50.5,
+            58.870000000000005
+          ],
+          [
+            60.61000000000001,
+            93.88000000000001
+          ],
+          [
+            95.44000000000001,
+            117.98
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 94.14999999999998,
+        "pending_response_s": 2.450000000000017,
+        "accepted_active_s": 83.4,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 5,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 34.660000000000004,
+            "robot": "tb3",
+            "token": 1,
+            "uuid": "b353ff986a6f4a2e8e1db66ca3cd31e7",
+            "target": [
+              0.6750000000000007,
+              -1.7749999999999995
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493160126835050
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 45.46,
+            "robot": "tb3",
+            "token": 2,
+            "uuid": "5a31a288cba44c5f8d05e19de44ff9c9",
+            "target": [
+              3.2250000000000005,
+              -2.2749999999999995
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493181729629509
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 58.870000000000005,
+            "robot": "tb3",
+            "token": 3,
+            "uuid": "8603db7c7e7043d48ccacb1bbc6069d1",
+            "target": [
+              5.2250000000000005,
+              -2.1249999999999996
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493208535440356
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 93.88000000000001,
+            "robot": "tb3",
+            "token": 4,
+            "uuid": "7793250cd31d4fc384b079d94c205ae1",
+            "target": [
+              -0.5749999999999993,
+              -4.475
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493278555147820
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 117.98,
+            "robot": "tb3",
+            "token": 5,
+            "uuid": "b31345200d6f42e7a7b8225620b2d15b",
+            "target": [
+              -4.324999999999999,
+              -4.7749999999999995
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493326768807855
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      }
+    },
+    "final_quality": {
+      "receipt_sim": 197.91,
+      "source_stamp": 197.522,
+      "elapsed_sim_s": 179.8,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 15539,
+      "coverage": 0.9987787633371898,
+      "correct_free_area_m2": 38.84750000000001,
+      "unknown_reachable_area_m2": 0.0,
+      "false_occupied_reachable_area_m2": 0.04750000000000001,
+      "false_free_physical_area_m2": 1.1700000000000002,
+      "free_precision_physical": 0.9796989545829177,
+      "predicted_occupied_cells": 2174,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.05,
+      "known_truth_obstacle_cells": 2049,
+      "known_obstacle_recall_within_0_10m": 1.0,
+      "map_quality_warnings": [],
+      "map_quality_valid": true,
+      "alignment_assessment": "within_predeclared_diagnostics"
+    }
+  },
+  {
+    "slot": 6,
+    "pair": 3,
+    "arm": "B",
+    "case": "corr6201-common58-r03-b",
+    "session_id": 2026111266,
+    "T0_G": 15.4,
+    "first_NN_G": 20.0,
+    "first_goal_relative_s": 4.6,
+    "initial_coverage_pct": 10.991129965291169,
+    "T90_sim_s": 37.870000000000005,
+    "T95_sim_s": 48.68,
+    "T98_sim_s": 57.309999999999995,
+    "raw_T95_sim_s": 48.68,
+    "last_map_elapsed_s": 179.26,
+    "final_coverage_pct": 99.8843038951022,
+    "final_quality_valid": true,
+    "quality_valid_samples": 237,
+    "samples": 247,
+    "path_tb1_m": 10.732516698215926,
+    "path_tb2_m": 5.7612316395492345,
+    "path_tb3_m": 22.98960259310697,
+    "total_path_m": 39.483350930872135,
+    "goals": 9,
+    "raw_succeeded": 9,
+    "raw_aborted": 0,
+    "raw_canceled": 0,
+    "high_level_failures": 0,
+    "timeout_failures": 0,
+    "actual_NN": 36,
+    "autonomy_sim_s": 180.0,
+    "autonomy_wall_s": 409.5232501029968,
+    "actual_physical_rtf": 0.4388093184459161,
+    "observed_stop": true,
+    "lifecycle_pause": true,
+    "run_integrity": true,
+    "runner_exit": 0,
+    "Hub_exit": 0,
+    "controller_exit": 0,
+    "automatic_cleanup_pass": true,
+    "automatic_cleanup_wait_wall_s": 0.25123589602299035,
+    "known_PID_count": 56,
+    "all_owned_gone": true,
+    "ownership_closed": true,
+    "minimum_pair_distance_m": 0.7322653438129936,
+    "hazard": null,
+    "natural_completion_verified": false,
+    "first_observation": {
+      "sim": 20.0,
+      "decision_id": 1,
+      "choices": [
+        0,
+        3,
+        6
+      ],
+      "raw_choices": [
+        0,
+        3,
+        6
+      ],
+      "conditional_options": [
+        2,
+        2,
+        1
+      ],
+      "policy_wall_s": 0.021480749011971056,
+      "map": {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 18.262,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      },
+      "robots": [
+        {
+          "id": "tb1",
+          "pose": [
+            0.7248849523592812,
+            -0.15000005517212697,
+            0.00096804793355397
+          ],
+          "pose_stamp": 19.956,
+          "pose_source": "/tb1/odom + namespaced TF",
+          "velocity": [
+            1.3167119833508718e-05,
+            1.274640712730995e-08,
+            4.961649497629615e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb2",
+          "pose": [
+            0.3498932907739516,
+            -0.8000000473998321,
+            0.0008961764202941635
+          ],
+          "pose_stamp": 19.922,
+          "pose_source": "/tb2/odom + namespaced TF",
+          "velocity": [
+            3.998591786301982e-07,
+            3.583444632592369e-10,
+            4.889120771686129e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        },
+        {
+          "id": "tb3",
+          "pose": [
+            1.0999042086848165,
+            -0.8000000381139458,
+            0.0008042481796053176
+          ],
+          "pose_stamp": 19.985,
+          "pose_source": "/tb3/odom + namespaced TF",
+          "velocity": [
+            1.8356826584321387e-05,
+            1.4763447546844882e-08,
+            4.888189797143705e-05
+          ],
+          "state": "idle",
+          "target": null,
+          "task_token": 0,
+          "action_uuid": null,
+          "last_status": "none",
+          "last_success": null,
+          "goal_duration_s": null,
+          "condition": "awaiting_observation",
+          "cancel_requested": false
+        }
+      ],
+      "candidate_count": 7,
+      "candidate_targets": [
+        {
+          "robot": "tb1",
+          "index": 0,
+          "position": [
+            0.8250000000000002,
+            0.8750000000000009
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb1",
+          "index": 1,
+          "position": [
+            -0.47499999999999964,
+            -0.17499999999999893
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb1",
+          "index": 2,
+          "position": [
+            1.1750000000000007,
+            0.22500000000000053
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 3,
+          "position": [
+            0.1250000000000009,
+            0.1250000000000009
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 4,
+          "position": [
+            0.6250000000000009,
+            -1.8749999999999996
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb2",
+          "index": 5,
+          "position": [
+            -0.5249999999999995,
+            -0.3749999999999991
+          ],
+          "valid": true
+        },
+        {
+          "robot": "tb3",
+          "index": 6,
+          "position": [
+            0.6750000000000007,
+            -1.7749999999999995
+          ],
+          "valid": true
+        }
+      ]
+    },
+    "task_timelines": {
+      "tb1": {
+        "dispatched_ownership_intervals": [
+          [
+            20.0,
+            28.8
+          ],
+          [
+            30.000000000000004,
+            55.46
+          ],
+          [
+            60.00000000000001,
+            84.24000000000001
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            20.37,
+            28.8
+          ],
+          [
+            30.46,
+            55.46
+          ],
+          [
+            60.550000000000004,
+            84.24000000000001
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 121.5,
+        "pending_response_s": 1.3799999999999955,
+        "accepted_active_s": 57.120000000000005,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 3,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 28.8,
+            "robot": "tb1",
+            "token": 1,
+            "uuid": "401eaa91b4ae4ae0b9c9e1cc18894475",
+            "target": [
+              0.8250000000000002,
+              0.8750000000000009
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493788895541497
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 55.46,
+            "robot": "tb1",
+            "token": 2,
+            "uuid": "77bb40b0af40402682ebd22296cafa1b",
+            "target": [
+              -0.27499999999999947,
+              4.375000000000002
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493850776924654
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 84.24000000000001,
+            "robot": "tb1",
+            "token": 3,
+            "uuid": "c5f61a57d916486ab3fb4aaf708c6d57",
+            "target": [
+              4.825,
+              2.2250000000000005
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493917180848229
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "tb2": {
+        "dispatched_ownership_intervals": [
+          [
+            20.0,
+            28.92
+          ],
+          [
+            30.000000000000004,
+            57.290000000000006
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            20.400000000000002,
+            28.92
+          ],
+          [
+            30.46,
+            57.290000000000006
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 143.79,
+        "pending_response_s": 0.8599999999999994,
+        "accepted_active_s": 35.35000000000001,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 2,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 28.92,
+            "robot": "tb2",
+            "token": 1,
+            "uuid": "8fd4626339a745f1830e3388bff09e24",
+            "target": [
+              0.1250000000000009,
+              0.1250000000000009
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493789146066900
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 57.290000000000006,
+            "robot": "tb2",
+            "token": 2,
+            "uuid": "0f4a01daad474e8b83d768fac7a0ca24",
+            "target": [
+              -4.824999999999999,
+              -0.5749999999999993
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493854901918830
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "tb3": {
+        "dispatched_ownership_intervals": [
+          [
+            20.0,
+            29.610000000000003
+          ],
+          [
+            30.000000000000004,
+            49.45
+          ],
+          [
+            50.0,
+            79.59
+          ],
+          [
+            80.0,
+            132.55
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            20.400000000000002,
+            29.610000000000003
+          ],
+          [
+            30.46,
+            49.45
+          ],
+          [
+            50.510000000000005,
+            79.59
+          ],
+          [
+            80.4,
+            132.55
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 68.79999999999998,
+        "pending_response_s": 1.7700000000000102,
+        "accepted_active_s": 109.43,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 4,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [
+          {
+            "kind": "goal_terminal",
+            "sim": 29.610000000000003,
+            "robot": "tb3",
+            "token": 1,
+            "uuid": "33bfef29c4634e828c47d224864dc2da",
+            "target": [
+              0.6750000000000007,
+              -1.7749999999999995
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493790730073154
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 49.45,
+            "robot": "tb3",
+            "token": 2,
+            "uuid": "819b4ce121e7446dba5bf50b06fe875e",
+            "target": [
+              -0.47499999999999964,
+              -4.574999999999999
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493836755076372
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 79.59,
+            "robot": "tb3",
+            "token": 3,
+            "uuid": "80bbfe2ffbb54cd583c60579d8ba1b2e",
+            "target": [
+              6.025000000000001,
+              -2.3749999999999996
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794493906492490192
+          },
+          {
+            "kind": "goal_terminal",
+            "sim": 132.55,
+            "robot": "tb3",
+            "token": 4,
+            "uuid": "1b7ab464feac4adbab225a4489a1cedb",
+            "target": [
+              -4.475,
+              -4.5249999999999995
+            ],
+            "status": "succeeded",
+            "wall_ns": 1794494026399095068
+          }
+        ],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      }
+    },
+    "final_quality": {
+      "receipt_sim": 194.66,
+      "source_stamp": 194.07,
+      "elapsed_sim_s": 179.26,
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "correct_free_cells": 15540,
+      "coverage": 0.998843038951022,
+      "correct_free_area_m2": 38.85000000000001,
+      "unknown_reachable_area_m2": 0.0025000000000000005,
+      "false_occupied_reachable_area_m2": 0.04250000000000001,
+      "false_free_physical_area_m2": 1.1400000000000001,
+      "free_precision_physical": 0.9802246411379505,
+      "predicted_occupied_cells": 2111,
+      "occupied_alignment_median_m": 0.0,
+      "occupied_alignment_p95_m": 0.05,
+      "known_truth_obstacle_cells": 1995,
+      "known_obstacle_recall_within_0_10m": 1.0,
+      "map_quality_warnings": [],
+      "map_quality_valid": true,
+      "alignment_assessment": "within_predeclared_diagnostics"
+    }
+  }
+]

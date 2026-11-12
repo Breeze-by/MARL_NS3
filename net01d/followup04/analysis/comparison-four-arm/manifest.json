@@ -1,0 +1,59 @@
+{
+  "status": "PLOT_ONLY_NO_METRIC_CHANGE",
+  "inputs": [
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a0-01/metrics/result.json",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a0-01/metrics/coverage.csv",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a0-01/trajectories.csv",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a1-03/metrics/result.json",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a1-03/metrics/coverage.csv",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a1-03/trajectories.csv",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-b1-02/metrics/result.json",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-b1-02/metrics/coverage.csv",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02/trajectories.csv",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-c1-01/metrics/result.json",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-c1-01/metrics/coverage.csv",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01/trajectories.csv"
+  ],
+  "reference": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a1-03/metrics/reference-and-final.npz",
+  "files": [
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/comparison-four-arm/coverage-and-gt-four-arm.png",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/comparison-four-arm/coverage-and-gt-four-arm.svg"
+  ],
+  "data_scope": "Existing canonical result/CSV and original in-phase GTCSV only; original mapquality/ROI15558/phase unchanged",
+  "sources": {
+    "A0": "aae271f",
+    "A1": "2be7e229",
+    "B02": "aae271f",
+    "C": "bd663824"
+  },
+  "A0": "PROCESS_INTEGRITY_FAIL_controller1; valid task metrics do not override failure",
+  "limitations": "Singleepisode/differentpaths/inputavailability; not pureRF/CPU causality or superiority; no physical/metric rule change",
+  "trajectory_counts": {
+    "gz-simhealth-a0-01": {
+      "tb1": 1800,
+      "tb2": 1800,
+      "tb3": 1800
+    },
+    "gz-simhealth-a1-03": {
+      "tb1": 1800,
+      "tb2": 1800,
+      "tb3": 1800
+    },
+    "gz-simhealth-b1-02": {
+      "tb1": 1800,
+      "tb2": 1800,
+      "tb3": 1800
+    },
+    "gz-simhealth-c1-01": {
+      "tb1": 1800,
+      "tb2": 1800,
+      "tb3": 1800
+    }
+  },
+  "bag_reads": 0,
+  "Gateway_reads": 0,
+  "native_reads": 0,
+  "PCAP_reads": 0,
+  "Torch_imports": 0,
+  "new_models": 0
+}

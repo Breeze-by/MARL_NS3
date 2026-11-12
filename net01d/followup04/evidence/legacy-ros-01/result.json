@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "checks": {
+    "foreign_goal_real_accepted_and_not_registered_owned": true,
+    "fresh_fixture_inputs_explicit_arm": true,
+    "observe_send_goal_registers_original_pending_UUID": true,
+    "actual_accept_response_held_before_local_hook": true,
+    "trip_zero_pause_does_not_fake_pending_closure": true,
+    "late_actual_accept_exactly_one_same_UUID_cancel": true,
+    "actual_local_CANCELED_status_and_GetResult5": true,
+    "foreign_UUID_not_cancelled_by_owned_cleanup": true,
+    "latched_gate_rejects_new_SendGoal_no_automatic_rearm": true,
+    "paused_sim_clock_guard_explicitly_armed": true,
+    "steady_timer_trips_after_original_point3_wall_with_clock_paused": true,
+    "all_actual_cmd_vel_messages_are_exact_zero": true,
+    "all_actual_pause_RPC_are_original_PAUSE": true,
+    "foreign_fixture_cleanup_succeeds_without_cancel": true
+  },
+  "domain": 95,
+  "RMW_IMPLEMENTATION": "rmw_fastrtps_cpp",
+  "scope": "controlled real-DDS Action/local-stop interface fixture only",
+  "Nav2": false,
+  "Gazebo": false,
+  "NN": false,
+  "ns3": false,
+  "physical_stop_certified": false,
+  "pause_service": "real DDS spy returning success, no physical effect",
+  "health_source": "synthetic fixture health/bound state only",
+  "owned_uuid": "010102030405060708090a0b0c0d0e0f",
+  "foreign_uuid": "010902030405060708090a0b0c0d0e0f",
+  "server_cancelled": [
+    "010102030405060708090a0b0c0d0e0f"
+  ],
+  "paused_clock_wall_to_trip_s": 0.30410922097507864,
+  "paused_clock_sim_ns": 100000000000,
+  "zero_samples": {
+    "1": 18,
+    "2": 2
+  },
+  "pauses": [
+    {
+      "robot": 1,
+      "command": 1,
+      "monotonic": 601596.167867592
+    },
+    {
+      "robot": 2,
+      "command": 1,
+      "monotonic": 601596.494533829
+    }
+  ],
+  "local_records": {
+    "1": [
+      {
+        "kind": "actual_local_goal_response",
+        "uuid": "010102030405060708090a0b0c0d0e0f",
+        "accepted": true
+      },
+      {
+        "kind": "actual_local_goal_response",
+        "uuid": "010102030405060708090a0b0c0d0e0f",
+        "accepted": true
+      },
+      {
+        "kind": "actual_local_pause_response",
+        "success": true
+      },
+      {
+        "kind": "actual_local_cancel_response",
+        "uuid": "010102030405060708090a0b0c0d0e0f",
+        "return_code": 0,
+        "goals_canceling": [
+          "010102030405060708090a0b0c0d0e0f"
+        ]
+      },
+      {
+        "kind": "actual_local_status_terminal",
+        "uuid": "010102030405060708090a0b0c0d0e0f",
+        "status": 5
+      },
+      {
+        "kind": "actual_local_GetResult",
+        "uuid": "010102030405060708090a0b0c0d0e0f",
+        "status": 5
+      }
+    ],
+    "2": [
+      {
+        "kind": "actual_local_pause_response",
+        "success": true
+      }
+    ]
+  },
+  "guard_events": {
+    "1": [
+      {
+        "kind": "armed",
+        "robot": "tb1",
+        "session_id": 61,
+        "sim": 1794384554.6773672,
+        "monotonic": 601596.159730128
+      },
+      {
+        "kind": "latched_INVALID",
+        "reason": "controlled_link_loss_before_accept_hook",
+        "robot": "tb1",
+        "session_id": 61,
+        "sim": 1794384554.6835868,
+        "monotonic": 601596.165954367,
+        "receipt_clock_basis": "monotonic-v1"
+      }
+    ],
+    "2": [
+      {
+        "kind": "armed",
+        "robot": "tb2",
+        "session_id": 61,
+        "sim": 100.0,
+        "monotonic": 601596.190444295
+      },
+      {
+        "kind": "latched_INVALID",
+        "reason": "health_heartbeat_stale",
+        "robot": "tb2",
+        "session_id": 61,
+        "sim": 100.0,
+        "monotonic": 601596.493142695,
+        "receipt_clock_basis": "monotonic-v1"
+      }
+    ]
+  }
+}

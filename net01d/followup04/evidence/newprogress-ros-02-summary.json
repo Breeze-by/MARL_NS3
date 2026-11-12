@@ -1,0 +1,455 @@
+{
+  "status": "PASS_CONTROLLED_ROS_ONLY",
+  "checks": 19,
+  "runtime": "2be7e229492d29817057fa8db166e38f114ca209",
+  "fixture": "82edafe4570a4b98cb5e3d02eaf6f34a11b00fae",
+  "local_watchdog_wall_s": 2.0012592299608514,
+  "local_progress_context": {
+    "control_receipt_monotonic": 605599.129473693,
+    "last_sim_progress_wall": 605597.140811705,
+    "last_sim": 100.0,
+    "health_receipt_sim": 100.0,
+    "mask_receipt_sim": 100.0,
+    "control_mode": "RUN",
+    "control_failure": null
+  },
+  "actual_controller_HOLD": {
+    "snapshot": {
+      "mode": "HOLD",
+      "failure": "physics_RPC_wall_timeout",
+      "expected_shutdown": false,
+      "physics_failed": true,
+      "physical_ns": null,
+      "iterations": null,
+      "actual_clock_ns": 100000000000,
+      "native_ACK_ns": 0,
+      "fixed_offset_ns": null,
+      "physical_RPC_inflight": true,
+      "session_id": 62,
+      "gateway_clock_ready": true,
+      "pending_holds": 1,
+      "authority_exited": false,
+      "progress_wall_timeout_ns": 2000000000,
+      "progress_started_monotonic_ns": 605599178160068,
+      "motion_armed_since_monotonic_ns": 605599181087317,
+      "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+      "actual_clock_progress_monotonic_ns": 605599177894681,
+      "native_ACK_progress_monotonic_ns": null,
+      "physical_RPC_issued_monotonic_ns": 605599178160068,
+      "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+      "token_wall_period_ns": 10000000,
+      "planned_realtime_factor": 1.0,
+      "actual_achieved_physical_rtf": null,
+      "physical_progress_sim_span_ns": null,
+      "physical_progress_wall_span_ns": null,
+      "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+      "next_earliest_wall_ns": 605599188160068,
+      "max_token_lateness_ns": 0,
+      "late_tokens": 0
+    },
+    "physical_issued_monotonic_ns": 605599178160068,
+    "response_observed_monotonic_ns": 605601182288234,
+    "controlled_service_calls": 1,
+    "physical_future_done_at_HOLD": false,
+    "actual_gateway_receipts": [
+      {
+        "received_monotonic_ns": 605599178080486,
+        "guard_armed": {
+          "1": false,
+          "2": false,
+          "3": false
+        },
+        "motion_armed_since_ns": null,
+        "actual_stamps_before": [
+          605599177894681,
+          null
+        ],
+        "actual_stamps_after": [
+          605599177894681,
+          null
+        ]
+      },
+      {
+        "received_monotonic_ns": 605599181124997,
+        "guard_armed": {
+          "1": true,
+          "2": false,
+          "3": false
+        },
+        "motion_armed_since_ns": 605599181087317,
+        "actual_stamps_before": [
+          605599177894681,
+          null
+        ],
+        "actual_stamps_after": [
+          605599177894681,
+          null
+        ]
+      },
+      {
+        "received_monotonic_ns": 605599182551651,
+        "guard_armed": {
+          "1": true,
+          "2": false,
+          "3": false
+        },
+        "motion_armed_since_ns": 605599181087317,
+        "actual_stamps_before": [
+          605599177894681,
+          null
+        ],
+        "actual_stamps_after": [
+          605599177894681,
+          null
+        ]
+      }
+    ]
+  },
+  "local_events": {
+    "1": [
+      {
+        "kind": "actual_local_cancel_response",
+        "uuid": "040102030405060708090a0b0c0d0e0f",
+        "return_code": 0,
+        "goals_canceling": [
+          "040102030405060708090a0b0c0d0e0f"
+        ]
+      },
+      {
+        "kind": "actual_local_pause_response",
+        "success": true
+      },
+      {
+        "kind": "actual_local_GetResult",
+        "uuid": "040102030405060708090a0b0c0d0e0f",
+        "status": 5
+      }
+    ],
+    "2": [
+      {
+        "kind": "actual_control_permission_revoked",
+        "reason": "authority_exited",
+        "monotonic_ns": 605597120290444
+      },
+      {
+        "kind": "actual_local_pause_response",
+        "success": true
+      },
+      {
+        "kind": "actual_local_cancel_response",
+        "uuid": "040202030405060708090a0b0c0d0e0f",
+        "return_code": 0,
+        "goals_canceling": [
+          "040202030405060708090a0b0c0d0e0f"
+        ]
+      },
+      {
+        "kind": "actual_local_GetResult",
+        "uuid": "040202030405060708090a0b0c0d0e0f",
+        "status": 5
+      }
+    ]
+  },
+  "guard_events": {
+    "1": [
+      {
+        "kind": "armed",
+        "robot": "tb1",
+        "session_id": 61,
+        "sim": 100.0,
+        "monotonic": 605597.140820765
+      },
+      {
+        "kind": "latched_INVALID",
+        "reason": "R_sim_clock_progress_wall_timeout",
+        "robot": "tb1",
+        "session_id": 61,
+        "sim": 100.0,
+        "monotonic": 605599.142070935,
+        "receipt_clock_basis": "R-ros-sim-v1",
+        "progress_context": {
+          "control_receipt_monotonic": 605599.129473693,
+          "last_sim_progress_wall": 605597.140811705,
+          "last_sim": 100.0,
+          "health_receipt_sim": 100.0,
+          "mask_receipt_sim": 100.0,
+          "control_mode": "RUN",
+          "control_failure": null
+        }
+      }
+    ],
+    "2": [
+      {
+        "kind": "armed",
+        "robot": "tb2",
+        "session_id": 61,
+        "sim": 100.0,
+        "monotonic": 605597.102056297
+      },
+      {
+        "kind": "control_permission_revoked",
+        "reason": "authority_exited",
+        "sim": 100.0,
+        "monotonic": 605597.120125961,
+        "receipt_clock_basis": "R-ros-sim-v1"
+      }
+    ]
+  },
+  "zero_counts": {
+    "1": 103,
+    "2": 203
+  },
+  "executor_shutdown": true,
+  "inner_wall_used_s": 4.258456363924779,
+  "inner_wall_remaining_s": 25.741539472015575,
+  "central_network_future": "NOT_EXERCISED; controlled local client pending/terminal recorded, never substituted for C result",
+  "exit": {
+    "runtime_commit": "2be7e229492d29817057fa8db166e38f114ca209",
+    "fixture_commit": "82edafe4570a4b98cb5e3d02eaf6f34a11b00fae",
+    "argv": [
+      "/usr/bin/time",
+      "-v",
+      "-o",
+      "net01d/followup04/evidence/newprogress-ros-02.time.txt",
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=2s",
+      "35s",
+      "bash",
+      "net01/ros-python.sh",
+      "net01d/followup04/check_progress_ros.py",
+      "--output",
+      "net01d/followup04/evidence/newprogress-ros-02",
+      "--ack-socket",
+      "/dev/shm/net01d-f04-progress-ros-02.ack"
+    ],
+    "actualdomain": "explicitrclpyinit95 overrideswrapper92",
+    "begin_monotonic_ns": 605595459058771,
+    "launcher_pid": 660402,
+    "exit": 0,
+    "end_monotonic_ns": 605601519259436,
+    "observed_owned": [
+      {
+        "pid": 660402,
+        "ppid": 660398,
+        "pgid": 660402,
+        "state": "S",
+        "start_ticks": 60559545,
+        "argv": [
+          "/usr/bin/time",
+          "-v",
+          "-o",
+          "net01d/followup04/evidence/newprogress-ros-02.time.txt",
+          "timeout",
+          "--signal=TERM",
+          "--kill-after=2s",
+          "35s",
+          "bash",
+          "net01/ros-python.sh",
+          "net01d/followup04/check_progress_ros.py",
+          "--output",
+          "net01d/followup04/evidence/newprogress-ros-02",
+          "--ack-socket",
+          "/dev/shm/net01d-f04-progress-ros-02.ack"
+        ]
+      },
+      {
+        "pid": 660403,
+        "ppid": 660402,
+        "pgid": 660403,
+        "state": "S",
+        "start_ticks": 60559546,
+        "argv": [
+          "timeout",
+          "--signal=TERM",
+          "--kill-after=2s",
+          "35s",
+          "bash",
+          "net01/ros-python.sh",
+          "net01d/followup04/check_progress_ros.py",
+          "--output",
+          "net01d/followup04/evidence/newprogress-ros-02",
+          "--ack-socket",
+          "/dev/shm/net01d-f04-progress-ros-02.ack"
+        ]
+      },
+      {
+        "pid": 660404,
+        "ppid": 660403,
+        "pgid": 660403,
+        "state": "S",
+        "start_ticks": 60559546,
+        "argv": [
+          "bwrap",
+          "--unshare-user",
+          "--uid",
+          "0",
+          "--gid",
+          "0",
+          "--die-with-parent",
+          "--ro-bind",
+          "/home/zhuyulab/ns3-workspace/base-01-econ/isolation/rootfs",
+          "/",
+          "--tmpfs",
+          "/tmp",
+          "--bind",
+          "/home/zhuyulab/ns3-workspace/net-01d/workspace/runtime-home",
+          "/root",
+          "--ro-bind",
+          "/proc",
+          "/proc",
+          "--dev-bind",
+          "/dev",
+          "/dev",
+          "--ro-bind",
+          "/sys",
+          "/sys",
+          "--ro-bind",
+          "/home/zhuyulab/ns3-workspace/base-01-econ",
+          "/project",
+          "--bind",
+          "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+          "/mnt",
+          "--chdir",
+          "/mnt",
+          "--ro-bind",
+          "/home/zhuyulab/.local/lib/python3.10/site-packages",
+          "/tmp/rl02-python",
+          "/usr/bin/env",
+          "-i",
+          "PATH=/usr/sbin:/usr/bin:/sbin:/bin",
+          "HOME=/root",
+          "LANG=C.UTF-8",
+          "ROS_DOMAIN_ID=92",
+          "ROS_LOCALHOST_ONLY=1",
+          "RMW_IMPLEMENTATION=rmw_fastrtps_cpp",
+          "PYTHONNOUSERSITE=1",
+          "PYTHONDONTWRITEBYTECODE=1",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "/bin/bash",
+          "--noprofile",
+          "--norc",
+          "-c",
+          "\n    source /opt/ros/humble/setup.bash\n    source /project/workspace/install/setup.bash\n    export PYTHONPATH=/mnt/net01:/mnt/workspace/gz01:/mnt/workspace/rl04:/mnt/workspace/rl02:/mnt/workspace/rl01:/mnt/workspace/src/multi_robot_exploration:/tmp/rl02-python:${PYTHONPATH:-}\n    exec python3 -B \"$@\"\n  ",
+          "bash",
+          "net01d/followup04/check_progress_ros.py",
+          "--output",
+          "net01d/followup04/evidence/newprogress-ros-02",
+          "--ack-socket",
+          "/dev/shm/net01d-f04-progress-ros-02.ack"
+        ]
+      },
+      {
+        "pid": 660409,
+        "ppid": 660404,
+        "pgid": 660403,
+        "state": "S",
+        "start_ticks": 60559547,
+        "argv": [
+          "python3",
+          "-B",
+          "net01d/followup04/check_progress_ros.py",
+          "--output",
+          "net01d/followup04/evidence/newprogress-ros-02",
+          "--ack-socket",
+          "/dev/shm/net01d-f04-progress-ros-02.ack"
+        ]
+      },
+      {
+        "pid": 660415,
+        "ppid": 660409,
+        "pgid": 660403,
+        "state": "R",
+        "start_ticks": 60559550,
+        "argv": [
+          "/usr/bin/python3",
+          "/opt/ros/humble/_local_setup_util.py",
+          "sh",
+          "bash"
+        ]
+      },
+      {
+        "pid": 660427,
+        "ppid": 660409,
+        "pgid": 660403,
+        "state": "R",
+        "start_ticks": 60559567,
+        "argv": [
+          "/usr/bin/python3",
+          "/usr/bin/register-python-argcomplete3",
+          "ros2"
+        ]
+      },
+      {
+        "pid": 660429,
+        "ppid": 660409,
+        "pgid": 660403,
+        "state": "R",
+        "start_ticks": 60559573,
+        "argv": [
+          "/usr/bin/python3",
+          "/usr/bin/register-python-argcomplete3",
+          "rosidl"
+        ]
+      },
+      {
+        "pid": 660432,
+        "ppid": 660409,
+        "pgid": 660403,
+        "state": "R",
+        "start_ticks": 60559580,
+        "argv": [
+          "/usr/bin/python3",
+          "/opt/ros/humble/_local_setup_util.py",
+          "sh",
+          "bash"
+        ]
+      },
+      {
+        "pid": 660439,
+        "ppid": 660409,
+        "pgid": 660403,
+        "state": "R",
+        "start_ticks": 60559598,
+        "argv": [
+          "/usr/bin/python3",
+          "/usr/bin/register-python-argcomplete3",
+          "ros2"
+        ]
+      },
+      {
+        "pid": 660445,
+        "ppid": 660409,
+        "pgid": 660403,
+        "state": "R",
+        "start_ticks": 60559605,
+        "argv": [
+          "/usr/bin/python3",
+          "/usr/bin/register-python-argcomplete3",
+          "rosidl"
+        ]
+      },
+      {
+        "pid": 660449,
+        "ppid": 660409,
+        "pgid": 660403,
+        "state": "R",
+        "start_ticks": 60559612,
+        "argv": [
+          "/usr/bin/python3",
+          "/project/workspace/install/_local_setup_util_sh.py",
+          "sh",
+          "bash"
+        ]
+      }
+    ],
+    "wall_s": 6.060200665,
+    "owned_survivors": [],
+    "ack_exists_after_exit": false,
+    "original_status": "PASS_CONTROLLED_ROS_ONLY",
+    "checks": 19,
+    "error": null
+  }
+}

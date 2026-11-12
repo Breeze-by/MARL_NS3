@@ -1,0 +1,106 @@
+{
+  "method": "Actual selected slot outranks other legal slots; cycles exclude any single fixed total ranking per robot including fixed tie order. No new inference.",
+  "scope": "Frozen real-observation actual-prefix masks only; not an observation-ablation performance test.",
+  "robots": {
+    "tb1": {
+      "edge_count": 5,
+      "cycle": [],
+      "cycle_witnesses": [],
+      "identical_legal_masks_with_different_actual_choice": 0,
+      "identical_mask_examples": [],
+      "fixed_ranking_can_reproduce_all_actual_prefix_choices": true,
+      "limitation": "Acyclic only means compatible with a fixed slot ranking on this finite set, not that model uses one."
+    },
+    "tb2": {
+      "edge_count": 17,
+      "cycle": [
+        3,
+        5,
+        3
+      ],
+      "cycle_witnesses": [
+        {
+          "preferred": 3,
+          "over": 5,
+          "record": {
+            "case": "corr6201-common58-r01-b",
+            "decision_id": 1,
+            "sim": 20.0,
+            "legal_slots": [
+              3,
+              5
+            ],
+            "selected_slot": 3
+          }
+        },
+        {
+          "preferred": 5,
+          "over": 3,
+          "record": {
+            "case": "corr6201-common58-r03-b",
+            "decision_id": 3,
+            "sim": 30.000000000000004,
+            "legal_slots": [
+              3,
+              5,
+              6
+            ],
+            "selected_slot": 5
+          }
+        }
+      ],
+      "identical_legal_masks_with_different_actual_choice": 0,
+      "identical_mask_examples": [],
+      "fixed_ranking_can_reproduce_all_actual_prefix_choices": false,
+      "limitation": "Acyclic only means compatible with a fixed slot ranking on this finite set, not that model uses one."
+    },
+    "tb3": {
+      "edge_count": 21,
+      "cycle": [
+        5,
+        6,
+        5
+      ],
+      "cycle_witnesses": [
+        {
+          "preferred": 5,
+          "over": 6,
+          "record": {
+            "case": "corr6201-common58-r01-b",
+            "decision_id": 7,
+            "sim": 50.0,
+            "legal_slots": [
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "selected_slot": 5
+          }
+        },
+        {
+          "preferred": 6,
+          "over": 5,
+          "record": {
+            "case": "corr6201-common58-r03-a1",
+            "decision_id": 6,
+            "sim": 50.0,
+            "legal_slots": [
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "selected_slot": 6
+          }
+        }
+      ],
+      "identical_legal_masks_with_different_actual_choice": 0,
+      "identical_mask_examples": [],
+      "fixed_ranking_can_reproduce_all_actual_prefix_choices": false,
+      "limitation": "Acyclic only means compatible with a fixed slot ranking on this finite set, not that model uses one."
+    }
+  }
+}

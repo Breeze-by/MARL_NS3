@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "scope": "Actual external endlaunch methods executed with in-memory PID/PG/time/ROS stubs only",
+  "checks": {
+    "first_SIGINT_parent_only": true,
+    "TERM_KILL_owned_PG": true,
+    "original_20_5_5_budget": true,
+    "original_stopzero_spin_loop": true,
+    "seal_then_Gateway_before_launch": true,
+    "legacy_delegates_frozen": true
+  },
+  "signals": [
+    [
+      "PID",
+      9342,
+      "SIGINT",
+      0
+    ],
+    [
+      "PG",
+      9342,
+      "SIGTERM",
+      20000000000
+    ],
+    [
+      "PG",
+      9342,
+      "SIGKILL",
+      25000000000
+    ]
+  ],
+  "signal_events": [
+    {
+      "process": "launch",
+      "pid": 9342,
+      "signal": "SIGINT",
+      "signal_target": "owned_launch_parent_pid",
+      "timeout_wall_s": 20
+    },
+    {
+      "process": "launch",
+      "pid": 9342,
+      "signal": "SIGTERM",
+      "signal_target": "owned_launch_process_group",
+      "timeout_wall_s": 5
+    },
+    {
+      "process": "launch",
+      "pid": 9342,
+      "signal": "SIGKILL",
+      "signal_target": "owned_launch_process_group",
+      "timeout_wall_s": 5
+    }
+  ],
+  "total_simulated_wall_ns": 30000000000,
+  "Node": 0,
+  "Gazebo": 0,
+  "ROSlaunch": 0,
+  "real_OS_signals": 0,
+  "child_processes_started": 0,
+  "native_exit_code": 0
+}

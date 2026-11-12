@@ -1,0 +1,2555 @@
+{
+  "status": "GATEWAY_ONE_LOAD_EXPORT_COMPLETE_NO_QUALIFICATION_CHANGE",
+  "activation": "d5039d0",
+  "tool_exit": 0,
+  "cases": {
+    "A0": {
+      "case": "net01d/followup04/runs/gz-simhealth-a0-01",
+      "runtime": "aae271f49a8d041285b9a903b3f58d9546985574",
+      "window": {
+        "status": "MEASURED_CLOCK_BRACKET",
+        "original_start_sim": 22.83,
+        "original_end_sim": 202.83,
+        "end_basis": "smoke_bound",
+        "original_autonomy_wall_s": 284.2284456479829,
+        "original_sim_elapsed_s": 180.0,
+        "actual_autonomy_RTF": 0.6332934044994571,
+        "lo_monotonic_ns": 611665727951178,
+        "hi_monotonic_ns": 611949949214262,
+        "first_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 611665728190124,
+          "gz_ns": 22830000000,
+          "gazebo_ns": 22830000000,
+          "R_callback_capture_monotonic_ns": 611665727951178,
+          "C_publish_return_monotonic_ns": 611665728103438
+        },
+        "last_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 611949949409022,
+          "gz_ns": 202820000000,
+          "gazebo_ns": 202820000000,
+          "R_callback_capture_monotonic_ns": 611949949214262,
+          "C_publish_return_monotonic_ns": 611949949334287
+        },
+        "last_autonomous_observer_end_monotonic_ns": 611949964290106,
+        "scope": "Discrete R-clock bracket inside original autonomous start/end and Observer last runtime mono cap; not exact Observer start/end. Partial failed phases remain partial; whole actual errors/faults retained independently."
+      },
+      "cohorts": {
+        "tb1": {
+          "health_intakes": 1800,
+          "health_accepted": 1800,
+          "mask_accepted": 1800,
+          "mask_rejected": 0
+        },
+        "tb2": {
+          "health_intakes": 1800,
+          "health_accepted": 1800,
+          "mask_accepted": 1800,
+          "mask_rejected": 0
+        },
+        "tb3": {
+          "health_intakes": 1800,
+          "health_accepted": 1800,
+          "mask_accepted": 1800,
+          "mask_rejected": 0
+        }
+      },
+      "selected_stages": {
+        "Peer/batch_entry_to_health_return": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 9.605749,
+          "median": 22.1119535,
+          "p95": 29.379746,
+          "p99": 31.735125,
+          "max": 49.985301
+        },
+        "tb1/health/raw_publish_begin_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.264107,
+          "median": 1.316616,
+          "p95": 3.105435,
+          "p99": 4.4387,
+          "max": 10.668699
+        },
+        "tb1/health/C_callback_to_intake": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb1/health/socket_queue_to_frame_flushed": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb1/health/frame_flushed_to_Hub_receive_signed": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb1/health/Hub_receive_to_endpoint_receive": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb1/health/endpoint_receive_to_intake": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb1/health/decode_wall": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb1/health/guard_wall": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb1/mask/wrapper_capture_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 1.353765,
+          "median": 3.8023274999999996,
+          "p95": 5.652301,
+          "p99": 6.931093,
+          "max": 12.221324
+        },
+        "tb1/mask/Gateway_complete_to_accept_before": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb1/mask/guard_call_bracket": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.04844,
+          "median": 0.158548,
+          "p95": 0.203579,
+          "p99": 0.25389,
+          "max": 0.711543
+        },
+        "tb1/mask/accepted_mono_gap_upper": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 66.709654,
+          "median": 158.2980215,
+          "p95": 172.960693,
+          "p99": 181.204049,
+          "max": 277.632198
+        },
+        "tb2/health/raw_publish_begin_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.32209,
+          "median": 1.4507865,
+          "p95": 3.246565,
+          "p99": 4.585676,
+          "max": 10.925681
+        },
+        "tb2/health/C_callback_to_intake": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb2/health/socket_queue_to_frame_flushed": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb2/health/frame_flushed_to_Hub_receive_signed": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb2/health/Hub_receive_to_endpoint_receive": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb2/health/endpoint_receive_to_intake": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb2/health/decode_wall": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb2/health/guard_wall": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb2/mask/wrapper_capture_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 1.743415,
+          "median": 5.656903,
+          "p95": 7.560449,
+          "p99": 8.96519,
+          "max": 12.925191
+        },
+        "tb2/mask/Gateway_complete_to_accept_before": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb2/mask/guard_call_bracket": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.050594,
+          "median": 0.15136100000000002,
+          "p95": 0.195084,
+          "p99": 0.227313,
+          "max": 0.313243
+        },
+        "tb2/mask/accepted_mono_gap_upper": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 66.299892,
+          "median": 158.269042,
+          "p95": 173.112121,
+          "p99": 180.588919,
+          "max": 280.142778
+        },
+        "tb3/health/raw_publish_begin_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.353335,
+          "median": 1.5187195,
+          "p95": 3.314087,
+          "p99": 4.655307,
+          "max": 11.001766
+        },
+        "tb3/health/C_callback_to_intake": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb3/health/socket_queue_to_frame_flushed": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb3/health/frame_flushed_to_Hub_receive_signed": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb3/health/Hub_receive_to_endpoint_receive": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb3/health/endpoint_receive_to_intake": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb3/health/decode_wall": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb3/health/guard_wall": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb3/mask/wrapper_capture_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 1.936999,
+          "median": 6.624173,
+          "p95": 9.121419,
+          "p99": 10.540976,
+          "max": 16.498621
+        },
+        "tb3/mask/Gateway_complete_to_accept_before": {
+          "status": "NOT_APPLICABLE_TO_ARM"
+        },
+        "tb3/mask/guard_call_bracket": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.047321,
+          "median": 0.149995,
+          "p95": 0.192408,
+          "p99": 0.232456,
+          "max": 0.451549
+        },
+        "tb3/mask/accepted_mono_gap_upper": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 67.073582,
+          "median": 158.1095785,
+          "p95": 173.500138,
+          "p99": 181.44856,
+          "max": 283.467794
+        }
+      },
+      "matching_coverage_totals": {
+        "total": 21600,
+        "matched": 21600,
+        "missing": 0,
+        "ambiguous": 0,
+        "not_applicable": 0
+      },
+      "CDR_binding_checks": {
+        "health_C_R_existing_CDR": {
+          "status": "NOT_MEASURED",
+          "total": 0,
+          "measured": 0,
+          "equal": 0,
+          "mismatch": 0,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "health_producer_C_existing_CDR": {
+          "status": "NOT_MEASURED",
+          "total": 0,
+          "measured": 0,
+          "equal": 0,
+          "mismatch": 0,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "mask_binding_original_publication": {
+          "status": "MEASURED_SAMPLES_NOT_GLOBAL_PASS",
+          "total": 5400,
+          "measured": 5400,
+          "equal": 5400,
+          "mismatch": 0,
+          "missing": 0,
+          "ambiguous": 0
+        }
+      },
+      "actual_faults": {
+        "1": {
+          "whole": [],
+          "inside_clock_bracket": []
+        },
+        "2": {
+          "whole": [],
+          "inside_clock_bracket": []
+        },
+        "3": {
+          "whole": [],
+          "inside_clock_bracket": []
+        }
+      },
+      "case_outcome": {
+        "explicit_reviewed_case_verdict": {
+          "status": "PROCESS_INTEGRITY_FAIL",
+          "controller_exit": 1,
+          "original_raw": {
+            "host_exit": 0,
+            "runner_exit": 0,
+            "network_run_integrity": true
+          },
+          "scope": "Preserve actual A0 postbudget controller1 despite original raw success;180sim canonical component remains separately usable, no A0 acceptance"
+        },
+        "authoritative_review": "net01d/followup04/analysis/gz-simhealth-a0-01/INDEPENDENT_REVIEW.md",
+        "observed_summary": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a0-01/small-result.json",
+        "observed_summary_status": "LOADED",
+        "observed_process_and_raw_fields": {
+          "error": null,
+          "hazard": null,
+          "run_integrity": true,
+          "status": "A0_BUSINESS180_RVALID_HARNESS_EXIT0_CONTROLLER_EXIT1_NOT_ACCEPTED",
+          "host_command_exit": 0,
+          "runner_exit": 0,
+          "hub_exit": 0,
+          "native_exit": 0,
+          "gateway_process_exit": 0,
+          "network_run_integrity": true,
+          "controller_process_exit": 1,
+          "controller_teardown_error": "Fulluntimestamped rclpy take_message RuntimeError traceback retained; actualcontrollerexit1 observed afterbudgetSIGINT. Exactexceptiononset/type/unique cause UNRESOLVED",
+          "controlled_exits": {
+            "coordinator": 0,
+            "clock_R": 0,
+            "clock_C": 0
+          },
+          "controller_final": {
+            "mode": "HOLD",
+            "failure": null,
+            "expected_shutdown": true,
+            "physics_failed": false,
+            "physical_ns": 206670000000,
+            "iterations": 206670,
+            "actual_clock_ns": 206670000000,
+            "native_ACK_ns": 206660000000,
+            "fixed_offset_ns": 10000000,
+            "physical_RPC_inflight": false,
+            "session_id": 2026111152,
+            "gateway_clock_ready": true,
+            "pending_holds": 0,
+            "authority_exited": true,
+            "progress_wall_timeout_ns": 2000000000,
+            "progress_started_monotonic_ns": 611659383876133,
+            "motion_armed_since_monotonic_ns": 611665734500958,
+            "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+            "actual_clock_progress_monotonic_ns": 611955857652199,
+            "native_ACK_progress_monotonic_ns": 611955861032945,
+            "physical_RPC_issued_monotonic_ns": null,
+            "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+            "token_wall_period_ns": 10000000,
+            "planned_realtime_factor": 1.0,
+            "actual_achieved_physical_rtf": 0.6270220662271433,
+            "physical_progress_sim_span_ns": 206670000000,
+            "physical_progress_wall_span_ns": 329605624956,
+            "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+            "next_earliest_wall_ns": 611847543876133,
+            "max_token_lateness_ns": 108312420438,
+            "late_tokens": 20664
+          }
+        },
+        "scope": "Preserve original raw success fields independently from process verdict; metrics/empty ownership do not override controller nonzero"
+      },
+      "read_counts": {
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a0-01.admission-used.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-a0-01.ready.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a0-01/small-result.json": 1,
+        "network-gateway.json": 1,
+        "a0-direct-safety.json": 1,
+        "result.json": 1,
+        "observer_timing.json": 1,
+        "events.jsonl": 1,
+        "peer-keepout.jsonl": 1,
+        "health-trace.json": 1,
+        "bound-mask-publications.jsonl": 1
+      },
+      "Gateway_decode": {
+        "bytes": 54002497,
+        "read_decode_wall_s": 1.3718339410843328
+      },
+      "A0_safety_decode": {
+        "bytes": 16852823,
+        "read_decode_wall_s": 1.0892038330202922
+      },
+      "native_targets": {
+        "path": "A0-native-targets.jsonl",
+        "rows": 0,
+        "scope": "Only matched normal R-consumed health/mask IDs; not full Gateway cache, native ingress cohort, loss denominator or permission to scan ledger"
+      },
+      "individual_stats_and_worst_witness": "A0.json",
+      "full_coverage_and_flowcounts": "A0.json"
+    },
+    "A1": {
+      "case": "net01d/followup04/runs/gz-simhealth-a1-03",
+      "runtime": "2be7e229492d29817057fa8db166e38f114ca209",
+      "window": {
+        "status": "MEASURED_CLOCK_BRACKET",
+        "original_start_sim": 21.68,
+        "original_end_sim": 201.68,
+        "end_basis": "smoke_bound",
+        "original_autonomy_wall_s": 291.3829095560359,
+        "original_sim_elapsed_s": 180.0,
+        "actual_autonomy_RTF": 0.6177438487187052,
+        "lo_monotonic_ns": 606734412052726,
+        "hi_monotonic_ns": 607025793689467,
+        "first_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 606734412248054,
+          "gz_ns": 21680000000,
+          "gazebo_ns": 21680000000,
+          "R_callback_capture_monotonic_ns": 606734412052726,
+          "C_publish_return_monotonic_ns": 606734412164984
+        },
+        "last_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 607025793851353,
+          "gz_ns": 201670000000,
+          "gazebo_ns": 201670000000,
+          "R_callback_capture_monotonic_ns": 607025793689467,
+          "C_publish_return_monotonic_ns": 607025793786867
+        },
+        "last_autonomous_observer_end_monotonic_ns": 607025809344195,
+        "scope": "Discrete R-clock bracket inside original autonomous start/end and Observer last runtime mono cap; not exact Observer start/end. Partial failed phases remain partial; whole actual errors/faults retained independently."
+      },
+      "cohorts": {
+        "tb1": {
+          "health_intakes": 1800,
+          "health_accepted": 1800,
+          "mask_accepted": 1800,
+          "mask_rejected": 0
+        },
+        "tb2": {
+          "health_intakes": 1800,
+          "health_accepted": 1800,
+          "mask_accepted": 1800,
+          "mask_rejected": 0
+        },
+        "tb3": {
+          "health_intakes": 1800,
+          "health_accepted": 1800,
+          "mask_accepted": 1800,
+          "mask_rejected": 0
+        }
+      },
+      "selected_stages": {
+        "Peer/batch_entry_to_health_return": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 8.500262,
+          "median": 18.2462795,
+          "p95": 23.483786,
+          "p99": 26.192232,
+          "max": 52.008793
+        },
+        "tb1/health/raw_publish_begin_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.755816,
+          "median": 8.0615305,
+          "p95": 15.769585,
+          "p99": 18.520138,
+          "max": 35.076497
+        },
+        "tb1/health/C_callback_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.185418,
+          "median": 0.3434335,
+          "p95": 0.468719,
+          "p99": 0.590009,
+          "max": 6.771045
+        },
+        "tb1/health/socket_queue_to_frame_flushed": {
+          "n": 0,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 0,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 1800,
+          "status": "NOT_APPLICABLE"
+        },
+        "tb1/health/frame_flushed_to_Hub_receive_signed": {
+          "n": 0,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 0,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 1800,
+          "status": "NOT_APPLICABLE"
+        },
+        "tb1/health/Hub_receive_to_endpoint_receive": {
+          "n": 0,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 0,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 1800,
+          "status": "NOT_APPLICABLE"
+        },
+        "tb1/health/endpoint_receive_to_intake": {
+          "n": 0,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 0,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 1800,
+          "status": "NOT_APPLICABLE"
+        },
+        "tb1/health/decode_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.05782,
+          "median": 0.100239,
+          "p95": 0.138581,
+          "p99": 0.180369,
+          "max": 0.221271
+        },
+        "tb1/health/guard_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.064144,
+          "median": 0.11867649999999999,
+          "p95": 0.16228,
+          "p99": 0.212677,
+          "max": 1.040433
+        },
+        "tb1/mask/wrapper_capture_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 3.903378,
+          "median": 13.999615,
+          "p95": 21.87627,
+          "p99": 25.43267,
+          "max": 40.586793
+        },
+        "tb1/mask/Gateway_complete_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.707643,
+          "median": 1.4078655,
+          "p95": 1.685127,
+          "p99": 1.934239,
+          "max": 4.93586
+        },
+        "tb1/mask/guard_call_bracket": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.075403,
+          "median": 0.154151,
+          "p95": 0.207249,
+          "p99": 0.261359,
+          "max": 0.472877
+        },
+        "tb1/mask/accepted_mono_gap_upper": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 131.595611,
+          "median": 161.05833,
+          "p95": 180.710974,
+          "p99": 191.172698,
+          "max": 253.703392
+        },
+        "tb2/health/raw_publish_begin_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.621127,
+          "median": 8.9140345,
+          "p95": 16.679004,
+          "p99": 19.431784,
+          "max": 35.950929
+        },
+        "tb2/health/C_callback_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.152953,
+          "median": 0.261707,
+          "p95": 0.377454,
+          "p99": 0.513,
+          "max": 3.137631
+        },
+        "tb2/health/socket_queue_to_frame_flushed": {
+          "n": 0,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 0,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 1800,
+          "status": "NOT_APPLICABLE"
+        },
+        "tb2/health/frame_flushed_to_Hub_receive_signed": {
+          "n": 0,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 0,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 1800,
+          "status": "NOT_APPLICABLE"
+        },
+        "tb2/health/Hub_receive_to_endpoint_receive": {
+          "n": 0,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 0,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 1800,
+          "status": "NOT_APPLICABLE"
+        },
+        "tb2/health/endpoint_receive_to_intake": {
+          "n": 0,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 0,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 1800,
+          "status": "NOT_APPLICABLE"
+        },
+        "tb2/health/decode_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.054123,
+          "median": 0.087701,
+          "p95": 0.122294,
+          "p99": 0.160335,
+          "max": 3.317779
+        },
+        "tb2/health/guard_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.057381,
+          "median": 0.101327,
+          "p95": 0.139263,
+          "p99": 0.189462,
+          "max": 0.266845
+        },
+        "tb2/mask/wrapper_capture_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 4.382487,
+          "median": 16.8870045,
+          "p95": 24.389826,
+          "p99": 27.74995,
+          "max": 43.501549
+        },
+        "tb2/mask/Gateway_complete_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.651907,
+          "median": 1.3818315,
+          "p95": 1.604664,
+          "p99": 1.789385,
+          "max": 4.979658
+        },
+        "tb2/mask/guard_call_bracket": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.072577,
+          "median": 0.15694,
+          "p95": 0.209256,
+          "p99": 0.24999,
+          "max": 0.310969
+        },
+        "tb2/mask/accepted_mono_gap_upper": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 132.220836,
+          "median": 160.961576,
+          "p95": 180.324181,
+          "p99": 190.24072,
+          "max": 253.1962
+        },
+        "tb3/health/raw_publish_begin_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 1.24744,
+          "median": 10.991569,
+          "p95": 19.548386,
+          "p99": 23.219167,
+          "max": 38.699033
+        },
+        "tb3/health/C_callback_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.144351,
+          "median": 0.253912,
+          "p95": 0.376917,
+          "p99": 0.507367,
+          "max": 3.831741
+        },
+        "tb3/health/socket_queue_to_frame_flushed": {
+          "n": 0,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 0,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 1800,
+          "status": "NOT_APPLICABLE"
+        },
+        "tb3/health/frame_flushed_to_Hub_receive_signed": {
+          "n": 0,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 0,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 1800,
+          "status": "NOT_APPLICABLE"
+        },
+        "tb3/health/Hub_receive_to_endpoint_receive": {
+          "n": 0,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 0,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 1800,
+          "status": "NOT_APPLICABLE"
+        },
+        "tb3/health/endpoint_receive_to_intake": {
+          "n": 0,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 0,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 1800,
+          "status": "NOT_APPLICABLE"
+        },
+        "tb3/health/decode_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.053598,
+          "median": 0.08753749999999999,
+          "p95": 0.122814,
+          "p99": 0.16435,
+          "max": 3.2195
+        },
+        "tb3/health/guard_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.057665,
+          "median": 0.09734499999999999,
+          "p95": 0.138726,
+          "p99": 0.199813,
+          "max": 3.550663
+        },
+        "tb3/mask/wrapper_capture_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 7.303902,
+          "median": 19.50308,
+          "p95": 26.843634,
+          "p99": 31.429252,
+          "max": 46.166508
+        },
+        "tb3/mask/Gateway_complete_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.638502,
+          "median": 1.3751155000000002,
+          "p95": 1.59997,
+          "p99": 1.822438,
+          "max": 7.307629
+        },
+        "tb3/mask/guard_call_bracket": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.073761,
+          "median": 0.155991,
+          "p95": 0.206845,
+          "p99": 0.266885,
+          "max": 5.609148
+        },
+        "tb3/mask/accepted_mono_gap_upper": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 126.532246,
+          "median": 161.16094950000002,
+          "p95": 179.947719,
+          "p99": 190.71796,
+          "max": 253.56183
+        }
+      },
+      "matching_coverage_totals": {
+        "total": 64800,
+        "matched": 48600,
+        "missing": 0,
+        "ambiguous": 0,
+        "not_applicable": 16200
+      },
+      "CDR_binding_checks": {
+        "health_C_R_existing_CDR": {
+          "status": "MEASURED_SAMPLES_NOT_GLOBAL_PASS",
+          "total": 5400,
+          "measured": 5400,
+          "equal": 5400,
+          "mismatch": 0,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "health_producer_C_existing_CDR": {
+          "status": "MEASURED_SAMPLES_NOT_GLOBAL_PASS",
+          "total": 5400,
+          "measured": 5400,
+          "equal": 5400,
+          "mismatch": 0,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "mask_binding_original_publication": {
+          "status": "MEASURED_SAMPLES_NOT_GLOBAL_PASS",
+          "total": 5400,
+          "measured": 5400,
+          "equal": 5400,
+          "mismatch": 0,
+          "missing": 0,
+          "ambiguous": 0
+        }
+      },
+      "actual_faults": {
+        "1": {
+          "whole": [],
+          "inside_clock_bracket": []
+        },
+        "2": {
+          "whole": [],
+          "inside_clock_bracket": []
+        },
+        "3": {
+          "whole": [],
+          "inside_clock_bracket": []
+        }
+      },
+      "case_outcome": {
+        "explicit_reviewed_case_verdict": {
+          "status": "SEE_ACTUAL_SUMMARY_AND_REVIEW_NOT_RECLASSIFIED",
+          "scope": "No process/qualification PASS inferred by this exporter"
+        },
+        "authoritative_review": "net01d/followup04/analysis/gz-simhealth-a1-03/INDEPENDENT_REVIEW.md",
+        "observed_summary": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a1-03/small-result.json",
+        "observed_summary_status": "LOADED",
+        "observed_process_and_raw_fields": {
+          "error": null,
+          "hazard": null,
+          "run_integrity": true,
+          "runner_exit": 0,
+          "hub_exit": 0,
+          "network_run_integrity": true,
+          "native_exit": 0,
+          "controller_final": {
+            "mode": "HOLD",
+            "failure": null,
+            "expected_shutdown": true,
+            "physics_failed": false,
+            "physical_ns": 205380000000,
+            "iterations": 205380,
+            "actual_clock_ns": 205380000000,
+            "native_ACK_ns": 205370000000,
+            "fixed_offset_ns": 10000000,
+            "physical_RPC_inflight": false,
+            "session_id": 2026111146,
+            "gateway_clock_ready": true,
+            "pending_holds": 0,
+            "authority_exited": true,
+            "progress_wall_timeout_ns": 2000000000,
+            "progress_started_monotonic_ns": 606728010464670,
+            "motion_armed_since_monotonic_ns": 606734437118617,
+            "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+            "actual_clock_progress_monotonic_ns": 607031604698764,
+            "native_ACK_progress_monotonic_ns": 607031609912816,
+            "physical_RPC_issued_monotonic_ns": null,
+            "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+            "token_wall_period_ns": 10000000,
+            "planned_realtime_factor": 1.0,
+            "actual_achieved_physical_rtf": 0.6113692110316623,
+            "physical_progress_sim_span_ns": 205380000000,
+            "physical_progress_wall_span_ns": 335934483278,
+            "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+            "next_earliest_wall_ns": 606915780464670,
+            "max_token_lateness_ns": 115821978810,
+            "late_tokens": 20535
+          },
+          "controlled_exits": {
+            "coordinator": 0,
+            "clock_R": 0,
+            "clock_C": 0
+          }
+        },
+        "scope": "Preserve original raw success fields independently from process verdict; metrics/empty ownership do not override controller nonzero"
+      },
+      "read_counts": {
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a1-03.admission-used.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-a1-03.ready.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a1-03/small-result.json": 1,
+        "network-gateway.json": 1,
+        "result.json": 1,
+        "observer_timing.json": 1,
+        "events.jsonl": 1,
+        "peer-keepout.jsonl": 1,
+        "health-trace.json": 1,
+        "bound-mask-publications.jsonl": 1
+      },
+      "Gateway_decode": {
+        "bytes": 272555766,
+        "read_decode_wall_s": 10.772631324944086
+      },
+      "A0_safety_decode": null,
+      "native_targets": {
+        "path": "A1-native-targets.jsonl",
+        "rows": 0,
+        "scope": "Only matched normal R-consumed health/mask IDs; not full Gateway cache, native ingress cohort, loss denominator or permission to scan ledger"
+      },
+      "individual_stats_and_worst_witness": "A1.json",
+      "full_coverage_and_flowcounts": "A1.json"
+    },
+    "B02": {
+      "case": "net01d/followup04/runs/gz-simhealth-b1-02",
+      "runtime": "aae271f49a8d041285b9a903b3f58d9546985574",
+      "window": {
+        "status": "MEASURED_CLOCK_BRACKET",
+        "original_start_sim": 15.53,
+        "original_end_sim": 195.53,
+        "end_basis": "smoke_bound",
+        "original_autonomy_wall_s": 425.14989125705324,
+        "original_sim_elapsed_s": 180.0,
+        "actual_autonomy_RTF": 0.4233800918254705,
+        "lo_monotonic_ns": 610405898456505,
+        "hi_monotonic_ns": 610831082755314,
+        "first_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 610405898683639,
+          "gz_ns": 15530000000,
+          "gazebo_ns": 15530000000,
+          "R_callback_capture_monotonic_ns": 610405898456505,
+          "C_publish_return_monotonic_ns": 610405898588015
+        },
+        "last_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 610831082937411,
+          "gz_ns": 195530000000,
+          "gazebo_ns": 195530000000,
+          "R_callback_capture_monotonic_ns": 610831082755314,
+          "C_publish_return_monotonic_ns": 610831082865355
+        },
+        "last_autonomous_observer_end_monotonic_ns": 610831090827026,
+        "scope": "Discrete R-clock bracket inside original autonomous start/end and Observer last runtime mono cap; not exact Observer start/end. Partial failed phases remain partial; whole actual errors/faults retained independently."
+      },
+      "cohorts": {
+        "tb1": {
+          "health_intakes": 1799,
+          "health_accepted": 1799,
+          "mask_accepted": 1800,
+          "mask_rejected": 0
+        },
+        "tb2": {
+          "health_intakes": 1800,
+          "health_accepted": 1800,
+          "mask_accepted": 1800,
+          "mask_rejected": 0
+        },
+        "tb3": {
+          "health_intakes": 1800,
+          "health_accepted": 1800,
+          "mask_accepted": 1800,
+          "mask_rejected": 0
+        }
+      },
+      "selected_stages": {
+        "Peer/batch_entry_to_health_return": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 7.444945,
+          "median": 20.3477195,
+          "p95": 28.284094,
+          "p99": 30.813443,
+          "max": 37.174191
+        },
+        "tb1/health/raw_publish_begin_to_intake": {
+          "n": 1799,
+          "unit": "wall_ms",
+          "total": 1799,
+          "matched": 1799,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 5.585073,
+          "median": 30.88207,
+          "p95": 42.489006,
+          "p99": 48.283154,
+          "max": 101.281292
+        },
+        "tb1/health/C_callback_to_intake": {
+          "n": 1799,
+          "unit": "wall_ms",
+          "total": 1799,
+          "matched": 1799,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 2.754243,
+          "median": 22.55682,
+          "p95": 34.222278,
+          "p99": 40.20144,
+          "max": 82.665221
+        },
+        "tb1/health/socket_queue_to_frame_flushed": {
+          "n": 1799,
+          "unit": "wall_ms",
+          "total": 1799,
+          "matched": 1799,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.040553,
+          "median": 0.095621,
+          "p95": 0.248884,
+          "p99": 0.339943,
+          "max": 0.853587
+        },
+        "tb1/health/frame_flushed_to_Hub_receive_signed": {
+          "n": 1799,
+          "unit": "wall_ms",
+          "total": 1799,
+          "matched": 1799,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 2.323562,
+          "median": 21.379723,
+          "p95": 32.874397,
+          "p99": 38.493862,
+          "max": 78.898178
+        },
+        "tb1/health/Hub_receive_to_endpoint_receive": {
+          "n": 1799,
+          "unit": "wall_ms",
+          "total": 1799,
+          "matched": 1799,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.087768,
+          "median": 0.762867,
+          "p95": 2.144791,
+          "p99": 3.22533,
+          "max": 6.381948
+        },
+        "tb1/health/endpoint_receive_to_intake": {
+          "n": 1799,
+          "unit": "wall_ms",
+          "total": 1799,
+          "matched": 1799,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.018774,
+          "median": 0.055461,
+          "p95": 0.091847,
+          "p99": 0.109115,
+          "max": 0.257972
+        },
+        "tb1/health/decode_wall": {
+          "n": 1799,
+          "unit": "wall_ms",
+          "total": 1799,
+          "matched": 1799,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.062689,
+          "median": 0.17148,
+          "p95": 0.224756,
+          "p99": 0.257938,
+          "max": 0.345602
+        },
+        "tb1/health/guard_wall": {
+          "n": 1799,
+          "unit": "wall_ms",
+          "total": 1799,
+          "matched": 1799,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.049084,
+          "median": 0.125398,
+          "p95": 0.167786,
+          "p99": 0.209344,
+          "max": 0.396522
+        },
+        "tb1/mask/wrapper_capture_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 21.265471,
+          "median": 113.79419999999999,
+          "p95": 133.361983,
+          "p99": 142.805677,
+          "max": 160.122422
+        },
+        "tb1/mask/Gateway_complete_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.5642,
+          "median": 1.4857875,
+          "p95": 2.090641,
+          "p99": 2.255078,
+          "max": 2.55719
+        },
+        "tb1/mask/guard_call_bracket": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.053812,
+          "median": 0.1586505,
+          "p95": 0.20564,
+          "p99": 0.247395,
+          "max": 0.432724
+        },
+        "tb1/mask/accepted_mono_gap_upper": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 93.831039,
+          "median": 236.7707015,
+          "p95": 299.003576,
+          "p99": 326.968578,
+          "max": 358.541784
+        },
+        "tb2/health/raw_publish_begin_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 6.884144,
+          "median": 56.612389,
+          "p95": 71.929921,
+          "p99": 79.199345,
+          "max": 95.483342
+        },
+        "tb2/health/C_callback_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 3.592054,
+          "median": 47.836130499999996,
+          "p95": 62.515446,
+          "p99": 68.96274,
+          "max": 84.283157
+        },
+        "tb2/health/socket_queue_to_frame_flushed": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.035696,
+          "median": 0.0760615,
+          "p95": 0.227555,
+          "p99": 0.33177,
+          "max": 0.672412
+        },
+        "tb2/health/frame_flushed_to_Hub_receive_signed": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 2.650138,
+          "median": 46.315962,
+          "p95": 60.808533,
+          "p99": 67.372854,
+          "max": 82.870247
+        },
+        "tb2/health/Hub_receive_to_endpoint_receive": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.049814,
+          "median": 1.1489015,
+          "p95": 3.641574,
+          "p99": 4.888971,
+          "max": 7.583277
+        },
+        "tb2/health/endpoint_receive_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.014784,
+          "median": 0.0530205,
+          "p95": 0.083151,
+          "p99": 0.104545,
+          "max": 0.298357
+        },
+        "tb2/health/decode_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.051048,
+          "median": 0.16785450000000002,
+          "p95": 0.224696,
+          "p99": 0.252552,
+          "max": 0.437356
+        },
+        "tb2/health/guard_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.044804,
+          "median": 0.120695,
+          "p95": 0.160158,
+          "p99": 0.194276,
+          "max": 0.341669
+        },
+        "tb2/mask/wrapper_capture_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 35.591576,
+          "median": 103.9000405,
+          "p95": 131.078148,
+          "p99": 141.43049,
+          "max": 160.69689
+        },
+        "tb2/mask/Gateway_complete_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.577224,
+          "median": 1.4938004999999999,
+          "p95": 2.022611,
+          "p99": 2.253791,
+          "max": 5.00754
+        },
+        "tb2/mask/guard_call_bracket": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.05438,
+          "median": 0.159943,
+          "p95": 0.211914,
+          "p99": 0.269217,
+          "max": 0.353154
+        },
+        "tb2/mask/accepted_mono_gap_upper": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 114.386027,
+          "median": 237.1156565,
+          "p95": 290.444164,
+          "p99": 310.150462,
+          "max": 335.891882
+        },
+        "tb3/health/raw_publish_begin_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 7.412495,
+          "median": 79.511932,
+          "p95": 102.311895,
+          "p99": 111.141974,
+          "max": 124.506146
+        },
+        "tb3/health/C_callback_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 5.093829,
+          "median": 69.15230500000001,
+          "p95": 90.88043,
+          "p99": 100.669841,
+          "max": 110.671302
+        },
+        "tb3/health/socket_queue_to_frame_flushed": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.035946,
+          "median": 0.0771495,
+          "p95": 0.224806,
+          "p99": 0.305876,
+          "max": 0.767636
+        },
+        "tb3/health/frame_flushed_to_Hub_receive_signed": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 4.771919,
+          "median": 67.5248165,
+          "p95": 88.876125,
+          "p99": 98.783759,
+          "max": 107.606738
+        },
+        "tb3/health/Hub_receive_to_endpoint_receive": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.081323,
+          "median": 1.148799,
+          "p95": 3.879378,
+          "p99": 5.034488,
+          "max": 6.904095
+        },
+        "tb3/health/endpoint_receive_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.017919,
+          "median": 0.054137000000000005,
+          "p95": 0.085662,
+          "p99": 0.104446,
+          "max": 0.175419
+        },
+        "tb3/health/decode_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.057557,
+          "median": 0.1713195,
+          "p95": 0.22982,
+          "p99": 0.274407,
+          "max": 0.354321
+        },
+        "tb3/health/guard_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.046595,
+          "median": 0.12043899999999999,
+          "p95": 0.160182,
+          "p99": 0.198393,
+          "max": 0.357901
+        },
+        "tb3/mask/wrapper_capture_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 51.664772,
+          "median": 113.6532905,
+          "p95": 133.442568,
+          "p99": 140.737128,
+          "max": 150.765675
+        },
+        "tb3/mask/Gateway_complete_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.559685,
+          "median": 1.4789720000000002,
+          "p95": 2.050808,
+          "p99": 2.249829,
+          "max": 2.464876
+        },
+        "tb3/mask/guard_call_bracket": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.053835,
+          "median": 0.15797250000000002,
+          "p95": 0.207358,
+          "p99": 0.245306,
+          "max": 2.258523
+        },
+        "tb3/mask/accepted_mono_gap_upper": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 122.978226,
+          "median": 236.97472349999998,
+          "p95": 271.306732,
+          "p99": 286.293628,
+          "max": 307.979652
+        }
+      },
+      "matching_coverage_totals": {
+        "total": 64792,
+        "matched": 64792,
+        "missing": 0,
+        "ambiguous": 0,
+        "not_applicable": 0
+      },
+      "CDR_binding_checks": {
+        "health_C_R_existing_CDR": {
+          "status": "MEASURED_SAMPLES_NOT_GLOBAL_PASS",
+          "total": 5399,
+          "measured": 5399,
+          "equal": 5399,
+          "mismatch": 0,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "health_producer_C_existing_CDR": {
+          "status": "MEASURED_SAMPLES_NOT_GLOBAL_PASS",
+          "total": 5399,
+          "measured": 5399,
+          "equal": 5399,
+          "mismatch": 0,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "mask_binding_original_publication": {
+          "status": "MEASURED_SAMPLES_NOT_GLOBAL_PASS",
+          "total": 5400,
+          "measured": 5400,
+          "equal": 5400,
+          "mismatch": 0,
+          "missing": 0,
+          "ambiguous": 0
+        }
+      },
+      "actual_faults": {
+        "1": {
+          "whole": [],
+          "inside_clock_bracket": []
+        },
+        "2": {
+          "whole": [],
+          "inside_clock_bracket": []
+        },
+        "3": {
+          "whole": [],
+          "inside_clock_bracket": []
+        }
+      },
+      "case_outcome": {
+        "explicit_reviewed_case_verdict": {
+          "status": "SEE_ACTUAL_SUMMARY_AND_REVIEW_NOT_RECLASSIFIED",
+          "scope": "No process/qualification PASS inferred by this exporter"
+        },
+        "authoritative_review": "net01d/followup04/analysis/gz-simhealth-b1-02/INDEPENDENT_REVIEW.md",
+        "observed_summary": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-b1-02/small-result.json",
+        "observed_summary_status": "LOADED",
+        "observed_process_and_raw_fields": {
+          "error": null,
+          "hazard": null,
+          "run_integrity": true,
+          "status": "BUSINESS180_COMPLETE_POSTSTOP_EXIT0_PRIMARY_R_VALID",
+          "host_command_exit": 0,
+          "runner_exit": 0,
+          "hub_exit": 0,
+          "native_exit": 0,
+          "gateway_process_exit": 0,
+          "gateway_exit_field_semantics": "network-gateway-exit.native_exit is ROS Gateway process, nativeleaf independently0",
+          "network_run_integrity": true,
+          "controlled_exits": {
+            "coordinator": 0,
+            "clock_R": 0,
+            "clock_C": 0
+          },
+          "controller_final": {
+            "mode": "HOLD",
+            "failure": null,
+            "expected_shutdown": true,
+            "physics_failed": false,
+            "physical_ns": 198050000000,
+            "iterations": 198050,
+            "actual_clock_ns": 198050000000,
+            "native_ACK_ns": 198040000000,
+            "fixed_offset_ns": 10000000,
+            "physical_RPC_inflight": false,
+            "session_id": 2026111147,
+            "gateway_clock_ready": true,
+            "pending_holds": 0,
+            "authority_exited": true,
+            "progress_wall_timeout_ns": 2000000000,
+            "progress_started_monotonic_ns": 610399562990155,
+            "motion_armed_since_monotonic_ns": 610405951909251,
+            "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+            "actual_clock_progress_monotonic_ns": 610837001151473,
+            "native_ACK_progress_monotonic_ns": 610837008874870,
+            "physical_RPC_issued_monotonic_ns": null,
+            "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+            "token_wall_period_ns": 10000000,
+            "planned_realtime_factor": 1.0,
+            "actual_achieved_physical_rtf": 0.42135564338093057,
+            "physical_progress_sim_span_ns": 198050000000,
+            "physical_progress_wall_span_ns": 470030491133,
+            "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+            "next_earliest_wall_ns": 610584902990155,
+            "max_token_lateness_ns": 252095221932,
+            "late_tokens": 19802
+          }
+        },
+        "scope": "Preserve original raw success fields independently from process verdict; metrics/empty ownership do not override controller nonzero"
+      },
+      "read_counts": {
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.admission-used.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-b1-02.ready.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-b1-02/small-result.json": 1,
+        "network-gateway.json": 1,
+        "result.json": 1,
+        "observer_timing.json": 1,
+        "events.jsonl": 1,
+        "peer-keepout.jsonl": 1,
+        "health-trace.json": 1,
+        "bound-mask-publications.jsonl": 1
+      },
+      "Gateway_decode": {
+        "bytes": 362709308,
+        "read_decode_wall_s": 14.327157389954664
+      },
+      "A0_safety_decode": null,
+      "native_targets": {
+        "path": "B02-native-targets.jsonl",
+        "rows": 10799,
+        "scope": "Only matched normal R-consumed health/mask IDs; not full Gateway cache, native ingress cohort, loss denominator or permission to scan ledger"
+      },
+      "individual_stats_and_worst_witness": "B02.json",
+      "full_coverage_and_flowcounts": "B02.json"
+    },
+    "C": {
+      "case": "net01d/followup04/runs/gz-simhealth-c1-01",
+      "runtime": "bd663824d77983cb2b2721e90241ef97bf06461f",
+      "window": {
+        "status": "MEASURED_CLOCK_BRACKET",
+        "original_start_sim": 17.36,
+        "original_end_sim": 197.36,
+        "end_basis": "smoke_bound",
+        "original_autonomy_wall_s": 380.8343587940326,
+        "original_sim_elapsed_s": 180.0,
+        "actual_autonomy_RTF": 0.47264642972340043,
+        "lo_monotonic_ns": 614130492810762,
+        "hi_monotonic_ns": 614511331345331,
+        "first_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 614130493039162,
+          "gz_ns": 17360000000,
+          "gazebo_ns": 17360000000,
+          "R_callback_capture_monotonic_ns": 614130492810762,
+          "C_publish_return_monotonic_ns": 614130492957157
+        },
+        "last_clock": {
+          "kind": "actual_R_clock_relayed_C",
+          "monotonic_ns": 614511331523356,
+          "gz_ns": 197360000000,
+          "gazebo_ns": 197360000000,
+          "R_callback_capture_monotonic_ns": 614511331345331,
+          "C_publish_return_monotonic_ns": 614511331463052
+        },
+        "last_autonomous_observer_end_monotonic_ns": 614511333449589,
+        "scope": "Discrete R-clock bracket inside original autonomous start/end and Observer last runtime mono cap; not exact Observer start/end. Partial failed phases remain partial; whole actual errors/faults retained independently."
+      },
+      "cohorts": {
+        "tb1": {
+          "health_intakes": 1800,
+          "health_accepted": 1800,
+          "mask_accepted": 1800,
+          "mask_rejected": 0
+        },
+        "tb2": {
+          "health_intakes": 1800,
+          "health_accepted": 1800,
+          "mask_accepted": 1801,
+          "mask_rejected": 0
+        },
+        "tb3": {
+          "health_intakes": 1800,
+          "health_accepted": 1800,
+          "mask_accepted": 1800,
+          "mask_rejected": 0
+        }
+      },
+      "selected_stages": {
+        "Peer/batch_entry_to_health_return": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 7.230785,
+          "median": 19.495144,
+          "p95": 26.487036,
+          "p99": 28.858289,
+          "max": 87.46803
+        },
+        "tb1/health/raw_publish_begin_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 5.127246,
+          "median": 33.073105,
+          "p95": 45.656366,
+          "p99": 54.870215,
+          "max": 127.392034
+        },
+        "tb1/health/C_callback_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 3.04602,
+          "median": 24.3806375,
+          "p95": 36.88946,
+          "p99": 45.067491,
+          "max": 122.787377
+        },
+        "tb1/health/socket_queue_to_frame_flushed": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.03868,
+          "median": 0.0966005,
+          "p95": 0.271829,
+          "p99": 0.374934,
+          "max": 0.713892
+        },
+        "tb1/health/frame_flushed_to_Hub_receive_signed": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 2.715188,
+          "median": 23.181912,
+          "p95": 35.173097,
+          "p99": 43.005948,
+          "max": 121.294874
+        },
+        "tb1/health/Hub_receive_to_endpoint_receive": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.065137,
+          "median": 0.82914,
+          "p95": 2.64398,
+          "p99": 4.017208,
+          "max": 5.805892
+        },
+        "tb1/health/endpoint_receive_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.020041,
+          "median": 0.058273,
+          "p95": 0.099111,
+          "p99": 0.119747,
+          "max": 0.17293
+        },
+        "tb1/health/decode_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.064256,
+          "median": 0.170858,
+          "p95": 0.226012,
+          "p99": 0.258895,
+          "max": 2.515207
+        },
+        "tb1/health/guard_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.050294,
+          "median": 0.12870199999999998,
+          "p95": 0.170285,
+          "p99": 0.214465,
+          "max": 0.554318
+        },
+        "tb1/mask/wrapper_capture_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 29.23563,
+          "median": 133.4622775,
+          "p95": 164.240229,
+          "p99": 178.038376,
+          "max": 190.243373
+        },
+        "tb1/mask/Gateway_complete_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.58256,
+          "median": 1.519559,
+          "p95": 1.990188,
+          "p99": 2.310819,
+          "max": 4.892195
+        },
+        "tb1/mask/guard_call_bracket": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.055831,
+          "median": 0.170237,
+          "p95": 0.228022,
+          "p99": 0.276766,
+          "max": 1.149002
+        },
+        "tb1/mask/accepted_mono_gap_upper": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 71.778692,
+          "median": 211.81315949999998,
+          "p95": 298.407843,
+          "p99": 322.643046,
+          "max": 353.507389
+        },
+        "tb2/health/raw_publish_begin_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 6.261505,
+          "median": 64.748657,
+          "p95": 82.770248,
+          "p99": 93.393719,
+          "max": 132.149513
+        },
+        "tb2/health/C_callback_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 5.007965,
+          "median": 56.221261999999996,
+          "p95": 73.426422,
+          "p99": 83.877163,
+          "max": 127.729276
+        },
+        "tb2/health/socket_queue_to_frame_flushed": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.035146,
+          "median": 0.0758565,
+          "p95": 0.245006,
+          "p99": 0.378633,
+          "max": 0.685187
+        },
+        "tb2/health/frame_flushed_to_Hub_receive_signed": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 3.883593,
+          "median": 54.3144375,
+          "p95": 70.390877,
+          "p99": 79.078736,
+          "max": 122.58081
+        },
+        "tb2/health/Hub_receive_to_endpoint_receive": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.071043,
+          "median": 1.6212520000000001,
+          "p95": 4.540128,
+          "p99": 5.802479,
+          "max": 11.107153
+        },
+        "tb2/health/endpoint_receive_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.016302,
+          "median": 0.054040500000000005,
+          "p95": 0.087527,
+          "p99": 0.113661,
+          "max": 0.145214
+        },
+        "tb2/health/decode_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.060062,
+          "median": 0.1651745,
+          "p95": 0.222615,
+          "p99": 0.266851,
+          "max": 1.595796
+        },
+        "tb2/health/guard_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.04617,
+          "median": 0.1253695,
+          "p95": 0.175198,
+          "p99": 0.226584,
+          "max": 2.620325
+        },
+        "tb2/mask/wrapper_capture_to_accept_before": {
+          "n": 1801,
+          "unit": "wall_ms",
+          "total": 1801,
+          "matched": 1801,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 41.802108,
+          "median": 108.806431,
+          "p95": 161.610972,
+          "p99": 175.967196,
+          "max": 213.505917
+        },
+        "tb2/mask/Gateway_complete_to_accept_before": {
+          "n": 1801,
+          "unit": "wall_ms",
+          "total": 1801,
+          "matched": 1801,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.559241,
+          "median": 1.52357,
+          "p95": 1.98294,
+          "p99": 2.241412,
+          "max": 3.504768
+        },
+        "tb2/mask/guard_call_bracket": {
+          "n": 1801,
+          "unit": "wall_ms",
+          "total": 1801,
+          "matched": 1801,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.053744,
+          "median": 0.170918,
+          "p95": 0.23804,
+          "p99": 0.287561,
+          "max": 0.412649
+        },
+        "tb2/mask/accepted_mono_gap_upper": {
+          "n": 1801,
+          "unit": "wall_ms",
+          "total": 1801,
+          "matched": 1801,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 85.639428,
+          "median": 212.435495,
+          "p95": 277.014484,
+          "p99": 300.577015,
+          "max": 332.982417
+        },
+        "tb3/health/raw_publish_begin_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 6.49365,
+          "median": 97.825988,
+          "p95": 125.249894,
+          "p99": 136.976198,
+          "max": 185.343076
+        },
+        "tb3/health/C_callback_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 4.999696,
+          "median": 87.5759195,
+          "p95": 114.298747,
+          "p99": 128.717517,
+          "max": 180.374157
+        },
+        "tb3/health/socket_queue_to_frame_flushed": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.036004,
+          "median": 0.0763415,
+          "p95": 0.254784,
+          "p99": 0.349684,
+          "max": 0.792267
+        },
+        "tb3/health/frame_flushed_to_Hub_receive_signed": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 3.878113,
+          "median": 85.0333765,
+          "p95": 111.906418,
+          "p99": 125.232211,
+          "max": 178.429189
+        },
+        "tb3/health/Hub_receive_to_endpoint_receive": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.08018,
+          "median": 1.6823885,
+          "p95": 4.791629,
+          "p99": 6.562137,
+          "max": 10.200455
+        },
+        "tb3/health/endpoint_receive_to_intake": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.017402,
+          "median": 0.053341,
+          "p95": 0.089928,
+          "p99": 0.109089,
+          "max": 0.341981
+        },
+        "tb3/health/decode_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.051213,
+          "median": 0.16310200000000002,
+          "p95": 0.227389,
+          "p99": 0.260078,
+          "max": 1.672578
+        },
+        "tb3/health/guard_wall": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.045298,
+          "median": 0.1261395,
+          "p95": 0.172841,
+          "p99": 0.210436,
+          "max": 0.293391
+        },
+        "tb3/mask/wrapper_capture_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 60.552569,
+          "median": 137.3202905,
+          "p95": 165.934741,
+          "p99": 180.978858,
+          "max": 214.281095
+        },
+        "tb3/mask/Gateway_complete_to_accept_before": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.616293,
+          "median": 1.528857,
+          "p95": 2.023701,
+          "p99": 2.348965,
+          "max": 3.389821
+        },
+        "tb3/mask/guard_call_bracket": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 0.05565,
+          "median": 0.17183500000000002,
+          "p95": 0.23933,
+          "p99": 0.289964,
+          "max": 1.759123
+        },
+        "tb3/mask/accepted_mono_gap_upper": {
+          "n": 1800,
+          "unit": "wall_ms",
+          "total": 1800,
+          "matched": 1800,
+          "missing": 0,
+          "ambiguous": 0,
+          "not_applicable": 0,
+          "min": 104.444918,
+          "median": 212.7454175,
+          "p95": 256.881004,
+          "p99": 277.910811,
+          "max": 310.64715
+        }
+      },
+      "matching_coverage_totals": {
+        "total": 64804,
+        "matched": 64804,
+        "missing": 0,
+        "ambiguous": 0,
+        "not_applicable": 0
+      },
+      "CDR_binding_checks": {
+        "health_C_R_existing_CDR": {
+          "status": "MEASURED_SAMPLES_NOT_GLOBAL_PASS",
+          "total": 5400,
+          "measured": 5400,
+          "equal": 5400,
+          "mismatch": 0,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "health_producer_C_existing_CDR": {
+          "status": "MEASURED_SAMPLES_NOT_GLOBAL_PASS",
+          "total": 5400,
+          "measured": 5400,
+          "equal": 5400,
+          "mismatch": 0,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "mask_binding_original_publication": {
+          "status": "MEASURED_SAMPLES_NOT_GLOBAL_PASS",
+          "total": 5401,
+          "measured": 5401,
+          "equal": 5401,
+          "mismatch": 0,
+          "missing": 0,
+          "ambiguous": 0
+        }
+      },
+      "actual_faults": {
+        "1": {
+          "whole": [],
+          "inside_clock_bracket": []
+        },
+        "2": {
+          "whole": [],
+          "inside_clock_bracket": []
+        },
+        "3": {
+          "whole": [],
+          "inside_clock_bracket": []
+        }
+      },
+      "case_outcome": {
+        "explicit_reviewed_case_verdict": {
+          "status": "SEE_ACTUAL_SUMMARY_AND_REVIEW_NOT_RECLASSIFIED",
+          "scope": "No process/qualification PASS inferred by this exporter"
+        },
+        "authoritative_review": "net01d/followup04/analysis/gz-simhealth-c1-01/INDEPENDENT_REVIEW.md",
+        "observed_summary": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-c1-01/small-result.json",
+        "observed_summary_status": "LOADED",
+        "observed_process_and_raw_fields": {
+          "error": null,
+          "hazard": null,
+          "run_integrity": true,
+          "status": "C_BUSINESS180_COMPLETE_ALL_EXIT0_PRIMARY_R_VALID",
+          "host_command_exit": 0,
+          "runner_exit": 0,
+          "hub_exit": 0,
+          "native_exit": 0,
+          "gateway_process_exit": 0,
+          "controller_exit": {
+            "started": true,
+            "pid": 885771,
+            "returncode": 0,
+            "session_id": 2026111153,
+            "case": "/mnt/net01d/followup04/runs/gz-simhealth-c1-01",
+            "observed_monotonic_ns": 614550375396349,
+            "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+          },
+          "network_run_integrity": true,
+          "controlled_exits": {
+            "coordinator": 0,
+            "clock_R": 0,
+            "clock_C": 0
+          },
+          "controller_final": {
+            "mode": "HOLD",
+            "failure": null,
+            "expected_shutdown": true,
+            "physics_failed": false,
+            "physical_ns": 200400000000,
+            "iterations": 200400,
+            "actual_clock_ns": 200400000000,
+            "native_ACK_ns": 200390000000,
+            "fixed_offset_ns": 10000000,
+            "physical_RPC_inflight": false,
+            "session_id": 2026111153,
+            "gateway_clock_ready": true,
+            "pending_holds": 0,
+            "authority_exited": true,
+            "progress_wall_timeout_ns": 2000000000,
+            "progress_started_monotonic_ns": 614124098620152,
+            "motion_armed_since_monotonic_ns": 614130474888558,
+            "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+            "actual_clock_progress_monotonic_ns": 614517475807072,
+            "native_ACK_progress_monotonic_ns": 614517482896262,
+            "physical_RPC_issued_monotonic_ns": null,
+            "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+            "token_wall_period_ns": 10000000,
+            "planned_realtime_factor": 1.0,
+            "actual_achieved_physical_rtf": 0.47032208756582133,
+            "physical_progress_sim_span_ns": 200400000000,
+            "physical_progress_wall_span_ns": 426090981687,
+            "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+            "next_earliest_wall_ns": 614310288620152,
+            "max_token_lateness_ns": 207184578642,
+            "late_tokens": 20037
+          }
+        },
+        "scope": "Preserve original raw success fields independently from process verdict; metrics/empty ownership do not override controller nonzero"
+      },
+      "read_counts": {
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.admission-used.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-c1-01.traced.ready.json": 1,
+        "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-c1-01/small-result.json": 1,
+        "network-gateway.json": 1,
+        "result.json": 1,
+        "observer_timing.json": 1,
+        "events.jsonl": 1,
+        "peer-keepout.jsonl": 1,
+        "health-trace.json": 1,
+        "bound-mask-publications.jsonl": 1
+      },
+      "Gateway_decode": {
+        "bytes": 350030939,
+        "read_decode_wall_s": 13.85691463504918
+      },
+      "A0_safety_decode": null,
+      "native_targets": {
+        "path": "C-native-targets.jsonl",
+        "rows": 10801,
+        "scope": "Only matched normal R-consumed health/mask IDs; not full Gateway cache, native ingress cohort, loss denominator or permission to scan ledger"
+      },
+      "individual_stats_and_worst_witness": "C.json",
+      "full_coverage_and_flowcounts": "C.json"
+    }
+  },
+  "native_ledger_reads": 0,
+  "PCAP_reads": 0,
+  "bag_reads": 0,
+  "new_models": 0,
+  "limitations": [
+    "Per-message exact health/mask receipt_sim is UNMEASURED; final Guard fields are last-only.",
+    "Discrete Rclock mono brackets differ from exact Observer endpoints; accepted predecessor can be outside the bracket.",
+    "Signed/overlapping wall spans and inclusive CPU cannot be summed; actual wall source workload/trajectories differ.",
+    "A0 PROCESSFAIL/controller1 survives rawhost0/networktrue and valid task metrics.",
+    "A0 has no C adapter/native-business stage; A1 has no health Hub socket frame/native-business endpoint.",
+    "Native TX/model service/airtime/permessageCPU not inferred. Native separately false/admission pending.",
+    "Whole existing CDR hash cohort counts and normal capture/intake cohorts differ; count differences not loss."
+  ]
+}

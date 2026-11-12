@@ -1,0 +1,115 @@
+{
+  "status": "FAIL",
+  "scope": "MOCK_PHYSICS startup qualification, not entered full-load window; 0GZ/Goal/Policy/NN",
+  "source_commit": "ee0b20b7822c5e26394fd7c08225096cabb5eb37",
+  "run": "runs/continuous-dds-21-controlled-wifi",
+  "process_exit": {
+    "scope": "MOCK_PHYSICS WiFi feasibility only; not real GZ clock/stop/180sim PASS",
+    "error": null,
+    "wall_s": 6.715636801964138,
+    "hard_wall_s": 30,
+    "exits": {
+      "coordinator": 0,
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "mock_physics": 0,
+      "source": 1
+    },
+    "profile": {
+      "id": "controlled1000-clock100-q10ms",
+      "world_real_time_update_rate": 1000,
+      "physics_max_step_size_unchanged": 0.001,
+      "clock_publish_rate_sim_hz": 100.0,
+      "native_step_quantum_ns": 10000000,
+      "qualification": {
+        "source_wall_s": 16,
+        "hard_wall_s": 30,
+        "clock_period_wall_s": 0.02,
+        "clock_increment_ns": 10000000,
+        "other_sources": "Original TF/odom/feedback per wall unchanged, source clock subscribed from explicit MOCK_PHYSICS actual step service",
+        "peer": "Original10Hz sim timer, expected5Hz wall at target.5RTF; actual intervals measured, original gates unchanged",
+        "local_costmap_cells": [
+          200,
+          200
+        ],
+        "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
+        "not_generated_flows": [
+          "89 C merge_map",
+          "95 C controller journal"
+        ]
+      },
+      "scope": "Explicit external controlled-time shared A/B profile; fixed.5RTF wall target and actual native credit, not policy/network optimization. Qualification uses MOCK_PHYSICS, never claims Gazebo.",
+      "controlled_physics": true,
+      "physical_token_steps": 10,
+      "physical_lookahead_quanta": 2,
+      "token_wall_period_ns": 20000000
+    },
+    "resource_control": "HOLD then STOP, keep actual ACK observer through native END",
+    "Gazebo": 0,
+    "Nav2": 0,
+    "Goal": 0,
+    "NN": 0
+  },
+  "first_error": "Source original2wall qualification: Real gateway did not establish clock anchor before synthetic business",
+  "actual_source_business_window_started": false,
+  "full_load_actual_RTF": null,
+  "held_source_ages": null,
+  "health_or_mask_gap": null,
+  "native_ACK_horizon_ns": 0,
+  "gateway_anchor": null,
+  "mock_physical_steps": 20,
+  "mock_physical_end_ns": 25000000,
+  "mock_clock_events": [
+    [
+      "synthetic_clock",
+      445346702658987,
+      10000000
+    ],
+    [
+      "synthetic_clock",
+      445346704275973,
+      20000000
+    ]
+  ],
+  "gateway_processing_start_monotonic_ns": 445347069051335,
+  "last_mock_clock_to_gateway_processing_start_ns": 364775362,
+  "coordinator_final": {
+    "mode": "HOLD",
+    "failure": null,
+    "expected_shutdown": true,
+    "physics_failed": false,
+    "physical_ns": 25000000,
+    "iterations": 20,
+    "actual_clock_ns": 20000000,
+    "native_ACK_ns": 0,
+    "fixed_offset_ns": null,
+    "physical_RPC_inflight": false,
+    "pending_holds": 0,
+    "token_wall_period_ns": 20000000,
+    "next_earliest_wall_ns": 445346657415265,
+    "max_token_lateness_ns": 66338218,
+    "late_tokens": 1
+  },
+  "gateway_failure": null,
+  "gateway_record_count": 0,
+  "gateway_cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "no_retry": true,
+  "conclusion": "Two allowed bootstrap quanta ran before Gateway construction completed. Both finite clock messages were missed by Gateway; no anchor/native advance, causing startup deadlock. Separate coordinator receipt was not Gateway readiness.",
+  "limitations": "No16wall offered load, no steadyRTF/health/source-age or real physical/safety acceptance. Normal exits do not turn this into PASS."
+}

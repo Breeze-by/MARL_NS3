@@ -1,0 +1,42 @@
+{
+  "scope": "isolated native paper methods; same ELF for all4 planned cases",
+  "files": [
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01/build/paper-method-trials/paper-methods",
+      "bytes": 419248,
+      "sha256": "f1d47d33a03f8e4828b4eba770e48cc15702af9b383d7eb63b2c60a6c7e8b06f"
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/paper_methods.cc",
+      "bytes": 17044,
+      "sha256": "e57e1b53468d2a01d4bf5cfdd6b3541b948128b773f8efbb91cb550b2d1d93af"
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01/workspace/net01/experiments/paper_methods/native/CMakeLists.txt",
+      "bytes": 809,
+      "sha256": "1896b23531c386bc8d8ef32633a4ef40ab8e7efcc51f8629e1ba9f311993e8b8"
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01/build/network-full-payload/network_config.h",
+      "bytes": 4545,
+      "sha256": "66e64adf26c3d712ab149fe2d828ae8858d00c7172ef8adfacfc5bd7c2ff73a2"
+    }
+  ],
+  "ldd_exit": 0,
+  "ns3_linked_libraries": [
+    "\tlibns3.40-wifi.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-wifi.so (0x000073b724c00000)",
+    "\tlibns3.40-internet.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-internet.so (0x000073b724600000)",
+    "\tlibns3.40-csma.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-csma.so (0x000073b7254a3000)",
+    "\tlibns3.40-mobility.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-mobility.so (0x000073b7253ff000)",
+    "\tlibns3.40-propagation.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-propagation.so (0x000073b725377000)",
+    "\tlibns3.40-network.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-network.so (0x000073b724474000)",
+    "\tlibns3.40-core.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-core.so (0x000073b7242ed000)",
+    "\tlibns3.40-energy.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-energy.so (0x000073b72427f000)",
+    "\tlibns3.40-spectrum.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-spectrum.so (0x000073b723ee0000)",
+    "\tlibns3.40-antenna.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-antenna.so (0x000073b72425d000)",
+    "\tlibns3.40-bridge.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-bridge.so (0x000073b72423f000)",
+    "\tlibns3.40-traffic-control.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-traffic-control.so (0x000073b723b00000)",
+    "\tlibns3.40-stats.so => /home/zhuyulab/ns3-workspace/net-01/ns3-release-portable-followup03/build/lib/libns3.40-stats.so (0x000073b723e29000)"
+  ],
+  "all_ns3_libraries_in_registered_root": true
+}

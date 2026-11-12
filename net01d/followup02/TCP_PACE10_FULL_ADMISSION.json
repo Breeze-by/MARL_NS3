@@ -1,0 +1,147 @@
+{
+  "status": "ROOT_ADMITTED_UNIQUE_TCP_PACE10_01",
+  "execution_authorized": true,
+  "source_checkpoint": "7f1357dbf5a6bcfac1e9ed5c024fba5e9d1d1dfe",
+  "native_sha256_reused": "0cc771a18a3eb63ebbc4eb09ee942aaba27ea93211e07a7a0805d993dcc7c4f3",
+  "cwd": "/home/zhuyulab/ns3-workspace",
+  "argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net-01d/workspace/net01d/run_replay.py",
+    "--stage",
+    "full",
+    "--arm",
+    "B",
+    "--case",
+    "actual-phase-wifi-01",
+    "--output-dir",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup02/runs/tcp-pace10-01",
+    "--payloads",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01",
+    "--native",
+    "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "--native-transport",
+    "tcp-mtu-v2",
+    "--dds-take-trace",
+    "--mock-phase",
+    "actual-corr6201",
+    "--native-evidence-ram",
+    "/dev/shm/net01d-f02-tcp-pace10-01",
+    "--main-thread-sample",
+    "--adapter-qos-events",
+    "warning-free-v1",
+    "--execution-profile",
+    "controlled1000-clock100-q10ms-pace10",
+    "--native-ledger-mode",
+    "serial"
+  ],
+  "output": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup02/runs/tcp-pace10-01",
+  "RAM": "/dev/shm/net01d-f02-tcp-pace10-01",
+  "normal_wall_s": 32,
+  "hard_wall_s": 60,
+  "guard_thresholds_unchanged": true,
+  "native_cpu_profile": false,
+  "dispatch_profile": true,
+  "control_trace": true,
+  "dds_take_trace": true,
+  "main_thread_sample": true,
+  "mock_phase": "actual-corr6201",
+  "scope": "Prepared unique original32normal/60hard no-motion fullROS qualification under a new common target1RTF execution profile. 0Gazebo/Nav2/Policy/NN; not yet authorized or executed.",
+  "Action": {
+    "normal": 3,
+    "negative_active": 1,
+    "normal_expected_statuses": [
+      4,
+      4,
+      5
+    ],
+    "negative": "original fourth tb3 accepted/GetResult pending then.8wall realRADIOoff; original local cancel/PAUSE and honest centralUNKNOWN"
+  },
+  "transport": "explicit tcp-mtu-v2,3 duplex links,MSS1448 before create,InitialCwnd10segments/14480B; defaultRTO1sim andHOL retained",
+  "protocol_change": "MSS is deployment-MTU calibration, not536 software bug; frame bytes/IDs/source/ownership/safety unchanged; packetization/windowbytes legitimately differ",
+  "required_before_execution": [
+    "Independent root review of new profile and actual state/runtime/replay selection",
+    "Root owner-reset abnormal evidence-save negative test acceptance before any new native model",
+    "Final immutable source binding and root explicit unique tcp-pace10-01 admission",
+    "Original resource/owned/exclusive precheck"
+  ],
+  "automatic_retry": false,
+  "automatic_Gazebo": false,
+  "independent_packet_evidence": "analysis/ntcp-m2/v2-packetization.json",
+  "no_automatic_next_case": true,
+  "compiled_native_source_checkpoint": "ca9ea8c",
+  "gateway_cprofile": false,
+  "adapter_qos_events": "warning-free-v1",
+  "SDK_evidence": {
+    "qos_precondition": {
+      "result": "evidence/adapter-qos-event-sdk-01/check/result.json",
+      "review": "review/ADAPTER_QOS_EVENT_SOURCE_AND_SDK_REVIEW.md"
+    },
+    "terminal_quiet_current": {
+      "result": "evidence/gateway-tailquiet-sdk-01/check/result.json",
+      "review": "review/TERMINAL_QUIET_SOURCE_AND_SDK_REVIEW.md",
+      "actual_predicates": 26
+    }
+  },
+  "diagnostic_tradeoff": "No SDKautomatic incompatibleQoS warnings for these Gatewaypub/sub; explicitcallbacks/Actionbackendchecks/traces retained; lowerentitycap mayalterglobalpollbatchboundary",
+  "SDK_actual": "gateway-tailquiet-sdk-01 outer0/26predicatesPASS,original116/tail4,actualSDKresourcesclosed; nofullcapacityclaim",
+  "cap_semantics": "Original caps sumactualentities eachpoll; warningwaitable removal lowerscaps/canendbatch earlier; q4/cursor/Guard andbusinessrules unchanged, no promiseglobalinterleaving identical",
+  "warning_tradeoff": "Gateway endpoints no automatic incompatibleQoS WARN when unspecified; explicitcallback/Actionbackendchecks/traces remain",
+  "phase_snapshot_scope": "FirstactualCGoalcapture laterthan clientnormalstart to firstfaultobservedpollend/exit; originalclientmarkers judge32normal, notsnapshotduration",
+  "historical_lineage": {
+    "tcp-mtu-01": "Explicit tcp-mtu-v2/MSS1448 deploymentMTU baseline; notidle orwarningfree change",
+    "tcp-idle-01": "Originalreal-empty boundedselect idle candidate from0fa31b1",
+    "tcp-qos-01": "warning-free-v1 adapteronly defaultQoSwarning eventmanagement from844f546",
+    "tcp-tail-01": "Freshterminalquiet extension+smallcounterssnapshots from94fd77a; currentGateway baseline"
+  },
+  "source_rates_dataQoS_wireless_unchanged": "ROS simulation periods, original mixed wall-source definitions, QoS and RF unchanged; actual wall business rates change with achieved sim progress.",
+  "adapter_diagnostic_events": "warning-free-v1 remains sharedwith tcp-qos-01: defaultwarnings removed,explicitcallbacks/dataQoS preserved; capbatchboundarychange disclosed",
+  "current_unique_comparison": "New explicit controlled1000-clock100-q10ms-pace10 changes only the external planned wall grid20to10ms; serial old0cc native and same13LTO DSOs. It changes achieved wall workload/input availability and may change trajectories; rebuild A0/A1/B/C before scientific comparison.",
+  "Gateway_implementation": "94fd77a unchanged Gateway code; newobserver committed in fbe269d",
+  "native_build_identity": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/evidence/BUILD_IDENTITY.json",
+  "environment": {
+    "LD_LIBRARY_PATH": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+    "LD_PRELOAD": "UNSET",
+    "LD_AUDIT": "UNSET"
+  },
+  "compilation_difference": "BaselineC3compilerFPdefault vsnewdriver+all13DSO-ffp-contract=off plusLTO, portableO3/model/radio/source/headers unchanged",
+  "native_pair_evidence": "analysis/lto-fixed-pair/comparison.json; 115895strictorderedrows/4PCAP/18RXexact, onepair only",
+  "loader_observer": {
+    "script": "net01d/followup02/native/observe_pace10_full.py",
+    "only": "Reuse original observe_lto_full.main(admission_path,folder) one actualREADY ELF/13DSO/maps load observation; no control/protocol operation",
+    "all13_required_root": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+  },
+  "observer_argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net01d/followup02/native/observe_pace10_full.py"
+  ],
+  "observer_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "native_ledger_mode": "serial",
+  "execution_profile": "controlled1000-clock100-q10ms-pace10",
+  "planned_token_wall_period_ns": 10000000,
+  "planned_realtime_factor": 1.0,
+  "actual_realtime_factor": null,
+  "actual_realtime_factor_note": "Not measured: target1x is not guaranteed. Read coordinator actual_achieved_physical_rtf plus actual native/clock/source/receipt spans after an independently admitted run.",
+  "comparison_contract": "Same new profile required across A0/A1/B/C; no old0.5target A versus new1target B communication-improvement claim.",
+  "qualification_criteria": {
+    "normal": "Original full32wall business window, three normal Goals and expected statuses4/4/5, all original phase/RPC/guard predicates; do not extend after failure",
+    "negative": "Original fourth accepted tb3 Goal/GetResult pending, then original0.8wall actual RADIO-off; local matching CANCELED/PAUSE, honest centralUNKNOWN",
+    "bounds": "Original60hardwall, original drain/finalization/owned-cleanup deadlines, no retry/extra negative window",
+    "safety": "Original300ms actual health/mask and200ms pose receipt gates; original Action deadlines; no pre-fault HOLD",
+    "time": "Every real physical ACK10sim-ms/10iterations, one inflight, physical/native credit<=20sim-ms, actual clock/native ACK provenance and actual achieved RTF",
+    "load": "Original payload templates/source definitions unchanged; measure actual source sim/wall cadence and generated-to-received ages.32wall is not equal simulated work after pacing change"
+  },
+  "baseline_rebuild_status": {
+    "A0": "NOT_RUN_NEW_PROFILE",
+    "A1": "NOT_RUN_NEW_PROFILE",
+    "B": "NOT_RUN_NEW_PROFILE",
+    "C": "NOT_RUN_NEW_PROFILE"
+  },
+  "budget_note": "Root explicitly admits one original32normal/60hard no-motion fullROS case; no automatic Gazebo/retry/profile/rate change.",
+  "root_decision": "User approved new common target1x configuration; independent source review and actual owner-reset fixture accepted. Reuse old0cc serial reference. Producer must preserve first failure, exact bound, resource/ownership precheck and no concurrent heavy activity."
+}

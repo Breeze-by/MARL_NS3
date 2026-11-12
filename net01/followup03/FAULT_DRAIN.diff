@@ -1,0 +1,80 @@
+diff --git a/net01/gateway.py b/net01/gateway.py
+index f843c60..4a637b8 100644
+--- a/net01/gateway.py
++++ b/net01/gateway.py
+@@ -113,6 +113,7 @@ class Gateway:
+         self.guards={r:LocalStop(self.r,r,session_id) for r in (1,2,3)}
+         self.anchor=None;self.gz=None;self.previous_clock=None;self.step_pending=None
+         self.connected=False;self.failure=None;self.wires=None
++        self.hub_poll_closed=False
+         self.health_status=self.r.create_publisher(String,"/net01/gateway_state",
+             QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
+         self.clock_pub=self.c.create_publisher(ClockMessage,"/clock",qos_profile_sensor_data)
+@@ -206,6 +207,10 @@ class Gateway:
+ 
+     def receive(self,meta,body,rpc):
+         self.record("destination_complete_message",meta=meta,rpc_id=rpc,cdr_bytes=len(body))
++        if self.failure is not None:
++            self.record("post_fault_business_discarded",meta=meta,rpc_id=rpc,
++                cdr_sha256=hashlib.sha256(body).hexdigest())
++            return
+         if self.link.receive(meta,body,rpc):return
+         if self.wires is None:raise RuntimeError("Business received before link qualification")
+         flow=meta["flow"]
+@@ -319,11 +324,16 @@ class Gateway:
+     def _progress_transport(self):
+         # Called between completed ROS handlers as well as at the outer boundary.
+         # Never wait for native progress or replace actual receipts with a cache.
++        if not self.hub_poll_closed:
++            if self.cpu_profile is not None:wall=time.monotonic_ns();cpu=time.thread_time_ns()
++            try:self.hub.poll()
++            except (EOFError,ConnectionError,OSError) as error:
++                self.hub_poll_closed=True
++                self.record("owned_transport_poll_closed",error=repr(error))
++                self.fail(repr(error))
++            finally:
++                if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'hub_poll',wall,cpu)
+         if self.failure:return
+-        if self.cpu_profile is not None:wall=time.monotonic_ns();cpu=time.thread_time_ns()
+-        try:self.hub.poll()
+-        finally:
+-            if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'hub_poll',wall,cpu)
+         if self.anchor is None or not self.hub.ready:return
+         latest=self.gz-self.anchor["offset_ns"]
+         if latest-self.hub.horizon_ns>120_000_000:
+@@ -351,6 +361,7 @@ class Gateway:
+ 
+     def persist(self):
+         data=dict(mode=self.mode,anchor=self.anchor,failure=self.failure,
++            transport_poll_closed=self.hub_poll_closed,
+             dispatch_stats=self.dispatch_stats,
+             cleanup=self.cleanup,
+             records=self.records,link=self.link.events,
+@@ -382,15 +393,20 @@ class Gateway:
+                 for r,action in self.action_r.items() for (f,i),response in action.requests.items() if response is None]
+         self.cleanup["unresolved_local_cleanup_futures"]={str(r):sum(not f.done() for f in guard.futures)
+             for r,guard in self.guards.items()}
+-        self.hub.end()
+         # This bounded flush is after stop/owned launch cleanup, never a guard
+         # delay in the active loop. A failed END remains a separate hub failure.
+-        until=time.monotonic()+3
+-        try:
+-            while self.hub.outgoing and time.monotonic()<until:self.hub.poll()
+-            self.cleanup["end_frame_flushed"]=not self.hub.outgoing
+-            if self.hub.outgoing:self.record("owned_END_not_fully_flushed")
+-        except (EOFError,ConnectionError,OSError) as error:self.record("owned_END_failed",error=repr(error))
++        if self.hub_poll_closed:
++            self.record("owned_END_not_sent_channel_closed")
++        else:
++            self.hub.end()
++            until=time.monotonic()+3
++            try:
++                while self.hub.outgoing and time.monotonic()<until:self.hub.poll()
++                self.cleanup["end_frame_flushed"]=not self.hub.outgoing
++                if self.hub.outgoing:self.record("owned_END_not_fully_flushed")
++            except (EOFError,ConnectionError,OSError) as error:
++                self.hub_poll_closed=True
++                self.record("owned_END_failed",error=repr(error))
+         self.hub.close()
+         for executor,node,context in zip(self.executors,self.nodes,self.contexts):
+             executor.remove_node(node)

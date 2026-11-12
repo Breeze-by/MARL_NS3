@@ -1,0 +1,29 @@
+{
+  "id": "controlled1000-clock100-q10ms",
+  "world_real_time_update_rate": 1000,
+  "physics_max_step_size_unchanged": 0.001,
+  "clock_publish_rate_sim_hz": 100.0,
+  "native_step_quantum_ns": 10000000,
+  "qualification": {
+    "source_wall_s": 16,
+    "hard_wall_s": 30,
+    "clock_period_wall_s": 0.02,
+    "clock_increment_ns": 10000000,
+    "other_sources": "Original TF/odom/feedback per wall unchanged, source clock subscribed from explicit MOCK_PHYSICS actual step service",
+    "peer": "Original10Hz sim timer, expected5Hz wall at target.5RTF; actual intervals measured, original gates unchanged",
+    "local_costmap_cells": [
+      200,
+      200
+    ],
+    "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
+    "not_generated_flows": [
+      "89 C merge_map",
+      "95 C controller journal"
+    ]
+  },
+  "scope": "Explicit external controlled-time shared A/B profile; fixed.5RTF wall target and actual native credit, not policy/network optimization. Qualification uses MOCK_PHYSICS, never claims Gazebo.",
+  "controlled_physics": true,
+  "physical_token_steps": 10,
+  "physical_lookahead_quanta": 2,
+  "token_wall_period_ns": 20000000
+}

@@ -1,0 +1,119 @@
+{
+  "scope": "One native-only fixed initial burst CPU observation; NOT capacity/ROS/clock/GZ/safety acceptance",
+  "source_commit": "9c440006bbd1803e20addc0434d56edd955e2d25",
+  "raw": "runs/native-cpu-burst-01",
+  "native_result": {
+    "argv": [
+      "/home/zhuyulab/ns3-workspace/net-01/build/followup03-cpu/net01-payload",
+      "--output=/home/zhuyulab/ns3-workspace/net-01/workspace/runs/native-cpu-burst-01/native",
+      "--profile=B",
+      "--controlTrace=1",
+      "--cpuProfile=1"
+    ],
+    "native_exit": 0,
+    "error": null,
+    "wall_s": 0.3521230950136669,
+    "status": "MEASURED",
+    "scope": "Native CPU diagnostic ONLY; no ROS, real-time qualification, policy or safety validation",
+    "ready": true,
+    "received": [
+      3,
+      2,
+      6,
+      4,
+      1,
+      5,
+      12,
+      7,
+      10,
+      9,
+      8,
+      11
+    ],
+    "missing": [],
+    "steps": [
+      100000000,
+      200000000,
+      300000000,
+      400000000,
+      500000000,
+      600000000,
+      700000000,
+      800000000,
+      900000000,
+      1000000000,
+      1100000000
+    ],
+    "received_exact": true
+  },
+  "target_horizon_ns": 1100000000,
+  "run_wall_ns": 177680775,
+  "run_cpu_ns": 166469134,
+  "output_wall_ns": 886128,
+  "output_cpu_ns": 680588,
+  "output_messages": 6,
+  "output_bytes": 647169,
+  "categories_exclusive_sorted": [
+    {
+      "calls": 6442,
+      "inclusive_ns": 16551535,
+      "exclusive_ns": 16551535,
+      "category": "event",
+      "exclusive_fraction_Run_CPU": 0.09942705054259487
+    },
+    {
+      "calls": 1731,
+      "inclusive_ns": 18999484,
+      "exclusive_ns": 14475430,
+      "category": "sniff",
+      "exclusive_fraction_Run_CPU": 0.08695563947608449
+    },
+    {
+      "calls": 3715,
+      "inclusive_ns": 21202865,
+      "exclusive_ns": 12095273,
+      "category": "packet_trace",
+      "exclusive_fraction_Run_CPU": 0.07265775167665617
+    },
+    {
+      "calls": 558,
+      "inclusive_ns": 8813621,
+      "exclusive_ns": 5595389,
+      "category": "receive",
+      "exclusive_fraction_Run_CPU": 0.033612171010633116
+    },
+    {
+      "calls": 432,
+      "inclusive_ns": 2485298,
+      "exclusive_ns": 1434923,
+      "category": "rx_drop",
+      "exclusive_fraction_Run_CPU": 0.008619754098078025
+    },
+    {
+      "calls": 564,
+      "inclusive_ns": 1348718,
+      "exclusive_ns": 1348718,
+      "category": "fields",
+      "exclusive_fraction_Run_CPU": 0.008101910351741242
+    },
+    {
+      "calls": 0,
+      "inclusive_ns": 0,
+      "exclusive_ns": 0,
+      "category": "transmit",
+      "exclusive_fraction_Run_CPU": 0.0
+    }
+  ],
+  "covered_exclusive_ns": 51501268,
+  "covered_fraction": 0.3093742771557879,
+  "unattributed_ns": 114967866,
+  "unattributed_fraction": 0.6906257228442121,
+  "semantics": [
+    "Inclusive categories overlap; never add inclusive values",
+    "Exclusive scopes cover native own callbacks/formatting only; ns3/PCAP library internals are not individually timed",
+    "Unattributed includes uninstrumented library work, CPU measurement and diagnostic overhead; not exclusively PHY or PCAP",
+    "transmit is zero in this Run window because burst injection occurred before STEP; cumulative pre-STEP records retain its cost",
+    "Measured profile adds thread-CPU reads at scope boundaries; wall/CPU values are diagnostic, not unperturbed capacity claims",
+    "Raw capture is actual WiFi complete bytes; no ROS/Action/Nav2/real clock present"
+  ]
+}

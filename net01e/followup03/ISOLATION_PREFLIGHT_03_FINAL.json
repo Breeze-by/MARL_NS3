@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-12T11:05:55.396548+00:00",
+  "scope": "Final exact A1 clearance after positive identification and bounded cleanup of B02-owned ros2cli daemon, no user preview touched",
+  "occupied_paths": [],
+  "port_conflicts": [],
+  "visible_previews": [],
+  "available_bytes": {
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace": 1555871113216,
+    "/dev/shm": 16855384064
+  },
+  "ownership_evidence": "gz-analysis/corr6201-step-timing-plain-b-02/daemon-cleanup/result.json",
+  "correction": "First two blocked snapshots are preserved. Previous transient-disappearance inference was unsupported due UDP-only ss field parsing; persistent endpoint belonged to confirmed B02 daemon PID1708509, now explicitly reaped. No experiment ran under blocked admission.",
+  "limitations": "Point-in-time only; original runtime safety and no-bypass contract remain required."
+}

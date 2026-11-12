@@ -1,0 +1,59 @@
+{
+  "activation_event_count": 1,
+  "actual_event": [
+    "actual_R_guard_ARM_watchdog_activation",
+    606084581075864,
+    1703276940,
+    606084581040314,
+    606084579333903,
+    [
+      "1",
+      "2",
+      "3"
+    ]
+  ],
+  "final_motion_armed_since_monotonic_ns": 606084581040314,
+  "baseline_equals_only_activation_receipt": true,
+  "first_physical_token": [
+    "physical_token",
+    606083378340665,
+    1141554849,
+    "RUN",
+    null,
+    0,
+    null,
+    606083378314101,
+    0
+  ],
+  "latest_real_clock_record_before_activation": [
+    "actual_clock",
+    606084548126499,
+    1690749358,
+    1170000000
+  ],
+  "latest_real_native_ACK_record_before_activation": [
+    "actual_native_progress",
+    606084547030349,
+    1689800412,
+    "step",
+    1140000000,
+    606084545911172
+  ],
+  "next_real_clock_record": [
+    "actual_clock",
+    606084588768631,
+    1706468036,
+    1180000000
+  ],
+  "next_real_native_ACK_record": [
+    "actual_native_progress",
+    606084587513307,
+    1705573372,
+    "step",
+    1150000000,
+    606084586795490
+  ],
+  "whole_run_independent_progress_failure_records": [],
+  "normal_failure_records": [],
+  "timestamp_scope": "Raw actual event records retained. record monotonic is sampled just after the actual state callback update, not an exact copy of internal receipt stamp. Exact state stamps at ARM were not separately captured; final actualclock/native progress stamps are in coordinatorfinal. No fake stamp substituted. Currentfirststatus includes3armedrobots; ANYone activation is separately established by acceptedunit/ROSfixtures."
+}

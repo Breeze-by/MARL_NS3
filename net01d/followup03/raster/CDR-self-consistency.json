@@ -1,0 +1,64 @@
+{
+  "status": "DIAGNOSTIC_ONLY",
+  "mask_exact": true,
+  "decoded_all_fields_equal_to_fixed_grid": {
+    "first_original": false,
+    "same_object_original_data": false,
+    "same_object_candidate_data": false
+  },
+  "comparisons": {
+    "same_object_original_data": {
+      "exact": false,
+      "differing_offsets": [
+        21,
+        22,
+        23
+      ]
+    },
+    "same_object_candidate_data": {
+      "exact": false,
+      "differing_offsets": [
+        21,
+        22,
+        23
+      ]
+    }
+  },
+  "layout": {
+    "encapsulation": [
+      0,
+      3
+    ],
+    "stamp": [
+      4,
+      11
+    ],
+    "frame_id_length": [
+      12,
+      15
+    ],
+    "frame_id_odom_nul": [
+      16,
+      20
+    ],
+    "alignment_padding": [
+      21,
+      23
+    ],
+    "map_load_time_sec_begins": 24
+  },
+  "sizes": {
+    "first_original": 160104,
+    "same_object_original_data": 160104,
+    "same_object_candidate_data": 160104
+  },
+  "prefixes": {
+    "first_original": "000100000300000015cd5b07050000006f646f6d00ffffff0000000000000000",
+    "same_object_original_data": "000100000300000015cd5b07050000006f646f6d005500000000000000000000",
+    "same_object_candidate_data": "000100000300000015cd5b07050000006f646f6d005500000000000000000000"
+  },
+  "benchmark_executed": false,
+  "Node": 0,
+  "ROS_init": 0,
+  "scope": "Same OccupancyGrid object, same fixed fields, original array serialized twice then only data replaced by identical candidate raster"
+}

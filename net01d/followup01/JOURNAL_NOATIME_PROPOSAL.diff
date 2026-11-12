@@ -1,0 +1,19 @@
+--- b948879/net01/gateway.py
++++ candidate/net01/gateway.py
+@@ -13,6 +13,7 @@
+ import resource
+ import signal
+ import time
++import os
+ from execution_profile import load_profile
+ 
+ import rclpy
+@@ -351,7 +352,7 @@
+         # This is a C-side source. Only actual delivered flow95 reaches R runtime.
+         path=self.directory/"controller/allocation-events.jsonl"
+         if not path.exists() or self.wires is None:return
+-        with path.open() as stream:
++        with open(path, opener=lambda filename, flags: os.open(filename, flags | os.O_NOATIME)) as stream:
+             stream.seek(self.journal_position)
+             while True:
+                 position=stream.tell();line=stream.readline()

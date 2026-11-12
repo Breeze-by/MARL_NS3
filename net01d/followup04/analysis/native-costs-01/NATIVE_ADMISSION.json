@@ -1,0 +1,27 @@
+{
+  "execution_authorized": true,
+  "status": "ROOT_ADMITTED_TWO_CASE_SINGLE_LEDGER_STREAM",
+  "cases": [
+    {
+      "arm": "B02",
+      "case": "net01d/followup04/runs/gz-simhealth-b1-02",
+      "ledger": "net01d/followup04/runs/gz-simhealth-b1-02.network/native/packet-ledger.jsonl"
+    },
+    {
+      "arm": "C",
+      "case": "net01d/followup04/runs/gz-simhealth-c1-01",
+      "ledger": "net01d/followup04/runs/gz-simhealth-c1-01.network/native/packet-ledger.jsonl"
+    }
+  ],
+  "ledger_opens_per_case": 1,
+  "full_sequential_stream_per_case": true,
+  "PCAP_reads": 0,
+  "Gateway_reads": 0,
+  "stderr_reads": 0,
+  "old_B1_reads": 0,
+  "automatic_retries": 0,
+  "command_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "command": "rtk proxy python3 -B net01d/followup04/costs/stream_native_costs.py --cache-directory net01d/followup04/analysis/costs-four-arm-01 --directory net01d/followup04/analysis/native-costs-01",
+  "pending": [],
+  "root_review": "Root and independent source/plan review accepted actualHEADER36/noextraTCPprefix, partialSend/identity/byte invariants; sibling.network paths corrected. First-stage fourGateway readonce complete; actual B02/C targets/window schemas inspected. All models/writers/owned exited. No PCAP/Gateway/bag/stderr/model reread, preserve first failure, no automatic retry."
+}

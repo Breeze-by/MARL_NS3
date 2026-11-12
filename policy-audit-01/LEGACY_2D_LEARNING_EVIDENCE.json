@@ -1,0 +1,446 @@
+{
+  "source": "/home/zhuyulab/ns3-workspace/rl-04/runs/test-01/comparison.json",
+  "scope": "6 new within-public-family geometries;2poses each;not novel structural domains",
+  "attribution": "A-B compares additional PPO adaptation within the same v2 pipeline",
+  "counts": {
+    "rl": {
+      "episodes": 12,
+      "natural_complete": 12,
+      "all3participation": 12,
+      "end_reasons": {
+        "natural_complete": 12
+      },
+      "nonforced_per_head": [
+        16,
+        17,
+        17
+      ]
+    },
+    "old_reference": {
+      "episodes": 12,
+      "natural_complete": 12,
+      "all3participation": 12,
+      "end_reasons": {
+        "natural_complete": 12
+      },
+      "nonforced_per_head": [
+        17,
+        16,
+        18
+      ]
+    },
+    "traditional": {
+      "episodes": 12,
+      "natural_complete": 10,
+      "all3participation": 12,
+      "end_reasons": {
+        "natural_complete": 10,
+        "decision_budget": 2
+      },
+      "nonforced_per_head": [
+        33,
+        36,
+        30
+      ]
+    }
+  },
+  "descriptive": {
+    "rl": {
+      "complete": {
+        "mean": 1.0,
+        "median": 1.0,
+        "available": 12,
+        "missing": 0
+      },
+      "coverage": {
+        "mean": 0.9554157963725026,
+        "median": 0.9534478099589752,
+        "available": 12,
+        "missing": 0
+      },
+      "actual_T90": {
+        "mean": 28.0333333333333,
+        "median": 23.49999999999995,
+        "available": 12,
+        "missing": 0
+      },
+      "actual_T95": {
+        "mean": 40.09999999999996,
+        "median": 46.69999999999995,
+        "available": 12,
+        "missing": 0
+      },
+      "penalty_T95": {
+        "mean": 40.09999999999996,
+        "median": 46.69999999999995,
+        "available": 12,
+        "missing": 0
+      },
+      "total_path_m": {
+        "mean": 19.537923092247947,
+        "median": 22.50204658285876,
+        "available": 12,
+        "missing": 0
+      },
+      "participation": {
+        "mean": 1.0,
+        "median": 1.0,
+        "available": 12,
+        "missing": 0
+      },
+      "minimum_pair_m": {
+        "mean": 1.825569139074782,
+        "median": 1.6375447814627053,
+        "available": 12,
+        "missing": 0
+      },
+      "rejected_actions": {
+        "mean": 0.0,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      },
+      "accepted_goals": {
+        "mean": 5.0,
+        "median": 5.0,
+        "available": 12,
+        "missing": 0
+      },
+      "succeeded_goals": {
+        "mean": 2.3333333333333335,
+        "median": 2.0,
+        "available": 12,
+        "missing": 0
+      },
+      "aborted_goals": {
+        "mean": 0.0,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      },
+      "gate_violations": {
+        "mean": 0.0,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      },
+      "actual_joint": {
+        "mean": 8.5,
+        "median": 10.0,
+        "available": 12,
+        "missing": 0
+      },
+      "conditional_idle_seconds": {
+        "mean": 0.0,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      }
+    },
+    "old_reference": {
+      "complete": {
+        "mean": 1.0,
+        "median": 1.0,
+        "available": 12,
+        "missing": 0
+      },
+      "coverage": {
+        "mean": 0.9527627681194382,
+        "median": 0.9518141842926278,
+        "available": 12,
+        "missing": 0
+      },
+      "actual_T90": {
+        "mean": 28.16666666666663,
+        "median": 25.099999999999945,
+        "available": 12,
+        "missing": 0
+      },
+      "actual_T95": {
+        "mean": 37.533333333333296,
+        "median": 40.199999999999946,
+        "available": 12,
+        "missing": 0
+      },
+      "penalty_T95": {
+        "mean": 37.533333333333296,
+        "median": 40.199999999999946,
+        "available": 12,
+        "missing": 0
+      },
+      "total_path_m": {
+        "mean": 17.5371804764163,
+        "median": 18.690142404208192,
+        "available": 12,
+        "missing": 0
+      },
+      "participation": {
+        "mean": 1.0,
+        "median": 1.0,
+        "available": 12,
+        "missing": 0
+      },
+      "minimum_pair_m": {
+        "mean": 2.090838848810858,
+        "median": 1.8785901749646325,
+        "available": 12,
+        "missing": 0
+      },
+      "rejected_actions": {
+        "mean": 0.0,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      },
+      "accepted_goals": {
+        "mean": 4.75,
+        "median": 4.5,
+        "available": 12,
+        "missing": 0
+      },
+      "succeeded_goals": {
+        "mean": 2.3333333333333335,
+        "median": 2.0,
+        "available": 12,
+        "missing": 0
+      },
+      "aborted_goals": {
+        "mean": 0.0,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      },
+      "gate_violations": {
+        "mean": 0.0,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      },
+      "actual_joint": {
+        "mean": 7.916666666666667,
+        "median": 8.5,
+        "available": 12,
+        "missing": 0
+      },
+      "conditional_idle_seconds": {
+        "mean": 0.0,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      }
+    },
+    "traditional": {
+      "complete": {
+        "mean": 0.8333333333333334,
+        "median": 1.0,
+        "available": 12,
+        "missing": 0
+      },
+      "coverage": {
+        "mean": 0.9206101742115737,
+        "median": 0.95107770682914,
+        "available": 12,
+        "missing": 0
+      },
+      "actual_T90": {
+        "mean": 58.95999999999985,
+        "median": 51.59999999999995,
+        "available": 10,
+        "missing": 2
+      },
+      "actual_T95": {
+        "mean": 77.03999999999984,
+        "median": 66.59999999999995,
+        "available": 10,
+        "missing": 2
+      },
+      "penalty_T95": {
+        "mean": 147.5333333333332,
+        "median": 70.99999999999994,
+        "available": 12,
+        "missing": 0
+      },
+      "total_path_m": {
+        "mean": 22.907605293277516,
+        "median": 24.46783413887795,
+        "available": 12,
+        "missing": 0
+      },
+      "participation": {
+        "mean": 1.0,
+        "median": 1.0,
+        "available": 12,
+        "missing": 0
+      },
+      "minimum_pair_m": {
+        "mean": 0.8828609707070897,
+        "median": 0.7102338775100865,
+        "available": 12,
+        "missing": 0
+      },
+      "rejected_actions": {
+        "mean": 0.0,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      },
+      "accepted_goals": {
+        "mean": 8.916666666666666,
+        "median": 7.0,
+        "available": 12,
+        "missing": 0
+      },
+      "succeeded_goals": {
+        "mean": 3.75,
+        "median": 4.0,
+        "available": 12,
+        "missing": 0
+      },
+      "aborted_goals": {
+        "mean": 2.6666666666666665,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      },
+      "gate_violations": {
+        "mean": 0.0,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      },
+      "actual_joint": {
+        "mean": 30.0,
+        "median": 15.0,
+        "available": 12,
+        "missing": 0
+      },
+      "conditional_idle_seconds": {
+        "mean": 0.0,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      }
+    }
+  },
+  "comparisons": {
+    "rl_minus_old_reference": {
+      "complete": {
+        "mean": 0.0,
+        "paired_median": 0.0,
+        "map_cluster_family_stratified_CI95": [
+          0.0,
+          0.0
+        ]
+      },
+      "coverage": {
+        "mean": 0.0026530282530645524,
+        "paired_median": 0.0,
+        "map_cluster_family_stratified_CI95": [
+          -0.00022112072670240254,
+          0.00812095443475804
+        ]
+      },
+      "penalty_T95": {
+        "mean": 2.566666666666665,
+        "paired_median": 0.0,
+        "map_cluster_family_stratified_CI95": [
+          -1.6833333333333336,
+          8.383333333333328
+        ]
+      },
+      "total_path_m": {
+        "mean": 2.00074261583165,
+        "paired_median": 0.5043512863737849,
+        "map_cluster_family_stratified_CI95": [
+          -0.28115545071473186,
+          5.136017398827865
+        ]
+      },
+      "participation": {
+        "mean": 0.0,
+        "paired_median": 0.0,
+        "map_cluster_family_stratified_CI95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "rl_minus_traditional": {
+      "complete": {
+        "mean": 0.16666666666666666,
+        "paired_median": 0.0,
+        "map_cluster_family_stratified_CI95": [
+          0.0,
+          0.3333333333333333
+        ]
+      },
+      "coverage": {
+        "mean": 0.034805622160929084,
+        "paired_median": -0.00028250669418039553,
+        "map_cluster_family_stratified_CI95": [
+          -0.004847331867904879,
+          0.07504107965146055
+        ]
+      },
+      "penalty_T95": {
+        "mean": -107.43333333333324,
+        "paired_median": -47.59999999999999,
+        "map_cluster_family_stratified_CI95": [
+          -178.5666666666666,
+          -37.03333333333324
+        ]
+      },
+      "total_path_m": {
+        "mean": -3.369682201029573,
+        "paired_median": -4.876638289726127,
+        "map_cluster_family_stratified_CI95": [
+          -10.015385413078041,
+          3.3670239900534846
+        ]
+      },
+      "participation": {
+        "mean": 0.0,
+        "paired_median": 0.0,
+        "map_cluster_family_stratified_CI95": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "common_success_only": {
+    "rl_minus_old_reference": {
+      "pairs": 12,
+      "actual_T95_difference": {
+        "mean": 2.566666666666665,
+        "median": 0.0,
+        "available": 12,
+        "missing": 0
+      },
+      "total_path_difference": {
+        "mean": 2.00074261583165,
+        "median": 0.5043512863737849,
+        "available": 12,
+        "missing": 0
+      }
+    },
+    "rl_minus_traditional": {
+      "pairs": 10,
+      "actual_T95_difference": {
+        "mean": -40.77999999999989,
+        "median": -41.5,
+        "available": 10,
+        "missing": 0
+      },
+      "total_path_difference": {
+        "mean": -7.534102865437868,
+        "median": -7.687991419176566,
+        "available": 10,
+        "missing": 0
+      }
+    }
+  },
+  "penalty_T95_nonreach_500sim_not_actual_time": true,
+  "optimizer_update": 0,
+  "limits": "Historical projected-2D backend; not Gazebo/SLAM/new common58; existing uncertainty copied without new bootstrap."
+}

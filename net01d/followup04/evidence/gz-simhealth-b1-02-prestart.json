@@ -1,0 +1,170 @@
+{
+  "case": "gz-simhealth-b1-02",
+  "runtime": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "session": 2026111147,
+  "monotonic_ns": 610258417749716,
+  "path_checks": [
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.sock",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.network",
+      "exists": false
+    },
+    {
+      "path": "/dev/shm/net01d-f04-gz-simhealth-b1-02",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.time-control",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.host-exit.json",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.owned-runner.json",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.hub.log",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.native.log",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.native-load.json",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.native.maps.txt",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-b1-02.ready.json",
+      "exists": false
+    }
+  ],
+  "domains91_92": [],
+  "case_owned": [],
+  "native_loader_PIDs": [],
+  "active_models_builds": [],
+  "ports": [],
+  "display92": [
+    {
+      "path": "/tmp/.X92-lock",
+      "exists": false
+    },
+    {
+      "path": "/tmp/.X11-unix/X92",
+      "exists": false
+    }
+  ],
+  "resources": {
+    "MemAvailable_bytes": 90361933824,
+    "tmpfs_free_bytes": 43519381504,
+    "disk_free_bytes": 1643170717696
+  },
+  "source_critical": {
+    "git_diff_exit": 0,
+    "changed_paths": [],
+    "scope": "Existing43adapter binding paths against pinned aae; no SHA recomputation."
+  },
+  "artifact_presence": {
+    "native_path": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "native_exists": true,
+    "native_bytes": 524432,
+    "native_executable": true,
+    "bound_native_sha256": "0cc771a18a3eb63ebbc4eb09ee942aaba27ea93211e07a7a0805d993dcc7c4f3",
+    "library_root": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+    "libraries": [
+      {
+        "name": "libns3.40-wifi.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      },
+      {
+        "name": "libns3.40-internet.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      },
+      {
+        "name": "libns3.40-csma.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      },
+      {
+        "name": "libns3.40-mobility.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      },
+      {
+        "name": "libns3.40-propagation.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      },
+      {
+        "name": "libns3.40-spectrum.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      },
+      {
+        "name": "libns3.40-antenna.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      },
+      {
+        "name": "libns3.40-energy.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      },
+      {
+        "name": "libns3.40-network.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      },
+      {
+        "name": "libns3.40-core.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      },
+      {
+        "name": "libns3.40-traffic-control.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      },
+      {
+        "name": "libns3.40-bridge.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      },
+      {
+        "name": "libns3.40-stats.so",
+        "exists": true,
+        "resolved_parent": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+      }
+    ],
+    "scope": "Existence/path only; no native/ldd invocation or ELF/DSO hash. Original host/boot identity and actual maps gates remain mandatory at START."
+  },
+  "execution_flags": [
+    false,
+    false,
+    false
+  ],
+  "no_models_started": true,
+  "no_ROS_CLI": true,
+  "case_or_tmpfs_created": false,
+  "activebag_open_SQL_PRAGMA": false,
+  "domain69": "Untouched; no process action",
+  "fixture": "Separate approved poststop fixture may be active; not a native/ROS/GZ model or START of this case",
+  "conflicts": [],
+  "preflight_status": "CLEAR_READ_ONLY_NOT_START"
+}

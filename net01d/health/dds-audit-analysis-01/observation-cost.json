@@ -1,0 +1,80 @@
+{
+  "scope": "Derived from saved source join result; no Gateway or source reread",
+  "semantics": "emit before_mono through before_realtime_mono_after bounds the matched-count query plus early bookkeeping/sample calls. matched-change record is after this endpoint, so this is NOT all diagnostic overhead.",
+  "rows": [
+    {
+      "flow_writer": "(23, 'map->odom')",
+      "n": 1634,
+      "first_sample_us": 74.399,
+      "p95_us": 31.008999999999997,
+      "max_us": 149.018,
+      "matched_readers_on_first": 1
+    },
+    {
+      "flow_writer": "(23, 'odom->base_footprint')",
+      "n": 490,
+      "first_sample_us": 18.395,
+      "p95_us": 26.909,
+      "max_us": 42.213,
+      "matched_readers_on_first": 1
+    },
+    {
+      "flow_writer": "(23, 'both_wheel_TF')",
+      "n": 164,
+      "first_sample_us": 7.923,
+      "p95_us": 11.467,
+      "max_us": 26.49,
+      "matched_readers_on_first": 1
+    },
+    {
+      "flow_writer": "(43, 'map->odom')",
+      "n": 1634,
+      "first_sample_us": 50.02,
+      "p95_us": 28.633,
+      "max_us": 104.517,
+      "matched_readers_on_first": 1
+    },
+    {
+      "flow_writer": "(43, 'odom->base_footprint')",
+      "n": 490,
+      "first_sample_us": 17.836,
+      "p95_us": 23.675,
+      "max_us": 184.028,
+      "matched_readers_on_first": 1
+    },
+    {
+      "flow_writer": "(43, 'both_wheel_TF')",
+      "n": 164,
+      "first_sample_us": 12.316,
+      "p95_us": 12.836,
+      "max_us": 19.703,
+      "matched_readers_on_first": 1
+    },
+    {
+      "flow_writer": "(63, 'map->odom')",
+      "n": 1682,
+      "first_sample_us": 51.431,
+      "p95_us": 31.662999999999997,
+      "max_us": 171.352,
+      "matched_readers_on_first": 1
+    },
+    {
+      "flow_writer": "(63, 'odom->base_footprint')",
+      "n": 504,
+      "first_sample_us": 17.418,
+      "p95_us": 24.165,
+      "max_us": 57.87,
+      "matched_readers_on_first": 1
+    },
+    {
+      "flow_writer": "(63, 'both_wheel_TF')",
+      "n": 168,
+      "first_sample_us": 10.871,
+      "p95_us": 13.988,
+      "max_us": 21.381,
+      "matched_readers_on_first": 1
+    }
+  ],
+  "maximum_us": 184.028,
+  "conclusion": "No observed count-query prefix approached1s; this neither measures total observation overhead nor excludes changed scheduling/interleaving."
+}

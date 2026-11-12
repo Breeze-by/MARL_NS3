@@ -1,0 +1,27 @@
+{
+  "scope": "Saved A03 same42..43 window counts and existing capture metadata only; no new body decode/Node/run",
+  "bag_counts": {
+    "/tb1/navigate_to_pose/_action/feedback": 120,
+    "/tb1/tf": 108,
+    "/tb2/navigate_to_pose/_action/feedback": 122,
+    "/tb2/tf": 108,
+    "/tb3/navigate_to_pose/_action/feedback": 122,
+    "/tb3/tf": 109
+  },
+  "action_capture_flow_counts": {
+    "226": 78,
+    "246": 78,
+    "266": 78,
+    "228": 10,
+    "248": 10,
+    "268": 10
+  },
+  "wall_window_s": 1.17794951,
+  "total_observer_feedback": {
+    "tb1": 264,
+    "tb2": 264,
+    "tb3": 264
+  },
+  "known_duplicate_probe": "Each R ActionClient used only server_is_ready owns feedback/status waitables in addition to explicit forwarding subscriptions; count of its private taken callbacks not logged",
+  "gateways_global_max_note": "Global Rbatch/guard max may include startup/cleanup; not attributed to failure window"
+}

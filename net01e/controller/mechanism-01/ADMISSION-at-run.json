@@ -1,0 +1,26 @@
+{
+  "execution_authorized": true,
+  "case": "one_control_and_one_constructor_entry_SIGINT_intervention",
+  "script": "net01e/controller/mechanism_probe.py",
+  "output_relative_repo": "net01e/controller/mechanism-01",
+  "domain": 97,
+  "historical_trigger_reproduction": false,
+  "maximum_cases": 2,
+  "order": [
+    "control",
+    "interrupt"
+  ],
+  "intervention": "Public sys.setprofile exact installed OccupancyGrid.__init__.__code__, only below this subscription's _take_subscription; profile removed at first match, one signal.raise_signal(SIGINT) in interrupt mode only, unchanged original default handler",
+  "bounds": {
+    "startup_per_case_wall_s": 5,
+    "supply_per_case_wall_s": 3,
+    "total_inner_wall_s": 20,
+    "outer_wall_s": 24,
+    "max_publishes_per_case": 60
+  },
+  "private_take_or_type_monkeypatch": false,
+  "production_or_system_source_changes": false,
+  "automatic_retry_or_followup": false,
+  "root_START": "One controlled pair admitted; original generic RuntimeError remains real nonzero; Root and independent reviewer will inspect full hook/subscription timeline, not status alone",
+  "reviewed_source_commit": "ea497ba993c4d9bb8e1c455306ea08401b2cfec3"
+}

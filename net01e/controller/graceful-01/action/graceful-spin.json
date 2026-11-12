@@ -1,0 +1,32 @@
+{
+  "pid": 1106716,
+  "spin_begin_monotonic_ns": 620907235399969,
+  "idle_wait_limit_wall_s": 0.05,
+  "stop_requested": true,
+  "signal_requests": [
+    {
+      "signal": 2,
+      "handler_monotonic_ns": 620907245848863,
+      "interrupted_file": "/mnt/net01e/controller/check_graceful.py",
+      "interrupted_function": "callback_stop",
+      "interrupted_line": 211
+    }
+  ],
+  "submissions": [
+    {
+      "robot": "tb1",
+      "token": 2,
+      "target": [
+        1.0,
+        2.0
+      ],
+      "entry_observed_monotonic_ns": 620907245862735,
+      "admitted": false,
+      "outcome": "NOT_SUBMITTED_STOP_REQUESTED"
+    }
+  ],
+  "semantics": "Gate admission is entry to original send_goal, not DDS send or Nav2 acceptance",
+  "spin_boundary_exit_monotonic_ns": 620907245924655,
+  "context_ok_at_boundary": true,
+  "spin_adapter_finished_monotonic_ns": 620907246014485
+}

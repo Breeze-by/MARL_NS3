@@ -1,0 +1,5061 @@
+{
+  "method": "uniform per conditional mask, each own prefix recomputed; product reciprocal branching; NOT uniform over joint leaves",
+  "expected_different_joint_decisions": 29.91944444444445,
+  "expected_different_actual_new_goals": 36.461111111111116,
+  "rows": [
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 1,
+      "legal_joint_actions": [
+        [
+          0,
+          2,
+          5
+        ],
+        [
+          0,
+          4,
+          5
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.5,
+        0.5
+      ],
+      "probability_of_actual_PPO_joint": 0.5,
+      "expected_different_actual_new_goals": 0.5
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 2,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 3,
+      "legal_joint_actions": [
+        [
+          0,
+          -1,
+          10
+        ],
+        [
+          0,
+          -1,
+          11
+        ],
+        [
+          0,
+          -1,
+          12
+        ],
+        [
+          1,
+          -1,
+          10
+        ],
+        [
+          1,
+          -1,
+          11
+        ],
+        [
+          1,
+          -1,
+          12
+        ],
+        [
+          2,
+          -1,
+          10
+        ],
+        [
+          2,
+          -1,
+          11
+        ],
+        [
+          2,
+          -1,
+          12
+        ],
+        [
+          3,
+          -1,
+          10
+        ],
+        [
+          3,
+          -1,
+          11
+        ],
+        [
+          3,
+          -1,
+          12
+        ],
+        [
+          4,
+          -1,
+          10
+        ],
+        [
+          4,
+          -1,
+          11
+        ],
+        [
+          4,
+          -1,
+          12
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667
+      ],
+      "probability_of_actual_PPO_joint": 0.06666666666666667,
+      "expected_different_actual_new_goals": 1.4666666666666666
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 4,
+      "legal_joint_actions": [
+        [
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.5,
+        0.5
+      ],
+      "probability_of_actual_PPO_joint": 0.5,
+      "expected_different_actual_new_goals": 0.5
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 5,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 6,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 7,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          8
+        ],
+        [
+          -1,
+          -1,
+          9
+        ],
+        [
+          -1,
+          -1,
+          10
+        ],
+        [
+          -1,
+          -1,
+          11
+        ],
+        [
+          -1,
+          -1,
+          12
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 8,
+      "legal_joint_actions": [
+        [
+          0,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          2,
+          -1,
+          -1
+        ],
+        [
+          3,
+          -1,
+          -1
+        ],
+        [
+          4,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 9,
+      "legal_joint_actions": [
+        [
+          -1,
+          3,
+          -1
+        ],
+        [
+          -1,
+          4,
+          -1
+        ],
+        [
+          -1,
+          5,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "probability_of_actual_PPO_joint": 0.3333333333333333,
+      "expected_different_actual_new_goals": 0.6666666666666666
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 10,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 11,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 12,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 13,
+      "legal_joint_actions": [
+        [
+          -2,
+          0,
+          2
+        ],
+        [
+          -2,
+          0,
+          3
+        ],
+        [
+          -2,
+          1,
+          2
+        ],
+        [
+          -2,
+          1,
+          3
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "probability_of_actual_PPO_joint": 0.25,
+      "expected_different_actual_new_goals": 1.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 14,
+      "legal_joint_actions": [
+        [
+          -2,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 15,
+      "legal_joint_actions": [
+        [
+          -2,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 16,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 17,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 18,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 19,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 20,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 21,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 22,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 23,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 24,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 25,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 26,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 27,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 28,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 29,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 30,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 31,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 32,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 33,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 34,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-a1-fresh02",
+      "decision_id": 35,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 1,
+      "legal_joint_actions": [
+        [
+          0,
+          3,
+          6
+        ],
+        [
+          0,
+          5,
+          6
+        ],
+        [
+          2,
+          3,
+          6
+        ],
+        [
+          2,
+          5,
+          6
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "probability_of_actual_PPO_joint": 0.25,
+      "expected_different_actual_new_goals": 1.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 2,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 3,
+      "legal_joint_actions": [
+        [
+          0,
+          4,
+          8
+        ],
+        [
+          0,
+          4,
+          9
+        ],
+        [
+          0,
+          4,
+          10
+        ],
+        [
+          0,
+          5,
+          8
+        ],
+        [
+          0,
+          5,
+          9
+        ],
+        [
+          0,
+          5,
+          10
+        ],
+        [
+          0,
+          6,
+          8
+        ],
+        [
+          0,
+          6,
+          9
+        ],
+        [
+          0,
+          6,
+          10
+        ],
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          0,
+          7,
+          9
+        ],
+        [
+          0,
+          7,
+          10
+        ],
+        [
+          1,
+          3,
+          8
+        ],
+        [
+          1,
+          3,
+          9
+        ],
+        [
+          1,
+          3,
+          10
+        ],
+        [
+          1,
+          5,
+          8
+        ],
+        [
+          1,
+          5,
+          9
+        ],
+        [
+          1,
+          5,
+          10
+        ],
+        [
+          1,
+          6,
+          8
+        ],
+        [
+          1,
+          6,
+          9
+        ],
+        [
+          1,
+          6,
+          10
+        ],
+        [
+          1,
+          7,
+          8
+        ],
+        [
+          1,
+          7,
+          9
+        ],
+        [
+          1,
+          7,
+          10
+        ],
+        [
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          3,
+          9
+        ],
+        [
+          2,
+          3,
+          10
+        ],
+        [
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          4,
+          9
+        ],
+        [
+          2,
+          4,
+          10
+        ],
+        [
+          2,
+          5,
+          8
+        ],
+        [
+          2,
+          5,
+          9
+        ],
+        [
+          2,
+          5,
+          10
+        ],
+        [
+          2,
+          7,
+          8
+        ],
+        [
+          2,
+          7,
+          9
+        ],
+        [
+          2,
+          7,
+          10
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776
+      ],
+      "probability_of_actual_PPO_joint": 0.027777777777777776,
+      "expected_different_actual_new_goals": 2.083333333333334
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 4,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 5,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 6,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 7,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          5
+        ],
+        [
+          -1,
+          -1,
+          6
+        ],
+        [
+          -1,
+          -1,
+          7
+        ],
+        [
+          -1,
+          -1,
+          8
+        ],
+        [
+          -1,
+          -1,
+          9
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 8,
+      "legal_joint_actions": [
+        [
+          0,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          2,
+          -1,
+          -1
+        ],
+        [
+          3,
+          -1,
+          -1
+        ],
+        [
+          4,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 9,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 10,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 11,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 12,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          5
+        ],
+        [
+          -1,
+          -2,
+          6
+        ],
+        [
+          -1,
+          -2,
+          7
+        ],
+        [
+          -1,
+          -2,
+          8
+        ],
+        [
+          -1,
+          -2,
+          9
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 13,
+      "legal_joint_actions": [
+        [
+          0,
+          -2,
+          -1
+        ],
+        [
+          1,
+          -2,
+          -1
+        ],
+        [
+          2,
+          -2,
+          -1
+        ],
+        [
+          3,
+          -2,
+          -1
+        ],
+        [
+          4,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 14,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 15,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 16,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 17,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 18,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 19,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 20,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 21,
+      "legal_joint_actions": [
+        [
+          0,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 22,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 23,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 24,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 25,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 26,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 27,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 28,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 29,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 30,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 31,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 32,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 33,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 34,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 35,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r01-b",
+      "decision_id": 36,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 1,
+      "legal_joint_actions": [
+        [
+          0,
+          3,
+          -2
+        ],
+        [
+          1,
+          3,
+          -2
+        ],
+        [
+          2,
+          3,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "probability_of_actual_PPO_joint": 0.3333333333333333,
+      "expected_different_actual_new_goals": 0.6666666666666666
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 2,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 3,
+      "legal_joint_actions": [
+        [
+          -1,
+          5,
+          10
+        ],
+        [
+          -1,
+          5,
+          11
+        ],
+        [
+          -1,
+          6,
+          10
+        ],
+        [
+          -1,
+          6,
+          11
+        ],
+        [
+          -1,
+          7,
+          10
+        ],
+        [
+          -1,
+          7,
+          11
+        ],
+        [
+          -1,
+          8,
+          10
+        ],
+        [
+          -1,
+          8,
+          11
+        ],
+        [
+          -1,
+          9,
+          10
+        ],
+        [
+          -1,
+          9,
+          11
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "probability_of_actual_PPO_joint": 0.1,
+      "expected_different_actual_new_goals": 1.2999999999999998
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 4,
+      "legal_joint_actions": [
+        [
+          -2,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 5,
+      "legal_joint_actions": [
+        [
+          0,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          2,
+          -1,
+          -1
+        ],
+        [
+          3,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "probability_of_actual_PPO_joint": 0.25,
+      "expected_different_actual_new_goals": 0.75
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 6,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 7,
+      "legal_joint_actions": [
+        [
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          2,
+          -1
+        ],
+        [
+          -1,
+          3,
+          -1
+        ],
+        [
+          -1,
+          4,
+          -1
+        ],
+        [
+          -1,
+          5,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 8,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 9,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 10,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          9
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 11,
+      "legal_joint_actions": [
+        [
+          0,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          2,
+          -1,
+          -1
+        ],
+        [
+          3,
+          -1,
+          -1
+        ],
+        [
+          4,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 12,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 13,
+      "legal_joint_actions": [
+        [
+          -1,
+          4,
+          -1
+        ],
+        [
+          -1,
+          5,
+          -1
+        ],
+        [
+          -1,
+          6,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "probability_of_actual_PPO_joint": 0.3333333333333333,
+      "expected_different_actual_new_goals": 0.6666666666666666
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 14,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          3
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 15,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 16,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 17,
+      "legal_joint_actions": [
+        [
+          0,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          2,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "probability_of_actual_PPO_joint": 0.3333333333333333,
+      "expected_different_actual_new_goals": 0.6666666666666666
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 18,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 19,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 20,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 21,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 22,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 23,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 24,
+      "legal_joint_actions": [
+        [
+          0,
+          -2,
+          -2
+        ],
+        [
+          1,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.5,
+        0.5
+      ],
+      "probability_of_actual_PPO_joint": 0.5,
+      "expected_different_actual_new_goals": 0.5
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 25,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 26,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 27,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 28,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 29,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 30,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 31,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 32,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 33,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 34,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-a1",
+      "decision_id": 35,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 1,
+      "legal_joint_actions": [
+        [
+          0,
+          3,
+          6
+        ],
+        [
+          0,
+          5,
+          6
+        ],
+        [
+          2,
+          3,
+          6
+        ],
+        [
+          2,
+          5,
+          6
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "probability_of_actual_PPO_joint": 0.25,
+      "expected_different_actual_new_goals": 1.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 2,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 3,
+      "legal_joint_actions": [
+        [
+          0,
+          4,
+          8
+        ],
+        [
+          0,
+          4,
+          9
+        ],
+        [
+          0,
+          4,
+          10
+        ],
+        [
+          0,
+          4,
+          11
+        ],
+        [
+          0,
+          4,
+          12
+        ],
+        [
+          0,
+          5,
+          8
+        ],
+        [
+          0,
+          5,
+          9
+        ],
+        [
+          0,
+          5,
+          10
+        ],
+        [
+          0,
+          5,
+          11
+        ],
+        [
+          0,
+          5,
+          12
+        ],
+        [
+          0,
+          6,
+          8
+        ],
+        [
+          0,
+          6,
+          9
+        ],
+        [
+          0,
+          6,
+          10
+        ],
+        [
+          0,
+          6,
+          11
+        ],
+        [
+          0,
+          6,
+          12
+        ],
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          0,
+          7,
+          9
+        ],
+        [
+          0,
+          7,
+          10
+        ],
+        [
+          0,
+          7,
+          11
+        ],
+        [
+          0,
+          7,
+          12
+        ],
+        [
+          1,
+          3,
+          8
+        ],
+        [
+          1,
+          3,
+          9
+        ],
+        [
+          1,
+          3,
+          10
+        ],
+        [
+          1,
+          3,
+          11
+        ],
+        [
+          1,
+          3,
+          12
+        ],
+        [
+          1,
+          5,
+          8
+        ],
+        [
+          1,
+          5,
+          9
+        ],
+        [
+          1,
+          5,
+          10
+        ],
+        [
+          1,
+          5,
+          11
+        ],
+        [
+          1,
+          5,
+          12
+        ],
+        [
+          1,
+          6,
+          8
+        ],
+        [
+          1,
+          6,
+          9
+        ],
+        [
+          1,
+          6,
+          10
+        ],
+        [
+          1,
+          6,
+          11
+        ],
+        [
+          1,
+          6,
+          12
+        ],
+        [
+          1,
+          7,
+          8
+        ],
+        [
+          1,
+          7,
+          9
+        ],
+        [
+          1,
+          7,
+          10
+        ],
+        [
+          1,
+          7,
+          11
+        ],
+        [
+          1,
+          7,
+          12
+        ],
+        [
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          3,
+          9
+        ],
+        [
+          2,
+          3,
+          10
+        ],
+        [
+          2,
+          3,
+          11
+        ],
+        [
+          2,
+          3,
+          12
+        ],
+        [
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          4,
+          9
+        ],
+        [
+          2,
+          4,
+          10
+        ],
+        [
+          2,
+          4,
+          11
+        ],
+        [
+          2,
+          4,
+          12
+        ],
+        [
+          2,
+          5,
+          8
+        ],
+        [
+          2,
+          5,
+          9
+        ],
+        [
+          2,
+          5,
+          10
+        ],
+        [
+          2,
+          5,
+          11
+        ],
+        [
+          2,
+          5,
+          12
+        ],
+        [
+          2,
+          6,
+          8
+        ],
+        [
+          2,
+          6,
+          9
+        ],
+        [
+          2,
+          6,
+          10
+        ],
+        [
+          2,
+          6,
+          11
+        ],
+        [
+          2,
+          6,
+          12
+        ],
+        [
+          2,
+          7,
+          8
+        ],
+        [
+          2,
+          7,
+          9
+        ],
+        [
+          2,
+          7,
+          10
+        ],
+        [
+          2,
+          7,
+          11
+        ],
+        [
+          2,
+          7,
+          12
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.016666666666666666,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332,
+        0.013333333333333332
+      ],
+      "probability_of_actual_PPO_joint": 0.016666666666666666,
+      "expected_different_actual_new_goals": 2.2333333333333316
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 4,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 5,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 6,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 7,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          5
+        ],
+        [
+          -1,
+          -1,
+          6
+        ],
+        [
+          -1,
+          -1,
+          7
+        ],
+        [
+          -1,
+          -1,
+          8
+        ],
+        [
+          -1,
+          -1,
+          9
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 8,
+      "legal_joint_actions": [
+        [
+          0,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          2,
+          -1,
+          -1
+        ],
+        [
+          3,
+          -1,
+          -1
+        ],
+        [
+          4,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 9,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 10,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 11,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 12,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          5
+        ],
+        [
+          -1,
+          -2,
+          6
+        ],
+        [
+          -1,
+          -2,
+          7
+        ],
+        [
+          -1,
+          -2,
+          8
+        ],
+        [
+          -1,
+          -2,
+          9
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 13,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 14,
+      "legal_joint_actions": [
+        [
+          0,
+          -2,
+          -1
+        ],
+        [
+          1,
+          -2,
+          -1
+        ],
+        [
+          2,
+          -2,
+          -1
+        ],
+        [
+          3,
+          -2,
+          -1
+        ],
+        [
+          4,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 15,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 16,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 17,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 18,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 19,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 20,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 21,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 22,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 23,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 24,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 25,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 26,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 27,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 28,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 29,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 30,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 31,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 32,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 33,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 34,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r02-b",
+      "decision_id": 35,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 1,
+      "legal_joint_actions": [
+        [
+          0,
+          5,
+          7
+        ],
+        [
+          0,
+          6,
+          7
+        ],
+        [
+          2,
+          3,
+          7
+        ],
+        [
+          2,
+          5,
+          7
+        ],
+        [
+          2,
+          6,
+          7
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.25,
+        0.25,
+        0.16666666666666666,
+        0.16666666666666666,
+        0.16666666666666666
+      ],
+      "probability_of_actual_PPO_joint": 0.25,
+      "expected_different_actual_new_goals": 1.0833333333333333
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 2,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 3,
+      "legal_joint_actions": [
+        [
+          0,
+          -1,
+          9
+        ],
+        [
+          0,
+          -1,
+          10
+        ],
+        [
+          1,
+          -1,
+          9
+        ],
+        [
+          1,
+          -1,
+          10
+        ],
+        [
+          2,
+          -1,
+          9
+        ],
+        [
+          2,
+          -1,
+          10
+        ],
+        [
+          3,
+          -1,
+          9
+        ],
+        [
+          3,
+          -1,
+          10
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125
+      ],
+      "probability_of_actual_PPO_joint": 0.125,
+      "expected_different_actual_new_goals": 1.25
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 4,
+      "legal_joint_actions": [
+        [
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          2,
+          -1
+        ],
+        [
+          -1,
+          3,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "probability_of_actual_PPO_joint": 0.3333333333333333,
+      "expected_different_actual_new_goals": 0.6666666666666666
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 5,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 6,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          4
+        ],
+        [
+          -1,
+          -1,
+          5
+        ],
+        [
+          -1,
+          -1,
+          6
+        ],
+        [
+          -1,
+          -1,
+          7
+        ],
+        [
+          -1,
+          -1,
+          8
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 7,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 8,
+      "legal_joint_actions": [
+        [
+          0,
+          -1,
+          10
+        ],
+        [
+          0,
+          -1,
+          11
+        ],
+        [
+          1,
+          -1,
+          10
+        ],
+        [
+          1,
+          -1,
+          11
+        ],
+        [
+          2,
+          -1,
+          10
+        ],
+        [
+          2,
+          -1,
+          11
+        ],
+        [
+          3,
+          -1,
+          10
+        ],
+        [
+          3,
+          -1,
+          11
+        ],
+        [
+          4,
+          -1,
+          10
+        ],
+        [
+          4,
+          -1,
+          11
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "probability_of_actual_PPO_joint": 0.1,
+      "expected_different_actual_new_goals": 1.2999999999999998
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 9,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 10,
+      "legal_joint_actions": [
+        [
+          -1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          2,
+          -1
+        ],
+        [
+          -1,
+          3,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "probability_of_actual_PPO_joint": 0.25,
+      "expected_different_actual_new_goals": 0.75
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 11,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 12,
+      "legal_joint_actions": [
+        [
+          -2,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 13,
+      "legal_joint_actions": [
+        [
+          -2,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 14,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 15,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          0
+        ],
+        [
+          -2,
+          -2,
+          1
+        ],
+        [
+          -2,
+          -2,
+          2
+        ],
+        [
+          -2,
+          -2,
+          3
+        ],
+        [
+          -2,
+          -2,
+          4
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 16,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 17,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 18,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 19,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 20,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 21,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 22,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 23,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 24,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 25,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 26,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 27,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 28,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 29,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 30,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 31,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 32,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 33,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 34,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-a1",
+      "decision_id": 35,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 1,
+      "legal_joint_actions": [
+        [
+          0,
+          3,
+          6
+        ],
+        [
+          0,
+          5,
+          6
+        ],
+        [
+          2,
+          3,
+          6
+        ],
+        [
+          2,
+          5,
+          6
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "probability_of_actual_PPO_joint": 0.25,
+      "expected_different_actual_new_goals": 1.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 2,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 3,
+      "legal_joint_actions": [
+        [
+          0,
+          4,
+          8
+        ],
+        [
+          0,
+          4,
+          9
+        ],
+        [
+          0,
+          4,
+          10
+        ],
+        [
+          0,
+          4,
+          11
+        ],
+        [
+          0,
+          5,
+          8
+        ],
+        [
+          0,
+          5,
+          9
+        ],
+        [
+          0,
+          5,
+          10
+        ],
+        [
+          0,
+          5,
+          11
+        ],
+        [
+          0,
+          6,
+          8
+        ],
+        [
+          0,
+          6,
+          9
+        ],
+        [
+          0,
+          6,
+          10
+        ],
+        [
+          0,
+          6,
+          11
+        ],
+        [
+          0,
+          7,
+          8
+        ],
+        [
+          0,
+          7,
+          9
+        ],
+        [
+          0,
+          7,
+          10
+        ],
+        [
+          0,
+          7,
+          11
+        ],
+        [
+          1,
+          3,
+          8
+        ],
+        [
+          1,
+          3,
+          9
+        ],
+        [
+          1,
+          3,
+          10
+        ],
+        [
+          1,
+          3,
+          11
+        ],
+        [
+          1,
+          5,
+          8
+        ],
+        [
+          1,
+          5,
+          9
+        ],
+        [
+          1,
+          5,
+          10
+        ],
+        [
+          1,
+          5,
+          11
+        ],
+        [
+          1,
+          6,
+          8
+        ],
+        [
+          1,
+          6,
+          9
+        ],
+        [
+          1,
+          6,
+          10
+        ],
+        [
+          1,
+          6,
+          11
+        ],
+        [
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          3,
+          9
+        ],
+        [
+          2,
+          3,
+          10
+        ],
+        [
+          2,
+          3,
+          11
+        ],
+        [
+          2,
+          5,
+          8
+        ],
+        [
+          2,
+          5,
+          9
+        ],
+        [
+          2,
+          5,
+          10
+        ],
+        [
+          2,
+          5,
+          11
+        ],
+        [
+          2,
+          6,
+          8
+        ],
+        [
+          2,
+          6,
+          9
+        ],
+        [
+          2,
+          6,
+          10
+        ],
+        [
+          2,
+          6,
+          11
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.020833333333333332,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776,
+        0.027777777777777776
+      ],
+      "probability_of_actual_PPO_joint": 0.027777777777777776,
+      "expected_different_actual_new_goals": 2.1111111111111116
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 4,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 5,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 6,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 7,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          5
+        ],
+        [
+          -1,
+          -1,
+          6
+        ],
+        [
+          -1,
+          -1,
+          7
+        ],
+        [
+          -1,
+          -1,
+          8
+        ],
+        [
+          -1,
+          -1,
+          9
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 8,
+      "legal_joint_actions": [
+        [
+          -1,
+          -1,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 9,
+      "legal_joint_actions": [
+        [
+          0,
+          -2,
+          -1
+        ],
+        [
+          1,
+          -2,
+          -1
+        ],
+        [
+          2,
+          -2,
+          -1
+        ],
+        [
+          3,
+          -2,
+          -1
+        ],
+        [
+          4,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "probability_of_actual_PPO_joint": 0.2,
+      "expected_different_actual_new_goals": 0.8
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 10,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 11,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 12,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 13,
+      "legal_joint_actions": [
+        [
+          -1,
+          -2,
+          4
+        ],
+        [
+          -1,
+          -2,
+          5
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        0.5,
+        0.5
+      ],
+      "probability_of_actual_PPO_joint": 0.5,
+      "expected_different_actual_new_goals": 0.5
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 14,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 15,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 16,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 17,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 18,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 19,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 20,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 21,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 22,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 23,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -1
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 24,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 25,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 26,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 27,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 28,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 29,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 30,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 31,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 32,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 33,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 34,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 35,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    },
+    {
+      "case": "corr6201-common58-r03-b",
+      "decision_id": 36,
+      "legal_joint_actions": [
+        [
+          -2,
+          -2,
+          -2
+        ]
+      ],
+      "conditional_uniform_leaf_probabilities": [
+        1.0
+      ],
+      "probability_of_actual_PPO_joint": 1.0,
+      "expected_different_actual_new_goals": 0.0
+    }
+  ]
+}

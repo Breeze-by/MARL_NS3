@@ -1,0 +1,9 @@
+{
+  "observed_monotonic_ns": 619892305408783,
+  "type": "builtins.KeyboardInterrupt",
+  "repr": "KeyboardInterrupt()",
+  "cause": "None",
+  "context": "None",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/net01e/controller/continuous_dds.py\", line 115, in receiver\n    rclpy.spin(node)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py\", line 229, in spin\n    executor.spin_once()\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 812, in spin_once\n    self._spin_once_impl(timeout_sec)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 801, in _spin_once_impl\n    handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 784, in wait_for_ready_callbacks\n    return next(self._cb_iter)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 681, in _wait_for_ready_callbacks\n    wait_set.wait(timeout_nsec)\n  File \"/mnt/net01e/controller/continuous_dds.py\", line 79, in observed_sigint\n    return original_handler(number, frame)\nKeyboardInterrupt\n",
+  "subscriptions": []
+}

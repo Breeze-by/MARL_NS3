@@ -1,0 +1,168 @@
+{
+  "monotonic_ns": 612973151846890,
+  "status": "CLEAR_RESOURCES_ONLY_NOT_ADMITTED",
+  "current_reportgate_runtime": "197a21aa86b45fc67be41f9b6cd5ec811cc29125",
+  "draft_runtime": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "case": "gz-simhealth-c1-01",
+  "session": 2026111153,
+  "exclusive_paths": [
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.sock",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.network",
+      "exists": false
+    },
+    {
+      "path": "/dev/shm/net01d-f04-gz-simhealth-c1-01",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-c1-01.ready.json",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.time-control",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.host-exit.json",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.owned-runner.json",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.hub.log",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.native.log",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.native-load.json",
+      "exists": false
+    },
+    {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.native.maps.txt",
+      "exists": false
+    }
+  ],
+  "domains91_92": [],
+  "models_builds": [],
+  "ports": [],
+  "X92_conflicts": [],
+  "resources": {
+    "MemAvailable_bytes": 82471731200,
+    "tmpfs_free_bytes": 35243495424,
+    "disk_free_bytes": 1633444302848
+  },
+  "artifacts": {
+    "native_exists": true,
+    "native_executable": true,
+    "libraries": [
+      {
+        "name": "libns3.40-wifi.so",
+        "exists": true,
+        "expected_root": true
+      },
+      {
+        "name": "libns3.40-internet.so",
+        "exists": true,
+        "expected_root": true
+      },
+      {
+        "name": "libns3.40-csma.so",
+        "exists": true,
+        "expected_root": true
+      },
+      {
+        "name": "libns3.40-mobility.so",
+        "exists": true,
+        "expected_root": true
+      },
+      {
+        "name": "libns3.40-propagation.so",
+        "exists": true,
+        "expected_root": true
+      },
+      {
+        "name": "libns3.40-spectrum.so",
+        "exists": true,
+        "expected_root": true
+      },
+      {
+        "name": "libns3.40-antenna.so",
+        "exists": true,
+        "expected_root": true
+      },
+      {
+        "name": "libns3.40-energy.so",
+        "exists": true,
+        "expected_root": true
+      },
+      {
+        "name": "libns3.40-network.so",
+        "exists": true,
+        "expected_root": true
+      },
+      {
+        "name": "libns3.40-core.so",
+        "exists": true,
+        "expected_root": true
+      },
+      {
+        "name": "libns3.40-traffic-control.so",
+        "exists": true,
+        "expected_root": true
+      },
+      {
+        "name": "libns3.40-bridge.so",
+        "exists": true,
+        "expected_root": true
+      },
+      {
+        "name": "libns3.40-stats.so",
+        "exists": true,
+        "expected_root": true
+      }
+    ],
+    "scope": "Presence only; nohash/ldd/native run; originalhost runtimegate mandatory"
+  },
+  "flags": [
+    false,
+    false,
+    false
+  ],
+  "C_condition": {
+    "lock": "net01/config/NETWORK_LOCK_V3.json",
+    "C": {
+      "data_mode": "VhtMcs3",
+      "tx_power_dbm": 2.0,
+      "pathloss_exponent": 3.0
+    },
+    "B_reference": {
+      "data_mode": "VhtMcs9",
+      "tx_power_dbm": 16.0,
+      "pathloss_exponent": 2.0
+    },
+    "actual_source": "net01/native/payload_transport.cc:251,259,264; original old0cc/native identity unchanged",
+    "mechanism": "Real LogDistance loss + YansWifiPhy/NistErrorRateModel/ConstantRateWifiManager, actual MAC retry/queue/airtime; no application drop or artificial sleep",
+    "fault_gate": "CHANNEL_FAULT_V1 normal transparent Range gate remains unchanged; no radio_fault command/injection authorized",
+    "unknown": "Actual newprofileC SNR/retries/deadlines/outcomes unmeasured; no anticipated scientific effect asserted"
+  },
+  "conflicts": [],
+  "scope": "Reportingfixture5PASS(allownedgone); onlyCreadonlyresources. Rootmustbindreportgate2hash/currentruntimeandseparateREADY+START. A0FAILnotrewritten.",
+  "domain69": "untouched",
+  "models_started": 0,
+  "ROS_CLI": 0,
+  "activebag_open_SQL_PRAGMA": false,
+  "created_case_tmpfs": false
+}

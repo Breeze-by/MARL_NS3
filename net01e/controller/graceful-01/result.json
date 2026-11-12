@@ -1,0 +1,99 @@
+{
+  "cases": [
+    {
+      "mode": "fixed",
+      "expected_exit": 0,
+      "signals": [],
+      "pid": 1106665,
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/mnt/net01e/controller/check_graceful.py",
+        "--child-directory",
+        "/mnt/net01e/controller/graceful-01/fixed",
+        "--mode",
+        "fixed"
+      ],
+      "raw_exit": 0,
+      "exit_observed_monotonic_ns": 620901249282728
+    },
+    {
+      "mode": "normal",
+      "expected_exit": 0,
+      "signals": [],
+      "pid": 1106680,
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/mnt/net01e/controller/check_graceful.py",
+        "--child-directory",
+        "/mnt/net01e/controller/graceful-01/normal",
+        "--mode",
+        "normal"
+      ],
+      "raw_exit": 0,
+      "exit_observed_monotonic_ns": 620902116804236
+    },
+    {
+      "mode": "idle",
+      "expected_exit": 0,
+      "signals": [
+        {
+          "signal": "SIGINT",
+          "before_monotonic_ns": 620902766432292,
+          "after_monotonic_ns": 620902766472237
+        }
+      ],
+      "pid": 1106692,
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/mnt/net01e/controller/check_graceful.py",
+        "--child-directory",
+        "/mnt/net01e/controller/graceful-01/idle",
+        "--mode",
+        "idle"
+      ],
+      "raw_exit": 0,
+      "exit_observed_monotonic_ns": 620903030768451
+    },
+    {
+      "mode": "failure",
+      "expected_exit": 1,
+      "signals": [],
+      "pid": 1106704,
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/mnt/net01e/controller/check_graceful.py",
+        "--child-directory",
+        "/mnt/net01e/controller/graceful-01/failure",
+        "--mode",
+        "failure"
+      ],
+      "raw_exit": 1,
+      "exit_observed_monotonic_ns": 620903797708355
+    },
+    {
+      "mode": "action",
+      "expected_exit": 0,
+      "signals": [],
+      "pid": 1106716,
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/mnt/net01e/controller/check_graceful.py",
+        "--child-directory",
+        "/mnt/net01e/controller/graceful-01/action",
+        "--mode",
+        "action"
+      ],
+      "raw_exit": 0,
+      "exit_observed_monotonic_ns": 620908725919823
+    }
+  ],
+  "duration_wall_s": 8.24343214998953,
+  "all_expected_raw_exits": true,
+  "parent_exit_policy": "Actual expected non-SIGINT child error1 remains parent1; inspect per-case evidence",
+  "last_child_gone": true
+}

@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "normal",
+      "original_calls": 1,
+      "return_identity": true,
+      "nofile": true
+    },
+    {
+      "case": "runtime_error",
+      "same_exception": true,
+      "raw_payload_absent": true,
+      "evidence": "runtime_error/controller-spin-exception.json",
+      "state": {
+        "spin_exception_observed_monotonic_ns": 613927583112112
+      }
+    },
+    {
+      "case": "metadata_failure",
+      "same_exception": true,
+      "raw_payload_absent": true,
+      "evidence": "metadata_failure/controller-spin-exception.json",
+      "state": {
+        "spin_exception_observed_monotonic_ns": 613927584241118
+      }
+    },
+    {
+      "case": "write_failure",
+      "same_original_KeyboardInterrupt": true,
+      "state": {
+        "spin_exception_observed_monotonic_ns": 613927584745486,
+        "spin_exception_record_failure": "OSError"
+      }
+    }
+  ],
+  "source_checkpoint": "bd663824d77983cb2b2721e90241ef97bf06461f",
+  "source_checks": {
+    "bootstrap_finally_restores": [
+      "net01/controller_bootstrap.py",
+      "net01/a0_controller_bootstrap.py"
+    ],
+    "bare_raise": true,
+    "event_cases": [
+      [
+        "process_signal",
+        {
+          "process": "exploration",
+          "pid": 321,
+          "signal": "SIGINT",
+          "unchanged": "value",
+          "controller_signal_event_monotonic_ns": 123456789
+        }
+      ],
+      [
+        "process_signal",
+        {
+          "process": "bag",
+          "pid": 321,
+          "signal": "SIGINT",
+          "unchanged": "value"
+        }
+      ],
+      [
+        "process_exit",
+        {
+          "process": "exploration",
+          "pid": 321,
+          "signal": "SIGINT",
+          "unchanged": "value"
+        }
+      ]
+    ],
+    "event_monotonic_calls": 1
+  },
+  "start_monotonic_ns": 613927582782908,
+  "end_monotonic_ns": 613927615829083,
+  "scope": "Actual observer transparency only; 0ROS/native/GZ/NN/bag/signal/thread/child processes"
+}

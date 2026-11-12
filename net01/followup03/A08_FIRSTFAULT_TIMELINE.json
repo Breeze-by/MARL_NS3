@@ -1,0 +1,531 @@
+{
+  "scope": "Last counted A08 direct diagnostic; original FAIL, not WiFi/nav-performance or full stopping PASS",
+  "runtime_commit": "d21e20632736bf7bab4257e9faed5c148884ae08",
+  "raw_case": "runs/net01-a-corridor-6201-08",
+  "result_key": {
+    "preflight": true,
+    "autonomy_start_sim": 16.47,
+    "sim_elapsed": 0.10999999999999943,
+    "wall_elapsed": 0.22888404998229817,
+    "error": "Network guardian INVALID: {\"robot\": 3, \"session_id\": 2026110918, \"reason\": \"health_heartbeat_stale\"}",
+    "observed_stop": false,
+    "stop_error": "Observed motion stop not confirmed",
+    "run_integrity": false,
+    "lifecycle_pause_healthy": true,
+    "final_request_ownership": {
+      "closed": false,
+      "authority_stopped": true,
+      "requests": 0,
+      "unresolved_requests": [],
+      "owned_goals": {
+        "tb1": [],
+        "tb2": [],
+        "tb3": []
+      },
+      "unterminated_UUIDs": {
+        "tb1": [],
+        "tb2": [],
+        "tb3": []
+      },
+      "record_errors": [
+        "Expected controller request log missing"
+      ]
+    }
+  },
+  "inferences": 0,
+  "accepted_goals": 0,
+  "first_guard_faults": {
+    "1": {
+      "kind": "latched_INVALID",
+      "reason": "health_heartbeat_stale",
+      "robot": "tb1",
+      "session_id": 2026110918,
+      "sim": 16.52,
+      "monotonic": 431093.078664813
+    },
+    "2": {
+      "kind": "latched_INVALID",
+      "reason": "health_heartbeat_stale",
+      "robot": "tb2",
+      "session_id": 2026110918,
+      "sim": 16.52,
+      "monotonic": 431093.079831671
+    },
+    "3": {
+      "kind": "latched_INVALID",
+      "reason": "health_heartbeat_stale",
+      "robot": "tb3",
+      "session_id": 2026110918,
+      "sim": 16.52,
+      "monotonic": 431093.080854116
+    }
+  },
+  "peer_frames": [
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 16.400000000000002,
+      "ready": true,
+      "sequence": 164,
+      "poses": {
+        "tb1": [
+          0.7249055862301275,
+          -0.1500000370158572
+        ],
+        "tb2": [
+          0.3499098907047739,
+          -0.8000000336839492
+        ],
+        "tb3": [
+          1.0999209389546913,
+          -0.8000000258500587
+        ]
+      },
+      "origins": {
+        "tb1": [
+          -9.75,
+          -8.85
+        ],
+        "tb2": [
+          -9.35,
+          -8.200000000000001
+        ],
+        "tb3": [
+          -10.100000000000001,
+          -8.200000000000001
+        ]
+      },
+      "mask_contract": "owner-odom-lattice-v1",
+      "mask_from_common": {
+        "tb1": [
+          -0.7249999999999996,
+          0.1499999999999999,
+          -0.0
+        ],
+        "tb2": [
+          -0.34999999999999964,
+          0.7999999999999999,
+          -2.117582368135752e-21
+        ],
+        "tb3": [
+          -1.0999999999999996,
+          0.7999999999999999,
+          -0.0
+        ]
+      },
+      "mask_frames": {
+        "tb1": "odom",
+        "tb2": "odom",
+        "tb3": "odom"
+      },
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb1": {
+          "source": 0.01600000000000179,
+          "receipt": 0.03185129404300824,
+          "correction": -0.05999999999999872,
+          "correction_receipt": 0.006909686024300754
+        },
+        "tb2": {
+          "source": 0.0030000000000036664,
+          "receipt": 0.004358129983302206,
+          "correction": -0.06099999999999639,
+          "correction_receipt": 0.012269995990209281
+        },
+        "tb3": {
+          "source": 0.018000000000000682,
+          "receipt": 0.03554591001011431,
+          "correction": -0.14899999999999736,
+          "correction_receipt": 0.009412198036443442
+        }
+      },
+      "failures": {},
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb1": 16.384,
+        "tb2": 16.397,
+        "tb3": 16.382
+      },
+      "correction_stamps": {
+        "tb1": 16.46,
+        "tb2": 16.461,
+        "tb3": 16.549
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 431092.712479985,
+        "masks": {
+          "tb1": {
+            "begin": 431092.712551854,
+            "built": 431092.735169254,
+            "before_publish": 431092.735243501,
+            "after_publish": 431092.735711907
+          },
+          "tb2": {
+            "begin": 431092.73571483,
+            "built": 431092.755314686,
+            "before_publish": 431092.755405168,
+            "after_publish": 431092.755866478
+          },
+          "tb3": {
+            "begin": 431092.755869713,
+            "built": 431092.769850858,
+            "before_publish": 431092.769913356,
+            "after_publish": 431092.770294267
+          }
+        },
+        "snapshot_monotonic": 431092.712551252,
+        "health_publish_before_monotonic": 431092.770453404,
+        "health_publish_after_monotonic": 431092.773343332
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 16.5,
+      "ready": true,
+      "sequence": 165,
+      "poses": {
+        "tb1": [
+          0.724904985745815,
+          -0.15000003749320165
+        ],
+        "tb2": [
+          0.3499092335519098,
+          -0.8000000341824429
+        ],
+        "tb3": [
+          1.0999202754108999,
+          -0.8000000262911907
+        ]
+      },
+      "origins": {
+        "tb1": [
+          -9.75,
+          -8.85
+        ],
+        "tb2": [
+          -9.35,
+          -8.200000000000001
+        ],
+        "tb3": [
+          -10.100000000000001,
+          -8.200000000000001
+        ]
+      },
+      "mask_contract": "owner-odom-lattice-v1",
+      "mask_from_common": {
+        "tb1": [
+          -0.7249999999999996,
+          0.1499999999999999,
+          -0.0
+        ],
+        "tb2": [
+          -0.34999999999999964,
+          0.7999999999999999,
+          -2.117582368135752e-21
+        ],
+        "tb3": [
+          -1.0999999999999996,
+          0.7999999999999999,
+          -0.0
+        ]
+      },
+      "mask_frames": {
+        "tb1": "odom",
+        "tb2": "odom",
+        "tb3": "odom"
+      },
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb1": {
+          "source": 0.013999999999999346,
+          "receipt": 0.03116470400709659,
+          "correction": -0.16000000000000014,
+          "correction_receipt": 0.01563533500302583
+        },
+        "tb2": {
+          "source": 0.0010000000000012221,
+          "receipt": 0.005436612002085894,
+          "correction": -0.16100000000000136,
+          "correction_receipt": 0.0038537949440069497
+        },
+        "tb3": {
+          "source": 0.015999999999998238,
+          "receipt": 0.03493039699969813,
+          "correction": -0.04899999999999949,
+          "correction_receipt": 0.018605332996230572
+        }
+      },
+      "failures": {},
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb1": 16.486,
+        "tb2": 16.499,
+        "tb3": 16.484
+      },
+      "correction_stamps": {
+        "tb1": 16.66,
+        "tb2": 16.661,
+        "tb3": 16.549
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 431093.021548239,
+        "masks": {
+          "tb1": {
+            "begin": 431093.021624557,
+            "built": 431093.040546937,
+            "before_publish": 431093.040632829,
+            "after_publish": 431093.041167247
+          },
+          "tb2": {
+            "begin": 431093.041171265,
+            "built": 431093.060972909,
+            "before_publish": 431093.06111505,
+            "after_publish": 431093.061705786
+          },
+          "tb3": {
+            "begin": 431093.061711153,
+            "built": 431093.075647566,
+            "before_publish": 431093.075711859,
+            "after_publish": 431093.076072704
+          }
+        },
+        "snapshot_monotonic": 431093.021623979,
+        "health_publish_before_monotonic": 431093.076243282,
+        "health_publish_after_monotonic": 431093.079040087
+      }
+    }
+  ],
+  "health_deliveries_near": [
+    {
+      "sender": 0,
+      "receiver": 1,
+      "flow": 31,
+      "native_id": 10270,
+      "source_stamp_ns": 0,
+      "bytes": 1611,
+      "backend": "IDEAL-DIRECT-ADAPTER",
+      "endpoint_capture_monotonic_ns": 431092771874172,
+      "endpoint_receive_monotonic_ns": 431092771945354,
+      "cdr_bytes": 1603,
+      "cdr_sha256": "1376566ac34f2cacafc8b821e996461b70a8e05a1975916dcd32c22d7602ec31",
+      "destination_node_sim_ns": 16420000000,
+      "publisher_returned": true,
+      "endpoint_publish_monotonic_ns": 431092772192099,
+      "publish_before_thread_cpu_ns": 42111651728,
+      "publish_after_monotonic_ns": 431092772291025,
+      "publish_after_thread_cpu_ns": 42111749602
+    },
+    {
+      "sender": 0,
+      "receiver": 2,
+      "flow": 51,
+      "native_id": 10271,
+      "source_stamp_ns": 0,
+      "bytes": 1611,
+      "backend": "IDEAL-DIRECT-ADAPTER",
+      "endpoint_capture_monotonic_ns": 431092772484510,
+      "endpoint_receive_monotonic_ns": 431092772547693,
+      "cdr_bytes": 1603,
+      "cdr_sha256": "1376566ac34f2cacafc8b821e996461b70a8e05a1975916dcd32c22d7602ec31",
+      "destination_node_sim_ns": 16420000000,
+      "publisher_returned": true,
+      "endpoint_publish_monotonic_ns": 431092772746854,
+      "publish_before_thread_cpu_ns": 42112206377,
+      "publish_after_monotonic_ns": 431092772789019,
+      "publish_after_thread_cpu_ns": 42112247994
+    },
+    {
+      "sender": 0,
+      "receiver": 3,
+      "flow": 71,
+      "native_id": 10273,
+      "source_stamp_ns": 0,
+      "bytes": 1611,
+      "backend": "IDEAL-DIRECT-ADAPTER",
+      "endpoint_capture_monotonic_ns": 431092778167686,
+      "endpoint_receive_monotonic_ns": 431092778231612,
+      "cdr_bytes": 1603,
+      "cdr_sha256": "1376566ac34f2cacafc8b821e996461b70a8e05a1975916dcd32c22d7602ec31",
+      "destination_node_sim_ns": 16420000000,
+      "publisher_returned": true,
+      "endpoint_publish_monotonic_ns": 431092778442809,
+      "publish_before_thread_cpu_ns": 42117901516,
+      "publish_after_monotonic_ns": 431092778493610,
+      "publish_after_thread_cpu_ns": 42117951908
+    },
+    {
+      "sender": 0,
+      "receiver": 1,
+      "flow": 31,
+      "native_id": 10352,
+      "source_stamp_ns": 0,
+      "bytes": 1598,
+      "backend": "IDEAL-DIRECT-ADAPTER",
+      "endpoint_capture_monotonic_ns": 431093078436526,
+      "endpoint_receive_monotonic_ns": 431093078499228,
+      "cdr_bytes": 1590,
+      "cdr_sha256": "2c67cdc61e5609548e254cda1b7444ced5f15b60c734cc8ff7e1d665aa08fb01",
+      "destination_node_sim_ns": 16520000000,
+      "publisher_returned": true,
+      "endpoint_publish_monotonic_ns": 431093079382508,
+      "publish_before_thread_cpu_ns": 42417294009,
+      "publish_after_monotonic_ns": 431093079442673,
+      "publish_after_thread_cpu_ns": 42417352745
+    },
+    {
+      "sender": 0,
+      "receiver": 2,
+      "flow": 51,
+      "native_id": 10353,
+      "source_stamp_ns": 0,
+      "bytes": 1598,
+      "backend": "IDEAL-DIRECT-ADAPTER",
+      "endpoint_capture_monotonic_ns": 431093079631450,
+      "endpoint_receive_monotonic_ns": 431093079697094,
+      "cdr_bytes": 1590,
+      "cdr_sha256": "2c67cdc61e5609548e254cda1b7444ced5f15b60c734cc8ff7e1d665aa08fb01",
+      "destination_node_sim_ns": 16520000000,
+      "publisher_returned": true,
+      "endpoint_publish_monotonic_ns": 431093080258553,
+      "publish_before_thread_cpu_ns": 42418169513,
+      "publish_after_monotonic_ns": 431093080298537,
+      "publish_after_thread_cpu_ns": 42418208765
+    },
+    {
+      "sender": 0,
+      "receiver": 3,
+      "flow": 71,
+      "native_id": 10354,
+      "source_stamp_ns": 0,
+      "bytes": 1598,
+      "backend": "IDEAL-DIRECT-ADAPTER",
+      "endpoint_capture_monotonic_ns": 431093080636022,
+      "endpoint_receive_monotonic_ns": 431093080707068,
+      "cdr_bytes": 1590,
+      "cdr_sha256": "2c67cdc61e5609548e254cda1b7444ced5f15b60c734cc8ff7e1d665aa08fb01",
+      "destination_node_sim_ns": 16520000000,
+      "publisher_returned": true,
+      "endpoint_publish_monotonic_ns": 431093081316757,
+      "publish_before_thread_cpu_ns": 42419227780,
+      "publish_after_monotonic_ns": 431093081351167,
+      "publish_after_thread_cpu_ns": 42419260994
+    }
+  ],
+  "fault_near_longspans": [
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 431092667835744,
+      "end_monotonic_ns": 431092854493089,
+      "begin_thread_cpu_ns": 42007566922,
+      "end_thread_cpu_ns": 42193802493
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 431092854502379,
+      "end_monotonic_ns": 431092866068042,
+      "begin_thread_cpu_ns": 42193811826,
+      "end_thread_cpu_ns": 42205296244
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 431092870494196,
+      "end_monotonic_ns": 431092907590125,
+      "begin_thread_cpu_ns": 42209560016,
+      "end_thread_cpu_ns": 42246376535
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 431092911042110,
+      "end_monotonic_ns": 431092928228074,
+      "begin_thread_cpu_ns": 42249767349,
+      "end_thread_cpu_ns": 42266751791
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 431092928237149,
+      "end_monotonic_ns": 431093008506683,
+      "begin_thread_cpu_ns": 42266760832,
+      "end_thread_cpu_ns": 42346730903
+    },
+    {
+      "stage": "poll_inclusive",
+      "begin_monotonic_ns": 431093008521685,
+      "end_monotonic_ns": 431093199068730,
+      "begin_thread_cpu_ns": 42346745793,
+      "end_thread_cpu_ns": 42536158500
+    }
+  ],
+  "fault_near_GC": [
+    {
+      "generation": 0,
+      "begin_monotonic_ns": 431092709433851,
+      "end_monotonic_ns": 431092709776960,
+      "wall_ms": 0.343109,
+      "thread_cpu_ms": 0.342549,
+      "collected": 0
+    },
+    {
+      "generation": 0,
+      "begin_monotonic_ns": 431092949386837,
+      "end_monotonic_ns": 431092949562301,
+      "wall_ms": 0.175464,
+      "thread_cpu_ms": 0.174692,
+      "collected": 0
+    },
+    {
+      "generation": 0,
+      "begin_monotonic_ns": 431093114608263,
+      "end_monotonic_ns": 431093114885447,
+      "wall_ms": 0.277184,
+      "thread_cpu_ms": 0.275459,
+      "collected": 0
+    }
+  ],
+  "largest_GC": {
+    "generation": 2,
+    "begin_monotonic_ns": 431086717302799,
+    "end_monotonic_ns": 431086858174914,
+    "wall_ms": 140.872115,
+    "thread_cpu_ms": 140.865667,
+    "collected": 0
+  },
+  "gateway_cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    }
+  },
+  "gateway_failure": null,
+  "findings": [
+    "Sequence164-to165 original Peer callback entry interval309.068ms; actual R health delivery intervals approximately306.55/307.15/302.48ms exceed original.3wall. Each receive_health first checks old interval and correctly latches before accepting new packet; no recovery clears it.",
+    "In the first heartbeat-fault window no >=10ms individual wait/handler/pump/journal span; nearby generation0 GC durations<.35ms. Large inclusive polls are not single uninterrupted callbacks.",
+    "Earlier preflight R topic-capture gap149.964ms contains public ready-query142.741ms and generation2 GC140.872ms; this establishes one observed long-gap mechanism but does not uniquely explain A07 or A08 firstheartbeat failure.",
+    "Actual Gateway clock-relay16.4\u219216.5 interval308.866ms closely matches Peer timer interval. The isolated records do not prove Gazebo source emission mono; no claim whether production or reader queue alone caused clock gap.",
+    "Final stop certification fails mandatory original closure because expected controller journal is absent. Constructor-first journal opening still occurs after heavy module imports; do not fabricate an empty journal or replace original FAIL.",
+    "Independent existing CSV audit supports actual near-stationary samples and three PAUSE successes, separately from original observed_stop=false. No extra run/scan/metric issued for this statement."
+  ],
+  "budget": {
+    "actual_followup03": 3,
+    "cumulative": 92,
+    "B": "NOT RUN",
+    "C": "NOT RUN",
+    "remaining_Gazebo": 0
+  }
+}

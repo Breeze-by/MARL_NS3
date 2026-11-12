@@ -1,0 +1,169 @@
+{
+  "scope": "Followup03 only; original cases/reports and unsuccessful attempts retained, no automatic retries",
+  "previous_delivery": "15b53b7675446deab7e7d2ddba1b77162113606d",
+  "historical_Gazebo_before": 89,
+  "new_Gazebo": 3,
+  "cumulative_Gazebo": 92,
+  "remaining_Gazebo": 0,
+  "NN": 1,
+  "training": 0,
+  "NET02": "NO GO",
+  "push": false,
+  "rows": [
+    {
+      "id": "startup-01-tool",
+      "layer": "tool",
+      "Gazebo": 0,
+      "status": "FAIL",
+      "detail": "bwrap /diag mountpoint absent; no GDB inferior/ROS/GZ started; retained by independent startup helper",
+      "evidence": "../../../gz-startup-followup03/requests/"
+    },
+    {
+      "id": "startup-02",
+      "layer": "GZ startup-only",
+      "Gazebo": 1,
+      "cumulative": 90,
+      "status": "NOT REPRODUCED / PARTIAL",
+      "detail": "60wall three spawns under GDB, no SIGSEGV; Peer import harness failure, no activated Nav2/Goal/policy or stop certification",
+      "evidence": "../../../gz-startup-followup03/runs/startup-02/process-exit.json"
+    },
+    {
+      "id": "continuous15",
+      "layer": "synthetic WiFi",
+      "Gazebo": 0,
+      "status": "FAIL",
+      "detail": "Original .12sim clock lag exceeded during native CPU before first large output; 7 complete pre-fault messages, no mask",
+      "evidence": "MEASUREMENT_15.json"
+    },
+    {
+      "id": "native-cpu-burst-01",
+      "layer": "native-only CPU diagnostic",
+      "Gazebo": 0,
+      "status": "MEASURED",
+      "detail": "166.469CPU/177.681wall ms for .1sim; own measured callbacks exclusive30.94%,69.06% unallocated; profiler overhead",
+      "evidence": "CPU_BURST_SUMMARY.json"
+    },
+    {
+      "id": "pace-launch-generation-01",
+      "layer": "0Node configuration",
+      "Gazebo": 0,
+      "status": "PASS limited12 checks",
+      "detail": "Only wall update500; dt.001 and Nav2/SLAM config unchanged; /gazebo YAML100, no LaunchService",
+      "evidence": "PACING_LAUNCH_CHECK.json"
+    },
+    {
+      "id": "continuous16",
+      "layer": "synthetic paced WiFi",
+      "Gazebo": 0,
+      "status": "FAIL",
+      "detail": "Old default/O2 ns3 build still exceeds .12 clock gate; fault cleanup now END/native0, no threshold change",
+      "evidence": "PACED_16_SUMMARY.json"
+    },
+    {
+      "id": "native-ledger-serial-01",
+      "layer": "native CPUoff serial baseline",
+      "Gazebo": 0,
+      "status": "MEASURED",
+      "detail": "Run118.963CPUms;7883 captured=written; exact payload",
+      "evidence": "ASYNC_LEDGER_PAIR_SUMMARY.json"
+    },
+    {
+      "id": "native-ledger-async-01",
+      "layer": "native async candidate",
+      "Gazebo": 0,
+      "status": "SEMANTICS PASS / PERFORMANCE REJECT",
+      "detail": "Ledger exceptmono/stdout/fullpayload/PCAP exact; RunCPU-3.43%, totalCPU+18.03%, no useful whole-wall gain; not promoted/defaultoff",
+      "evidence": "ASYNC_LEDGER_PAIR_SUMMARY.json"
+    },
+    {
+      "id": "release-portable-build-01/native-release-portable-01",
+      "layer": "independent dependency+native",
+      "Gazebo": 0,
+      "status": "BUILD / FIXEDBURST PASS limited",
+      "detail": "Same ns3.40 O3/assertlogOFF/nativeISAOFF, oldlibs untouched; Run118.963->77.038CPUms(-35.24%), all events exceptmono/stdout/payload/PCAP equal",
+      "evidence": "RELEASE_PORTABLE_BURST_SUMMARY.json"
+    },
+    {
+      "id": "continuous17",
+      "layer": "synthetic full-load WiFi",
+      "Gazebo": 0,
+      "status": "PASS limited",
+      "detail": "16wall source,80ready health/mask per robot,maxlag.09; ingress12376,wholecomplete12052,324 uncompleted; no arm/motion",
+      "evidence": "CONTINUOUS17_SUMMARY.json"
+    },
+    {
+      "id": "A07",
+      "layer": "actual GZ direct adapter",
+      "Gazebo": 1,
+      "cumulative": 91,
+      "status": "FAIL",
+      "autonomy_sim_s": 9.96,
+      "NN": 1,
+      "accepted_goals": 3,
+      "raw_final_coverage_percent": 49.63362900115696,
+      "quality_valid_final_coverage": null,
+      "T90": null,
+      "T95": null,
+      "T98": null,
+      "threshold_status": "NOT REACHED",
+      "paths_m": [
+        0.9745248369356345,
+        0.13533224678031136,
+        0.97324223026931
+      ],
+      "detail": "C Peer odom receipts .216839/.215767wall>.2; source stamps fresh; 3 stop-CANCELED/closedUUID,physicalstop+3PAUSE; Cshutdownfalse/3C RPCunknown retained; all13 map samples invalid",
+      "evidence": "offline-metrics/net01-a-corridor-6201-07/result.json"
+    },
+    {
+      "id": "continuous18",
+      "layer": "synthetic direct/profile diagnostic",
+      "Gazebo": 0,
+      "status": "NOT REPRODUCED / limited completed",
+      "detail": "No A07 175ms gap; one88.898ms gap contains ready-query65.992CPUms; lost pre-capture FB117/117/116, no zeroloss claim",
+      "evidence": "CONTINUOUS18_SUMMARY.json"
+    },
+    {
+      "id": "A08",
+      "layer": "actual GZ direct/profile+GC diagnostic",
+      "Gazebo": 1,
+      "cumulative": 92,
+      "status": "FAIL",
+      "autonomy_sim_s": 0.11,
+      "NN": 0,
+      "accepted_goals": 0,
+      "raw_final_coverage_percent": null,
+      "quality_valid_final_coverage": null,
+      "T90": null,
+      "T95": null,
+      "T98": null,
+      "threshold_status": "NOT MEASURED",
+      "paths_m": null,
+      "detail": "All3 guards heartbeat>.3wall on seq164->165; 0NN0Goal, originalstopfalse/missingjournal,3PAUSEtrue; earlier149.964ms capturegap includes140.872ms GC2 but not finalheartbeat cause",
+      "evidence": "A08_FIRSTFAULT_TIMELINE.json"
+    },
+    {
+      "id": "continuous19",
+      "layer": "synthetic direct bounded-GC candidate",
+      "Gazebo": 0,
+      "status": "PASS limited mechanism",
+      "detail": "Processing gcfalse/0autoevents/restoredtrue+originalthreshold; RSS115840KiB; all captured TopicCDR/ActionCDR exact at destination; unarmed/noGZ,no claim to fix A08 heartbeat",
+      "evidence": "CONTINUOUS19_SUMMARY.json"
+    },
+    {
+      "id": "B",
+      "layer": "actual GZ WiFi",
+      "Gazebo": 0,
+      "status": "NOT RUN",
+      "detail": "Reserved slot prospectively reassigned to A08 diagnostic after failedA07; no new real WiFi robot experiment",
+      "evidence": "A08_DIAGNOSTIC_PLAN.md"
+    },
+    {
+      "id": "C",
+      "layer": "actual GZ nonideal WiFi",
+      "Gazebo": 0,
+      "status": "NOT RUN",
+      "detail": "Not admitted this followup",
+      "evidence": "A08_DIAGNOSTIC_PLAN.md"
+    }
+  ]
+}

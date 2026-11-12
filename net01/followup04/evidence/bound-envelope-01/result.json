@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "scope": "No ROS init/Node; observe actual typed publish arguments and original serialized mask values; not live SLAM/ROS safety",
+  "checks": {
+    "original_three_mask_then_health_real_publish_order_unchanged": true,
+    "binding_only_after_actual_health_publish": true,
+    "tb1_all_original_mask_fields_unchanged": true,
+    "tb1_C_metadata_and_opaque_CDR_equal_full_R_validation": true,
+    "tb1_original_publish_all_fields_equal": true,
+    "tb1_captured_CDR_exact_in_envelope": true,
+    "tb1_actual_same_health_state_bound": true,
+    "tb2_all_original_mask_fields_unchanged": true,
+    "tb2_C_metadata_and_opaque_CDR_equal_full_R_validation": true,
+    "tb2_original_publish_all_fields_equal": true,
+    "tb2_captured_CDR_exact_in_envelope": true,
+    "tb2_actual_same_health_state_bound": true,
+    "tb3_all_original_mask_fields_unchanged": true,
+    "tb3_C_metadata_and_opaque_CDR_equal_full_R_validation": true,
+    "tb3_original_publish_all_fields_equal": true,
+    "tb3_captured_CDR_exact_in_envelope": true,
+    "tb3_actual_same_health_state_bound": true,
+    "later_health_object_does_not_rebind_old_mask": true,
+    "mismatched_epoch_robot_content_rejected": true,
+    "health_without_three_actual_masks_never_uses_latest_cache": true
+  },
+  "ROS_Node": 0,
+  "Gazebo": 0,
+  "NN": 0,
+  "overhead": {
+    "tb1": {
+      "original_CDR_bytes": 160104,
+      "transport_binding_bytes": 558,
+      "bound_bytes": 160662
+    },
+    "tb2": {
+      "original_CDR_bytes": 160104,
+      "transport_binding_bytes": 558,
+      "bound_bytes": 160662
+    },
+    "tb3": {
+      "original_CDR_bytes": 160104,
+      "transport_binding_bytes": 558,
+      "bound_bytes": 160662
+    }
+  },
+  "order": [
+    "tb1",
+    "tb2",
+    "tb3",
+    "health",
+    "bound_tb1",
+    "bound_tb2",
+    "bound_tb3"
+  ],
+  "guard_and_network_scope": "No guard/Action/physical stop tested; only publication provenance and exact bytes"
+}

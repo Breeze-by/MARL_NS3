@@ -1,0 +1,446 @@
+{
+  "status": "LIMITED PASS frozen-source-clock calibration",
+  "scope": "16wall/30wall MOCK_PHYSICS actualWiFi;0Robot/GZ/Nav2/Goal/arm/Policy/NN, not fullsystemcapacity/physicalsafety or automaticB",
+  "runtime_fixture_commit": "8a9ecdc3462fc389b4891df51303dcffc660bc41",
+  "production_transport_commit": "b7f5e92353d2580e90881d0b39342c840c56694f",
+  "raw": "runs/continuous-dds-28-frozen-source-clock-wifi",
+  "process": {
+    "scope": "MOCK_PHYSICS WiFi feasibility only; not real GZ clock/stop/180sim PASS",
+    "error": null,
+    "wall_s": 22.645377802022267,
+    "hard_wall_s": 30,
+    "exits": {
+      "coordinator": 0,
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "mock_physics": 0,
+      "source": 0
+    },
+    "profile": {
+      "id": "controlled1000-clock100-q10ms",
+      "world_real_time_update_rate": 1000,
+      "physics_max_step_size_unchanged": 0.001,
+      "clock_publish_rate_sim_hz": 100.0,
+      "native_step_quantum_ns": 10000000,
+      "qualification": {
+        "source_wall_s": 16,
+        "hard_wall_s": 30,
+        "clock_period_wall_s": 0.02,
+        "clock_increment_ns": 10000000,
+        "other_sources": "Original TF/odom/feedback per wall unchanged, source clock subscribed from explicit MOCK_PHYSICS actual step service",
+        "peer": "Original10Hz sim timer, expected5Hz wall at target.5RTF; actual intervals measured, original gates unchanged",
+        "local_costmap_cells": [
+          200,
+          200
+        ],
+        "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
+        "not_generated_flows": [
+          "89 C merge_map",
+          "95 C controller journal"
+        ]
+      },
+      "scope": "Explicit external controlled-time shared A/B profile; fixed.5RTF wall target and actual native credit, not policy/network optimization. Qualification uses MOCK_PHYSICS, never claims Gazebo.",
+      "controlled_physics": true,
+      "physical_token_steps": 10,
+      "physical_lookahead_quanta": 2,
+      "token_wall_period_ns": 20000000
+    },
+    "resource_control": "HOLD then STOP, keep actual ACK observer through native END",
+    "Gazebo": 0,
+    "Nav2": 0,
+    "Goal": 0,
+    "NN": 0
+  },
+  "source_contract": {
+    "source_clock_contract": "frozen-source-clock",
+    "active_source_wall_s": 16.000458454014733,
+    "begin_sim_ns": 650000000,
+    "end_sim_ns": 8560000000,
+    "sim_cadence_counters": {
+      "active_baseline": {
+        "ticks": {
+          "odom": 8,
+          "wheel": 2,
+          "scan": 1
+        },
+        "skipped_configured_ticks": {
+          "odom": 0,
+          "wheel": 0,
+          "scan": 0
+        }
+      },
+      "active_end": {
+        "ticks": {
+          "odom": 245,
+          "wheel": 81,
+          "scan": 40
+        },
+        "skipped_configured_ticks": {
+          "odom": 0,
+          "wheel": 0,
+          "scan": 0
+        }
+      }
+    },
+    "count_rates": [
+      {
+        "robot": 1,
+        "kind": "both_wheel_TF",
+        "count": 79,
+        "per_wall_s": 4.937358528010041,
+        "per_sim_s": 9.987357774968395
+      },
+      {
+        "robot": 1,
+        "kind": "exact_zero_cmd",
+        "count": 321,
+        "per_wall_s": 20.06192515811675,
+        "per_sim_s": 40.581542351453855
+      },
+      {
+        "robot": 1,
+        "kind": "map->odom",
+        "count": 801,
+        "per_wall_s": 50.061065581468895,
+        "per_sim_s": 101.26422250316055
+      },
+      {
+        "robot": 1,
+        "kind": "odom",
+        "count": 237,
+        "per_wall_s": 14.812075584030122,
+        "per_sim_s": 29.962073324905184
+      },
+      {
+        "robot": 1,
+        "kind": "odom->base_footprint",
+        "count": 237,
+        "per_wall_s": 14.812075584030122,
+        "per_sim_s": 29.962073324905184
+      },
+      {
+        "robot": 1,
+        "kind": "static",
+        "count": 1,
+        "per_wall_s": 0.06249820921531697,
+        "per_sim_s": 0.1264222503160556
+      },
+      {
+        "robot": 1,
+        "kind": "synthetic_action_feedback",
+        "count": 1601,
+        "per_wall_s": 100.05963295372247,
+        "per_sim_s": 202.40202275600507
+      },
+      {
+        "robot": 1,
+        "kind": "synthetic_action_status",
+        "count": 17,
+        "per_wall_s": 1.0624695566603886,
+        "per_sim_s": 2.1491782553729455
+      },
+      {
+        "robot": 1,
+        "kind": "synthetic_costmap",
+        "count": 14,
+        "per_wall_s": 0.8749749290144376,
+        "per_sim_s": 1.7699115044247786
+      },
+      {
+        "robot": 1,
+        "kind": "synthetic_map",
+        "count": 4,
+        "per_wall_s": 0.2499928368612679,
+        "per_sim_s": 0.5056890012642224
+      },
+      {
+        "robot": 2,
+        "kind": "both_wheel_TF",
+        "count": 79,
+        "per_wall_s": 4.937358528010041,
+        "per_sim_s": 9.987357774968395
+      },
+      {
+        "robot": 2,
+        "kind": "exact_zero_cmd",
+        "count": 320,
+        "per_wall_s": 19.99942694890143,
+        "per_sim_s": 40.4551201011378
+      },
+      {
+        "robot": 2,
+        "kind": "map->odom",
+        "count": 800,
+        "per_wall_s": 49.99856737225358,
+        "per_sim_s": 101.1378002528445
+      },
+      {
+        "robot": 2,
+        "kind": "odom",
+        "count": 237,
+        "per_wall_s": 14.812075584030122,
+        "per_sim_s": 29.962073324905184
+      },
+      {
+        "robot": 2,
+        "kind": "odom->base_footprint",
+        "count": 237,
+        "per_wall_s": 14.812075584030122,
+        "per_sim_s": 29.962073324905184
+      },
+      {
+        "robot": 2,
+        "kind": "static",
+        "count": 1,
+        "per_wall_s": 0.06249820921531697,
+        "per_sim_s": 0.1264222503160556
+      },
+      {
+        "robot": 2,
+        "kind": "synthetic_action_feedback",
+        "count": 1600,
+        "per_wall_s": 99.99713474450716,
+        "per_sim_s": 202.275600505689
+      },
+      {
+        "robot": 2,
+        "kind": "synthetic_action_status",
+        "count": 17,
+        "per_wall_s": 1.0624695566603886,
+        "per_sim_s": 2.1491782553729455
+      },
+      {
+        "robot": 2,
+        "kind": "synthetic_costmap",
+        "count": 14,
+        "per_wall_s": 0.8749749290144376,
+        "per_sim_s": 1.7699115044247786
+      },
+      {
+        "robot": 2,
+        "kind": "synthetic_map",
+        "count": 4,
+        "per_wall_s": 0.2499928368612679,
+        "per_sim_s": 0.5056890012642224
+      },
+      {
+        "robot": 3,
+        "kind": "both_wheel_TF",
+        "count": 79,
+        "per_wall_s": 4.937358528010041,
+        "per_sim_s": 9.987357774968395
+      },
+      {
+        "robot": 3,
+        "kind": "exact_zero_cmd",
+        "count": 320,
+        "per_wall_s": 19.99942694890143,
+        "per_sim_s": 40.4551201011378
+      },
+      {
+        "robot": 3,
+        "kind": "map->odom",
+        "count": 800,
+        "per_wall_s": 49.99856737225358,
+        "per_sim_s": 101.1378002528445
+      },
+      {
+        "robot": 3,
+        "kind": "odom",
+        "count": 237,
+        "per_wall_s": 14.812075584030122,
+        "per_sim_s": 29.962073324905184
+      },
+      {
+        "robot": 3,
+        "kind": "odom->base_footprint",
+        "count": 237,
+        "per_wall_s": 14.812075584030122,
+        "per_sim_s": 29.962073324905184
+      },
+      {
+        "robot": 3,
+        "kind": "static",
+        "count": 1,
+        "per_wall_s": 0.06249820921531697,
+        "per_sim_s": 0.1264222503160556
+      },
+      {
+        "robot": 3,
+        "kind": "synthetic_action_feedback",
+        "count": 1599,
+        "per_wall_s": 99.93463653529184,
+        "per_sim_s": 202.14917825537293
+      },
+      {
+        "robot": 3,
+        "kind": "synthetic_action_status",
+        "count": 16,
+        "per_wall_s": 0.9999713474450715,
+        "per_sim_s": 2.02275600505689
+      },
+      {
+        "robot": 3,
+        "kind": "synthetic_costmap",
+        "count": 14,
+        "per_wall_s": 0.8749749290144376,
+        "per_sim_s": 1.7699115044247786
+      },
+      {
+        "robot": 3,
+        "kind": "synthetic_map",
+        "count": 4,
+        "per_wall_s": 0.2499928368612679,
+        "per_sim_s": 0.5056890012642224
+      }
+    ],
+    "timing_scope": "30sim configured ceiling with100Hz clock quantization, not exact1ms driver waveform;5Hz scanheader cadence only, not SLAM. Missing89/95 retained."
+  },
+  "source_accounting": {
+    "configured_active_ticks": {
+      "odom": 237,
+      "wheel": 79,
+      "scan": 39
+    },
+    "skipped_active_ticks": {
+      "odom": 0,
+      "wheel": 0,
+      "scan": 0
+    },
+    "actual_per_robot": {
+      "odom": 237,
+      "same_source_odomTF": 237,
+      "bothwheelTF": 79,
+      "costmap": 14,
+      "wall_mapTF": [
+        801,
+        800,
+        800
+      ],
+      "wall_feedback": [
+        1601,
+        1600,
+        1599
+      ],
+      "wall_zero": [
+        321,
+        320,
+        320
+      ]
+    },
+    "complete_CDR_bytes": {
+      "odom": 724,
+      "odomTF": 108,
+      "two_wheelTF": 212,
+      "costmap": 40104,
+      "mapTF": 92,
+      "feedback": 116,
+      "cmd": 52,
+      "synthetic_map": 55104
+    },
+    "mapTF_unique_headers_each": 40,
+    "active_RTF": 0.4943608348931573,
+    "scope": "Exact configured ticks minus skips equals actual sim-source emissions; not derived from reduced capturemeans. Same-phase100Hzquantization is not exact1ms Gazebo timing."
+  },
+  "critical_ready_sequence": {
+    "first": 8,
+    "last": 87,
+    "continuous_ready": 80,
+    "mask_accepted_each": 80,
+    "mask_actual_receipt_gap_upper_wall_s": [
+      0.231002503,
+      0.23445584,
+      0.22808045
+    ],
+    "health_conservative_actual_receipt_bracket_upper_wall_s": [
+      0.226794,
+      0.238532,
+      0.228906
+    ],
+    "Peer_odom_receipt_max_wall_s": 0.150153,
+    "held_odom_age_max_sim_s": 0.3,
+    "held_correction_age_max_sim_s": 0.27,
+    "independent_readonly_crosscheck": "/root/gz01_metric_review checked original source/Peer/Gateway/clock/adminACK rows; health bracket extends destination entry through publish-after, not just publishentry. No newrun or rehash."
+  },
+  "clock_and_cleanup": {
+    "actual_native_ACKs": 884,
+    "ACK_matches_actual_Hub_STEP": true,
+    "max_clock_lag_sim_s": 0.01,
+    "max_physical_credit_sim_s": 0.015,
+    "final_mode": "HOLD",
+    "expected_shutdown": true,
+    "inflight": false,
+    "failure": null,
+    "end_frame_flushed": true,
+    "all_admitted_and_local_RPC_pending": 0,
+    "GW_and_Peer_GC_processing_enabled": false,
+    "GW_and_Peer_restored_original_enabled": true,
+    "thresholds_unchanged": [
+      700,
+      10,
+      10
+    ]
+  },
+  "nonzero_loss": {
+    "ingress": 10678,
+    "native_whole_complete": 10579,
+    "not_complete_difference": 99,
+    "claim": "Criticaltimeliness/continuous80 flows do not imply allbusiness zero-loss/reliableUDP."
+  },
+  "resource_and_exit": {
+    "monotonic_ns": 457332955221444,
+    "matching_exact_native_argv": [],
+    "signals_sent": [],
+    "hub_native_exit": 0,
+    "hub_status": "PASS",
+    "native_output_argv": [
+      "/home/zhuyulab/ns3-workspace/net-01/build/followup03-release-portable-native/net01-payload",
+      "--output=/dev/shm/net01-native-evidence-28",
+      "--profile=B",
+      "--controlTrace=1"
+    ],
+    "storage": {
+      "backend": "owned_tmpfs_then_copy_after_native_exit",
+      "source": "/dev/shm/net01-native-evidence-28",
+      "destination": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/continuous-dds-28-frozen-source-clock-wifi/hub/native",
+      "available_tmpfs_bytes": 66882465792,
+      "MemAvailable_bytes": 115063705600,
+      "source_retained": true,
+      "native_exit": 0,
+      "source_files": {
+        "native-summary.json": 408,
+        "ledger-status.json": 252,
+        "control-step-trace.jsonl": 186830,
+        "wifi-3-0.pcap": 52094848,
+        "wifi-2-0.pcap": 52156692,
+        "wifi-1-0.pcap": 51864916,
+        "wifi-0-0.pcap": 54545644,
+        "configured-lock.json": 3994,
+        "packet-ledger.jsonl": 108595797
+      },
+      "source_bytes": 319449381,
+      "copied_files": {
+        "wifi-1-0.pcap": 51864916,
+        "packet-ledger.jsonl": 108595797,
+        "control-step-trace.jsonl": 186830,
+        "configured-lock.json": 3994,
+        "ledger-status.json": 252,
+        "wifi-3-0.pcap": 52094848,
+        "wifi-2-0.pcap": 52156692,
+        "native-summary.json": 408,
+        "wifi-0-0.pcap": 54545644
+      },
+      "copied_bytes": 319449381,
+      "complete": true,
+      "copy_wall_s": 0.40992132405517623
+    }
+  },
+  "limits": [
+    "IndependentMockphysics not realODE, no armedloss/physicalstopcertification",
+    "Flows89sharedmerge and95journal are ungenerated here; actualB must deliver/validate both",
+    "Old20\u201327FAILs remain;28 is separately justified sourceclockcalibration, not rerun27 or retcon",
+    "Oldprofile qualification.other_sources legacy description is retained in rawprofile; explicitsource_clock_contract/newsourcecounts are the actual28 offeredcontract",
+    "NoB/Gazebo automaticallyauthorized; actualstarts2/3 cumulative94, lastslot3pendingrootREADY"
+  ]
+}

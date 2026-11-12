@@ -1,0 +1,16 @@
+{
+  "pid": 91461,
+  "argv": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "30s",
+    "bash",
+    "net01/ros-python.sh",
+    "/mnt/net01d/followup03/clocklane/check_clocklane_sdk.py",
+    "--directory",
+    "/mnt/net01d/followup03/clocklane/sdk-01"
+  ]
+}

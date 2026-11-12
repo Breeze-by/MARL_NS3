@@ -1,0 +1,325 @@
+{
+  "status": "NOT QUALIFIED",
+  "scope": "MOCK_PHYSICS + actual WiFi, no Gazebo/Policy/Goal/arm/NN; process0 is not acceptance",
+  "source_commit": "c7685d59b3682ddbdcff7578920e3f3b43591448",
+  "raw_run": "runs/continuous-dds-22-controlled-wifi",
+  "process_exit": {
+    "scope": "MOCK_PHYSICS WiFi feasibility only; not real GZ clock/stop/180sim PASS",
+    "error": null,
+    "wall_s": 23.512452750001103,
+    "hard_wall_s": 30,
+    "exits": {
+      "coordinator": 0,
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "mock_physics": 0,
+      "source": 0
+    },
+    "profile": {
+      "id": "controlled1000-clock100-q10ms",
+      "world_real_time_update_rate": 1000,
+      "physics_max_step_size_unchanged": 0.001,
+      "clock_publish_rate_sim_hz": 100.0,
+      "native_step_quantum_ns": 10000000,
+      "qualification": {
+        "source_wall_s": 16,
+        "hard_wall_s": 30,
+        "clock_period_wall_s": 0.02,
+        "clock_increment_ns": 10000000,
+        "other_sources": "Original TF/odom/feedback per wall unchanged, source clock subscribed from explicit MOCK_PHYSICS actual step service",
+        "peer": "Original10Hz sim timer, expected5Hz wall at target.5RTF; actual intervals measured, original gates unchanged",
+        "local_costmap_cells": [
+          200,
+          200
+        ],
+        "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
+        "not_generated_flows": [
+          "89 C merge_map",
+          "95 C controller journal"
+        ]
+      },
+      "scope": "Explicit external controlled-time shared A/B profile; fixed.5RTF wall target and actual native credit, not policy/network optimization. Qualification uses MOCK_PHYSICS, never claims Gazebo.",
+      "controlled_physics": true,
+      "physical_token_steps": 10,
+      "physical_lookahead_quanta": 2,
+      "token_wall_period_ns": 20000000
+    },
+    "resource_control": "HOLD then STOP, keep actual ACK observer through native END",
+    "Gazebo": 0,
+    "Nav2": 0,
+    "Goal": 0,
+    "NN": 0
+  },
+  "startup": {
+    "fixed_initial_deadlock": true,
+    "actual_gateway_prerequisite": [
+      "actual_gateway_clock_prerequisite",
+      445834513888973,
+      729536576,
+      2026110912,
+      true,
+      true,
+      1,
+      445834207285789
+    ],
+    "first_physical_token": [
+      "physical_token",
+      445834513966576,
+      729611218,
+      "RUN",
+      null,
+      0,
+      null,
+      445834513952297,
+      0
+    ],
+    "anchor": {
+      "gazebo_ns": 10000000,
+      "ns3_ns": 0,
+      "offset_ns": 10000000,
+      "monotonic_ns": 445834515487517
+    }
+  },
+  "source": {
+    "actual_window_wall_s": 16.023612744989805,
+    "counts": {
+      "1": {
+        "static": 1,
+        "synthetic_map": 4,
+        "synthetic_action_status": 17,
+        "map->odom": 801,
+        "odom": 481,
+        "odom->base_footprint": 481,
+        "synthetic_action_feedback": 1600,
+        "base_link->wheel_left_link": 320,
+        "exact_zero_cmd": 320,
+        "synthetic_costmap": 32
+      },
+      "2": {
+        "static": 1,
+        "synthetic_map": 4,
+        "synthetic_action_status": 17,
+        "synthetic_action_feedback": 1600,
+        "map->odom": 800,
+        "odom": 480,
+        "odom->base_footprint": 480,
+        "base_link->wheel_left_link": 320,
+        "exact_zero_cmd": 320,
+        "synthetic_costmap": 32
+      },
+      "3": {
+        "static": 1,
+        "synthetic_map": 4,
+        "synthetic_action_status": 16,
+        "synthetic_action_feedback": 1599,
+        "map->odom": 800,
+        "odom": 480,
+        "odom->base_footprint": 480,
+        "base_link->wheel_left_link": 320,
+        "exact_zero_cmd": 320,
+        "synthetic_costmap": 31
+      }
+    },
+    "first_business_emit": {
+      "robot": 1,
+      "kind": "static",
+      "source_header_ns": 0,
+      "before_monotonic_ns": 445835819786694,
+      "after_monotonic_ns": 445835819882519
+    },
+    "last_business_emit": {
+      "robot": 3,
+      "kind": "exact_zero_cmd",
+      "source_header_ns": null,
+      "before_monotonic_ns": 445851856927035,
+      "after_monotonic_ns": 445851856974922
+    },
+    "missing_flows": [
+      "89 shared merge_map",
+      "95 controller journal"
+    ]
+  },
+  "rtf": {
+    "required_minimum": 0.42857142857142855,
+    "first_token_to_last_ACK": 0.43524939678437957,
+    "scope_warning": "Overall includes light prebusiness; cannot replace load-window performance",
+    "same_phase_ACKs_within_business_count": 680,
+    "same_phase_ACK_elapsed_sim_s": 6.79,
+    "same_phase_ACK_elapsed_wall_s": 15.994440337,
+    "same_phase_ACK_load_RTF": 0.4245225126316341,
+    "business_emit_endpoint_clock_RTF": 0.4246380290099816,
+    "exact_source_start_monotonic_saved": false,
+    "conclusion": "Load-window proxies about.425 are below.428571; no180sim/420wall feasibility acceptance"
+  },
+  "peer": {
+    "total_frames": 77,
+    "ready_frames": 69,
+    "ready_sequence_range": [
+      8,
+      76
+    ],
+    "startup_unready": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "tail_unready": {
+      "sequence": 77,
+      "source_already_stopped": true,
+      "reason": "stale_odom receipt; not counted as active-source network failure"
+    }
+  },
+  "health": {
+    "tb1": {
+      "ready_count": 69,
+      "ready_sequence_range": [
+        8,
+        76
+      ],
+      "max_publisher_entry_gap_wall_s": 0.294015387,
+      "max_gap_sequence_pair": [
+        50,
+        51
+      ],
+      "arrival_odom_source_age_max_sim_s": 0.1900000000000004,
+      "arrival_correction_source_age_max_sim_s": 0.0
+    },
+    "tb2": {
+      "ready_count": 69,
+      "ready_sequence_range": [
+        8,
+        76
+      ],
+      "max_publisher_entry_gap_wall_s": 0.29814811,
+      "max_gap_sequence_pair": [
+        50,
+        51
+      ],
+      "arrival_odom_source_age_max_sim_s": 0.1900000000000004,
+      "arrival_correction_source_age_max_sim_s": -0.009999999999999787
+    },
+    "tb3": {
+      "ready_count": 69,
+      "ready_sequence_range": [
+        8,
+        76
+      ],
+      "max_publisher_entry_gap_wall_s": 0.298274187,
+      "max_gap_sequence_pair": [
+        50,
+        51
+      ],
+      "arrival_odom_source_age_max_sim_s": 0.1900000000000004,
+      "arrival_correction_source_age_max_sim_s": 0.0
+    }
+  },
+  "bound_masks": {
+    "tb1": {
+      "actual_whole_received": 72,
+      "accepted": 69,
+      "max_destination_entry_gap_wall_s": 0.291045014,
+      "max_gap_sequence_pair": [
+        50,
+        51
+      ],
+      "exact_guard_receipt_timestamps_recorded": false
+    },
+    "tb2": {
+      "actual_whole_received": 72,
+      "accepted": 69,
+      "max_destination_entry_gap_wall_s": 0.292081346,
+      "max_gap_sequence_pair": [
+        25,
+        26
+      ],
+      "exact_guard_receipt_timestamps_recorded": false
+    },
+    "tb3": {
+      "actual_whole_received": 71,
+      "accepted": 69,
+      "max_destination_entry_gap_wall_s": 0.300518461,
+      "max_gap_sequence_pair": [
+        25,
+        26
+      ],
+      "exact_guard_receipt_timestamps_recorded": false
+    }
+  },
+  "mask_wall_gate": {
+    "status": "NOT VERIFIED",
+    "robot": "tb3",
+    "sequence_pair": [
+      25,
+      26
+    ],
+    "actual_receipt_gap_interval_wall_s": [
+      0.299015444,
+      0.305206125
+    ],
+    "reason": "Destination entry->next ordered record brackets decode/guard call; original.3s lies within interval. No exact per-bound receipt field, never armed, accepted count does not prove between-arrival wall gate"
+  },
+  "clock": {
+    "actual_native_STEP_count": 771,
+    "max_Gateway_observed_clock_minus_last_real_ACK_ns": 10000000,
+    "max_licensed_physical_ahead_ns": 15000000,
+    "final": {
+      "mode": "HOLD",
+      "failure": null,
+      "expected_shutdown": true,
+      "physics_failed": false,
+      "physical_ns": 7725000000,
+      "iterations": 7720,
+      "actual_clock_ns": 7720000000,
+      "native_ACK_ns": 7710000000,
+      "fixed_offset_ns": 10000000,
+      "physical_RPC_inflight": false,
+      "session_id": 2026110912,
+      "gateway_clock_ready": true,
+      "pending_holds": 0,
+      "token_wall_period_ns": 20000000,
+      "next_earliest_wall_ns": 445849953952297,
+      "max_token_lateness_ns": 2458774016,
+      "late_tokens": 771
+    },
+    "provenance": "Hub STEP datagrams originate only after actual native stdoutSTEP; nativeSTEP<=known actual clock, never E-fed clock"
+  },
+  "delivery": {
+    "hub_ingress": 12810,
+    "hub_whole_complete": 12795,
+    "Gateway_destination_entries": 12795,
+    "Action_capture": 5059,
+    "Action_actual_destination": 5046,
+    "all_business_zero_loss_claim": false
+  },
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "retired_C_services": {
+      "1": [],
+      "2": [],
+      "3": []
+    }
+  },
+  "no_runtime_fault": true,
+  "no_postfault_discard": true,
+  "no_retry": true,
+  "Gazebo": 0,
+  "conclusion": "Startup-order bug fixed in this attempt and full source entered; no Gazebo admission: original loaded RTF feasibility not established, exact mask wall gap straddles limit. Keep all guards/profile/V3 unchanged pending independent review."
+}

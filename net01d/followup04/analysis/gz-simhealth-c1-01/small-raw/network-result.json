@@ -1,0 +1,53 @@
+{
+  "argv": [
+    "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "--output=/dev/shm/net01d-f04-gz-simhealth-c1-01",
+    "--profile=C",
+    "--transport=tcp-mtu-v2",
+    "--controlTrace=1"
+  ],
+  "scope": "Unix IPC to actual ns3 full-payload transport",
+  "status": "PASS",
+  "native_transport": "tcp-mtu-v2",
+  "native_cpu_profile": false,
+  "native_evidence_storage": {
+    "backend": "owned_tmpfs_then_copy_after_native_exit",
+    "source": "/dev/shm/net01d-f04-gz-simhealth-c1-01",
+    "destination": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-c1-01.network/native",
+    "available_tmpfs_bytes": 35247554560,
+    "MemAvailable_bytes": 82069135360,
+    "source_retained": true,
+    "native_exit": 0,
+    "source_files": {
+      "native-summary.json": 633,
+      "ledger-status.json": 261,
+      "control-step-trace.jsonl": 4397782,
+      "transport-config.json": 4131,
+      "wifi-3-0.pcap": 1256065627,
+      "wifi-2-0.pcap": 1272336503,
+      "wifi-1-0.pcap": 1260130319,
+      "wifi-0-0.pcap": 1363169344,
+      "configured-lock.json": 3994,
+      "packet-ledger.jsonl": 3124389295
+    },
+    "source_bytes": 8280497889,
+    "copied_files": {
+      "wifi-1-0.pcap": 1260130319,
+      "packet-ledger.jsonl": 3124389295,
+      "control-step-trace.jsonl": 4397782,
+      "configured-lock.json": 3994,
+      "ledger-status.json": 261,
+      "wifi-3-0.pcap": 1256065627,
+      "wifi-2-0.pcap": 1272336503,
+      "native-summary.json": 633,
+      "wifi-0-0.pcap": 1363169344,
+      "transport-config.json": 4131
+    },
+    "copied_bytes": 8280497889,
+    "complete": true,
+    "copy_wall_s": 12.516216674936004
+  },
+  "native_exit": 0,
+  "ingress_messages": 190057,
+  "delivered_messages": 190044
+}

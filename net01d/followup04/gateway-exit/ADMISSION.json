@@ -1,0 +1,68 @@
+{
+  "execution_authorized": true,
+  "status": "ROOT_ADMITTED_ONE_ZERO_ROBOT_LIFECYCLE_SUITE",
+  "runtime_source": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "case": "gateway-exit-run-01",
+  "fixture": "net01d/followup04/gateway-exit/check.py",
+  "scope": "Actual selected Gateway close/_close/persist/poststop_phase and gateway_closed_proof/end_gateway; fake resources, no ROS/robot/NS3/GZ/NN/Nav2/physical proof",
+  "default_total_wall_s": 60,
+  "default_grace_wall_s": 50,
+  "TERM_wall_s": 5,
+  "KILL_observation_wall_s": 5,
+  "per_child_absolute_wall_s": 65,
+  "suite_outer_wall_s": 200,
+  "cleanup_before_extension": "Actual fake-resource closure marker plus explicit mock observer safe-stop/seal precondition; not real stopping",
+  "expected_wall_s_approx": 160,
+  "output_relative_repo": "net01d/followup04/gateway-exit/run-01",
+  "command": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "200s",
+    "python3",
+    "-B",
+    "net01d/followup04/gateway-exit/check.py",
+    "--directory",
+    "net01d/followup04/gateway-exit/run-01"
+  ],
+  "command_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "cases": [
+    {
+      "case": "closed_slow_persist_exit0",
+      "injection": "22wall pause immediately before actual persist, after actual closure marker",
+      "expected": "exit0, saved/actual resources marker, extension, about22wall"
+    },
+    {
+      "case": "unclosed",
+      "injection": "Mock Hub END stalls inside actual _close; no resources marker",
+      "expected": "no extension; SIGTERM~20/SIGKILL~25, exit-9"
+    },
+    {
+      "case": "persist_stall",
+      "injection": "Actual persist enters mock passive capture hook and stalls",
+      "expected": "resources marker+extension, no saved; SIGTERM~50/KILL~55, exit-9"
+    },
+    {
+      "case": "saved_exit_stall",
+      "injection": "Actual close/persist returns, then child stalls before process exit",
+      "expected": "resources marker+saved+extension, still SIGTERM~50/KILL~55 exit-9/FAIL process"
+    }
+  ],
+  "small_checks": [
+    "actual host runner_command AST: noncontrolled, controlled120 None, controlled180 deadline",
+    "actual marker reader rejects missing/stale PID/session/case/old mono",
+    "actual supervisor pureFSM fake time and no signals: missing marker keeps original20/5/5; repeated invocation never renews baseline/deadline; short parent bound caps all phases"
+  ],
+  "limitations": [
+    "Injected sleeps/stalls are lifecycle fault injection, not serialization/GC performance measurements",
+    "PureFSM clock checks do not stand for real wall measurements; four real subprocess branches retain unscaled production60/20/5/5 numbers",
+    "This does not determine the historical post-save destructor/GC cause and cannot flip original B network-integrity FAIL",
+    "No tests have run at source preparation; no automatic retry/model/GZ",
+    "22wall is a controlled pause plus small actual persist, not351MB stress or realROS capacity evidence; suite is capped at200wall independently of each65wall child"
+  ],
+  "preserve_first_failure": true,
+  "root_review": "Actual source and four-case fixture read; source-only independent review accepted; no automatic Gazebo admission",
+  "source_review": "net01d/followup04/analysis/gz-simhealth-b1-01/INDEPENDENT_REVIEW.md"
+}

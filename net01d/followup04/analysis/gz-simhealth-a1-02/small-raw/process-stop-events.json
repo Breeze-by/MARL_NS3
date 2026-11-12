@@ -1,0 +1,268 @@
+[
+  {
+    "utc": "2026-11-11T08:56:28.901807+00:00",
+    "wall": 1794387388.9018185,
+    "sim": 0.030000000000000002,
+    "kind": "error",
+    "detail": "Preflight missing: ['model_states', 'tb1/model_state', 'tb1/drive', 'tb1/scan', 'tb1/odom', 'tb1/map', 'tb1/contacts', 'tb2/model_state', 'tb2/drive', 'tb2/scan', 'tb2/odom', 'tb2/map', 'tb2/contacts', 'tb3/model_state', 'tb3/drive', 'tb3/scan', 'tb3/odom', 'tb3/map', 'tb3/contacts', 'merge_map/map', 'tb1/TF map->base_scan', 'tb2/TF map->base_scan', 'tb3/TF map->base_scan', 'peer state/clock missing']"
+  },
+  {
+    "utc": "2026-11-11T08:56:28.902887+00:00",
+    "wall": 1794387388.902894,
+    "sim": 0.030000000000000002,
+    "kind": "time_control_authority_evidence",
+    "basis": "not_created",
+    "pid": null,
+    "native_exit": null,
+    "original_authority_stopped": true
+  },
+  {
+    "utc": "2026-11-11T08:56:34.922829+00:00",
+    "wall": 1794387394.9228692,
+    "sim": 4.03,
+    "kind": "stop_rpc_error",
+    "robot": "tb1",
+    "stage": "cancel",
+    "detail": "Service unavailable: /tb1/navigate_to_pose/_action/cancel_goal"
+  },
+  {
+    "utc": "2026-11-11T08:56:40.924128+00:00",
+    "wall": 1794387400.924165,
+    "sim": 8.03,
+    "kind": "stop_rpc_error",
+    "robot": "tb2",
+    "stage": "cancel",
+    "detail": "Service unavailable: /tb2/navigate_to_pose/_action/cancel_goal"
+  },
+  {
+    "utc": "2026-11-11T08:56:46.926694+00:00",
+    "wall": 1794387406.9267278,
+    "sim": 12.09,
+    "kind": "stop_rpc_error",
+    "robot": "tb3",
+    "stage": "cancel",
+    "detail": "Service unavailable: /tb3/navigate_to_pose/_action/cancel_goal"
+  },
+  {
+    "utc": "2026-11-11T08:56:46.942098+00:00",
+    "wall": 1794387406.9421275,
+    "sim": 12.1,
+    "kind": "navigation_pause",
+    "robot": "tb1",
+    "success": false
+  },
+  {
+    "utc": "2026-11-11T08:56:46.942218+00:00",
+    "wall": 1794387406.9422247,
+    "sim": 12.1,
+    "kind": "stop_rpc_error",
+    "robot": "tb1",
+    "stage": "pause",
+    "detail": "Navigation pause failed: tb1"
+  },
+  {
+    "utc": "2026-11-11T08:56:46.948761+00:00",
+    "wall": 1794387406.9487805,
+    "sim": 12.11,
+    "kind": "navigation_pause",
+    "robot": "tb2",
+    "success": false
+  },
+  {
+    "utc": "2026-11-11T08:56:46.948843+00:00",
+    "wall": 1794387406.9488504,
+    "sim": 12.11,
+    "kind": "stop_rpc_error",
+    "robot": "tb2",
+    "stage": "pause",
+    "detail": "Navigation pause failed: tb2"
+  },
+  {
+    "utc": "2026-11-11T08:56:46.953395+00:00",
+    "wall": 1794387406.9534254,
+    "sim": 12.11,
+    "kind": "navigation_pause",
+    "robot": "tb3",
+    "success": false
+  },
+  {
+    "utc": "2026-11-11T08:56:46.953482+00:00",
+    "wall": 1794387406.9534888,
+    "sim": 12.11,
+    "kind": "stop_rpc_error",
+    "robot": "tb3",
+    "stage": "pause",
+    "detail": "Navigation pause failed: tb3"
+  },
+  {
+    "utc": "2026-11-11T08:56:48.607319+00:00",
+    "wall": 1794387408.607348,
+    "sim": 13.2,
+    "kind": "observed_stop",
+    "positions": {
+      "tb1": [
+        0.7254550542830097,
+        -0.15001763359840709,
+        0.007829588131431798,
+        5.894113560245168e-05,
+        4.843130893555931e-05
+      ],
+      "tb2": [
+        0.35045483695593754,
+        -0.8000177223464346,
+        0.007806368559107677,
+        6.602207800868583e-05,
+        4.8640448010123406e-05
+      ],
+      "tb3": [
+        1.1004547324315812,
+        -0.8000176402970111,
+        0.007822488153568705,
+        6.819537109799248e-05,
+        4.8291461466641825e-05
+      ]
+    },
+    "per_robot_wall": {
+      "tb1": 604450.089406722,
+      "tb2": 604450.089450112,
+      "tb3": 604450.089464645
+    },
+    "sim_advanced": 1.0,
+    "drive_received": {
+      "tb1": [
+        13.178,
+        374.0,
+        13.17,
+        0.0,
+        0.0,
+        -3.504138348656391e-05,
+        -2.1030507943322206e-05,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tb2": [
+        13.188,
+        374.0,
+        13.17,
+        0.0,
+        0.0,
+        -1.6850256228643564e-05,
+        -2.881168525550554e-06,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "tb3": [
+        13.188,
+        374.0,
+        13.17,
+        0.0,
+        0.0,
+        3.133856097899672e-06,
+        1.7212959212052984e-05,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "rpc_errors": [
+      "Service unavailable: /tb1/navigate_to_pose/_action/cancel_goal",
+      "Service unavailable: /tb2/navigate_to_pose/_action/cancel_goal",
+      "Service unavailable: /tb3/navigate_to_pose/_action/cancel_goal",
+      "Navigation pause failed: tb1",
+      "Navigation pause failed: tb2",
+      "Navigation pause failed: tb3"
+    ],
+    "authority_stopped": true,
+    "ownership_closed": true,
+    "owned_goals": {
+      "tb1": [],
+      "tb2": [],
+      "tb3": []
+    },
+    "request_ownership": {
+      "closed": true,
+      "authority_stopped": true,
+      "requests": 0,
+      "unresolved_requests": [],
+      "owned_goals": {
+        "tb1": [],
+        "tb2": [],
+        "tb3": []
+      },
+      "unterminated_UUIDs": {
+        "tb1": [],
+        "tb2": [],
+        "tb3": []
+      },
+      "record_errors": []
+    },
+    "lifecycle_pause_healthy": false
+  },
+  {
+    "utc": "2026-11-11T08:56:48.607921+00:00",
+    "wall": 1794387408.607936,
+    "sim": 13.2,
+    "kind": "process_signal",
+    "process": "bag",
+    "pid": 615744,
+    "signal": "SIGINT"
+  },
+  {
+    "utc": "2026-11-11T08:56:49.087115+00:00",
+    "wall": 1794387409.0871465,
+    "sim": 13.49,
+    "kind": "process_exit",
+    "process": "bag",
+    "code": 0
+  },
+  {
+    "utc": "2026-11-11T08:56:49.117307+00:00",
+    "wall": 1794387409.1173124,
+    "sim": 13.5,
+    "kind": "process_signal",
+    "process": "network_gateway",
+    "pid": 615742,
+    "signal": "SIGINT"
+  },
+  {
+    "utc": "2026-11-11T08:56:51.717051+00:00",
+    "wall": 1794387411.7170863,
+    "sim": 13.5,
+    "kind": "process_exit",
+    "process": "network_gateway",
+    "code": 0
+  },
+  {
+    "utc": "2026-11-11T08:56:51.717296+00:00",
+    "wall": 1794387411.7173028,
+    "sim": 13.5,
+    "kind": "process_signal",
+    "process": "launch",
+    "pid": 615743,
+    "signal": "SIGINT",
+    "signal_target": "owned_launch_parent_pid",
+    "timeout_wall_s": 20
+  },
+  {
+    "utc": "2026-11-11T08:56:53.650434+00:00",
+    "wall": 1794387413.650468,
+    "sim": 13.5,
+    "kind": "process_exit",
+    "process": "launch",
+    "code": 0
+  }
+]

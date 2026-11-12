@@ -1,0 +1,30 @@
+[python3-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 784, in wait_for_ready_callbacks
+[python3-1]     return next(self._cb_iter)
+[python3-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 681, in _wait_for_ready_callbacks
+[python3-1]     wait_set.wait(timeout_nsec)
+[python3-1] KeyboardInterrupt
+[INFO] [smoother_server-7]: process has finished cleanly [pid 615892]
+[INFO] [planner_server-8]: process has finished cleanly [pid 615894]
+[INFO] [joint_state_publisher-19]: process has finished cleanly [pid 616602]
+[INFO] [controller_server-6]: process has finished cleanly [pid 615890]
+[INFO] [robot_state_publisher-4]: process has finished cleanly [pid 615886]
+[python3-2] Traceback (most recent call last):
+[python3-2]   File "/mnt/net01/bound_peer.py", line 219, in <module>
+[python3-2]     if __name__=="__main__":main()
+[python3-2]   File "/mnt/net01/bound_peer.py", line 211, in main
+[python3-2]     try:rclpy.spin(node)
+[python3-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[python3-2]     executor.spin_once()
+[python3-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 812, in spin_once
+[python3-2]     self._spin_once_impl(timeout_sec)
+[python3-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 801, in _spin_once_impl
+[python3-2]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[python3-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 784, in wait_for_ready_callbacks
+[python3-2]     return next(self._cb_iter)
+[python3-2]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 681, in _wait_for_ready_callbacks
+[python3-2]     wait_set.wait(timeout_nsec)
+[python3-2] KeyboardInterrupt
+[INFO] [joint_state_publisher-14]: process has finished cleanly [pid 615906]
+[ERROR] [python3-1]: process has died [pid 615880, exit code -2, cmd 'python3 -B /mnt/workspace/src/merge_map/merge_map/merge_map.py --ros-args -r __node:=merge_map -p robot_count:=3 -p frame_id:=merge_map -p map_poses:=[0.7249999999999996, -0.1499999999999999, 0.0, 0.34999999999999964, -0.7999999999999999, 0.0, 1.0999999999999996, -0.7999999999999999, 0.0] -p use_sim_time:=true -p output_grid_resolution:=0.05'].
+[ERROR] [python3-2]: process has died [pid 615882, exit code -2, cmd 'python3 -B /mnt/net01/bound_peer.py --scene /mnt/inputs/scenes/regression-corridor-common-6201-dwb-v1.json --directory /mnt/net01d/followup04/runs/gz-simhealth-a1-02 --health-trace --execution-profile controlled1000-clock100-q10ms-pace10-raster-simhealth --session-id 2026111145 --ros-args -p use_sim_time:=true'].
+[INFO] [gzserver-3]: process has finished cleanly [pid 615884]

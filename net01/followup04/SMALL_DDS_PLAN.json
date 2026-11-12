@@ -1,0 +1,32 @@
+{
+  "source_commit": "dfa6343fae71c21ef84ff92469ae966a0882cd8d",
+  "root_admitted_once": true,
+  "sequence": [
+    {
+      "name": "retired-rpc-01",
+      "domains": [
+        104,
+        105
+      ],
+      "script_wall_s": 20,
+      "outer_wall_s": 30,
+      "command": "bash net01/ros-python.sh /mnt/net01/followup04/check_retired_rpc.py --output /mnt/net01/followup04/evidence/retired-rpc-01",
+      "scope": "One controlled actual ActionServer, no Nav2 or motion; wire completeCDR memory queue only"
+    },
+    {
+      "name": "clock-calibration-01",
+      "domains": [
+        106
+      ],
+      "script_wall_s": 12,
+      "outer_wall_s": 20,
+      "command": "bash net01/ros-python.sh /mnt/net01/followup04/calibrate_clock_witness.py --binary /mnt/build/clock-witness-followup04/net01-clock-witness --output /mnt/net01/followup04/evidence/clock-calibration-01",
+      "sequence": "20 actualclock samples .01.. .20sim, each .02wall; not GZ time synchronization"
+    }
+  ],
+  "Gazebo": 0,
+  "Nav2": 0,
+  "NN": 0,
+  "nonzero_velocity": 0,
+  "new_network_parameters": false
+}

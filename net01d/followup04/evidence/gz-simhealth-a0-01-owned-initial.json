@@ -1,0 +1,94 @@
+{
+  "monotonic_ns": 612035798568870,
+  "registered": [
+    {
+      "pid": 858548,
+      "exists": false
+    },
+    {
+      "pid": 858549,
+      "exists": false
+    },
+    {
+      "pid": 858552,
+      "exists": false
+    },
+    {
+      "pid": 858553,
+      "exists": false
+    },
+    {
+      "pid": 858584,
+      "exists": false
+    },
+    {
+      "pid": 858585,
+      "exists": false
+    },
+    {
+      "pid": 858613,
+      "exists": false
+    },
+    {
+      "pid": 858614,
+      "exists": false
+    },
+    {
+      "pid": 858641,
+      "exists": false
+    },
+    {
+      "pid": 858644,
+      "exists": false
+    },
+    {
+      "pid": 858669,
+      "exists": false
+    },
+    {
+      "pid": 858854,
+      "exists": false
+    },
+    {
+      "pid": 858855,
+      "exists": false
+    },
+    {
+      "pid": 858856,
+      "exists": false
+    },
+    {
+      "pid": 859292,
+      "exists": false
+    },
+    {
+      "pid": 860524,
+      "exists": false
+    }
+  ],
+  "registered_all_gone": true,
+  "matching_case_or_session": [
+    860416
+  ],
+  "domains91_92": [
+    {
+      "pid": 860416,
+      "domain": "92",
+      "argv": [
+        "/usr/bin/python3",
+        "-c",
+        "from ros2cli.daemon.daemonize import main; main()",
+        "--name",
+        "ros2-daemon",
+        "--ros-domain-id",
+        "92",
+        "--rmw-implementation",
+        "rmw_fastrtps_cpp"
+      ],
+      "start_ticks": 61164983,
+      "case_marker": "/mnt/net01d/followup04/runs/gz-simhealth-a0-01",
+      "session": "2026111152"
+    }
+  ],
+  "domain69": "untouched"
+}

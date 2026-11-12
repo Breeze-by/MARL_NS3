@@ -1,0 +1,27 @@
+{
+  "status": "STARTED",
+  "start_monotonic_ns": 613116669133794,
+  "start_utc": "2026-11-11T11:21:15.186819+00:00",
+  "parent_pid": 864392,
+  "parent_ppid": 864387,
+  "domain": 97,
+  "topic": "/net01d/sigint_diagnostic/grid",
+  "scope": "No-robot real typedDDS and one SIGINT diagnostic, not original HQ/NN/Nav2/GZ/native workload or physical proof",
+  "planned": {
+    "width": 400,
+    "height": 400,
+    "data_bytes": 160000,
+    "publish_period_wall_s": 0.05,
+    "supply_wall_s": 12.0,
+    "inner_wall_s": 30
+  },
+  "receiver_argv": [
+    "/usr/bin/python3",
+    "-B",
+    "/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py",
+    "--receiver-directory",
+    "/mnt/net01d/followup04/sigint-dds/run-02"
+  ],
+  "receiver_pid": 864413,
+  "launch_observed_monotonic_ns": 613116670458055
+}

@@ -1,0 +1,114 @@
+{
+  "record_saves": {
+    "network-gateway-saved.json": {
+      "saved": true,
+      "mode": "A",
+      "records": 236078,
+      "failure": null,
+      "cleanup": {
+        "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+        "end_frame_flushed": true,
+        "executor_shutdown": [
+          true,
+          true
+        ],
+        "resources_destroyed": true,
+        "unresolved_C_RPC": [],
+        "unresolved_R_RPC": [],
+        "unresolved_local_cleanup_futures": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "action_confirmation_states": {
+          "C": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          },
+          "R": {
+            "1": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            },
+            "2": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            },
+            "3": {
+              "enabled": true,
+              "failure": null,
+              "waiting": 0,
+              "unconfirmed": 0
+            }
+          }
+        },
+        "retired_C_services": {
+          "1": [],
+          "2": [],
+          "3": []
+        },
+        "main_thread_sampler": {
+          "joined": true,
+          "failure": null,
+          "stop_begin_mono_ns": 603552184687444,
+          "stop_end_mono_ns": 603552185193867,
+          "collector_cpu_ns": 8242285653,
+          "samples": 14524,
+          "skipped_periods": 39,
+          "proc_fds_remaining": 0,
+          "proc_close_errors": []
+        }
+      },
+      "persist_wall_s": 11.274598899064586,
+      "peak_afterpersist_KiB": 1091884
+    },
+    "bound-mask-recording-saved.json": {
+      "saved": true,
+      "mask_records": 5415,
+      "tf_callback_records": 63325,
+      "pending_undelimited_masks": 0,
+      "gc_runtime": {
+        "original_enabled": true,
+        "original_thresholds": [
+          700,
+          10,
+          10
+        ],
+        "scope": "Bounded NET BoundPeer processing only; refcounting unchanged",
+        "disabled_monotonic_ns": 603264072505345,
+        "processing_start_enabled": false,
+        "processing_end_monotonic_ns": 603567260551104,
+        "processing_end_enabled": false,
+        "peak_rss_KiB": 148312,
+        "restored_enabled": true,
+        "restored_thresholds": [
+          700,
+          10,
+          10
+        ],
+        "restored_monotonic_ns": 603567418132014
+      },
+      "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+      "peer_mask_raster": "broadcast-v1",
+      "peer_mask_raster_scope": "Explicit process-local implementation; original frozen publication/source/safety rules retained"
+    },
+    "peer-recording-saved.json": {
+      "saved": true,
+      "rows": 1805,
+      "last_sequence": 1805,
+      "phase": "after_peer_spin_exit"
+    }
+  },
+  "gateway_exit": {
+    "native_exit": 0,
+    "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+  },
+  "network_run_integrity": false,
+  "scope": "Runtime/source/stop remain separately in original result; no metric PASS implied"
+}

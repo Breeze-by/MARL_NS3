@@ -1,0 +1,18 @@
+{
+  "scope": "0Node/ROS/GZ/NN; actual stdlib bootstrap plus exact original I/O statements",
+  "checks": {
+    "before_heavy_import_real_empty_journal_closed": {
+      "pid": 1938757,
+      "created_monotonic_ns": 439902928230639,
+      "created_fileno": 3,
+      "directory_claimed": false,
+      "journal_claimed": false,
+      "scope": "Actual exclusive bootstrap journal; not a synthetic request/accept/result",
+      "closed": true,
+      "finished_monotonic_ns": 439902928343585
+    },
+    "exact_original_mkdir_open_record_same_fd_inode": true,
+    "existing_and_second_claims_still_exclusive": true
+  },
+  "status": "PASS"
+}

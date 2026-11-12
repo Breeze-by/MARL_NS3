@@ -1,0 +1,203 @@
+{
+  "case": "corr6201-common58-r02-b",
+  "robots": {
+    "tb1": {
+      "owned_count": 4,
+      "statuses_by_UUID": {
+        "9f082048fe1f40ff811980f8b754c6f4": [
+          2,
+          4
+        ],
+        "a073e11a0dda467e9ad25bf279f76741": [
+          2,
+          4
+        ],
+        "b6dfa001896f4cfba11ba401f9dc4cc2": [
+          2,
+          4
+        ],
+        "b70178c7c1904bcc8c7bf5b4e1dcbc35": [
+          2,
+          4
+        ]
+      },
+      "logical_task_terminals": {
+        "b6dfa001896f4cfba11ba401f9dc4cc2": {
+          "kind": "goal_terminal",
+          "sim": 33.74,
+          "robot": "tb1",
+          "token": 1,
+          "uuid": "b6dfa001896f4cfba11ba401f9dc4cc2",
+          "target": [
+            0.8250000000000002,
+            0.8750000000000009
+          ],
+          "status": "succeeded",
+          "wall_ns": 1794491719542118078
+        },
+        "9f082048fe1f40ff811980f8b754c6f4": {
+          "kind": "goal_terminal",
+          "sim": 56.46,
+          "robot": "tb1",
+          "token": 2,
+          "uuid": "9f082048fe1f40ff811980f8b754c6f4",
+          "target": [
+            -0.3249999999999993,
+            4.425000000000001
+          ],
+          "status": "succeeded",
+          "wall_ns": 1794491772249435928
+        },
+        "a073e11a0dda467e9ad25bf279f76741": {
+          "kind": "goal_terminal",
+          "sim": 85.75,
+          "robot": "tb1",
+          "token": 3,
+          "uuid": "a073e11a0dda467e9ad25bf279f76741",
+          "target": [
+            -4.7749999999999995,
+            4.975000000000001
+          ],
+          "status": "succeeded",
+          "wall_ns": 1794491840001157801
+        },
+        "b70178c7c1904bcc8c7bf5b4e1dcbc35": {
+          "kind": "goal_terminal",
+          "sim": 128.35,
+          "robot": "tb1",
+          "token": 4,
+          "uuid": "b70178c7c1904bcc8c7bf5b4e1dcbc35",
+          "target": [
+            3.9750000000000005,
+            2.2750000000000004
+          ],
+          "status": "succeeded",
+          "wall_ns": 1794491933671038486
+        }
+      },
+      "unterminated_UUIDs": []
+    },
+    "tb2": {
+      "owned_count": 2,
+      "statuses_by_UUID": {
+        "0e5b1193105142b4ac6f4dc2b97eb92d": [
+          2,
+          4
+        ],
+        "1c45cccecc104621b253d5e709c3c538": [
+          2,
+          4
+        ]
+      },
+      "logical_task_terminals": {
+        "1c45cccecc104621b253d5e709c3c538": {
+          "kind": "goal_terminal",
+          "sim": 34.02,
+          "robot": "tb2",
+          "token": 1,
+          "uuid": "1c45cccecc104621b253d5e709c3c538",
+          "target": [
+            0.1250000000000009,
+            0.1250000000000009
+          ],
+          "status": "succeeded",
+          "wall_ns": 1794491720158168748
+        },
+        "0e5b1193105142b4ac6f4dc2b97eb92d": {
+          "kind": "goal_terminal",
+          "sim": 61.14,
+          "robot": "tb2",
+          "token": 2,
+          "uuid": "0e5b1193105142b4ac6f4dc2b97eb92d",
+          "target": [
+            -4.175,
+            -0.17499999999999893
+          ],
+          "status": "succeeded",
+          "wall_ns": 1794491783266831245
+        }
+      },
+      "unterminated_UUIDs": []
+    },
+    "tb3": {
+      "owned_count": 4,
+      "statuses_by_UUID": {
+        "478cdbf7c74c40e79ed80b9bc0054915": [
+          2,
+          4
+        ],
+        "5d054f7915374ec0bbb574f62bfe542d": [
+          2,
+          4
+        ],
+        "987519f6c18d492e9590117aa30d63f2": [
+          2,
+          4
+        ],
+        "b2d64b73e56a428e94df1d977d670520": [
+          2,
+          4
+        ]
+      },
+      "logical_task_terminals": {
+        "5d054f7915374ec0bbb574f62bfe542d": {
+          "kind": "goal_terminal",
+          "sim": 33.940000000000005,
+          "robot": "tb3",
+          "token": 1,
+          "uuid": "5d054f7915374ec0bbb574f62bfe542d",
+          "target": [
+            0.8750000000000009,
+            -1.8249999999999993
+          ],
+          "status": "succeeded",
+          "wall_ns": 1794491720019664444
+        },
+        "987519f6c18d492e9590117aa30d63f2": {
+          "kind": "goal_terminal",
+          "sim": 54.59,
+          "robot": "tb3",
+          "token": 2,
+          "uuid": "987519f6c18d492e9590117aa30d63f2",
+          "target": [
+            -0.3249999999999993,
+            -4.824999999999999
+          ],
+          "status": "succeeded",
+          "wall_ns": 1794491767871666389
+        },
+        "478cdbf7c74c40e79ed80b9bc0054915": {
+          "kind": "goal_terminal",
+          "sim": 79.74000000000001,
+          "robot": "tb3",
+          "token": 3,
+          "uuid": "478cdbf7c74c40e79ed80b9bc0054915",
+          "target": [
+            -4.574999999999999,
+            -4.675
+          ],
+          "status": "succeeded",
+          "wall_ns": 1794491826270763008
+        },
+        "b2d64b73e56a428e94df1d977d670520": {
+          "kind": "goal_terminal",
+          "sim": 127.69000000000001,
+          "robot": "tb3",
+          "token": 4,
+          "uuid": "b2d64b73e56a428e94df1d977d670520",
+          "target": [
+            6.425000000000002,
+            -2.1249999999999996
+          ],
+          "status": "succeeded",
+          "wall_ns": 1794491932160906518
+        }
+      },
+      "unterminated_UUIDs": []
+    }
+  },
+  "ownership_closed": true,
+  "record_errors": [],
+  "actual_inferences": 35,
+  "stop_phase_outcomes_not_task_successes": true
+}

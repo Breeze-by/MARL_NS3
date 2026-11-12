@@ -1,0 +1,136 @@
+{
+  "scope": "Once-only continuous13 with independent trace ELF, original synthetic load, no GZ/Goal/arm/NN",
+  "process": {
+    "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+    "error": null,
+    "wall_s": 12.056486188957933,
+    "hard_wall_s": 20,
+    "exits": {
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "source": 0
+    },
+    "Gazebo": 0,
+    "NN": 0,
+    "wrapper_pids": {
+      "hub": 1612048,
+      "peer": 1612062,
+      "gateway": 1612063,
+      "source": 1612064
+    },
+    "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior"
+  },
+  "failure": null,
+  "feedback": {
+    "tb1": {
+      "source": 800,
+      "captured": 796,
+      "destination": 796,
+      "missing_before_capture": 4,
+      "all_captured_rpc_CDR_exact": true
+    },
+    "tb2": {
+      "source": 799,
+      "captured": 796,
+      "destination": 796,
+      "missing_before_capture": 3,
+      "all_captured_rpc_CDR_exact": true
+    },
+    "tb3": {
+      "source": 798,
+      "captured": 795,
+      "destination": 795,
+      "missing_before_capture": 3,
+      "all_captured_rpc_CDR_exact": true
+    }
+  },
+  "actual_steps": 81,
+  "slowest_three_by_queued_to_gateway_ACK": [
+    {
+      "horizon_ns": 200000000,
+      "queued_to_socket_flush_ms": 0.655928,
+      "socket_flush_to_hub_receive_ms": 0.195705,
+      "hub_receive_to_native_begin_ms": 0.03314,
+      "native_Run_wall_ms": 8.582936,
+      "native_Run_CPU_ms": 8.542414,
+      "native_end_to_hub_STEP_rx_ms": 0.374126,
+      "hub_STEP_rx_to_gateway_ACK_ms": 1.062349,
+      "queued_to_gateway_ACK_ms": 10.904184
+    },
+    {
+      "horizon_ns": 800000000,
+      "queued_to_socket_flush_ms": 0.879175,
+      "socket_flush_to_hub_receive_ms": 0.17607,
+      "hub_receive_to_native_begin_ms": 0.038662,
+      "native_Run_wall_ms": 3.819357,
+      "native_Run_CPU_ms": 1.404013,
+      "native_end_to_hub_STEP_rx_ms": 0.368845,
+      "hub_STEP_rx_to_gateway_ACK_ms": 2.115638,
+      "queued_to_gateway_ACK_ms": 7.397747
+    },
+    {
+      "horizon_ns": 6000000000,
+      "queued_to_socket_flush_ms": 0.708147,
+      "socket_flush_to_hub_receive_ms": 3.264885,
+      "hub_receive_to_native_begin_ms": 0.033559,
+      "native_Run_wall_ms": 1.238732,
+      "native_Run_CPU_ms": 1.235252,
+      "native_end_to_hub_STEP_rx_ms": 0.222436,
+      "hub_STEP_rx_to_gateway_ACK_ms": 1.008766,
+      "queued_to_gateway_ACK_ms": 6.476525
+    }
+  ],
+  "stage_stats": {
+    "queued_to_socket_flush_ms": {
+      "median": 0.702117,
+      "max": 1.595966
+    },
+    "socket_flush_to_hub_receive_ms": {
+      "median": 0.157797,
+      "max": 3.264885
+    },
+    "hub_receive_to_native_begin_ms": {
+      "median": 0.033559,
+      "max": 2.557219
+    },
+    "native_Run_wall_ms": {
+      "median": 1.088398,
+      "max": 8.582936
+    },
+    "native_Run_CPU_ms": {
+      "median": 1.08543,
+      "max": 8.542414
+    },
+    "native_end_to_hub_STEP_rx_ms": {
+      "median": 0.214483,
+      "max": 0.411845
+    },
+    "hub_STEP_rx_to_gateway_ACK_ms": {
+      "median": 0.564347,
+      "max": 2.115638
+    },
+    "queued_to_gateway_ACK_ms": {
+      "median": 2.772753,
+      "max": 10.904184
+    }
+  },
+  "clock12_failure": "NOT REPRODUCED: no unique attribution or claim of separate repair/hardRT; flush/drain is not native ACK",
+  "guard_dispatch": {
+    "1": {
+      "calls": 423,
+      "max_gap_wall_s": 0.07648365601198748,
+      "last": 419901.520476321
+    },
+    "2": {
+      "calls": 421,
+      "max_gap_wall_s": 0.07170555298216641,
+      "last": 419901.52065943
+    },
+    "3": {
+      "calls": 424,
+      "max_gap_wall_s": 0.07165280700428411,
+      "last": 419901.524679957
+    }
+  }
+}

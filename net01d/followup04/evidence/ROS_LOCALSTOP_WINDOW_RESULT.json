@@ -1,0 +1,189 @@
+{
+  "status": "PASS_CONTROLLED_ROS_ONLY_NOT_FULL_OR_GZ",
+  "source_checkpoint": "c4ad853e7e5e8707a0e5a0be1426bc84b4bd2e1e",
+  "legacy": {
+    "status": "PASS",
+    "checks": 14,
+    "paused_clock_wall_to_trip_s": 0.30410922097507864,
+    "owned_uuid": "010102030405060708090a0b0c0d0e0f",
+    "server_cancelled": [
+      "010102030405060708090a0b0c0d0e0f"
+    ]
+  },
+  "new": {
+    "status": "PASS_CONTROLLED_ROS_ONLY",
+    "checks": 16,
+    "actual_watchdog_wall_s": 2.002234446001239,
+    "actual_fault_progress_context": {
+      "control_receipt_monotonic": 601634.880516382,
+      "last_sim_progress_wall": 601632.89974351,
+      "last_sim": 100.0,
+      "health_receipt_sim": 100.0,
+      "mask_receipt_sim": 100.0,
+      "control_mode": "RUN",
+      "control_failure": null
+    },
+    "actual_controller_HOLD": {
+      "snapshot": {
+        "mode": "HOLD",
+        "failure": "physics_RPC_wall_timeout",
+        "expected_shutdown": false,
+        "physics_failed": true,
+        "physical_ns": null,
+        "iterations": null,
+        "actual_clock_ns": 100000000000,
+        "native_ACK_ns": 0,
+        "fixed_offset_ns": null,
+        "physical_RPC_inflight": true,
+        "session_id": 62,
+        "gateway_clock_ready": true,
+        "pending_holds": 1,
+        "authority_exited": false,
+        "progress_wall_timeout_ns": 2000000000,
+        "progress_started_monotonic_ns": 601634950369139,
+        "actual_clock_progress_monotonic_ns": 601634950369139,
+        "native_ACK_progress_monotonic_ns": 601634950369139,
+        "physical_RPC_issued_monotonic_ns": 601634950369139,
+        "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+        "token_wall_period_ns": 10000000,
+        "planned_realtime_factor": 1.0,
+        "actual_achieved_physical_rtf": null,
+        "physical_progress_sim_span_ns": null,
+        "physical_progress_wall_span_ns": null,
+        "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+        "next_earliest_wall_ns": 601634960369139,
+        "max_token_lateness_ns": 0,
+        "late_tokens": 0
+      },
+      "physical_issued_monotonic_ns": 601634950369139,
+      "response_observed_monotonic_ns": 601636954284946,
+      "controlled_service_calls": 1,
+      "physical_future_done_at_HOLD": false
+    },
+    "UUIDs": {
+      "1": "040102030405060708090a0b0c0d0e0f",
+      "2": "040202030405060708090a0b0c0d0e0f"
+    },
+    "zero_counts": {
+      "1": 104,
+      "2": 204
+    },
+    "executor_shutdown": true,
+    "wall_used_s": 4.275773312081583,
+    "wall_remaining_s": 25.724222411983646,
+    "central_network_future": "NOT_EXERCISED; controlled local client pending/terminal recorded, never substituted for C result",
+    "actual_local_events": {
+      "1": [
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "040102030405060708090a0b0c0d0e0f",
+          "return_code": 0,
+          "goals_canceling": [
+            "040102030405060708090a0b0c0d0e0f"
+          ]
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "040102030405060708090a0b0c0d0e0f",
+          "status": 5
+        }
+      ],
+      "2": [
+        {
+          "kind": "actual_control_permission_revoked",
+          "reason": "authority_exited",
+          "monotonic_ns": 601632879447216
+        },
+        {
+          "kind": "actual_local_pause_response",
+          "success": true
+        },
+        {
+          "kind": "actual_local_cancel_response",
+          "uuid": "040202030405060708090a0b0c0d0e0f",
+          "return_code": 0,
+          "goals_canceling": [
+            "040202030405060708090a0b0c0d0e0f"
+          ]
+        },
+        {
+          "kind": "actual_local_GetResult",
+          "uuid": "040202030405060708090a0b0c0d0e0f",
+          "status": 5
+        }
+      ]
+    },
+    "fault_and_revoke_events": {
+      "1": [
+        {
+          "kind": "armed",
+          "robot": "tb1",
+          "session_id": 61,
+          "sim": 100.0,
+          "monotonic": 601632.899752792
+        },
+        {
+          "kind": "latched_INVALID",
+          "reason": "R_sim_clock_progress_wall_timeout",
+          "robot": "tb1",
+          "session_id": 61,
+          "sim": 100.0,
+          "monotonic": 601634.901977956,
+          "receipt_clock_basis": "R-ros-sim-v1",
+          "progress_context": {
+            "control_receipt_monotonic": 601634.880516382,
+            "last_sim_progress_wall": 601632.89974351,
+            "last_sim": 100.0,
+            "health_receipt_sim": 100.0,
+            "mask_receipt_sim": 100.0,
+            "control_mode": "RUN",
+            "control_failure": null
+          }
+        }
+      ],
+      "2": [
+        {
+          "kind": "armed",
+          "robot": "tb2",
+          "session_id": 61,
+          "sim": 100.0,
+          "monotonic": 601632.859317636
+        },
+        {
+          "kind": "control_permission_revoked",
+          "reason": "authority_exited",
+          "sim": 100.0,
+          "monotonic": 601632.879240783,
+          "receipt_clock_basis": "R-ros-sim-v1"
+        }
+      ]
+    }
+  },
+  "legacy-ros-01_exit": {
+    "exit": 0,
+    "wall_s": 2.18137384,
+    "owned_survivors": [],
+    "ack_exists_after_exit": null
+  },
+  "newprogress-ros-01_exit": {
+    "exit": 0,
+    "wall_s": 6.153309443,
+    "owned_survivors": [],
+    "ack_exists_after_exit": false
+  },
+  "prestart_from_actual_tool_output": {
+    "output_paths_absent": [
+      "legacy-ros-01",
+      "newprogress-ros-01"
+    ],
+    "ack_path": "/dev/shm/net01d-f04-progress-ros-01.ack",
+    "ack_absent": true,
+    "domain95_process_matches": [],
+    "model_or_build_matches": [],
+    "scope": "Existing /proc cmdline plus ROS_DOMAIN_ID key only; nonowned69 untouched; no shell/Git/source modifications"
+  }
+}

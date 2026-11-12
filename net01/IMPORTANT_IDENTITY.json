@@ -1,0 +1,224 @@
+{
+  "scope": "Important new NET-01 delivery identities once; original failures remain at ledger paths, old frozen identities reused",
+  "frozen_commit": "a014ef11d4b77fe45832268467993dfdeb4398f6",
+  "runtime_policy_source": "76fd91cf937bd8d662302901dad063affbea3c38",
+  "actual_A_adapter_source": "be01d8a7bb2e7546ee42586257f25f8b3885ca6f",
+  "final_static_repair_source": "5d5fcd571f51fa523fc68c5834c64b7768a39546",
+  "checkpoint_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+  "native_identity": {
+    "binary": {
+      "relative_phase": "build/network-full-payload/net01-payload",
+      "bytes": 349608,
+      "sha256": "8aa7c7c88b5445b278bb34f15023c697f09785ec311dfa77cb3ef3de3b7aa1ff"
+    },
+    "generated_header": {
+      "relative_phase": "build/network-full-payload/network_config.h",
+      "bytes": 4545,
+      "sha256": "66e64adf26c3d712ab149fe2d828ae8858d00c7172ef8adfacfc5bd7c2ff73a2"
+    },
+    "source_sha256": "6e5788cfc39117bc1d8ca80df7087df01e0b1393fd69f77a5882ba719f499f3e",
+    "generated_config_matches_NETWORK_LOCK_V3": true,
+    "build_command": "cmake --build net-01/build/network-full-payload -j2",
+    "build_exit": 0,
+    "link_command": "/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/net01-payload.dir/payload_transport.cc.o -o net01-payload  -Wl,-rpath,/home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-wifi-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-internet-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-csma-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-mobility-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-propagation-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-spectrum-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-antenna-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-energy-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-network-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-core-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-traffic-control-default.so /home/zhuyulab/ns3-workspace/ns-allinone-3.40/ns-3.40/build/lib/libns3.40-bridge-default.so",
+    "scope": "Actual external native executable and generated header, checked by host before subprocess start; existing ns3 source/libs unchanged"
+  },
+  "files": [
+    {
+      "path": "workspace/net01/REPORT.md",
+      "bytes": 11983,
+      "sha256": "cd1d8f9999f834efd95873788c12641a71d667b13e520c86fc3bf0952316f057"
+    },
+    {
+      "path": "workspace/net01/RUN_LEDGER.json",
+      "bytes": 5960,
+      "sha256": "37496a88da9f25992b7a162c64898f1199dfa7d5ed098723a6dbc068fd0a57c9"
+    },
+    {
+      "path": "workspace/net01/A_STARTUP_SUMMARY.json",
+      "bytes": 1387,
+      "sha256": "174fd42d31d9ce78b0e6e063653f64a2bbe77f77a3eaffe4ea000591ddbcb565"
+    },
+    {
+      "path": "workspace/net01/OWNED_EXIT.json",
+      "bytes": 484,
+      "sha256": "e6797e97939ae91f44032bd9af2dfe98a41a14d55414d0a2da1148d5954572a9"
+    },
+    {
+      "path": "workspace/net01/COMPOSITION_BINDING.json",
+      "bytes": 2070,
+      "sha256": "3b01e1cea8d705da9e849f58fc115ebcc68d65689fe75c52a7f2676270068f1f"
+    },
+    {
+      "path": "workspace/net01/config/NATIVE_IDENTITY.json",
+      "bytes": 2078,
+      "sha256": "ebcd428cd3e057c1defbdbe82dc1b03ed5dd4dc3eb4199d164c29dabf5e327f0"
+    },
+    {
+      "path": "workspace/net01/config/recorder-qos.yaml",
+      "bytes": 698,
+      "sha256": "c044780c4ea0cf82bdf85717142acd7ce64d1d123c142816a1caf45b2d4d39a8"
+    },
+    {
+      "path": "workspace/net01/requests/net01-a-corridor-6201-01.ready.json",
+      "bytes": 17472,
+      "sha256": "e37bd44f61a05c87f127e6ba59586f49c3edd37e6298137a30017812b25cabe9"
+    },
+    {
+      "path": "evidence/P0_AUDIT.json",
+      "bytes": 18085,
+      "sha256": "e8682e8df41750a3132e500375475c57e3a572fcadf6ee88143018aa14f2e94f"
+    },
+    {
+      "path": "evidence/network-full-payload-03/result.json",
+      "bytes": 3925,
+      "sha256": "82ef3d60a36a8aea442916a5c74c8279db52da08029c7efd9245a4d131d92005"
+    },
+    {
+      "path": "evidence/network-full-payload-03/PCAP_FRAGMENT_LINK.json",
+      "bytes": 11747,
+      "sha256": "2f166937507934fc52f65a959dc1bed6dfcdad5fb5ddbbd3fe8af8e1c7f3bf10"
+    },
+    {
+      "path": "evidence/static-topics-04.ros/result.json",
+      "bytes": 11063,
+      "sha256": "6c7325649f051af90a55adc4fd0f13f03bb86b97c41c6b005537bc757e99dc86"
+    },
+    {
+      "path": "evidence/static-topics-04-TIMING_SCOPE.json",
+      "bytes": 777,
+      "sha256": "3949060781e4fb73c860c101d3e339fa20980400e78e951547853e6f3275af0e"
+    },
+    {
+      "path": "evidence/action-wifi-03.ros/result.json",
+      "bytes": 2386,
+      "sha256": "75b46a96f87088184a5401c74a98dd388ea64983e7f34ac4812a90a21ec20487"
+    },
+    {
+      "path": "evidence/local-guard-01.ros/result.json",
+      "bytes": 3579,
+      "sha256": "ec7b74ac39467ab23989038460855505f577e9e8a4352741f4340b9d6aa10ec5"
+    },
+    {
+      "path": "evidence/bound-peer-check-02/result.json",
+      "bytes": 1739,
+      "sha256": "7e8accc5152e7c82f27960ef62a35b4e8bad3deee80ead52e43751dc7519517f"
+    },
+    {
+      "path": "evidence/composition-cleanup-01.process-exit.json",
+      "bytes": 232,
+      "sha256": "bdcd37f54d64f326a84fb25aad69c8076b21fe77dbd8b1b55dd787f47edad806"
+    },
+    {
+      "path": "evidence/RECORDER_QOS_STATIC_REPAIR.json",
+      "bytes": 2233,
+      "sha256": "5672af9eadafac5a11d166bfe0f32698851096a1a54ebdcc7f3864a6ba32231f"
+    },
+    {
+      "path": "workspace/runs/net01-a-corridor-6201-01/result.json",
+      "bytes": 3917,
+      "sha256": "72a1e0d0d462b90fe8eac584aa601fc714baa2d54df7681c7788dc36624d8d69"
+    },
+    {
+      "path": "workspace/runs/net01-a-corridor-6201-01/events.jsonl",
+      "bytes": 222625,
+      "sha256": "d1a653f911d1a3bde9fe2a3aba4d105c1004e1fd1de86bf828988f066b038eb7"
+    },
+    {
+      "path": "workspace/runs/net01-a-corridor-6201-01/bag.log",
+      "bytes": 1359,
+      "sha256": "a48a833a9a49a026ec27894fde31fab0e4efcd25e8f0e18e7c7051a3f709d129"
+    },
+    {
+      "path": "workspace/runs/net01-a-corridor-6201-01/network-gateway.json",
+      "bytes": 4662874,
+      "sha256": "1236b097acce7953579155392cba1b5fe6de0f07004c2b2aa8be1b28f571499e"
+    },
+    {
+      "path": "workspace/runs/net01-a-corridor-6201-01/network-gateway-exit.json",
+      "bytes": 84,
+      "sha256": "49034d4cd6d0b097d5cb5df66ebc7a43fac0ea8d109e11ee51da8aa68e02b7b6"
+    },
+    {
+      "path": "workspace/runs/net01-a-corridor-6201-01/observer_timing.json",
+      "bytes": 15082,
+      "sha256": "ac033e2efafdd2d4d74d7e4afb3dd03d30436dda9169d4dfd6ba7090ecd291fd"
+    },
+    {
+      "path": "workspace/runs/net01-a-corridor-6201-01.host-exit.json",
+      "bytes": 671,
+      "sha256": "6cbb95cdf70598f37f4f2d95c2a85eace5dd88b88259f561a8f3fc5021fbc5ad"
+    },
+    {
+      "path": "workspace/runs/net01-a-corridor-6201-01.boot-exit.json",
+      "bytes": 176,
+      "sha256": "f201ad141a788e8ae1942e3e49a6c6c33e3c2c8255e90ca065cf5822e5112bed"
+    },
+    {
+      "path": "workspace/runs/net01-a-corridor-6201-01.network-integrity.json",
+      "bytes": 1095,
+      "sha256": "20dd3e4241e73581b3fe994942cc72e95a2f4cd57b93c60ff36637ae5f026553"
+    },
+    {
+      "path": "evidence/network-full-payload-03/native/wifi-0-0.pcap",
+      "bytes": 2897196,
+      "sha256": "90fee9ec9643b06488b3d53418962bba03e683769535dc3eb53bb331a6d0ba3a"
+    },
+    {
+      "path": "evidence/network-full-payload-03/native/wifi-1-0.pcap",
+      "bytes": 3023050,
+      "sha256": "bb276fa6ece546584956a5f9e90a5f420d275730e6bc6224120cf7fea622b88f"
+    },
+    {
+      "path": "evidence/network-full-payload-03/native/wifi-2-0.pcap",
+      "bytes": 3023103,
+      "sha256": "bae73a6f41c1cba1b0775e1031a3914186cdec64d38fd250e3ddecb60e0cbb68"
+    },
+    {
+      "path": "evidence/network-full-payload-03/native/wifi-3-0.pcap",
+      "bytes": 3023103,
+      "sha256": "2f61c634a5396c0e1245ee7e5fffd672064223e57233e795e01efd7cbf450bdf"
+    },
+    {
+      "path": "evidence/static-topics-04.hub/native/wifi-0-0.pcap",
+      "bytes": 12410102,
+      "sha256": "7d89a47f0c7a5098bfddfa06e4eb5485aed6db01ef6593f6d3b8bd002ee1fba2"
+    },
+    {
+      "path": "evidence/static-topics-04.hub/native/wifi-1-0.pcap",
+      "bytes": 11724701,
+      "sha256": "c904c37dacbe3e5053a213f407c9f57483f2490eb18f0ea727e291e205b833fb"
+    },
+    {
+      "path": "evidence/static-topics-04.hub/native/wifi-2-0.pcap",
+      "bytes": 11739061,
+      "sha256": "3adad8f1384f61cee964a91413bf6cd97cbd0bf2e9f14cadc5d40fba631733de"
+    },
+    {
+      "path": "evidence/static-topics-04.hub/native/wifi-3-0.pcap",
+      "bytes": 11729393,
+      "sha256": "5a39d8c314ec6b99eec3455188f8c6e2fdc579e5d7b53906b8285c2863d1b68d"
+    },
+    {
+      "path": "evidence/action-wifi-03.hub/native/wifi-0-0.pcap",
+      "bytes": 45363,
+      "sha256": "6c0c414250132be6d8462a91aed094ce996969a8155687947a5ef07b8b95dde0"
+    },
+    {
+      "path": "evidence/action-wifi-03.hub/native/wifi-1-0.pcap",
+      "bytes": 250835,
+      "sha256": "a0bbb238f61ca203eb270ba74f4e80839aaebcfa3563e8cf124ac23b2f049898"
+    },
+    {
+      "path": "evidence/action-wifi-03.hub/native/wifi-2-0.pcap",
+      "bytes": 251773,
+      "sha256": "591628ed204ac12dd72276dfd34637e4b51f79ed39731f126fe87eb18420a10c"
+    },
+    {
+      "path": "evidence/action-wifi-03.hub/native/wifi-3-0.pcap",
+      "bytes": 251113,
+      "sha256": "4d893f4d85554e1d22f68ad0f0eea38ff74f9cc44a542dc0085b95fd343ce23a"
+    }
+  ],
+  "source_diff_command": "git diff a014ef11d4b77fe45832268467993dfdeb4398f6..5d5fcd571f51fa523fc68c5834c64b7768a39546 -- net01"
+}

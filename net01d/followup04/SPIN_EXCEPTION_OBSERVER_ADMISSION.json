@@ -1,0 +1,39 @@
+{
+  "status": "ROOT_ADMITTED_ONE_TRANSPARENCY_CHECK",
+  "execution_authorized": true,
+  "runtime_source_commit": "bd663824d77983cb2b2721e90241ef97bf06461f",
+  "prepared_against": "197a21aa86b45fc67be41f9b6cd5ec811cc29125",
+  "case": "spin-exception-observer-01",
+  "session_id": 2026111155,
+  "output_relative_repo": "net01d/followup04/evidence/spin-exception-observer-01",
+  "outer_wall_s": 5,
+  "cases": [
+    "normal",
+    "runtime_error",
+    "metadata_failure",
+    "write_failure"
+  ],
+  "source_checks": [
+    "two bootstrap finally restores",
+    "bare raise",
+    "only exploration process_signal gains mono; other fields unchanged"
+  ],
+  "scope": "Actual helper + narrow AST; standardlibrary only; 0ROS/native/GZ/NN/bag/signal/thread/process",
+  "command_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "proposed_argv": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=1s",
+    "5s",
+    "python3",
+    "-B",
+    "net01d/followup04/check_spin_exception_observer.py",
+    "--admission",
+    "net01d/followup04/SPIN_EXCEPTION_OBSERVER_ADMISSION.json"
+  ],
+  "no_automatic_retry": true,
+  "no_model_authorization": true,
+  "root_review": "Root read actual helper/test and 3file diff; source independent review accepted. One purePython4case+AST run, no ROS/GZ/NN. No conversion repair or C result implied."
+}

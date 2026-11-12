@@ -1,0 +1,507 @@
+{
+  "status": "SMALL_FUNCTIONAL_OUTCOME_FOR_INDEPENDENT_REVIEW",
+  "case": "tcp-arm-local-01",
+  "arm": "A1",
+  "runtime_source": "2be7e229492d29817057fa8db166e38f114ca209",
+  "activation_commit": "0fa3b94e78496f6618f22dab1b0fc42144d5bda4",
+  "scope": "Original32/60 no-motion Full actualROS/DDS controlledAction/source plus realold0cc ns3clock; A1directbusiness/nativebusiness0. NotGazebo/Nav2/physicalstop/scientificbaseline qualification. No2beBFull run; C4wire qualification inherited only for unchangedtransport.",
+  "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+  "normal": {
+    "start": {
+      "kind": "fixture_normal_phase_start",
+      "fixture_origin": "NET01D real controlled ActionClient; not RL decision",
+      "Policy_forward": false,
+      "sim": 1.2,
+      "wall_ns": 1794389043181149135,
+      "monotonic_ns": 606084663506681,
+      "normal_wall_s": 32.0
+    },
+    "done": {
+      "kind": "fixture_normal_phase_done",
+      "fixture_origin": "NET01D real controlled ActionClient; not RL decision",
+      "Policy_forward": false,
+      "sim": 30.23,
+      "wall_ns": 1794389075182496126,
+      "monotonic_ns": 606116664853041,
+      "outcomes": {
+        "3": 5,
+        "1": 4,
+        "2": 4
+      },
+      "feedback": {
+        "1": 2238,
+        "2": 2238,
+        "3": 2178
+      }
+    },
+    "wall_s": 32.00134636,
+    "outcomes": {
+      "3": 5,
+      "1": 4,
+      "2": 4
+    },
+    "normal_done": true,
+    "FIRST_FAILURE_exists": false,
+    "harness_error": null,
+    "request_pending": [],
+    "GetResult_pending": [],
+    "RPC_DRAINED": {
+      "mode": "A",
+      "session_id": 2026110912,
+      "connected": true,
+      "failure": null,
+      "anchor": {
+        "gazebo_ns": 10000000,
+        "ns3_ns": 0,
+        "offset_ns": 10000000,
+        "monotonic_ns": 606083380501352
+      },
+      "gz_ns": 30240000000,
+      "ns3_ns": 30230000000,
+      "gateway_monotonic_ns": 606116682832403,
+      "clock_reader_ready": true,
+      "clock_publishers": 1,
+      "clock_writer_discovered": true,
+      "actual_rpc_cleanup": {
+        "C_pending": 0,
+        "R_pending": 0,
+        "C_service_inflight": 0,
+        "C_retired_services": 0,
+        "C_unadmitted_unknown_total": 0,
+        "C_rpc_confirmation_pending": 0,
+        "R_rpc_confirmation_pending": 0,
+        "rpc_delivery_unconfirmed": 0,
+        "local_cleanup_pending": 0
+      },
+      "guards": {
+        "1": {
+          "armed": true,
+          "fault": null,
+          "reason": null
+        },
+        "2": {
+          "armed": true,
+          "fault": null,
+          "reason": null
+        },
+        "3": {
+          "armed": true,
+          "fault": null,
+          "reason": null
+        }
+      }
+    },
+    "normal_failure_records": [],
+    "normal_actual_receipt_sim_distribution": "NOT_MEASURED; no Gatewaylargeparse, never substitute generated_sim.",
+    "normal_physical_ACK_RTF": "NOT_MEASURED; finalACKRTF is wholeissue-to-latestACK scope."
+  },
+  "negative": {
+    "original_contract": "Fourthtb3accepted/GetResultpending then original.8wallSUPPLY_STOP observations only; localservicescontinue.",
+    "goal": {
+      "uuid": "0000000078c3ffc00301000000000000",
+      "accepted": true,
+      "pending_at_ready": true
+    },
+    "phase": {
+      "monotonic_ns": 606116890242869,
+      "normal_complete": true,
+      "arm": "A1"
+    },
+    "transport_ready": {
+      "uuid": "0000000078c3ffc00301000000000000",
+      "monotonic_ns": 606116887390969,
+      "actual_status": {
+        "mode": "A",
+        "session_id": 2026110912,
+        "connected": true,
+        "failure": null,
+        "anchor": {
+          "gazebo_ns": 10000000,
+          "ns3_ns": 0,
+          "offset_ns": 10000000,
+          "monotonic_ns": 606083380501352
+        },
+        "gz_ns": 30430000000,
+        "ns3_ns": 30420000000,
+        "gateway_monotonic_ns": 606116883124093,
+        "clock_reader_ready": true,
+        "clock_publishers": 1,
+        "clock_writer_discovered": true,
+        "actual_rpc_cleanup": {
+          "C_pending": 1,
+          "R_pending": 1,
+          "C_service_inflight": 1,
+          "C_retired_services": 0,
+          "C_unadmitted_unknown_total": 0,
+          "C_rpc_confirmation_pending": 0,
+          "R_rpc_confirmation_pending": 0,
+          "rpc_delivery_unconfirmed": 0,
+          "local_cleanup_pending": 0
+        },
+        "guards": {
+          "1": {
+            "armed": true,
+            "fault": null,
+            "reason": null
+          },
+          "2": {
+            "armed": true,
+            "fault": null,
+            "reason": null
+          },
+          "3": {
+            "armed": true,
+            "fault": null,
+            "reason": null
+          }
+        }
+      },
+      "scope": "Original request ACKed; one legitimate remote GetResult pending"
+    },
+    "done": {
+      "monotonic_ns": 606117150827564,
+      "uuid": "0000000078c3ffc00301000000000000",
+      "actual_local_GetResult": 5,
+      "PAUSE_success": true,
+      "guards": {
+        "1": "health_original_sources_stale",
+        "2": "health_original_sources_stale",
+        "3": "health_original_sources_stale"
+      },
+      "local_cleanup_pending": 0,
+      "central_state": {
+        "mode": "A",
+        "session_id": 2026110912,
+        "connected": true,
+        "failure": null,
+        "anchor": {
+          "gazebo_ns": 10000000,
+          "ns3_ns": 0,
+          "offset_ns": 10000000,
+          "monotonic_ns": 606083380501352
+        },
+        "gz_ns": 30870000000,
+        "ns3_ns": 30860000000,
+        "gateway_monotonic_ns": 606117129471789,
+        "clock_reader_ready": true,
+        "clock_publishers": 1,
+        "clock_writer_discovered": true,
+        "actual_rpc_cleanup": {
+          "C_pending": 0,
+          "R_pending": 0,
+          "C_service_inflight": 0,
+          "C_retired_services": 0,
+          "C_unadmitted_unknown_total": 0,
+          "C_rpc_confirmation_pending": 0,
+          "R_rpc_confirmation_pending": 0,
+          "rpc_delivery_unconfirmed": 0,
+          "local_cleanup_pending": 0
+        },
+        "guards": {
+          "1": {
+            "armed": true,
+            "fault": "health_original_sources_stale",
+            "reason": "time_control_failure:guard:{\"robot\": 2, \"session_id\": 2026110912, \"reason\": \"health_original_sources_stale\"}"
+          },
+          "2": {
+            "armed": true,
+            "fault": "health_original_sources_stale",
+            "reason": "time_control_failure:guard:{\"robot\": 2, \"session_id\": 2026110912, \"reason\": \"health_original_sources_stale\"}"
+          },
+          "3": {
+            "armed": true,
+            "fault": "health_original_sources_stale",
+            "reason": "time_control_failure:guard:{\"robot\": 2, \"session_id\": 2026110912, \"reason\": \"health_original_sources_stale\"}"
+          }
+        }
+      },
+      "scope": "Local controlled-server cancellation, not physical stopping"
+    },
+    "client_result_status": 5,
+    "client_request_pending": false,
+    "client_result_pending": false,
+    "central_label": "ACTUAL5_CANCELED_NOT_UNKNOWN",
+    "stop_scope": "ActualsameUUIDcontrolled-server local5/PAUSE; notphysicalstop.",
+    "actual_fault_scope": "Reportedhealth_original_sources_stale on3guards; exactfirstGuarddeadline crossing notparsed, no expectation ofspecificreceiptreason."
+  },
+  "ARM_activation_and_real_progress": {
+    "activation_event_count": 1,
+    "actual_event": [
+      "actual_R_guard_ARM_watchdog_activation",
+      606084581075864,
+      1703276940,
+      606084581040314,
+      606084579333903,
+      [
+        "1",
+        "2",
+        "3"
+      ]
+    ],
+    "final_motion_armed_since_monotonic_ns": 606084581040314,
+    "baseline_equals_only_activation_receipt": true,
+    "first_physical_token": [
+      "physical_token",
+      606083378340665,
+      1141554849,
+      "RUN",
+      null,
+      0,
+      null,
+      606083378314101,
+      0
+    ],
+    "latest_real_clock_record_before_activation": [
+      "actual_clock",
+      606084548126499,
+      1690749358,
+      1170000000
+    ],
+    "latest_real_native_ACK_record_before_activation": [
+      "actual_native_progress",
+      606084547030349,
+      1689800412,
+      "step",
+      1140000000,
+      606084545911172
+    ],
+    "next_real_clock_record": [
+      "actual_clock",
+      606084588768631,
+      1706468036,
+      1180000000
+    ],
+    "next_real_native_ACK_record": [
+      "actual_native_progress",
+      606084587513307,
+      1705573372,
+      "step",
+      1150000000,
+      606084586795490
+    ],
+    "whole_run_independent_progress_failure_records": [],
+    "normal_failure_records": [],
+    "timestamp_scope": "Raw actual event records retained. record monotonic is sampled just after the actual state callback update, not an exact copy of internal receipt stamp. Exact state stamps at ARM were not separately captured; final actualclock/native progress stamps are in coordinatorfinal. No fake stamp substituted. Currentfirststatus includes3armedrobots; ANYone activation is separately established by acceptedunit/ROSfixtures."
+  },
+  "coordinator_final": {
+    "mode": "HOLD",
+    "failure": "guard:{\"robot\": 2, \"session_id\": 2026110912, \"reason\": \"health_original_sources_stale\"}",
+    "expected_shutdown": true,
+    "physics_failed": false,
+    "physical_ns": 30870000000,
+    "iterations": 30870,
+    "actual_clock_ns": 30870000000,
+    "native_ACK_ns": 30860000000,
+    "fixed_offset_ns": 10000000,
+    "physical_RPC_inflight": false,
+    "session_id": 2026110912,
+    "gateway_clock_ready": false,
+    "pending_holds": 0,
+    "authority_exited": false,
+    "progress_wall_timeout_ns": 2000000000,
+    "progress_started_monotonic_ns": 606083378314101,
+    "motion_armed_since_monotonic_ns": 606084581040314,
+    "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+    "actual_clock_progress_monotonic_ns": 606117079675274,
+    "native_ACK_progress_monotonic_ns": 606117097673188,
+    "physical_RPC_issued_monotonic_ns": null,
+    "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+    "token_wall_period_ns": 10000000,
+    "planned_realtime_factor": 1.0,
+    "actual_achieved_physical_rtf": 0.9159695590011876,
+    "physical_progress_sim_span_ns": 30870000000,
+    "physical_progress_wall_span_ns": 33701993365,
+    "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+    "next_earliest_wall_ns": 606114248314101,
+    "max_token_lateness_ns": 3579998022,
+    "late_tokens": 3086
+  },
+  "actual_source": {
+    "Peer_saved": {
+      "saved": true,
+      "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+      "peer_mask_raster": "broadcast-v1",
+      "mask_records": 924,
+      "pending_undelimited_masks": 0
+    },
+    "source_clock_contract_config": "frozen-source-clock",
+    "source_rates_config": "odom30sim + odomTF; wheel10sim both in same message; scanheader5sim; costmap strict ROS>.5 in5wall poll; map5wall period; correction50wall latest_scan+.2; feedback100wall; exactzero_cmd20wall; Peer masks/health10sim unchanged",
+    "scope": "ActualselectedPeer+originalconfig; no publishercadencecohort."
+  },
+  "gateway_saved": {
+    "saved": true,
+    "mode": "A",
+    "records": 41319,
+    "failure": null,
+    "cleanup": {
+      "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+      "end_frame_flushed": true,
+      "executor_shutdown": [
+        true,
+        true
+      ],
+      "resources_destroyed": true,
+      "unresolved_C_RPC": [],
+      "unresolved_R_RPC": [],
+      "unresolved_local_cleanup_futures": {
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "action_confirmation_states": {
+        "C": {
+          "enabled": true,
+          "failure": null,
+          "waiting": 0,
+          "unconfirmed": 0
+        },
+        "R": {
+          "1": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          },
+          "2": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          },
+          "3": {
+            "enabled": true,
+            "failure": null,
+            "waiting": 0,
+            "unconfirmed": 0
+          }
+        }
+      },
+      "retired_C_services": {
+        "1": [],
+        "2": [],
+        "3": []
+      },
+      "main_thread_sampler": {
+        "joined": true,
+        "failure": null,
+        "stop_begin_mono_ns": 606117809140910,
+        "stop_end_mono_ns": 606117809671645,
+        "collector_cpu_ns": 974042025,
+        "samples": 1721,
+        "skipped_periods": 2,
+        "proc_fds_remaining": 0,
+        "proc_close_errors": []
+      }
+    },
+    "persist_wall_s": 2.1045366580365226,
+    "peak_afterpersist_KiB": 255972
+  },
+  "hub": {
+    "status": "PASS",
+    "native_exit": 0,
+    "ingress_messages": 0,
+    "delivered_messages": 0
+  },
+  "native_evidence": {
+    "complete": true,
+    "native_exit": 0,
+    "source_retained": true,
+    "copied_files": {
+      "wifi-1-0.pcap": 61676,
+      "packet-ledger.jsonl": 1159663,
+      "control-step-trace.jsonl": 653740,
+      "configured-lock.json": 3994,
+      "ledger-status.json": 245,
+      "wifi-3-0.pcap": 61676,
+      "wifi-2-0.pcap": 61676,
+      "native-summary.json": 413,
+      "wifi-0-0.pcap": 61493,
+      "transport-config.json": 4101
+    }
+  },
+  "actual_native_load": {
+    "native": {
+      "pid": 676369,
+      "ppid": 676362,
+      "pgid": 676362,
+      "state": "S",
+      "start_ticks": 60608165,
+      "argv": [
+        "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+        "--output=/dev/shm/net01d-f04-tcp-arm-local-01",
+        "--profile=B",
+        "--transport=tcp-mtu-v2",
+        "--controlTrace=1"
+      ]
+    },
+    "exe": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "exact13_names": true,
+    "all_in_expected_root": true,
+    "actual_exe_matches": true,
+    "actual_native_parent_is_Hub": true
+  },
+  "process": {
+    "error": null,
+    "wall_s": 40.899232657044195,
+    "exits": {
+      "coordinator": 1,
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "mock_physics": 0,
+      "merge": 0,
+      "source-tb1": 0,
+      "source-tb2": 0,
+      "source-tb3": 0,
+      "client": 0
+    },
+    "forced": [],
+    "negative_scope": "Actual local controlled cancellation; central negative Future may remain unknown; no claimed network recovery or physical stopping"
+  },
+  "observer": {
+    "status": "PROCESS_EXIT0_LOAD_PROOF_ONLY",
+    "harness_exit": 0,
+    "observer_error": null,
+    "wall_s": 42.901418473920785,
+    "remaining_observed_owned": []
+  },
+  "owned_pids": {
+    "coordinator": 676294,
+    "hub": 676362,
+    "peer": 676372,
+    "gateway": 676373,
+    "mock_physics": 676375,
+    "merge": 676473,
+    "source-tb1": 676474,
+    "source-tb2": 676476,
+    "source-tb3": 676478,
+    "client": 676480,
+    "native": 676369
+  },
+  "owned_pid_exists_after_exit": {
+    "coordinator": false,
+    "hub": false,
+    "peer": false,
+    "gateway": false,
+    "mock_physics": false,
+    "merge": false,
+    "source-tb1": false,
+    "source-tb2": false,
+    "source-tb3": false,
+    "client": false,
+    "native": false
+  },
+  "clock_contract": "health/mask0.3SIMseconds;local2wall/adminunchanged;allphysicalRPC2wall and motionARM-once globalclock/native2wall;Peerodom.2wall/Gatewaystatus.3wall/.4-.55simsourcegates retained.",
+  "provenance": {
+    "case": "net01d/followup04/runs/tcp-arm-local-01",
+    "native_loader": "net01d/followup04/evidence/tcp-arm-local-01-loader/native-observation.json",
+    "coordinator_raw": "net01d/followup04/runs/tcp-arm-local-01/time-controller.json",
+    "normal_marker": "net01d/followup04/runs/tcp-arm-local-01/CLIENT_NORMAL_DONE.json",
+    "negative_marker": "net01d/followup04/runs/tcp-arm-local-01/NEGATIVE_DONE.json",
+    "client": "net01d/followup04/runs/tcp-arm-local-01/client/full-client.json",
+    "Gateway_saved_only": "net01d/followup04/runs/tcp-arm-local-01/gateway/network-gateway-saved.json"
+  },
+  "Gateway_original_read_count": 0,
+  "native_ledger_read_count": 0,
+  "no_retries_models_GZ_or_source_changes_after_this_case": true
+}

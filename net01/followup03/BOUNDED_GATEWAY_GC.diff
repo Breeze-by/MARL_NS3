@@ -1,0 +1,52 @@
+diff --git a/net01/gateway.py b/net01/gateway.py
+index 5a96e20..49339fd 100644
+--- a/net01/gateway.py
++++ b/net01/gateway.py
+@@ -10,6 +10,7 @@ import gc
+ import hashlib
+ import json
+ from pathlib import Path
++import resource
+ import signal
+ import time
+ from execution_profile import load_profile
+@@ -141,6 +142,15 @@ class Gateway:
+         if dispatch_profile:
+             self.gc_callback=self.observe_gc
+             gc.callbacks.append(self.gc_callback)
++        # This process has the existing supervisor wall bound. Refcounting stays
++        # active; only automatic cyclic scans are deferred until teardown.
++        self.gc_original_enabled=gc.isenabled()
++        self.gc_runtime=dict(original_enabled=self.gc_original_enabled,
++            original_thresholds=gc.get_threshold(),
++            scope='Only this supervisor-bounded Gateway; deferred cycles can increase RAM, not a long-lived-service policy')
++        gc.disable()
++        self.gc_runtime['disabled_monotonic_ns']=time.monotonic_ns()
++        self.gc_runtime['processing_start_enabled']=gc.isenabled()
+ 
+     def observe_gc(self,phase,info):
+         self.gc_events.append(dict(phase=phase,generation=info['generation'],
+@@ -400,7 +410,7 @@ class Gateway:
+         data=dict(mode=self.mode,anchor=self.anchor,failure=self.failure,
+             execution_profile=self.execution_profile,
+             transport_poll_closed=self.hub_poll_closed,
+-            dispatch_stats=self.dispatch_stats,
++            dispatch_stats=self.dispatch_stats,gc_runtime=self.gc_runtime,
+             cleanup=self.cleanup,
+             records=self.records,link=self.link.events,
+             guards={str(r):dict(events=g.guard.events,actions=g.records,
+@@ -424,7 +434,14 @@ class Gateway:
+     def close(self):
+         try:clean=self._close()
+         finally:
++            self.gc_runtime['processing_end_monotonic_ns']=time.monotonic_ns()
++            self.gc_runtime['processing_end_enabled']=gc.isenabled()
++            if self.gc_original_enabled:gc.enable()
++            else:gc.disable()
+             if self.gc_callback is not None:gc.callbacks.remove(self.gc_callback)
++            self.gc_runtime.update(restored_enabled=gc.isenabled(),
++                restored_thresholds=gc.get_threshold(),restored_monotonic_ns=time.monotonic_ns(),
++                peak_rss_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+         self.persist()
+         return clean
+ 

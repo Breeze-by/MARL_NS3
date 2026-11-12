@@ -1,0 +1,246 @@
+{
+  "source": "net01d/followup03/analysis/tcp-clocklane-01/first-fault-chain.json",
+  "scope": "Two actual logged no-motion Peer producer snapshots, not simulator truth or physical Gazebo motion",
+  "states": [
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 3.0,
+      "ready": true,
+      "sequence": 30,
+      "poses": {
+        "tb1": [
+          0.7249999999999996,
+          -0.1499999999999999
+        ],
+        "tb2": [
+          0.34999999999999964,
+          -0.7999999999999999
+        ],
+        "tb3": [
+          1.0999999999999996,
+          -0.7999999999999999
+        ]
+      },
+      "origins": {
+        "tb1": [
+          -9.75,
+          -8.85
+        ],
+        "tb2": [
+          -9.35,
+          -8.200000000000001
+        ],
+        "tb3": [
+          -10.100000000000001,
+          -8.200000000000001
+        ]
+      },
+      "mask_contract": "owner-odom-lattice-v1",
+      "mask_from_common": {
+        "tb2": [
+          -0.34999999999999964,
+          0.7999999999999999,
+          -0.0
+        ],
+        "tb1": [
+          -0.7249999999999996,
+          0.1499999999999999,
+          -0.0
+        ],
+        "tb3": [
+          -1.0999999999999996,
+          0.7999999999999999,
+          -0.0
+        ]
+      },
+      "mask_frames": {
+        "tb2": "odom",
+        "tb1": "odom",
+        "tb3": "odom"
+      },
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb1": {
+          "source": 0.06999999999999984,
+          "receipt": 0.0033663270296528935,
+          "correction": 0.13999999999999968,
+          "correction_receipt": 0.0011128300102427602
+        },
+        "tb2": {
+          "source": 0.08000000000000007,
+          "receipt": 0.005285830004140735,
+          "correction": 0.1499999999999999,
+          "correction_receipt": 0.004767835955135524
+        },
+        "tb3": {
+          "source": 0.1499999999999999,
+          "receipt": 0.03741403704043478,
+          "correction": 0.1499999999999999,
+          "correction_receipt": 0.032799127977341413
+        }
+      },
+      "failures": {},
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb2": 2.92,
+        "tb1": 2.93,
+        "tb3": 2.85
+      },
+      "correction_stamps": {
+        "tb2": 2.85,
+        "tb1": 2.8600000000000003,
+        "tb3": 2.85
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 586592.195249908,
+        "masks": {
+          "tb1": {
+            "begin": 586592.195308931,
+            "built": 586592.214462577,
+            "before_publish": 586592.214603646,
+            "after_publish": 586592.215156032
+          },
+          "tb2": {
+            "begin": 586592.215159805,
+            "built": 586592.234577631,
+            "before_publish": 586592.23475227,
+            "after_publish": 586592.235492483
+          },
+          "tb3": {
+            "begin": 586592.235497382,
+            "built": 586592.253483625,
+            "before_publish": 586592.253630754,
+            "after_publish": 586592.254118701
+          }
+        },
+        "snapshot_monotonic": 586592.195308402,
+        "health_publish_before_monotonic": 586592.254336015,
+        "health_publish_after_monotonic": 586592.259220788
+      }
+    },
+    {
+      "time_contract": "peer-e2e-time-v1",
+      "generated_sim": 3.1,
+      "ready": true,
+      "sequence": 31,
+      "poses": {
+        "tb1": [
+          0.7249999999999996,
+          -0.1499999999999999
+        ],
+        "tb2": [
+          0.34999999999999964,
+          -0.7999999999999999
+        ],
+        "tb3": [
+          1.0999999999999996,
+          -0.7999999999999999
+        ]
+      },
+      "origins": {
+        "tb1": [
+          -9.75,
+          -8.85
+        ],
+        "tb2": [
+          -9.35,
+          -8.200000000000001
+        ],
+        "tb3": [
+          -10.100000000000001,
+          -8.200000000000001
+        ]
+      },
+      "mask_contract": "owner-odom-lattice-v1",
+      "mask_from_common": {
+        "tb2": [
+          -0.34999999999999964,
+          0.7999999999999999,
+          -0.0
+        ],
+        "tb1": [
+          -0.7249999999999996,
+          0.1499999999999999,
+          -0.0
+        ],
+        "tb3": [
+          -1.0999999999999996,
+          0.7999999999999999,
+          -0.0
+        ]
+      },
+      "mask_frames": {
+        "tb2": "odom",
+        "tb1": "odom",
+        "tb3": "odom"
+      },
+      "radius_m": 0.55,
+      "resolution": 0.05,
+      "ages": {
+        "tb1": {
+          "source": 0.07000000000000028,
+          "receipt": 0.03342466999311,
+          "correction": 0.040000000000000036,
+          "correction_receipt": 0.022512707975693047
+        },
+        "tb2": {
+          "source": 0.050000000000000266,
+          "receipt": 0.00971706595737487,
+          "correction": 0.050000000000000266,
+          "correction_receipt": 0.013803183101117611
+        },
+        "tb3": {
+          "source": 0.050000000000000266,
+          "receipt": 0.002709239022806287,
+          "correction": 0.050000000000000266,
+          "correction_receipt": 0.0010288360062986612
+        }
+      },
+      "failures": {},
+      "pending_tf": {},
+      "odom_stamps": {
+        "tb2": 3.05,
+        "tb1": 3.03,
+        "tb3": 3.05
+      },
+      "correction_stamps": {
+        "tb2": 3.05,
+        "tb1": 3.06,
+        "tb3": 3.05
+      },
+      "localization_contract": "loop-confidence-v2-latched-correction-guard",
+      "localization_invalid": {},
+      "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+      "delivery_timing": {
+        "entry_monotonic": 586592.428977978,
+        "masks": {
+          "tb1": {
+            "begin": 586592.429046041,
+            "built": 586592.446187613,
+            "before_publish": 586592.44634094,
+            "after_publish": 586592.44687197
+          },
+          "tb2": {
+            "begin": 586592.446875804,
+            "built": 586592.464486,
+            "before_publish": 586592.464619985,
+            "after_publish": 586592.465358534
+          },
+          "tb3": {
+            "begin": 586592.465362192,
+            "built": 586592.485978366,
+            "before_publish": 586592.486182539,
+            "after_publish": 586592.486742757
+          }
+        },
+        "snapshot_monotonic": 586592.429045526,
+        "health_publish_before_monotonic": 586592.486955521,
+        "health_publish_after_monotonic": 586592.492304423
+      }
+    }
+  ]
+}

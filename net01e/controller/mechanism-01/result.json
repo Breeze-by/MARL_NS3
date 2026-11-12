@@ -1,0 +1,227 @@
+{
+  "pid": 1095062,
+  "start_monotonic_ns": 620200084467716,
+  "scope": "Artificial constructor-entry SIGINT; mechanism susceptibility only",
+  "cases": [
+    {
+      "mode": "control",
+      "published": 7,
+      "signals": [],
+      "first_publish_monotonic_ns": 620200699644108,
+      "last_publish_monotonic_ns": 620201004947711,
+      "start_monotonic_ns": 620200194367922,
+      "pid": 1095130,
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/mnt/net01e/controller/mechanism_probe.py",
+        "--receiver-directory",
+        "/mnt/net01e/controller/mechanism-01/control",
+        "--mode",
+        "control"
+      ],
+      "raw_exit": 0,
+      "exit_observed_monotonic_ns": 620201037071178,
+      "exception": null,
+      "lifecycle": {
+        "pid": 1095130,
+        "ppid": 1095062,
+        "mode": "control",
+        "original_default_SIGINT": true,
+        "signal_handler_options": "NO",
+        "count": 3,
+        "callbacks": [
+          620200701350418,
+          620200752208779,
+          620200802711367
+        ],
+        "hook": {
+          "entry_monotonic_ns": 620200700594392,
+          "constructor_file": "/opt/ros/humble/local/lib/python3.10/dist-packages/nav_msgs/msg/_occupancy_grid.py",
+          "constructor_line": 86,
+          "constructor_code_identity_match": true,
+          "active_take_subscription_identity": 126032176827552,
+          "topic": "/net01e/controller/mechanism_grid",
+          "raw": false,
+          "frames": [
+            {
+              "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+              "function": "_take_subscription",
+              "line": 400
+            },
+            {
+              "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+              "function": "handler",
+              "line": 478
+            },
+            {
+              "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py",
+              "function": "_execute_coroutine_step",
+              "line": 309
+            },
+            {
+              "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py",
+              "function": "__call__",
+              "line": 293
+            },
+            {
+              "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+              "function": "_spin_once_impl",
+              "line": 807
+            },
+            {
+              "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+              "function": "spin_once",
+              "line": 812
+            },
+            {
+              "file": "/mnt/net01e/controller/mechanism_probe.py",
+              "function": "receiver",
+              "line": 81
+            },
+            {
+              "file": "/mnt/net01e/controller/mechanism_probe.py",
+              "function": "main",
+              "line": 267
+            },
+            {
+              "file": "/mnt/net01e/controller/mechanism_probe.py",
+              "function": "<module>",
+              "line": 274
+            }
+          ],
+          "intervention": false,
+          "signal_raise_returned": false
+        },
+        "subscription_created_monotonic_ns": 620200695542125,
+        "subscription_identity": 126032176827552,
+        "topic": "/net01e/controller/mechanism_grid",
+        "msg_type": "nav_msgs.msg._occupancy_grid.OccupancyGrid",
+        "raw": false,
+        "destroy_begin_monotonic_ns": 620200802782916,
+        "destroy_end_monotonic_ns": 620200809467032,
+        "context_ok_after_shutdown": false,
+        "finally_end_monotonic_ns": 620200809713657
+      }
+    },
+    {
+      "mode": "interrupt",
+      "published": 5,
+      "signals": [],
+      "first_publish_monotonic_ns": 620201849487467,
+      "last_publish_monotonic_ns": 620202053286606,
+      "start_monotonic_ns": 620201039090882,
+      "pid": 1095172,
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/mnt/net01e/controller/mechanism_probe.py",
+        "--receiver-directory",
+        "/mnt/net01e/controller/mechanism-01/interrupt",
+        "--mode",
+        "interrupt"
+      ],
+      "raw_exit": 1,
+      "exit_observed_monotonic_ns": 620202088531076,
+      "exception": {
+        "observed_monotonic_ns": 620201851157735,
+        "type": "builtins.RuntimeError",
+        "repr": "RuntimeError('Unable to convert call argument to Python object (compile in debug mode for details)')",
+        "cause": "None",
+        "context": "None",
+        "traceback": "Traceback (most recent call last):\n  File \"/mnt/net01e/controller/mechanism_probe.py\", line 81, in receiver\n    executor.spin_once(timeout_sec=.1)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 812, in spin_once\n    self._spin_once_impl(timeout_sec)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 809, in _spin_once_impl\n    raise handler.exception()\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py\", line 309, in _execute_coroutine_step\n    result = coro.send(None)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 478, in handler\n    arg = take_from_wait_list(entity)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 400, in _take_subscription\n    msg_info = sub.handle.take_message(sub.msg_type, sub.raw)\nRuntimeError: Unable to convert call argument to Python object (compile in debug mode for details)\n",
+        "subscriptions": [
+          {
+            "topic": "/net01e/controller/mechanism_grid",
+            "msg_type": "nav_msgs.msg._occupancy_grid.OccupancyGrid",
+            "raw": false,
+            "python_identity": 138979561000096
+          }
+        ]
+      },
+      "lifecycle": {
+        "pid": 1095172,
+        "ppid": 1095062,
+        "mode": "interrupt",
+        "original_default_SIGINT": true,
+        "signal_handler_options": "NO",
+        "count": 0,
+        "callbacks": [],
+        "hook": {
+          "entry_monotonic_ns": 620201850773884,
+          "constructor_file": "/opt/ros/humble/local/lib/python3.10/dist-packages/nav_msgs/msg/_occupancy_grid.py",
+          "constructor_line": 86,
+          "constructor_code_identity_match": true,
+          "active_take_subscription_identity": 138979561000096,
+          "topic": "/net01e/controller/mechanism_grid",
+          "raw": false,
+          "frames": [
+            {
+              "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+              "function": "_take_subscription",
+              "line": 400
+            },
+            {
+              "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+              "function": "handler",
+              "line": 478
+            },
+            {
+              "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py",
+              "function": "_execute_coroutine_step",
+              "line": 309
+            },
+            {
+              "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py",
+              "function": "__call__",
+              "line": 293
+            },
+            {
+              "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+              "function": "_spin_once_impl",
+              "line": 807
+            },
+            {
+              "file": "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py",
+              "function": "spin_once",
+              "line": 812
+            },
+            {
+              "file": "/mnt/net01e/controller/mechanism_probe.py",
+              "function": "receiver",
+              "line": 81
+            },
+            {
+              "file": "/mnt/net01e/controller/mechanism_probe.py",
+              "function": "main",
+              "line": 267
+            },
+            {
+              "file": "/mnt/net01e/controller/mechanism_probe.py",
+              "function": "<module>",
+              "line": 274
+            }
+          ],
+          "intervention": true,
+          "signal_raise_returned": false,
+          "signal_request_monotonic_ns": 620201850795647
+        },
+        "subscription_created_monotonic_ns": 620201846461377,
+        "subscription_identity": 138979561000096,
+        "topic": "/net01e/controller/mechanism_grid",
+        "msg_type": "nav_msgs.msg._occupancy_grid.OccupancyGrid",
+        "raw": false,
+        "destroy_begin_monotonic_ns": 620201852577576,
+        "destroy_end_monotonic_ns": 620201859620648,
+        "context_ok_after_shutdown": false,
+        "finally_end_monotonic_ns": 620201859875575
+      }
+    }
+  ],
+  "CDR_bytes": 160104,
+  "roundtrip_equal": true,
+  "status": "CONTROLLED_CONVERSION_MECHANISM_OBSERVED",
+  "end_monotonic_ns": 620202094942142,
+  "last_child_gone": true,
+  "parent_context_ok": false
+}

@@ -1,0 +1,24 @@
+{
+  "runtime_commit": "2be7e229492d29817057fa8db166e38f114ca209",
+  "fixture_commit": "82edafe4570a4b98cb5e3d02eaf6f34a11b00fae",
+  "argv": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "net01d/followup04/evidence/newprogress-ros-02.time.txt",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "35s",
+    "bash",
+    "net01/ros-python.sh",
+    "net01d/followup04/check_progress_ros.py",
+    "--output",
+    "net01d/followup04/evidence/newprogress-ros-02",
+    "--ack-socket",
+    "/dev/shm/net01d-f04-progress-ros-02.ack"
+  ],
+  "actualdomain": "explicitrclpyinit95 overrideswrapper92",
+  "begin_monotonic_ns": 605595459058771,
+  "launcher_pid": 660402
+}

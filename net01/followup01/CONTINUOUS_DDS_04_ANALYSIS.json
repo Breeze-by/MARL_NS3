@@ -1,0 +1,611 @@
+{
+  "scope": "One same-source continuous DDS after fair ready-batch fix; synthetic time only, no GZ/Action/motion cert",
+  "source_window_wall_s": 8.016774366958998,
+  "source_cadence": {
+    "0:synthetic_clock": {
+      "count": 89,
+      "median_interval_ms": 99.9938355
+    },
+    "1:static": {
+      "count": 1,
+      "median_interval_ms": null
+    },
+    "1:synthetic_map": {
+      "count": 2,
+      "median_interval_ms": 5001.844474
+    },
+    "2:static": {
+      "count": 1,
+      "median_interval_ms": null
+    },
+    "2:synthetic_map": {
+      "count": 2,
+      "median_interval_ms": 5002.043011
+    },
+    "3:static": {
+      "count": 1,
+      "median_interval_ms": null
+    },
+    "3:synthetic_map": {
+      "count": 2,
+      "median_interval_ms": 5002.503285
+    },
+    "1:map->odom": {
+      "count": 400,
+      "median_interval_ms": 19.989005
+    },
+    "2:map->odom": {
+      "count": 400,
+      "median_interval_ms": 20.016176
+    },
+    "3:map->odom": {
+      "count": 400,
+      "median_interval_ms": 20.018997
+    },
+    "1:odom": {
+      "count": 240,
+      "median_interval_ms": 33.297132
+    },
+    "1:odom->base_footprint": {
+      "count": 240,
+      "median_interval_ms": 33.287238
+    },
+    "2:odom": {
+      "count": 240,
+      "median_interval_ms": 33.381092
+    },
+    "2:odom->base_footprint": {
+      "count": 240,
+      "median_interval_ms": 33.345001
+    },
+    "3:odom": {
+      "count": 239,
+      "median_interval_ms": 33.3598285
+    },
+    "3:odom->base_footprint": {
+      "count": 239,
+      "median_interval_ms": 33.366388
+    },
+    "1:base_link->wheel_left_link": {
+      "count": 160,
+      "median_interval_ms": 50.256598
+    },
+    "1:exact_zero_cmd": {
+      "count": 160,
+      "median_interval_ms": 50.078305
+    },
+    "2:base_link->wheel_left_link": {
+      "count": 160,
+      "median_interval_ms": 50.292866
+    },
+    "2:exact_zero_cmd": {
+      "count": 160,
+      "median_interval_ms": 50.110884
+    },
+    "3:base_link->wheel_left_link": {
+      "count": 159,
+      "median_interval_ms": 49.965804000000006
+    },
+    "3:exact_zero_cmd": {
+      "count": 159,
+      "median_interval_ms": 49.9904325
+    },
+    "1:synthetic_costmap": {
+      "count": 16,
+      "median_interval_ms": 499.96921
+    },
+    "2:synthetic_costmap": {
+      "count": 16,
+      "median_interval_ms": 500.016784
+    },
+    "3:synthetic_costmap": {
+      "count": 15,
+      "median_interval_ms": 499.948601
+    }
+  },
+  "stages": {
+    "tb1": {
+      "source_count": 400,
+      "capture_count": 400,
+      "C_publish_count": 400,
+      "Peer_receive_count": 400,
+      "source_to_capture_wall_ms_lower": {
+        "n": 400,
+        "min": 0.748586,
+        "median": 4.0363475,
+        "max": 52.423962
+      },
+      "source_to_capture_wall_ms_upper": {
+        "n": 400,
+        "min": 1.83741,
+        "median": 44.541277,
+        "max": 132.092428
+      },
+      "C_publish_call_wall_ms": {
+        "n": 400,
+        "min": 0.06755,
+        "median": 0.1325055,
+        "max": 0.208513
+      },
+      "C_publish_return_to_Peer_receive_ms_lower": {
+        "n": 400,
+        "min": -0.105988,
+        "median": 13.987205,
+        "max": 65.48457
+      },
+      "C_publish_return_to_Peer_receive_ms_upper": {
+        "n": 400,
+        "min": 0.640338,
+        "median": 64.778336,
+        "max": 161.12599
+      },
+      "last_source": {
+        "robot": 1,
+        "kind": "map->odom",
+        "source_header_ns": 9000000000,
+        "before_monotonic_ns": 411266246697903,
+        "after_monotonic_ns": 411266246920801
+      },
+      "last_capture": {
+        "flow": 23,
+        "robot": 1,
+        "bytes": 92,
+        "cdr_sha256": "4c43693c7083c874191d0dae8fa1dd6160814340735e942cd37f7e50cf5ecf1c",
+        "source_stamp_ns": 0,
+        "source_stamp_available": false,
+        "endpoint_capture_monotonic_ns": 411266251209095,
+        "capture_node_sim_ns": 8800000000,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 9000000000
+          }
+        ]
+      },
+      "last_C_publish": {
+        "sender": 1,
+        "receiver": 0,
+        "flow": 23,
+        "native_id": 4368,
+        "source_stamp_ns": 0,
+        "bytes": 100,
+        "backend": "IDEAL-DIRECT-ADAPTER",
+        "endpoint_capture_monotonic_ns": 411266251326339,
+        "endpoint_receive_monotonic_ns": 411266252289545,
+        "cdr_bytes": 92,
+        "cdr_sha256": "4c43693c7083c874191d0dae8fa1dd6160814340735e942cd37f7e50cf5ecf1c",
+        "destination_node_sim_ns": 8800000000,
+        "publisher_returned": true,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 9000000000
+          }
+        ],
+        "endpoint_publish_monotonic_ns": 411266252537962,
+        "publish_before_thread_cpu_ns": 8938781003,
+        "publish_after_monotonic_ns": 411266252623989,
+        "publish_after_thread_cpu_ns": 8938866647
+      },
+      "last_Peer_receive": {
+        "robot": "tb1",
+        "static": false,
+        "before_monotonic_ns": 411266254502899,
+        "before_node_sim_ns": 8800000000,
+        "held_correction_stamp_before": 9.0,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 9000000000
+          }
+        ],
+        "original_returned": true,
+        "after_monotonic_ns": 411266254734228,
+        "after_node_sim_ns": 8800000000,
+        "held_correction_stamp_after": 9.0
+      }
+    },
+    "tb2": {
+      "source_count": 400,
+      "capture_count": 400,
+      "C_publish_count": 400,
+      "Peer_receive_count": 400,
+      "source_to_capture_wall_ms_lower": {
+        "n": 400,
+        "min": 1.006097,
+        "median": 4.542222000000001,
+        "max": 66.76583
+      },
+      "source_to_capture_wall_ms_upper": {
+        "n": 400,
+        "min": 2.047456,
+        "median": 43.059994,
+        "max": 146.202851
+      },
+      "C_publish_call_wall_ms": {
+        "n": 400,
+        "min": 0.05852,
+        "median": 0.10409550000000001,
+        "max": 1.658485
+      },
+      "C_publish_return_to_Peer_receive_ms_lower": {
+        "n": 400,
+        "min": -0.001429,
+        "median": 9.871110999999999,
+        "max": 62.167646
+      },
+      "C_publish_return_to_Peer_receive_ms_upper": {
+        "n": 400,
+        "min": 2.386087,
+        "median": 76.886583,
+        "max": 176.068214
+      },
+      "last_source": {
+        "robot": 2,
+        "kind": "map->odom",
+        "source_header_ns": 9100000000,
+        "before_monotonic_ns": 411266253660016,
+        "after_monotonic_ns": 411266253845157
+      },
+      "last_capture": {
+        "flow": 43,
+        "robot": 2,
+        "bytes": 92,
+        "cdr_sha256": "1aafbcd6973c5853d3e706ced6d4224e481ac801ebaa21d7248005c0dc3a3779",
+        "source_stamp_ns": 0,
+        "source_stamp_available": false,
+        "endpoint_capture_monotonic_ns": 411266257669475,
+        "capture_node_sim_ns": 8900000000,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 9100000000
+          }
+        ]
+      },
+      "last_C_publish": {
+        "sender": 2,
+        "receiver": 0,
+        "flow": 43,
+        "native_id": 4373,
+        "source_stamp_ns": 0,
+        "bytes": 100,
+        "backend": "IDEAL-DIRECT-ADAPTER",
+        "endpoint_capture_monotonic_ns": 411266257753284,
+        "endpoint_receive_monotonic_ns": 411266259324839,
+        "cdr_bytes": 92,
+        "cdr_sha256": "1aafbcd6973c5853d3e706ced6d4224e481ac801ebaa21d7248005c0dc3a3779",
+        "destination_node_sim_ns": 8800000000,
+        "publisher_returned": true,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 9100000000
+          }
+        ],
+        "endpoint_publish_monotonic_ns": 411266259613923,
+        "publish_before_thread_cpu_ns": 8945814847,
+        "publish_after_monotonic_ns": 411266259700338,
+        "publish_after_thread_cpu_ns": 8945900392
+      },
+      "last_Peer_receive": {
+        "robot": "tb2",
+        "static": false,
+        "before_monotonic_ns": 411266321867984,
+        "before_node_sim_ns": 8900000000,
+        "held_correction_stamp_before": 9.0,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 9100000000
+          }
+        ],
+        "original_returned": true,
+        "after_monotonic_ns": 411266322058051,
+        "after_node_sim_ns": 8900000000,
+        "held_correction_stamp_after": 9.1
+      }
+    },
+    "tb3": {
+      "source_count": 400,
+      "capture_count": 400,
+      "C_publish_count": 400,
+      "Peer_receive_count": 400,
+      "source_to_capture_wall_ms_lower": {
+        "n": 400,
+        "min": 0.356011,
+        "median": 6.7489885,
+        "max": 62.68534
+      },
+      "source_to_capture_wall_ms_upper": {
+        "n": 400,
+        "min": 2.743313,
+        "median": 44.7867705,
+        "max": 142.362859
+      },
+      "C_publish_call_wall_ms": {
+        "n": 400,
+        "min": 0.060208,
+        "median": 0.07618749999999999,
+        "max": 0.203862
+      },
+      "C_publish_return_to_Peer_receive_ms_lower": {
+        "n": 400,
+        "min": 0.111692,
+        "median": 10.4879235,
+        "max": 66.750782
+      },
+      "C_publish_return_to_Peer_receive_ms_upper": {
+        "n": 400,
+        "min": 2.476713,
+        "median": 70.164699,
+        "max": 167.952341
+      },
+      "last_source": {
+        "robot": 3,
+        "kind": "map->odom",
+        "source_header_ns": 9100000000,
+        "before_monotonic_ns": 411266258204344,
+        "after_monotonic_ns": 411266258376163
+      },
+      "last_capture": {
+        "flow": 63,
+        "robot": 3,
+        "bytes": 92,
+        "cdr_sha256": "1aafbcd6973c5853d3e706ced6d4224e481ac801ebaa21d7248005c0dc3a3779",
+        "source_stamp_ns": 0,
+        "source_stamp_available": false,
+        "endpoint_capture_monotonic_ns": 411266265098208,
+        "capture_node_sim_ns": 8900000000,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 9100000000
+          }
+        ]
+      },
+      "last_C_publish": {
+        "sender": 3,
+        "receiver": 0,
+        "flow": 63,
+        "native_id": 4381,
+        "source_stamp_ns": 0,
+        "bytes": 100,
+        "backend": "IDEAL-DIRECT-ADAPTER",
+        "endpoint_capture_monotonic_ns": 411266265183352,
+        "endpoint_receive_monotonic_ns": 411266266502603,
+        "cdr_bytes": 92,
+        "cdr_sha256": "1aafbcd6973c5853d3e706ced6d4224e481ac801ebaa21d7248005c0dc3a3779",
+        "destination_node_sim_ns": 8900000000,
+        "publisher_returned": true,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 9100000000
+          }
+        ],
+        "endpoint_publish_monotonic_ns": 411266266796764,
+        "publish_before_thread_cpu_ns": 8952998413,
+        "publish_after_monotonic_ns": 411266266937131,
+        "publish_after_thread_cpu_ns": 8953137258
+      },
+      "last_Peer_receive": {
+        "robot": "tb3",
+        "static": false,
+        "before_monotonic_ns": 411266322307624,
+        "before_node_sim_ns": 8900000000,
+        "held_correction_stamp_before": 9.0,
+        "tf_edges": [
+          {
+            "frame_id": "map",
+            "child_frame_id": "odom",
+            "stamp_ns": 9100000000
+          }
+        ],
+        "original_returned": true,
+        "after_monotonic_ns": 411266322457143,
+        "after_node_sim_ns": 8900000000,
+        "held_correction_stamp_after": 9.1
+      }
+    }
+  },
+  "ready_frames": 80,
+  "health_frames": 83,
+  "last_health": {
+    "time_contract": "peer-e2e-time-v1",
+    "generated_sim": 8.9,
+    "ready": true,
+    "sequence": 83,
+    "poses": {
+      "tb1": [
+        0.7249999999999996,
+        -0.1499999999999999
+      ],
+      "tb2": [
+        0.34999999999999964,
+        -0.7999999999999999
+      ],
+      "tb3": [
+        1.0999999999999996,
+        -0.7999999999999999
+      ]
+    },
+    "origins": {
+      "tb1": [
+        -9.75,
+        -8.85
+      ],
+      "tb2": [
+        -9.35,
+        -8.200000000000001
+      ],
+      "tb3": [
+        -10.100000000000001,
+        -8.200000000000001
+      ]
+    },
+    "mask_contract": "owner-odom-lattice-v1",
+    "mask_from_common": {
+      "tb1": [
+        -0.7249999999999996,
+        0.1499999999999999,
+        -0.0
+      ],
+      "tb2": [
+        -0.34999999999999964,
+        0.7999999999999999,
+        -0.0
+      ],
+      "tb3": [
+        -1.0999999999999996,
+        0.7999999999999999,
+        -0.0
+      ]
+    },
+    "mask_frames": {
+      "tb1": "odom",
+      "tb2": "odom",
+      "tb3": "odom"
+    },
+    "radius_m": 0.55,
+    "resolution": 0.05,
+    "ages": {
+      "tb1": {
+        "source": 0.09999999999999964,
+        "receipt": 0.0036713489680550992,
+        "correction": -0.09999999999999964,
+        "correction_receipt": 0.0022709519835188985
+      },
+      "tb2": {
+        "source": 0.09999999999999964,
+        "receipt": 0.018490893009584397,
+        "correction": -0.09999999999999964,
+        "correction_receipt": 0.013366455968935043
+      },
+      "tb3": {
+        "source": 0.09999999999999964,
+        "receipt": 0.015801256988197565,
+        "correction": -0.09999999999999964,
+        "correction_receipt": 0.00868212099885568
+      }
+    },
+    "failures": {},
+    "pending_tf": {},
+    "odom_stamps": {
+      "tb1": 8.8,
+      "tb2": 8.8,
+      "tb3": 8.8
+    },
+    "correction_stamps": {
+      "tb1": 9.0,
+      "tb2": 9.0,
+      "tb3": 9.0
+    },
+    "localization_contract": "loop-confidence-v2-latched-correction-guard",
+    "localization_invalid": {},
+    "source": "CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth",
+    "delivery_timing": {
+      "entry_monotonic": 411266.256839392,
+      "masks": {
+        "tb1": {
+          "begin": 411266.25689469,
+          "built": 411266.274657218,
+          "before_publish": 411266.274749446,
+          "after_publish": 411266.275223223
+        },
+        "tb2": {
+          "begin": 411266.275226641,
+          "built": 411266.293564597,
+          "before_publish": 411266.293670888,
+          "after_publish": 411266.294131177
+        },
+        "tb3": {
+          "begin": 411266.294134138,
+          "built": 411266.31276576,
+          "before_publish": 411266.312881118,
+          "after_publish": 411266.313609757
+        }
+      },
+      "snapshot_monotonic": 411266.256894189,
+      "health_publish_before_monotonic": 411266.313813065,
+      "health_publish_after_monotonic": 411266.318831179
+    }
+  },
+  "gateway_failure": null,
+  "dispatch_stats": {
+    "C": {
+      "batches": 1323,
+      "callbacks": 1076,
+      "cap_hits": 0,
+      "max_wall_s": 0.009666300960816443,
+      "max_cpu_s": 0.009672086999999996
+    },
+    "R": {
+      "batches": 1323,
+      "callbacks": 5480,
+      "cap_hits": 0,
+      "max_wall_s": 0.0537124119582586,
+      "max_cpu_s": 0.05371768899999996
+    },
+    "guard_timers": {
+      "1": {
+        "calls": 418,
+        "max_gap_wall_s": 0.06774913897970691,
+        "last": 411266.603260406
+      },
+      "2": {
+        "calls": 417,
+        "max_gap_wall_s": 0.06780393904773518,
+        "last": 411266.58750534
+      },
+      "3": {
+        "calls": 418,
+        "max_gap_wall_s": 0.06496212899219245,
+        "last": 411266.589994252
+      }
+    },
+    "max_poll_gap_wall_s": 0.05842072900850326
+  },
+  "stop_overhead": {
+    "peer": {
+      "checks": 98,
+      "total_wall_ms": 6.08347,
+      "max_wall_ms": 0.157533
+    },
+    "gateway": {
+      "checks": 158,
+      "total_wall_ms": 8.748772,
+      "max_wall_ms": 0.097997
+    }
+  },
+  "exits": {
+    "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+    "error": null,
+    "wall_s": 11.64084632101003,
+    "hard_wall_s": 20,
+    "exits": {
+      "hub": 0,
+      "peer": 0,
+      "gateway": 0,
+      "source": 0
+    },
+    "Gazebo": 0,
+    "NN": 0,
+    "wrapper_pids": {
+      "hub": 1383028,
+      "peer": 1383043,
+      "gateway": 1383044,
+      "source": 1383045
+    },
+    "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior"
+  },
+  "note": "Repeated-header source/Peer delay bounds, not fabricated unique per-packet identities; actual same captured CDR remains original."
+}

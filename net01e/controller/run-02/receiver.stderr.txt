@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/mnt/net01e/controller/continuous_dds.py", line 313, in <module>
+    raise SystemExit(main())
+  File "/mnt/net01e/controller/continuous_dds.py", line 306, in main
+    return receiver(args.receiver_directory)
+  File "/mnt/net01e/controller/continuous_dds.py", line 115, in receiver
+    rclpy.spin(node)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+    executor.spin_once()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 812, in spin_once
+    self._spin_once_impl(timeout_sec)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 801, in _spin_once_impl
+    handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 784, in wait_for_ready_callbacks
+    return next(self._cb_iter)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 681, in _wait_for_ready_callbacks
+    wait_set.wait(timeout_nsec)
+  File "/mnt/net01e/controller/continuous_dds.py", line 79, in observed_sigint
+    return original_handler(number, frame)
+KeyboardInterrupt

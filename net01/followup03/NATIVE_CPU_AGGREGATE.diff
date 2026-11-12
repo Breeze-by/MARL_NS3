@@ -1,0 +1,138 @@
+diff --git a/net01/native/payload_transport.cc b/net01/native/payload_transport.cc
+index 234d4b8..bfd119f 100644
+--- a/net01/native/payload_transport.cc
++++ b/net01/native/payload_transport.cc
+@@ -25,6 +25,7 @@ static constexpr uint32_t WIRE_HEADER=36, CHUNK=1200-WIRE_HEADER;
+ static std::ofstream ledger;
+ static std::map<std::string,uint64_t> counts;
+ static bool controlTrace=false;
++static bool cpuProfile=false;
+ static int64_t activeHorizon=0;
+ static uint64_t outputMessages=0,outputBytes=0;
+ static int64_t outputWall=0,outputCpu=0;
+@@ -36,6 +37,25 @@ static int64_t threadCpu() {
+   timespec value;clock_gettime(CLOCK_THREAD_CPUTIME_ID,&value);
+   return int64_t(value.tv_sec)*1000000000+value.tv_nsec;
+ }
++enum CpuCategory {FieldsCpu,EventCpu,SniffCpu,TraceCpu,DropCpu,ReceiveCpu,TransmitCpu,CpuCategories};
++static const char* cpuNames[]={"fields","event","sniff","packet_trace","rx_drop","receive","transmit"};
++struct CpuTotal {uint64_t calls=0;int64_t inclusive=0,exclusive=0;};
++static std::array<CpuTotal,CpuCategories> cpuTotals;
++struct CpuScope {
++  CpuCategory category;CpuScope* parent=nullptr;int64_t begin=0,children=0;
++  static CpuScope* current;
++  explicit CpuScope(CpuCategory value):category(value) {
++    if(cpuProfile) {parent=current;begin=threadCpu();current=this;}
++  }
++  ~CpuScope() {
++    if(!cpuProfile)return;
++    const auto elapsed=threadCpu()-begin;auto& total=cpuTotals[category];
++    ++total.calls;total.inclusive+=elapsed;total.exclusive+=elapsed-children;
++    if(parent)parent->children+=elapsed;
++    current=parent;
++  }
++};
++CpuScope* CpuScope::current=nullptr;
+ static void controlBoundary(const std::string& kind,const std::string& fields="") {
+   if(!controlTrace)return;
+   const auto line="NET01_CONTROL {\"kind\":\""+kind+"\",\"monotonic_ns\":"+std::to_string(mono())+
+@@ -43,7 +63,20 @@ static void controlBoundary(const std::string& kind,const std::string& fields=""
+     ",\"horizon_ns\":"+std::to_string(activeHorizon)+fields+"}\n";
+   NS_ABORT_MSG_IF(::write(STDERR_FILENO,line.data(),line.size())!=static_cast<ssize_t>(line.size()),"Diagnostic boundary write failed");
+ }
++static void cpuBoundary(const std::string& kind) {
++  if(!cpuProfile)return;
++  std::string fields=",\"cumulative_cpu\":{";
++  for(unsigned i=0;i<CpuCategories;++i) {
++    if(i)fields+=",";
++    const auto& total=cpuTotals[i];
++    fields+="\""+std::string(cpuNames[i])+"\":{\"calls\":"+std::to_string(total.calls)+
++      ",\"inclusive_ns\":"+std::to_string(total.inclusive)+",\"exclusive_ns\":"+std::to_string(total.exclusive)+"}";
++  }
++  fields+="},\"active_scope\":\""+std::string(CpuScope::current?cpuNames[CpuScope::current->category]:"none")+"\"";
++  controlBoundary(kind,fields);
++}
+ static void event(const std::string& kind,const std::string& fields="") {
++  CpuScope measure(EventCpu);
+   ++counts[kind];
+   ledger<<"{\"kind\":\""<<kind<<"\",\"ns3_ns\":"<<Simulator::Now().GetNanoSeconds()
+         <<",\"monotonic_ns\":"<<mono()<<fields<<"}\n";
+@@ -69,6 +102,7 @@ public:
+   void Print(std::ostream& o) const override {o<<id<<":"<<offset<<"/"<<total;}
+ };
+ static std::string fields(const Fragment& h) {
++  CpuScope measure(FieldsCpu);
+   return ",\"message_id\":"+std::to_string(h.id)+",\"from\":"+std::to_string(h.from)+
+     ",\"to\":"+std::to_string(h.to)+",\"flow\":"+std::to_string(h.flow)+
+     ",\"offset\":"+std::to_string(h.offset)+",\"total\":"+std::to_string(h.total)+
+@@ -89,6 +123,7 @@ static void expire(uint64_t id) {
+   if(it!=pending.end()) {event("incomplete_expired",fields(it->second.h)+",\"received_bytes\":"+std::to_string(it->second.received));pending.erase(it);expired.insert(id);}
+ }
+ static void receive(Ptr<Socket> socket) {
++  CpuScope measure(ReceiveCpu);
+   Address address;
+   while(auto packet=socket->RecvFrom(address)) {
+     NS_ABORT_MSG_IF(packet->GetSize()<WIRE_HEADER,"Truncated NET01 UDP frame");
+@@ -111,6 +146,7 @@ static void receive(Ptr<Socket> socket) {
+       const bool detailed=controlTrace && m.data.size()>=16384;
+       const auto outputFields=",\"message_id\":"+std::to_string(h.id)+",\"bytes\":"+std::to_string(m.data.size());
+       if(detailed)controlBoundary("rx_output_begin",outputFields);
++      if(detailed)cpuBoundary("cpu_large_output_checkpoint");
+       const auto outputBeginMono=controlTrace?mono():0,outputBeginCpu=controlTrace?threadCpu():0;
+       std::cout<<"RX "<<unsigned(h.from)<<" "<<unsigned(h.to)<<" "<<h.flow<<" "<<h.id<<" "<<h.source<<" "<<Simulator::Now().GetNanoSeconds()<<" "<<m.data.size()<<"\n";
+       std::cout.write(reinterpret_cast<const char*>(m.data.data()),m.data.size());std::cout<<"\n";std::cout.flush();
+@@ -121,22 +157,26 @@ static void receive(Ptr<Socket> socket) {
+   }
+ }
+ static void simpleTrace(std::string kind,uint32_t node,Ptr<const Packet> packet) {
++  CpuScope measure(TraceCpu);
+   event(kind,",\"node\":"+std::to_string(node)+",\"packet_uid\":"+std::to_string(packet->GetUid())+",\"packet_bytes\":"+std::to_string(packet->GetSize()));
+ }
+ static void rxDrop(uint32_t node,Ptr<const Packet> packet,WifiPhyRxfailureReason reason) {
++  CpuScope measure(DropCpu);
+   event("phy_rx_drop",",\"node\":"+std::to_string(node)+",\"packet_uid\":"+
+       std::to_string(packet->GetUid())+",\"packet_bytes\":"+std::to_string(packet->GetSize())+
+       ",\"reason\":"+std::to_string(static_cast<unsigned>(reason)));
+ }
+ static void sniff(uint32_t node,Ptr<const Packet> packet,uint16_t freq,WifiTxVector tx,MpduInfo mpdu,SignalNoiseDbm power,uint16_t sta) {
++  CpuScope measure(SniffCpu);
+   std::ostringstream s;s<<std::setprecision(12)<<",\"node\":"<<node<<",\"packet_uid\":"<<packet->GetUid()
+     <<",\"packet_bytes\":"<<packet->GetSize()<<",\"frequency_mhz\":"<<freq<<",\"signal_dbm\":"<<power.signal
+     <<",\"noise_dbm\":"<<power.noise<<",\"snr_db\":"<<power.signal-power.noise;
+   event("wifi_sniffer_rx",s.str());
+ }
+-static void retry(uint32_t node,Mac48Address address) {event("mac_data_retry",",\"node\":"+std::to_string(node));}
+-static void finalDrop(uint32_t node,Mac48Address address) {event("mac_final_data_drop",",\"node\":"+std::to_string(node));}
++static void retry(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);event("mac_data_retry",",\"node\":"+std::to_string(node));}
++static void finalDrop(uint32_t node,Mac48Address address) {CpuScope measure(TraceCpu);event("mac_final_data_drop",",\"node\":"+std::to_string(node));}
+ static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identity,std::vector<uint8_t> body) {
++  CpuScope measure(TransmitCpu);
+   for(uint32_t offset=0;offset<body.size();offset+=CHUNK) {
+     auto h=identity;h.offset=offset;h.length=std::min(CHUNK,static_cast<uint32_t>(body.size())-offset);
+     auto packet=Create<Packet>(body.data()+offset,h.length);packet->AddHeader(h);
+@@ -150,7 +190,8 @@ int main(int argc,char** argv) {
+   std::string directory,profile="B";
+   struct StepTrace {int64_t horizon,beginMono,beginCpu,beginNs3,endMono,endCpu,endNs3;};
+   std::vector<StepTrace> controlSteps;
+-  CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);cmd.Parse(argc,argv);
++  CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);
++  cmd.AddValue("cpuProfile","Diagnostic own-callback cumulative CPU only; use with controlTrace",cpuProfile);cmd.Parse(argc,argv);
+   NS_ABORT_MSG_IF(directory.empty() || (profile!="B" && profile!="C"),"Explicit output and locked profile needed");
+   ledger.open(directory+"/packet-ledger.jsonl");
+   NS_ABORT_MSG_IF(!ledger,"Cannot open packet ledger");
+@@ -243,6 +284,7 @@ int main(int argc,char** argv) {
+       if(controlTrace)trace={horizon,mono(),threadCpu(),Simulator::Now().GetNanoSeconds(),0,0,0};
+       activeHorizon=horizon;
+       outputMessages=outputBytes=0;outputWall=outputCpu=0;
++      cpuBoundary("cpu_step_begin");
+       controlBoundary("step_begin");
+       Simulator::Stop(NanoSeconds(horizon-Simulator::Now().GetNanoSeconds()));Simulator::Run();
+       controlBoundary("step_end",",\"output_messages\":"+std::to_string(outputMessages)+",\"output_bytes\":"+std::to_string(outputBytes)+
+@@ -250,6 +292,7 @@ int main(int argc,char** argv) {
+       if(controlTrace) {
+         trace.endCpu=threadCpu();trace.endMono=mono();trace.endNs3=Simulator::Now().GetNanoSeconds();controlSteps.push_back(trace);
+       }
++      cpuBoundary("cpu_step_end");
+       event("horizon_return",",\"requested_horizon_ns\":"+std::to_string(horizon));
+       std::cout<<"STEP "<<Simulator::Now().GetNanoSeconds()<<"\n"<<std::flush;
+     } else if(op=="RADIO") {

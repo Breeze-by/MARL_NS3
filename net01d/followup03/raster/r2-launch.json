@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=KILL",
+    "30s",
+    "bash",
+    "net01/ros-python.sh",
+    "/mnt/net01d/followup03/raster/check_and_bench.py"
+  ],
+  "cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "predeclared": {
+    "actual_snapshots": 2,
+    "owners": 3,
+    "boundary_cases": 9,
+    "pairs": 6,
+    "batches_per_timing": 5,
+    "warmup_batches_per_role": 2,
+    "hard_wall_s": 30
+  },
+  "first_failure_preserved": true,
+  "padding_fix": "Comparison copies exclude only IDL offsets21..23; decoded objects compared mutually; no wire change",
+  "other_timed_work": false
+}

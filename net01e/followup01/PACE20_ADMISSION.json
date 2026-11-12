@@ -1,0 +1,17 @@
+{
+  "execution_authorized": true,
+  "status": "ROOT_AND_REVIEWER_APPROVED_UNIQUE_START",
+  "execution_profile": "controlled1000-clock100-q10ms-pace20-raster-simhealth",
+  "maximum_execution_count": 1,
+  "automatic_retry": false,
+  "raw_destination": true,
+  "sim_source_body_physics_safety_RF_changes": false,
+  "wall_target_pacing_change": "10wall-ms/10sim-ms to20wall-ms/10sim-ms; new common comparison condition",
+  "reviewed_source_commit": "2438808",
+  "root_START": "Root explicit conditional unique C START after actual successful ram47-a1-01; actual gate passed full exit0/no Guardfault/normal closure/copy/Goals4,4,5. Same2438808/65outer60host48work2kill; no retry/Gazebo.",
+  "case": "ram47-c1-01_C",
+  "qualification_evidence_commit": "2a59bc2",
+  "steady_feedback": true,
+  "native_state_sample": true,
+  "native_evidence_ram": "/dev/shm/net01e-followup01-ram47-c1-01"
+}

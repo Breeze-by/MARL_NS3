@@ -1,0 +1,44 @@
+from pathlib import Path
+import ast,json,signal
+from types import SimpleNamespace
+source=Path('/home/zhuyulab/ns3-workspace/net-01/workspace/net01/run_network_case.py')
+tree=ast.parse(source.read_text());compile(tree,str(source),'exec')
+functions=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in ('end_controlled_launch','end_process')]
+clock=SimpleNamespace(ns=0)
+trace=[];events=[]
+def monotonic():return clock.ns/1_000_000_000
+def spin_once(observer,timeout_sec):
+ assert timeout_sec==.02
+ clock.ns+=20_000_000;trace.append(('spin',clock.ns))
+def send(kind,pid,sig):trace.append((kind,pid,sig.name,clock.ns))
+class Process:
+ pid=9342;returncode=None
+ def poll(self):return None
+class Observer:
+ controlled_time=True;hazard=None
+ def event(self,kind,**fields):events.append((kind,fields))
+ def stop_zeros(self):trace.append(('zero',clock.ns))
+ def seal_time_control(self):trace.append(('seal',clock.ns))
+def frozen_end(process,observer,name):trace.append(('frozen_end',name,clock.ns))
+gateway=SimpleNamespace(poll=lambda:0)
+env=dict(time=SimpleNamespace(monotonic=monotonic),signal=signal,
+ os=SimpleNamespace(kill=lambda p,s:send('PID',p,s),killpg=lambda p,s:send('PG',p,s)),
+ rclpy=SimpleNamespace(spin_once=spin_once),frozen_end_process=frozen_end,gateway=gateway)
+exec(compile(ast.Module(body=functions,type_ignores=[]),'actual-endlaunch-methods','exec'),env)
+observer=Observer();process=Process();env['end_process'](process,observer,'launch')
+signals=[x for x in trace if x[0] in ('PID','PG')]
+assert signals==[('PID',9342,'SIGINT',0),('PG',9342,'SIGTERM',20_000_000_000),('PG',9342,'SIGKILL',25_000_000_000)]
+assert clock.ns==30_000_000_000
+signal_events=[fields for kind,fields in events if kind=='process_signal']
+assert [e['timeout_wall_s'] for e in signal_events]==[20,5,5]
+assert [e['signal_target'] for e in signal_events]==['owned_launch_parent_pid','owned_launch_process_group','owned_launch_process_group']
+assert trace[:2]==[('seal',0),('frozen_end','network_gateway',0)]
+assert sum(x[0]=='zero' for x in trace)==1500 and sum(x[0]=='spin' for x in trace)==1500
+legacy=Observer();legacy.controlled_time=False
+before=len(trace);env['end_process'](process,legacy,'launch')
+assert trace[before:]==[('frozen_end','launch',30_000_000_000)]
+result=dict(status='PASS',scope='Actual external endlaunch methods executed with in-memory PID/PG/time/ROS stubs only',
+ checks=dict(first_SIGINT_parent_only=True,TERM_KILL_owned_PG=True,original_20_5_5_budget=True,
+ original_stopzero_spin_loop=True,seal_then_Gateway_before_launch=True,legacy_delegates_frozen=True),
+ signals=signals,signal_events=signal_events,total_simulated_wall_ns=clock.ns,
+ Node=0,Gazebo=0,ROSlaunch=0,real_OS_signals=0,child_processes_started=0)

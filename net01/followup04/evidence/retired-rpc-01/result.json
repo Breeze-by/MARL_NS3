@@ -1,0 +1,31 @@
+{
+  "scope": "Actual DDS typed clients and controlled ActionServer; full-CDR memory wire only",
+  "domains": [
+    104,
+    105
+  ],
+  "Gazebo": 0,
+  "Nav2": 0,
+  "NN": 0,
+  "motion_publishers": 0,
+  "checks": {
+    "old_session_and_unknown_rpc_do_not_complete_original_client": true,
+    "actual_False_readiness_CDR_received_before_retirement": true,
+    "withdrawn_ready_retains_only_admitted_original_handles": true,
+    "unready_new_goal_unknown_not_forwarded_or_counted": true,
+    "original_C_client_receives_real_late_accept": true,
+    "original_C_client_receives_real_terminal_same_UUID_RPC": true,
+    "retired_cleared_only_after_actual_DDS_response": true,
+    "readiness_recovers_without_duplicate_service_handles": true
+  },
+  "status": "PASS",
+  "real_accepted_uuid": "1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f1f",
+  "blocked_unadmitted_future_still_unknown": true,
+  "pending_admitted_C_RPC": 0,
+  "retired_inflight": [],
+  "executor_shutdown": [
+    false,
+    true
+  ],
+  "cleanup_scope": "Deliberately unadmitted unknown C callback may keep work_tracker pending; not fake cleanup PASS"
+}

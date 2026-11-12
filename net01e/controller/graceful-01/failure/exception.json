@@ -1,0 +1,9 @@
+{
+  "observed_monotonic_ns": 620903559810081,
+  "type": "builtins.RuntimeError",
+  "repr": "RuntimeError('NET01E_NON_SIGNAL_CALLBACK_FAILURE')",
+  "cause": "None",
+  "context": "None",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/net01e/controller/check_graceful.py\", line 99, in child\n    make_graceful_spin(directory)(node)\n  File \"/mnt/net01e/controller/graceful_spin.py\", line 52, in spin\n    executor.spin_once(timeout_sec=.05)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 812, in spin_once\n    self._spin_once_impl(timeout_sec)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 809, in _spin_once_impl\n    raise handler.exception()\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py\", line 309, in _execute_coroutine_step\n    result = coro.send(None)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 488, in handler\n    await call_coroutine(entity, arg)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 407, in _execute_subscription\n    await await_or_execute(sub.callback, msg)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 110, in await_or_execute\n    return callback(*args)\n  File \"/mnt/net01e/controller/check_graceful.py\", line 63, in received\n    raise RuntimeError('NET01E_NON_SIGNAL_CALLBACK_FAILURE')\nRuntimeError: NET01E_NON_SIGNAL_CALLBACK_FAILURE\n",
+  "subscriptions": []
+}

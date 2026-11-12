@@ -1,0 +1,40 @@
+{
+  "project": "NET-01D",
+  "base_commit": "cee0c7024ccf06d88d7ff458a47c39cdf605a7f3",
+  "final_executed_runtime_commit": "81710e6739311a59ed4bef945a0fbd871d274a64",
+  "important_source_sha256": {
+    "net01/bound_peer.py": "dad6fe51e722531861ba231bf924c5dc859ddc4b0ffb4db44315979d1fcfc46d",
+    "net01/topic_wire.py": "e6286182915bff510a5fe6efaa8b63b0500d8d5bfc5dfc64b98fb0302505f241",
+    "net01/gateway.py": "4ed1be9cd893c3e5c738696a6fc80f81b848c38df58ab0aaf840867218c8be67",
+    "net01/hub_client.py": "7c833e77ce0fe6bca29ec00af1ed7683a4c68b725bf7b47e136dc6a0344e9ecf",
+    "net01/tools/packet_hub.py": "ddfa6fbbb2ef1d5369070a3e582140dd3fbefe690be5de52624368b0db6e90d6",
+    "net01/net_scene_launch.py": "c518b42d268ded61f7e322221f1612447961614696954a068b4105d8c93200ae",
+    "net01/time_control_runtime.py": "0bed851cbab18500d46dc24db16451ebdfafa910184f3f8fa754fe2a1860d444",
+    "net01/followup04/mock_physics.py": "7eac3636de0f1c0049ef1d6b0c1e4cc142c17db9dace8c0c270d6be3c6135a6c",
+    "net01d/run_replay.py": "e0baf46c062e09183c224109aed980f57f098f74f88d977b3c8626e6783dc6c0",
+    "net01d/replay_roles.py": "c757093f33db6b156d4bc72ab8940f6a5b7a21f63c06afc5b25ffa22a2dafdc7",
+    "net01d/health/trace.py": "1ca363b159315e13da1dd55c59bfd4383dfecd1ed7f3e406296de2ca50af799c",
+    "net01d/health/take_trace.py": "3f23d4938a1d3ebd5da259ad53f66291478b8da99657e7c6ebeb98e4fd10ab11",
+    "net01d/health/full_load_source.py": "399a0520f914676b3b5050d232260f090ffcd57092e2542cad2c2144e089784d",
+    "net01d/health/full_load_client.py": "7ed5a414cb123b7fde3739b504a09628b0002e9e3b0adcd47f72b8e73ae29302",
+    "net01d/health/full_load_payloads.py": "ce4c7ed8dde2590819080aef44d1bf3201632595cec20b857a49917b58e94f9e"
+  },
+  "native_identity_reused_without_rehash": {
+    "path": "/home/zhuyulab/ns3-workspace/net-01/build/followup03-release-portable-native/net01-payload",
+    "sha256": "82bc8ecff7d1e88d826931be534335fac21971fa8e6a23731af805f291c7e184",
+    "authority": "root once checked before P1; original artifact unchanged"
+  },
+  "policy_identity_reused_without_rehash": {
+    "sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+    "authority": "root once checked against frozen Manifest"
+  },
+  "new_builds": 0,
+  "no_motion_native_starts": 9,
+  "Gazebo_starts": 0,
+  "repair_rounds_used": 2,
+  "no_push": true,
+  "raw_evidence": "net01d/runs/* and retained explicitly owned /dev/shm paths; ignored by Git, no old raw overwritten",
+  "delivery_commit": null,
+  "delivery_commit_location": "../../FINAL_IDENTITY.json",
+  "delivery_commit_note": "最终封存提交在Git提交完成后写入阶段外层身份文件；实测运行源与文档封存提交分列，避免自引用或伪造运行时HEAD。"
+}

@@ -1,0 +1,94 @@
+{
+  "record_saves": {
+    "network-gateway-saved.json": {
+      "saved": true,
+      "mode": "A",
+      "records": 20673,
+      "failure": null,
+      "cleanup": {
+        "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+        "end_frame_flushed": true,
+        "executor_shutdown": [
+          true,
+          true
+        ],
+        "resources_destroyed": true,
+        "unresolved_C_RPC": [],
+        "unresolved_R_RPC": [],
+        "unresolved_local_cleanup_futures": {
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "a0_registered_owned_unknown_or_active": {
+          "1": [],
+          "2": [],
+          "3": []
+        },
+        "a0_safety_connections": 0,
+        "main_thread_sampler": {
+          "joined": true,
+          "failure": null,
+          "stop_begin_mono_ns": 611956022581421,
+          "stop_end_mono_ns": 611956022782486,
+          "collector_cpu_ns": 8968365857,
+          "samples": 16698,
+          "skipped_periods": 43,
+          "proc_fds_remaining": 0,
+          "proc_close_errors": []
+        }
+      },
+      "persist_wall_s": 2.8069607550278306,
+      "peak_afterpersist_KiB": 356932
+    },
+    "bound-mask-recording-saved.json": {
+      "saved": true,
+      "mask_records": 6198,
+      "tf_callback_records": 73794,
+      "pending_undelimited_masks": 0,
+      "gc_runtime": {
+        "original_enabled": true,
+        "original_thresholds": [
+          700,
+          10,
+          10
+        ],
+        "scope": "Bounded NET BoundPeer processing only; refcounting unchanged",
+        "disabled_monotonic_ns": 611624178943895,
+        "processing_start_enabled": false,
+        "processing_end_monotonic_ns": 611963526447247,
+        "processing_end_enabled": false,
+        "peak_rss_KiB": 170984,
+        "restored_enabled": true,
+        "restored_thresholds": [
+          700,
+          10,
+          10
+        ],
+        "restored_monotonic_ns": 611963796028168
+      },
+      "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+      "peer_mask_raster": "broadcast-v1",
+      "peer_mask_raster_scope": "Explicit process-local implementation; original frozen publication/source/safety rules retained"
+    },
+    "peer-recording-saved.json": {
+      "saved": true,
+      "rows": 2066,
+      "last_sequence": 2066,
+      "phase": "after_peer_spin_exit"
+    },
+    "a0-direct-safety-saved.json": {
+      "saved": true,
+      "direct_reference": true,
+      "business_wires_installed": false,
+      "registered_owned_unknown_or_active": 0,
+      "safety_connections": 0
+    }
+  },
+  "gateway_exit": {
+    "native_exit": 0,
+    "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+  },
+  "network_run_integrity": true,
+  "scope": "Runtime/source/stop remain separately in original result; no metric PASS implied"
+}

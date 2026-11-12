@@ -1,0 +1,310 @@
+{
+  "status": "FAIL_RECORDING_PROCESS_DURING_AUTONOMY_NOT_GUARD",
+  "runtime_commit": "c4ad853e7e5e8707a0e5a0be1426bc84b4bd2e1e",
+  "activation_commit": "a0543d1f65fa9c2a3a9bc7948f446a0491a891f6",
+  "host_wall_s": 317.99107018194627,
+  "runner_exit": 1,
+  "hub_exit": 0,
+  "native_exit": 0,
+  "boot_exit": {
+    "start_utc": "2026-11-11T08:36:57.510343+00:00",
+    "native_exit": 1,
+    "outer_timeout": false,
+    "cleanup_timeout": false,
+    "end_utc": "2026-11-11T08:42:10.281505+00:00"
+  },
+  "error": "Controller, launch or bag exited during autonomous interval",
+  "end_reason": "fatal_error",
+  "autonomy_start_sim": 21.05,
+  "sim_elapsed": 156.2,
+  "wall_elapsed": 243.23390822403599,
+  "NN": 31,
+  "accepted_per_robot": {
+    "tb1": 3,
+    "tb2": 2,
+    "tb3": 4
+  },
+  "action_statuses": {
+    "tb1": [
+      [
+        "45624187a6b8470e97304a714b06514c",
+        2
+      ],
+      [
+        "45624187a6b8470e97304a714b06514c",
+        4
+      ],
+      [
+        "afdfdee7ec5b4c60a9068269e4e1c885",
+        2
+      ],
+      [
+        "afdfdee7ec5b4c60a9068269e4e1c885",
+        4
+      ],
+      [
+        "c017ead49dd4404b8da697dadbd9d733",
+        2
+      ],
+      [
+        "c017ead49dd4404b8da697dadbd9d733",
+        4
+      ]
+    ],
+    "tb2": [
+      [
+        "cf7e553d047e448e925886f4d24ddb8f",
+        2
+      ],
+      [
+        "cf7e553d047e448e925886f4d24ddb8f",
+        4
+      ],
+      [
+        "dafd945da5ea479e844f14e80fad0aa5",
+        2
+      ],
+      [
+        "dafd945da5ea479e844f14e80fad0aa5",
+        4
+      ]
+    ],
+    "tb3": [
+      [
+        "1f46b717b97b4a629d417499a8880ee0",
+        2
+      ],
+      [
+        "1f46b717b97b4a629d417499a8880ee0",
+        6
+      ],
+      [
+        "6d332975fff4471791b350fcca33512a",
+        2
+      ],
+      [
+        "6d332975fff4471791b350fcca33512a",
+        4
+      ],
+      [
+        "97fc3cc5a9ff441e852c36bcf34a7902",
+        2
+      ],
+      [
+        "97fc3cc5a9ff441e852c36bcf34a7902",
+        4
+      ],
+      [
+        "a90839da1efb410e877d98dac2d6d159",
+        2
+      ],
+      [
+        "a90839da1efb410e877d98dac2d6d159",
+        4
+      ]
+    ]
+  },
+  "distances": {
+    "tb1": 9.101831223532082,
+    "tb2": 5.5903371771055514,
+    "tb3": 12.981469651267027
+  },
+  "observed_stop": true,
+  "lifecycle_pause_healthy": true,
+  "final_request_ownership": {
+    "closed": true,
+    "authority_stopped": true,
+    "requests": 9,
+    "unresolved_requests": [],
+    "owned_goals": {
+      "tb1": [
+        "45624187a6b8470e97304a714b06514c",
+        "afdfdee7ec5b4c60a9068269e4e1c885",
+        "c017ead49dd4404b8da697dadbd9d733"
+      ],
+      "tb2": [
+        "cf7e553d047e448e925886f4d24ddb8f",
+        "dafd945da5ea479e844f14e80fad0aa5"
+      ],
+      "tb3": [
+        "1f46b717b97b4a629d417499a8880ee0",
+        "6d332975fff4471791b350fcca33512a",
+        "97fc3cc5a9ff441e852c36bcf34a7902",
+        "a90839da1efb410e877d98dac2d6d159"
+      ]
+    },
+    "unterminated_UUIDs": {
+      "tb1": [],
+      "tb2": [],
+      "tb3": []
+    },
+    "record_errors": []
+  },
+  "active_cancel_pass": false,
+  "hazard": null,
+  "run_integrity": false,
+  "network_run_integrity": false,
+  "gateway_failure": null,
+  "native_load": {
+    "pid": 587039,
+    "hub_pid": 587032,
+    "parent_pid": 587032,
+    "argv": [
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+      "--output=/dev/shm/net01d-f04-gz-simhealth-a1-01",
+      "--profile=B",
+      "--transport=tcp-mtu-v2",
+      "--controlTrace=1"
+    ],
+    "exe": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "start_ticks": 60325803,
+    "mapped_ns3_paths": [
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-antenna.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-bridge.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-core.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-csma.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-energy.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-internet.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-mobility.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-network.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-propagation.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-spectrum.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-stats.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-traffic-control.so",
+      "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib/libns3.40-wifi.so"
+    ],
+    "expected_root": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+    "exact_names": true,
+    "all_in_expected_root": true,
+    "actual_exe_matches": true,
+    "actual_parent_is_Hub": true
+  },
+  "controller_final": {
+    "mode": "HOLD",
+    "failure": null,
+    "expected_shutdown": true,
+    "physics_failed": false,
+    "physical_ns": 180570000000,
+    "iterations": 180570,
+    "actual_clock_ns": 180570000000,
+    "native_ACK_ns": 180560000000,
+    "fixed_offset_ns": 10000000,
+    "physical_RPC_inflight": false,
+    "session_id": 2026111143,
+    "gateway_clock_ready": true,
+    "pending_holds": 0,
+    "authority_exited": true,
+    "progress_wall_timeout_ns": 2000000000,
+    "progress_started_monotonic_ns": 603296708581235,
+    "actual_clock_progress_monotonic_ns": 603551828992482,
+    "native_ACK_progress_monotonic_ns": 603551832371458,
+    "physical_RPC_issued_monotonic_ns": null,
+    "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+    "token_wall_period_ns": 10000000,
+    "planned_realtime_factor": 1.0,
+    "actual_achieved_physical_rtf": 0.6302881455550312,
+    "physical_progress_sim_span_ns": 180570000000,
+    "physical_progress_wall_span_ns": 286488015479,
+    "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+    "next_earliest_wall_ns": 603460368581235,
+    "max_token_lateness_ns": 91458458085,
+    "late_tokens": 18054
+  },
+  "all_owned_gone": true,
+  "remaining_owned": [],
+  "source_held": {
+    "runtime_commit": "c4ad853e7e5e8707a0e5a0be1426bc84b4bd2e1e",
+    "critical_diff_exit": 0,
+    "critical_diff": "",
+    "scope": "Existing bound production/frozen tracked paths; nohashsweep",
+    "observed_monotonic_ns": 603944395502866
+  },
+  "bag_direct_error": "SqliteException: Error when processing SQL statement. SQLite error (5): database is locked",
+  "bag_returncode": "NOT_RECORDED_BY_EARLY_EXIT_PATH; no invented -6",
+  "specific_cause_of_SQLite_lock": "UNRESOLVED; live read-only monitoring possible interaction retained, not provedunique",
+  "process_stop_events": "small-raw/process-stop-events.json",
+  "original_data_truncation": "Recorder aborted before180sim; may have missingcache/uncommitteddata. Canonical metrics pending and muststopatfatal, no poststopsubstitution.",
+  "process_exits": {
+    "exploration": {
+      "exit": 0,
+      "context": "after original explicitSIGINT, not naturalterminal",
+      "signal_utc": "2026-11-11T08:41:44.961156+00:00",
+      "exit_utc": "2026-11-11T08:41:46.550337+00:00"
+    },
+    "launch": {
+      "exit": 0,
+      "context": "after original explicitSIGINT",
+      "signal_utc": "2026-11-11T08:42:05.013418+00:00",
+      "exit_utc": "2026-11-11T08:42:08.161980+00:00"
+    },
+    "bag": {
+      "exit": null,
+      "reason": "early-exit recorder returncode not recorded; direct SQLITE_BUSY exception retained"
+    }
+  },
+  "fatal_event": {
+    "utc": "2026-11-11T08:41:44.959884+00:00",
+    "wall": 1794386504.959917,
+    "sim": 177.25
+  },
+  "native_evidence_storage": {
+    "backend": "owned_tmpfs_then_copy_after_native_exit",
+    "source": "/dev/shm/net01d-f04-gz-simhealth-a1-01",
+    "destination": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a1-01.network/native",
+    "available_tmpfs_bytes": 51814678528,
+    "MemAvailable_bytes": 98458312704,
+    "source_retained": true,
+    "native_exit": 0,
+    "source_files": {
+      "native-summary.json": 449,
+      "ledger-status.json": 250,
+      "control-step-trace.jsonl": 3895648,
+      "transport-config.json": 4101,
+      "wifi-3-0.pcap": 332146,
+      "wifi-2-0.pcap": 332146,
+      "wifi-1-0.pcap": 332146,
+      "wifi-0-0.pcap": 331963,
+      "configured-lock.json": 3994,
+      "packet-ledger.jsonl": 7257942
+    },
+    "source_bytes": 12490785,
+    "copied_files": {
+      "wifi-1-0.pcap": 332146,
+      "packet-ledger.jsonl": 7257942,
+      "control-step-trace.jsonl": 3895648,
+      "configured-lock.json": 3994,
+      "ledger-status.json": 250,
+      "wifi-3-0.pcap": 332146,
+      "wifi-2-0.pcap": 332146,
+      "native-summary.json": 449,
+      "wifi-0-0.pcap": 331963,
+      "transport-config.json": 4101
+    },
+    "copied_bytes": 12490785,
+    "complete": true,
+    "copy_wall_s": 0.02233261801302433
+  },
+  "native_ledger_status": {
+    "async": false,
+    "captured": 54583,
+    "written": 54583,
+    "attempted": 54583,
+    "pending_capacity_records": 16384,
+    "peak_pending_including_inflight": 0,
+    "max_record_owned_bytes": 0,
+    "writer_cpu_ns": 0,
+    "model_cpu_ns": 4614269687,
+    "final_ns3_ns": 180560000000,
+    "failed": false
+  },
+  "R_primary": {
+    "status": "UNAVAILABLE_CANONICAL_ANALYZER_FAILED",
+    "actual_invocations": 1,
+    "exit": 1,
+    "error": "FileNotFoundError: bag/metadata.yaml",
+    "DB_shards_read_by_canonical": 0,
+    "metadata_synthesized": false,
+    "bad_shard_skipping": false,
+    "post_stop_samples_substituted": false
+  }
+}

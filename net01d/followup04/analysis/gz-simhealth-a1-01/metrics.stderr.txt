@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/workspace/gz01/analyze_recorded.py", line 240, in <module>
+    main(parser.parse_args())
+  File "/mnt/workspace/gz01/analyze_recorded.py", line 94, in main
+    for name,type_,timestamp,data in records(args.case/'bag'):
+  File "/mnt/workspace/gz01/bag_records.py", line 11, in records
+    metadata=yaml.safe_load((directory/'metadata.yaml').read_text())['rosbag2_bagfile_information']
+FileNotFoundError: [Errno 2] No such file or directory: '/mnt/net01d/followup04/runs/gz-simhealth-a1-01/bag/metadata.yaml'

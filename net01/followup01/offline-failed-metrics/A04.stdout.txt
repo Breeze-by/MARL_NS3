@@ -1,0 +1,188 @@
+{
+  "scope": "ENCLOSED TASK COMPONENT",
+  "initial_coverage": 0.11113253631572181,
+  "final_coverage": 0.34117495822085103,
+  "raw_thresholds": {
+    "0.5": null,
+    "0.8": null,
+    "0.9": null,
+    "0.95": null,
+    "0.98": null
+  },
+  "quality_valid_thresholds": {
+    "0.5": null,
+    "0.8": null,
+    "0.9": null,
+    "0.95": null,
+    "0.98": null
+  },
+  "quality_valid_samples": 1,
+  "samples": 6,
+  "robot_metrics": {
+    "tb1": {
+      "path_m": 0.5408738900302561,
+      "goals": 1,
+      "succeeded": 0,
+      "aborted": 0,
+      "canceled": 0,
+      "motion_participation": false,
+      "predecision_idle_sample_held_proxy_s": 3.5,
+      "task_timeline": {
+        "dispatched_ownership_intervals": [
+          [
+            35.0,
+            38.5
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            35.7,
+            38.5
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 4.600000000000001,
+        "pending_response_s": 0.7000000000000028,
+        "accepted_active_s": 2.799999999999997,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 0,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "local_ever_correct_area_m2": 13.252500000000003,
+      "local_added_correct_area_m2": 10.255000000000003,
+      "exclusive_correct_area_m2": 9.770000000000001,
+      "exclusive_new_correct_area_m2": 8.975000000000001,
+      "active_owned_low_translation_s": 0.09999999999999432,
+      "active_owned_stationary_s": 0.09999999999999432,
+      "repeated_request_coordinates_0_2m": 0,
+      "overlapping_request_ownership": 0,
+      "target_switch_while_previous_request_unterminated": 0,
+      "task_ownership_intervals": [
+        [
+          35.7,
+          38.5
+        ]
+      ],
+      "attribution_limit": "Local map observation/overlap facts, not causal first-arrival sensor credit"
+    },
+    "tb2": {
+      "path_m": 0.3181765847033021,
+      "goals": 1,
+      "succeeded": 0,
+      "aborted": 0,
+      "canceled": 0,
+      "motion_participation": false,
+      "predecision_idle_sample_held_proxy_s": 3.5,
+      "task_timeline": {
+        "dispatched_ownership_intervals": [
+          [
+            35.0,
+            38.5
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            35.7,
+            38.5
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 4.600000000000001,
+        "pending_response_s": 0.7000000000000028,
+        "accepted_active_s": 2.799999999999997,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 0,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "local_ever_correct_area_m2": 2.6725000000000003,
+      "local_added_correct_area_m2": 0.0,
+      "exclusive_correct_area_m2": 0.010000000000000002,
+      "exclusive_new_correct_area_m2": 0.0,
+      "active_owned_low_translation_s": 0.5999999999999943,
+      "active_owned_stationary_s": 0.09999999999999432,
+      "repeated_request_coordinates_0_2m": 0,
+      "overlapping_request_ownership": 0,
+      "target_switch_while_previous_request_unterminated": 0,
+      "task_ownership_intervals": [
+        [
+          35.7,
+          38.5
+        ]
+      ],
+      "attribution_limit": "Local map observation/overlap facts, not causal first-arrival sensor credit"
+    },
+    "tb3": {
+      "path_m": 0.4480248169305776,
+      "goals": 1,
+      "succeeded": 0,
+      "aborted": 0,
+      "canceled": 0,
+      "motion_participation": false,
+      "predecision_idle_sample_held_proxy_s": 3.5,
+      "task_timeline": {
+        "dispatched_ownership_intervals": [
+          [
+            35.0,
+            38.5
+          ]
+        ],
+        "accepted_active_intervals": [
+          [
+            35.7,
+            38.5
+          ]
+        ],
+        "waiting_no_dispatched_task_s": 4.600000000000001,
+        "pending_response_s": 0.7000000000000028,
+        "accepted_active_s": 2.799999999999997,
+        "rejected_actual_responses": 0,
+        "high_level_terminal_counts": {
+          "succeeded": 0,
+          "aborted": 0,
+          "rejected": 0,
+          "invalid_local_goal": 0,
+          "canceled": 0
+        },
+        "high_level_failure_count": 0,
+        "timeout_cancel_dispatched": 0,
+        "timeout_terminal_failures": 0,
+        "logical_terminal_events": [],
+        "time_semantics": "Actual request/response/result ROS event times define dispatched/pending/active intervals. Allocator logical timestamps can be cached and are retained only for cause/count; they are not treated as exact acceptance receipts."
+      },
+      "local_ever_correct_area_m2": 2.3600000000000003,
+      "local_added_correct_area_m2": 0.0,
+      "exclusive_correct_area_m2": 0.04000000000000001,
+      "exclusive_new_correct_area_m2": 0.0,
+      "active_owned_low_translation_s": 0.8999999999999986,
+      "active_owned_stationary_s": 0.19999999999999574,
+      "repeated_request_coordinates_0_2m": 0,
+      "overlapping_request_ownership": 0,
+      "target_switch_while_previous_request_unterminated": 0,
+      "task_ownership_intervals": [
+        [
+          35.7,
+          38.5
+        ]
+      ],
+      "attribution_limit": "Local map observation/overlap facts, not causal first-arrival sensor credit"
+    }
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "scope": "Single-session read-only isolation/resource snapshot; no node, network change, process termination or bag/native evidence read",
+  "timestamp_utc": "2026-11-12T06:45:05.798903+00:00",
+  "snapshot_monotonic_ns": 682947281320615,
+  "candidate": "net01e/followup02/gz-requests/corr6201-static-footprint-v1-b-01.candidate.json",
+  "session_id": 2026111241,
+  "domain_C": 91,
+  "domain_R": 92,
+  "gazebo_tcp_port": 11692,
+  "display": ":92",
+  "relevant_processes": [],
+  "unrelated_protected_processes": [
+    {
+      "pid": 3132625,
+      "comm": "nav2_costmap_2d",
+      "ROS_DOMAIN_ID": "69",
+      "scope": "Unrelated old process; observed only, not touched"
+    }
+  ],
+  "process_environment_permission_denied_count": 812,
+  "ports": {
+    "command": "rtk proxy ss -H -auntp",
+    "actual_exit": 0,
+    "matches": [],
+    "DDS_default_UDP_checked_ranges": {
+      "C91": [
+        30150,
+        30399
+      ],
+      "R92": [
+        30400,
+        30649
+      ]
+    },
+    "scope": "Default DDS port bindings plus Gazebo11692/X6092; no ROS graph or active probe; no all-environment output"
+  },
+  "exact_paths": {
+    "case": {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01",
+      "exists": false,
+      "parent_exists": true
+    },
+    "hub_socket": {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/ipc/sf-b01.sock",
+      "exists": false,
+      "parent_exists": true
+    },
+    "hub_evidence": {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.network",
+      "exists": false,
+      "parent_exists": true
+    },
+    "time_control": {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control",
+      "exists": false,
+      "parent_exists": true
+    },
+    "time_control_ack": {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.time-control/ack.sock",
+      "exists": false,
+      "parent_exists": false
+    },
+    "native_RAM": {
+      "path": "/dev/shm/net01e-f02-sf-b-01",
+      "exists": false,
+      "parent_exists": true
+    },
+    "host-exit.json": {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.host-exit.json",
+      "exists": false,
+      "parent_exists": true
+    },
+    "admission-used.json": {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.admission-used.json",
+      "exists": false,
+      "parent_exists": true
+    },
+    "owned-runner.json": {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.owned-runner.json",
+      "exists": false,
+      "parent_exists": true
+    },
+    "native.log": {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.native.log",
+      "exists": false,
+      "parent_exists": true
+    },
+    "xvfb.log": {
+      "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/followup02/gz-runs/corr6201-static-footprint-v1-b-01.xvfb.log",
+      "exists": false,
+      "parent_exists": true
+    },
+    "host_display_socket": {
+      "path": "/tmp/.X11-unix/X92",
+      "exists": false,
+      "parent_exists": true
+    },
+    "host_display_lock": {
+      "path": "/tmp/.X92-lock",
+      "exists": false,
+      "parent_exists": true
+    }
+  },
+  "resources": {
+    "memory": {
+      "MemTotal_bytes": 134770597888,
+      "MemAvailable_bytes": 72193019904,
+      "SwapTotal_bytes": 2147479552,
+      "SwapFree_bytes": 2145095680
+    },
+    "filesystems": {
+      "evidence_disk": {
+        "path": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+        "available_bytes": 1564424871936,
+        "total_bytes": 1967316512768,
+        "available_inodes": 120986364
+      },
+      "native_tmpfs": {
+        "path": "/dev/shm",
+        "available_bytes": 25091743744,
+        "total_bytes": 67385298944,
+        "available_inodes": 16449238
+      }
+    },
+    "reference_B_native_bytes": 8415038420,
+    "reference_scope": "Previously observed r01B native RAM copy, from accepted small result; no new large-file read/hash. Not a maximum future bound.",
+    "tmpfs_exceeds_reference": true,
+    "evidence_disk_exceeds_reference": true,
+    "MemAvailable_exceeds_reference": true,
+    "strict_whole_case_memory_disk_bound": "UNSPECIFIED in GZ_PLAN; headroom snapshot cannot guarantee maximum future usage"
+  },
+  "IPC_scope": "ControlledRuntime uses private /tmp per bwrap; /dev is bind-mounted. Host X92 paths alone do not prove private mount absence. No SysV/SHM cleanup or unrelated segment audit.",
+  "limitations": [
+    "Process environment and bound ports do not prove ROS endpoint graph state; no Node/CLI discovery performed.",
+    "Point-in-time only; later READY/START owner must maintain isolation. No reservation created.",
+    "Unrelated PID3132625/native_peer_test never terminated; observed domain only if readable."
+  ],
+  "isolation_status": "NO_OBSERVED_CONFLICT_WITH_PROCESS_VISIBILITY_LIMITS",
+  "conflict_path_keys": [],
+  "resource_status": "HEADROOM_EXCEEDS_OBSERVED_B_NATIVE_REFERENCE_ONLY"
+}

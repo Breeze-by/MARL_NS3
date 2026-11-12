@@ -1,0 +1,32 @@
+{
+  "source_commit": "ca6941913a7834d5634320c08e4f9258bf98e27a",
+  "scope": "One root-admitted no-motion actualWiFi qualification of original1000 execution candidate; not GZ/real-clock or safety PASS",
+  "command": "rtk proxy python3 -B net-01/workspace/net01/followup01/continuous_dds.py --name continuous-dds-20-original1000-wifi --mode B --feedback-hz 100 --execution-profile original1000-clock100-q10ms --control-trace --native /home/zhuyulab/ns3-workspace/net-01/build/followup03-release-portable-native/net01-payload",
+  "source_wall_s": 16,
+  "total_wall_s": 30,
+  "clock_sim_increment_s": 0.01,
+  "clock_wall_period_s": 0.01,
+  "feedback_per_wall_Hz": 100,
+  "local_costmap_cells": [
+    200,
+    200
+  ],
+  "local_costmap_wall_period_s": 0.5,
+  "network": "V3 unchanged",
+  "ELF_sha256": "82bc8ecff7d1e88d826931be534335fac21971fa8e6a23731af805f291c7e184",
+  "async_ledger": false,
+  "native_cpu_profile": false,
+  "dispatch_profile": false,
+  "control_trace": true,
+  "Gateway_bounded_GC": true,
+  "Gazebo": 0,
+  "Nav2": 0,
+  "Goal": 0,
+  "NN": 0,
+  "arm": 0,
+  "uncovered_flows": [
+    "89 merged map",
+    "95 controller journal"
+  ],
+  "admission": "Root read exact costmap/profilediff and17sample timestamp independent audit; one20 only, no retries/rate scan/newGZ"
+}

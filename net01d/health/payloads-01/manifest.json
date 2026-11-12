@@ -1,0 +1,55 @@
+{
+  "bag": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/net01-b-corridor-6201-01/bag/bag_0.db3",
+  "after_bag_timestamp_ns": 50640000000,
+  "scope": "Exact old Grid CDR content templates, not current SLAM observations",
+  "templates": {
+    "1:map": {
+      "topic": "/tb1/map",
+      "type": "nav_msgs/msg/OccupancyGrid",
+      "bag_message_id": 44771,
+      "bag_record_timestamp_ns": 51570000000,
+      "complete_CDR_bytes": 34800,
+      "file": "tb1-map.cdr"
+    },
+    "1:costmap": {
+      "topic": "/tb1/local_costmap/costmap",
+      "type": "nav_msgs/msg/OccupancyGrid",
+      "bag_message_id": 44352,
+      "bag_record_timestamp_ns": 51020000000,
+      "complete_CDR_bytes": 40104,
+      "file": "tb1-costmap.cdr"
+    },
+    "2:map": {
+      "topic": "/tb2/map",
+      "type": "nav_msgs/msg/OccupancyGrid",
+      "bag_message_id": 44942,
+      "bag_record_timestamp_ns": 51790000000,
+      "complete_CDR_bytes": 42740,
+      "file": "tb2-map.cdr"
+    },
+    "2:costmap": {
+      "topic": "/tb2/local_costmap/costmap",
+      "type": "nav_msgs/msg/OccupancyGrid",
+      "bag_message_id": 44161,
+      "bag_record_timestamp_ns": 50780000000,
+      "complete_CDR_bytes": 40104,
+      "file": "tb2-costmap.cdr"
+    },
+    "3:map": {
+      "topic": "/tb3/map",
+      "type": "nav_msgs/msg/OccupancyGrid",
+      "bag_message_id": 44340,
+      "bag_record_timestamp_ns": 51010000000,
+      "complete_CDR_bytes": 52816,
+      "file": "tb3-map.cdr"
+    },
+    "3:costmap": {
+      "topic": "/tb3/local_costmap/costmap",
+      "type": "nav_msgs/msg/OccupancyGrid",
+      "bag_message_id": 44139,
+      "bag_record_timestamp_ns": 50760000000,
+      "complete_CDR_bytes": 40104,
+      "file": "tb3-costmap.cdr"
+    }
+  }
+}

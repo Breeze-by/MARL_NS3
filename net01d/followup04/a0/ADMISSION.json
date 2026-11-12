@@ -1,0 +1,51 @@
+{
+  "execution_authorized": true,
+  "status": "ROOT_ADMITTED_ONE_A0_ZERO_ROBOT_ROS_INTERFACE_FIXTURE",
+  "runtime_source": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+  "domain": 96,
+  "session_id": 2026111154,
+  "fixture": "net01d/followup04/a0/check_a0_contract_ros.py",
+  "command": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "35s",
+    "bash",
+    "net01/ros-python.sh",
+    "/mnt/net01d/followup04/a0/check_a0_contract_ros.py",
+    "--output",
+    "/mnt/net01d/followup04/a0/evidence/ros-01"
+  ],
+  "command_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "output_relative_repo": "net01d/followup04/a0/evidence/ros-01",
+  "inner_wall_s": 30,
+  "outer_wall_s": 35,
+  "outer_kill_after_s": 2,
+  "production_changes": false,
+  "scope": "Actual A0 direct typedDDS/admin/Unix registration/2lateaccept overrides/Cancel/GetResult5/registryclose, synthetic1cellmask/health/clock and realDDS PAUSE/zero spies; no Nav2/physics/ns3/GZ/NN",
+  "source_binding": "net01d/followup04/requests/A0_SIMHEALTH_ADAPTER_BINDING.draft.json",
+  "actual_callbacks": [
+    "A0LocalStop",
+    "SafetyRegistry",
+    "SafetyClient",
+    "install_hq_record_hook",
+    "original LoggedActionClient",
+    "ControlledServer",
+    "BatchBinding",
+    "DirectReferenceGateway.receive_direct_health/receive_direct_bound",
+    "Gateway.time_control_state"
+  ],
+  "reused_existing_fixture": "net01d/followup02/a0/check_direct_safety.py HQFixture/publish_json and existing ControlledServer; no oldfullmatrix rerun",
+  "ordering": "Public async goal_callback awaits both actual received requests and actual admin HOLD revoke. Actual guard1 executor held after revoke until actual response_evidence; guard2 status pumped before delayed response. Explicit fixture event order, not production scheduler change.",
+  "critical_prerequisites": [
+    "B02 allwriter/ownedexit before any execution",
+    "Root source review/pin and unique START",
+    "Immediate domain96/uniqueoutput/ownedpathcheck at START"
+  ],
+  "first_failure_preserved": true,
+  "no_automatic_retry_or_GZ": true,
+  "review": "Root and independent source review accepted after fixture-only owner.session_id correction; B02 writers/owned exited. Single execution only, current domain96/output conflict gate at START."
+}

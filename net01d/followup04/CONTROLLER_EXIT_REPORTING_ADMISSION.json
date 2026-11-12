@@ -1,0 +1,39 @@
+{
+  "status": "ROOT_ADMITTED_ONE_ISOLATED_NO_ROBOT_RUN",
+  "execution_authorized": true,
+  "runtime_source_commit": "197a21aa86b45fc67be41f9b6cd5ec811cc29125",
+  "prepared_against": "aae271f49a8d041285b9a903b3f58d9546985574",
+  "case": "controller-exit-reporting-01",
+  "session_id": 2026111154,
+  "output_relative_repo": "net01d/followup04/evidence/controller-exit-reporting-01",
+  "outer_wall_s": 10,
+  "cases": [
+    "exit0",
+    "exit1",
+    "not_created",
+    "alive",
+    "missing"
+  ],
+  "source_files": [
+    "net01/run_network_case.py",
+    "net01/host_run.py"
+  ],
+  "scope": "Actual reporting AST plus short Python children; 0 ROS/native/Gazebo/model/NN/bag",
+  "command_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "proposed_argv": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=1s",
+    "10s",
+    "python3",
+    "-B",
+    "net01d/followup04/check_controller_exit_reporting.py",
+    "--admission",
+    "net01d/followup04/CONTROLLER_EXIT_REPORTING_ADMISSION.json"
+  ],
+  "no_automatic_retry": true,
+  "no_model_authorization": true,
+  "root_review": "Root and independent reviewer read actual source/plan; single fixed invocation, preserve first outcome/no retry/no robot/Nav2/Policy/native/Gazebo claims"
+}

@@ -1,0 +1,35 @@
+{
+  "repository": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "branch": "net-01e/dds-service-fix",
+  "source_head_before_final_evidence_commit": "1159f882524b8d21f631bed3bfe272351add4de7",
+  "runtime_source": "26559f4a3694f1bb4ca9cedbb97c67b00dd9006c",
+  "activation": "42f4a9fd753bcd1f77e912fbcc7af0f9c63d4dca",
+  "policy_release": "a014ef11d4b77fe45832268467993dfdeb4398f6",
+  "frozen_behavior": "76fd91cf937bd8d662302901dad063affbea3c38",
+  "checkpoint_SHA256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+  "native_ELF_SHA256": "0cc771a18a3eb63ebbc4eb09ee942aaba27ea93211e07a7a0805d993dcc7c4f3",
+  "frozen_worktree_check": {
+    "command": "rtk proxy git diff --name-only a014ef11d4b77fe45832268467993dfdeb4398f6 -- workspace policy contracts configs",
+    "actual_exit": 0,
+    "changed_files": [],
+    "scope": "Working tree compared to formal release; no new hashing or simulator call"
+  },
+  "profile": "controlled1000-clock100-q10ms-pace20-raster-simhealth",
+  "counts": {
+    "physical_episodes_total": 13,
+    "newV2": 12,
+    "old_physical_process_failure": 1,
+    "pre_native_failed_launch_attempt": 1,
+    "newV2_full_process": 11,
+    "newV2_legitimate_freshness_early_stop": 1,
+    "newV2_threshold95_reached": 12,
+    "policy_forward": 400,
+    "decision_attempt": 413,
+    "owned_UUIDs": 133,
+    "succeeded": 122,
+    "aborted": 7,
+    "canceled_including_cleanup": 4,
+    "unobserved_terminal": 0
+  },
+  "scope": "Source/runtime identity and actual budget; final local content commit is in DELIVERY_IDENTITY.json. No remote push or next stage."
+}

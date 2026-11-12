@@ -1,0 +1,165 @@
+{
+  "total": {
+    "unique_goal": 10,
+    "robot_rows": 636,
+    "idle_rows": 405,
+    "new_goals": 64,
+    "multi_goal": 54,
+    "joint_decisions": 212,
+    "unique_joint": 173,
+    "multi_joint": 39,
+    "joint_with_new_goal": 42,
+    "joint_with_multi_goal": 39,
+    "busy_KEEP": 231,
+    "no_work_WAIT": 341
+  },
+  "by_case": {
+    "corr6201-common58-r01-a1-fresh02": {
+      "unique_goal": 2,
+      "robot_rows": 105,
+      "idle_rows": 66,
+      "new_goals": 11,
+      "multi_goal": 9,
+      "joint_decisions": 35,
+      "unique_joint": 28,
+      "multi_joint": 7,
+      "joint_with_new_goal": 7,
+      "joint_with_multi_goal": 7,
+      "busy_KEEP": 39,
+      "no_work_WAIT": 55
+    },
+    "corr6201-common58-r01-b": {
+      "multi_goal": 9,
+      "robot_rows": 108,
+      "idle_rows": 71,
+      "new_goals": 11,
+      "unique_goal": 2,
+      "joint_decisions": 36,
+      "unique_joint": 30,
+      "multi_joint": 6,
+      "joint_with_new_goal": 7,
+      "joint_with_multi_goal": 6,
+      "busy_KEEP": 37,
+      "no_work_WAIT": 60
+    },
+    "corr6201-common58-r02-a1": {
+      "multi_goal": 9,
+      "robot_rows": 105,
+      "idle_rows": 57,
+      "new_goals": 12,
+      "unique_goal": 3,
+      "no_work_WAIT": 45,
+      "joint_decisions": 35,
+      "unique_joint": 27,
+      "multi_joint": 8,
+      "joint_with_new_goal": 10,
+      "joint_with_multi_goal": 8,
+      "busy_KEEP": 48
+    },
+    "corr6201-common58-r02-b": {
+      "multi_goal": 9,
+      "robot_rows": 105,
+      "idle_rows": 65,
+      "new_goals": 10,
+      "unique_goal": 1,
+      "joint_decisions": 35,
+      "unique_joint": 29,
+      "multi_joint": 6,
+      "joint_with_new_goal": 6,
+      "joint_with_multi_goal": 6,
+      "busy_KEEP": 40,
+      "no_work_WAIT": 55
+    },
+    "corr6201-common58-r03-a1": {
+      "multi_goal": 10,
+      "robot_rows": 105,
+      "idle_rows": 73,
+      "new_goals": 11,
+      "unique_goal": 1,
+      "joint_decisions": 35,
+      "unique_joint": 28,
+      "multi_joint": 7,
+      "joint_with_new_goal": 7,
+      "joint_with_multi_goal": 7,
+      "busy_KEEP": 32,
+      "no_work_WAIT": 62
+    },
+    "corr6201-common58-r03-b": {
+      "multi_goal": 8,
+      "robot_rows": 108,
+      "idle_rows": 73,
+      "new_goals": 9,
+      "unique_goal": 1,
+      "joint_decisions": 36,
+      "unique_joint": 31,
+      "multi_joint": 5,
+      "joint_with_new_goal": 5,
+      "joint_with_multi_goal": 5,
+      "busy_KEEP": 35,
+      "no_work_WAIT": 64
+    }
+  },
+  "by_robot": {
+    "tb1": {
+      "unique_goal": 2,
+      "robot_rows": 212,
+      "idle_rows": 130,
+      "new_goals": 23,
+      "busy_KEEP": 82,
+      "multi_goal": 21,
+      "no_work_WAIT": 107
+    },
+    "tb2": {
+      "multi_goal": 16,
+      "robot_rows": 212,
+      "idle_rows": 158,
+      "new_goals": 17,
+      "busy_KEEP": 54,
+      "no_work_WAIT": 141,
+      "unique_goal": 1
+    },
+    "tb3": {
+      "unique_goal": 7,
+      "robot_rows": 212,
+      "idle_rows": 117,
+      "new_goals": 24,
+      "busy_KEEP": 95,
+      "multi_goal": 17,
+      "no_work_WAIT": 93
+    }
+  },
+  "comparison": {
+    "traditional": {
+      "joint_decisions": 212,
+      "joint_different": 31,
+      "multi_joint_decisions": 39,
+      "multi_joint_different": 31,
+      "actual_new_goals": 64,
+      "actual_new_goal_different": 38,
+      "actual_multi_rows": 54,
+      "actual_multi_row_different": 38
+    },
+    "fixed_order_zero_logits": {
+      "joint_decisions": 212,
+      "joint_different": 29,
+      "multi_joint_decisions": 39,
+      "multi_joint_different": 29,
+      "actual_new_goals": 64,
+      "actual_new_goal_different": 36,
+      "actual_multi_rows": 54,
+      "actual_multi_row_different": 36
+    },
+    "random_seed2026111201": {
+      "joint_decisions": 212,
+      "joint_different": 30,
+      "multi_joint_decisions": 39,
+      "multi_joint_different": 30,
+      "actual_new_goals": 64,
+      "actual_new_goal_different": 34,
+      "actual_multi_rows": 54,
+      "actual_multi_row_different": 34
+    }
+  },
+  "random_scope": "one fixed-seed sequential uniform sample per frozen observation; not performance expectation",
+  "frozen_observation_scope": "PPO-generated state distribution; no counterfactual rollout/return/coverage"
+}

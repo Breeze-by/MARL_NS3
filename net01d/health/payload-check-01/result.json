@@ -1,0 +1,60 @@
+{
+  "scope": "0 ROS init/Node/DDS/native/Gazebo; six real generated Grid payload checks",
+  "templates": {
+    "1:map": {
+      "complete_CDR_bytes": 34800,
+      "width": 166,
+      "height": 209,
+      "frame_id": "map",
+      "resolution": 0.05000000074505806,
+      "all_typed_fields_roundtrip_equal": true,
+      "fixture_changes_only_two_documented_time_fields": true
+    },
+    "1:costmap": {
+      "complete_CDR_bytes": 40104,
+      "width": 200,
+      "height": 200,
+      "frame_id": "odom",
+      "resolution": 0.05000000074505806,
+      "all_typed_fields_roundtrip_equal": true,
+      "fixture_changes_only_two_documented_time_fields": true
+    },
+    "2:map": {
+      "complete_CDR_bytes": 42740,
+      "width": 204,
+      "height": 209,
+      "frame_id": "map",
+      "resolution": 0.05000000074505806,
+      "all_typed_fields_roundtrip_equal": true,
+      "fixture_changes_only_two_documented_time_fields": true
+    },
+    "2:costmap": {
+      "complete_CDR_bytes": 40104,
+      "width": 200,
+      "height": 200,
+      "frame_id": "odom",
+      "resolution": 0.05000000074505806,
+      "all_typed_fields_roundtrip_equal": true,
+      "fixture_changes_only_two_documented_time_fields": true
+    },
+    "3:map": {
+      "complete_CDR_bytes": 52816,
+      "width": 251,
+      "height": 210,
+      "frame_id": "map",
+      "resolution": 0.05000000074505806,
+      "all_typed_fields_roundtrip_equal": true,
+      "fixture_changes_only_two_documented_time_fields": true
+    },
+    "3:costmap": {
+      "complete_CDR_bytes": 40104,
+      "width": 200,
+      "height": 200,
+      "frame_id": "odom",
+      "resolution": 0.05000000074505806,
+      "all_typed_fields_roundtrip_equal": true,
+      "fixture_changes_only_two_documented_time_fields": true
+    }
+  },
+  "status": "PASS"
+}

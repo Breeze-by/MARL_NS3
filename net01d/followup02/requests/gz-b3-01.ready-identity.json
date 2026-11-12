@@ -1,0 +1,32 @@
+{
+  "status": "ROOT ADMITTED UNIQUE B; START HELD FOR ROOT COMMIT/BACKUP",
+  "runtime_commit": "e5ba7ea076caf317b040e0b58c0547255913c3b0",
+  "ready_relative_repo": "net01d/followup02/requests/gz-b3-01.ready.json",
+  "ready_sha256": "e79b5329b39868ed5539901f339a5ec87b21cebe6954736f9b852dc4dba3fd00",
+  "binding_relative_repo": "net01d/followup02/requests/GZ_B3_LTO180_ADAPTER_BINDING.json",
+  "final_authorization_flags": {
+    "execution_authorized": true,
+    "authorized_gz01_execution": true,
+    "authorized_net01_execution": true
+  },
+  "case": "net01d/followup02/runs/gz-b3-01",
+  "session_id": 2026111132,
+  "native_binary_sha256": "0cc771a18a3eb63ebbc4eb09ee942aaba27ea93211e07a7a0805d993dcc7c4f3",
+  "native_build_identity": "net01d/followup02/native/lto-build-01/BUILD_IDENTITY.json",
+  "native_artifact_identity_commit": "fbe269dd9f98f869b289ec81361b7fc20886642b",
+  "command_cwd": "/home/zhuyulab/ns3-workspace",
+  "prospective_argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net-01d/workspace/net01/host_run.py",
+    "--ready",
+    "net-01d/workspace/net01d/followup02/requests/gz-b3-01.ready.json"
+  ],
+  "source_byte_hashes": "A1 exact source-byte bindings reused; no source/frozen/library rehash or test repeated",
+  "production_sources_changed": false,
+  "B_ROS_native_Gazebo_starts": 0,
+  "root_execution_gate": "AWAITING SEPARATE ROOT START",
+  "exact_command": "rtk proxy python3 -B net-01d/workspace/net01/host_run.py --ready net-01d/workspace/net01d/followup02/requests/gz-b3-01.ready.json"
+}

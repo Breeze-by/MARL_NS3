@@ -1,0 +1,30 @@
+{
+  "execution_authorized": true,
+  "status": "WAIT_SOURCE_REVIEW_AND_UNIQUE_ROOT_START",
+  "script": "net01e/controller/check_graceful.py",
+  "output_relative_repo": "net01e/controller/graceful-01",
+  "domain": 97,
+  "cases_once": [
+    "fixed_constructor_SIGINT_and_gate",
+    "normal_DDS",
+    "idle_SIGINT",
+    "non_SIGINT_RuntimeError",
+    "accepted_ControlledServer_original_halt_close_cancel"
+  ],
+  "outer_wall_s": 60,
+  "inner_wall_s": 55,
+  "per_child_wait_wall_s": 12,
+  "expected_child_raw_exits": [
+    0,
+    0,
+    0,
+    1,
+    0
+  ],
+  "parent_preserves_expected_error_exit": 1,
+  "production_activation": false,
+  "gazebo_policy_motion_ns3": false,
+  "automatic_retry": false,
+  "root_START": "Root and independent reviewer admit exactly one five-purpose no-motion ROS qualification; expected non-signal failure remains real child/parent1; no Gazebo",
+  "reviewed_source_commit": "057e099648afa8da654e7d740b189aa83e5e12f5"
+}

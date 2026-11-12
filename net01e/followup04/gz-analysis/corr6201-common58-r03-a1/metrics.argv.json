@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "rtk",
+    "proxy",
+    "bash",
+    "net01/ros-python.sh",
+    "/mnt/workspace/gz01/analyze_recorded.py",
+    "--case",
+    "/mnt/net01e/followup04/gz-runs/corr6201-common58-r03-a1",
+    "--world",
+    "/mnt/inputs/worlds/eval-corridor-common-6201.sdf",
+    "--assets",
+    "/project/assets/gazebo_models",
+    "--positions",
+    "0.7249999999999996,-0.1499999999999999;0.34999999999999964,-0.7999999999999999;1.0999999999999996,-0.7999999999999999",
+    "--output",
+    "/mnt/net01e/followup04/gz-analysis/corr6201-common58-r03-a1/metrics"
+  ],
+  "cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "start_utc": "2026-11-12T14:26:19.724918+00:00",
+  "scope": "Original canonical once, all56 closed, same ROI/positions/quality/task phase"
+}

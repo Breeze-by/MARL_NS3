@@ -1,0 +1,40 @@
+{
+  "status": "EXPORTED_ONLY_NO_QUALIFICATION_CHANGE",
+  "cases": [
+    {
+      "arm": "B02",
+      "case": "net01d/followup04/runs/gz-simhealth-b1-02",
+      "ledger": "net01d/followup04/runs/gz-simhealth-b1-02.network/native/packet-ledger.jsonl",
+      "ledger_opens": 1,
+      "lines_read": 18693385,
+      "bytes_read": 3123224761,
+      "status": "STREAM_COMPLETE",
+      "line_start_byte": 3123224683,
+      "current_target_event": {
+        "kind": "message_deliver",
+        "message_id": 192827
+      },
+      "stream_wall_s": 191.72912304708734
+    },
+    {
+      "arm": "C",
+      "case": "net01d/followup04/runs/gz-simhealth-c1-01",
+      "ledger": "net01d/followup04/runs/gz-simhealth-c1-01.network/native/packet-ledger.jsonl",
+      "ledger_opens": 1,
+      "lines_read": 18722606,
+      "bytes_read": 3124389295,
+      "status": "STREAM_COMPLETE",
+      "line_start_byte": 3124389217,
+      "current_target_event": {
+        "kind": "message_deliver",
+        "message_id": 187228
+      },
+      "stream_wall_s": 187.39098214602564
+    }
+  ],
+  "PCAP_reads": 0,
+  "Gateway_reads": 0,
+  "stderr_reads": 0,
+  "model_runs": 0,
+  "automatic_retries": 0
+}

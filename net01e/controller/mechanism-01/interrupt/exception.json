@@ -1,0 +1,16 @@
+{
+  "observed_monotonic_ns": 620201851157735,
+  "type": "builtins.RuntimeError",
+  "repr": "RuntimeError('Unable to convert call argument to Python object (compile in debug mode for details)')",
+  "cause": "None",
+  "context": "None",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/net01e/controller/mechanism_probe.py\", line 81, in receiver\n    executor.spin_once(timeout_sec=.1)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 812, in spin_once\n    self._spin_once_impl(timeout_sec)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 809, in _spin_once_impl\n    raise handler.exception()\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py\", line 309, in _execute_coroutine_step\n    result = coro.send(None)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 478, in handler\n    arg = take_from_wait_list(entity)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 400, in _take_subscription\n    msg_info = sub.handle.take_message(sub.msg_type, sub.raw)\nRuntimeError: Unable to convert call argument to Python object (compile in debug mode for details)\n",
+  "subscriptions": [
+    {
+      "topic": "/net01e/controller/mechanism_grid",
+      "msg_type": "nav_msgs.msg._occupancy_grid.OccupancyGrid",
+      "raw": false,
+      "python_identity": 138979561000096
+    }
+  ]
+}

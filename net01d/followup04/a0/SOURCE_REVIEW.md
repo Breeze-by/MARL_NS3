@@ -1,0 +1,11 @@
+# A0 new-contract interface fixture source review
+
+**No remaining source blocker; supports Root pinning and separately starting this one30wall/35wall no-robot fixture.** Admission remains an explicit Root action. No fixture, ROS, model, build or test was run by this reviewer.
+
+Read actual `check_a0_contract_ros.py`, `ADMISSION.json`, `PLAN.md` and the directly invoked production/fixture methods. The initial fixture owner lacked `session_id`, which actual `DirectReferenceGateway.receive_direct_bound()` requires. This was reported before execution and fixed only in the fixture to `session_id=SESSION`; the corrected owner supplies all fields needed by direct health/bound/admin callbacks. Production runtime remains aae271f.
+
+The fixture reuses real A0LocalStop/SafetyRegistry/SafetyClient, the original typed LoggedActionClient, ControlledServer and actual BatchBinding/decoder. Real requests are registered before dispatch. Both public async goal callbacks wait for both actual requests and actual same-session fault-free authority-exited HOLD. They accept only after both Guards are halted. Explicit fixture executor pumping exercises response-before-active for robot1 and active/cancel-before-delayed-response for robot2; it does not change production scheduling. Checks require exact original UUIDs, one actual Cancel each, matching actual GetResult5, pending/ownership drain, real registry/socket close and executor/context shutdown.
+
+Parent and guardian share one30wall monotonic deadline, with outer35wall+2kill and failure-preserving cleanup; callback gates do not add a fresh budget. Domain96/session2026111154 and unique output/owned checks must be performed by the admitted launcher, as declared. This source review does not claim those preconditions have already run.
+
+Health/clock/one-cell bound masks are synthetic; PAUSE and zero are actual DDS spy interfaces. This is not Peer geometry, real Nav2/physical stop, ns3 delivery, full Gateway construction, CPU capacity,32s Full or Gazebo evidence. Common contract/watchdog tests are inherited rather than replayed. Two new A0 source identities supplement the43 existing bindings; no broad rehash is required by this review. First failure must remain and no retry/GZ follows automatically.

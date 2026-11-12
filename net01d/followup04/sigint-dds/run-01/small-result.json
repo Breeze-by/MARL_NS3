@@ -1,0 +1,104 @@
+{
+  "status": "FIXTURE_READY_PUBLICATION_RACE_BEFORE_WORKLOAD",
+  "tool_exit": 1,
+  "activation": "47a2b53",
+  "runtime": "197a",
+  "actual_result": {
+    "status": "DIAGNOSTIC_FAILED_FIRST_ERROR_PRESERVED",
+    "start_monotonic_ns": 612910571045902,
+    "start_utc": "2026-11-11T11:17:49.088735+00:00",
+    "parent_pid": 863877,
+    "parent_ppid": 863872,
+    "domain": 97,
+    "topic": "/net01d/sigint_diagnostic/grid",
+    "scope": "No-robot real typedDDS and one SIGINT diagnostic, not original HQ/NN/Nav2/GZ/native workload or physical proof",
+    "planned": {
+      "width": 400,
+      "height": 400,
+      "data_bytes": 160000,
+      "publish_period_wall_s": 0.05,
+      "supply_wall_s": 12.0,
+      "inner_wall_s": 30
+    },
+    "receiver_argv": [
+      "/usr/bin/python3",
+      "-B",
+      "/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py",
+      "--receiver-directory",
+      "/mnt/net01d/followup04/sigint-dds/run-01"
+    ],
+    "receiver_pid": 863895,
+    "driver_exception": {
+      "monotonic_ns": 612911032023992,
+      "utc": "2026-11-11T11:17:49.549673+00:00",
+      "type": "JSONDecodeError",
+      "module": "json.decoder",
+      "message": "Expecting value: line 1 column 1 (char 0)",
+      "cause": null,
+      "context": {
+        "type": "StopIteration",
+        "repr": "StopIteration(0)"
+      },
+      "suppress_context": true,
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py\", line 112, in driver\n    ready=json.loads((output/'receiver-ready.json').read_text())\n  File \"/usr/lib/python3.10/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/lib/python3.10/json/decoder.py\", line 337, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n  File \"/usr/lib/python3.10/json/decoder.py\", line 355, in raw_decode\n    raise JSONDecodeError(\"Expecting value\", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n",
+      "frames": [
+        {
+          "file": "/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py",
+          "function": "driver",
+          "line": 112
+        },
+        {
+          "file": "/usr/lib/python3.10/json/__init__.py",
+          "function": "loads",
+          "line": 346
+        },
+        {
+          "file": "/usr/lib/python3.10/json/decoder.py",
+          "function": "decode",
+          "line": 337
+        },
+        {
+          "file": "/usr/lib/python3.10/json/decoder.py",
+          "function": "raw_decode",
+          "line": 355
+        }
+      ]
+    },
+    "owned_cleanup": "SIGTERM after diagnostic wait failure; no second SIGINT",
+    "end_monotonic_ns": 612911067383096,
+    "actual_published": 0,
+    "first_publish_monotonic_ns": null,
+    "last_publish_monotonic_ns": null,
+    "actual_SIGINT_count": 0,
+    "actual_child_final_exit": -15,
+    "owned_child_gone": true,
+    "parent_context_ok": false
+  },
+  "guarded_driver_wall_s": 0.496337194,
+  "receiver_ready_now_valid": {
+    "pid": 863895,
+    "ppid": 863877,
+    "monotonic_ns": 612911031257161,
+    "domain": 97,
+    "RMW_IMPLEMENTATION": "rmw_fastrtps_cpp",
+    "signal_handler_options": "NO, same as frozen headquarters; Python SIGINT untouched",
+    "default_Python_SIGINT": true,
+    "topic": "/net01d/sigint_diagnostic/grid",
+    "msg_type_module": "nav_msgs.msg._occupancy_grid",
+    "msg_type_name": "OccupancyGrid",
+    "raw": false
+  },
+  "receiver_ready_file_bytes": 404,
+  "source_cause": "save(path) open(x) exposes empty file before json.dump; parent existence gate plus publisher discovery did not establish completed ready JSON. Actual read failed with empty char0; later unchanged file is valid.",
+  "target_error_observation": "NOT_TESTED:0published/0SIGINT. Neither NOT_REPRODUCED nor reproduction/fix evidence.",
+  "child_cleanup": "Only owned SIGTERM after fixture failure, actualexit-15; no receiver cleanup.json, so not claimed normal Python/finally/context closure.",
+  "actual_owned_pid_present": {
+    "863877": false,
+    "863895": false
+  },
+  "domain97_udp_ports_after": [],
+  "first_failure_preserved": true,
+  "no_source_changes_or_retry": true,
+  "observation_utc": "2026-11-11T11:19:12.371578+00:00",
+  "observation_monotonic_ns": 612993853985493
+}

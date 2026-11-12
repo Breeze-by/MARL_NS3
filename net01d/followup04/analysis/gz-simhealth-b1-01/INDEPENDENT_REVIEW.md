@@ -1,0 +1,42 @@
+# gz-simhealth-b1-01 independent review
+
+**Bounded business/primary-metric evidence accepted; final process/network integrity FAIL.** This B completes the declared180sim exploration component but Gateway ROS is SIGKILLed during post-stop exit. Do not report overall B/project PASS or replace the original failed exit. No new run/source change is authorized here.
+
+Read only `RESULT.md`, `small-result.json`, canonical small metrics/read manifest, the selected shutdown audit and relevant supervisor/Gateway source. No large Gateway/native ledger/PCAP/bag scan, test or model was performed by this reviewer.
+
+## Actual completed component
+
+Runtime **2be7e229492d29817057fa8db166e38f114ca209**, activatione8c5932, actual B transport and unchanged frozen inputs/profile are retained. Autonomy G16.33→196.33 completes **180sim /412.160643560wall seconds**, budget end rather than natural completion. There are36 actual inferences and ten real Nav2 UUIDs, all terminal4: **4/2/4 succeeded**, zero aborted/canceled. Primary-window paths are17.258668/5.373756/15.900231m; minimum reported pair distance0.723047m. Original physical observed-stop, PAUSE, authority/request ownership closure and Observer engineering/run-integrity gates are true, error/hazard null. No active UUID remains and `active_cancel_pass=false`; this is not a moving-cancellation test.
+
+Original canonical R analysis runs once after writer/all-owned exit over all original metadata/shards, with unchanged ROI15558, quality/alignment and phase boundaries. Initial **11.055406% →99.916442% (15545/15558)**,240/247 samples quality-valid and final valid. Quality-valid T50/80/90/95/98 are7.66/38.58/**63.27/65.43**/93.30sim seconds. No C/stopped-phase map substitutes for primary R. A1-03 T95=41.48 versus B65.43 is one observed matched-profile pair with different trajectories/Goal distribution, not a statistical causal estimate or communication-optimization gain.
+
+Autonomy RTF0.436722921 and whole first-token→latest ACK0.433579894 have different scopes, both below target1x. Normal receipt_sim/credit distributions and per-run activation count remain unmeasured; healthy final snapshots do not replace those statistics. The new simulation receipt contract cannot be promoted to original wall300 deployment safety.
+
+## What actually failed
+
+Gateway **ROS PID727580**, not native leaf727495, receives original supervisor SIGINT, then SIGTERM after20.001373wall seconds, SIGKILL5.009995 seconds later, and exits−9. `network-gateway-exit.json.native_exit` is a misleading old label for that ROS process; actual native/Hub exits are0. Observer runner exit0 and original `run_integrity=true` coexist with **host command1/network_run_integrity=false**. Keep both levels explicitly.
+
+Native serial END and8266837171B evidence/four-PCAP copy complete. Gateway save records both executor shutdowns true, resources destroyed/END flushed and no C/R/local/confirmation pending state. The main JSON's351717800B size and file mtimes place its save after TERM and3.739460s before KILL. Reported persist19.589717s covers a persistence stage, not all process exit work. No monotonic post-save/main-return stack or phase marker exists, so remaining object release/interpreter/GC/resource exit cost is **UNRESOLVED**. These facts neither prove harmlessness nor a data-serialization-only bug.
+
+Host502.106929wall is below1000 and outer/cleanup timeout flags are false. The kill comes from frozen `run_case.py:582–595`20/5/5 escalation, called on Gateway before launch teardown by `run_network_case.py:338–350`. Actual old0cc/13DSO/Hub identity passes and all15 owned processes, including separately identified/stopped domain92 daemon, are finally gone;91/92 clear and69 untouched. “No forced controlled-time groups” must not be rewritten as no forced process termination: Gateway SIGKILL occurred.
+
+## Minimal candidate and validation boundary
+
+A small post-stop **evidence-finalization phase** is a reasonable candidate, not yet a repair or permission to rerun. Parent must first hold original actual physical-stop/authority/UUID-closure success. Child must expose actual resource-close proof for Hub/ROS executors/nodes/contexts and sampler, tied to the exact case/PID/session. Only then may a declared bounded evidence/exit window (proposed≤60s) use the remaining **shared absolute** work/cleanup/host deadline. Do not restart60 at successive markers, borrow autonomy from cleanup, or imply normal exits already inherited an unconditional90-second allowance. Missing/invalid proof or failed physical stop retains original failure escalation.
+
+Keep stop12, active simulation/wall budgets, all safety thresholds, original evidence contents and actual exit0 requirement. Minimal append-only monotonic markers can separate resources closed, persist begin/end and main return. Saved is not exit0; timeout, sink failure or saved-then-stuck exit must remain integrity FAIL. Do not use `os._exit`, suppress destructors or infer a GC optimization without evidence.
+
+Support only a separately admitted **no-robot actual close/persist/supervisor fixture** first: normal bounded exit0; no-close/invalid proof retains old escalation; valid-close persistence stall hits its bounded failure; saved-then-stuck remains nonzero/integrity failure. Reuse existing SDK/Unix fixture resources, do not add native/GZ merely to validate a wait policy. Exact source/fixture budget must be reviewed before execution. Any later full Gazebo decision requires that result and a new case identity; this original−9/network FAIL is immutable.
+
+## Post-stop SOURCE_READY review
+
+**No remaining source blocker found; accept for pinning and a separately admitted no-robot fixture only.** Read the current four-Python/profile diff, including the conditional host-deadline CLI fix for the existing controlled120 path (`host_deadline=None`). No tests, builds, models or large evidence scans were performed by this reviewer.
+
+`run_network_case.py:143` retains the original final physical-stop/PAUSE, authority/UUID closure, healthy state and fresh zero-RPC seal. The new eligibility flag is set only after that seal succeeds. `:346` additionally checks the actual Gateway PID, session, resolved case, closure timestamp within the initial SIGINT window, clean END/resources/executors and empty pending/confirmation/sampler state. `gateway.py:780` produces this proof after actual closure and before persistence; its new phase records do not manufacture exit success. A0's inherited close path remains subject to its own `_close()` clean result.
+
+`run_network_case.py:367` anchors shutdown once. Its total deadline is the minimum of first shutdown+60s, the boot work deadline, host hard deadline and the once-started cleanup deadline. Proof permits at most50s SIGINT grace with5s TERM/5s KILL reserved inside that same total. Missing proof retains20/5/5, shortened if an existing parent bound is nearer. Repeated shutdown/persist-observer calls cannot renew the original baseline: `main()` assigns `original.end_process=end_process`, so the fallback in `persist_observer_records()` also reaches this bounded path. Boot/host pass existing monotonic absolute limits; they do not extend active work or robot stop12.
+
+Profiles without the new field still call the frozen20/5/5 helper. The corrected conditional CLI preserves the unbounded-180-owner distinction in controlled120 rather than evaluating `int(None*1e9)`. Original runtime safety, permissions, source clocks/rates, Policy, physics and native transport are unchanged. `saved`, `persist_end` and `main_return` are stage evidence; actual process return code remains the integrity gate. A future kill, close error or saved-then-stuck case must remain FAIL, and this historical B−9 is not repaired retroactively.
+
+The minimum useful fixture exercises the actual Gateway close/persist and supervisor functions, with real owned process exit/signals and bounded cleanup, without robots/native/Gazebo. It should demonstrate valid same-process closure followed by persistence beyond the old20s grace and actual exit0; reject missing/wrong/stale closure proof without extension; and preserve failure when a proven-closed process remains alive after save. Predicate/deadline checks can cover the invalid proof variants and second-call nonrenewal without additional timed episodes. A stubbed physical-stop/seal prerequisite must be labelled fixture input, not new physical safety evidence. No Full or Gazebo admission follows from source acceptance alone.
+

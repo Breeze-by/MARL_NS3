@@ -1,0 +1,590 @@
+diff --git a/net01/action_wire.py b/net01/action_wire.py
+index 98e6854..6b61203 100644
+--- a/net01/action_wire.py
++++ b/net01/action_wire.py
+@@ -47,9 +47,9 @@ class ActionWire:
+                 self.clients[offset]=node.create_client(typ,name+'/_action/'+suffix,callback_group=self.group)
+             self.subscriptions=[
+                 node.create_subscription(NavigateToPose.Impl.FeedbackMessage,name+'/_action/feedback',
+-                    partial(self._publish_wire,robot,6),QoSProfile(depth=10),callback_group=self.group),
++                    partial(self._publish_raw_wire,robot,6),QoSProfile(depth=10),callback_group=self.group,raw=True),
+                 node.create_subscription(GoalStatusArray,name+'/_action/status',
+-                    partial(self._publish_wire,robot,7),qos_profile_action_status_default,callback_group=self.group)]
++                    partial(self._publish_raw_wire,robot,7),qos_profile_action_status_default,callback_group=self.group,raw=True)]
+         self.timer=node.create_timer(readiness_period_s,self.poll_readiness,callback_group=self.group)
+ 
+     @staticmethod
+@@ -65,6 +65,9 @@ class ActionWire:
+     def _publish_wire(self,robot,offset,message):
+         self.send(0,self.flow(robot,offset),serialize_message(message),self.next_id())
+ 
++    def _publish_raw_wire(self,robot,offset,body):
++        self.send(0,self.flow(robot,offset),body,self.next_id())
++
+     def backend_is_ready(self):
+         # Reuse the actual typed business endpoints. A second ActionClient just
+         # for discovery also consumes feedback/status and duplicates hot work.
+@@ -140,8 +143,7 @@ class ActionWire:
+             elif offset in (6,7):
+                 endpoints=self.endpoints.get(robot)
+                 if endpoints is not None:
+-                    typ=NavigateToPose.Impl.FeedbackMessage if offset==6 else GoalStatusArray
+-                    endpoints[1 if offset==6 else 2].publish(deserialize_message(body,typ))
++                    endpoints[1 if offset==6 else 2].publish(body)
+             else:raise ValueError('Unexpected robot-to-central Action flow')
+         else:
+             typ=next((typ for index,typ,_ in SERVICES if index==offset),None)
+diff --git a/net01/boot_network.py b/net01/boot_network.py
+index c5c0463..dcbc481 100644
+--- a/net01/boot_network.py
++++ b/net01/boot_network.py
+@@ -35,6 +35,7 @@ def main():
+         DISPLAY=":92",QT_QPA_PLATFORM="offscreen",LIBGL_ALWAYS_SOFTWARE="1",
+         PYTHONDONTWRITEBYTECODE="1",GZ01_CASE=str(case),NET01_MODE=net["mode"],
+         NET01_SESSION_ID=str(net["session_id"]),NET01_SOCKET=net["socket_container"])
++    os.environ['NET01_CONTROL_TRACE']='1' if net.get('control_trace',False) else '0'
+     os.environ["GAZEBO_MODEL_PATH"]="/project/assets/gazebo_models:"+os.environ.get("GAZEBO_MODEL_PATH","")
+     os.environ.pop("GZ01_BATCH_GDB",None);os.environ.pop("GZ01_HOST_GDB",None)
+     result=dict(start_utc=datetime.now(timezone.utc).isoformat(),native_exit=None,outer_timeout=False,cleanup_timeout=False)
+diff --git a/net01/followup01/continuous_dds.py b/net01/followup01/continuous_dds.py
+index a926531..add4468 100644
+--- a/net01/followup01/continuous_dds.py
++++ b/net01/followup01/continuous_dds.py
+@@ -150,10 +150,11 @@ def peer(directory,stop_file):
+         (directory/'fixture-stop-overhead.json').write_text(json.dumps(checks))
+ 
+ 
+-def gateway(directory,stop_file):
++def gateway(directory,stop_file,dispatch_profile,control_trace,mode):
+     sys.path.insert(0,str(HERE))
+     from gateway import Gateway
+-    node=Gateway('A',directory.parent/'wire.sock',directory,2026110912)
++    node=Gateway(mode,directory.parent/'wire.sock',directory,2026110912,
++        dispatch_profile=dispatch_profile,control_trace=control_trace)
+     checks=[];next_check=0
+     try:
+         while True:
+@@ -167,12 +168,12 @@ def gateway(directory,stop_file):
+     return 0 if clean else 1
+ 
+ 
+-def host(name,feedback_hz):
++def host(name,feedback_hz,dispatch_profile,control_trace,native,mode):
+     repo=HERE.parent;phase=repo.parent
+     base=repo/'runs'/name;base.mkdir(exist_ok=False)
+     for role_name in ('source','peer','gateway'):(base/role_name).mkdir()
+     (base/'scope.json').write_text(json.dumps(dict(scope='Synthetic-clock continuous DDS diagnostic; NOT GZ TIME/NET safety',
+-        hard_wall_s=20,source_wall_s=8,feedback_hz=feedback_hz,domains=dict(C=91,R=92),mode='A direct',Gazebo=0,Nav2=0,ActionServer=0,NN=0)))
++        hard_wall_s=20,source_wall_s=8,feedback_hz=feedback_hz,dispatch_profile=dispatch_profile,control_trace=control_trace,native=None if native is None else str(native),domains=dict(C=91,R=92),mode=mode,Gazebo=0,Nav2=0,ActionServer=0,NN=0)))
+     start=time.monotonic();deadline=start+19.5;processes={};logs=[];error=None
+     def launch(role,args,pipe=False):
+         log=(base/(role+'.stderr.txt')).open('x');logs.append(log)
+@@ -184,14 +185,15 @@ def host(name,feedback_hz):
+     sub='/mnt/net01/followup01/continuous_dds.py'
+     socket=base/'wire.sock'
+     try:
++        if control_trace and native is None:raise ValueError('Control trace requires explicit independent diagnostic native')
+         hub=launch('hub',[sys.executable,'-B',str(HERE/'tools/packet_hub.py'),'--socket',str(socket),
+-            '--native',str(phase/'build/network-full-payload/net01-payload'),'--output',str(base/'hub'),
+-            '--profile','B','--wall','19','--clock-source','gazebo'],pipe=True)
++            '--native',str(native if native is not None else phase/'build/network-full-payload/net01-payload'),'--output',str(base/'hub'),
++            '--profile','B','--wall','19','--clock-source','gazebo']+(['--control-trace'] if control_trace else []),pipe=True)
+         readable,_,_=select.select([hub.stdout],[],[],min(5,deadline-time.monotonic()))
+         if not readable or hub.stdout.readline().strip()!='IPC_LISTENING '+str(socket):raise RuntimeError('Native IPC startup failed')
+         stop='/mnt/runs/'+name+'/STOP'
+         launch('peer',wrapper+[sub,'--role','peer','--directory','/mnt/runs/'+name+'/peer','--stop-file',stop])
+-        launch('gateway',wrapper+[sub,'--role','gateway','--directory','/mnt/runs/'+name+'/gateway','--stop-file',stop])
++        launch('gateway',wrapper+[sub,'--role','gateway','--directory','/mnt/runs/'+name+'/gateway','--stop-file',stop,'--mode',mode]+(['--dispatch-profile'] if dispatch_profile else [])+(['--control-trace'] if control_trace else []))
+         src=launch('source',wrapper+[sub,'--role','source','--directory','/mnt/runs/'+name+'/source','--feedback-hz',str(feedback_hz)])
+         src.wait(timeout=max(.01,deadline-time.monotonic()-3))
+     except BaseException as exc:error=repr(exc)
+@@ -218,6 +220,10 @@ if __name__=='__main__':
+     parser.add_argument('--directory',type=Path)
+     parser.add_argument('--name',default='continuous-dds-02');parser.add_argument('--stop-file',type=Path)
+     parser.add_argument('--feedback-hz',type=int,default=0)
++    parser.add_argument('--dispatch-profile',action='store_true')
++    parser.add_argument('--control-trace',action='store_true')
++    parser.add_argument('--native',type=Path)
++    parser.add_argument('--mode',choices=['A','B'],default='A')
+     a=parser.parse_args()
+-    raise SystemExit(host(a.name,a.feedback_hz) if a.role=='host' else source(a.directory,a.feedback_hz) if a.role=='source' else
+-        gateway(a.directory,a.stop_file) if a.role=='gateway' else peer(a.directory,a.stop_file))
++    raise SystemExit(host(a.name,a.feedback_hz,a.dispatch_profile,a.control_trace,a.native,a.mode) if a.role=='host' else source(a.directory,a.feedback_hz) if a.role=='source' else
++        gateway(a.directory,a.stop_file,a.dispatch_profile,a.control_trace,a.mode) if a.role=='gateway' else peer(a.directory,a.stop_file))
+diff --git a/net01/gateway.py b/net01/gateway.py
+index 0a63b92..f843c60 100644
+--- a/net01/gateway.py
++++ b/net01/gateway.py
+@@ -34,34 +34,71 @@ from link_session import LinkSession
+ from topic_wire import TopicWire
+ 
+ 
+-def drain_current_ready(executor,node):
+-    """One bounded public ready batch, in original SingleThreaded order.
++def record_cpu_span(table,key,wall,cpu):
++    elapsed=time.monotonic_ns()-wall;used=time.thread_time_ns()-cpu
++    row=table.setdefault(key,dict(calls=0,wall_ns=0,thread_cpu_ns=0,max_wall_ns=0))
++    row['calls']+=1;row['wall_ns']+=elapsed;row['thread_cpu_ns']+=used
++    row['max_wall_ns']=max(row['max_wall_ns'],elapsed)
++
++
++def drain_current_ready(executor,node,ready_set,after_handler=None,callback_limit=None,
++                        profile=None,entity_label=None):
++    """Bounded productive ready sets, in original SingleThreaded order.
+ 
+     Keep the executor's cached iterator across cap hits. Do not wait/rebuild an
+     empty waitset for every other-domain callback or favor any topic/timer.
++    Timeout0 also ends a productive set; it does not mean readers are empty.
+     """
+-    cap=sum(len(tuple(getattr(node,name))) for name in
++    cap=callback_limit if callback_limit is not None else sum(
++        len(tuple(getattr(node,name))) for name in
+         ('subscriptions','timers','clients','services','guards','waitables'))
+     completed=[]
+-    for _ in range(cap):
+-        try:handler,entity,_=executor.wait_for_ready_callbacks(timeout_sec=0)
+-        except (TimeoutException,ShutdownException):break
++    while len(completed)<cap:
++        if profile is not None:wait_wall=time.monotonic_ns();wait_cpu=time.thread_time_ns()
++        wait_kind='error'
++        try:
++            handler,entity,_=executor.wait_for_ready_callbacks(timeout_sec=0)
++            wait_kind='ready'
++        except TimeoutException:
++            wait_kind='productive_set_end' if ready_set['productive'] else 'empty_set'
++            if not ready_set['productive']:break
++            ready_set['productive']=False
++            continue
++        except ShutdownException:
++            wait_kind='shutdown'
++            ready_set['shutdown']=True
++            break
++        finally:
++            if profile is not None:record_cpu_span(profile['wait'],wait_kind,wait_wall,wait_cpu)
+         began=time.monotonic()
+-        handler()
+-        if handler.exception() is not None:raise handler.exception()
+-        handler.result()
++        if profile is not None:handler_wall=time.monotonic_ns();handler_cpu=time.thread_time_ns()
++        try:
++            handler()
++            if handler.exception() is not None:raise handler.exception()
++            handler.result()
++        finally:
++            if profile is not None:record_cpu_span(profile['handlers'],entity_label(entity),handler_wall,handler_cpu)
+         completed.append((entity,began))
++        ready_set['productive']=True
++        if after_handler is not None:after_handler()
+     return completed,cap
+ 
+ 
+ class Gateway:
+-    def __init__(self, mode, socket, directory, session_id):
++    def __init__(self, mode, socket, directory, session_id, *, dispatch_profile=False,control_trace=False):
+         self.mode,self.directory,self.session_id=mode,Path(directory),session_id
+         self.records=[];self.direct=deque();self.direct_sequence=0
+         self.contexts=[];self.nodes=[];self.executors=[]
+-        self.dispatch_stats=dict(C=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
++        self.ready_sets={side:dict(productive=False) for side in ('C','R')}
++        self.c_empty_until=0.
++        self.dispatch_stats=dict(C=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.,empty_recheck_started=0,empty_recheck_skips=0),
+             R=dict(batches=0,callbacks=0,cap_hits=0,max_wall_s=0.,max_cpu_s=0.),
+-            guard_timers={},max_poll_gap_wall_s=0.)
++            guard_timers={},max_poll_gap_wall_s=0.,
++            schedule='C/R cached handlers alternate in fixed quantum4; stop after a pair when either initial cap is used',
++            side_span_semantics='max_wall/cpu are accumulated side service time per poll, including pump; not contiguous batches or single-callback spans')
++        self.cpu_profile=(dict(C=dict(wait={},handlers={}),R=dict(wait={},handlers={}),progress={})
++            if dispatch_profile else None)
++        self.profile_labels={}
+         self.last_poll=None
+         for domain,side in ((91,"C"),(92,"R")):
+             context=Context()
+@@ -71,7 +108,7 @@ class Gateway:
+             executor=SingleThreadedExecutor(context=context);executor.add_node(node)
+             self.contexts.append(context);self.nodes.append(node);self.executors.append(executor)
+         self.c,self.r=self.nodes
+-        self.hub=HubClient(socket);self.hub.receive=self.receive
++        self.hub=HubClient(socket,control_trace=control_trace);self.hub.receive=self.receive
+         self.link=LinkSession(self,session_id)
+         self.guards={r:LocalStop(self.r,r,session_id) for r in (1,2,3)}
+         self.anchor=None;self.gz=None;self.previous_clock=None;self.step_pending=None
+@@ -141,8 +178,32 @@ class Gateway:
+         self.action_r={r:ActionWire(self.r,
+             lambda peer,flow,body,rpc,r=r:self.send(r,peer,flow,body,rpc),
+             robot=r,session_id=self.session_id,guardian=self.guards[r]) for r in (1,2,3)}
++        if self.cpu_profile is not None:
++            for side,wire in self.wires.items():
++                outgoing=[flow for flow,spec in wire.specs.items()
++                    if (side=='R')==(spec['direction']=='up')]
++                for subscription,flow in zip(wire.subscriptions,outgoing):
++                    self.profile_labels[subscription]=f'flow{flow}:{subscription.topic_name}'
++            for robot,subscription in enumerate(self.bound_c.subscriptions,1):
++                self.profile_labels[subscription]=f'flow{robot*20+10}:{subscription.topic_name}'
++            for robot,action in self.action_r.items():
++                self.profile_labels[action.timer]=f'action_readiness_tb{robot}'
++                for offset,subscription in zip((6,7),action.subscriptions):
++                    self.profile_labels[subscription]=f'flow{action.flow(robot,offset)}:{subscription.topic_name}'
++            self.profile_labels[self.action_c.timer]='central_readiness_expiry'
+         self.record("business_subscriptions_created",actual_wifi_handshake=self.mode!="A")
+ 
++    def profile_entity(self,entity):
++        if entity in self.profile_labels:return self.profile_labels[entity]
++        if entity is self.clock_sub:return 'control_clock'
++        if entity is self.status_timer:return 'gateway_status_timer'
++        if entity is self.journal_timer:return 'journal_timer'
++        for robot,guard in self.guards.items():
++            if entity is guard.timer:return f'guard_timer_tb{robot}'
++        if hasattr(entity,'topic_name'):return 'subscription:'+entity.topic_name
++        if hasattr(entity,'srv_name'):return type(entity).__name__+':'+entity.srv_name
++        return type(entity).__name__
++
+     def receive(self,meta,body,rpc):
+         self.record("destination_complete_message",meta=meta,rpc_id=rpc,cdr_bytes=len(body))
+         if self.link.receive(meta,body,rpc):return
+@@ -203,21 +264,66 @@ class Gateway:
+         if self.last_poll is not None:self.dispatch_stats['max_poll_gap_wall_s']=max(
+             self.dispatch_stats['max_poll_gap_wall_s'],now-self.last_poll)
+         self.last_poll=now
+-        for side,executor,node in zip(('C','R'),self.executors,self.nodes):
+-            before=time.monotonic();cpu=time.thread_time()
+-            completed,cap=drain_current_ready(executor,node)
+-            stat=self.dispatch_stats[side];stat['batches']+=1;stat['callbacks']+=len(completed)
+-            stat['cap_hits']+=int(len(completed)==cap)
+-            stat['max_wall_s']=max(stat['max_wall_s'],time.monotonic()-before)
+-            stat['max_cpu_s']=max(stat['max_cpu_s'],time.thread_time()-cpu)
+-            for entity,began in completed:
+-                for robot,guard in self.guards.items():
+-                    if entity is guard.timer:
+-                        timer=self.dispatch_stats['guard_timers'].setdefault(str(robot),dict(calls=0,max_gap_wall_s=0.,last=None))
+-                        if timer['last'] is not None:timer['max_gap_wall_s']=max(timer['max_gap_wall_s'],began-timer['last'])
+-                        timer['calls']+=1;timer['last']=began
++        caps={side:sum(len(tuple(getattr(node,name))) for name in
++            ('subscriptions','timers','clients','services','guards','waitables'))
++            for side,node in zip(('C','R'),self.nodes)}
++        used={side:0 for side in ('C','R')}
++        spans={side:dict(wall=0.,cpu=0.) for side in ('C','R')}
++        for state in self.ready_sets.values():state['shutdown']=False
++        while True:
++            productive=False
++            for side,executor,node in zip(('C','R'),self.executors,self.nodes):
++                if self.ready_sets[side]['shutdown']:continue
++                before=time.monotonic();cpu=time.thread_time()
++                if side=='C' and before<self.c_empty_until:
++                    self.dispatch_stats['C']['empty_recheck_skips']+=1
++                    continue
++                completed,_=drain_current_ready(executor,node,self.ready_sets[side],
++                    self.progress_transport,callback_limit=min(4,caps[side]-used[side]),
++                    profile=None if self.cpu_profile is None else self.cpu_profile[side],
++                    entity_label=self.profile_entity)
++                if side=='C':
++                    if completed:self.c_empty_until=0.
++                    elif not self.ready_sets[side]['shutdown']:
++                        # Only an actually empty public query starts this fixed
++                        # deadline; skipped probes never extend it. No sleep.
++                        self.c_empty_until=time.monotonic()+.010
++                        self.dispatch_stats['C']['empty_recheck_started']+=1
++                spans[side]['wall']+=time.monotonic()-before
++                spans[side]['cpu']+=time.thread_time()-cpu
++                used[side]+=len(completed)
++                productive=productive or bool(completed)
++                for entity,began in completed:
++                    for robot,guard in self.guards.items():
++                        if entity is guard.timer:
++                            timer=self.dispatch_stats['guard_timers'].setdefault(str(robot),dict(calls=0,max_gap_wall_s=0.,last=None))
++                            if timer['last'] is not None:timer['max_gap_wall_s']=max(timer['max_gap_wall_s'],began-timer['last'])
++                            timer['calls']+=1;timer['last']=began
++            # Once an empty retry deadline is eligible, try that side again
++            # after at most four other-side handlers.
++            # Once either cap is used, defer all remaining work to the next poll.
++            if not productive or any(used[side]>=caps[side] for side in ('C','R')):break
++        for side in ('C','R'):
++            stat=self.dispatch_stats[side];stat['batches']+=1;stat['callbacks']+=used[side]
++            stat['cap_hits']+=int(used[side]==caps[side])
++            stat['max_wall_s']=max(stat['max_wall_s'],spans[side]['wall'])
++            stat['max_cpu_s']=max(stat['max_cpu_s'],spans[side]['cpu'])
++        self.progress_transport()
++
++    def progress_transport(self):
++        if self.cpu_profile is None:return self._progress_transport()
++        wall=time.monotonic_ns();cpu=time.thread_time_ns()
++        try:return self._progress_transport()
++        finally:record_cpu_span(self.cpu_profile['progress'],'total_inclusive',wall,cpu)
++
++    def _progress_transport(self):
++        # Called between completed ROS handlers as well as at the outer boundary.
++        # Never wait for native progress or replace actual receipts with a cache.
+         if self.failure:return
+-        self.hub.poll()
++        if self.cpu_profile is not None:wall=time.monotonic_ns();cpu=time.thread_time_ns()
++        try:self.hub.poll()
++        finally:
++            if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'hub_poll',wall,cpu)
+         if self.anchor is None or not self.hub.ready:return
+         latest=self.gz-self.anchor["offset_ns"]
+         if latest-self.hub.horizon_ns>120_000_000:
+@@ -230,10 +336,14 @@ class Gateway:
+             if not self.connected:
+                 self.connected=True;self.install_wires()
+             # Fixed current batch only; responses enqueue for a later loop turn.
+-            for _ in range(len(self.direct)):
+-                meta,body,rpc=self.direct.popleft()
+-                meta["endpoint_receive_monotonic_ns"]=time.monotonic_ns()
+-                self.receive(meta,body,rpc)
++            if self.cpu_profile is not None:wall=time.monotonic_ns();cpu=time.thread_time_ns()
++            try:
++                for _ in range(len(self.direct)):
++                    meta,body,rpc=self.direct.popleft()
++                    meta["endpoint_receive_monotonic_ns"]=time.monotonic_ns()
++                    self.receive(meta,body,rpc)
++            finally:
++                if self.cpu_profile is not None:record_cpu_span(self.cpu_profile['progress'],'direct_batch',wall,cpu)
+         else:
+             if not self.link.sent and self.hub.horizon_ns>=600_000_000:self.link.begin()
+             if self.link.ready and not self.connected:
+@@ -250,6 +360,12 @@ class Gateway:
+         if self.wires is not None:
+             data["topics"]={side:dict(captured=w.captured,delivered=w.delivered) for side,w in self.wires.items()}
+             data["bound_masks"]=self.bound_r.received
++        if self.cpu_profile is not None:
++            data['dispatch_cpu_profile']=dict(aggregates=self.cpu_profile,
++                semantics='wait and handler totals exclude progress; progress total_inclusive contains hub_poll/direct_batch; do not sum parent and children. Async handler measures executing step only, not pending Future time. RAM only, diagnostic opt-in.')
++        if self.hub.control_trace is not None:
++            data['clock_control_trace']=dict(events=self.hub.control_trace,
++                semantics='Socket frame flushed means all its bytes accepted by kernel, not hub/native ACK. Offsets count the entire ordered stream, including non-clock frames.')
+         with (self.directory/"network-gateway.json").open("x") as stream:json.dump(data,stream)
+         (self.directory/"network-gateway-saved.json").write_text(json.dumps(dict(saved=True,
+             mode=self.mode,records=len(self.records),failure=self.failure,
+@@ -293,8 +409,9 @@ def main():
+     parser.add_argument("--socket",type=Path,required=True)
+     parser.add_argument("--directory",type=Path,required=True)
+     parser.add_argument("--session-id",type=int,required=True)
++    parser.add_argument('--control-trace',action='store_true')
+     args=parser.parse_args()
+-    node=Gateway(args.mode,args.socket,args.directory,args.session_id)
++    node=Gateway(args.mode,args.socket,args.directory,args.session_id,control_trace=args.control_trace)
+     stopping=False
+     def stop(signum,frame):
+         nonlocal stopping
+diff --git a/net01/host_run.py b/net01/host_run.py
+index ed2c26e..b880960 100644
+--- a/net01/host_run.py
++++ b/net01/host_run.py
+@@ -46,15 +46,16 @@ def main():
+     case.parent.mkdir(parents=True,exist_ok=True)
+     socket=REPO/net["socket_relative_repo"]
+     evidence=REPO/net["hub_output_relative_repo"]
+-    native=PHASE/"build/network-full-payload/net01-payload"
++    native=PHASE/net["native_identity"]["binary"]["relative_phase"]
+     # Check the actual executable/header before any native model is started.
+-    for key,path in (("binary",native),("generated_header",native.with_name("network_config.h"))):
++    for key,path in (("binary",native),("generated_header",PHASE/net["native_identity"]["generated_header"]["relative_phase"])):
+         actual=hashlib.sha256(path.read_bytes()).hexdigest()
+         if actual!=net["native_identity"][key]["sha256"]:
+             raise ValueError("Reviewed native "+key+" changed")
+     command=[sys.executable,"-B",str(HERE/"tools/packet_hub.py"),"--socket",str(socket),
+         "--native",str(native),"--output",str(evidence),"--profile",("C" if net["mode"]=="C" else "B"),
+         "--wall","1000","--clock-source","gazebo"]
++    if net.get('control_trace',False):command.append('--control-trace')
+     result=dict(start_utc=datetime.now(timezone.utc).isoformat(),hub_argv=command,runner_exit=None)
+     hub=runner=None
+     hub_log=case.with_name(case.name+".hub.log").open("x")
+diff --git a/net01/hub_client.py b/net01/hub_client.py
+index 4638fe2..7cf323b 100644
+--- a/net01/hub_client.py
++++ b/net01/hub_client.py
+@@ -4,10 +4,11 @@ import select
+ import socket
+ import struct
+ import time
++from collections import deque
+ 
+ 
+ class HubClient:
+-    def __init__(self, path):
++    def __init__(self, path, *, control_trace=False):
+         self.socket = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+         self.socket.connect(str(path))
+         self.socket.setblocking(False)
+@@ -17,9 +18,19 @@ class HubClient:
+         self.horizon_ns = 0
+         self.deliveries = []
+         self.receive = None
++        self.control_trace=[] if control_trace else None
++        self.control_frames=deque()
++        self.tx_queued=0;self.tx_flushed=0
+ 
+     def frame(self, meta, body=b""):
+-        self.outgoing.extend(json.dumps(dict(meta, bytes=len(body))).encode()+b"\n"+body)
++        frame=json.dumps(dict(meta, bytes=len(body))).encode()+b"\n"+body
++        self.outgoing.extend(frame)
++        if self.control_trace is not None:
++            begin=self.tx_queued;self.tx_queued+=len(frame)
++            if meta['kind'] in ('clock','observed_clock'):
++                row=dict(kind='clock_frame',operation=meta['kind'],horizon_ns=meta['horizon_ns'],
++                    queued_monotonic_ns=time.monotonic_ns(),begin_byte_offset=begin,end_byte_offset=self.tx_queued)
++                self.control_trace.append(row);self.control_frames.append(row)
+ 
+     def send(self, sender, receiver, flow, cdr, rpc_id=0, source_stamp_ns=0, admission_ns=None):
+         # RPC identity is transmitted, never reconstructed from a source-side table.
+@@ -42,8 +53,15 @@ class HubClient:
+     def poll(self):
+         readable, writable, _ = select.select([self.socket], [self.socket] if self.outgoing else [], [], 0)
+         if writable:
++            if self.control_trace is not None:before=time.monotonic_ns()
+             size = self.socket.send(self.outgoing)
+             del self.outgoing[:size]
++            if self.control_trace is not None:
++                after=time.monotonic_ns();self.tx_flushed+=size
++                while self.control_frames and self.control_frames[0]['end_byte_offset']<=self.tx_flushed:
++                    row=self.control_frames.popleft()
++                    row.update(socket_send_before_monotonic_ns=before,socket_frame_flushed_monotonic_ns=after,
++                        cumulative_socket_bytes=self.tx_flushed)
+         if readable:
+             data = self.socket.recv(1024*1024)
+             if not data:
+@@ -63,6 +81,8 @@ class HubClient:
+                 self.ready = True
+             elif meta["kind"] == "clock_return":
+                 self.horizon_ns = meta["horizon_ns"]
++                if self.control_trace is not None:self.control_trace.append(dict(
++                    kind='clock_return_received',horizon_ns=self.horizon_ns,monotonic_ns=time.monotonic_ns()))
+             elif meta["kind"] == "delivered":
+                 if len(body) < 8:
+                     raise ValueError("Missing transmitted RPC identity")
+diff --git a/net01/native/payload_transport.cc b/net01/native/payload_transport.cc
+index 42992e7..4f3a1e2 100644
+--- a/net01/native/payload_transport.cc
++++ b/net01/native/payload_transport.cc
+@@ -10,6 +10,7 @@
+ #include <array>
+ #include <cmath>
+ #include <chrono>
++#include <ctime>
+ #include <fstream>
+ #include <iomanip>
+ #include <iostream>
+@@ -26,6 +27,10 @@ static int64_t mono() {
+   return std::chrono::duration_cast<std::chrono::nanoseconds>(
+       std::chrono::steady_clock::now().time_since_epoch()).count();
+ }
++static int64_t threadCpu() {
++  timespec value;clock_gettime(CLOCK_THREAD_CPUTIME_ID,&value);
++  return int64_t(value.tv_sec)*1000000000+value.tv_nsec;
++}
+ static void event(const std::string& kind,const std::string& fields="") {
+   ++counts[kind];
+   ledger<<"{\"kind\":\""<<kind<<"\",\"ns3_ns\":"<<Simulator::Now().GetNanoSeconds()
+@@ -125,7 +130,10 @@ static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identit
+ 
+ int main(int argc,char** argv) {
+   std::string directory,profile="B";
+-  CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.Parse(argc,argv);
++  bool controlTrace=false;
++  struct StepTrace {int64_t horizon,beginMono,beginCpu,beginNs3,endMono,endCpu,endNs3;};
++  std::vector<StepTrace> controlSteps;
++  CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);cmd.Parse(argc,argv);
+   NS_ABORT_MSG_IF(directory.empty() || (profile!="B" && profile!="C"),"Explicit output and locked profile needed");
+   ledger.open(directory+"/packet-ledger.jsonl");
+   NS_ABORT_MSG_IF(!ledger,"Cannot open packet ledger");
+@@ -214,7 +222,12 @@ int main(int argc,char** argv) {
+     } else if(op=="STEP") {
+       int64_t horizon;in>>horizon;
+       NS_ABORT_MSG_IF(!in || horizon<Simulator::Now().GetNanoSeconds() || horizon-Simulator::Now().GetNanoSeconds()>100000000,"Invalid/nonmonotonic/>.1s horizon");
++      StepTrace trace{};
++      if(controlTrace)trace={horizon,mono(),threadCpu(),Simulator::Now().GetNanoSeconds(),0,0,0};
+       Simulator::Stop(NanoSeconds(horizon-Simulator::Now().GetNanoSeconds()));Simulator::Run();
++      if(controlTrace) {
++        trace.endCpu=threadCpu();trace.endMono=mono();trace.endNs3=Simulator::Now().GetNanoSeconds();controlSteps.push_back(trace);
++      }
+       event("horizon_return",",\"requested_horizon_ns\":"+std::to_string(horizon));
+       std::cout<<"STEP "<<Simulator::Now().GetNanoSeconds()<<"\n"<<std::flush;
+     } else if(op=="RADIO") {
+@@ -228,6 +241,12 @@ int main(int argc,char** argv) {
+     else NS_ABORT_MSG("Unknown IPC command: "<<op);
+   }
+   event("transport_end");
++  if(controlTrace) {
++    std::ofstream timing(directory+"/control-step-trace.jsonl");
++    for(const auto& t:controlSteps)timing<<"{\"horizon_ns\":"<<t.horizon<<",\"begin_monotonic_ns\":"<<t.beginMono
++      <<",\"begin_thread_cpu_ns\":"<<t.beginCpu<<",\"begin_ns3_ns\":"<<t.beginNs3<<",\"end_monotonic_ns\":"<<t.endMono
++      <<",\"end_thread_cpu_ns\":"<<t.endCpu<<",\"end_ns3_ns\":"<<t.endNs3<<"}\n";
++  }
+   std::ofstream summary(directory+"/native-summary.json");summary<<"{\"counts\":{";bool first=true;for(auto& [name,n]:counts){if(!first)summary<<",";first=false;summary<<"\""<<name<<"\":"<<n;}summary<<"},\"pending_incomplete\":"<<pending.size()<<",\"completed_messages\":"<<completed.size()<<",\"ns3_ns\":"<<Simulator::Now().GetNanoSeconds()<<"}\n";
+   Simulator::Destroy();return 0;
+ }
+diff --git a/net01/run_network_case.py b/net01/run_network_case.py
+index 8471873..9f214be 100644
+--- a/net01/run_network_case.py
++++ b/net01/run_network_case.py
+@@ -135,7 +135,8 @@ def popen(command,*args,**kwargs):
+         log=(observer.directory/"network-gateway.log").open("x")
+         gateway=subprocess.Popen([sys.executable,"-B",str(HERE/"gateway.py"),
+             "--mode",os.environ["NET01_MODE"],"--socket",os.environ["NET01_SOCKET"],
+-            "--session-id",os.environ["NET01_SESSION_ID"],"--directory",str(observer.directory)],
++            "--session-id",os.environ["NET01_SESSION_ID"],"--directory",str(observer.directory)]+
++            (['--control-trace'] if os.environ['NET01_CONTROL_TRACE']=='1' else []),
+             stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+         original.record_process(observer.directory,"network_gateway",gateway.pid)
+     elif len(command)>2 and command[:2]==["python3","-B"] and command[2]==str(FROZEN/"gz01/headquarters.py"):
+diff --git a/net01/tools/packet_hub.py b/net01/tools/packet_hub.py
+index 163b3da..ab02ec8 100644
+--- a/net01/tools/packet_hub.py
++++ b/net01/tools/packet_hub.py
+@@ -27,6 +27,7 @@ async def main(args):
+     native_output = args.output / "native"
+     native_output.mkdir()
+     command = [str(args.native.resolve()), f"--output={native_output.resolve()}", f"--profile={args.profile}"]
++    if args.control_trace:command.append('--controlTrace=1')
+     process = await asyncio.create_subprocess_exec(*command, stdin=asyncio.subprocess.PIPE,
+         stdout=asyncio.subprocess.PIPE, stderr=stderr)
+     result = dict(argv=command, scope="Unix IPC to actual ns3 full-payload transport", status="FAIL")
+@@ -39,6 +40,9 @@ async def main(args):
+     ingress = []
+     next_message = 0
+     known_horizon = 0
++    control_trace=[]
++    def control_event(kind,**fields):
++        if args.control_trace:control_trace.append(dict(kind=kind,monotonic_ns=time.monotonic_ns(),**fields))
+ 
+     async def native_rx():
+         try:
+@@ -58,6 +62,7 @@ async def main(args):
+                     owner.write(json.dumps(meta).encode()+b"\n"+payload)
+                     await owner.drain()
+                 elif words[0] == "STEP":
++                    control_event('hub_native_STEP_received',horizon_ns=int(words[1]))
+                     await received_steps.put(int(words[1]))
+                 else:
+                     raise ValueError("Unexpected native output")
+@@ -103,13 +108,17 @@ async def main(args):
+                     process.stdin.write(f"POSITION {robot} {x:.17g} {y:.17g} {z:.17g}\n".encode());await process.stdin.drain()
+                 elif op == "clock":
+                     horizon = meta["horizon_ns"]
++                    control_event('hub_clock_frame_received',horizon_ns=horizon)
+                     if args.clock_source=="gazebo" and horizon>known_horizon:raise ValueError("Network attempted to lead real /clock")
++                    control_event('hub_native_STEP_write',horizon_ns=horizon)
+                     process.stdin.write(f"STEP {horizon}\n".encode())
+                     await process.stdin.drain()
++                    control_event('hub_native_stdin_drain_returned',horizon_ns=horizon)
+                     returned = await asyncio.wait_for(received_steps.get(), timeout=2)
+                     writer.write(json.dumps(dict(kind="clock_return", horizon_ns=returned,
+                         hub_clock_return_monotonic_ns=time.monotonic_ns(), bytes=0)).encode()+b"\n")
+                     await writer.drain()
++                    control_event('hub_clock_response_drain_returned',horizon_ns=returned)
+                 elif op == "radio_fault" and args.allow_radio_fault:
+                     process.stdin.write(f"RADIO {int(meta['enabled'])}\n".encode())
+                     await process.stdin.drain()
+@@ -159,6 +168,7 @@ async def main(args):
+         (args.output/"hub-ingress.json").write_text(json.dumps(ingress, indent=2)+"\n")
+         (args.output/"hub-deliveries.json").write_text(json.dumps(deliveries, indent=2)+"\n")
+         (args.output/"result.json").write_text(json.dumps(result, indent=2)+"\n")
++        if args.control_trace:(args.output/'hub-clock-control.json').write_text(json.dumps(control_trace,indent=2)+'\n')
+         if args.socket.exists():
+             args.socket.unlink()
+ 
+@@ -172,4 +182,5 @@ if __name__ == "__main__":
+     parser.add_argument("--wall", type=float, default=120)
+     parser.add_argument("--allow-radio-fault", action="store_true", help="Independent no-motion negative fixture only")
+     parser.add_argument("--clock-source", choices=("synthetic","gazebo"), default="synthetic")
++    parser.add_argument('--control-trace',action='store_true')
+     asyncio.run(main(parser.parse_args()))

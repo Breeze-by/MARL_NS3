@@ -1,0 +1,50 @@
+{
+  "source": "Saved canonical exports + original GT CSV only",
+  "runtime": "2be7e229492d29817057fa8db166e38f114ca209",
+  "files": [
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/comparison/coverage-and-gt-comparison.png",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/comparison/coverage-and-gt-comparison.svg"
+  ],
+  "reference_background": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a1-03/metrics/reference-and-final.npz",
+  "background_scope": "Common physical-obstacle display; no metric recomputation",
+  "arms": [
+    {
+      "case": "gz-simhealth-a1-03",
+      "label": "A1-03: local Gateway",
+      "start_sim": 21.68,
+      "end_sim": 201.68,
+      "coverage_source": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a1-03/metrics/coverage.csv",
+      "metrics_source": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-a1-03/metrics/result.json",
+      "trajectory_source": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-a1-03/trajectories.csv"
+    },
+    {
+      "case": "gz-simhealth-b1-01",
+      "label": "B1: real ns-3 Wi-Fi TCP",
+      "start_sim": 16.33,
+      "end_sim": 196.33,
+      "coverage_source": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-b1-01/metrics/coverage.csv",
+      "metrics_source": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-b1-01/metrics/result.json",
+      "trajectory_source": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-01/trajectories.csv"
+    }
+  ],
+  "plotted_trajectory_counts": {
+    "gz-simhealth-a1-03": {
+      "tb1": 1800,
+      "tb2": 1800,
+      "tb3": 1800
+    },
+    "gz-simhealth-b1-01": {
+      "tb1": 1800,
+      "tb2": 1800,
+      "tb3": 1800
+    }
+  },
+  "B_integrity": "Business180complete; host/networkexitFAIL",
+  "no_padded_endpoints": true,
+  "original_phase_quality_thresholds_unchanged": true,
+  "bag_reads": 0,
+  "Gateway_reads": 0,
+  "native_reads": 0,
+  "new_models": 0,
+  "Torch_imports": 0
+}

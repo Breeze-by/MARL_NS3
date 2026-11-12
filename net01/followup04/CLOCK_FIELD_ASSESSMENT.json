@@ -1,0 +1,24 @@
+{
+  "scope": "Field applicability on17 actually received samples only; original fixture native1/20!=17 FAIL unchanged",
+  "raw_result": "evidence/clock-calibration-01/result.json",
+  "source_count": 20,
+  "received_count": 17,
+  "not_received_clock_ns": [
+    10000000,
+    20000000,
+    30000000
+  ],
+  "source_timestamp_nonzero": true,
+  "source_timestamp_inside_strict_actual_publish_system_bracket": true,
+  "received_timestamp_nonzero_count": 17,
+  "max_system_mono_bracket_ns": 344,
+  "writer_GIDs": [
+    "010f3cc06a994ce400000000000011030000000000000000"
+  ],
+  "accepted_use": "DDS source publish system timestamp and callback mono can distinguish publication-vs-reader on received pairedclock values, subject to recorded system/mono bracket. Missing samples are not inferred.",
+  "not_accepted": [
+    "Do not relabel original fixture PASS or BE zero-loss",
+    "received_timestamp raw only; earliest-arrival semantics not established",
+    "Not Gazebo clock/180sim/network-safety validation"
+  ]
+}

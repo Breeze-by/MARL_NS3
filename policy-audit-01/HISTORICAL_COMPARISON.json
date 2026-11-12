@@ -1,0 +1,85 @@
+{
+  "source": "evidence/followup-10/FINAL_SIX_RUN_SUMMARY.json",
+  "scope": "Three fixed previously exposed layouts, one pair each; Hard4202 also training geometry",
+  "rows": [
+    {
+      "case": "corridor-common-6201-rl-fixed-dwb-01",
+      "arm": "rl",
+      "runtime_source": "76fd91cf937bd8d662302901dad063affbea3c38",
+      "autonomy_sim": 600.0,
+      "T95": 61.8,
+      "T98": 93.10000000000001,
+      "coverage": 0.9990358657925184,
+      "stop": true,
+      "three_pause": true,
+      "integrity": true,
+      "natural_completion_verified": false
+    },
+    {
+      "case": "corridor-common-6201-traditional-fixed-dwb-01",
+      "arm": "traditional",
+      "runtime_source": "76fd91cf937bd8d662302901dad063affbea3c38",
+      "autonomy_sim": 600.0,
+      "T95": 71.1,
+      "T98": 71.1,
+      "coverage": 0.9982002828127009,
+      "stop": true,
+      "three_pause": true,
+      "integrity": true,
+      "natural_completion_verified": false
+    },
+    {
+      "case": "rooms-common-6101-rl-fixed-dwb-01",
+      "arm": "rl",
+      "runtime_source": "76fd91cf937bd8d662302901dad063affbea3c38",
+      "autonomy_sim": 600.0,
+      "T95": 90.2,
+      "T98": 103.5,
+      "coverage": 0.9990268489869248,
+      "stop": true,
+      "three_pause": true,
+      "integrity": true,
+      "natural_completion_verified": false
+    },
+    {
+      "case": "rooms-common-6101-traditional-fixed-dwb-01",
+      "arm": "traditional",
+      "runtime_source": "76fd91cf937bd8d662302901dad063affbea3c38",
+      "autonomy_sim": 600.0,
+      "T95": 101.30000000000001,
+      "T98": 140.8,
+      "coverage": 0.9986525601357421,
+      "stop": true,
+      "three_pause": true,
+      "integrity": true,
+      "natural_completion_verified": false
+    },
+    {
+      "case": "hard-common-4202-rl-fixed-dwb-01",
+      "arm": "rl",
+      "runtime_source": "76fd91cf937bd8d662302901dad063affbea3c38",
+      "autonomy_sim": 600.0,
+      "T95": 106.5,
+      "T98": 162.6,
+      "coverage": 0.9984117530275958,
+      "stop": true,
+      "three_pause": true,
+      "integrity": true,
+      "natural_completion_verified": false
+    },
+    {
+      "case": "hard-common-4202-traditional-fixed-dwb-01",
+      "arm": "traditional",
+      "runtime_source": "76fd91cf937bd8d662302901dad063affbea3c38",
+      "autonomy_sim": 600.0,
+      "T95": 101.19999999999999,
+      "T98": 105.5,
+      "coverage": 0.9976176295413937,
+      "stop": true,
+      "three_pause": true,
+      "integrity": true,
+      "natural_completion_verified": false
+    }
+  ],
+  "inference": "Historical one pair per exposed geometry; not six new common58-policy comparisons or generalization proof."
+}

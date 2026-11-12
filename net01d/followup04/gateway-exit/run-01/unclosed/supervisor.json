@@ -1,0 +1,43 @@
+[
+  {
+    "kind": "gateway_poststop_supervision",
+    "observed_monotonic_ns": 610081202229427,
+    "pid": 808702,
+    "begin_monotonic_ns": 610081202204157,
+    "initial_deadline_ns": 610101202204157,
+    "total_deadline_ns": 610141202204157,
+    "cleanup_deadline_ns": 610171184351176,
+    "hard_deadline_ns": 610146063501372,
+    "extension_eligible": true
+  },
+  {
+    "kind": "process_signal",
+    "observed_monotonic_ns": 610081202256114,
+    "process": "network_gateway",
+    "pid": 808702,
+    "signal": "SIGINT",
+    "deadline_monotonic_ns": 610101202204157
+  },
+  {
+    "kind": "process_signal",
+    "observed_monotonic_ns": 610101202702952,
+    "process": "network_gateway",
+    "pid": 808702,
+    "signal": "SIGTERM",
+    "deadline_monotonic_ns": 610106202204157
+  },
+  {
+    "kind": "process_signal",
+    "observed_monotonic_ns": 610106202385762,
+    "process": "network_gateway",
+    "pid": 808702,
+    "signal": "SIGKILL",
+    "deadline_monotonic_ns": 610111202204157
+  },
+  {
+    "kind": "process_exit",
+    "observed_monotonic_ns": 610106222661538,
+    "process": "network_gateway",
+    "code": -9
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "exits": {
+    "coordinator": 0,
+    "clock_R": 0,
+    "clock_C": 0
+  },
+  "signals": {
+    "coordinator": [
+      "SIGINT_CHILD"
+    ],
+    "clock_R": [
+      "SIGINT_CHILD"
+    ],
+    "clock_C": [
+      "SIGINT_CHILD"
+    ]
+  },
+  "actual_bwrap_child_pids": {
+    "coordinator": 858553,
+    "clock_R": 858585,
+    "clock_C": 858614
+  },
+  "forced_owned_groups": [],
+  "remaining_owned_groups": [],
+  "scope": "Resource cleanup after actual Hub END/exit; no stopping certificate",
+  "coordinator_final": {
+    "mode": "HOLD",
+    "failure": null,
+    "expected_shutdown": true,
+    "physics_failed": false,
+    "physical_ns": 206670000000,
+    "iterations": 206670,
+    "actual_clock_ns": 206670000000,
+    "native_ACK_ns": 206660000000,
+    "fixed_offset_ns": 10000000,
+    "physical_RPC_inflight": false,
+    "session_id": 2026111152,
+    "gateway_clock_ready": true,
+    "pending_holds": 0,
+    "authority_exited": true,
+    "progress_wall_timeout_ns": 2000000000,
+    "progress_started_monotonic_ns": 611659383876133,
+    "motion_armed_since_monotonic_ns": 611665734500958,
+    "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+    "actual_clock_progress_monotonic_ns": 611955857652199,
+    "native_ACK_progress_monotonic_ns": 611955861032945,
+    "physical_RPC_issued_monotonic_ns": null,
+    "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+    "token_wall_period_ns": 10000000,
+    "planned_realtime_factor": 1.0,
+    "actual_achieved_physical_rtf": 0.6270220662271433,
+    "physical_progress_sim_span_ns": 206670000000,
+    "physical_progress_wall_span_ns": 329605624956,
+    "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+    "next_earliest_wall_ns": 611847543876133,
+    "max_token_lateness_ns": 108312420438,
+    "late_tokens": 20664
+  },
+  "saved_clocks": {
+    "R": true,
+    "C": true
+  },
+  "integrity": true
+}

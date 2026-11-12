@@ -1,0 +1,44 @@
+diff --git a/net01/config/EXECUTION_PROFILE_ORIGINAL1000_CLOCK100_Q10MS.json b/net01/config/EXECUTION_PROFILE_ORIGINAL1000_CLOCK100_Q10MS.json
+index ab0ca87..404e064 100644
+--- a/net01/config/EXECUTION_PROFILE_ORIGINAL1000_CLOCK100_Q10MS.json
++++ b/net01/config/EXECUTION_PROFILE_ORIGINAL1000_CLOCK100_Q10MS.json
+@@ -10,7 +10,16 @@
+     "clock_period_wall_s": 0.01,
+     "clock_increment_ns": 10000000,
+     "other_sources": "Same original per-wall TF/odom/feedback, never reduced; synthetic clock .01sim/.01wall",
+-    "peer": "Original10Hz simulation-time timer, nominal10Hz wall at this synthetic1x clock; full3mask raw4.8MB/s"
++    "peer": "Original10Hz simulation-time timer, nominal10Hz wall at this synthetic1x clock; full3mask raw4.8MB/s",
++    "local_costmap_cells": [
++      200,
++      200
++    ],
++    "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
++    "not_generated_flows": [
++      "89 C merge_map",
++      "95 C controller journal"
++    ]
+   },
+   "scope": "Restore original1000 wall update/dt unchanged, retain100Hz simclock and10ms native quantum; explicit new common A/B execution profile, not network or RL optimization"
+ }
+diff --git a/net01/followup01/continuous_dds.py b/net01/followup01/continuous_dds.py
+index ec8da8c..77265b8 100644
+--- a/net01/followup01/continuous_dds.py
++++ b/net01/followup01/continuous_dds.py
+@@ -24,6 +24,8 @@ def source(directory,feedback_hz,execution_profile=None):
+     clock_increment=100_000_000 if qualification is None else qualification["clock_increment_ns"]
+     clock_period=.1 if qualification is None else qualification["clock_period_wall_s"]
+     source_window=8 if qualification is None else qualification["source_wall_s"]
++    costmap_shape=((60,60) if profile is None or profile['id']!='original1000-clock100-q10ms'
++        else tuple(qualification['local_costmap_cells']))
+     import rclpy
+     from rclpy.clock import Clock,ClockType
+     from rclpy.node import Node
+@@ -99,7 +101,7 @@ def source(directory,feedback_hz,execution_profile=None):
+             emit(pub,m,robot,kind,clock_ns-clock_increment)
+         grid(mp,250,220,'synthetic_map')
+         timers.append(node.create_timer(5.,lambda p=mp,r=robot:grid(p,250,220,'synthetic_map',r),clock=steady))
+-        timers.append(node.create_timer(.5,lambda p=lp,r=robot:grid(p,60,60,'synthetic_costmap',r),clock=steady))
++        timers.append(node.create_timer(.5,lambda p=lp,r=robot:grid(p,costmap_shape[0],costmap_shape[1],'synthetic_costmap',r),clock=steady))
+         if feedback_hz:
+             from nav2_msgs.action import NavigateToPose
+             from action_msgs.msg import GoalStatusArray

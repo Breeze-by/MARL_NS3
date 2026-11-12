@@ -1,0 +1,31 @@
+{
+  "across_all_joint_leaves": {
+    "globally_fixed": 582,
+    "globally_fixed_new_goal": 10,
+    "direct_multi": 54,
+    "direct_multi_new_goal": 54,
+    "prefix_indirect": 0,
+    "prefix_indirect_new_goal": 0
+  },
+  "new_goal_option_distribution": {
+    "1": 10,
+    "2": 17,
+    "5": 20,
+    "3": 11,
+    "4": 6
+  },
+  "maximum_participation_rows_reduced": 10,
+  "maximum_participation_goal_rows_reduced": 10,
+  "maximum_participation_options_removed": 10,
+  "raw_geometric_min3_groups_per_robot_row_range": [
+    0,
+    54
+  ],
+  "raw_scope": "shared received map geometry only, original frontier functions + robot seed override; not pre-navigation eligible goal reconstruction",
+  "actual_multi_logit_margin": {
+    "min": 0.00967833399772644,
+    "median": 0.23190272599458694,
+    "max": 1.7075920104980469
+  },
+  "limits": "No action agreement or logit margin is a return/coverage advantage estimate."
+}

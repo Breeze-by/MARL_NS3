@@ -1,0 +1,1784 @@
+{
+  "cache_counts": {
+    "rows": 10799,
+    "unique_native_ids": 10799,
+    "ambiguous_native_ids": 0
+  },
+  "cache_unavailable": {},
+  "matching_coverage": {
+    "unique_native_id_denominator": 10799,
+    "ipc_ingress_present_ids": 10799,
+    "ipc_ingress_missing_ids": 0,
+    "tcp_write_present_ids": 10799,
+    "tcp_write_missing_ids": 0,
+    "tcp_frame_rx_present_ids": 10799,
+    "tcp_frame_rx_missing_ids": 0,
+    "message_deliver_present_ids": 10799,
+    "message_deliver_missing_ids": 0,
+    "ipc_ingress_duplicate_ids": 0,
+    "message_deliver_duplicate_ids": 0,
+    "fully_matched_ids": 10799
+  },
+  "unavailable_unique_ids": {},
+  "bytes_and_chunks": {
+    "expected_body_bytes": 876580325,
+    "expected_chunks": 761398,
+    "expected_framed_Send_bytes": 903990653,
+    "Send_accepted_bytes": 903990653,
+    "Send_offered_bytes": 903990653,
+    "fully_accepted_chunks": 761398,
+    "received_chunk_rows": 761398,
+    "received_body_bytes": 876580325
+  },
+  "event_and_integrity_counts": {
+    "ipc_ingress_rows": 10799,
+    "tcp_write_rows": 830628,
+    "tcp_frame_rx_rows": 761398,
+    "message_deliver_rows": 10799,
+    "duplicate_fragment_rows": 0,
+    "late_or_duplicate_fragment_rows": 0,
+    "incomplete_expired_rows": 0
+  },
+  "boundary_event_counts": {
+    "ipc_ingress": {
+      "before_normal_R_bracket": 5,
+      "inside_normal_R_bracket": 10794
+    },
+    "tcp_write": {
+      "before_normal_R_bracket": 328,
+      "inside_normal_R_bracket": 830300
+    },
+    "tcp_frame_rx": {
+      "before_normal_R_bracket": 13,
+      "inside_normal_R_bracket": 761385
+    },
+    "message_deliver": {
+      "inside_normal_R_bracket": 10799
+    }
+  },
+  "stages": {
+    "tb3/mask/admission_to_last_Send_accept": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 1.907254,
+      "median": 11.812429,
+      "p95": 16.246005,
+      "p99": 18.35152,
+      "max": 20.90922,
+      "negative_n": 0,
+      "worst": {
+        "value": 20.90922,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb3",
+        "sequence": 1357,
+        "message_id": 154276,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 3,
+        "flow": 70,
+        "total_body_bytes": 160708,
+        "admission_ns": 135710000000,
+        "ingress": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695166545422,
+          "admission_ns": 135710000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695166790024
+        },
+        "last_Send_accept": {
+          "ns3_ns": 135730909220,
+          "monotonic_ns": 610695271372692
+        },
+        "complete_reassembly": {
+          "ns3_ns": 135733394434,
+          "monotonic_ns": 610695284178999
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165712
+      }
+    },
+    "tb3/mask/first_Send_accept_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 4.634675,
+      "median": 14.9312775,
+      "p95": 18.708763,
+      "p99": 20.164172,
+      "max": 23.394434,
+      "negative_n": 0,
+      "worst": {
+        "value": 23.394434,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb3",
+        "sequence": 1357,
+        "message_id": 154276,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 3,
+        "flow": 70,
+        "total_body_bytes": 160708,
+        "admission_ns": 135710000000,
+        "ingress": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695166545422,
+          "admission_ns": 135710000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695166790024
+        },
+        "last_Send_accept": {
+          "ns3_ns": 135730909220,
+          "monotonic_ns": 610695271372692
+        },
+        "complete_reassembly": {
+          "ns3_ns": 135733394434,
+          "monotonic_ns": 610695284178999
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165712
+      }
+    },
+    "tb1/health/admission_to_first_Send_accept": {
+      "n": 1799,
+      "unit": "sim_ms",
+      "min": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0,
+      "negative_n": 0,
+      "worst": {
+        "value": 0.0,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb1",
+        "sequence": 156,
+        "message_id": 9399,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 1,
+        "flow": 31,
+        "total_body_bytes": 1629,
+        "admission_ns": 15590000000,
+        "ingress": {
+          "ns3_ns": 15590000000,
+          "monotonic_ns": 610406098771347,
+          "admission_ns": 15590000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 15590000000,
+          "monotonic_ns": 610406098821714
+        },
+        "last_Send_accept": {
+          "ns3_ns": 15590000000,
+          "monotonic_ns": 610406098827901
+        },
+        "complete_reassembly": {
+          "ns3_ns": 15590465452,
+          "monotonic_ns": 610406117538923
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1701
+      }
+    },
+    "tb1/health/last_Send_accept_to_complete_reassembly": {
+      "n": 1799,
+      "unit": "sim_ms",
+      "min": 0.09302,
+      "median": 0.276453,
+      "p95": 1.383563,
+      "p99": 2.543621,
+      "max": 11.197647,
+      "negative_n": 0,
+      "worst": {
+        "value": 11.197647,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb1",
+        "sequence": 308,
+        "message_id": 27810,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 1,
+        "flow": 31,
+        "total_body_bytes": 1626,
+        "admission_ns": 30790000000,
+        "ingress": {
+          "ns3_ns": 30790000000,
+          "monotonic_ns": 610443225172150,
+          "admission_ns": 30790000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 30790000000,
+          "monotonic_ns": 610443225237085
+        },
+        "last_Send_accept": {
+          "ns3_ns": 30790000000,
+          "monotonic_ns": 610443225245499
+        },
+        "complete_reassembly": {
+          "ns3_ns": 30801197647,
+          "monotonic_ns": 610443300654189
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1698
+      }
+    },
+    "admission_to_complete_reassembly": {
+      "n": 10799,
+      "unit": "sim_ms",
+      "min": 0.09302,
+      "median": 8.910198,
+      "p95": 17.317561,
+      "p99": 19.31592,
+      "max": 23.582208,
+      "negative_n": 0,
+      "worst": {
+        "value": 23.582208,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb2",
+        "sequence": 1011,
+        "message_id": 123367,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 2,
+        "flow": 50,
+        "total_body_bytes": 160709,
+        "admission_ns": 101100000000,
+        "ingress": {
+          "ns3_ns": 101100000000,
+          "monotonic_ns": 610617820284703,
+          "admission_ns": 101100000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 101100000000,
+          "monotonic_ns": 610617820607958
+        },
+        "last_Send_accept": {
+          "ns3_ns": 101112877773,
+          "monotonic_ns": 610617899931449
+        },
+        "complete_reassembly": {
+          "ns3_ns": 101123582208,
+          "monotonic_ns": 610617950903342
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165713
+      },
+      "unique_native_id_denominator": 10799,
+      "matched_ids": 10799,
+      "unavailable_ids": 0
+    },
+    "tb2/health/admission_to_last_Send_accept": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0,
+      "negative_n": 0,
+      "worst": {
+        "value": 0.0,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb2",
+        "sequence": 155,
+        "message_id": 9336,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 2,
+        "flow": 51,
+        "total_body_bytes": 1624,
+        "admission_ns": 15500000000,
+        "ingress": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405875534552,
+          "admission_ns": 15500000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405875544823
+        },
+        "last_Send_accept": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405875549132
+        },
+        "complete_reassembly": {
+          "ns3_ns": 15504355535,
+          "monotonic_ns": 610405920986047
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1696
+      }
+    },
+    "tb2/health/admission_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.196341,
+      "median": 4.2416675,
+      "p95": 6.672502,
+      "p99": 8.864136,
+      "max": 11.73157,
+      "negative_n": 0,
+      "worst": {
+        "value": 11.73157,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb2",
+        "sequence": 732,
+        "message_id": 89678,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 2,
+        "flow": 51,
+        "total_body_bytes": 1622,
+        "admission_ns": 73200000000,
+        "ingress": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595125517,
+          "admission_ns": 73200000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595140418
+        },
+        "last_Send_accept": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595146040
+        },
+        "complete_reassembly": {
+          "ns3_ns": 73211731570,
+          "monotonic_ns": 610549673660785
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1694
+      }
+    },
+    "tb2/mask/admission_to_last_Send_accept": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 2.430821,
+      "median": 7.6108605,
+      "p95": 13.610446,
+      "p99": 16.516156,
+      "max": 20.163568,
+      "negative_n": 0,
+      "worst": {
+        "value": 20.163568,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb2",
+        "sequence": 1546,
+        "message_id": 166498,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 2,
+        "flow": 50,
+        "total_body_bytes": 160710,
+        "admission_ns": 154610000000,
+        "ingress": {
+          "ns3_ns": 154610000000,
+          "monotonic_ns": 610738243203619,
+          "admission_ns": 154610000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 154610000000,
+          "monotonic_ns": 610738243505192
+        },
+        "last_Send_accept": {
+          "ns3_ns": 154630163568,
+          "monotonic_ns": 610738348816665
+        },
+        "complete_reassembly": {
+          "ns3_ns": 154631352040,
+          "monotonic_ns": 610738353178940
+        },
+        "expected_chunks": 139,
+        "Send_calls": 151,
+        "Send_accepted_bytes": 165714
+      }
+    },
+    "tb1/mask/admission_to_first_Send_accept": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0,
+      "negative_n": 0,
+      "worst": {
+        "value": 0.0,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb1",
+        "sequence": 155,
+        "message_id": 9339,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 1,
+        "flow": 30,
+        "total_body_bytes": 160700,
+        "admission_ns": 15500000000,
+        "ingress": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405881565706,
+          "admission_ns": 15500000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405881864594
+        },
+        "last_Send_accept": {
+          "ns3_ns": 15504220122,
+          "monotonic_ns": 610405919133956
+        },
+        "complete_reassembly": {
+          "ns3_ns": 15514709218,
+          "monotonic_ns": 610405970189793
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165704
+      }
+    },
+    "tb2/mask/first_Send_accept_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 4.472184,
+      "median": 12.996749,
+      "p95": 17.842506,
+      "p99": 19.970374,
+      "max": 23.582208,
+      "negative_n": 0,
+      "worst": {
+        "value": 23.582208,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb2",
+        "sequence": 1011,
+        "message_id": 123367,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 2,
+        "flow": 50,
+        "total_body_bytes": 160709,
+        "admission_ns": 101100000000,
+        "ingress": {
+          "ns3_ns": 101100000000,
+          "monotonic_ns": 610617820284703,
+          "admission_ns": 101100000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 101100000000,
+          "monotonic_ns": 610617820607958
+        },
+        "last_Send_accept": {
+          "ns3_ns": 101112877773,
+          "monotonic_ns": 610617899931449
+        },
+        "complete_reassembly": {
+          "ns3_ns": 101123582208,
+          "monotonic_ns": 610617950903342
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165713
+      }
+    },
+    "tb2/mask/last_Send_accept_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.794206,
+      "median": 3.1033524999999997,
+      "p95": 8.718251,
+      "p99": 10.059055,
+      "max": 13.456725,
+      "negative_n": 0,
+      "worst": {
+        "value": 13.456725,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb2",
+        "sequence": 1068,
+        "message_id": 129173,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 2,
+        "flow": 50,
+        "total_body_bytes": 160707,
+        "admission_ns": 106800000000,
+        "ingress": {
+          "ns3_ns": 106800000000,
+          "monotonic_ns": 610628244832532,
+          "admission_ns": 106800000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 106800000000,
+          "monotonic_ns": 610628245010787
+        },
+        "last_Send_accept": {
+          "ns3_ns": 106807372042,
+          "monotonic_ns": 610628274734886
+        },
+        "complete_reassembly": {
+          "ns3_ns": 106820828767,
+          "monotonic_ns": 610628301356662
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165711
+      }
+    },
+    "tb3/health/last_Send_accept_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.188135,
+      "median": 8.665948499999999,
+      "p95": 12.788892,
+      "p99": 14.653345,
+      "max": 16.337664,
+      "negative_n": 0,
+      "worst": {
+        "value": 16.337664,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb3",
+        "sequence": 732,
+        "message_id": 89679,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 3,
+        "flow": 71,
+        "total_body_bytes": 1622,
+        "admission_ns": 73200000000,
+        "ingress": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595152584,
+          "admission_ns": 73200000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595161770
+        },
+        "last_Send_accept": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595163735
+        },
+        "complete_reassembly": {
+          "ns3_ns": 73216337664,
+          "monotonic_ns": 610549698251435
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1694
+      }
+    },
+    "tb1/mask/admission_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 4.552064,
+      "median": 14.517896,
+      "p95": 18.201204,
+      "p99": 19.838988,
+      "max": 22.908684,
+      "negative_n": 0,
+      "worst": {
+        "value": 22.908684,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb1",
+        "sequence": 1357,
+        "message_id": 154274,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 1,
+        "flow": 30,
+        "total_body_bytes": 160708,
+        "admission_ns": 135710000000,
+        "ingress": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695163590077,
+          "admission_ns": 135710000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695163854229
+        },
+        "last_Send_accept": {
+          "ns3_ns": 135713794667,
+          "monotonic_ns": 610695204661902
+        },
+        "complete_reassembly": {
+          "ns3_ns": 135732908684,
+          "monotonic_ns": 610695280153169
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165712
+      }
+    },
+    "tb1/health/admission_to_complete_reassembly": {
+      "n": 1799,
+      "unit": "sim_ms",
+      "min": 0.09302,
+      "median": 0.276453,
+      "p95": 1.383563,
+      "p99": 2.543621,
+      "max": 11.197647,
+      "negative_n": 0,
+      "worst": {
+        "value": 11.197647,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb1",
+        "sequence": 308,
+        "message_id": 27810,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 1,
+        "flow": 31,
+        "total_body_bytes": 1626,
+        "admission_ns": 30790000000,
+        "ingress": {
+          "ns3_ns": 30790000000,
+          "monotonic_ns": 610443225172150,
+          "admission_ns": 30790000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 30790000000,
+          "monotonic_ns": 610443225237085
+        },
+        "last_Send_accept": {
+          "ns3_ns": 30790000000,
+          "monotonic_ns": 610443225245499
+        },
+        "complete_reassembly": {
+          "ns3_ns": 30801197647,
+          "monotonic_ns": 610443300654189
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1698
+      }
+    },
+    "tb1/health/admission_to_last_Send_accept": {
+      "n": 1799,
+      "unit": "sim_ms",
+      "min": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0,
+      "negative_n": 0,
+      "worst": {
+        "value": 0.0,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb1",
+        "sequence": 156,
+        "message_id": 9399,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 1,
+        "flow": 31,
+        "total_body_bytes": 1629,
+        "admission_ns": 15590000000,
+        "ingress": {
+          "ns3_ns": 15590000000,
+          "monotonic_ns": 610406098771347,
+          "admission_ns": 15590000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 15590000000,
+          "monotonic_ns": 610406098821714
+        },
+        "last_Send_accept": {
+          "ns3_ns": 15590000000,
+          "monotonic_ns": 610406098827901
+        },
+        "complete_reassembly": {
+          "ns3_ns": 15590465452,
+          "monotonic_ns": 610406117538923
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1701
+      }
+    },
+    "tb2/health/last_Send_accept_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.196341,
+      "median": 4.2416675,
+      "p95": 6.672502,
+      "p99": 8.864136,
+      "max": 11.73157,
+      "negative_n": 0,
+      "worst": {
+        "value": 11.73157,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb2",
+        "sequence": 732,
+        "message_id": 89678,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 2,
+        "flow": 51,
+        "total_body_bytes": 1622,
+        "admission_ns": 73200000000,
+        "ingress": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595125517,
+          "admission_ns": 73200000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595140418
+        },
+        "last_Send_accept": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595146040
+        },
+        "complete_reassembly": {
+          "ns3_ns": 73211731570,
+          "monotonic_ns": 610549673660785
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1694
+      }
+    },
+    "tb1/health/first_Send_accept_to_complete_reassembly": {
+      "n": 1799,
+      "unit": "sim_ms",
+      "min": 0.09302,
+      "median": 0.276453,
+      "p95": 1.383563,
+      "p99": 2.543621,
+      "max": 11.197647,
+      "negative_n": 0,
+      "worst": {
+        "value": 11.197647,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb1",
+        "sequence": 308,
+        "message_id": 27810,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 1,
+        "flow": 31,
+        "total_body_bytes": 1626,
+        "admission_ns": 30790000000,
+        "ingress": {
+          "ns3_ns": 30790000000,
+          "monotonic_ns": 610443225172150,
+          "admission_ns": 30790000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 30790000000,
+          "monotonic_ns": 610443225237085
+        },
+        "last_Send_accept": {
+          "ns3_ns": 30790000000,
+          "monotonic_ns": 610443225245499
+        },
+        "complete_reassembly": {
+          "ns3_ns": 30801197647,
+          "monotonic_ns": 610443300654189
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1698
+      }
+    },
+    "tb1/mask/last_Send_accept_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.344466,
+      "median": 9.583007,
+      "p95": 13.216184,
+      "p99": 14.72795,
+      "max": 19.114017,
+      "negative_n": 0,
+      "worst": {
+        "value": 19.114017,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb1",
+        "sequence": 1357,
+        "message_id": 154274,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 1,
+        "flow": 30,
+        "total_body_bytes": 160708,
+        "admission_ns": 135710000000,
+        "ingress": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695163590077,
+          "admission_ns": 135710000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695163854229
+        },
+        "last_Send_accept": {
+          "ns3_ns": 135713794667,
+          "monotonic_ns": 610695204661902
+        },
+        "complete_reassembly": {
+          "ns3_ns": 135732908684,
+          "monotonic_ns": 610695280153169
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165712
+      }
+    },
+    "tb3/health/admission_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.188135,
+      "median": 8.665948499999999,
+      "p95": 12.788892,
+      "p99": 14.653345,
+      "max": 16.337664,
+      "negative_n": 0,
+      "worst": {
+        "value": 16.337664,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb3",
+        "sequence": 732,
+        "message_id": 89679,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 3,
+        "flow": 71,
+        "total_body_bytes": 1622,
+        "admission_ns": 73200000000,
+        "ingress": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595152584,
+          "admission_ns": 73200000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595161770
+        },
+        "last_Send_accept": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595163735
+        },
+        "complete_reassembly": {
+          "ns3_ns": 73216337664,
+          "monotonic_ns": 610549698251435
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1694
+      }
+    },
+    "tb3/mask/last_Send_accept_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.533325,
+      "median": 2.7250465,
+      "p95": 9.693348,
+      "p99": 12.20784,
+      "max": 15.604084,
+      "negative_n": 0,
+      "worst": {
+        "value": 15.604084,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb3",
+        "sequence": 695,
+        "message_id": 84965,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 3,
+        "flow": 70,
+        "total_body_bytes": 160687,
+        "admission_ns": 69510000000,
+        "ingress": {
+          "ns3_ns": 69510000000,
+          "monotonic_ns": 610540396482081,
+          "admission_ns": 69510000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 69510000000,
+          "monotonic_ns": 610540396843943
+        },
+        "last_Send_accept": {
+          "ns3_ns": 69513072704,
+          "monotonic_ns": 610540431428194
+        },
+        "complete_reassembly": {
+          "ns3_ns": 69528676788,
+          "monotonic_ns": 610540512252458
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165691
+      }
+    },
+    "tb1/mask/admission_to_last_Send_accept": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 1.842059,
+      "median": 4.2947665,
+      "p95": 12.215397,
+      "p99": 15.907334,
+      "max": 18.595525,
+      "negative_n": 0,
+      "worst": {
+        "value": 18.595525,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb1",
+        "sequence": 475,
+        "message_id": 54005,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 1,
+        "flow": 30,
+        "total_body_bytes": 160686,
+        "admission_ns": 47510000000,
+        "ingress": {
+          "ns3_ns": 47510000000,
+          "monotonic_ns": 610485406958003,
+          "admission_ns": 47510000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 47510000000,
+          "monotonic_ns": 610485407383286
+        },
+        "last_Send_accept": {
+          "ns3_ns": 47528595525,
+          "monotonic_ns": 610485524459781
+        },
+        "complete_reassembly": {
+          "ns3_ns": 47529941920,
+          "monotonic_ns": 610485531646161
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165690
+      }
+    },
+    "tb2/mask/admission_to_first_Send_accept": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0,
+      "negative_n": 0,
+      "worst": {
+        "value": 0.0,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb2",
+        "sequence": 155,
+        "message_id": 9340,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 2,
+        "flow": 50,
+        "total_body_bytes": 160700,
+        "admission_ns": 15500000000,
+        "ingress": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405882758425,
+          "admission_ns": 15500000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405883140586
+        },
+        "last_Send_accept": {
+          "ns3_ns": 15506009163,
+          "monotonic_ns": 610405928588105
+        },
+        "complete_reassembly": {
+          "ns3_ns": 15508682156,
+          "monotonic_ns": 610405938064901
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165704
+      }
+    },
+    "admission_to_last_Send_accept": {
+      "n": 10799,
+      "unit": "sim_ms",
+      "min": 0.0,
+      "median": 1.842059,
+      "p95": 13.844157,
+      "p99": 16.425636,
+      "max": 20.90922,
+      "negative_n": 0,
+      "worst": {
+        "value": 20.90922,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb3",
+        "sequence": 1357,
+        "message_id": 154276,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 3,
+        "flow": 70,
+        "total_body_bytes": 160708,
+        "admission_ns": 135710000000,
+        "ingress": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695166545422,
+          "admission_ns": 135710000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695166790024
+        },
+        "last_Send_accept": {
+          "ns3_ns": 135730909220,
+          "monotonic_ns": 610695271372692
+        },
+        "complete_reassembly": {
+          "ns3_ns": 135733394434,
+          "monotonic_ns": 610695284178999
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165712
+      },
+      "unique_native_id_denominator": 10799,
+      "matched_ids": 10799,
+      "unavailable_ids": 0
+    },
+    "tb3/health/admission_to_first_Send_accept": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0,
+      "negative_n": 0,
+      "worst": {
+        "value": 0.0,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb3",
+        "sequence": 155,
+        "message_id": 9338,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 3,
+        "flow": 71,
+        "total_body_bytes": 1624,
+        "admission_ns": 15500000000,
+        "ingress": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405877906869,
+          "admission_ns": 15500000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405877931387
+        },
+        "last_Send_accept": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405877935386
+        },
+        "complete_reassembly": {
+          "ns3_ns": 15509130566,
+          "monotonic_ns": 610405943416478
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1696
+      }
+    },
+    "tb3/mask/admission_to_first_Send_accept": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0,
+      "negative_n": 0,
+      "worst": {
+        "value": 0.0,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb3",
+        "sequence": 155,
+        "message_id": 9341,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 3,
+        "flow": 70,
+        "total_body_bytes": 160700,
+        "admission_ns": 15500000000,
+        "ingress": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405884480660,
+          "admission_ns": 15500000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405884790420
+        },
+        "last_Send_accept": {
+          "ns3_ns": 15511046270,
+          "monotonic_ns": 610405955243275
+        },
+        "complete_reassembly": {
+          "ns3_ns": 15513570207,
+          "monotonic_ns": 610405963504055
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165704
+      }
+    },
+    "tb2/health/admission_to_first_Send_accept": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0,
+      "negative_n": 0,
+      "worst": {
+        "value": 0.0,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb2",
+        "sequence": 155,
+        "message_id": 9336,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 2,
+        "flow": 51,
+        "total_body_bytes": 1624,
+        "admission_ns": 15500000000,
+        "ingress": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405875534552,
+          "admission_ns": 15500000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405875544823
+        },
+        "last_Send_accept": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405875549132
+        },
+        "complete_reassembly": {
+          "ns3_ns": 15504355535,
+          "monotonic_ns": 610405920986047
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1696
+      }
+    },
+    "admission_to_first_Send_accept": {
+      "n": 10799,
+      "unit": "sim_ms",
+      "min": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0,
+      "negative_n": 0,
+      "worst": {
+        "value": 0.0,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb1",
+        "sequence": 156,
+        "message_id": 9399,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 1,
+        "flow": 31,
+        "total_body_bytes": 1629,
+        "admission_ns": 15590000000,
+        "ingress": {
+          "ns3_ns": 15590000000,
+          "monotonic_ns": 610406098771347,
+          "admission_ns": 15590000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 15590000000,
+          "monotonic_ns": 610406098821714
+        },
+        "last_Send_accept": {
+          "ns3_ns": 15590000000,
+          "monotonic_ns": 610406098827901
+        },
+        "complete_reassembly": {
+          "ns3_ns": 15590465452,
+          "monotonic_ns": 610406117538923
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1701
+      },
+      "unique_native_id_denominator": 10799,
+      "matched_ids": 10799,
+      "unavailable_ids": 0
+    },
+    "tb3/mask/admission_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 4.634675,
+      "median": 14.9312775,
+      "p95": 18.708763,
+      "p99": 20.164172,
+      "max": 23.394434,
+      "negative_n": 0,
+      "worst": {
+        "value": 23.394434,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb3",
+        "sequence": 1357,
+        "message_id": 154276,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 3,
+        "flow": 70,
+        "total_body_bytes": 160708,
+        "admission_ns": 135710000000,
+        "ingress": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695166545422,
+          "admission_ns": 135710000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695166790024
+        },
+        "last_Send_accept": {
+          "ns3_ns": 135730909220,
+          "monotonic_ns": 610695271372692
+        },
+        "complete_reassembly": {
+          "ns3_ns": 135733394434,
+          "monotonic_ns": 610695284178999
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165712
+      }
+    },
+    "tb3/health/first_Send_accept_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.188135,
+      "median": 8.665948499999999,
+      "p95": 12.788892,
+      "p99": 14.653345,
+      "max": 16.337664,
+      "negative_n": 0,
+      "worst": {
+        "value": 16.337664,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb3",
+        "sequence": 732,
+        "message_id": 89679,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 3,
+        "flow": 71,
+        "total_body_bytes": 1622,
+        "admission_ns": 73200000000,
+        "ingress": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595152584,
+          "admission_ns": 73200000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595161770
+        },
+        "last_Send_accept": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595163735
+        },
+        "complete_reassembly": {
+          "ns3_ns": 73216337664,
+          "monotonic_ns": 610549698251435
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1694
+      }
+    },
+    "last_Send_accept_to_complete_reassembly": {
+      "n": 10799,
+      "unit": "sim_ms",
+      "min": 0.09302,
+      "median": 3.65469,
+      "p95": 11.444161,
+      "p99": 13.634733,
+      "max": 19.114017,
+      "negative_n": 0,
+      "worst": {
+        "value": 19.114017,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb1",
+        "sequence": 1357,
+        "message_id": 154274,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 1,
+        "flow": 30,
+        "total_body_bytes": 160708,
+        "admission_ns": 135710000000,
+        "ingress": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695163590077,
+          "admission_ns": 135710000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695163854229
+        },
+        "last_Send_accept": {
+          "ns3_ns": 135713794667,
+          "monotonic_ns": 610695204661902
+        },
+        "complete_reassembly": {
+          "ns3_ns": 135732908684,
+          "monotonic_ns": 610695280153169
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165712
+      },
+      "unique_native_id_denominator": 10799,
+      "matched_ids": 10799,
+      "unavailable_ids": 0
+    },
+    "tb1/mask/first_Send_accept_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 4.552064,
+      "median": 14.517896,
+      "p95": 18.201204,
+      "p99": 19.838988,
+      "max": 22.908684,
+      "negative_n": 0,
+      "worst": {
+        "value": 22.908684,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb1",
+        "sequence": 1357,
+        "message_id": 154274,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 1,
+        "flow": 30,
+        "total_body_bytes": 160708,
+        "admission_ns": 135710000000,
+        "ingress": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695163590077,
+          "admission_ns": 135710000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 135710000000,
+          "monotonic_ns": 610695163854229
+        },
+        "last_Send_accept": {
+          "ns3_ns": 135713794667,
+          "monotonic_ns": 610695204661902
+        },
+        "complete_reassembly": {
+          "ns3_ns": 135732908684,
+          "monotonic_ns": 610695280153169
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165712
+      }
+    },
+    "tb2/mask/admission_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 4.472184,
+      "median": 12.996749,
+      "p95": 17.842506,
+      "p99": 19.970374,
+      "max": 23.582208,
+      "negative_n": 0,
+      "worst": {
+        "value": 23.582208,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb2",
+        "sequence": 1011,
+        "message_id": 123367,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 2,
+        "flow": 50,
+        "total_body_bytes": 160709,
+        "admission_ns": 101100000000,
+        "ingress": {
+          "ns3_ns": 101100000000,
+          "monotonic_ns": 610617820284703,
+          "admission_ns": 101100000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 101100000000,
+          "monotonic_ns": 610617820607958
+        },
+        "last_Send_accept": {
+          "ns3_ns": 101112877773,
+          "monotonic_ns": 610617899931449
+        },
+        "complete_reassembly": {
+          "ns3_ns": 101123582208,
+          "monotonic_ns": 610617950903342
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165713
+      }
+    },
+    "first_Send_accept_to_complete_reassembly": {
+      "n": 10799,
+      "unit": "sim_ms",
+      "min": 0.09302,
+      "median": 8.910198,
+      "p95": 17.317561,
+      "p99": 19.31592,
+      "max": 23.582208,
+      "negative_n": 0,
+      "worst": {
+        "value": 23.582208,
+        "unit": "sim_ms",
+        "kind": "mask",
+        "robot": "tb2",
+        "sequence": 1011,
+        "message_id": 123367,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 2,
+        "flow": 50,
+        "total_body_bytes": 160709,
+        "admission_ns": 101100000000,
+        "ingress": {
+          "ns3_ns": 101100000000,
+          "monotonic_ns": 610617820284703,
+          "admission_ns": 101100000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 101100000000,
+          "monotonic_ns": 610617820607958
+        },
+        "last_Send_accept": {
+          "ns3_ns": 101112877773,
+          "monotonic_ns": 610617899931449
+        },
+        "complete_reassembly": {
+          "ns3_ns": 101123582208,
+          "monotonic_ns": 610617950903342
+        },
+        "expected_chunks": 139,
+        "Send_calls": 152,
+        "Send_accepted_bytes": 165713
+      },
+      "unique_native_id_denominator": 10799,
+      "matched_ids": 10799,
+      "unavailable_ids": 0
+    },
+    "tb2/health/first_Send_accept_to_complete_reassembly": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.196341,
+      "median": 4.2416675,
+      "p95": 6.672502,
+      "p99": 8.864136,
+      "max": 11.73157,
+      "negative_n": 0,
+      "worst": {
+        "value": 11.73157,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb2",
+        "sequence": 732,
+        "message_id": 89678,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 2,
+        "flow": 51,
+        "total_body_bytes": 1622,
+        "admission_ns": 73200000000,
+        "ingress": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595125517,
+          "admission_ns": 73200000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595140418
+        },
+        "last_Send_accept": {
+          "ns3_ns": 73200000000,
+          "monotonic_ns": 610549595146040
+        },
+        "complete_reassembly": {
+          "ns3_ns": 73211731570,
+          "monotonic_ns": 610549673660785
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1694
+      }
+    },
+    "tb3/health/admission_to_last_Send_accept": {
+      "n": 1800,
+      "unit": "sim_ms",
+      "min": 0.0,
+      "median": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 0.0,
+      "negative_n": 0,
+      "worst": {
+        "value": 0.0,
+        "unit": "sim_ms",
+        "kind": "health",
+        "robot": "tb3",
+        "sequence": 155,
+        "message_id": 9338,
+        "accepted": true,
+        "from_node": 0,
+        "to_node": 3,
+        "flow": 71,
+        "total_body_bytes": 1624,
+        "admission_ns": 15500000000,
+        "ingress": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405877906869,
+          "admission_ns": 15500000000
+        },
+        "first_Send_accept": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405877931387
+        },
+        "last_Send_accept": {
+          "ns3_ns": 15500000000,
+          "monotonic_ns": 610405877935386
+        },
+        "complete_reassembly": {
+          "ns3_ns": 15509130566,
+          "monotonic_ns": 610405943416478
+        },
+        "expected_chunks": 2,
+        "Send_calls": 2,
+        "Send_accepted_bytes": 1696
+      }
+    }
+  },
+  "case": {
+    "arm": "B02",
+    "case": "net01d/followup04/runs/gz-simhealth-b1-02",
+    "ledger": "net01d/followup04/runs/gz-simhealth-b1-02.network/native/packet-ledger.jsonl"
+  },
+  "normal_R_window": {
+    "status": "MEASURED_CLOCK_BRACKET",
+    "original_start_sim": 15.53,
+    "original_end_sim": 195.53,
+    "end_basis": "smoke_bound",
+    "original_autonomy_wall_s": 425.14989125705324,
+    "original_sim_elapsed_s": 180.0,
+    "actual_autonomy_RTF": 0.4233800918254705,
+    "lo_monotonic_ns": 610405898456505,
+    "hi_monotonic_ns": 610831082755314,
+    "first_clock": {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 610405898683639,
+      "gz_ns": 15530000000,
+      "gazebo_ns": 15530000000,
+      "R_callback_capture_monotonic_ns": 610405898456505,
+      "C_publish_return_monotonic_ns": 610405898588015
+    },
+    "last_clock": {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 610831082937411,
+      "gz_ns": 195530000000,
+      "gazebo_ns": 195530000000,
+      "R_callback_capture_monotonic_ns": 610831082755314,
+      "C_publish_return_monotonic_ns": 610831082865355
+    },
+    "last_autonomous_observer_end_monotonic_ns": 610831090827026,
+    "scope": "Discrete R-clock bracket inside original autonomous start/end and Observer last runtime mono cap; not exact Observer start/end. Partial failed phases remain partial; whole actual errors/faults retained independently."
+  },
+  "actual_source_identity": {
+    "status": "ACTUAL_LAUNCHED_ADMISSION_FIELDS",
+    "admission_used": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/runs/gz-simhealth-b1-02.admission-used.json",
+    "ready_path": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/requests/gz-simhealth-b1-02.ready.json",
+    "recorded_ready_sha256": "8de509f74418bba921a75f790b8548671bb648a63b6952845ca6b3451077735a",
+    "runtime_base_source_commit": "aae271f49a8d041285b9a903b3f58d9546985574",
+    "candidate_source_commit": "aae271f49a8d041285b9a903b3f58d9546985574",
+    "adapter_source_commit": "aae271f49a8d041285b9a903b3f58d9546985574",
+    "frozen_source_commit": "76fd91cf937bd8d662302901dad063affbea3c38",
+    "current_ready_bytes_rehashed": false,
+    "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+    "adapter_binding": "net01d/followup04/requests/SIMHEALTH_POSTSTOP_ADAPTER_BINDING.json",
+    "declared_adapter_sha256": {
+      "action_wire.py": "2f7368b03508747fbe57a05104a8f28d4fcf3710e80e9b6f1eb98c70dd15d719",
+      "boot_network.py": "0521f9ffa6322d05fdf78b93717a5677e509ee40226fc81338f6add1ab59d70b",
+      "bound_mask_wire.py": "3d98a0903830dc9cf92e231336d6df5b267e49ed3b5b3c66b4bc150d4558230a",
+      "bound_peer.py": "99c900ab659e857cb0cc6214b8569ada5bc815190a85f389b1a1d427145a1e0a",
+      "check_composition_cleanup.py": "9671539f2f59131ec89a0ed795e9c0525de474a549aa7e20bc5e4155fc95ae2c",
+      "clock_witness/CMakeLists.txt": "1f374b62913299b0bdfcbf394dcd7001a56e2c1261f536bd4e5eac35ceb208cd",
+      "clock_witness/clock_witness.cc": "4388f83e555febc25ce0b2b7d355f0af2cf95021cdfb44faa938a802e098c8e7",
+      "config/CHANNEL_FAULT_V1.json": "c32357d82e360c3dbc17dddbcedd3434c85fb07c5fdc4889ede0c6cc3da28434",
+      "config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS.json": "e8e6ee64d4c62a8ba80bd6c98e2097028990968fa4055253d08ecff9fcf6bc65",
+      "config/EXECUTION_PROFILE_PACE500_CLOCK100_Q10MS.json": "6b6d99d938fd1eb4e51feef5e0afe835887e989c632b5e527e8bf97ea6d78eb3",
+      "config/NATIVE_IDENTITY.json": "ebcd428cd3e057c1defbdbe82dc1b03ed5dd4dc3eb4199d164c29dabf5e327f0",
+      "config/NETWORK_LOCK_V3.json": "a04fbd942781a81fdfa12320e6a542b20f984f727b182903f1cd05b07cb647b8",
+      "config/recorder-qos.yaml": "c044780c4ea0cf82bdf85717142acd7ce64d1d123c142816a1caf45b2d4d39a8",
+      "controller_bootstrap.py": "95820ff194e0f28d84ce37f5d1d748582b0a466f2f739ee6759ea35384b29396",
+      "delivery_guard.py": "1e264e8a7fea08bcb71f1ba4198629e8494fdbc3d5746e8ec76396177acaaffa",
+      "execution_profile.py": "c08ba573f01ff9d4c7a86e66ccb7bfc37e1a9a78e6fb05450eb598487adaa2e3",
+      "gateway.py": "3031ca505f925242c5db5fc2ac30dc25c05039dc0fdf6b3f0d4d07be1dffd8af",
+      "host_run.py": "26c498389493d0a7405abd9af58c14e0a1b4d0a1a3e91c013aa177f0102f9a70",
+      "hub_client.py": "82c4b58d5739e6745018de2e10a9076e661a8e49ba9646948ba755be2c84188b",
+      "link_session.py": "c91e043cc86539f7cff746d4ef0abed6ef9429ffe7f0739d6a334909f4ec5de9",
+      "native/CMakeLists.txt": "7c8dbe443c226e28270d34f62ac1425882c0f81f578dca8a9afdae41b3545a3b",
+      "native/event_ledger.h": "b7e4a4702f34aef2aebb95c2eabe520af1b8059181373910af03c1d6064f7b1e",
+      "native/payload_transport.cc": "637e48f517ca774438488ed44145b0d4b0064dd1d77340d1a35020871404bc64",
+      "net_scene_launch.py": "a3dbea3701689560213e8bf038474f1a6cf1a98d88ccbd4b22cd30e321b4f618",
+      "ros-python.sh": "402578957bdb9e7aa294adac2d035dbfeb39a0d36207da79c311b8637cc931eb",
+      "run_network_case.py": "d13d10acbae6f7b7e2c4ca831686ae93380ffd391d7915cba2f3ce6b30d711c7",
+      "time_control_plugin/CMakeLists.txt": "427703ad3d38ce5c254680f083f927ae9bd3608ec61c0492110d0898c28c4b32",
+      "time_control_plugin/time_control_plugin.cc": "716d8f2b4d4208efbc8a4d475c5e1873d6b95df4f22d0f99efd6c4101fab132b",
+      "time_control_runtime.py": "13f75ea1001b45f53f734ed4925bd445eb611d341dbf44c78733aec20fef5dfd",
+      "time_control_state.py": "0500f56ef68c590a970bb8038a1bff9abbef7312f15f5e130dd735d1957bed7a",
+      "time_controller.py": "e6a6a08a52d48de9748119b4b8ce586d5658c74fe3ba5606fbcdca6f18164b0e",
+      "tools/packet_hub.py": "c193738eeaa0aea4a99ff10302777bc88b6687d956f87ff0b4b45fbe8dae110a",
+      "topic_wire.py": "f90ccfe6226ee4e15f25b0fcd52805f45376ddf0ce491ad3506cc3066ff0d42e",
+      "../net01d/health/trace.py": "1ca363b159315e13da1dd55c59bfd4383dfecd1ed7f3e406296de2ca50af799c",
+      "../net01d/followup01/main_thread_sampler.py": "d0cedacfc5f497d3906c4eb1f04d4a8a3a93b42e8073b2a9d1291f9fd75b4940",
+      "../net01d/followup02/native/tcp_stream_draft.inc": "c40f8cbf93e561f64752344eb3e58718396961fd16620b59d1ac471abe9eef6b",
+      "../net01d/followup02/native/CMakeLists.txt": "eb1c3c7ce3e4989e0a45ecf7f04a7b1ae1a65c37b69e2d0c0f182aa90a29b903",
+      "adapter_node.py": "b10ff2f2d6434ac59a1bb9f306938ba7dd20ec34cd515f6b1d13042eca6a98c7",
+      "config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10.json": "28fca52a27c8bf4a8b69b346c5f87932e1de96cb8c26579b5866fa94bf1164f4",
+      "peer_mask_raster.py": "a8a3a1376eaed08c6a5fbc9130643b37f7900c8361d026ac886286b6a98ec462",
+      "config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER.json": "48afe7c0325b9489a618c97a0b3068f6d4ff79d16e5f8731baceda5ba773d2d9",
+      "a0_runtime.py": "e732db769ff27561059f3851d0618b2c5bb92ae5be88a28d984034ad4581a340",
+      "config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER_SIMHEALTH.json": "fb8a990539ac1645a713b18999383aee04d90ccfde01004d9965d943d920ab32"
+    },
+    "controller_observation_options": {},
+    "scope": "Recorded actual launch-ready path/hash plus its explicit source fields; no planned-AAE substitution, hash recomputation or source equivalence inference"
+  },
+  "case_outcome": {
+    "explicit_reviewed_case_verdict": {
+      "status": "SEE_ACTUAL_SUMMARY_AND_REVIEW_NOT_RECLASSIFIED",
+      "scope": "No process/qualification PASS inferred by this exporter"
+    },
+    "authoritative_review": "net01d/followup04/analysis/gz-simhealth-b1-02/INDEPENDENT_REVIEW.md",
+    "observed_summary": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/analysis/gz-simhealth-b1-02/small-result.json",
+    "observed_summary_status": "LOADED",
+    "observed_process_and_raw_fields": {
+      "error": null,
+      "hazard": null,
+      "run_integrity": true,
+      "status": "BUSINESS180_COMPLETE_POSTSTOP_EXIT0_PRIMARY_R_VALID",
+      "host_command_exit": 0,
+      "runner_exit": 0,
+      "hub_exit": 0,
+      "native_exit": 0,
+      "gateway_process_exit": 0,
+      "gateway_exit_field_semantics": "network-gateway-exit.native_exit is ROS Gateway process, nativeleaf independently0",
+      "network_run_integrity": true,
+      "controlled_exits": {
+        "coordinator": 0,
+        "clock_R": 0,
+        "clock_C": 0
+      },
+      "controller_final": {
+        "mode": "HOLD",
+        "failure": null,
+        "expected_shutdown": true,
+        "physics_failed": false,
+        "physical_ns": 198050000000,
+        "iterations": 198050,
+        "actual_clock_ns": 198050000000,
+        "native_ACK_ns": 198040000000,
+        "fixed_offset_ns": 10000000,
+        "physical_RPC_inflight": false,
+        "session_id": 2026111147,
+        "gateway_clock_ready": true,
+        "pending_holds": 0,
+        "authority_exited": true,
+        "progress_wall_timeout_ns": 2000000000,
+        "progress_started_monotonic_ns": 610399562990155,
+        "motion_armed_since_monotonic_ns": 610405951909251,
+        "global_progress_activation_basis": "First same-session status with any actual R Guard armed; receipt monotonic, not Goal/Policy or bootstrap token",
+        "actual_clock_progress_monotonic_ns": 610837001151473,
+        "native_ACK_progress_monotonic_ns": 610837008874870,
+        "physical_RPC_issued_monotonic_ns": null,
+        "execution_profile": "controlled1000-clock100-q10ms-pace10-raster-simhealth",
+        "token_wall_period_ns": 10000000,
+        "planned_realtime_factor": 1.0,
+        "actual_achieved_physical_rtf": 0.42135564338093057,
+        "physical_progress_sim_span_ns": 198050000000,
+        "physical_progress_wall_span_ns": 470030491133,
+        "achieved_rtf_scope": "First physical token issue through latest successful actual physics ACK; not a rate guarantee",
+        "next_earliest_wall_ns": 610584902990155,
+        "max_token_lateness_ns": 252095221932,
+        "late_tokens": 19802
+      }
+    },
+    "scope": "Preserve original raw success fields independently from process verdict; metrics/empty ownership do not override controller nonzero"
+  },
+  "cohort": "Conditional normal R-consumed health/mask native IDs, not all native ingress, not a loss denominator",
+  "semantics": [
+    "admission_ns is scheduled native admission, not ingress event time or source_stamp_ns",
+    "Send accept is socket-buffer acceptance including 36B headers; not PHY transmit or airtime",
+    "Native sim service includes application/TCP queueing, protocol and Wi-Fi retries; no RF-only attribution",
+    "Boundary counts compare native monotonic event timestamps with normal R consumption bracket; prior/late events retained",
+    "No stages are added together; complete matched messages only; duplicate IDs excluded explicitly",
+    "Nearest-rank p95/p99; arithmetic median; negative differences retained"
+  ],
+  "UNMEASURED": [
+    "Per-message CPU and native Run/STEP wall/CPU: STEP boundaries are stderr, not this ledger",
+    "PHY airtime and isolated TCP/Wi-Fi/CPU contributions"
+  ]
+}

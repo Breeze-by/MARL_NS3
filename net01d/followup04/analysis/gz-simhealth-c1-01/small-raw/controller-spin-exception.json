@@ -1,0 +1,12 @@
+{
+  "pid": 885771,
+  "session_id": "2026111153",
+  "observed_monotonic_ns": 614511395830677,
+  "scope": "Raw spin exception observation, not a fault verdict; original handler remains authoritative",
+  "exception_type": "builtins.KeyboardInterrupt",
+  "exception_repr": "KeyboardInterrupt()",
+  "cause_repr": "None",
+  "context_repr": "None",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/net01/controller_bootstrap.py\", line 22, in spin\n    return original_spin(*args,**kwargs)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py\", line 229, in spin\n    executor.spin_once()\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 812, in spin_once\n    self._spin_once_impl(timeout_sec)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 807, in _spin_once_impl\n    handler()\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py\", line 293, in __call__\n    self._execute_coroutine_step(self._handler)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py\", line 309, in _execute_coroutine_step\n    result = coro.send(None)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 488, in handler\n    await call_coroutine(entity, arg)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 407, in _execute_subscription\n    await await_or_execute(sub.callback, msg)\n  File \"/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py\", line 110, in await_or_execute\n    return callback(*args)\n  File \"/mnt/workspace/rl01/ros_policy.py\", line 97, in <lambda>\n    self.create_subscription(Odometry, f'/{robot}/odom', lambda m, r=robot: self.robot_odom_callback(m, r), 10),\n  File \"/mnt/workspace/rl01/ros_policy.py\", line 109, in robot_odom_callback\n    if not super().robot_odom_callback(message, robot):\n  File \"/mnt/workspace/src/multi_robot_exploration/multi_robot_exploration/control.py\", line 161, in robot_odom_callback\n    self.record(dict(kind='pose',robot=robot,position=(p.x,p.y),sim=self.now(),source='odom + TF'))\n  File \"/mnt/workspace/rl04/ros_headquarters.py\", line 153, in record\n    super().record(event)\n  File \"/mnt/workspace/src/multi_robot_exploration/multi_robot_exploration/control.py\", line 68, in record\n    self.events.write(json.dumps(event)+'\\n')\nKeyboardInterrupt\n",
+  "subscriptions": []
+}

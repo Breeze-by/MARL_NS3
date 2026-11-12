@@ -1,0 +1,348 @@
+{
+  "preflight": true,
+  "smoke_started": true,
+  "observed_stop": true,
+  "error": null,
+  "end_reason": "simulation_budget",
+  "sim_elapsed": 180.0,
+  "wall_elapsed": 380.8343587940326,
+  "natural_complete": false,
+  "threshold_reached": null,
+  "arm": "rl",
+  "scene": "/mnt/inputs/scenes/regression-corridor-common-6201-dwb-v1.json",
+  "system_variant": "peer-compact-v1",
+  "launch_request_utc": "2026-11-11T11:37:24.430527+00:00",
+  "launch_exit_utc": "2026-11-11T11:45:07.521172+00:00",
+  "gazebo_started": true,
+  "gzserver_pid": 883533,
+  "autonomy_start_sim": 17.36,
+  "autonomy_start_wall_unix": 1794397089.0145898,
+  "peer_recording": {
+    "saved": true,
+    "rows": 2004,
+    "last_sequence": 2004,
+    "phase": "after_peer_spin_exit"
+  },
+  "counts": {
+    "tb1/tf_static": 2,
+    "model_states": 1991,
+    "tb1/joint_states": 7817,
+    "tb1/tf": 30271,
+    "tb1/contacts": 1990,
+    "tb1/model_state": 1990,
+    "tb1/drive": 5889,
+    "tb1/odom": 5835,
+    "tb1/scan": 997,
+    "tb1/map": 91,
+    "tb2/tf_static": 2,
+    "tb2/joint_states": 7756,
+    "tb2/tf": 30087,
+    "tb2/scan": 991,
+    "tb2/contacts": 1975,
+    "tb2/odom": 5787,
+    "tb2/drive": 5842,
+    "tb2/model_state": 1974,
+    "tb3/tf_static": 2,
+    "tb2/map": 90,
+    "tb3/joint_states": 7683,
+    "tb3/tf": 29731,
+    "tb3/scan": 980,
+    "tb3/contacts": 1954,
+    "tb3/drive": 5784,
+    "tb3/odom": 5730,
+    "tb3/model_state": 1954,
+    "tb3/map": 89,
+    "merge_map/map": 249,
+    "tb1/cmd_vel": 5171,
+    "tb1/zero_command_topic": 1109,
+    "tb2/cmd_vel": 4549,
+    "tb2/zero_command_topic": 1126,
+    "tb3/cmd_vel": 3968,
+    "tb3/zero_command_topic": 1091,
+    "tb1/feedback": 20344,
+    "tb2/feedback": 18657,
+    "tb3/feedback": 16400,
+    "tb1/action_status": 8,
+    "tb3/action_status": 6,
+    "tb2/action_status": 8
+  },
+  "map_changes": {
+    "tb1": 39,
+    "tb2": 35,
+    "tb3": 28,
+    "merge_map": 99
+  },
+  "distances": {
+    "tb1": 19.088041558940034,
+    "tb2": 15.125625626093516,
+    "tb3": 12.60004321595762
+  },
+  "max_displacement": {
+    "tb1": 6.88584598083636,
+    "tb2": 6.144457295271195,
+    "tb3": 5.409034369462644
+  },
+  "max_speed": {
+    "tb1": 0.26131012039263285,
+    "tb2": 0.2616879075723657,
+    "tb3": 0.2624859727579939
+  },
+  "minimum_pair_distance": 0.7400848711614049,
+  "action_statuses": {
+    "tb1": [
+      [
+        "1cfa6e4fd07243d7b2d8426975856727",
+        2
+      ],
+      [
+        "1cfa6e4fd07243d7b2d8426975856727",
+        4
+      ],
+      [
+        "2b16f2b8fab140f3a11380ecb2107cd8",
+        2
+      ],
+      [
+        "2b16f2b8fab140f3a11380ecb2107cd8",
+        4
+      ],
+      [
+        "3da29b14380f49b6a208ba33429f020c",
+        2
+      ],
+      [
+        "3da29b14380f49b6a208ba33429f020c",
+        4
+      ],
+      [
+        "bb702b5630044bd5ba58ccd94f4cb2fe",
+        2
+      ],
+      [
+        "bb702b5630044bd5ba58ccd94f4cb2fe",
+        4
+      ]
+    ],
+    "tb2": [
+      [
+        "22244558692f400e8ba418d34e3cef35",
+        2
+      ],
+      [
+        "22244558692f400e8ba418d34e3cef35",
+        4
+      ],
+      [
+        "28b9de19b2474fdfaa43d8742d34a74d",
+        2
+      ],
+      [
+        "28b9de19b2474fdfaa43d8742d34a74d",
+        4
+      ],
+      [
+        "97f5b0bb443d4ac38fbae2109797001d",
+        2
+      ],
+      [
+        "97f5b0bb443d4ac38fbae2109797001d",
+        4
+      ],
+      [
+        "f2bc454579394a539260ef8c7108fae0",
+        2
+      ],
+      [
+        "f2bc454579394a539260ef8c7108fae0",
+        4
+      ]
+    ],
+    "tb3": [
+      [
+        "2e44eb4ab15a42acac51cf9d620484e5",
+        2
+      ],
+      [
+        "2e44eb4ab15a42acac51cf9d620484e5",
+        4
+      ],
+      [
+        "3107f4bd514b4959a01015855c193f33",
+        2
+      ],
+      [
+        "3107f4bd514b4959a01015855c193f33",
+        4
+      ],
+      [
+        "e2944e15899446bfb9cc82525a24fb0a",
+        2
+      ],
+      [
+        "e2944e15899446bfb9cc82525a24fb0a",
+        4
+      ]
+    ]
+  },
+  "hazard": null,
+  "diagnostic_stop_pass": false,
+  "baseline_smoke_pass": true,
+  "engineering_evidence": {
+    "engineering_closed_loop_pass": true,
+    "facts": {
+      "bounded_run": true,
+      "no_hazard": true,
+      "observed_stop": true,
+      "actual_NN_three_choices": true,
+      "three_owned_accepted": true,
+      "three_feedback": true,
+      "three_real_movement": true,
+      "SLAM_and_merge_growth": true,
+      "terminal_feedback_to_new_owner": true,
+      "no_owner_overlap": true,
+      "request_reservation_linkage": true,
+      "no_rejected_RL_actions": true
+    },
+    "terminal_to_new_owner_witnesses": [
+      {
+        "robot": "tb1",
+        "terminal_token": 1,
+        "terminal_uuid": "1cfa6e4fd07243d7b2d8426975856727",
+        "terminal_status": "succeeded",
+        "next_decision_id": 3,
+        "next_token": 2,
+        "next_uuid": "2b16f2b8fab140f3a11380ecb2107cd8"
+      },
+      {
+        "robot": "tb3",
+        "terminal_token": 1,
+        "terminal_uuid": "e2944e15899446bfb9cc82525a24fb0a",
+        "terminal_status": "succeeded",
+        "next_decision_id": 3,
+        "next_token": 2,
+        "next_uuid": "2e44eb4ab15a42acac51cf9d620484e5"
+      },
+      {
+        "robot": "tb2",
+        "terminal_token": 1,
+        "terminal_uuid": "22244558692f400e8ba418d34e3cef35",
+        "terminal_status": "succeeded",
+        "next_decision_id": 4,
+        "next_token": 2,
+        "next_uuid": "97f5b0bb443d4ac38fbae2109797001d"
+      },
+      {
+        "robot": "tb1",
+        "terminal_token": 2,
+        "terminal_uuid": "2b16f2b8fab140f3a11380ecb2107cd8",
+        "terminal_status": "succeeded",
+        "next_decision_id": 8,
+        "next_token": 3,
+        "next_uuid": "bb702b5630044bd5ba58ccd94f4cb2fe"
+      },
+      {
+        "robot": "tb3",
+        "terminal_token": 2,
+        "terminal_uuid": "2e44eb4ab15a42acac51cf9d620484e5",
+        "terminal_status": "succeeded",
+        "next_decision_id": 8,
+        "next_token": 3,
+        "next_uuid": "3107f4bd514b4959a01015855c193f33"
+      },
+      {
+        "robot": "tb2",
+        "terminal_token": 2,
+        "terminal_uuid": "97f5b0bb443d4ac38fbae2109797001d",
+        "terminal_status": "succeeded",
+        "next_decision_id": 9,
+        "next_token": 3,
+        "next_uuid": "f2bc454579394a539260ef8c7108fae0"
+      },
+      {
+        "robot": "tb1",
+        "terminal_token": 3,
+        "terminal_uuid": "bb702b5630044bd5ba58ccd94f4cb2fe",
+        "terminal_status": "succeeded",
+        "next_decision_id": 14,
+        "next_token": 4,
+        "next_uuid": "3da29b14380f49b6a208ba33429f020c"
+      },
+      {
+        "robot": "tb2",
+        "terminal_token": 3,
+        "terminal_uuid": "f2bc454579394a539260ef8c7108fae0",
+        "terminal_status": "succeeded",
+        "next_decision_id": 15,
+        "next_token": 4,
+        "next_uuid": "28b9de19b2474fdfaa43d8742d34a74d"
+      }
+    ],
+    "owner_overlap": [],
+    "target_link_errors": [],
+    "actual_inferences": 36,
+    "accepted_per_robot": {
+      "tb1": 4,
+      "tb2": 4,
+      "tb3": 3
+    }
+  },
+  "final_request_ownership": {
+    "closed": true,
+    "authority_stopped": true,
+    "requests": 11,
+    "unresolved_requests": [],
+    "owned_goals": {
+      "tb1": [
+        "1cfa6e4fd07243d7b2d8426975856727",
+        "2b16f2b8fab140f3a11380ecb2107cd8",
+        "3da29b14380f49b6a208ba33429f020c",
+        "bb702b5630044bd5ba58ccd94f4cb2fe"
+      ],
+      "tb2": [
+        "22244558692f400e8ba418d34e3cef35",
+        "28b9de19b2474fdfaa43d8742d34a74d",
+        "97f5b0bb443d4ac38fbae2109797001d",
+        "f2bc454579394a539260ef8c7108fae0"
+      ],
+      "tb3": [
+        "2e44eb4ab15a42acac51cf9d620484e5",
+        "3107f4bd514b4959a01015855c193f33",
+        "e2944e15899446bfb9cc82525a24fb0a"
+      ]
+    },
+    "unterminated_UUIDs": {
+      "tb1": [],
+      "tb2": [],
+      "tb3": []
+    },
+    "record_errors": []
+  },
+  "active_cancel_pass": false,
+  "engineering_closed_loop_pass": true,
+  "lifecycle_pause_healthy": true,
+  "participation": {
+    "tb1": {
+      "path_m": 19.088041558940034,
+      "actual_goals": 4,
+      "effective_motion": true
+    },
+    "tb2": {
+      "path_m": 15.125625626093516,
+      "actual_goals": 4,
+      "effective_motion": true
+    },
+    "tb3": {
+      "path_m": 12.60004321595762,
+      "actual_goals": 3,
+      "effective_motion": true
+    }
+  },
+  "run_integrity": true,
+  "observer_records_saved": {
+    "events": 24693,
+    "trajectory_rows": 5918,
+    "drive_rows": 17515,
+    "map_snapshots": 8,
+    "tf_snapshots": 1
+  }
+}

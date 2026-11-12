@@ -1,0 +1,191 @@
+{
+  "status": "ROOT_ADMITTED_UNIQUE_ORIGINAL_A1_FULL",
+  "execution_authorized": true,
+  "source_checkpoint": "651723975c84241a792af352c99e9e402d840946",
+  "native_sha256_reused": "0cc771a18a3eb63ebbc4eb09ee942aaba27ea93211e07a7a0805d993dcc7c4f3",
+  "cwd": "/home/zhuyulab/ns3-workspace",
+  "argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net-01d/workspace/net01d/run_replay.py",
+    "--stage",
+    "full",
+    "--arm",
+    "A1",
+    "--case",
+    "actual-phase-local-01",
+    "--output-dir",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup03/r/tcp-clocklane-raster-local-01",
+    "--payloads",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01",
+    "--native",
+    "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "--native-transport",
+    "tcp-mtu-v2",
+    "--dds-take-trace",
+    "--mock-phase",
+    "actual-corr6201",
+    "--native-evidence-ram",
+    "/dev/shm/net01d-f03-tcp-clocklane-raster-local-01",
+    "--main-thread-sample",
+    "--adapter-qos-events",
+    "warning-free-v1",
+    "--execution-profile",
+    "controlled1000-clock100-q10ms-pace10-clocklane-raster",
+    "--native-ledger-mode",
+    "serial"
+  ],
+  "output": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup03/r/tcp-clocklane-raster-local-01",
+  "RAM": "/dev/shm/net01d-f03-tcp-clocklane-raster-local-01",
+  "normal_wall_s": 32,
+  "hard_wall_s": 60,
+  "guard_thresholds_unchanged": true,
+  "native_cpu_profile": false,
+  "dispatch_profile": true,
+  "control_trace": true,
+  "dds_take_trace": true,
+  "main_thread_sample": true,
+  "mock_phase": "actual-corr6201",
+  "scope": "Prepared same-profile A1 original32normal/60hard full no-motion causal control. Existing modeA ordered direct Gateway business adaptation; same Hub/native remains actual clock/model control only. Not executed or authorized; not physical Nav2/SLAM/Policy or equal native CPU workload.",
+  "Action": {
+    "normal": 3,
+    "negative_active": 1,
+    "normal_expected_statuses": [
+      4,
+      4,
+      5
+    ],
+    "negative": "Original fourth tb3 Goal accepted/GetResult pending, then0.8wall SUPPLY_STOP for A1 observation sources while local Action/PAUSE services keep spinning. No RADIO_OFF request. Require actual matching local cancellation/PAUSE; report actual central terminal response or UNKNOWN without inventing closure."
+  },
+  "transport": "Existing A1 modeA ordered local Gateway business queue; same native tcp-mtu-v2 ELF/13DSOs for actual clock/model control. Native setup/beacon/control costs remain, business-network cost differs from B.",
+  "protocol_change": "No new protocol change. Original full CDR/RPC/source stamps and local DDS QoS remain; no A1 business ns3 transmission or WiFi bypass claim for B.",
+  "required_before_execution": [
+    "Root+independent A1 source/profile/argv/negative review with production runtime651723975c84241a792af352c99e9e402d840946 unchanged",
+    "Root unique A1 admission and immutable request binding; current case/RAM/loader exclusive and original resource/owned checks",
+    "One original actual old0cc ELF/13DSO/maps observation in owned Hub/native tree; original runner controls all phase bounds/cleanup"
+  ],
+  "automatic_retry": false,
+  "automatic_Gazebo": false,
+  "independent_packet_evidence": "net01d/followup02/analysis/ntcp-m2/v2-packetization.json",
+  "no_automatic_next_case": true,
+  "compiled_native_source_checkpoint": "ca9ea8c",
+  "gateway_cprofile": false,
+  "adapter_qos_events": "warning-free-v1",
+  "SDK_evidence": {
+    "qos_precondition": {
+      "result": "net01d/followup02/evidence/adapter-qos-event-sdk-01/check/result.json",
+      "review": "net01d/followup02/review/ADAPTER_QOS_EVENT_SOURCE_AND_SDK_REVIEW.md"
+    },
+    "terminal_quiet_current": {
+      "result": "net01d/followup02/evidence/gateway-tailquiet-sdk-01/check/result.json",
+      "review": "net01d/followup02/review/TERMINAL_QUIET_SOURCE_AND_SDK_REVIEW.md",
+      "actual_predicates": 26
+    },
+    "clock_lane": {
+      "result": "net01d/followup03/clocklane/sdk-01/result.json",
+      "review": "net01d/followup03/CLOCK_LANE_SOURCE_REVIEW.md",
+      "scope": "RealDDS+UnixFIFO+idle/lifecycle only,15checks, no native300ms or GZ claim"
+    }
+  },
+  "diagnostic_tradeoff": "No SDKautomatic incompatibleQoS warnings for these Gatewaypub/sub; explicitcallbacks/Actionbackendchecks/traces retained; lowerentitycap mayalterglobalpollbatchboundary",
+  "SDK_actual": "gateway-tailquiet-sdk-01 outer0/26predicatesPASS,original116/tail4,actualSDKresourcesclosed; nofullcapacityclaim",
+  "cap_semantics": "Original caps sumactualentities eachpoll; warningwaitable removal lowerscaps/canendbatch earlier; q4/cursor/Guard andbusinessrules unchanged, no promiseglobalinterleaving identical",
+  "warning_tradeoff": "Gateway endpoints no automatic incompatibleQoS WARN when unspecified; explicitcallback/Actionbackendchecks/traces remain",
+  "phase_snapshot_scope": "FirstactualCGoalcapture laterthan clientnormalstart to firstfaultobservedpollend/exit; originalclientmarkers judge32normal, notsnapshotduration",
+  "historical_lineage": {
+    "tcp-mtu-01": "Explicit tcp-mtu-v2/MSS1448 deploymentMTU baseline; notidle orwarningfree change",
+    "tcp-idle-01": "Originalreal-empty boundedselect idle candidate from0fa31b1",
+    "tcp-qos-01": "warning-free-v1 adapteronly defaultQoSwarning eventmanagement from844f546",
+    "tcp-tail-01": "Freshterminalquiet extension+smallcounterssnapshots from94fd77a; currentGateway baseline"
+  },
+  "source_rates_dataQoS_wireless_unchanged": "ROS simulation periods, original mixed wall-source definitions, QoS and RF unchanged; actual wall business rates change with achieved sim progress.",
+  "adapter_diagnostic_events": "warning-free-v1 remains sharedwith tcp-qos-01: defaultwarnings removed,explicitcallbacks/dataQoS preserved; capbatchboundarychange disclosed",
+  "current_unique_comparison": "Same profile/source definitions/payloads/old0ccserial13DSOs as failed B tcp-clocklane-raster-01; only the existing A1 versus B business backend differs. A1 retains native clock control but sends no business bytes through native WiFi. Native CPU/traffic/backpressure and achieved source wall cadence/work can therefore differ. This separates an engineering path, not equal-load or WiFi-only causal attribution.",
+  "Gateway_implementation": "651723975c84241a792af352c99e9e402d840946: unchanged clocklane Gateway, explicit equivalent Peer raster and allthree forwarding paths.",
+  "native_build_identity": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/evidence/BUILD_IDENTITY.json",
+  "environment": {
+    "LD_LIBRARY_PATH": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+    "LD_PRELOAD": "UNSET",
+    "LD_AUDIT": "UNSET"
+  },
+  "compilation_difference": "BaselineC3compilerFPdefault vsnewdriver+all13DSO-ffp-contract=off plusLTO, portableO3/model/radio/source/headers unchanged",
+  "native_pair_evidence": "net01d/followup02/analysis/lto-fixed-pair/comparison.json; original115895rows/4PCAP/18RX",
+  "loader_observer": {
+    "script": "net01d/followup03/native/observe_clocklane_raster_local_full.py",
+    "only": "Reuse observe_lto_full.main with this admitted unique A1 case; one actual old0cc ELF/13DSO/maps observation only, original runner owns control/cleanup.",
+    "all13_required_root": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+  },
+  "observer_argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net01d/followup03/native/observe_clocklane_raster_local_full.py"
+  ],
+  "observer_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "native_ledger_mode": "serial",
+  "execution_profile": "controlled1000-clock100-q10ms-pace10-clocklane-raster",
+  "planned_token_wall_period_ns": 10000000,
+  "planned_realtime_factor": 1.0,
+  "actual_realtime_factor": null,
+  "actual_realtime_factor_note": "NOT_RUN_A1. Planned1RTF is not achieved-rate guarantee; measure actual normal and whole control windows separately.",
+  "comparison_contract": "Same final clocklane-raster profile required for A0/A1/B/C; priorclocklane/pace10 are history, not matched newprofile baselines.",
+  "qualification_criteria": {
+    "normal": "Original full32wall business window, three normal Goals and expected statuses4/4/5, all original phase/RPC/guard predicates; do not extend after failure",
+    "negative": "Original A1 fourth accepted tb3 Goal/GetResult pending, then0.8wall observation SUPPLY_STOP, no RF injection. Preserve real local CANCELED/PAUSE/future evidence and honest central completed/pendingUNKNOWN state.",
+    "bounds": "Original60hardwall, original drain/finalization/owned-cleanup deadlines, no retry/extra negative window",
+    "safety": "Original300ms actual health/mask and200ms pose receipt gates; original Action deadlines; no pre-fault HOLD",
+    "time": "Every real physical ACK10sim-ms/10iterations, one inflight, physical/native credit<=20sim-ms, actual clock/native ACK provenance and actual achieved RTF",
+    "load": "Original full payload templates/mixed source definitions and all original gates unchanged. A1 business traffic avoids native model; actual native CPU load, wall source cadence and simulated progress are not assumed equal to B."
+  },
+  "baseline_rebuild_status": {
+    "A0": "NOT_RUN_CLOCKLANE_RASTER_PROFILE",
+    "A1": "NOT_RUN_PREPARED_LOCAL_CONTROL",
+    "B": "NOT_RUN_CLOCKLANE_RASTER_PROFILE",
+    "C": "NOT_RUN_CLOCKLANE_RASTER_PROFILE"
+  },
+  "budget_note": "Inert A1 preparation only. Original32normal/60hard/fourthGoal0.8wall SUPPLY_STOP/drain/cleanup remain; no extra window.",
+  "root_decision": "One unique A1 local full-load causal control after B firstfailure retained and originalnative single read completed. Same6517239 source/clocklane-raster/source rates/32normal60hard/old0ccserial13/unchanged safety. Exact A1 SUPPLY_STOP negative, no RFoff. Immediate exclusive/owned/resource checks then START; no retry/Gazebo. Native business load differs from B and must be reported.",
+  "runtime_commit": "651723975c84241a792af352c99e9e402d840946",
+  "case_identity": "tcp-clocklane-raster-local-01",
+  "clocklane_candidate": {
+    "producer": "net01d_pace_profile",
+    "implementation_status": "Previous clocklane source/SDK15 accepted; no clocklane code change. Joint source651723975c84241a792af352c99e9e402d840946.",
+    "STEP_owner": "existing business Gateway, unchanged",
+    "time_contract": "existing actualGZ q10/credit20 oneinflight; original SENDAT/KNOWN/mobility serialization",
+    "scope": "opt-in control-clock callback queue cost only; not WiFi priority/QoS/source rate/Policy change"
+  },
+  "native_selection": "Original0cc serial plus same13LTO libraries; native tcp-mtu-v2 model/control artifact retained. A1 business uses existing ordered direct Gateway path. No nativeTXcopy/sessionRAM/sampler variants; original native-evidence-ram is serial tmpfs storage only.",
+  "harness_case_selector": "--arm A1 --case actual-phase-local-01 is the original full/A1/actual-corr6201/DDS selector. Unique case identity comes from output/RAM/loader paths.",
+  "unchanged_original_parameters": [
+    "32wall normal",
+    "60wall hard",
+    "3normal Goals expected4/4/5",
+    "A1 fourth accepted tb3 Goal/GetResult pending then0.8wall SUPPLY_STOP; no RADIO_OFF",
+    "300ms health/mask and200ms pose receipt plus original source-age/correction gates",
+    "payload/old0ccserial/same13LTO and unchanged clocks/q10/credit20",
+    "actual-corr6201 original mixedsim/wallsource definitions and same clocklane-raster profile",
+    "original DDS take trace/main-thread sample/warning-free-v1",
+    "original drain/cleanup and firstfailure preservation"
+  ],
+  "peer_raster_candidate": {
+    "producer": "net01d_pace_profile",
+    "selection": "explicit newcommonprofile only; module-global peer_mask implementation choice in external adapter; frozen file unedited",
+    "equivalence": "15cases actual160000int8 grids exact; actualCDR compared outside established IDLpadding21..23 and decodedfields exact; raw firstfailure retained",
+    "timing": "Unique existing fixed6AB/BA microbenchmark: three-owner threadCPU48.924\u21926.075ms; excludes fullgrid/CDR/publication/native/network/Full",
+    "profile": "controlled1000-clock100-q10ms-pace10-clocklane-raster",
+    "source_ready_only": true,
+    "review": "net01d/followup03/RASTER_REVIEW.md"
+  },
+  "comparison_group": "A1",
+  "network_business_mode": "A",
+  "admission_binding_commit": "PENDING_ROOT_REVIEW_COMMIT",
+  "output_path_note": {
+    "case_basename_unchanged": true,
+    "original_runs_socket_bytes": 109,
+    "prepared_socket_bytes": 106,
+    "reason": "Keep the full unique case basename under f03/r instead of f03/runs so original AF_UNIX wire.sock remains below108bytes; no symlink/source/socket logic changes."
+  }
+}

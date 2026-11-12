@@ -1,0 +1,30 @@
+[INFO] [1794386230.046800312] [rosbag2_recorder]: Subscribed to topic '/tb3/tf_static'
+[INFO] [1794386230.672104649] [rosbag2_recorder]: Subscribed to topic '/tb3/tf'
+[INFO] [1794386231.027672107] [rosbag2_recorder]: Overriding subscription profile for /tb3/map
+[INFO] [1794386231.030448321] [rosbag2_recorder]: Subscribed to topic '/tb3/map'
+[INFO] [1794386232.370300935] [rosbag2_recorder]: Subscribed to topic '/tb3/scan'
+[INFO] [1794386232.596150306] [rosbag2_recorder]: Subscribed to topic '/tb3/drive_diagnostics'
+[INFO] [1794386232.600426913] [rosbag2_recorder]: Subscribed to topic '/tb3/odom'
+[INFO] [1794386236.357708778] [rosbag2_recorder]: Subscribed to topic '/tb1/local_plan'
+[INFO] [1794386236.362619826] [rosbag2_recorder]: Subscribed to topic '/tb1/local_costmap/costmap'
+[INFO] [1794386236.592474635] [rosbag2_recorder]: Subscribed to topic '/tb1/plan'
+[INFO] [1794386236.610332725] [rosbag2_recorder]: Subscribed to topic '/tb1/global_costmap/costmap'
+[INFO] [1794386236.961404989] [rosbag2_recorder]: Subscribed to topic '/tb1/navigate_to_pose/_action/feedback'
+[INFO] [1794386236.967625557] [rosbag2_recorder]: Subscribed to topic '/tb1/navigate_to_pose/_action/status'
+[INFO] [1794386239.611150196] [rosbag2_recorder]: Subscribed to topic '/tb2/local_plan'
+[INFO] [1794386239.616705733] [rosbag2_recorder]: Subscribed to topic '/tb2/local_costmap/costmap'
+[INFO] [1794386239.855179092] [rosbag2_recorder]: Subscribed to topic '/tb2/global_costmap/costmap'
+[INFO] [1794386239.858884077] [rosbag2_recorder]: Subscribed to topic '/tb2/plan'
+[INFO] [1794386240.218309940] [rosbag2_recorder]: Subscribed to topic '/tb2/navigate_to_pose/_action/status'
+[INFO] [1794386240.223336566] [rosbag2_recorder]: Subscribed to topic '/tb2/navigate_to_pose/_action/feedback'
+[INFO] [1794386242.861722022] [rosbag2_recorder]: Subscribed to topic '/tb3/local_costmap/costmap'
+[INFO] [1794386242.988940299] [rosbag2_recorder]: Subscribed to topic '/tb3/local_plan'
+[INFO] [1794386243.117889801] [rosbag2_recorder]: Subscribed to topic '/tb3/global_costmap/costmap'
+[INFO] [1794386243.248734365] [rosbag2_recorder]: Subscribed to topic '/tb3/plan'
+[INFO] [1794386243.528318779] [rosbag2_recorder]: Subscribed to topic '/tb3/navigate_to_pose/_action/feedback'
+[INFO] [1794386243.532729141] [rosbag2_recorder]: Subscribed to topic '/tb3/navigate_to_pose/_action/status'
+[INFO] [1794386243.532895472] [rosbag2_recorder]: All requested topics are subscribed. Stopping discovery...
+[INFO] [1794386463.508784438] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+[INFO] [1794386463.510448799] [rosbag2_storage]: Opened database '/mnt/net01d/followup04/runs/gz-simhealth-a1-01/bag/bag_1.db3' for READ_WRITE.
+terminate called after throwing an instance of 'rosbag2_storage_plugins::SqliteException'
+  what():  Error when processing SQL statement. SQLite error (5): database is locked

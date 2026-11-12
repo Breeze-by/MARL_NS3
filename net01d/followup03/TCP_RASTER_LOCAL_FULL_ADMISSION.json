@@ -1,0 +1,186 @@
+{
+  "status": "ROOT_ADMITTED_UNIQUE_RASTER_ONLY_A1_FULL",
+  "execution_authorized": true,
+  "source_checkpoint": "244f7de2294c102d76e88649dec13b0d0418a7c0",
+  "native_sha256_reused": "0cc771a18a3eb63ebbc4eb09ee942aaba27ea93211e07a7a0805d993dcc7c4f3",
+  "cwd": "/home/zhuyulab/ns3-workspace",
+  "argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net-01d/workspace/net01d/run_replay.py",
+    "--stage",
+    "full",
+    "--arm",
+    "A1",
+    "--case",
+    "actual-phase-local-01",
+    "--output-dir",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup03/runs/tcp-raster-local-01",
+    "--payloads",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/health/payloads-01",
+    "--native",
+    "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/driver-out/net01-payload-tcp",
+    "--native-transport",
+    "tcp-mtu-v2",
+    "--dds-take-trace",
+    "--mock-phase",
+    "actual-corr6201",
+    "--native-evidence-ram",
+    "/dev/shm/net01d-f03-tcp-raster-local-01",
+    "--main-thread-sample",
+    "--adapter-qos-events",
+    "warning-free-v1",
+    "--execution-profile",
+    "controlled1000-clock100-q10ms-pace10-raster",
+    "--native-ledger-mode",
+    "serial"
+  ],
+  "output": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup03/runs/tcp-raster-local-01",
+  "RAM": "/dev/shm/net01d-f03-tcp-raster-local-01",
+  "normal_wall_s": 32,
+  "hard_wall_s": 60,
+  "guard_thresholds_unchanged": true,
+  "native_cpu_profile": false,
+  "dispatch_profile": true,
+  "control_trace": true,
+  "dds_take_trace": true,
+  "main_thread_sample": true,
+  "mock_phase": "actual-corr6201",
+  "scope": "Inert unique original A1 no-motion32normal/60hard Full configuration ablation: retain equivalent raster, select originalPACE10 actualclock/onebusinessGatewaySTEPowner without separate control-clock lane. Original A1 directbusiness path/nativeclockcontrol/Policy/source/safety unchanged; no run or speedup claim.",
+  "Action": {
+    "normal": 3,
+    "negative_active": 1,
+    "normal_expected_statuses": [
+      4,
+      4,
+      5
+    ],
+    "negative": "Original fourth accepted tb3 Goal/GetResult transport readiness then0.8wall SUPPLY_STOP of observation supplies only; local Action/PAUSE services continue. No RADIO_OFF. Preserve matchingUUID localCancel/GetResult5/PAUSE and report actual centralterminal or pendingUNKNOWN."
+  },
+  "transport": "Existing A1 modeA ordered local Gateway business queue; same native tcp-mtu-v2 ELF/13DSOs for actual clock/model control. Native setup/beacon/control costs remain, business-network cost differs from B.",
+  "protocol_change": "No new protocol change. Original full CDR/RPC/source stamps and local DDS QoS remain; no A1 business ns3 transmission or WiFi bypass claim for B.",
+  "required_before_execution": [
+    "Root and independent review of the newexplicit PACE10-raster profile and source binding; raster equivalence evidence accepted without implying Full pass",
+    "Fixed source runtimecommit and Root unique A1 admission/START; immediate original resource/exclusive/domainowned checks",
+    "Original one-time actual old0cc ELF/13DSO/maps/Hubownership proof; existing32normal60hard phase/cleanup rules"
+  ],
+  "automatic_retry": false,
+  "automatic_Gazebo": false,
+  "independent_packet_evidence": "net01d/followup02/analysis/ntcp-m2/v2-packetization.json",
+  "no_automatic_next_case": true,
+  "compiled_native_source_checkpoint": "ca9ea8c",
+  "gateway_cprofile": false,
+  "adapter_qos_events": "warning-free-v1",
+  "SDK_evidence": {
+    "qos_precondition": {
+      "result": "net01d/followup02/evidence/adapter-qos-event-sdk-01/check/result.json",
+      "review": "net01d/followup02/review/ADAPTER_QOS_EVENT_SOURCE_AND_SDK_REVIEW.md"
+    },
+    "terminal_quiet_current": {
+      "result": "net01d/followup02/evidence/gateway-tailquiet-sdk-01/check/result.json",
+      "review": "net01d/followup02/review/TERMINAL_QUIET_SOURCE_AND_SDK_REVIEW.md",
+      "actual_predicates": 26
+    }
+  },
+  "diagnostic_tradeoff": "No SDKautomatic incompatibleQoS warnings for these Gatewaypub/sub; explicitcallbacks/Actionbackendchecks/traces retained; lowerentitycap mayalterglobalpollbatchboundary",
+  "SDK_actual": "gateway-tailquiet-sdk-01 outer0/26predicatesPASS,original116/tail4,actualSDKresourcesclosed; nofullcapacityclaim",
+  "cap_semantics": "Original caps sumactualentities eachpoll; warningwaitable removal lowerscaps/canendbatch earlier; q4/cursor/Guard andbusinessrules unchanged, no promiseglobalinterleaving identical",
+  "warning_tradeoff": "Gateway endpoints no automatic incompatibleQoS WARN when unspecified; explicitcallback/Actionbackendchecks/traces remain",
+  "phase_snapshot_scope": "FirstactualCGoalcapture laterthan clientnormalstart to firstfaultobservedpollend/exit; originalclientmarkers judge32normal, notsnapshotduration",
+  "historical_lineage": {
+    "tcp-mtu-01": "Explicit tcp-mtu-v2/MSS1448 deploymentMTU baseline; notidle orwarningfree change",
+    "tcp-idle-01": "Originalreal-empty boundedselect idle candidate from0fa31b1",
+    "tcp-qos-01": "warning-free-v1 adapteronly defaultQoSwarning eventmanagement from844f546",
+    "tcp-tail-01": "Freshterminalquiet extension+smallcounterssnapshots from94fd77a; currentGateway baseline"
+  },
+  "source_rates_dataQoS_wireless_unchanged": "ROS simulation periods, original mixed wall-source definitions, QoS and RF unchanged; actual wall business rates change with achieved sim progress.",
+  "adapter_diagnostic_events": "warning-free-v1 remains sharedwith tcp-qos-01: defaultwarnings removed,explicitcallbacks/dataQoS preserved; capbatchboundarychange disclosed",
+  "current_unique_comparison": "Configuration ablation against failed clocklane-raster A1: same A1 business backend/raster/originalnumericPACE10conditions, separate control-clock lane disabled via explicit profile. This is not a proven rootcause fix or guaranteedRTF/freshness gain. Actualcallback caps/order/sourceavailability and trajectories can change; compare actual measured spans and rebuild sameprofile scientific references.",
+  "Gateway_implementation": "244f7de2294c102d76e88649dec13b0d0418a7c0 with existing Gateway default path; tested external raster opt-in and existing profile forwarding only.",
+  "native_build_identity": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/evidence/BUILD_IDENTITY.json",
+  "environment": {
+    "LD_LIBRARY_PATH": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+    "LD_PRELOAD": "UNSET",
+    "LD_AUDIT": "UNSET"
+  },
+  "compilation_difference": "BaselineC3compilerFPdefault vsnewdriver+all13DSO-ffp-contract=off plusLTO, portableO3/model/radio/source/headers unchanged",
+  "native_pair_evidence": "net01d/followup02/analysis/lto-fixed-pair/comparison.json; original115895rows/4PCAP/18RX",
+  "loader_observer": {
+    "script": "net01d/followup03/native/observe_raster_local_full.py",
+    "only": "Reuse original observe_lto_full.main with this false unique A1 admission; one actual old0cc/13DSO/maps/Hubowned observation, original harness controls all deadlines/cleanup.",
+    "all13_required_root": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib"
+  },
+  "observer_argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net01d/followup03/native/observe_raster_local_full.py"
+  ],
+  "observer_cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "native_ledger_mode": "serial",
+  "execution_profile": "controlled1000-clock100-q10ms-pace10-raster",
+  "planned_token_wall_period_ns": 10000000,
+  "planned_realtime_factor": 1.0,
+  "actual_realtime_factor": null,
+  "actual_realtime_factor_note": "NOT_RUN. Planned1RTF and rastermicrobench are not achievednormalRTF/freshness/32normal qualification.",
+  "comparison_contract": "Same final PACE10-raster(no separateclocklane) profile required across future A0/A1/B/C. Priorpace10/clocklane/clocklane-raster are distinct history, not matched newprofile baselines.",
+  "qualification_criteria": {
+    "normal": "Original full32wall business window, three normal Goals and expected statuses4/4/5, all original phase/RPC/guard predicates; do not extend after failure",
+    "negative": "Original A1 fourth accepted tb3 Goal/GetResult pending, then0.8wall observation SUPPLY_STOP, no RF injection. Preserve real local CANCELED/PAUSE/future evidence and honest central completed/pendingUNKNOWN state.",
+    "bounds": "Original60hardwall, original drain/finalization/owned-cleanup deadlines, no retry/extra negative window",
+    "safety": "Original300ms actual health/mask and200ms pose receipt gates; original Action deadlines; no pre-fault HOLD",
+    "time": "Every real physical ACK10sim-ms/10iterations, one inflight, physical/native credit<=20sim-ms, actual clock/native ACK provenance and actual achieved RTF",
+    "load": "Original full payload templates/mixed source definitions and all original gates unchanged. A1 business traffic avoids native model; actual native CPU load, wall source cadence and simulated progress are not assumed equal to B."
+  },
+  "baseline_rebuild_status": {
+    "A0": "NOT_RUN_PACE10_RASTER_PROFILE",
+    "A1": "NOT_RUN_PACE10_RASTER_PROFILE",
+    "B": "NOT_RUN_PACE10_RASTER_PROFILE",
+    "C": "NOT_RUN_PACE10_RASTER_PROFILE"
+  },
+  "budget_note": "SOURCE_ONLY false A1 draft. Original32normal/60hard, original3+fourthSUPPLY_STOP negative/drains/cleanup; no extended window/retry or automatic B/Gazebo.",
+  "root_decision": "One unique tcp-raster-local-01 original A1 32normal60hard after immediate exclusive/resource/owned/source checks. Retain measured raster, restore original Gateway execution path, no extra controlclock lane. Same source frequencies/time/RF/safety and original SUPPLY_STOP negative. No retry/B/Gazebo automatic. Independently reviewed finite hypothesis test; no assumed root cause.",
+  "runtime_commit": "244f7de2294c102d76e88649dec13b0d0418a7c0",
+  "case_identity": "tcp-raster-local-01",
+  "native_selection": "Original0cc serial/same13LTO; native retained only for original actual clock/model control in modeA, no A1 nativebusiness. Evidence tmpfs is not sessionRAM ledger; no TXcopy/sampler ELF.",
+  "harness_case_selector": "--arm A1 --case actual-phase-local-01 is the original full/A1/actual-corr6201/DDS selector. Unique case identity comes from output/RAM/loader paths.",
+  "unchanged_original_parameters": [
+    "32wallnormal/60wallhard",
+    "3normalGoal statuses4/4/5 and originalRPCdrain",
+    "fourthacceptedtb3/GetResultready then.8wallSUPPLY_STOP, noRFfault",
+    "health/mask300wallms,pose200wallms,odom.4sim/correction.55sim andfuturechecks unchanged",
+    "originalmixedsource rates/stamps/dataQoS/payloads/actual-corr6201",
+    "old0ccserial13libs/warning-free-v1/DDStrace/main-threadsample",
+    "originalPACE10numeric targetgrid10ms/q10/credit20/onephysicalRPC, ordinaryRclockhandling",
+    "equivalentbroadcast-v1raster/sourcehealthbinding/publicationsemantics",
+    "firstfailurepreservation/originaldrain/localCancel/centralUNKNOWN/ownedcleanup"
+  ],
+  "peer_raster_candidate": {
+    "producer": "net01d_pace_profile",
+    "selection": "Explicit newPACE10-raster profile only; external module-global broadcast-v1 selection; frozenfunction file/default retained.",
+    "equivalence": "15cases actual160000int8 grids exact; actualCDR compared outside established IDLpadding21..23 and decodedfields exact; raw firstfailure retained",
+    "timing": "Unique existing fixed6AB/BA microbenchmark: three-owner threadCPU48.924\u21926.075ms; excludes fullgrid/CDR/publication/native/network/Full",
+    "profile": "controlled1000-clock100-q10ms-pace10-raster",
+    "source_ready_only": true,
+    "review": "net01d/followup03/RASTER_REVIEW.md"
+  },
+  "comparison_group": "A1",
+  "network_business_mode": "A",
+  "admission_binding_commit": "PENDING_ROOT_REVIEW_COMMIT",
+  "output_path_note": {
+    "wire_socket_path_bytes": 99,
+    "below_original_AF_UNIX_108byte_bound": true,
+    "unique_case": "tcp-raster-local-01",
+    "no_symlink_or_socket_logic_change": true
+  },
+  "clock_control_selection": {
+    "profile": "controlled1000-clock100-q10ms-pace10-raster",
+    "separate_clock_lane": false,
+    "basis": "originalPACE10 profile clone; no gateway_control_clock_lane field",
+    "STEP_owner": "existing businessGateway",
+    "time_contract": "Original target1x/10mswallgrid/q10/credit20/onephysicalRPC/actualclock provenance/FIFO/sourceadmission, no new mechanism"
+  }
+}

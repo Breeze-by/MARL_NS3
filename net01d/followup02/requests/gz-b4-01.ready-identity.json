@@ -1,0 +1,39 @@
+{
+  "status": "ROOT_ADMITTED_NOT_STARTED",
+  "runtime_commit": "93d16ede9f41c7b4f5a3cce721a01c21e8e0c79c",
+  "ready_relative_repo": "net01d/followup02/requests/gz-b4-01.ready.json",
+  "ready_sha256": "cbf6cba413962daedbda96797a7b34ce3e9282dc6f4522584175dc806fe992db",
+  "binding_relative_repo": "net01d/followup02/requests/GZ_B4_RAM_ADAPTER_BINDING.json",
+  "authorization_flags": {
+    "execution_authorized": false,
+    "authorized_gz01_execution": false,
+    "authorized_net01_execution": false
+  },
+  "native_binary": {
+    "relative_phase": "/home/zhuyulab/ns3-workspace/net-01d/native-session-ram-followup02-r2/driver-out/net01-payload-tcp",
+    "bytes": 528824,
+    "sha256": "928290702a71665c01858bed8fa8fd3a173e874e2d1e18f7c845ea6796e5a3e1"
+  },
+  "native_ledger_mode": "session-ram-v1",
+  "case": "net01d/followup02/runs/gz-b4-01",
+  "session_id": 2026111142,
+  "command_cwd": "/home/zhuyulab/ns3-workspace",
+  "prospective_argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net-01d/workspace/net01/host_run.py",
+    "--ready",
+    "net-01d/workspace/net01d/followup02/requests/gz-b4-01.ready.json"
+  ],
+  "prestart": "net01d/followup02/evidence/gz-b4-01-prestart.json",
+  "root_scope": "Only one prospective B4 engineering check, no matched scientific A3 comparison and no automatic A4",
+  "production_sources_changed": false,
+  "new_model_starts": 0,
+  "final_authorization_flags": {
+    "execution_authorized": true,
+    "authorized_gz01_execution": true,
+    "authorized_net01_execution": true
+  }
+}

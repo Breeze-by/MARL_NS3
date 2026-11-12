@@ -1,0 +1,30 @@
+{
+  "id": "controlled1000-clock100-q10ms-pace10-clocklane",
+  "world_real_time_update_rate": 1000,
+  "physics_max_step_size_unchanged": 0.001,
+  "clock_publish_rate_sim_hz": 100.0,
+  "native_step_quantum_ns": 10000000,
+  "qualification": {
+    "source_wall_s": 16,
+    "hard_wall_s": 30,
+    "clock_period_wall_s": 0.02,
+    "clock_increment_ns": 10000000,
+    "other_sources": "Original TF/odom/feedback per wall unchanged, source clock subscribed from explicit MOCK_PHYSICS actual step service",
+    "peer": "Original10Hz sim timer, expected10Hz wall only if target1RTF is achieved; actual intervals measured, original gates unchanged",
+    "local_costmap_cells": [
+      200,
+      200
+    ],
+    "local_costmap_rationale": "A07 captured flow25 actual40104B =200x200int8+CDR; original .5wall period unchanged. Old profile remains60x60; prior full-load qualification did not cover this real size.",
+    "not_generated_flows": [
+      "89 C merge_map",
+      "95 C controller journal"
+    ]
+  },
+  "scope": "Explicit opt-in common execution condition: same pace10 target/physical quantum/credit and frozen observation/action semantics, with only the Gateway explicit actual R /clock callback on a separate bounded executor in the same R context/thread. Original C/R TimeSource, business quantum4, source periods, message/QoS/RF and safety deadlines remain. Callback ordering/entity caps and achieved wall workload/observation availability/trajectories can change; rebuild matched A0/A1/B/C references. No new clock truth or STEP owner, target1RTF not guaranteed. Qualification remains a no-motion fixture, not Gazebo. qualification.not_generated_flows describes the health-only fixture; the unchanged Full stage still generates both89/95.",
+  "controlled_physics": true,
+  "physical_token_steps": 10,
+  "physical_lookahead_quanta": 2,
+  "token_wall_period_ns": 10000000,
+  "gateway_control_clock_lane": "separate-executor-v1"
+}

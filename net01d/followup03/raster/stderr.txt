@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/mnt/net01d/followup03/raster/check_and_bench.py", line 92, in <module>
+    if __name__=='__main__':main()
+  File "/mnt/net01d/followup03/raster/check_and_bench.py", line 60, in main
+    raise AssertionError('Exact CDR mismatch: '+name)
+AssertionError: Exact CDR mismatch: actual-seq30-tb1

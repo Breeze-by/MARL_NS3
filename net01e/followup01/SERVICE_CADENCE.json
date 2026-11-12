@@ -1,0 +1,333 @@
+{
+  "source_case": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01e/replay/collect-03",
+  "begin_monotonic_ns": 621433321263030,
+  "cutoff_monotonic_ns": 621434652035878,
+  "shared_span_wall_s": 1.330772848,
+  "take_rows": 411,
+  "source_publications": 670,
+  "flows": {
+    "23": {
+      "actual_publications": 223,
+      "actual_takes": 137,
+      "shared_window_lambda_wall_hz": 167.57179884992664,
+      "shared_window_mu_wall_hz": 102.94769705130022,
+      "publication_first_last_wall_hz": 166.95736011227712,
+      "take_first_last_wall_hz": 103.33599242422565,
+      "source_first_gap_ms": 0.258251,
+      "source_last_to_cut_ms": 0.783005,
+      "take_first_gap_ms": 1.489787,
+      "take_last_to_cut_ms": 13.187896,
+      "pub_minus_take_count": 86,
+      "same_flow_take_interval_ms": {
+        "n": 136,
+        "min": 3.621172,
+        "mean": 9.677170330882355,
+        "median": 7.784804,
+        "p95": 25.26371,
+        "max": 30.826634
+      },
+      "received_to_take_ms": {
+        "n": 137,
+        "min": 1.180891,
+        "mean": 243.27842475182482,
+        "median": 243.563357,
+        "p95": 482.319088,
+        "max": 491.881793
+      },
+      "queue_age_first_ms": 1.180891,
+      "queue_age_last_ms": 491.830989,
+      "queue_age_slope_ms_per_wall_s": 371.93014420460787,
+      "take_CPU_ms": {
+        "n": 137,
+        "min": 0.211172,
+        "mean": 0.30093425547445257,
+        "median": 0.287292,
+        "p95": 0.380852,
+        "max": 0.767312
+      },
+      "actual_published_edge_groups": [
+        {
+          "edges": [
+            [
+              "base_link",
+              "wheel_left_link"
+            ],
+            [
+              "base_link",
+              "wheel_right_link"
+            ]
+          ],
+          "count": 14
+        },
+        {
+          "edges": [
+            [
+              "map",
+              "odom"
+            ]
+          ],
+          "count": 170
+        },
+        {
+          "edges": [
+            [
+              "odom",
+              "base_footprint"
+            ]
+          ],
+          "count": 39
+        }
+      ]
+    },
+    "43": {
+      "actual_publications": 223,
+      "actual_takes": 137,
+      "shared_window_lambda_wall_hz": 167.57179884992664,
+      "shared_window_mu_wall_hz": 102.94769705130022,
+      "publication_first_last_wall_hz": 166.94450983250636,
+      "take_first_last_wall_hz": 103.33399011961568,
+      "source_first_gap_ms": 0.194337,
+      "source_last_to_cut_ms": 0.741582,
+      "take_first_gap_ms": 3.10617,
+      "take_last_to_cut_ms": 11.546011,
+      "pub_minus_take_count": 86,
+      "same_flow_take_interval_ms": {
+        "n": 136,
+        "min": 3.579796,
+        "mean": 9.677357845588235,
+        "median": 8.068174,
+        "p95": 26.454875,
+        "max": 32.057498
+      },
+      "received_to_take_ms": {
+        "n": 137,
+        "min": 2.854856,
+        "mean": 244.39755737226278,
+        "median": 245.573149,
+        "p95": 480.617546,
+        "max": 493.78815
+      },
+      "queue_age_first_ms": 2.854856,
+      "queue_age_last_ms": 480.617546,
+      "queue_age_slope_ms_per_wall_s": 371.7319460139766,
+      "take_CPU_ms": {
+        "n": 137,
+        "min": 0.180079,
+        "mean": 0.23103662773722625,
+        "median": 0.217716,
+        "p95": 0.339094,
+        "max": 0.407146
+      },
+      "actual_published_edge_groups": [
+        {
+          "edges": [
+            [
+              "base_link",
+              "wheel_left_link"
+            ],
+            [
+              "base_link",
+              "wheel_right_link"
+            ]
+          ],
+          "count": 14
+        },
+        {
+          "edges": [
+            [
+              "map",
+              "odom"
+            ]
+          ],
+          "count": 170
+        },
+        {
+          "edges": [
+            [
+              "odom",
+              "base_footprint"
+            ]
+          ],
+          "count": 39
+        }
+      ]
+    },
+    "63": {
+      "actual_publications": 224,
+      "actual_takes": 137,
+      "shared_window_lambda_wall_hz": 168.3232418940967,
+      "shared_window_mu_wall_hz": 102.94769705130022,
+      "publication_first_last_wall_hz": 167.68205633555695,
+      "take_first_last_wall_hz": 103.42116027083368,
+      "source_first_gap_ms": 0.0,
+      "source_last_to_cut_ms": 0.697554,
+      "take_first_gap_ms": 6.079579,
+      "take_last_to_cut_ms": 9.681915,
+      "pub_minus_take_count": 87,
+      "same_flow_take_interval_ms": {
+        "n": 136,
+        "min": 3.392474,
+        "mean": 9.66920113235294,
+        "median": 7.732934,
+        "p95": 27.016962,
+        "max": 41.591532
+      },
+      "received_to_take_ms": {
+        "n": 137,
+        "min": 5.873156,
+        "mean": 248.40999406569347,
+        "median": 247.984333,
+        "p95": 485.179706,
+        "max": 495.502534
+      },
+      "queue_age_first_ms": 5.873156,
+      "queue_age_last_ms": 495.4003,
+      "queue_age_slope_ms_per_wall_s": 370.81146913295476,
+      "take_CPU_ms": {
+        "n": 137,
+        "min": 0.169048,
+        "mean": 0.22079404379562045,
+        "median": 0.211279,
+        "p95": 0.304255,
+        "max": 0.409594
+      },
+      "actual_published_edge_groups": [
+        {
+          "edges": [
+            [
+              "base_link",
+              "wheel_left_link"
+            ],
+            [
+              "base_link",
+              "wheel_right_link"
+            ]
+          ],
+          "count": 14
+        },
+        {
+          "edges": [
+            [
+              "map",
+              "odom"
+            ]
+          ],
+          "count": 171
+        },
+        {
+          "edges": [
+            [
+              "odom",
+              "base_footprint"
+            ]
+          ],
+          "count": 39
+        }
+      ]
+    }
+  },
+  "nonoverlap_observed_triples": [
+    {
+      "flow_order": [
+        23,
+        43,
+        63
+      ],
+      "count": 137
+    }
+  ],
+  "adjacent_any_flow_interval_ms": {
+    "n": 410,
+    "min": 0.76508,
+    "mean": 3.2185393804878046,
+    "median": 2.301108,
+    "p95": 7.859972,
+    "max": 26.629599
+  },
+  "whole_life_progress_aggregates": {
+    "hub_poll": {
+      "calls": 7818,
+      "wall_ns": 164582837,
+      "thread_cpu_ns": 164713768,
+      "max_wall_ns": 383756
+    },
+    "total_inclusive": {
+      "calls": 7818,
+      "wall_ns": 760698337,
+      "thread_cpu_ns": 746574415,
+      "max_wall_ns": 76549054
+    },
+    "poll_inclusive": {
+      "calls": 4226,
+      "wall_ns": 8089808795,
+      "thread_cpu_ns": 5159302525,
+      "max_wall_ns": 98845528
+    },
+    "idle_event_wait": {
+      "calls": 2959,
+      "wall_ns": 2799393944,
+      "thread_cpu_ns": 107719829,
+      "max_wall_ns": 2931810
+    },
+    "journal_call_inclusive": {
+      "calls": 409,
+      "wall_ns": 55284148,
+      "thread_cpu_ns": 55347750,
+      "max_wall_ns": 506697
+    },
+    "direct_batch": {
+      "calls": 2506,
+      "wall_ns": 408851456,
+      "thread_cpu_ns": 408654385,
+      "max_wall_ns": 3761348
+    }
+  },
+  "whole_life_R_wait_aggregates": {
+    "ready": {
+      "calls": 2847,
+      "wall_ns": 740806115,
+      "thread_cpu_ns": 692691569,
+      "max_wall_ns": 1777148
+    },
+    "productive_set_end": {
+      "calls": 1445,
+      "wall_ns": 90016170,
+      "thread_cpu_ns": 89939809,
+      "max_wall_ns": 199391
+    },
+    "empty_set": {
+      "calls": 4400,
+      "wall_ns": 1718357260,
+      "thread_cpu_ns": 1571551426,
+      "max_wall_ns": 3726968
+    }
+  },
+  "whole_life_C_wait_aggregates": {
+    "empty_set": {
+      "calls": 647,
+      "wall_ns": 150629044,
+      "thread_cpu_ns": 139444967,
+      "max_wall_ns": 2243566
+    },
+    "ready": {
+      "calls": 745,
+      "wall_ns": 175291921,
+      "thread_cpu_ns": 161732104,
+      "max_wall_ns": 616607
+    },
+    "productive_set_end": {
+      "calls": 509,
+      "wall_ns": 22077901,
+      "thread_cpu_ns": 22051320,
+      "max_wall_ns": 116203
+    }
+  },
+  "boundaries": [
+    "Shared interval uses actual first normal TF publication through actual first fault, all monotonic.",
+    "Publication-minus-take is not exact queue depth: no per-writer/GID identity and original source cut is censored.",
+    "Lambda is actual successful publish count, not the planned 10sim corpus rate.",
+    "Take triples/periods are observed service cycles, not exact SDK waitset refresh boundaries.",
+    "Whole-life CPU/progress aggregates include startup and exit, so cannot be divided by the prefault span.",
+    "Reported received timestamp is not independently established earliest DDS arrival."
+  ]
+}

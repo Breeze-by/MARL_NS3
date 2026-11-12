@@ -1,0 +1,17 @@
+{
+  "execution_authorized": true,
+  "status": "ONE_CONTINUOUS_DDS_DIAGNOSIS_ADMITTED",
+  "case": "continuous_DDS_one_observed_SIGINT_run-02",
+  "script": "net01e/controller/continuous_dds.py",
+  "output_relative_repo": "net01e/controller/run-02",
+  "domain": 97,
+  "maximum_ros_exposures": 1,
+  "prior_run01": "0publish/0SIGINT/0child/0Node; strict CDR float32 source-equality fixture failure, NOT TESTED",
+  "only_source_change": "Normalize .05 resolution to its exact IEEE754 float32 Python representation; retain strict entire typed roundtrip equality",
+  "gazebo_nav2_motion_policy_training_ns3_allowed": false,
+  "production_or_system_source_changes": false,
+  "private_take_or_type_monkeypatch": false,
+  "automatic_retry_or_followup": false,
+  "reviewed_source_commit": "63a02ce19c2963838064816b06bf559666aebab5",
+  "root_START": "Unique run-02 after reviewed float32-only fixture correction; no automatic followup"
+}

@@ -1,0 +1,38 @@
+{
+  "record_saves": {
+    "network-gateway-saved.json": {
+      "saved": true,
+      "cleanup": {
+        "resources_destroyed": true,
+        "end_frame_flushed": true
+      }
+    },
+    "bound-mask-recording-saved.json": {
+      "saved": true
+    },
+    "peer-recording-saved.json": {
+      "saved": true
+    },
+    "a0-direct-safety-saved.json": {
+      "saved": true,
+      "direct_reference": true,
+      "business_wires_installed": false,
+      "registered_owned_unknown_or_active": 0,
+      "safety_connections": 0
+    }
+  },
+  "gateway_exit": {
+    "native_exit": 0
+  },
+  "controller_exit": {
+    "started": true,
+    "pid": 863836,
+    "returncode": null,
+    "session_id": 2026111154,
+    "case": "/home/zhuyulab/ns3-workspace/net-01d/workspace/net01d/followup04/evidence/controller-exit-reporting-01/alive",
+    "observed_monotonic_ns": 612891184021275,
+    "phase": "after_original_stop_and_owned_launch_cleanup_attempts"
+  },
+  "network_run_integrity": false,
+  "scope": "Runtime/source/stop remain separately in original result; no metric PASS implied"
+}

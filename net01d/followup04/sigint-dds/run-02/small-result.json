@@ -1,0 +1,92 @@
+{
+  "status": "INCONCLUSIVE_RECEIVER_DID_NOT_EXIT_AFTER_ONE_SIGINT",
+  "tool_exit": 1,
+  "runtime": "197a",
+  "activation": "e05d3cf",
+  "actual_command": [
+    "rtk",
+    "proxy",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "35s",
+    "bash",
+    "net01/ros-python.sh",
+    "/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py",
+    "--output",
+    "/mnt/net01d/followup04/sigint-dds/run-02"
+  ],
+  "start_monotonic_ns": 613116669133794,
+  "end_monotonic_ns": 613134398496049,
+  "driver_wall_s": 17.729362255,
+  "parent_pid": 864392,
+  "parent_ppid": 864387,
+  "receiver_pid": 864413,
+  "receiver_ready": {
+    "pid": 864413,
+    "ppid": 864392,
+    "monotonic_ns": 613117132673855,
+    "domain": 97,
+    "RMW_IMPLEMENTATION": "rmw_fastrtps_cpp",
+    "signal_handler_options": "NO, same as frozen headquarters; Python SIGINT untouched",
+    "default_Python_SIGINT": true,
+    "topic": "/net01d/sigint_diagnostic/grid",
+    "msg_type_module": "nav_msgs.msg._occupancy_grid",
+    "msg_type_name": "OccupancyGrid",
+    "raw": false
+  },
+  "actual_published": 240,
+  "actual_CDR_bytes": 160104,
+  "first_publish_monotonic_ns": 613117139607337,
+  "last_publish_monotonic_ns": 613129090358607,
+  "signal": {
+    "pid": 864413,
+    "signal": "SIGINT",
+    "before_monotonic_ns": 613129139273176,
+    "after_monotonic_ns": 613129139342730
+  },
+  "actual_SIGINT_count": 1,
+  "actual_child_final_exit": -15,
+  "parent_exception": {
+    "monotonic_ns": 613134140601108,
+    "utc": "2026-11-11T11:21:32.658265+00:00",
+    "type": "TimeoutExpired",
+    "module": "subprocess",
+    "message": "Command '['/usr/bin/python3', '-B', '/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py', '--receiver-directory', '/mnt/net01d/followup04/sigint-dds/run-02']' timed out after 5.0 seconds",
+    "cause": null,
+    "context": null,
+    "suppress_context": false,
+    "traceback": "Traceback (most recent call last):\n  File \"/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py\", line 135, in driver\n    code=process.wait(timeout=max(.001,min(5.,deadline-time.monotonic())))\n  File \"/usr/lib/python3.10/subprocess.py\", line 1209, in wait\n    return self._wait(timeout=timeout)\n  File \"/usr/lib/python3.10/subprocess.py\", line 1951, in _wait\n    raise TimeoutExpired(self.args, timeout)\nsubprocess.TimeoutExpired: Command '['/usr/bin/python3', '-B', '/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py', '--receiver-directory', '/mnt/net01d/followup04/sigint-dds/run-02']' timed out after 5.0 seconds\n",
+    "frames": [
+      {
+        "file": "/mnt/net01d/followup04/sigint-dds/check_sigint_dds.py",
+        "function": "driver",
+        "line": 135
+      },
+      {
+        "file": "/usr/lib/python3.10/subprocess.py",
+        "function": "wait",
+        "line": 1209
+      },
+      {
+        "file": "/usr/lib/python3.10/subprocess.py",
+        "function": "_wait",
+        "line": 1951
+      }
+    ]
+  },
+  "owned_cleanup": "SIGTERM after diagnostic wait failure; no second SIGINT",
+  "parent_context_ok": false,
+  "receiver_exception_record": "ABSENT",
+  "receiver_cleanup_record": "ABSENT",
+  "receiver_callback_count": "UNMEASURED_finally_not_recorded",
+  "all_owned_gone": true,
+  "domain97_udp_ports_after": [],
+  "HEAVY_DONE": true,
+  "first_failure_preserved": true,
+  "no_source_changes_or_repeat": true,
+  "interpretation": "Signal syscall success is not proof of Python default handler execution. No target RuntimeError or KeyboardInterrupt sample/traceback. This is a receiver-exit-timeout diagnostic failure, not target reproduction, complete NOT_REPRODUCED, fix or originalA0 acceptance.",
+  "fixed_protocol_boundary": "Publisher supply ends before SIGINT and does not supply any new message afterward. This differs from ongoing Gazebo traffic; no live stack was sampled, so exact blocked location/cause is UNRESOLVED.",
+  "observation_utc": "2026-11-11T11:23:23.013702+00:00",
+  "observation_monotonic_ns": 613244496113378
+}

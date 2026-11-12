@@ -1,0 +1,78 @@
+{
+  "runtime_source_and_runner": "7cc6f5f; native source4f78de8 / ELF1e8fdb4350ffd0b30826910714c9156179ec02241d7a4498f11583788f9212a8",
+  "cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "limits": {
+    "active_wall_s": 20,
+    "external_TERM_wall_s": 30,
+    "external_kill_grace_s": 2,
+    "normal_and_radio_fixed_sim_s": 8,
+    "budget_expected_sim_s": 0
+  },
+  "TCP_defaults_changed": false,
+  "frame": "Original36B header/<=1164B fragment and0.5sim reassembly retained; RPC8B/body bytes intact",
+  "handshake": "6 actual bidirectional64B RX byN4, not IPC_READY",
+  "cases": [
+    {
+      "case": "stream-01",
+      "argv": [
+        "rtk",
+        "proxy",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=2s",
+        "30s",
+        "python3",
+        "-B",
+        "net01d/followup02/native/run_native_tcp.py",
+        "--case",
+        "stream-01",
+        "--native",
+        "/home/zhuyulab/ns3-workspace/net-01d/build/followup02-native-tcp/net01-payload-tcp"
+      ],
+      "input": "6 directions64B pings atN0; each160704B and1048576B atN4;18 total",
+      "actual_completed": "PASS_NATIVE_BYTES_ONLY already sealed, not deadline/ROS qualification"
+    },
+    {
+      "case": "radio-01",
+      "argv": [
+        "rtk",
+        "proxy",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=2s",
+        "30s",
+        "python3",
+        "-B",
+        "net01d/followup02/native/run_native_tcp.py",
+        "--case",
+        "radio-01",
+        "--native",
+        "/home/zhuyulab/ns3-workspace/net-01d/build/followup02-native-tcp/net01-payload-tcp"
+      ],
+      "input": "6 directions64B pings atN0; 6 directions160704B atN4.22;12 total",
+      "fault": "actual native RADIO False atN4.20, True atN4.30; no DISCARD, no RTO tuning",
+      "interpretation": "only actual byte recovery/seq-overlap observation; not300wall claim or unique-cause attribution without business-range linkage"
+    },
+    {
+      "case": "budget-01",
+      "argv": [
+        "rtk",
+        "proxy",
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=2s",
+        "30s",
+        "python3",
+        "-B",
+        "net01d/followup02/native/run_native_tcp.py",
+        "--case",
+        "budget-01",
+        "--native",
+        "/home/zhuyulab/ns3-workspace/net-01d/build/followup02-native-tcp/net01-payload-tcp"
+      ],
+      "input": "one8MiB opaque body+RPC8+all36B headers atN0; fixed8MiB endpoint budget must atomically reject",
+      "expected": "actual native1/HubFAIL preserved; no queue/data write/fallback; EXPECTED_BUDGET_ERROR is checker classification only"
+    }
+  ],
+  "ordering": "Separate exact admissions; radio then budget serial; no automatic ROS/GZ"
+}

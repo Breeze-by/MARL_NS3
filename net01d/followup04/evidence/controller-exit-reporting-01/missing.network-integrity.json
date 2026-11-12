@@ -1,0 +1,34 @@
+{
+  "record_saves": {
+    "network-gateway-saved.json": {
+      "saved": true,
+      "cleanup": {
+        "resources_destroyed": true,
+        "end_frame_flushed": true
+      }
+    },
+    "bound-mask-recording-saved.json": {
+      "saved": true
+    },
+    "peer-recording-saved.json": {
+      "saved": true
+    },
+    "a0-direct-safety-saved.json": {
+      "saved": true,
+      "direct_reference": true,
+      "business_wires_installed": false,
+      "registered_owned_unknown_or_active": 0,
+      "safety_connections": 0
+    }
+  },
+  "gateway_exit": {
+    "native_exit": 0
+  },
+  "controller_exit": {
+    "started": false,
+    "returncode": null,
+    "reason": "missing controller exit evidence"
+  },
+  "network_run_integrity": false,
+  "scope": "Runtime/source/stop remain separately in original result; no metric PASS implied"
+}

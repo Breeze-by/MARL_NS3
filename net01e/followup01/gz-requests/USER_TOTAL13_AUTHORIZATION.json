@@ -1,0 +1,19 @@
+{
+  "recorded_UTC": "2026-11-11T17:14:27.007331+00:00",
+  "source": "Explicit user reply in this conversation",
+  "exact_user_answer": "允许总计13回合，完成三轮配对（推荐）",
+  "question": "用统一修复版重做四组各3次，需要12个新回合，加上必须保留的1个失败回合，共13个。是否允许总上限增至13？",
+  "approved_total_physical_episodes": 13,
+  "old_failed_physical_episodes": 1,
+  "new_common_V2_episodes": 12,
+  "new_rounds": 3,
+  "order_each_round": [
+    "A1",
+    "B",
+    "A0",
+    "C"
+  ],
+  "new_episodes_per_arm": 3,
+  "scope": "Budget only: same frozen model, Corr6201, starts, source binding, network parameters, all existing per-case simulation/wall/safety limits. Each case requires explicit READY and Root START. No automatic retry, additional maps, training, NET02 or remote push.",
+  "shared_activation_bytes_unchanged": true
+}

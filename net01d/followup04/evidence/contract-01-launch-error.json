@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "rtk",
+    "proxy",
+    "python3",
+    "-B",
+    "net01d/followup04/check_contract.py",
+    "--output",
+    "net01d/followup04/evidence/contract-01"
+  ],
+  "exit": 1,
+  "phase": "entry_import_before_output_or_test_checks",
+  "error": "ModuleNotFoundError: No module named 'execution_profile'",
+  "cause": "check_contract.REPO used parents[3], one level above actual repo; fixture-only fix to parents[2]",
+  "production_changes": false,
+  "model_starts": 0
+}

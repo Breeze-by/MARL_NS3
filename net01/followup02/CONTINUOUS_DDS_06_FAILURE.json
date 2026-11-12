@@ -1,0 +1,171 @@
+{
+  "scope": "Failed once-only synthetic DDS06; no Gazebo/arm/goal; not successful load validation",
+  "failure": "mapped_ns3_clock_lag_above_0.12sim",
+  "first_fault": {
+    "kind": "transport_latched_INVALID",
+    "monotonic_ns": 416197942305295,
+    "gz_ns": 700000000,
+    "reason": "mapped_ns3_clock_lag_above_0.12sim"
+  },
+  "first_clocks": [
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 416197712053505,
+      "gz_ns": 500000000,
+      "gazebo_ns": 500000000
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 416197864828933,
+      "gz_ns": 600000000,
+      "gazebo_ns": 600000000
+    },
+    {
+      "kind": "actual_R_clock_relayed_C",
+      "monotonic_ns": 416197914086102,
+      "gz_ns": 700000000,
+      "gazebo_ns": 700000000
+    }
+  ],
+  "native_clock_ledger": [
+    {
+      "kind": "actual_clock_horizon_known",
+      "ns3_ns": 0,
+      "monotonic_ns": 416197713231129,
+      "latest_ns": 0
+    },
+    {
+      "kind": "actual_clock_horizon_known",
+      "ns3_ns": 0,
+      "monotonic_ns": 416197942820163,
+      "latest_ns": 100000000
+    },
+    {
+      "kind": "actual_clock_horizon_known",
+      "ns3_ns": 0,
+      "monotonic_ns": 416197942833324,
+      "latest_ns": 200000000
+    },
+    {
+      "kind": "transport_end",
+      "ns3_ns": 0,
+      "monotonic_ns": 416206255159762
+    }
+  ],
+  "dispatch": {
+    "C": {
+      "batches": 199,
+      "callbacks": 795,
+      "cap_hits": 0,
+      "max_wall_s": 0.012235636007972062,
+      "max_cpu_s": 0.01224052600000003
+    },
+    "R": {
+      "batches": 199,
+      "callbacks": 9209,
+      "cap_hits": 62,
+      "max_wall_s": 0.11517401499440894,
+      "max_cpu_s": 0.11517498900000023
+    },
+    "guard_timers": {
+      "1": {
+        "calls": 424,
+        "max_gap_wall_s": 0.07335819402942434,
+        "last": 416206.246541046
+      },
+      "2": {
+        "calls": 425,
+        "max_gap_wall_s": 0.07092333503533155,
+        "last": 416206.246815039
+      },
+      "3": {
+        "calls": 425,
+        "max_gap_wall_s": 0.0699684849823825,
+        "last": 416206.250693714
+      }
+    },
+    "max_poll_gap_wall_s": 0.12619344901759177
+  },
+  "cleanup": {
+    "phase": "after_supervisor_stop_and_owned_cleanup_attempts",
+    "end_frame_flushed": true,
+    "executor_shutdown": [
+      true,
+      true
+    ],
+    "resources_destroyed": true,
+    "unresolved_C_RPC": [],
+    "unresolved_R_RPC": [],
+    "unresolved_local_cleanup_futures": {
+      "1": 1,
+      "2": 1,
+      "3": 1
+    }
+  },
+  "actual_source_window_wall_s": 8.023734888003673,
+  "source_counts": {
+    "0:synthetic_clock": 86,
+    "1:static": 1,
+    "1:synthetic_map": 2,
+    "1:synthetic_action_status": 9,
+    "2:static": 1,
+    "2:synthetic_map": 2,
+    "2:synthetic_action_status": 9,
+    "3:static": 1,
+    "3:synthetic_map": 2,
+    "3:synthetic_action_status": 8,
+    "1:map->odom": 401,
+    "1:odom": 241,
+    "1:odom->base_footprint": 241,
+    "1:base_link->wheel_left_link": 161,
+    "1:exact_zero_cmd": 161,
+    "1:synthetic_action_feedback": 800,
+    "2:synthetic_action_feedback": 799,
+    "2:map->odom": 400,
+    "3:synthetic_action_feedback": 799,
+    "3:map->odom": 400,
+    "2:odom": 240,
+    "2:odom->base_footprint": 240,
+    "3:odom": 240,
+    "3:odom->base_footprint": 240,
+    "2:base_link->wheel_left_link": 160,
+    "2:exact_zero_cmd": 160,
+    "3:base_link->wheel_left_link": 160,
+    "3:exact_zero_cmd": 160,
+    "1:synthetic_costmap": 16,
+    "2:synthetic_costmap": 16,
+    "3:synthetic_costmap": 16
+  },
+  "topic_counts": {
+    "C": {
+      "captured": 244,
+      "delivered": 4
+    },
+    "R": {
+      "captured": 4906,
+      "delivered": 4
+    }
+  },
+  "process": {
+    "scope": "One continuous synthetic-clock DDS diagnostic; not Gazebo/real-clock or motion safety",
+    "error": null,
+    "wall_s": 10.988596216018777,
+    "hard_wall_s": 20,
+    "exits": {
+      "hub": 0,
+      "peer": 0,
+      "gateway": 1,
+      "source": 0
+    },
+    "Gazebo": 0,
+    "NN": 0,
+    "wrapper_pids": {
+      "hub": 1573897,
+      "peer": 1573911,
+      "gateway": 1573912,
+      "source": 1573913
+    },
+    "stop_control": "fixture stop-file polled at most20Hz; exact overhead saved, not production behavior"
+  },
+  "interpretation": "Productive refill delivered more ROS callback work but initial two clock ticks were consumed before hub progress. First native STEP was never scheduled; mapped latest .2 minus actual horizon0 exceeded unchanged .12. Failure is real coordinator scheduling defect, not WiFi tuning or stale-header fix. Postfault capture counts do not prove delivery."
+}

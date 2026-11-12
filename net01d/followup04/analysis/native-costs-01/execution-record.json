@@ -1,0 +1,27 @@
+{
+  "status": "COMPLETED_ONCE_EXIT_0",
+  "activation_source_commit_declared_by_Root": "fde3cdbfb9cef130b1bf387eb0826f9f33c72971",
+  "source_held": true,
+  "source_held_basis": "Root and independent source review before START; extraction source unchanged throughout this execution; small current source and admission snapshots copied after exit, no hash or Git scan",
+  "cwd": "/home/zhuyulab/ns3-workspace/net-01d/workspace",
+  "argv": ["rtk", "proxy", "python3", "-B", "net01d/followup04/costs/stream_native_costs.py", "--cache-directory", "net01d/followup04/analysis/costs-four-arm-01", "--directory", "net01d/followup04/analysis/native-costs-01"],
+  "rtk_pid": 922262,
+  "python_pid": 922265,
+  "actual_python_executable_observed": "/usr/bin/python3",
+  "exec_session": 33865,
+  "exit_code": 0,
+  "first_runtime_clock_observation_utc": "2026-11-11 11:56:24 UTC",
+  "post_exit_summary_clock_observation_utc": "2026-11-11 12:03:02 UTC",
+  "runtime_clock_scope": "Observations bracket runtime loosely, not exact process spawn and exit timestamps",
+  "manifest": "manifest.json",
+  "snapshots": ["stream_native_costs.py", "NATIVE_ADMISSION.json"],
+  "ledger_opens": {"B02": 1, "C": 1},
+  "automatic_retries": 0,
+  "unexpected_error": null,
+  "prohibited_original_reads": {"PCAP": 0, "Gateway": 0, "bag": 0, "stderr": 0, "old_B1": 0},
+  "derived_from_new_summary_only": {
+    "B02": {"partial_frame_Send_calls": 69230, "Send_offered_minus_accepted_bytes": 0},
+    "C": {"partial_frame_Send_calls": 70175, "Send_offered_minus_accepted_bytes": 0},
+    "derivation": "partial_frame_Send_calls = tcp_write_rows - fully_accepted_chunks; all chunk prefixes and byte totals matched. This counts Send calls leaving an incomplete frame, including calls limited by GetTxAvailable; it is not a count of Send returning fewer bytes than offered. Offered and accepted totals are equal."
+  }
+}

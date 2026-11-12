@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+project(net01_clock_witness)
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rosgraph_msgs REQUIRED)
+add_executable(net01-clock-witness clock_witness.cc)
+target_compile_features(net01-clock-witness PRIVATE cxx_std_17)
+ament_target_dependencies(net01-clock-witness rclcpp rosgraph_msgs)

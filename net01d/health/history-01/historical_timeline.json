@@ -1,0 +1,319 @@
+{
+  "scope": "Read-only historical B01, autonomy generated_sim [15.76,103.33]; no replay",
+  "source_case": "/home/zhuyulab/ns3-workspace/net-01/workspace/runs/net01-b-corridor-6201-01",
+  "autonomy_source_rows": 876,
+  "quantiles": "nearest rank p95/p99; median arithmetic midpoint; negative samples retained",
+  "diagnostic_thresholds": "10/100/300ms fractions are descriptions, not new safety criteria",
+  "join": "Exact existing CDR hash + flow, unique source sequence and single capture/delivery only; no fresh hash/serialization",
+  "source_wrapper_call": {
+    "n": 876,
+    "unit": "ms",
+    "min": 2.31981003889814,
+    "median": 5.340399511624128,
+    "p95": 5.960462964139879,
+    "p99": 6.1962989857420325,
+    "max": 35.82527703838423,
+    "negative_count": 0,
+    "diagnostic_fraction_above": {
+      "10": 0.001141552511415525,
+      "100": 0.0,
+      "300": 0.0
+    }
+  },
+  "source_wrapper_return_intervals": {
+    "n": 875,
+    "unit": "ms",
+    "min": 123.077551019378,
+    "median": 216.6399370180443,
+    "p95": 232.7245119959116,
+    "p99": 241.1438119597733,
+    "max": 249.84118103748187,
+    "negative_count": 0,
+    "diagnostic_fraction_above": {
+      "10": 1.0,
+      "100": 1.0,
+      "300": 0.0
+    }
+  },
+  "by_flow": {
+    "31": {
+      "unique_source_C_pairs": 876,
+      "stages": {
+        "wrapper_after_to_C_capture_lower_bound": {
+          "n": 876,
+          "unit": "ms",
+          "min": -6.428757,
+          "median": 0.1872375,
+          "p95": 9.266359,
+          "p99": 11.509208,
+          "max": 137.929925,
+          "negative_count": 428,
+          "diagnostic_fraction_above": {
+            "10": 0.02511415525114155,
+            "100": 0.001141552511415525,
+            "300": 0.0
+          }
+        },
+        "C_capture_to_R_destination": {
+          "n": 876,
+          "unit": "ms",
+          "min": 3.169885,
+          "median": 17.557596,
+          "p95": 32.653843,
+          "p99": 36.929979,
+          "max": 45.765022,
+          "negative_count": 0,
+          "diagnostic_fraction_above": {
+            "10": 0.773972602739726,
+            "100": 0.0,
+            "300": 0.0
+          }
+        },
+        "R_destination_to_public_publish_before_includes_guard": {
+          "n": 876,
+          "unit": "ms",
+          "min": 0.122682,
+          "median": 0.3316245,
+          "p95": 0.428739,
+          "p99": 0.503334,
+          "max": 0.613224,
+          "negative_count": 0,
+          "diagnostic_fraction_above": {
+            "10": 0.0,
+            "100": 0.0,
+            "300": 0.0
+          }
+        },
+        "R_public_publish_call": {
+          "n": 876,
+          "unit": "ms",
+          "min": 0.035724,
+          "median": 0.135127,
+          "p95": 0.173593,
+          "p99": 0.201396,
+          "max": 0.233385,
+          "negative_count": 0,
+          "diagnostic_fraction_above": {
+            "10": 0.0,
+            "100": 0.0,
+            "300": 0.0
+          }
+        }
+      }
+    },
+    "51": {
+      "unique_source_C_pairs": 876,
+      "stages": {
+        "wrapper_after_to_C_capture_lower_bound": {
+          "n": 876,
+          "unit": "ms",
+          "min": -5.320802,
+          "median": 1.428756,
+          "p95": 9.592374,
+          "p99": 11.843776,
+          "max": 142.306992,
+          "negative_count": 331,
+          "diagnostic_fraction_above": {
+            "10": 0.0319634703196347,
+            "100": 0.001141552511415525,
+            "300": 0.0
+          }
+        },
+        "C_capture_to_R_destination": {
+          "n": 876,
+          "unit": "ms",
+          "min": 3.345162,
+          "median": 22.056041999999998,
+          "p95": 41.289923,
+          "p99": 48.849716,
+          "max": 59.420237,
+          "negative_count": 0,
+          "diagnostic_fraction_above": {
+            "10": 0.8321917808219178,
+            "100": 0.0,
+            "300": 0.0
+          }
+        },
+        "R_destination_to_public_publish_before_includes_guard": {
+          "n": 876,
+          "unit": "ms",
+          "min": 0.114231,
+          "median": 0.312282,
+          "p95": 0.392128,
+          "p99": 0.440212,
+          "max": 0.539201,
+          "negative_count": 0,
+          "diagnostic_fraction_above": {
+            "10": 0.0,
+            "100": 0.0,
+            "300": 0.0
+          }
+        },
+        "R_public_publish_call": {
+          "n": 876,
+          "unit": "ms",
+          "min": 0.015857,
+          "median": 0.0588005,
+          "p95": 0.077834,
+          "p99": 0.088761,
+          "max": 0.125079,
+          "negative_count": 0,
+          "diagnostic_fraction_above": {
+            "10": 0.0,
+            "100": 0.0,
+            "300": 0.0
+          }
+        }
+      }
+    },
+    "71": {
+      "unique_source_C_pairs": 876,
+      "stages": {
+        "wrapper_after_to_C_capture_lower_bound": {
+          "n": 876,
+          "unit": "ms",
+          "min": -4.93221,
+          "median": 4.199377,
+          "p95": 12.641202,
+          "p99": 15.460016,
+          "max": 142.640827,
+          "negative_count": 197,
+          "diagnostic_fraction_above": {
+            "10": 0.16210045662100456,
+            "100": 0.001141552511415525,
+            "300": 0.0
+          }
+        },
+        "C_capture_to_R_destination": {
+          "n": 876,
+          "unit": "ms",
+          "min": 6.014122,
+          "median": 24.3424975,
+          "p95": 47.929057,
+          "p99": 57.547625,
+          "max": 67.411994,
+          "negative_count": 0,
+          "diagnostic_fraction_above": {
+            "10": 0.9714611872146118,
+            "100": 0.0,
+            "300": 0.0
+          }
+        },
+        "R_destination_to_public_publish_before_includes_guard": {
+          "n": 876,
+          "unit": "ms",
+          "min": 0.100369,
+          "median": 0.3078025,
+          "p95": 0.394387,
+          "p99": 0.454965,
+          "max": 0.551827,
+          "negative_count": 0,
+          "diagnostic_fraction_above": {
+            "10": 0.0,
+            "100": 0.0,
+            "300": 0.0
+          }
+        },
+        "R_public_publish_call": {
+          "n": 876,
+          "unit": "ms",
+          "min": 0.014869,
+          "median": 0.0580985,
+          "p95": 0.07865,
+          "p99": 0.090728,
+          "max": 0.103512,
+          "negative_count": 0,
+          "diagnostic_fraction_above": {
+            "10": 0.0,
+            "100": 0.0,
+            "300": 0.0
+          }
+        }
+      }
+    }
+  },
+  "unresolved_pair_counts": {},
+  "target_sequences": [
+    {
+      "sequence": 1032,
+      "flow": 31,
+      "generated_sim": 103.2,
+      "source_wrapper_before_monotonic_ns": 458207961904402,
+      "source_wrapper_after_monotonic_ns": 458207967462353,
+      "C_callback_capture_monotonic_ns": 458207962770796,
+      "native_message_id": 69226,
+      "R_destination_complete_monotonic_ns": 458207993844265,
+      "R_public_publish_before_monotonic_ns": 458207994153794,
+      "R_public_publish_after_monotonic_ns": 458207994296621
+    },
+    {
+      "sequence": 1032,
+      "flow": 51,
+      "generated_sim": 103.2,
+      "source_wrapper_before_monotonic_ns": 458207961904402,
+      "source_wrapper_after_monotonic_ns": 458207967462353,
+      "C_callback_capture_monotonic_ns": 458207963208896,
+      "native_message_id": 69227,
+      "R_destination_complete_monotonic_ns": 458208005608270,
+      "R_public_publish_before_monotonic_ns": 458208006037382,
+      "R_public_publish_after_monotonic_ns": 458208006103957
+    },
+    {
+      "sequence": 1032,
+      "flow": 71,
+      "generated_sim": 103.2,
+      "source_wrapper_before_monotonic_ns": 458207961904402,
+      "source_wrapper_after_monotonic_ns": 458207967462353,
+      "C_callback_capture_monotonic_ns": 458207970298993,
+      "native_message_id": 69231,
+      "R_destination_complete_monotonic_ns": 458208008107858,
+      "R_public_publish_before_monotonic_ns": 458208008413513,
+      "R_public_publish_after_monotonic_ns": 458208008479717
+    },
+    {
+      "sequence": 1033,
+      "flow": 31,
+      "generated_sim": 103.30000000000001,
+      "source_wrapper_before_monotonic_ns": 458208181254433,
+      "source_wrapper_after_monotonic_ns": 458208186454543,
+      "C_callback_capture_monotonic_ns": 458208324384468,
+      "native_message_id": 69283,
+      "R_destination_complete_monotonic_ns": 458208330829963,
+      "R_public_publish_before_monotonic_ns": 458208331096716,
+      "R_public_publish_after_monotonic_ns": 458208331218147
+    },
+    {
+      "sequence": 1033,
+      "flow": 51,
+      "generated_sim": 103.30000000000001,
+      "source_wrapper_before_monotonic_ns": 458208181254433,
+      "source_wrapper_after_monotonic_ns": 458208186454543,
+      "C_callback_capture_monotonic_ns": 458208328761535,
+      "native_message_id": 69284,
+      "R_destination_complete_monotonic_ns": 458208340959127,
+      "R_public_publish_before_monotonic_ns": 458208341276532,
+      "R_public_publish_after_monotonic_ns": 458208341340382
+    },
+    {
+      "sequence": 1033,
+      "flow": 71,
+      "generated_sim": 103.30000000000001,
+      "source_wrapper_before_monotonic_ns": 458208181254433,
+      "source_wrapper_after_monotonic_ns": 458208186454543,
+      "C_callback_capture_monotonic_ns": 458208329095370,
+      "native_message_id": 69285,
+      "R_destination_complete_monotonic_ns": 458208343253174,
+      "R_public_publish_before_monotonic_ns": 458208343545851,
+      "R_public_publish_after_monotonic_ns": 458208343609745
+    }
+  ],
+  "old_B_has_dispatch_profile": false,
+  "UNRESOLVED": [
+    "raw DDS publish call separate from binding wrapper",
+    "DDS reader-ready/receive to Python callback",
+    "C serialization and queue/flush subspans",
+    "health native ingress/TX/RX without a dedicated ledger extraction",
+    "precise guard receive/evaluation before/after and thread CPU",
+    "single cause of historical 137.929925ms gap"
+  ]
+}

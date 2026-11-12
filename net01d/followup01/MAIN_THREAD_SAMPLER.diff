@@ -1,0 +1,150 @@
+--- a/net01/gateway.py
++++ b/net01/gateway.py
+@@ -95,7 +95,7 @@
+ 
+ class Gateway:
+     def __init__(self, mode, socket, directory, session_id, *, dispatch_profile=False,control_trace=False,execution_profile=None,
+-                 dds_take_trace=False):
++                 dds_take_trace=False,main_thread_sample=False):
+         if dds_take_trace and not dispatch_profile:
+             raise ValueError('DDS take diagnostic requires the existing RAM dispatch profile')
+         self.mode,self.directory,self.session_id=mode,Path(directory),session_id
+@@ -120,6 +120,7 @@
+             self.health_trace=HealthTrace()
+         self.last_poll=None
+         self.gc_events=[];self.gc_callback=None
++        self.main_thread_sampler=None
+         for domain,side in ((91,"C"),(92,"R")):
+             context=Context()
+             rclpy.init(context=context,domain_id=domain,signal_handler_options=SignalHandlerOptions.NO)
+@@ -163,6 +164,10 @@
+         gc.disable()
+         self.gc_runtime['disabled_monotonic_ns']=time.monotonic_ns()
+         self.gc_runtime['processing_start_enabled']=gc.isenabled()
++        if main_thread_sample:
++            from net01d.followup01.main_thread_sampler import MainThreadSampler
++            self.main_thread_sampler=MainThreadSampler()
++            self.main_thread_sampler.start()
+ 
+     def observe_gc(self,phase,info):
+         self.gc_events.append(dict(phase=phase,generation=info['generation'],
+@@ -497,6 +502,8 @@
+             data['dispatch_cpu_profile']=dict(aggregates=self.cpu_profile,longspans=self.profile_longspans,gc_events=self.gc_events,
+                 longspan_semantics='RAM spans >=10ms; end-order append. Poll includes all work; handler includes journal_call; progress total includes hub/direct. Inclusive parents and children must not be summed. Diagnostic timing overhead, not capacity proof.',
+                 semantics='wait and handler totals exclude progress; progress total_inclusive contains hub_poll/direct_batch; do not sum parent and children. Async handler measures executing step only, not pending Future time. RAM only, diagnostic opt-in.')
++        if self.main_thread_sampler is not None:
++            data['main_thread_sampling']=self.main_thread_sampler.snapshot()
+         if self.hub.control_trace is not None:
+             data['clock_control_trace']=dict(events=self.hub.control_trace,
+                 semantics='Socket frame flushed means all its bytes accepted by kernel, not hub/native ACK. Offsets count the entire ordered stream, including non-clock frames.')
+@@ -509,6 +516,8 @@
+     def close(self):
+         try:clean=self._close()
+         finally:
++            if self.main_thread_sampler is not None:
++                self.cleanup['main_thread_sampler']=self.main_thread_sampler.stop()
+             self.gc_runtime['processing_end_monotonic_ns']=time.monotonic_ns()
+             self.gc_runtime['processing_end_enabled']=gc.isenabled()
+             if self.gc_original_enabled:gc.enable()
+@@ -518,6 +527,9 @@
+                 restored_thresholds=gc.get_threshold(),restored_monotonic_ns=time.monotonic_ns(),
+                 peak_rss_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+         self.persist()
++        if self.main_thread_sampler is not None:
++            status=self.cleanup['main_thread_sampler']
++            clean=clean and status['joined'] and status['failure'] is None
+         return clean
+ 
+     def _close(self):
+@@ -573,10 +585,12 @@
+     parser.add_argument('--control-trace',action='store_true')
+     parser.add_argument('--dispatch-profile',action='store_true')
+     parser.add_argument('--dds-take-trace',action='store_true')
++    parser.add_argument('--main-thread-sample',action='store_true')
+     parser.add_argument('--execution-profile')
+     args=parser.parse_args()
+     node=Gateway(args.mode,args.socket,args.directory,args.session_id,dispatch_profile=args.dispatch_profile,
+-        control_trace=args.control_trace,execution_profile=args.execution_profile,dds_take_trace=args.dds_take_trace)
++        control_trace=args.control_trace,execution_profile=args.execution_profile,dds_take_trace=args.dds_take_trace,
++        main_thread_sample=args.main_thread_sample)
+     stopping=False
+     def stop(signum,frame):
+         nonlocal stopping
+--- a/net01d/replay_roles.py
++++ b/net01d/replay_roles.py
+@@ -40,11 +40,12 @@
+             node.destroy_node();rclpy.try_shutdown()
+ 
+ 
+-def gateway(directory,stop_file,mode,full_load=False,dds_take_trace=False):
++def gateway(directory,stop_file,mode,full_load=False,dds_take_trace=False,main_thread_sample=False):
+     from gateway import Gateway
+     node=Gateway(mode,directory.parent/'wire.sock',directory,SESSION,
+         dispatch_profile=True,control_trace=True,
+-        execution_profile='controlled1000-clock100-q10ms',dds_take_trace=dds_take_trace)
++        execution_profile='controlled1000-clock100-q10ms',dds_take_trace=dds_take_trace,
++        main_thread_sample=main_thread_sample)
+     announced=False;next_check=0.;radio_off=False
+     base=directory.parent
+     def marker(name,data):
+@@ -138,9 +139,10 @@
+     parser.add_argument('--mode',choices=('A','B'),default='A')
+     parser.add_argument('--full-load',action='store_true')
+     parser.add_argument('--dds-take-trace',action='store_true')
++    parser.add_argument('--main-thread-sample',action='store_true')
+     args=parser.parse_args()
+     if args.role=='peer':return peer(args.directory,args.stop_file)
+-    if args.role=='gateway':return gateway(args.directory,args.stop_file,args.mode,args.full_load,args.dds_take_trace)
++    if args.role=='gateway':return gateway(args.directory,args.stop_file,args.mode,args.full_load,args.dds_take_trace,args.main_thread_sample)
+     from followup01.continuous_dds import source
+     return source(args.directory,100,'controlled1000-clock100-q10ms','frozen-source-clock')
+ 
+--- a/net01d/run_replay.py
++++ b/net01d/run_replay.py
+@@ -36,6 +36,7 @@
+     parser.add_argument('--native-evidence-ram',type=Path)
+     parser.add_argument('--payloads',type=Path)
+     parser.add_argument('--dds-take-trace',action='store_true')
++    parser.add_argument('--main-thread-sample',action='store_true')
+     parser.add_argument('--cleanup-regression',action='store_true')
+     parser.add_argument('--mock-phase',choices=('stress5ms','actual-corr6201'),default='stress5ms')
+     args=parser.parse_args()
+@@ -118,7 +119,7 @@
+             'feedback100wall; exactzero_cmd20wall; Peer masks/health10sim unchanged',
+         missing_flows=[89,95],scope='P1 independent-source size/cadence approximation, not SLAM/full-system/P5',
+         native=str(args.native),baseline=str(args.baseline),
+-        mock_phase=args.mock_phase,
++        mock_phase=args.mock_phase,main_thread_sample=args.main_thread_sample,
+         native_evidence_ram=None if args.native_evidence_ram is None else str(args.native_evidence_ram),
+         Gazebo=0,Nav2=0,Goal=0,NN=0,arm_guard=False)
+     (base/'scope.json').write_text(json.dumps(scope,indent=2)+'\n')
+@@ -176,7 +177,8 @@
+         # Both roles start before bootstrap physical tokens can be granted.
+         gateway=launch('gateway',ros([role,'--role','gateway','--directory',inner+'/gateway',
+             '--stop-file',stop,'--mode',('A' if args.arm=='A1' else 'B')]+(['--full-load'] if full else [])+
+-            (['--dds-take-trace'] if args.dds_take_trace else [])))
++            (['--dds-take-trace'] if args.dds_take_trace else [])+
++            (['--main-thread-sample'] if args.main_thread_sample else [])))
+         launch('mock_physics',ros(['/mnt/net01/followup04/mock_physics.py',
+             '--output',inner+'/mock-physics.json','--stop-file',stop,'--phase',args.mock_phase]),'MOCK_PHYSICS_READY')
+         # Gateway stdout is a file: its independent source waits on real DDS
+--- a/net01/boot_network.py
++++ b/net01/boot_network.py
+@@ -38,6 +38,7 @@
+         PYTHONDONTWRITEBYTECODE="1",GZ01_CASE=str(case),NET01_MODE=net["mode"],
+         NET01_SESSION_ID=str(net["session_id"]),NET01_SOCKET=net["socket_container"])
+     os.environ['NET01_DISPATCH_PROFILE']='1' if net.get('dispatch_profile',False) else '0'
++    os.environ['NET01_MAIN_THREAD_SAMPLE']='1' if net.get('main_thread_sample',False) else '0'
+     os.environ['NET01_CONTROL_TRACE']='1' if net.get('control_trace',False) else '0'
+     os.environ['NET01_EXECUTION_PROFILE']=net.get('execution_profile','')
+     if controlled is not None:
+--- a/net01/run_network_case.py
++++ b/net01/run_network_case.py
+@@ -333,6 +333,7 @@
+             "--session-id",os.environ["NET01_SESSION_ID"],"--directory",str(observer.directory)]+
+             (['--control-trace'] if os.environ['NET01_CONTROL_TRACE']=='1' else [])+
+             (['--dispatch-profile'] if os.environ.get('NET01_DISPATCH_PROFILE')=='1' else [])+
++            (['--main-thread-sample'] if os.environ.get('NET01_MAIN_THREAD_SAMPLE')=='1' else [])+
+             (['--execution-profile',os.environ['NET01_EXECUTION_PROFILE']] if os.environ.get('NET01_EXECUTION_PROFILE') else []),
+             stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+         original.record_process(observer.directory,"network_gateway",gateway.pid)

@@ -1,0 +1,34 @@
+diff --git a/net01/execution_profile.py b/net01/execution_profile.py
+index 6f3ced3..90a08d4 100644
+--- a/net01/execution_profile.py
++++ b/net01/execution_profile.py
+@@ -1,10 +1,13 @@
+-"""The one preregistered NET01 wall/clock execution profile; old default retained."""
++"""Explicit preregistered execution profiles; no automatic profile selection."""
+ import json
+ from pathlib import Path
+ 
+-PROFILE_ID="pace500-clock100-q10ms"
++PROFILE_FILES={
++    "pace500-clock100-q10ms":"EXECUTION_PROFILE_PACE500_CLOCK100_Q10MS.json",
++    "original1000-clock100-q10ms":"EXECUTION_PROFILE_ORIGINAL1000_CLOCK100_Q10MS.json",
++}
+ 
+ def load_profile(identifier):
+     if identifier is None:return None
+-    if identifier!=PROFILE_ID:raise ValueError("Unknown NET01 execution profile: "+identifier)
+-    return json.loads((Path(__file__).with_name("config")/"EXECUTION_PROFILE_PACE500_CLOCK100_Q10MS.json").read_text())
++    if identifier not in PROFILE_FILES:raise ValueError("Unknown NET01 execution profile: "+identifier)
++    return json.loads((Path(__file__).with_name("config")/PROFILE_FILES[identifier]).read_text())
+diff --git a/net01/run_network_case.py b/net01/run_network_case.py
+index 106e2de..9bdb91c 100644
+--- a/net01/run_network_case.py
++++ b/net01/run_network_case.py
+@@ -168,6 +168,7 @@ def popen(command,*args,**kwargs):
+             stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+         original.record_process(observer.directory,"network_gateway",gateway.pid)
+     elif len(command)>2 and command[:2]==["python3","-B"] and command[2]==str(FROZEN/"gz01/headquarters.py"):
++        command[2]=str(HERE/"controller_bootstrap.py")
+         kwargs["env"]=dict(os.environ,ROS_DOMAIN_ID="91")
+     elif command[:3]==["ros2","bag","record"]:
+         index=command.index("--qos-profile-overrides-path")
