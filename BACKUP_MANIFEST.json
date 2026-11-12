@@ -1,0 +1,30 @@
+{
+  "created_at_utc": "2026-11-12T17:20:40.608718+00:00",
+  "backup_HEAD": "a768353244586f6335dd6a98bc36b61174b9d03d",
+  "original_HEAD": "2c008941c10dc2ffc57221c90bc71a12fd0b67f4",
+  "bundle_bytes": 281128444,
+  "bundle_sha256": "8e786e1352823ba44c438b962b99c8deaefb8d3d230b6b901b981d6103fcec66",
+  "parts": [
+    {
+      "path": "complete-history.bundle.part-001",
+      "bytes": 83886080,
+      "sha256": "f1955b66df62bafc37016c6f3cf98e23fdb7593170b99a41b5e5bd1aeb74df78"
+    },
+    {
+      "path": "complete-history.bundle.part-002",
+      "bytes": 83886080,
+      "sha256": "ec24e6246496d65fa6007b42461f1f5c049da1af3085754cce7649530128e10e"
+    },
+    {
+      "path": "complete-history.bundle.part-003",
+      "bytes": 83886080,
+      "sha256": "a3b14b8007c67bed596662607f01568de2ea62e74b93aa3648a3f4ed7edb0a79"
+    },
+    {
+      "path": "complete-history.bundle.part-004",
+      "bytes": 29470204,
+      "sha256": "0671113bce5e29536ed2bf8e19206aac8afbee087ff4bb911ccda8bbea85dcf5"
+    }
+  ],
+  "scope": "All Git history reachable from the pre-cleanup snapshot branch and immutable v1.1.0 tag. Raw untracked/ignored files and external build/rootfs are NOT in this Git backup and remain local."
+}
