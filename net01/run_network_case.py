@@ -24,19 +24,32 @@ from std_msgs.msg import String
 from std_srvs.srv import Trigger,Empty,SetBool
 from rcl_interfaces.srv import GetParameters
 from rclpy.qos import QoSProfile,DurabilityPolicy
-from execution_profile import load_profile
+from execution_profile import load_profile,FIXED_START_PROFILE_IDS,REPAIR_PROFILE_IDS,COMPARISON_PROFILE_IDS
 
 
 class NetworkObserver(original.Observer):
     def __init__(self,*args,**kwargs):
+        profile=load_profile(os.environ.get('NET01_EXECUTION_PROFILE') or None)
+        freshness=None
+        if profile is not None and profile.get('source_freshness') is not None:
+            from ros_delay_runtime import install_source_freshness
+            freshness=install_source_freshness(profile,'NetworkObserver_R92')
         super().__init__(*args,**kwargs)
         global observer
         observer=self
         self.network_state=None;self.network_received=None;self.received_controller=[]
         self.network_fault=None
         profile=load_profile(os.environ.get('NET01_EXECUTION_PROFILE') or None)
+        self.execution_profile=profile
+        self.fixed_start=(profile is not None and profile['id'] in FIXED_START_PROFILE_IDS)
+        self.startup_wall_deadline=None
         self.sim_health=(profile is not None and profile.get('health_mask_receipt_clock')=='R-ros-sim-v1')
         self.peer_received_sim=None
+        self.peer_received_sim_ns=None
+        receipt=(profile or {}).get('receipt_freshness')
+        self.integer_sim_receipt=receipt is not None and self.sim_health
+        self.peer_heartbeat_limit_s=.3 if receipt is None else receipt['observer_heartbeat_max_age_sim_s']
+        self.peer_heartbeat_limit_ns=round(self.peer_heartbeat_limit_s*1e9)
         self.controlled_time=os.environ.get('NET01_TIME_CONTROL')=='1'
         self.direct_reference=os.environ.get('NET01_DIRECT_REFERENCE')=='1'
         self.time_control_records=[]
@@ -55,6 +68,17 @@ class NetworkObserver(original.Observer):
                 QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)),
             self.create_subscription(String,"/net01/guard_fault",self.guard_fault,10),
             self.create_subscription(String,"/net01/controller_records",self.controller_record,100)])
+        self.comparison_measurement=(profile is not None and profile['id'] in COMPARISON_PROFILE_IDS)
+        if self.comparison_measurement:
+            from comparison_measurement import install_source_observer
+            install_source_observer(self,rclpy.get_global_executor())
+        if freshness is not None:
+            if self.integer_sim_receipt:
+                freshness['receipt_freshness_applied']['applicable_instance_limits']=dict(
+                    observer_heartbeat_limit_sim_s=self.peer_heartbeat_limit_s,
+                    observer_heartbeat_limit_ns=self.peer_heartbeat_limit_ns,
+                    integer_ros_receipt=True)
+            self.event('ros_delay_source_freshness',applied=freshness)
 
     def network_status(self,message):
         self.network_state=json.loads(message.data);self.network_received=time.monotonic()
@@ -67,10 +91,71 @@ class NetworkObserver(original.Observer):
         self.received_controller.append(json.loads(message.data))
 
     def event(self,kind,**fields):
+        if kind=='exploration_command' and self.fixed_start:
+            self.prewarm_to_fixed_epoch(fields['argv'])
+            fields.update(process_already_prewarmed=True,planned_autonomy_sim_ns=
+                self.execution_profile['startup_contract']['autonomy_epoch_ns'])
         if kind=='process_signal' and fields.get('process')=='exploration':
             fields['controller_signal_event_monotonic_ns']=time.monotonic_ns()
         super().event(kind,**fields)
         if kind=='observed_stop' and self.controlled_time:self.current_stop_evidence=fields
+
+    def prewarm_to_fixed_epoch(self,command):
+        global prewarmed_controller,prewarmed_command
+        contract=self.execution_profile['startup_contract']
+        epoch=contract['autonomy_epoch_ns'];tolerance=contract['timing_tolerance_ns']
+        row=dict(contract=contract,profile=self.execution_profile['id'],status='PREWARMING',
+            spawn_request_sim_ns=int(round(self.sim*1e9)),spawn_request_monotonic_ns=time.monotonic_ns(),
+            spawn_request_realtime_ns=time.time_ns())
+        try:
+            if row['spawn_request_sim_ns']>=epoch:
+                raise RuntimeError('Preflight finished too late for declared fixed autonomy epoch')
+            with (self.directory/'control.log').open('a') as log:
+                prewarmed_controller=popen(command,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+            prewarmed_command=list(command)
+            frozen_record_process(self.directory,'controller',prewarmed_controller.pid)
+            row['actual_owned_pid']=prewarmed_controller.pid
+            row['spawn_return_monotonic_ns']=time.monotonic_ns()
+            row['spawn_return_realtime_ns']=time.time_ns()
+            super().event('fixed_controller_spawn',**row)
+            # The original stationary-preflight phase permits its unchanged
+            # zero publisher. No allocation can run before the fixed first slot.
+            while int(round(self.sim*1e9))<epoch:
+                if time.monotonic()>=self.startup_wall_deadline:
+                    raise RuntimeError('Original startup wall deadline exhausted during prewarm')
+                if prewarmed_controller.poll() is not None:
+                    raise RuntimeError('Prewarmed controller exited before fixed autonomy epoch')
+                if self.hazard or self.network_fault:
+                    raise RuntimeError(self.hazard or self.network_fault)
+                if any(pose[3]>=.01 or abs(pose[4])>=.03 for pose in self.positions.values()):
+                    raise RuntimeError('Motion observed during declared no-motion prewarm')
+                self.stop_zeros()
+                rclpy.spin_once(self,timeout_sec=.005)
+            actual=int(round(self.sim*1e9))
+            row['actual_autonomy_sim_ns']=actual
+            row['actual_autonomy_monotonic_ns']=time.monotonic_ns()
+            row['actual_autonomy_realtime_ns']=time.time_ns()
+            if actual>epoch+tolerance:
+                raise RuntimeError('Fixed autonomy epoch missed beyond one clock quantum')
+            initialized=any(event.get('kind')=='fixed_startup_initialized'
+                and event.get('profile')==self.execution_profile['id']
+                and event.get('contract')==contract['id'] for event in self.received_controller)
+            row['initialized_received_via_flow95']=initialized
+            row['original_readiness_missing']=self.ready()
+            row['actual_no_motion']=set(self.positions)==set(original.ROBOTS) and all(
+                pose[3]<.01 and abs(pose[4])<.03 for pose in self.positions.values())
+            if not initialized or row['original_readiness_missing'] or not row['actual_no_motion']:
+                raise RuntimeError('Fixed epoch lacks initialized controller/original safety readiness')
+            row['status']='PASS'
+            super().event('fixed_autonomy_epoch',**row)
+        except BaseException as error:
+            row['status']='FAIL';row['error']=repr(error)
+            super().event('fixed_startup_failure',**row)
+            if prewarmed_controller is not None:
+                end_process(prewarmed_controller,self,'exploration')
+            raise
+        finally:
+            (self.directory/'fixed-startup-observer.json').write_text(json.dumps(row,indent=2)+'\n')
 
     def time_control_call(self,name,service_type,request,timeout=6):
         response=super().call(service_type,'/net01/time_control/'+name,request,timeout=timeout)
@@ -196,7 +281,8 @@ class NetworkObserver(original.Observer):
     def peer_health(self,message):
         super().peer_health(message)  # Retain original monotonic receipt/event fields.
         if self.sim_health:
-            self.peer_received_sim=self.get_clock().now().nanoseconds/1e9
+            self.peer_received_sim_ns=self.get_clock().now().nanoseconds
+            self.peer_received_sim=self.peer_received_sim_ns/1e9
             self.event('peer_receipt_clock',receipt_clock_basis='R-ros-sim-v1',
                 received_R_ros_sim=self.peer_received_sim,received_monotonic=self.peer_received,
                 sequence=self.peer_state['sequence'])
@@ -204,15 +290,20 @@ class NetworkObserver(original.Observer):
     def sim_peer_error(self):
         if not self.peer_guard:return None
         if self.peer_state is None or self.sim is None or self.peer_received_sim is None:return 'peer state/clock missing'
-        now=self.get_clock().now().nanoseconds/1e9
+        now_ns=self.get_clock().now().nanoseconds
+        now=now_ns/1e9
         age=now-self.peer_received_sim
         wall_age=time.monotonic()-self.peer_received
-        if age>.3:
+        stale=(now_ns-self.peer_received_sim_ns>self.peer_heartbeat_limit_ns
+            if self.integer_sim_receipt else age>self.peer_heartbeat_limit_s)
+        if stale:
             self.event('peer_heartbeat_stale_context',sequence=self.peer_state['sequence'],
                 generated_sim=self.peer_state['generated_sim'],observer_sim=self.sim,
                 receipt_clock_basis='R-ros-sim-v1',heartbeat_sim_age=age,heartbeat_wall_age=wall_age,
                 end_to_end_fresh=original.state_fresh(self.peer_state,self.sim),
-                peer_ready=self.peer_state['ready'],failures=self.peer_state['failures'])
+                peer_ready=self.peer_state['ready'],failures=self.peer_state['failures'],
+                **({'heartbeat_sim_age_ns':now_ns-self.peer_received_sim_ns,
+                    'heartbeat_limit_ns':self.peer_heartbeat_limit_ns} if self.integer_sim_receipt else {}))
             return 'peer state heartbeat stale'
         if not original.state_fresh(self.peer_state,self.sim):
             return 'peer odom/source-time TF not fresh: '+str(dict(
@@ -240,6 +331,7 @@ class NetworkObserver(original.Observer):
         return None
 
     def startup_navigation(self,deadline):
+        self.startup_wall_deadline=deadline
         # One real, no-goal clock/pause test inside this admitted Gazebo start.
         profile=load_profile(os.environ.get('NET01_EXECUTION_PROFILE') or None)
         quantum_sim_s=.1 if profile is None else profile['native_step_quantum_ns']/1e9
@@ -323,6 +415,9 @@ class NetworkObserver(original.Observer):
         if self.controlled_time:
             (self.directory/'time-control-observer.json').write_text(json.dumps(dict(
                 control_responses=self.time_control_records,stop_attempts=self.time_stop_results),indent=2)+'\n')
+        if self.comparison_measurement:
+            from comparison_measurement import finish_source_observer
+            finish_source_observer(self)
         super().persist_observer_records()
 
 
@@ -331,6 +426,16 @@ gateway=None
 controller_process=None
 frozen_end_process=original.end_process
 frozen_controller_end=original.controller_end
+frozen_record_process=original.record_process
+prewarmed_controller=None
+prewarmed_command=None
+prewarmed_handed_off=False
+
+
+def record_process(directory,role,pid):
+    # The real prewarm child was registered immediately at creation.
+    if role=='controller' and prewarmed_handed_off and prewarmed_controller is not None and pid==prewarmed_controller.pid:return
+    return frozen_record_process(directory,role,pid)
 
 
 def end_controlled_launch(process,observer):
@@ -352,7 +457,7 @@ def end_controlled_launch(process,observer):
             return
 
 
-def gateway_closed_proof(process,observer,begin_ns,initial_deadline_ns):
+def gateway_closed_proof(process,observer,begin_ns,initial_deadline_ns,*,strict=False):
     path=observer.directory/'network-gateway-resources-closed.json'
     try:row=json.loads(path.read_text())
     except FileNotFoundError:return None
@@ -371,6 +476,10 @@ def gateway_closed_proof(process,observer,begin_ns,initial_deadline_ns):
     states=cleanup.get('action_confirmation_states')
     if states is not None and any(state['waiting'] or state['unconfirmed']
         for state in (states['C'],*states['R'].values())):return None
+    if strict:
+        hub=cleanup.get('hub_shutdown',{})
+        if hub.get('end_frame_flushed') is not True or hub.get('peer_eof') is not True or 'error' in hub:
+            return None
     return row
 
 
@@ -386,14 +495,23 @@ def end_gateway(process,observer):
         observer.gateway_hard_deadline_ns,
         observer.gateway_cleanup_deadline_ns or observer.gateway_hard_deadline_ns)
     initial_deadline_ns=min(begin_ns+20_000_000_000,total_deadline_ns-10_000_000_000)
-    eligible=(observer.gateway_evidence_eligible and observer.authority_stopped
-        and (controller_process is None or controller_process.poll() is not None))
+    controller_exited=controller_process is None or controller_process.poll() is not None
+    original_eligible=observer.gateway_evidence_eligible and observer.authority_stopped and controller_exited
+    resource_policy=(observer.execution_profile or {}).get('poststop_evidence_grace')
+    resource_eligible=False
+    if resource_policy is not None:
+        from ros_delay_runtime import poststop_physical_closure
+        resource_eligible=poststop_physical_closure(observer,controller_exited)
+    eligible=original_eligible or resource_eligible
     proof=None
     effective_total_ns=min(begin_ns+30_000_000_000,total_deadline_ns)
     observer.event('gateway_poststop_supervision',pid=process.pid,begin_monotonic_ns=begin_ns,
         initial_deadline_ns=initial_deadline_ns,total_deadline_ns=total_deadline_ns,
         cleanup_deadline_ns=observer.gateway_cleanup_deadline_ns,
-        hard_deadline_ns=observer.gateway_hard_deadline_ns,extension_eligible=eligible)
+        hard_deadline_ns=observer.gateway_hard_deadline_ns,extension_eligible=eligible,
+        **({'original_seal_eligible':original_eligible,'physical_closure_eligible':resource_eligible,
+            'evidence_grace_policy':resource_policy['id'],'original_run_flags_unchanged':True}
+            if resource_policy is not None else {}))
     for sig,deadline_ns in ((signal.SIGINT,initial_deadline_ns),
             (signal.SIGTERM,None),(signal.SIGKILL,None)):
         if sig==signal.SIGTERM:
@@ -406,7 +524,8 @@ def end_gateway(process,observer):
         while process.poll() is None:
             now_ns=time.monotonic_ns()
             if sig==signal.SIGINT and eligible and proof is None:
-                proof=gateway_closed_proof(process,observer,begin_ns,initial_deadline_ns)
+                proof=gateway_closed_proof(process,observer,begin_ns,initial_deadline_ns,
+                    strict=resource_policy is not None)
                 if proof is not None:
                     effective_total_ns=total_deadline_ns
                     deadline_ns=total_deadline_ns-10_000_000_000
@@ -452,7 +571,7 @@ def received_controller_end(directory,position):
 
 
 def popen(command,*args,**kwargs):
-    global gateway,controller_process
+    global gateway,controller_process,prewarmed_handed_off
     command=list(command)
     authority=False
     if command[:2]==["ros2","launch"]:
@@ -461,6 +580,8 @@ def popen(command,*args,**kwargs):
         command[2]=str(HERE/"net_scene_launch.py")
         if os.environ.get("NET01_COMMON_EXECUTION_REVISION")=="static-footprint-common-v1":
             command[2]=str(HERE.parent/"net01e/followup02/static_footprint_launch.py")
+        if os.environ.get("NET01_COMMON_EXECUTION_REVISION")=="nav2-simclock-common-v1":
+            command[2]=str(HERE/'nav2_simclock_launch.py')
         if observer.controlled_time:
             command.insert(2,"--noninteractive")
         log=(observer.directory/"network-gateway.log").open("x")
@@ -481,9 +602,18 @@ def popen(command,*args,**kwargs):
         original.record_process(observer.directory,"network_gateway",gateway.pid)
     elif len(command)>2 and command[:2]==["python3","-B"] and command[2]==str(FROZEN/"gz01/headquarters.py"):
         authority=True
+        if prewarmed_controller is not None and command==prewarmed_command:
+            if prewarmed_handed_off:raise RuntimeError('Duplicate prewarmed controller handoff')
+            if prewarmed_controller.poll() is not None:raise RuntimeError('Prewarmed controller exited before handoff')
+            prewarmed_handed_off=True
+            return prewarmed_controller
         command[2]=str(HERE/("a0_controller_bootstrap.py" if observer.direct_reference else "controller_bootstrap.py"))
         if os.environ.get('NET01_CONTROLLER_EXIT_ADAPTER')=='net01e-graceful-v1':
             command[2]=str(HERE.parent/'net01e/controller/graceful_controller_bootstrap.py')
+        if observer.fixed_start:
+            command[2]=str(HERE/'consumer_controller_bootstrap.py')
+        if observer.execution_profile is not None and observer.execution_profile['id'] in REPAIR_PROFILE_IDS:
+            command[2]=str(HERE/'exploration_controller_bootstrap.py')
         kwargs["env"]=dict(os.environ,ROS_DOMAIN_ID="92" if observer.direct_reference else "91")
     elif command[:3]==["ros2","bag","record"]:
         index=command.index("--qos-profile-overrides-path")
@@ -502,6 +632,7 @@ def main():
     original.controller_end=(frozen_controller_end if os.environ.get("NET01_DIRECT_REFERENCE")=="1"
         else received_controller_end)
     original.end_process=end_process
+    original.record_process=record_process
     original.subprocess=SimpleNamespace(Popen=popen,run=subprocess.run,STDOUT=subprocess.STDOUT,
         TimeoutExpired=subprocess.TimeoutExpired)
     return original.main()

@@ -1,0 +1,37 @@
+{
+  "status": "ALL42_HOST_ATTEMPTS_CLOSED_40_WINDOWS_UNIQUE_SUMMARY_COMPLETE",
+  "utc": "2026-11-13T22:42:20.025523+00:00",
+  "actual_HOST_STARTED_rows": 42,
+  "actual_unique_physical_starts": 42,
+  "known_PID_count": 2435,
+  "known_PID_still_present": [],
+  "active_Gazebo_native_host_processes": [],
+  "copy_complete_attempts": 42,
+  "native_disk_copied_bytes": 127611540763,
+  "comparison_rows": 40,
+  "window_measurement_qualified": 40,
+  "full_engineering_qualified": 36,
+  "clean_exit": 36,
+  "all_attempt_denominator": 42,
+  "poststop_failure_window_cases": [
+    "c04",
+    "c06",
+    "c09",
+    "c14"
+  ],
+  "startup_FAIL_no_autonomy_cases": [
+    "c16",
+    "c29"
+  ],
+  "startup_failure_RAM_retained": {
+    "c16": true,
+    "c29": true
+  },
+  "comparison_RAM_release_count": 40,
+  "disk_raw_all_retained": true,
+  "summary_claimed_count": 1,
+  "summary_complete_count": 1,
+  "final_summary": "local-runs/communication40-v3-20261113/SUMMARY.json",
+  "source_runtime_unchanged": true,
+  "no_new_experiment": true
+}

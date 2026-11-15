@@ -1,0 +1,171 @@
+{
+  "case": "a",
+  "slot": 1,
+  "pair": 1,
+  "arm": "B",
+  "session_id": 2026111361,
+  "status": "STARTUP_FAIL_STOPPED_PENDING_ROOT_REVIEW",
+  "actual_START_once": true,
+  "launcher_exit": 1,
+  "error": "Fixed epoch lacks initialized controller/original safety readiness",
+  "startup": {
+    "contract": {
+      "id": "fixed-G20-attempt-G25-grid5-end80-v1",
+      "autonomy_epoch_ns": 20000000000,
+      "first_decision_ns": 25000000000,
+      "decision_period_ns": 5000000000,
+      "decision_permission_end_ns": 80000000000,
+      "timing_tolerance_ns": 10000000,
+      "readiness": "initialized gate received through original flow95; original readiness and no-motion safety only",
+      "first_slot": "unchanged original allocation ATTEMPT, including awaiting observations or WAIT; no NN/candidate content admission",
+      "late_slot": "record actual; timing failure; no backdate, catch-up or moving epoch",
+      "end": "new decision permission [25,80); original send_goal entry has same budget gate, not a DDS send/acceptance timestamp; previously admitted inflight/feedback/cancel/stop ownership unchanged"
+    },
+    "profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-60sim-fixedstart-consumertrace-v1",
+    "status": "FAIL",
+    "spawn_request_sim_ns": 9890000000,
+    "spawn_request_monotonic_ns": 769528778552976,
+    "spawn_request_realtime_ns": 1794552487296198556,
+    "actual_owned_pid": 3104133,
+    "spawn_return_monotonic_ns": 769528780845234,
+    "spawn_return_realtime_ns": 1794552487298490481,
+    "actual_autonomy_sim_ns": 20000000000,
+    "actual_autonomy_monotonic_ns": 769569196283155,
+    "actual_autonomy_realtime_ns": 1794552527713932698,
+    "initialized_received_via_flow95": false,
+    "original_readiness_missing": [],
+    "actual_no_motion": true,
+    "error": "RuntimeError('Fixed epoch lacks initialized controller/original safety readiness')"
+  },
+  "local_initialization_marker": {
+    "path": "a/controller/allocation-events.jsonl",
+    "line": 3,
+    "kind": "fixed_startup_initialized",
+    "recorded_sim": 0.0,
+    "wall_ns": 1794552491298732771,
+    "interpretation": "Original initialization record exists locally; received-via-flow95 remained false atG20. sim0 is actual local clock before first clock callback, not proof of generation at globalG0."
+  },
+  "flow95_counts": {
+    "scope": "Runtime agent read-only report from actual case; evidence worker did not reread Gateway54MB or packetledger",
+    "local_fixed_startup_initialized": 1,
+    "C_exported_initialized": 0,
+    "Hub_flow95_ingress": 1,
+    "Hub_flow95_complete_RX": 1,
+    "R_controller_records": 1,
+    "only_delivered_record": "shutdown halt sim20.0; no initialized marker",
+    "message_id": 19119,
+    "cdr_bytes": 162,
+    "native_admission_sim_s": 19.99,
+    "native_RX_sim_s": 19.990254446
+  },
+  "gates": {
+    "preflight": true,
+    "startup": false,
+    "run_integrity": false,
+    "network_run_integrity": false,
+    "observed_stop": true,
+    "hazard": null,
+    "all_owned_requests_closed": true,
+    "requests": 0,
+    "controller_exit": 0,
+    "runner_exit": 1,
+    "hub_exit": 0,
+    "controlled_integrity": true,
+    "remaining_owned_groups": [],
+    "all_recorded_pids_gone": true,
+    "daemon_cleanup": true,
+    "relevant_process_inventory": []
+  },
+  "native": {
+    "status": "PASS",
+    "exit": 0,
+    "copy_complete": true,
+    "copied_bytes": 833081868,
+    "RAM_source_retained": true
+  },
+  "T95": {
+    "central_gateway": null,
+    "local_union": null,
+    "R_downlink": null,
+    "status": "not_measured_startup_failure_no_autonomous_window",
+    "tool_not_run": "No autonomous start; no bag read, no imputation60."
+  },
+  "planned_attempts": [
+    {
+      "planned_G_sim": 25,
+      "actual_G_sim": null,
+      "status": "not_reached_due_to_startup_failure"
+    },
+    {
+      "planned_G_sim": 30,
+      "actual_G_sim": null,
+      "status": "not_reached_due_to_startup_failure"
+    },
+    {
+      "planned_G_sim": 35,
+      "actual_G_sim": null,
+      "status": "not_reached_due_to_startup_failure"
+    },
+    {
+      "planned_G_sim": 40,
+      "actual_G_sim": null,
+      "status": "not_reached_due_to_startup_failure"
+    },
+    {
+      "planned_G_sim": 45,
+      "actual_G_sim": null,
+      "status": "not_reached_due_to_startup_failure"
+    },
+    {
+      "planned_G_sim": 50,
+      "actual_G_sim": null,
+      "status": "not_reached_due_to_startup_failure"
+    },
+    {
+      "planned_G_sim": 55,
+      "actual_G_sim": null,
+      "status": "not_reached_due_to_startup_failure"
+    },
+    {
+      "planned_G_sim": 60,
+      "actual_G_sim": null,
+      "status": "not_reached_due_to_startup_failure"
+    },
+    {
+      "planned_G_sim": 65,
+      "actual_G_sim": null,
+      "status": "not_reached_due_to_startup_failure"
+    },
+    {
+      "planned_G_sim": 70,
+      "actual_G_sim": null,
+      "status": "not_reached_due_to_startup_failure"
+    },
+    {
+      "planned_G_sim": 75,
+      "actual_G_sim": null,
+      "status": "not_reached_due_to_startup_failure"
+    }
+  ],
+  "inference": {
+    "actual_first": null,
+    "input701_comparison": "not_applicable_no_inference",
+    "first_goals": [],
+    "consumer_trace_rows_saved": 16532,
+    "callback_to_use": "not_applicable_no_policy_use"
+  },
+  "pacing": {
+    "status": "not_qualified_no_autonomous_window",
+    "note": "Global startup maximum/wholelifeRTF not substituted for autonomous pacing gates"
+  },
+  "raw_preserved": true,
+  "next": "No b..f START or replacement. Root reviews actual blocking failure and separate runtime read-only diagnosis.",
+  "completed_utc": "2026-11-13T06:51:09.991178+00:00",
+  "startup_failure_mechanism": {
+    "class": "ADAPTER_FUNCTIONAL_BUG_NOT_RF",
+    "code": "net01/gateway.py _export_controller_records",
+    "cause": "Existing allowlist exports only four goal request/response/result+halt kinds; new fixed_startup_initialized is filtered before native ingress. R controller_record has no such filter.",
+    "meaning": "Local marker creation succeeded but never entered Wi-Fi transport. a remains actual startup failure, not RF degradation evidence.",
+    "fix_status": "No fix by evidence worker; root review required. No retry/replacement authorized."
+  }
+}

@@ -10,7 +10,7 @@ TOKEN_WALL_PERIOD_NS=20_000_000  # Historical default .5RTF planned target.
 
 class TimeControlState:
     def __init__(self,token_wall_period_ns=TOKEN_WALL_PERIOD_NS,progress_wall_timeout_ns=None):
-        if token_wall_period_ns not in (20_000_000,10_000_000):
+        if token_wall_period_ns not in (20_000_000,10_000_000,40_000_000):
             raise ValueError('Unknown controlled-time planned wall period')
         self.token_wall_period_ns=token_wall_period_ns
         self.mode='RUN';self.failure=None;self.expected_shutdown=False;self.physics_failed=False
@@ -23,12 +23,72 @@ class TimeControlState:
         self.progress_wall_timeout_ns=progress_wall_timeout_ns
         self.progress_started_ns=None;self.clock_progress_ns=None;self.native_progress_ns=None
         self.inflight_since_ns=None;self.motion_armed_since_ns=None
+        self.attempt_barrier=None;self.attempt_barrier_wait_ns=None
+        self.attempt_barrier_pending=None
+        self.startup_spawn_gate=None
+
+    def configure_startup_spawn_gate(self,session_id,profile_id):
+        self.startup_spawn_gate=dict(session_id=session_id,execution_profile=profile_id,ready=False)
+
+    def startup_spawn_ready(self,row):
+        gate=self.startup_spawn_gate
+        if gate is None:return False,'startup_gate_not_enabled'
+        if self.mode!='RUN' or self.authority_exited or self.expected_shutdown:
+            return False,'not_running_authority'
+        if row.get('session_id')!=gate['session_id']:return False,'wrong_session'
+        if row.get('execution_profile')!=gate['execution_profile']:return False,'wrong_profile'
+        if gate['ready']:return False,'duplicate_startup_ready'
+        if self.physical_ns is not None or self.inflight or self.next_wall_ns is not None:
+            return False,'physical_token_already_started'
+        spawns=row.get('spawns',[])
+        if (len(spawns)!=3 or {s.get('robot') for s in spawns}!={'tb1','tb2','tb3'}
+                or any(s.get('returncode')!=0 or type(s.get('pid')) is not int or s['pid']<=0 for s in spawns)
+                or len({s['pid'] for s in spawns})!=3):
+            return False,'not_three_unique_actual_exit0'
+        fence=row.get('factory_fence',{})
+        if (fence.get('request')!='entity_info' or not fence.get('world_name')
+                or fence.get('model_name')!='tb3' or fence.get('response_model_name')!='tb3'
+                or fence.get('returncode')!=0 or type(fence.get('pid')) is not int or fence['pid']<=0):
+            return False,'factory_cycle_fence_missing_or_failed'
+        gate['ready']=True
+        return True,'all_spawn_exit0_and_factory_cycle_fence_admitted'
+
+    def configure_attempt_barrier(self,session_id,profile_id,contract):
+        self.attempt_barrier=dict(session_id=session_id,execution_profile=profile_id,
+            next_slot_ns=contract['first_decision_ns'],period_ns=contract['decision_period_ns'],
+            end_ns=contract['decision_permission_end_ns'])
+
+    def attempt_enter(self,row,now_ns):
+        """Administrative release only; never clock/native progress or a token."""
+        self.check_progress(now_ns)  # A late ACK cannot erase an expired wait.
+        barrier=self.attempt_barrier
+        if barrier is None:return False,'barrier_not_enabled'
+        if self.mode!='RUN' or self.authority_exited or self.expected_shutdown:
+            return False,'not_running_authority'
+        if row.get('session_id')!=barrier['session_id']:return False,'wrong_session'
+        if row.get('execution_profile')!=barrier['execution_profile']:return False,'wrong_profile'
+        slot=barrier['next_slot_ns']
+        if slot>=barrier['end_ns'] or row.get('planned_sim_ns')!=slot:
+            return False,'not_current_planned_slot'
+        if row.get('actual_sim_ns')!=slot:return False,'actual_clock_not_boundary'
+        if self.inflight and self.physical_ns==slot-QUANTUM_NS:
+            if self.attempt_barrier_pending is not None:return False,'duplicate_pending_entry'
+            self.attempt_barrier_pending=dict(row)
+            return False,'pending_actual_physics_ACK'
+        if self.inflight or self.physical_ns!=slot:return False,'not_at_physical_boundary'
+        barrier['next_slot_ns']+=barrier['period_ns']
+        self.attempt_barrier_wait_ns=None
+        self.attempt_barrier_pending=None
+        return True,'current_boundary_released'
 
     def check_progress(self,now_ns):
         if self.progress_wall_timeout_ns is None:return None
         reason=None;physics=False
         if self.inflight and now_ns-self.inflight_since_ns>self.progress_wall_timeout_ns:
             reason='physics_RPC_wall_timeout';physics=True
+        elif (self.mode=='RUN' and self.attempt_barrier_wait_ns is not None
+                and now_ns-self.attempt_barrier_wait_ns>self.progress_wall_timeout_ns):
+            reason='fixed_attempt_entry_ACK_wall_timeout'
         elif self.mode=='RUN' and self.motion_armed_since_ns is not None:
             clock_base=(self.motion_armed_since_ns if self.clock_progress_ns is None else
                 max(self.motion_armed_since_ns,self.clock_progress_ns))
@@ -97,6 +157,12 @@ class TimeControlState:
         if self.next_wall_ns is not None and now_ns<self.next_wall_ns:return False
         if self.inflight or self.physics_failed or self.expected_shutdown or self.mode=='HOLD':return False
         if self.mode=='FAULT_STOP_OBSERVE':return True
+        if (self.mode=='RUN' and self.startup_spawn_gate is not None
+                and not self.startup_spawn_gate['ready']):return False
+        if (self.mode=='RUN' and self.attempt_barrier is not None
+                and self.attempt_barrier['next_slot_ns']<self.attempt_barrier['end_ns']
+                and self.physical_ns is not None
+                and self.physical_ns>=self.attempt_barrier['next_slot_ns']):return False
         if not self.native_ready:return False
         if self.anchor is None:return self.gateway_clock_ready and self.bootstrap_tokens<2
         # Hub admits STEP only through its own known actual /clock horizon.
@@ -130,4 +196,10 @@ class TimeControlState:
             or (self.iterations is not None and ib!=self.iterations)):
             self.fail('post_physics_token_mismatch',physics=True);return
         self.physical_ns=after;self.iterations=ia
+        if (self.mode=='RUN' and self.attempt_barrier is not None
+                and self.attempt_barrier['next_slot_ns']<self.attempt_barrier['end_ns']
+                and after>=self.attempt_barrier['next_slot_ns']):
+            if after!=self.attempt_barrier['next_slot_ns']:
+                self.fail('physical_attempt_boundary_crossed',physics=True)
+            else:self.attempt_barrier_wait_ns=now_ns
         if self.anchor is None:self.bootstrap_tokens+=1

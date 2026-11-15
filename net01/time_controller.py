@@ -32,6 +32,11 @@ class TimeController(Node):
         self.progress_wall_timeout_ns=(int(self.execution_profile['progress_wall_timeout_s']*1e9)
             if self.execution_profile.get('health_mask_receipt_clock')=='R-ros-sim-v1' else None)
         self.state=TimeControlState(self.execution_profile['token_wall_period_ns'],self.progress_wall_timeout_ns)
+        if self.execution_profile.get('attempt_entry_barrier',{}).get('id')=='physical-boundary-attempt-enter-v1':
+            self.state.configure_attempt_barrier(session_id,self.execution_profile['id'],
+                self.execution_profile['startup_contract'])
+        if self.execution_profile.get('startup_spawn_gate',{}).get('id')=='all-spawn-exit0-factory-cycle-fence-v1':
+            self.state.configure_startup_spawn_gate(session_id,self.execution_profile['id'])
         self.hold_waiters=[]
         self.output=Path(output);self.records=[]
         self.first_physical_token_wall_ns=None;self.first_physical_before_ns=None
@@ -78,6 +83,9 @@ class TimeController(Node):
             native_ACK_progress_monotonic_ns=self.state.native_progress_ns,
             physical_RPC_issued_monotonic_ns=self.state.inflight_since_ns,
             execution_profile=self.execution_profile['id'],
+            attempt_entry_barrier=self.state.attempt_barrier,
+            attempt_entry_barrier_wait_monotonic_ns=self.state.attempt_barrier_wait_ns,
+            startup_spawn_gate=self.state.startup_spawn_gate,
             token_wall_period_ns=self.state.token_wall_period_ns,
             planned_realtime_factor=QUANTUM_NS/self.state.token_wall_period_ns,
             actual_achieved_physical_rtf=None if wall_span is None else sim_span/wall_span,
@@ -156,7 +164,24 @@ class TimeController(Node):
             if not response.success:
                 self.state.inflight=False;self.state.fail('physics_RPC_rejected',physics=True)
             else:
+                previous_wait=self.state.attempt_barrier_wait_ns
                 self.state.complete_step(data,time.monotonic_ns() if self.progress_wall_timeout_ns is not None else None)
+                if previous_wait is None and self.state.attempt_barrier_wait_ns is not None:
+                    self.record('fixed_attempt_boundary_wait_begin',
+                        self.state.attempt_barrier['next_slot_ns'],self.state.attempt_barrier_wait_ns,
+                        self.state.physical_ns,self.state.clock_ns,self.state.native_ns,self.state.next_wall_ns)
+                pending=self.state.attempt_barrier_pending
+                if pending is not None:
+                    before=dict(physical_ns=self.state.physical_ns,inflight=self.state.inflight,
+                        clock_ns=self.state.clock_ns,native_ns=self.state.native_ns,
+                        next_wall_ns=self.state.next_wall_ns,
+                        next_slot_ns=self.state.attempt_barrier['next_slot_ns'])
+                    accepted,reason=self.state.attempt_enter(pending,time.monotonic_ns())
+                    self.record('pending_HQ_attempt_enter_after_actual_physics_ACK',pending,
+                        accepted,reason,before,dict(physical_ns=self.state.physical_ns,
+                            clock_ns=self.state.clock_ns,native_ns=self.state.native_ns,
+                            inflight=self.state.inflight,next_wall_ns=self.state.next_wall_ns,
+                            next_slot_ns=self.state.attempt_barrier['next_slot_ns']))
                 if not self.state.physics_failed:
                     if self.first_physical_before_ns is None:self.first_physical_before_ns=data['before_ns']
                     self.last_physical_ACK_wall_ns=time.monotonic_ns()
@@ -169,6 +194,32 @@ class TimeController(Node):
             try:body=self.socket.recv(4096)
             except BlockingIOError:break
             row=json.loads(body)
+            if row['kind']=='startup_spawn_ready':
+                before=dict(physical_ns=self.state.physical_ns,iterations=self.state.iterations,
+                    clock_ns=self.state.clock_ns,native_ns=self.state.native_ns,inflight=self.state.inflight,
+                    next_wall_ns=self.state.next_wall_ns)
+                received=time.monotonic_ns()
+                accepted,reason=self.state.startup_spawn_ready(row)
+                self.record('actual_startup_spawn_ready',row,received,accepted,reason,before,
+                    dict(physical_ns=self.state.physical_ns,iterations=self.state.iterations,
+                        clock_ns=self.state.clock_ns,native_ns=self.state.native_ns,inflight=self.state.inflight,
+                        next_wall_ns=self.state.next_wall_ns))
+                continue
+            if row['kind']=='hq_attempt_enter':
+                before=dict(physical_ns=self.state.physical_ns,clock_ns=self.state.clock_ns,
+                    native_ns=self.state.native_ns,inflight=self.state.inflight,
+                    next_wall_ns=self.state.next_wall_ns,
+                    next_slot_ns=None if self.state.attempt_barrier is None else self.state.attempt_barrier['next_slot_ns'])
+                received=time.monotonic_ns()
+                accepted,reason=self.state.attempt_enter(row,received)
+                self.record('actual_HQ_attempt_enter_ACK',row,received,accepted,reason,before,
+                    dict(physical_ns=self.state.physical_ns,clock_ns=self.state.clock_ns,
+                        native_ns=self.state.native_ns,inflight=self.state.inflight,
+                        next_wall_ns=self.state.next_wall_ns,
+                        next_slot_ns=None if self.state.attempt_barrier is None else self.state.attempt_barrier['next_slot_ns']))
+                continue
+            if row['kind'] not in ('ready','step','closed'):
+                raise ValueError('Unknown time-control datagram kind')
             self.state.native(row['kind'],row['horizon_ns'],
                 time.monotonic_ns() if self.progress_wall_timeout_ns is not None else None)
             self.record('actual_native_progress',row['kind'],row['horizon_ns'],row['monotonic_ns'])

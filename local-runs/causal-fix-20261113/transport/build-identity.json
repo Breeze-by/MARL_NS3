@@ -1,0 +1,59 @@
+{
+  "scope": "New native ELF only, existing ns3.40 LTO DSOs reused without rebuilding or overwriting historical artifacts",
+  "native_config": {
+    "native_identity": {
+      "binary": {
+        "relative_phase": "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/causal-fix-20261113/transport/build/net01-payload-tcp",
+        "sha256": "d53b9143dff96307e4a81c64aac797f6dfd7e2eeb3a6b2f01ef0b070f46b16c3"
+      },
+      "generated_header": {
+        "relative_phase": "/home/zhuyulab/ns3-workspace/net-01/build/network-full-payload/network_config.h",
+        "sha256": "66e64adf26c3d712ab149fe2d828ae8858d00c7172ef8adfacfc5bd7c2ff73a2"
+      }
+    },
+    "native_runtime": {
+      "library_directory": "/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build/lib",
+      "expected_ns3_names": [
+        "libns3.40-antenna.so",
+        "libns3.40-bridge.so",
+        "libns3.40-core.so",
+        "libns3.40-csma.so",
+        "libns3.40-energy.so",
+        "libns3.40-internet.so",
+        "libns3.40-mobility.so",
+        "libns3.40-network.so",
+        "libns3.40-propagation.so",
+        "libns3.40-spectrum.so",
+        "libns3.40-stats.so",
+        "libns3.40-traffic-control.so",
+        "libns3.40-wifi.so"
+      ]
+    }
+  },
+  "source_identity": {
+    "net01/native/payload_transport.cc": "f68d532863ef2f49b60028665b8e820fd820bd4e55b12245fc5526d1082fa5dd",
+    "net01/native/event_ledger.h": "b7e4a4702f34aef2aebb95c2eabe520af1b8059181373910af03c1d6064f7b1e",
+    "net01d/followup02/native/tcp_stream_draft.inc": "c40f8cbf93e561f64752344eb3e58718396961fd16620b59d1ac471abe9eef6b",
+    "net01d/followup02/native/CMakeLists.txt": "eb1c3c7ce3e4989e0a45ecf7f04a7b1ae1a65c37b69e2d0c0f182aa90a29b903",
+    "net01/config/RF_SINGLE_FACTOR_V1.json": "3f3e2e4abc892c1471d56cb6776b0f7fe9df65af88bda3a413ea53ca271fefbc"
+  },
+  "reused_libraries_build_identity": "net01d/followup02/native/lto-build-01/BUILD_IDENTITY.json",
+  "configure": [
+    "cmake",
+    "-S",
+    "net01d/followup02/native",
+    "-B",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/causal-fix-20261113/transport/build",
+    "-DNS3_BUILD_DIR=/home/zhuyulab/ns3-workspace/net-01d/ns3-lto-portable-followup02/build",
+    "-DCONFIG_HEADER_DIR=/home/zhuyulab/ns3-workspace/net-01/build/network-full-payload",
+    "-DCMAKE_BUILD_TYPE=Release",
+    "-DCMAKE_CXX_FLAGS=-ffp-contract=off",
+    "-DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON"
+  ],
+  "build": [
+    "cmake",
+    "--build",
+    "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/causal-fix-20261113/transport/build",
+    "-j2"
+  ]
+}

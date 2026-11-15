@@ -1,0 +1,124 @@
+{
+  "id": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-ros-delay-wall-v3",
+  "world_real_time_update_rate": 1000,
+  "physics_max_step_size_unchanged": 0.001,
+  "clock_publish_rate_sim_hz": 100.0,
+  "native_step_quantum_ns": 10000000,
+  "scope": "New full V3 cohort: finite common receipt allowance in all seven conditions including literal A0; health/mask/Observer heartbeat .60sim and producer projected-odom receipt .50sim, source .70/.85 unchanged. Actual ROS integer-ns receipt comparisons only in this profile. Same original armed guard lifecycle, physical progress, wall status, UUID, Nav2 collision, PPO/701, v3 spawn/factory fence and attempt barrier, G20/end140, absolute pace40, packet due/body/stamps. Strict poststop resource/physical/authority/UUID/pause closure may use the existing60wall evidence window even when original run/seal failed; original failures and actual actor return codes are never cleared.",
+  "controlled_physics": true,
+  "physical_token_steps": 10,
+  "physical_lookahead_quanta": 2,
+  "token_wall_period_ns": 40000000,
+  "peer_mask_raster": "broadcast-v1",
+  "health_mask_receipt_clock": "R-ros-sim-v1",
+  "progress_wall_timeout_s": 2.0,
+  "gateway_poststop_evidence_total_wall_s": 60,
+  "business_clock": "ros-sim-v1",
+  "peer_odom_receipt_clock": "ros-sim-v1",
+  "predecessor": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-ros-delay-wall-v2",
+  "run_bounds": {
+    "sim_budget": 120,
+    "startup_wall": 180,
+    "autonomous_wall": 720,
+    "outer_wall": 1000,
+    "cleanup_wall": 90
+  },
+  "native_evidence_budget_bytes": 8589934592,
+  "native_evidence_reserve_bytes": 2147483648,
+  "native_evidence_scope": "physical120sim-ram8GiB-reserve2GiB-v1",
+  "consumer_trace": "hq-consumer-trace-v1",
+  "startup_contract": {
+    "id": "fixed-G20-attempt-G25-grid5-end140-barrier-v2",
+    "autonomy_epoch_ns": 20000000000,
+    "first_decision_ns": 25000000000,
+    "decision_period_ns": 5000000000,
+    "decision_permission_end_ns": 140000000000,
+    "timing_tolerance_ns": 10000000,
+    "readiness": "initialized gate received through original flow95; original readiness and no-motion safety only",
+    "first_slot": "unchanged original allocation ATTEMPT, including awaiting observations or WAIT; no NN/candidate content admission",
+    "late_slot": "record actual; timing failure; no backdate, catch-up or moving epoch",
+    "end": "new decision and original send_goal entry permission [25,140); actual timestamps preserved, previously admitted inflight/feedback/cancel/stop ownership unchanged; not DDS send/acceptance timestamp"
+  },
+  "common_execution_revision": "nav2-simclock-common-v1",
+  "candidate_clearance": {
+    "id": "nav2-circular-footprint-v1",
+    "nav2_robot_radius_m": {
+      "tb1": 0.25,
+      "tb2": 0.25,
+      "tb3": 0.25
+    },
+    "map_resolution_m": 0.05
+  },
+  "evaluation_stop": "Original budget-only legal stop; quality-valid T95 is independent post-exit evaluation only.",
+  "nav2_goal_guard": {
+    "id": "navfn-round-active-goal-v1",
+    "fresh_map_max_age_sim_s": 2.0,
+    "occupied_value": 100,
+    "reason": "same2sim order as existing state freshness; stale map cannot trigger new invalidation and does not extend health guards"
+  },
+  "comparison_measurement": "source-take-v1",
+  "attempt_entry_barrier": {
+    "id": "physical-boundary-attempt-enter-v1",
+    "channel": "existing_owned_time_control_ack.sock_administrative_datagram",
+    "release": "same-session/profile/current-slot/actual-C-clock ACK before original decision_callback; not callback completion",
+    "timeout": "original 2wall progress limit, no added budget; missing first ACK is also bounded",
+    "pacing": "absolute40wall-ms deadlines unchanged; no reanchor/no hold-time subtraction; original qualifiers retained",
+    "stop": "authority-exited STOP_COUPLED/FAULT_STOP_OBSERVE bypasses allocation barrier for actual cleanup"
+  },
+  "startup_spawn_gate": {
+    "id": "all-spawn-exit0-factory-cycle-fence-v1",
+    "ready": "exact original tb1/tb2/tb3 spawn_entity action OnProcessExit, three unique actual PIDs and returncode0, then one same-world entity_info(tb3) query exit0 with genuine top-level Model.name=tb3",
+    "channel": "existing_owned_time_control_ack.sock_administrative_datagram",
+    "phase": "RUN only before first physical token, including bootstrap tokens; original startup180 bounds waiting",
+    "timing": "no token/no RPC deadline before ready; no synthetic native/clock; original first begin_step anchors deadline then absolute40wall-ms unchanged",
+    "stop": "original authority-exited STOP_COUPLED/FAULT_STOP_OBSERVE may step for cleanup without claiming startup admission",
+    "interpretation": "initialization/stepping separation only, not confirmed SIGSEGV repair; G0 paused-world factory feasibility requires actual startup validation",
+    "limitation": "Spawn process exit0 only certifies model existence. The subsequent World request reply establishes a factory-cycle fence, not completion of all asynchronous sensors or a confirmed SIGSEGV repair. Exact CLI-native request send/response timestamps are unmeasured; recorded process admission/start/exit times are brackets. Model pose/velocity never enter readiness, RL or business data.",
+    "factory_cycle_fence": "After three exit0, existing gz model -w effective_world.name -m tb3 -i requests entity_info synchronously on World.ProcessRequestMsgs. It brackets the completed factory Init/LoadPlugins cycle; CLI exit0 alone or Unable text cannot qualify. No fixed sleep/new ROS reader; original launch owns the query process."
+  },
+  "ros_delay": {
+    "id": "reliable-wall-fifo-v1",
+    "unit": "wall_ms",
+    "clock": "time.monotonic_ns",
+    "one_way_wall_ms_options": [
+      0,
+      100,
+      200,
+      300,
+      400,
+      500
+    ],
+    "action_application_confirmation": false,
+    "injection": "After original Gateway modeA full-CDR capture and before original receive; per-frame due=capture_monotonic_ns+D, zero uses same queue",
+    "scope": "All original cross-domain topic/BoundMask/Action frames; native/clock/models/admin/independent emergency stop exempt",
+    "stop": "No new remote Goal after authority revocation or G140; unforwarded original UUID/RPC receives explicit proxy rejection after its due, response uses same D. Original accepted/unknown backend requests retain real cancel/result/terminal. At owned Gateway close, finite ingress epoch ends; already admitted frames and RPC responses drain without advancing due or adding parent budgets.",
+    "authority_lifecycle": "Only original Gateway.time_control_state -> DeliveryGuard.control_state: legal preflight STOP/HOLD before arm does not latch authority revocation; armed final revocation remains latched. DelayActionWire uses original may_send_goal at actual arrival; G140 and owned close remain."
+  },
+  "source_freshness": {
+    "id": "ros-delay-source-age-v1",
+    "odom_max_age_sim_s": 0.7,
+    "correction_max_age_sim_s": 0.85,
+    "allowance_sim_s": 0.3,
+    "scope": "All seven conditions including literal A0: original peer_keepout module globals and business_peer copied constants only; original source stamps, future bounds, missing/ready/localization/collision and progress protections unchanged. Receipt budgets are separately declared in receipt_freshness."
+  },
+  "receipt_freshness": {
+    "id": "ros-delay-finite-sim-receipt-v1",
+    "health_max_age_sim_s": 0.6,
+    "bound_mask_max_age_sim_s": 0.6,
+    "observer_heartbeat_max_age_sim_s": 0.6,
+    "projected_odom_max_age_sim_s": 0.5,
+    "comparison": "Actual ROS integer nanosecond differences, strict > limit; exactly limit accepted. Legacy paths retain original float comparisons.",
+    "scope": "All seven conditions; only receipt freshness, not source stamps/age, ready/missing/sequence/future checks, local wall status, progress, UUID or collision protections."
+  },
+  "poststop_evidence_grace": {
+    "id": "closed-resources-failed-run-evidence-v1",
+    "existing_total_wall_s": 60,
+    "initial_wall_s": 20,
+    "SIGINT_grace_end_wall_s": 50,
+    "TERM_reserve_wall_s": 5,
+    "KILL_reserve_wall_s": 5,
+    "admission": "Original actual physical stop, authority exit, UUID closure, healthy pause, and samePID/session/case strict resources_closed proof including END/EOF/executors/RPC. Does not require successful seal or clear original failures.",
+    "bounds": "min existing60wall/remaining cleanup90/host hard deadline; no extra autonomous or physical progress budget",
+    "exit": "Preserve actual Gateway.main return code and original runner/host failure flags; no actor-fault remapping."
+  }
+}

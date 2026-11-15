@@ -1,0 +1,66 @@
+{
+  "schema": "comparison40-window-method-amendment01",
+  "status": "ROOT_APPROVED_POST_HOC_APPLIED_BATCH_PAUSED",
+  "created_utc": "2026-11-13T14:53:37.239848+00:00",
+  "post_hoc": true,
+  "reason": "Original c04 complete task window with saved trace/identity, but Gateway process exited -15 after footer code0 intent; original network/full-engineering FAIL is retained.",
+  "unchanged": "All 77 runtime identities, native ELF/13DSO, scenes, radio, seed, order, budget, policy, clock/pacing/safety thresholds; old COMMON_BINDING/consumed READY/raw/result/row/journal immutable.",
+  "rule": "Full120 + original run budget/integrity + 7 original gates + 23 exact attempt/barrier + trace completion/IDs + no window fault + safeStop/UUID/copy/owner + same actual PID/session/case resources_closed\u2192persist_end\u2192clean close_return\u2192main_return intent0 strictly before original supervisor SIGTERM lower bound. Only actual gateway exit -15 from original supervisor exact grace deadline. T95 never used for eligibility.",
+  "timing": "Exact SIGTERM send mono not recorded: bound from recorded original grace deadline and frozen supervisor implementation, corroborated original wall interval. c04 main_return precedes lower bound by3.499360537s.",
+  "reporting": "task_window_measurement_qualified independent of full_engineering_qualified and clean_exit; c04 T95 retained, original main communication N/A retained in original row; amended row uses existing saved delivery values. All40 slots same offline rule. Equal-window RTF uses window qualification, original full-engineering flag separately retained.",
+  "prior_four": [
+    {
+      "slot": "c01",
+      "classification": "QUALIFIED_REACHED_CONTINUE",
+      "task_window_measurement_qualified": true,
+      "full_engineering_qualified": true,
+      "clean_exit": true,
+      "row": "local-runs/communication40-v3-20261113/post-exit/c01/row.amended01.json",
+      "original_row_preserved": "local-runs/communication40-v3-20261113/post-exit/c01/row.json",
+      "original_result_preserved": "local-runs/communication40-v3-20261113/post-exit/c01/result.json"
+    },
+    {
+      "slot": "c02",
+      "classification": "QUALIFIED_REACHED_CONTINUE",
+      "task_window_measurement_qualified": true,
+      "full_engineering_qualified": true,
+      "clean_exit": true,
+      "row": "local-runs/communication40-v3-20261113/post-exit/c02/row.amended01.json",
+      "original_row_preserved": "local-runs/communication40-v3-20261113/post-exit/c02/row.json",
+      "original_result_preserved": "local-runs/communication40-v3-20261113/post-exit/c02/result.json"
+    },
+    {
+      "slot": "c03",
+      "classification": "QUALIFIED_REACHED_CONTINUE",
+      "task_window_measurement_qualified": true,
+      "full_engineering_qualified": true,
+      "clean_exit": true,
+      "row": "local-runs/communication40-v3-20261113/post-exit/c03/row.amended01.json",
+      "original_row_preserved": "local-runs/communication40-v3-20261113/post-exit/c03/row.json",
+      "original_result_preserved": "local-runs/communication40-v3-20261113/post-exit/c03/result.json"
+    },
+    {
+      "slot": "c04",
+      "classification": "WINDOW_VALID_POSTSTOP_EXIT_FAILURE_CONTINUE",
+      "task_window_measurement_qualified": true,
+      "full_engineering_qualified": false,
+      "clean_exit": false,
+      "row": "local-runs/communication40-v3-20261113/post-exit/c04/row.amended01.json",
+      "original_row_preserved": "local-runs/communication40-v3-20261113/post-exit/c04/row.json",
+      "original_result_preserved": "local-runs/communication40-v3-20261113/post-exit/c04/result.json"
+    }
+  ],
+  "component": "local-runs/communication40-v3-20261113/window-amendment-component-01/result.json",
+  "method_patch": "local-runs/communication40-v3-20261113/WINDOW_METHOD_AMENDMENT01.diff",
+  "after_root_method_review": [
+    "New COMMON_BINDING_METHOD_AMENDMENT01.json inherits same77 runtime and retains previous8 method map; update changed3 method identities only.",
+    "Snapshot already preserved old methods/plan/COMMON_BINDING/40READY. Only unstarted36 READY offline reference metadata updated; consumed4 unchanged.",
+    "Plan first4 summary_row_result_relative_repo points amended\u526f\u672c; canonical c04 only append root-authorized new continue reference, oldBLOCK remains; no redispatch/replacement.",
+    "Batch remains false until root RESUME; original method/source provenance retained."
+  ],
+  "root_approved_utc": "2026-11-13T14:57:57.952441+00:00",
+  "root_approval": "Root reviewed method diff/draft and22direct components; authorized same offline rule retrospective4/prospective36, separate clean/full-engineering outcomes. No RESUME yet.",
+  "binding": "local-runs/communication40-v3-20261113/COMMON_BINDING_METHOD_AMENDMENT01.json",
+  "applied_remaining_READY_count": 36,
+  "first_consumed4_READY_unchanged": true
+}

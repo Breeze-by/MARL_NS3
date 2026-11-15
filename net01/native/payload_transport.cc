@@ -46,21 +46,22 @@ static int64_t threadCpu() {
   timespec value;clock_gettime(CLOCK_THREAD_CPUTIME_ID,&value);
   return int64_t(value.tv_sec)*1000000000+value.tv_nsec;
 }
-enum CpuCategory {FieldsCpu,EventCpu,SniffCpu,TraceCpu,DropCpu,ReceiveCpu,TransmitCpu,CpuCategories};
-static const char* cpuNames[]={"fields","event","sniff","packet_trace","rx_drop","receive","transmit"};
-struct CpuTotal {uint64_t calls=0;int64_t inclusive=0,exclusive=0;};
+enum CpuCategory {FieldsCpu,EventCpu,SniffCpu,TraceCpu,DropCpu,ReceiveCpu,TransmitCpu,PcapCpu,CpuCategories};
+static const char* cpuNames[]={"fields","event","sniff","packet_trace","rx_drop","receive","transmit","pcap"};
+struct CpuTotal {uint64_t calls=0;int64_t inclusive=0,exclusive=0,wallInclusive=0,wallExclusive=0;};
 static std::array<CpuTotal,CpuCategories> cpuTotals;
 struct CpuScope {
-  CpuCategory category;CpuScope* parent=nullptr;int64_t begin=0,children=0;
+  CpuCategory category;CpuScope* parent=nullptr;int64_t begin=0,children=0,wallBegin=0,wallChildren=0;
   static CpuScope* current;
   explicit CpuScope(CpuCategory value):category(value) {
-    if(cpuProfile) {parent=current;begin=threadCpu();current=this;}
+    if(cpuProfile) {parent=current;wallBegin=mono();begin=threadCpu();current=this;}
   }
   ~CpuScope() {
     if(!cpuProfile)return;
-    const auto elapsed=threadCpu()-begin;auto& total=cpuTotals[category];
+    const auto elapsed=threadCpu()-begin,wallElapsed=mono()-wallBegin;auto& total=cpuTotals[category];
     ++total.calls;total.inclusive+=elapsed;total.exclusive+=elapsed-children;
-    if(parent)parent->children+=elapsed;
+    total.wallInclusive+=wallElapsed;total.wallExclusive+=wallElapsed-wallChildren;
+    if(parent) {parent->children+=elapsed;parent->wallChildren+=wallElapsed;}
     current=parent;
   }
 };
@@ -79,7 +80,8 @@ static void cpuBoundary(const std::string& kind) {
     if(i)fields+=",";
     const auto& total=cpuTotals[i];
     fields+="\""+std::string(cpuNames[i])+"\":{\"calls\":"+std::to_string(total.calls)+
-      ",\"inclusive_ns\":"+std::to_string(total.inclusive)+",\"exclusive_ns\":"+std::to_string(total.exclusive)+"}";
+      ",\"inclusive_ns\":"+std::to_string(total.inclusive)+",\"exclusive_ns\":"+std::to_string(total.exclusive)+
+      ",\"wall_inclusive_ns\":"+std::to_string(total.wallInclusive)+",\"wall_exclusive_ns\":"+std::to_string(total.wallExclusive)+"}";
   }
   fields+="},\"active_scope\":\""+std::string(CpuScope::current?cpuNames[CpuScope::current->category]:"none")+"\"";
   controlBoundary(kind,fields);
@@ -93,6 +95,19 @@ static LedgerRecord primitiveRecord(const std::string& kind,LedgerRecord::Layout
   ++counts[kind];LedgerRecord row;row.kind=kind;row.layout=layout;
   row.ns3=Simulator::Now().GetNanoSeconds();row.monotonic=mono();return row;
 }
+// Profiling calls the installed helper's original sinks, including its exact
+// packet/radiotap serialization. No simulator object crosses a thread.
+class ProfiledPcapAccess : public YansWifiPhyHelper {
+public:
+  static void tx(Ptr<PcapFileWrapper> file,Ptr<const Packet> packet,uint16_t frequency,
+      WifiTxVector vector,MpduInfo mpdu,uint16_t sta) {
+    CpuScope measure(PcapCpu);PcapSniffTxEvent(file,packet,frequency,vector,mpdu,sta);
+  }
+  static void rx(Ptr<PcapFileWrapper> file,Ptr<const Packet> packet,uint16_t frequency,
+      WifiTxVector vector,MpduInfo mpdu,SignalNoiseDbm power,uint16_t sta) {
+    CpuScope measure(PcapCpu);PcapSniffRxEvent(file,packet,frequency,vector,mpdu,power,sta);
+  }
+};
 class Fragment : public Header {
 public:
   uint64_t id=0,source=0;
@@ -228,27 +243,40 @@ static void transmit(Ptr<Socket> socket,Ipv4Address destination,Fragment identit
 
 static int modelMain(int argc,char** argv) {
   std::string directory,profile="B";
+  uint32_t rngSeed=kSeed;uint64_t rngRun=kRun;
   struct StepTrace {int64_t horizon,beginMono,beginCpu,beginNs3,endMono,endCpu,endNs3;};
   std::vector<StepTrace> controlSteps;
-  CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B or C",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);
+  CommandLine cmd;cmd.AddValue("output", "New output directory",directory);cmd.AddValue("profile","Locked B, C or single-factor B-loss3",profile);cmd.AddValue("controlTrace","Diagnostic STEP boundary timestamps only",controlTrace);
   cmd.AddValue("transport","Explicit udp, tcp-v1 or tcp-mtu-v2; no fallback",nativeTransport);
+  cmd.AddValue("rngSeed","Explicit ns3 RNG seed; default retains locked seed",rngSeed);
+  cmd.AddValue("rngRun","Explicit independent ns3 RNG run; default retains locked run",rngRun);
   cmd.AddValue("cpuProfile","Diagnostic own-callback cumulative CPU only; use with controlTrace",cpuProfile);
   cmd.AddValue("asyncLedger","Move diagnostic formatting to one bounded writer",asyncLedger);
   cmd.AddValue("ledgerMode","Explicit serial or session-ram-v1 diagnostic storage",ledgerMode);cmd.Parse(argc,argv);
   // asyncLedger remains opt-in; the reference keeps serial formatting/buffering.
-  NS_ABORT_MSG_IF(directory.empty() || (profile!="B" && profile!="C") || (nativeTransport!="udp" && nativeTransport!="tcp-v1" && nativeTransport!="tcp-mtu-v2"),"Explicit output and locked profile needed");
+  NS_ABORT_MSG_IF(directory.empty() || (profile!="B" && profile!="C" && profile!="B-loss3") || (nativeTransport!="udp" && nativeTransport!="tcp-v1" && nativeTransport!="tcp-mtu-v2"),"Explicit output and locked profile needed");
+  NS_ABORT_MSG_IF(rngSeed==0 || rngRun==0,"Positive explicit RNG seed/run required");
   outputDirectory=directory;
   if(ledgerMode!="serial" && ledgerMode!="session-ram-v1")throw std::runtime_error("Unknown ledger mode");
   ledger.open(directory+"/packet-ledger.jsonl",asyncLedger,ledgerMode=="session-ram-v1");
   std::ofstream(directory+"/configured-lock.json")<<kRawConfig;
-  RngSeedManager::SetSeed(kSeed);RngSeedManager::SetRun(kRun);
+  const bool baselineB=profile!="C";
+  const double exponent=profile=="B-loss3"?kExponentC:(baselineB?kExponentB:kExponentC);
+  const double power=baselineB?kTxB:kTxC;
+  const std::string dataMode=baselineB?"VhtMcs9":"VhtMcs3";
+  std::ofstream(directory+"/effective-network.json")<<"{\"profile\":\""<<profile
+    <<"\",\"base_lock\":\"NETWORK_LOCK_V3\",\"data_mode\":\""<<dataMode
+    <<"\",\"tx_power_dbm\":"<<power<<",\"pathloss_exponent\":"<<exponent
+    <<",\"rng_seed\":"<<rngSeed<<",\"rng_run\":"<<rngRun
+    <<",\"single_factor_from_B\":"<<(profile=="B-loss3"?"\"pathloss_exponent\"":"null")<<"}\n";
+  RngSeedManager::SetSeed(rngSeed);RngSeedManager::SetRun(rngRun);
   Config::SetDefault("ns3::WifiMacQueue::MaxSize",QueueSizeValue(QueueSize(std::to_string(kQueuePackets)+"p")));
   Config::SetDefault("ns3::WifiMacQueue::MaxDelay",TimeValue(Seconds(kQueueDelay)));
   Config::SetDefault("ns3::Ipv4L3Protocol::DefaultTtl",UintegerValue(64));
   NodeContainer nodes;nodes.Create(5); // AP0, STA1..3, wired central4; business id0 maps to central4.
   MobilityHelper mobility;mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");mobility.Install(nodes);
   for(uint32_t i=0;i<5;++i)nodes.Get(i)->GetObject<MobilityModel>()->SetPosition(Vector(kPositions[i][0],kPositions[i][1],kPositions[i][2]));
-  auto loss=CreateObject<LogDistancePropagationLossModel>();loss->SetAttribute("Exponent",DoubleValue(profile=="B"?kExponentB:kExponentC));loss->SetReference(1.0,kReferenceLoss);
+  auto loss=CreateObject<LogDistancePropagationLossModel>();loss->SetAttribute("Exponent",DoubleValue(exponent));loss->SetReference(1.0,kReferenceLoss);
   // Normal mode is exactly transparent. Only the independent no-motion fault
   // command blocks the real channel; do not force an already-OFF STA PHY off.
   auto faultGate=CreateObject<RangePropagationLossModel>();
@@ -256,12 +284,11 @@ static int modelMain(int argc,char** argv) {
   auto channel=CreateObject<YansWifiChannel>();channel->SetPropagationLossModel(loss);channel->SetPropagationDelayModel(CreateObject<ConstantSpeedPropagationDelayModel>());
   YansWifiPhyHelper phy;phy.SetChannel(channel);phy.SetErrorRateModel("ns3::NistErrorRateModel");
   phy.Set("ChannelSettings",StringValue("{42, 80, BAND_5GHZ, 0}"));
-  double power=profile=="B"?kTxB:kTxC;
   phy.Set("TxPowerStart",DoubleValue(power));phy.Set("TxPowerEnd",DoubleValue(power));phy.Set("RxNoiseFigure",DoubleValue(7));
   phy.Set("RxSensitivity",DoubleValue(-101));phy.Set("CcaEdThreshold",DoubleValue(-62));phy.Set("CcaSensitivity",DoubleValue(-82));
   phy.Set("Antennas",UintegerValue(1));phy.Set("MaxSupportedTxSpatialStreams",UintegerValue(1));phy.Set("MaxSupportedRxSpatialStreams",UintegerValue(1));
   WifiHelper wifi;wifi.SetStandard(WIFI_STANDARD_80211ac);
-  wifi.SetRemoteStationManager("ns3::ConstantRateWifiManager","DataMode",StringValue(profile=="B"?"VhtMcs9":"VhtMcs3"),"ControlMode",StringValue("OfdmRate6Mbps"),"NonUnicastMode",StringValue("OfdmRate6Mbps"),"MaxSsrc",UintegerValue(7),"MaxSlrc",UintegerValue(4),"RtsCtsThreshold",UintegerValue(65535),"FragmentationThreshold",UintegerValue(65535));
+  wifi.SetRemoteStationManager("ns3::ConstantRateWifiManager","DataMode",StringValue(dataMode),"ControlMode",StringValue("OfdmRate6Mbps"),"NonUnicastMode",StringValue("OfdmRate6Mbps"),"MaxSsrc",UintegerValue(7),"MaxSlrc",UintegerValue(4),"RtsCtsThreshold",UintegerValue(65535),"FragmentationThreshold",UintegerValue(65535));
   WifiMacHelper mac;Ssid ssid("net01-fixed");
   mac.SetType("ns3::ApWifiMac","Ssid",SsidValue(ssid),"QosSupported",BooleanValue(true));
   NetDeviceContainer allWifi=wifi.Install(phy,mac,nodes.Get(0));
@@ -280,7 +307,13 @@ static int modelMain(int argc,char** argv) {
     ph->TraceConnectWithoutContext("MonitorSnifferRx",MakeBoundCallback(&sniff,i));
     dev->GetRemoteStationManager()->TraceConnectWithoutContext("MacTxDataFailed",MakeBoundCallback(&retry,i));
     dev->GetRemoteStationManager()->TraceConnectWithoutContext("MacTxFinalDataFailed",MakeBoundCallback(&finalDrop,i));
-    phy.EnablePcap(directory+"/wifi",dev,true);
+    if(cpuProfile) {
+      PcapHelper pcap;
+      auto file=pcap.CreateFile(pcap.GetFilenameFromDevice(directory+"/wifi",dev),
+          std::ios::out,phy.GetPcapDataLinkType());
+      ph->TraceConnectWithoutContext("MonitorSnifferTx",MakeBoundCallback(&ProfiledPcapAccess::tx,file));
+      ph->TraceConnectWithoutContext("MonitorSnifferRx",MakeBoundCallback(&ProfiledPcapAccess::rx,file));
+    } else phy.EnablePcap(directory+"/wifi",dev,true);
   }
   CsmaHelper wire;wire.SetChannelAttribute("DataRate",DataRateValue(DataRate(1000000000)));wire.SetChannelAttribute("Delay",TimeValue(NanoSeconds(1000)));wire.SetDeviceAttribute("Mtu",UintegerValue(kMtu));
   wire.SetQueue("ns3::DropTailQueue<Packet>","MaxSize",QueueSizeValue(QueueSize(std::to_string(kQueuePackets)+"p")));
@@ -349,7 +382,14 @@ static int modelMain(int argc,char** argv) {
       controlBoundary("ledger_barrier_begin");
       ledger.barrier();
       controlBoundary("ledger_barrier_end");
+      if(cpuProfile)controlBoundary("step_ack_output_begin");
+      const auto ackBeginWall=cpuProfile?mono():0,ackBeginCpu=cpuProfile?threadCpu():0;
       std::cout<<"STEP "<<Simulator::Now().GetNanoSeconds()<<"\n"<<std::flush;
+      if(cpuProfile) {
+        const auto ackEndCpu=threadCpu(),ackEndWall=mono();
+        controlBoundary("step_ack_output_end",",\"emit_wall_ns\":"+std::to_string(ackEndWall-ackBeginWall)+
+            ",\"emit_thread_cpu_ns\":"+std::to_string(ackEndCpu-ackBeginCpu));
+      }
     } else if(op=="RADIO") {
       int enabled;in>>enabled;
       faultGate->SetAttribute("MaxRange",DoubleValue(enabled?1e9:0.));

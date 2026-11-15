@@ -1,0 +1,687 @@
+{
+  "status": "COMPLETED_ENGINEERING_QUALIFICATION_PASS_RF_TASK_CAUSALITY_UNPROVEN",
+  "started_attempts_total": 7,
+  "maximum_authorized_starts": 7,
+  "attempt_accounting": {
+    "a": "PermanentstartupFAILADAPTER_FUNCTIONAL_BUG_NOT_RF,notRFsample",
+    "b_to_f": "UnstartedretiredREADYpreserved",
+    "g_to_l": "6completedpostfixcasesunderone67pathbinding;logicali=physicalm"
+  },
+  "profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-60sim-fixedstart-consumertrace-v1",
+  "binding": "COMMON_BINDING_POSTFIX.json",
+  "native_provenance": "Originald53ELF/build-source identityseparatefromcurrentnative.cc;original13DSOnotrehash",
+  "seeds": {
+    "physics": 2026110601,
+    "network": 2026110901,
+    "native_run": 1,
+    "scope": "Samefixedseedsfresh-processrepeats,notindependentRFseeds"
+  },
+  "only_arm_factor": "LogDistance2vs3;MCS9/16dBm/TCP/policy/Nav2/rates/thresholdsfixed",
+  "primary": "FirstcentralGatewayqualityvalidT95relativefixedG20,notconsumeruseT95",
+  "rows": [
+    {
+      "logical_case": "g",
+      "physical_case": "g",
+      "pair": 1,
+      "arm": "B",
+      "qualification": "PASS",
+      "sim_s": 60.0,
+      "result_wall_s": 239.9992865480017,
+      "pacing": {
+        "logical_case": "g",
+        "physical_case": "g",
+        "reference": "g-pacing/result.json",
+        "rtf": 0.25000037799336045,
+        "physical_tokens": 6000,
+        "lateness_p95_wall_ms": 5.29937545,
+        "lateness_max_wall_ms": 37.575912,
+        "above40_count": 0,
+        "above40_fraction": 0.0,
+        "gates": {
+          "rtf_within_predeclared_band": true,
+          "lateness_p95_le_20wall_ms": true,
+          "lateness_above_40wall_ms_fraction_le_point01": true
+        },
+        "pass_": true
+      },
+      "native_copy_bytes": 3569377501,
+      "T95": {
+        "local_union": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.9012083815400437,
+          "last_elapsed_sim_s": 59.489999999999995,
+          "samples": 145,
+          "missing_sources": []
+        },
+        "central_merged": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.899665766808073,
+          "last_elapsed_sim_s": 59.510000000000005,
+          "samples": 145,
+          "missing_sources": []
+        },
+        "robot_received": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.899665766808073,
+          "last_elapsed_sim_s": 59.53,
+          "samples": 145,
+          "missing_sources": []
+        }
+      },
+      "attempts_count": 11,
+      "all_attempt_lateness_zero": true,
+      "actual_NN_count": 11,
+      "original_WAIT_count": 2,
+      "first_NN_G_sim": 25.0,
+      "first_candidate_count": 5,
+      "observed_G80_close_event": {
+        "kind": "decision_permission_closed",
+        "actual_sim_ns": 80000000000,
+        "planned_sim_ns": 80000000000,
+        "monotonic_ns": 770450031299185,
+        "realtime_ns": 1794553408548946578
+      },
+      "new_goal_entries_at_or_after80": 0,
+      "owned_requests": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 9,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "06d9b87b56924792a0bc8a70539e145b",
+            "4cb47a22452f4bdf9a4079664af116e7",
+            "9a986cb186ca4dd5998d6ea985a39b37"
+          ],
+          "tb2": [
+            "3cc5d40b60d6457ab6c6a589cf71fe84",
+            "ee8dfc56b45d4f56b7e46b42a225d8c8",
+            "ef82c121d44440c7b7138b20b3de7526"
+          ],
+          "tb3": [
+            "1c4da97d2bd946e9b4f49426bd137f48",
+            "93f58cfe6eca41b0a0926b24dc22c4d0",
+            "995defb9d3204858b89ae5f6fa8215b4"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "all_owners_writers_gone": true
+    },
+    {
+      "logical_case": "h",
+      "physical_case": "h",
+      "pair": 1,
+      "arm": "B-loss3",
+      "qualification": "PASS",
+      "sim_s": 60.0,
+      "result_wall_s": 240.00304921297356,
+      "pacing": {
+        "logical_case": "h",
+        "physical_case": "h",
+        "reference": "h-pacing/result.json",
+        "rtf": 0.24999632915284117,
+        "physical_tokens": 6000,
+        "lateness_p95_wall_ms": 7.769756000000003,
+        "lateness_max_wall_ms": 35.808343,
+        "above40_count": 0,
+        "above40_fraction": 0.0,
+        "gates": {
+          "rtf_within_predeclared_band": true,
+          "lateness_p95_le_20wall_ms": true,
+          "lateness_above_40wall_ms_fraction_le_point01": true
+        },
+        "pass_": true
+      },
+      "native_copy_bytes": 3569571116,
+      "T95": {
+        "local_union": {
+          "T95_sim_s": 37.23,
+          "status": "reached",
+          "last_coverage": 0.9692762565882505,
+          "last_elapsed_sim_s": 59.730000000000004,
+          "samples": 145,
+          "missing_sources": []
+        },
+        "central_merged": {
+          "T95_sim_s": 38.5,
+          "status": "reached",
+          "last_coverage": 0.9679264686977761,
+          "last_elapsed_sim_s": 59.75,
+          "samples": 145,
+          "missing_sources": []
+        },
+        "robot_received": {
+          "T95_sim_s": 38.53,
+          "status": "reached",
+          "last_coverage": 0.9679264686977761,
+          "last_elapsed_sim_s": 59.760000000000005,
+          "samples": 145,
+          "missing_sources": []
+        }
+      },
+      "attempts_count": 11,
+      "all_attempt_lateness_zero": true,
+      "actual_NN_count": 11,
+      "original_WAIT_count": 0,
+      "first_NN_G_sim": 25.0,
+      "first_candidate_count": 6,
+      "observed_G80_close_event": {
+        "kind": "decision_permission_closed",
+        "actual_sim_ns": 80000000000,
+        "planned_sim_ns": 80000000000,
+        "monotonic_ns": 771167018976084,
+        "realtime_ns": 1794554125536622716
+      },
+      "new_goal_entries_at_or_after80": 0,
+      "owned_requests": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 9,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "0b33d1cfedcc4368926fa2fcacbd8891",
+            "471f18a6cefb412096acedc0b21b5dc7",
+            "ee5c19237bcb4a5b966ccdded61d8ef0"
+          ],
+          "tb2": [
+            "0047fb8dc8a044639e16be77f7aff854",
+            "54228d1fe5dd4a209ad40d06cf6939f7",
+            "d3a6e13ab7c44c549720f1370e2e97a8"
+          ],
+          "tb3": [
+            "14a65f7424da4c5bbf4c3987f23f38f6",
+            "235a4bd482fb401eba989cb7b4214486",
+            "c20a2befd88d4810b1366753d69fe389"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "all_owners_writers_gone": true
+    },
+    {
+      "logical_case": "i",
+      "physical_case": "m",
+      "pair": 2,
+      "arm": "B-loss3",
+      "qualification": "PASS",
+      "sim_s": 60.0,
+      "result_wall_s": 240.00148065492976,
+      "pacing": {
+        "logical_case": "i",
+        "physical_case": "m",
+        "reference": "i-pacing/result.json",
+        "rtf": 0.2499980752814974,
+        "physical_tokens": 6000,
+        "lateness_p95_wall_ms": 4.924084400000009,
+        "lateness_max_wall_ms": 29.622313,
+        "above40_count": 0,
+        "above40_fraction": 0.0,
+        "gates": {
+          "rtf_within_predeclared_band": true,
+          "lateness_p95_le_20wall_ms": true,
+          "lateness_above_40wall_ms_fraction_le_point01": true
+        },
+        "pass_": true
+      },
+      "native_copy_bytes": 3584099946,
+      "T95": {
+        "local_union": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.8902172515747525,
+          "last_elapsed_sim_s": 59.42,
+          "samples": 145,
+          "missing_sources": []
+        },
+        "central_merged": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.8888031880704461,
+          "last_elapsed_sim_s": 59.459999999999994,
+          "samples": 145,
+          "missing_sources": []
+        },
+        "robot_received": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.8888031880704461,
+          "last_elapsed_sim_s": 59.47,
+          "samples": 145,
+          "missing_sources": []
+        }
+      },
+      "attempts_count": 11,
+      "all_attempt_lateness_zero": true,
+      "actual_NN_count": 11,
+      "original_WAIT_count": 0,
+      "first_NN_G_sim": 25.0,
+      "first_candidate_count": 6,
+      "observed_G80_close_event": {
+        "kind": "decision_permission_closed",
+        "actual_sim_ns": 80000000000,
+        "planned_sim_ns": 80000000000,
+        "monotonic_ns": 772014038840054,
+        "realtime_ns": 1794554972556486340
+      },
+      "new_goal_entries_at_or_after80": 0,
+      "owned_requests": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 10,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "31d69d3a07174c488ec3da7426c26d28",
+            "637ccdf92b1442ca95b6dd03df567055",
+            "aa8887df0e4148339fc8c7c50187753a"
+          ],
+          "tb2": [
+            "55178340ebc54a5a92578abd5ac02a8a",
+            "6440a3462ecf46d6a850c609317ccc36",
+            "f305fc9767094ce290e5972ee088a3ac"
+          ],
+          "tb3": [
+            "1e7637efeb5c406d8380fa9cae9c4828",
+            "2e38d2c571f742eb9bf95c623126ccae",
+            "37ad8c5387d24686b06910b96c813f15",
+            "8832a012675843129969c0cb7cf961d8"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "all_owners_writers_gone": true
+    },
+    {
+      "logical_case": "j",
+      "physical_case": "j",
+      "pair": 2,
+      "arm": "B",
+      "qualification": "PASS",
+      "sim_s": 60.0,
+      "result_wall_s": 239.9977469019359,
+      "pacing": {
+        "logical_case": "j",
+        "physical_case": "j",
+        "reference": "j-pacing/result.json",
+        "rtf": 0.2500019612565518,
+        "physical_tokens": 6000,
+        "lateness_p95_wall_ms": 3.4389488000000017,
+        "lateness_max_wall_ms": 22.111059,
+        "above40_count": 0,
+        "above40_fraction": 0.0,
+        "gates": {
+          "rtf_within_predeclared_band": true,
+          "lateness_p95_le_20wall_ms": true,
+          "lateness_above_40wall_ms_fraction_le_point01": true
+        },
+        "pass_": true
+      },
+      "native_copy_bytes": 3570112378,
+      "T95": {
+        "local_union": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.8715130479496079,
+          "last_elapsed_sim_s": 59.459999999999994,
+          "samples": 145,
+          "missing_sources": []
+        },
+        "central_merged": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.8701632600591336,
+          "last_elapsed_sim_s": 59.480000000000004,
+          "samples": 145,
+          "missing_sources": []
+        },
+        "robot_received": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.8701632600591336,
+          "last_elapsed_sim_s": 59.489999999999995,
+          "samples": 145,
+          "missing_sources": []
+        }
+      },
+      "attempts_count": 11,
+      "all_attempt_lateness_zero": true,
+      "actual_NN_count": 11,
+      "original_WAIT_count": 4,
+      "first_NN_G_sim": 25.0,
+      "first_candidate_count": 7,
+      "observed_G80_close_event": {
+        "kind": "decision_permission_closed",
+        "actual_sim_ns": 80000000000,
+        "planned_sim_ns": 80000000000,
+        "monotonic_ns": 772544486564200,
+        "realtime_ns": 1794555503004209476
+      },
+      "new_goal_entries_at_or_after80": 0,
+      "owned_requests": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 8,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "0b9a2b0e1922400eba51bdbf55034840",
+            "71027fc4e5384cd39a6b9b163d9b7c9f",
+            "a9fce3b840b440eb879edc78aaaf2885"
+          ],
+          "tb2": [
+            "17fb7def5d674e9b847c176c77a889d8",
+            "adb9e42de9a74b22b21ae8d9c8540875"
+          ],
+          "tb3": [
+            "597b629ff2a0460bbb4f9c2d4609e346",
+            "b60defa6cea3410184a22479a25f2b6d",
+            "d581017eaaea434e8d2c1b7b435b8ef4"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "all_owners_writers_gone": true
+    },
+    {
+      "logical_case": "k",
+      "physical_case": "k",
+      "pair": 3,
+      "arm": "B",
+      "qualification": "PASS",
+      "sim_s": 60.0,
+      "result_wall_s": 240.00527009391226,
+      "pacing": {
+        "logical_case": "k",
+        "physical_case": "k",
+        "reference": "k-pacing/result.json",
+        "rtf": 0.24999405209467046,
+        "physical_tokens": 6000,
+        "lateness_p95_wall_ms": 2.1676596,
+        "lateness_max_wall_ms": 26.433595,
+        "above40_count": 0,
+        "above40_fraction": 0.0,
+        "gates": {
+          "rtf_within_predeclared_band": true,
+          "lateness_p95_le_20wall_ms": true,
+          "lateness_above_40wall_ms_fraction_le_point01": true
+        },
+        "pass_": true
+      },
+      "native_copy_bytes": 3588359977,
+      "T95": {
+        "local_union": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.9048720915284741,
+          "last_elapsed_sim_s": 59.95,
+          "samples": 145,
+          "missing_sources": []
+        },
+        "central_merged": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.903715130479496,
+          "last_elapsed_sim_s": 59.97,
+          "samples": 145,
+          "missing_sources": []
+        },
+        "robot_received": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.903715130479496,
+          "last_elapsed_sim_s": 59.980000000000004,
+          "samples": 145,
+          "missing_sources": []
+        }
+      },
+      "attempts_count": 11,
+      "all_attempt_lateness_zero": true,
+      "actual_NN_count": 11,
+      "original_WAIT_count": 1,
+      "first_NN_G_sim": 25.0,
+      "first_candidate_count": 6,
+      "observed_G80_close_event": {
+        "kind": "decision_permission_closed",
+        "actual_sim_ns": 80000000000,
+        "planned_sim_ns": 80000000000,
+        "monotonic_ns": 773106669571317,
+        "realtime_ns": 1794556065187218190
+      },
+      "new_goal_entries_at_or_after80": 0,
+      "owned_requests": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 9,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "241ce7a6ee374116acb6c1e106e824dd",
+            "73513924a5fe450a884e56261e9458ac",
+            "fc3f474bacd24145b83640cbdc7c5526"
+          ],
+          "tb2": [
+            "34efc1f75bd745db92fdbfeae2a6f32d",
+            "c9021800edd042b1bc2a49f76a0d3736",
+            "daa1e38b19f94d1fb2a6bde7f208a336"
+          ],
+          "tb3": [
+            "8d2f1d2ece6c4f33bbdfed957d78eaaa",
+            "9ca67e291a6149948dd2ffecabb754e6",
+            "fcfb79aa836d46e989c5bba6612a514e"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "all_owners_writers_gone": true
+    },
+    {
+      "logical_case": "l",
+      "physical_case": "l",
+      "pair": 3,
+      "arm": "B-loss3",
+      "qualification": "PASS",
+      "sim_s": 60.0,
+      "result_wall_s": 239.99779980408493,
+      "pacing": {
+        "logical_case": "l",
+        "physical_case": "l",
+        "reference": "l-pacing/result.json",
+        "rtf": 0.2500019031411248,
+        "physical_tokens": 6000,
+        "lateness_p95_wall_ms": 2.1970045,
+        "lateness_max_wall_ms": 30.875081,
+        "above40_count": 0,
+        "above40_fraction": 0.0,
+        "gates": {
+          "rtf_within_predeclared_band": true,
+          "lateness_p95_le_20wall_ms": true,
+          "lateness_above_40wall_ms_fraction_le_point01": true
+        },
+        "pass_": true
+      },
+      "native_copy_bytes": 3572992624,
+      "T95": {
+        "local_union": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.9074431160817585,
+          "last_elapsed_sim_s": 59.620000000000005,
+          "samples": 145,
+          "missing_sources": []
+        },
+        "central_merged": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.9055148476667952,
+          "last_elapsed_sim_s": 59.64,
+          "samples": 145,
+          "missing_sources": []
+        },
+        "robot_received": {
+          "T95_sim_s": null,
+          "status": "not_reached_within_budget",
+          "last_coverage": 0.9055148476667952,
+          "last_elapsed_sim_s": 59.650000000000006,
+          "samples": 145,
+          "missing_sources": []
+        }
+      },
+      "attempts_count": 11,
+      "all_attempt_lateness_zero": true,
+      "actual_NN_count": 11,
+      "original_WAIT_count": 0,
+      "first_NN_G_sim": 25.0,
+      "first_candidate_count": 6,
+      "observed_G80_close_event": null,
+      "new_goal_entries_at_or_after80": 0,
+      "owned_requests": {
+        "closed": true,
+        "authority_stopped": true,
+        "requests": 8,
+        "unresolved_requests": [],
+        "owned_goals": {
+          "tb1": [
+            "27d0a51ed26e4ca98e4c462c237d9205",
+            "62cf614b49b74a239f44dafcdec66e8b",
+            "e2bfb268486146ad84638f89af357b36"
+          ],
+          "tb2": [
+            "0c7cdd34e96742699c231d165a6d9318",
+            "3dd152d0608b4834a47f2731d5582e8a",
+            "d7c9f4893c7544188036a444ba27f285"
+          ],
+          "tb3": [
+            "112b52cc1da24cce89d0bf7006bef6a7",
+            "cb6aad9f085b464e942f13333ca68d2b"
+          ]
+        },
+        "unterminated_UUIDs": {
+          "tb1": [],
+          "tb2": [],
+          "tb3": []
+        },
+        "record_errors": []
+      },
+      "all_owners_writers_gone": true
+    }
+  ],
+  "T95_attainment": {
+    "B": "0/3",
+    "B_loss3": "1/3",
+    "postfix": "1/6"
+  },
+  "paired_T95_differences": [
+    null,
+    null,
+    null
+  ],
+  "paired_difference_note": "Nopairbothreached,neverimpute60orreportonlysuccessfulmean",
+  "qualification": {
+    "actual_epoch_G_sim": 20,
+    "attempts_total": 66,
+    "all_attempt_lateness_ns": 0,
+    "tokens_total": 36000,
+    "above40wall_ms_tokens_total": 0,
+    "pacing_3pair_gates": "PASS",
+    "details": "PACING_SUMMARY.json",
+    "l_G80close_event": "UNOBSERVEDatshutdown;entrygatesource/componentretained,noactual>=80newsubmission"
+  },
+  "first_input": {
+    "method": "OriginalNPZexactelementwise,nohash/reencoding/NNrerun",
+    "pair_701_unequal": [
+      83,
+      89,
+      73
+    ],
+    "pair_sharedgrid_unequal": [
+      405,
+      322,
+      244
+    ],
+    "within_arm_701_unequal": {
+      "B_g_j": 91,
+      "L3_h_i": 71,
+      "g_k": 80,
+      "j_k": 82,
+      "h_l": 57,
+      "i_l": 67
+    },
+    "within_arm_sharedgrid_unequal": {
+      "B_g_j": 301,
+      "L3_h_i": 421,
+      "g_k": 312,
+      "j_k": 310,
+      "h_l": 323,
+      "i_l": 220
+    },
+    "all_within_arm_candidate_records_equal": false,
+    "details": "same-arm-first-input-comparison.json"
+  },
+  "consumer": {
+    "details": "six-cases.consumer-summary.json",
+    "totals": {
+      "policy_uses": 66,
+      "unresolved_wire_takes": 0,
+      "pending_take_without_callback": 0,
+      "unique_observed_forwarded_takes": 337839,
+      "central_local_derived_takes": 4982
+    },
+    "callback_use": "Interval from the beginning of the callback that successfully updated the referenced state/cache to policy-use begin, including callback processing (use.begin - callback.begin). It is not time since apply/end or generation-to-use AoI; map header is the oldest contributing stamp, not generation.",
+    "wire": "Onlytakenforwardedmessagesmatchedtoobservedpublicationbracketcandidate,notproofalloriginalsourcemessagesdelivered/lossfree",
+    "unmeasured": "ExactoriginalRpublisher/generationboundary,GID,TFinterpolationpublicationchain"
+  },
+  "conclusion": "No consistentB-loss3degradationoruniqueRFcausalityestablished;within-armandpairfirst701/grid/candidatesdifferdespitefixedstart/seeds. Nostatisticalsignificance/powerclaim.",
+  "failures_preserved": [
+    "aadapterstartupFAIL",
+    "oldB180pacingFAIL",
+    "predecessorb2/l2separatecontract",
+    "originalofflineO(N*M)analysesexit143",
+    "linitialsummaryStopIteration correctedtoexplicitmissingcloseevent"
+  ],
+  "no_more_experiments": true,
+  "completed_utc": "2026-11-13T08:02:45.306180+00:00",
+  "native_RAM_cleanup": {
+    "released_task_sources": [
+      "a",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l"
+    ],
+    "release_evidence": "Eachlogicalcase.RAM-release.json",
+    "disk_raw_preserved": true,
+    "other_RAM_untouched": true
+  }
+}

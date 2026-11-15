@@ -1,0 +1,1736 @@
+{
+  "B_g_j": {
+    "cases": [
+      "g",
+      "j"
+    ],
+    "method": "OriginalNPZ exactarray_equal, nohash/approximation/reencoding/extraNN",
+    "first_NN_G_sim": [
+      25.0,
+      25.0
+    ],
+    "arrays": {
+      "conditional_masks": {
+        "shape_left": [
+          3,
+          17
+        ],
+        "shape_right": [
+          3,
+          17
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 4
+      },
+      "encoded_inputs": {
+        "shape_left": [
+          701
+        ],
+        "shape_right": [
+          701
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 91
+      },
+      "model_output_available": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "raw_logits": {
+        "shape_left": [
+          1,
+          3,
+          17
+        ],
+        "shape_right": [
+          1,
+          3,
+          17
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 51
+      },
+      "raw_value": {
+        "shape_left": [
+          1
+        ],
+        "shape_right": [
+          1
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "received_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "received_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "received_shared_cells": {
+        "shape_left": [
+          218,
+          261
+        ],
+        "shape_right": [
+          218,
+          261
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 301
+      },
+      "slots": {
+        "shape_left": [
+          3
+        ],
+        "shape_right": [
+          3
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb1_local_cells": {
+        "shape_left": [
+          209,
+          165
+        ],
+        "shape_right": [
+          209,
+          165
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb1_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb1_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb1_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb2_local_cells": {
+        "shape_left": [
+          209,
+          200
+        ],
+        "shape_right": [
+          209,
+          200
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 257
+      },
+      "tb2_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb2_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb2_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb3_local_cells": {
+        "shape_left": [
+          209,
+          169
+        ],
+        "shape_right": [
+          209,
+          169
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 568
+      },
+      "tb3_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb3_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb3_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      }
+    },
+    "candidate_counts": [
+      5,
+      7
+    ],
+    "candidate_records_exact_equal": false,
+    "physical_goals": {
+      "tb1": {
+        "merge_targets_exact_equal": true,
+        "left": [
+          0.8250000000000002,
+          0.8750000000000009
+        ],
+        "right": [
+          0.8250000000000002,
+          0.8750000000000009
+        ],
+        "nav2_positions_exact_equal": true
+      },
+      "tb2": {
+        "merge_targets_exact_equal": false,
+        "left": [
+          -0.47499999999999964,
+          -0.12499999999999911
+        ],
+        "right": [
+          0.1250000000000009,
+          0.1250000000000009
+        ],
+        "nav2_positions_exact_equal": false
+      },
+      "tb3": {
+        "merge_targets_exact_equal": false,
+        "left": [
+          0.9250000000000007,
+          -1.8749999999999996
+        ],
+        "right": [
+          0.7250000000000005,
+          -1.8749999999999996
+        ],
+        "nav2_positions_exact_equal": false
+      }
+    },
+    "first_map_metadata": [
+      {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 24.234,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      },
+      {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 24.11,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      }
+    ]
+  },
+  "L3_h_i": {
+    "cases": [
+      "h",
+      "i"
+    ],
+    "method": "OriginalNPZ exactarray_equal, nohash/approximation/reencoding/extraNN",
+    "first_NN_G_sim": [
+      25.0,
+      25.0
+    ],
+    "arrays": {
+      "conditional_masks": {
+        "shape_left": [
+          3,
+          17
+        ],
+        "shape_right": [
+          3,
+          17
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "encoded_inputs": {
+        "shape_left": [
+          701
+        ],
+        "shape_right": [
+          701
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 71
+      },
+      "model_output_available": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "raw_logits": {
+        "shape_left": [
+          1,
+          3,
+          17
+        ],
+        "shape_right": [
+          1,
+          3,
+          17
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 51
+      },
+      "raw_value": {
+        "shape_left": [
+          1
+        ],
+        "shape_right": [
+          1
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "received_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "received_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "received_shared_cells": {
+        "shape_left": [
+          218,
+          261
+        ],
+        "shape_right": [
+          218,
+          261
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 421
+      },
+      "slots": {
+        "shape_left": [
+          3
+        ],
+        "shape_right": [
+          3
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb1_local_cells": {
+        "shape_left": [
+          209,
+          165
+        ],
+        "shape_right": [
+          209,
+          165
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb1_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb1_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb1_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb2_local_cells": {
+        "shape_left": [
+          209,
+          200
+        ],
+        "shape_right": [
+          209,
+          200
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 656
+      },
+      "tb2_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb2_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb2_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb3_local_cells": {
+        "shape_left": [
+          209,
+          169
+        ],
+        "shape_right": [
+          209,
+          169
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 483
+      },
+      "tb3_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb3_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb3_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      }
+    },
+    "candidate_counts": [
+      6,
+      6
+    ],
+    "candidate_records_exact_equal": false,
+    "physical_goals": {
+      "tb1": {
+        "merge_targets_exact_equal": true,
+        "left": [
+          0.8250000000000002,
+          0.8750000000000009
+        ],
+        "right": [
+          0.8250000000000002,
+          0.8750000000000009
+        ],
+        "nav2_positions_exact_equal": true
+      },
+      "tb2": {
+        "merge_targets_exact_equal": false,
+        "left": [
+          -0.5749999999999993,
+          -0.3249999999999993
+        ],
+        "right": [
+          -0.5249999999999995,
+          -0.3749999999999991
+        ],
+        "nav2_positions_exact_equal": false
+      },
+      "tb3": {
+        "merge_targets_exact_equal": false,
+        "left": [
+          0.6750000000000007,
+          -1.7749999999999995
+        ],
+        "right": [
+          0.8250000000000002,
+          -1.8749999999999996
+        ],
+        "nav2_positions_exact_equal": false
+      }
+    },
+    "first_map_metadata": [
+      {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 24.25,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      },
+      {
+        "resolution": 0.05,
+        "origin": [
+          -5.8,
+          -5.6
+        ],
+        "stamp": 24.24,
+        "source": "/merge_map",
+        "frame": "merge_map",
+        "version": 1
+      }
+    ]
+  },
+  "g_k": {
+    "cases": [
+      "g",
+      "k"
+    ],
+    "method": "OriginalNPZ exactarray_equal, nohash/approximation/reencoding/extraNN",
+    "first_NN_G_sim": [
+      25.0,
+      25.0
+    ],
+    "arrays": {
+      "conditional_masks": {
+        "shape_left": [
+          3,
+          17
+        ],
+        "shape_right": [
+          3,
+          17
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 4
+      },
+      "encoded_inputs": {
+        "shape_left": [
+          701
+        ],
+        "shape_right": [
+          701
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 80
+      },
+      "model_output_available": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "raw_logits": {
+        "shape_left": [
+          1,
+          3,
+          17
+        ],
+        "shape_right": [
+          1,
+          3,
+          17
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 51
+      },
+      "raw_value": {
+        "shape_left": [
+          1
+        ],
+        "shape_right": [
+          1
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "received_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "received_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "received_shared_cells": {
+        "shape_left": [
+          218,
+          261
+        ],
+        "shape_right": [
+          218,
+          261
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 312
+      },
+      "slots": {
+        "shape_left": [
+          3
+        ],
+        "shape_right": [
+          3
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb1_local_cells": {
+        "shape_left": [
+          209,
+          165
+        ],
+        "shape_right": [
+          209,
+          165
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb1_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb1_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb1_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb2_local_cells": {
+        "shape_left": [
+          209,
+          200
+        ],
+        "shape_right": [
+          209,
+          200
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 472
+      },
+      "tb2_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb2_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb2_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb3_local_cells": {
+        "shape_left": [
+          209,
+          169
+        ],
+        "shape_right": [
+          209,
+          169
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 355
+      },
+      "tb3_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb3_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb3_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      }
+    },
+    "candidate_counts": [
+      5,
+      6
+    ],
+    "candidate_records_exact_equal": false,
+    "physical_goals": {
+      "tb1": {
+        "merge_targets_exact_equal": true,
+        "left": [
+          0.8250000000000002,
+          0.8750000000000009
+        ],
+        "right": [
+          0.8250000000000002,
+          0.8750000000000009
+        ],
+        "nav2_positions_exact_equal": true
+      },
+      "tb2": {
+        "merge_targets_exact_equal": false,
+        "left": [
+          -0.47499999999999964,
+          -0.12499999999999911
+        ],
+        "right": [
+          -0.5249999999999995,
+          -0.3749999999999991
+        ],
+        "nav2_positions_exact_equal": false
+      },
+      "tb3": {
+        "merge_targets_exact_equal": false,
+        "left": [
+          0.9250000000000007,
+          -1.8749999999999996
+        ],
+        "right": [
+          0.8250000000000002,
+          -1.9249999999999994
+        ],
+        "nav2_positions_exact_equal": false
+      }
+    }
+  },
+  "j_k": {
+    "cases": [
+      "j",
+      "k"
+    ],
+    "method": "OriginalNPZ exactarray_equal, nohash/approximation/reencoding/extraNN",
+    "first_NN_G_sim": [
+      25.0,
+      25.0
+    ],
+    "arrays": {
+      "conditional_masks": {
+        "shape_left": [
+          3,
+          17
+        ],
+        "shape_right": [
+          3,
+          17
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 6
+      },
+      "encoded_inputs": {
+        "shape_left": [
+          701
+        ],
+        "shape_right": [
+          701
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 82
+      },
+      "model_output_available": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "raw_logits": {
+        "shape_left": [
+          1,
+          3,
+          17
+        ],
+        "shape_right": [
+          1,
+          3,
+          17
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 51
+      },
+      "raw_value": {
+        "shape_left": [
+          1
+        ],
+        "shape_right": [
+          1
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "received_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "received_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "received_shared_cells": {
+        "shape_left": [
+          218,
+          261
+        ],
+        "shape_right": [
+          218,
+          261
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 310
+      },
+      "slots": {
+        "shape_left": [
+          3
+        ],
+        "shape_right": [
+          3
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb1_local_cells": {
+        "shape_left": [
+          209,
+          165
+        ],
+        "shape_right": [
+          209,
+          165
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb1_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb1_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb1_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb2_local_cells": {
+        "shape_left": [
+          209,
+          200
+        ],
+        "shape_right": [
+          209,
+          200
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 433
+      },
+      "tb2_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb2_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb2_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb3_local_cells": {
+        "shape_left": [
+          209,
+          169
+        ],
+        "shape_right": [
+          209,
+          169
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 453
+      },
+      "tb3_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb3_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb3_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      }
+    },
+    "candidate_counts": [
+      7,
+      6
+    ],
+    "candidate_records_exact_equal": false,
+    "physical_goals": {
+      "tb1": {
+        "merge_targets_exact_equal": true,
+        "left": [
+          0.8250000000000002,
+          0.8750000000000009
+        ],
+        "right": [
+          0.8250000000000002,
+          0.8750000000000009
+        ],
+        "nav2_positions_exact_equal": true
+      },
+      "tb2": {
+        "merge_targets_exact_equal": false,
+        "left": [
+          0.1250000000000009,
+          0.1250000000000009
+        ],
+        "right": [
+          -0.5249999999999995,
+          -0.3749999999999991
+        ],
+        "nav2_positions_exact_equal": false
+      },
+      "tb3": {
+        "merge_targets_exact_equal": false,
+        "left": [
+          0.7250000000000005,
+          -1.8749999999999996
+        ],
+        "right": [
+          0.8250000000000002,
+          -1.9249999999999994
+        ],
+        "nav2_positions_exact_equal": false
+      }
+    }
+  },
+  "h_l": {
+    "cases": [
+      "h",
+      "l"
+    ],
+    "method": "OriginalNPZ exactarray_equal, nohash/approximation/reencoding/extraNN",
+    "first_NN_G_sim": [
+      25.0,
+      25.0
+    ],
+    "arrays": {
+      "conditional_masks": {
+        "shape_left": [
+          3,
+          17
+        ],
+        "shape_right": [
+          3,
+          17
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "encoded_inputs": {
+        "shape_left": [
+          701
+        ],
+        "shape_right": [
+          701
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 57
+      },
+      "model_output_available": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "raw_logits": {
+        "shape_left": [
+          1,
+          3,
+          17
+        ],
+        "shape_right": [
+          1,
+          3,
+          17
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 51
+      },
+      "raw_value": {
+        "shape_left": [
+          1
+        ],
+        "shape_right": [
+          1
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "received_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "received_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "received_shared_cells": {
+        "shape_left": [
+          218,
+          261
+        ],
+        "shape_right": [
+          218,
+          261
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 323
+      },
+      "slots": {
+        "shape_left": [
+          3
+        ],
+        "shape_right": [
+          3
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb1_local_cells": {
+        "shape_left": [
+          209,
+          165
+        ],
+        "shape_right": [
+          209,
+          165
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb1_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb1_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb1_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb2_local_cells": {
+        "shape_left": [
+          209,
+          200
+        ],
+        "shape_right": [
+          209,
+          200
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 503
+      },
+      "tb2_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb2_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb2_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb3_local_cells": {
+        "shape_left": [
+          209,
+          169
+        ],
+        "shape_right": [
+          209,
+          169
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 442
+      },
+      "tb3_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb3_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb3_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      }
+    },
+    "candidate_counts": [
+      6,
+      6
+    ],
+    "candidate_records_exact_equal": false,
+    "physical_goals": {
+      "tb1": {
+        "merge_targets_exact_equal": true,
+        "left": [
+          0.8250000000000002,
+          0.8750000000000009
+        ],
+        "right": [
+          0.8250000000000002,
+          0.8750000000000009
+        ],
+        "nav2_positions_exact_equal": true
+      },
+      "tb2": {
+        "merge_targets_exact_equal": false,
+        "left": [
+          -0.5749999999999993,
+          -0.3249999999999993
+        ],
+        "right": [
+          -0.5249999999999995,
+          -0.3749999999999991
+        ],
+        "nav2_positions_exact_equal": false
+      },
+      "tb3": {
+        "merge_targets_exact_equal": false,
+        "left": [
+          0.6750000000000007,
+          -1.7749999999999995
+        ],
+        "right": [
+          0.8250000000000002,
+          -1.8749999999999996
+        ],
+        "nav2_positions_exact_equal": false
+      }
+    }
+  },
+  "i_l": {
+    "cases": [
+      "i",
+      "l"
+    ],
+    "method": "OriginalNPZ exactarray_equal, nohash/approximation/reencoding/extraNN",
+    "first_NN_G_sim": [
+      25.0,
+      25.0
+    ],
+    "arrays": {
+      "conditional_masks": {
+        "shape_left": [
+          3,
+          17
+        ],
+        "shape_right": [
+          3,
+          17
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "encoded_inputs": {
+        "shape_left": [
+          701
+        ],
+        "shape_right": [
+          701
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 67
+      },
+      "model_output_available": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "raw_logits": {
+        "shape_left": [
+          1,
+          3,
+          17
+        ],
+        "shape_right": [
+          1,
+          3,
+          17
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 51
+      },
+      "raw_value": {
+        "shape_left": [
+          1
+        ],
+        "shape_right": [
+          1
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "received_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "received_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "received_shared_cells": {
+        "shape_left": [
+          218,
+          261
+        ],
+        "shape_right": [
+          218,
+          261
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 220
+      },
+      "slots": {
+        "shape_left": [
+          3
+        ],
+        "shape_right": [
+          3
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb1_local_cells": {
+        "shape_left": [
+          209,
+          165
+        ],
+        "shape_right": [
+          209,
+          165
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb1_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb1_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb1_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb2_local_cells": {
+        "shape_left": [
+          209,
+          200
+        ],
+        "shape_right": [
+          209,
+          200
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 480
+      },
+      "tb2_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb2_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb2_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      },
+      "tb3_local_cells": {
+        "shape_left": [
+          209,
+          169
+        ],
+        "shape_right": [
+          209,
+          169
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 159
+      },
+      "tb3_local_header_stamp": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 1
+      },
+      "tb3_local_origin": {
+        "shape_left": [
+          2
+        ],
+        "shape_right": [
+          2
+        ],
+        "same_dtype": true,
+        "elementwise_exact_equal": false,
+        "unequal_elements": 2
+      },
+      "tb3_local_resolution": {
+        "shape_left": [],
+        "shape_right": [],
+        "same_dtype": true,
+        "elementwise_exact_equal": true,
+        "unequal_elements": 0
+      }
+    },
+    "candidate_counts": [
+      6,
+      6
+    ],
+    "candidate_records_exact_equal": false,
+    "physical_goals": {
+      "tb1": {
+        "merge_targets_exact_equal": true,
+        "left": [
+          0.8250000000000002,
+          0.8750000000000009
+        ],
+        "right": [
+          0.8250000000000002,
+          0.8750000000000009
+        ],
+        "nav2_positions_exact_equal": true
+      },
+      "tb2": {
+        "merge_targets_exact_equal": true,
+        "left": [
+          -0.5249999999999995,
+          -0.3749999999999991
+        ],
+        "right": [
+          -0.5249999999999995,
+          -0.3749999999999991
+        ],
+        "nav2_positions_exact_equal": true
+      },
+      "tb3": {
+        "merge_targets_exact_equal": true,
+        "left": [
+          0.8250000000000002,
+          -1.8749999999999996
+        ],
+        "right": [
+          0.8250000000000002,
+          -1.8749999999999996
+        ],
+        "nav2_positions_exact_equal": true
+      }
+    }
+  }
+}

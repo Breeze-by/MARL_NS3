@@ -1,0 +1,116 @@
+{
+  "schema": "ns3-first-release-default-radius-restoration-v1",
+  "completed_utc": "2026-11-15T13:42:53.098805+00:00",
+  "pre_restore_git_backup": "3198b7bcdba9ca242b145171ea1ba002e8dd61cf",
+  "pre_restore_git_ref": "backup/ns3-workingtree-clearance-20261115",
+  "backup_manifest_relative_repo": "local-runs/ns3-first-release-20261115/backups/clearance-inflation040-peer052-v1/BACKUP_MANIFEST.json",
+  "restored_shared_sources": [
+    {
+      "path": "net01/boot_network.py",
+      "exact_preimage_bytes_restored": true,
+      "original_V3_binding_sha256": "df4e3daa3931512615fe4f6bd5a5f2d477f042c13f90cea31f38cd17daa30e8d"
+    },
+    {
+      "path": "net01/run_network_case.py",
+      "exact_preimage_bytes_restored": true,
+      "original_V3_binding_sha256": "8bdf20d47e59b7699b2efdeba07c69ec22793072f54860b3668940720b276c54"
+    },
+    {
+      "path": "net01/ros_delay_runtime.py",
+      "exact_preimage_bytes_restored": true,
+      "original_V3_binding_sha256": "288104e8dfb38f51d5956f9ca1444afdaf3d5bcbc7c92714046e8eae9b7a4fd7"
+    },
+    {
+      "path": "net01e/followup01/production_host.py",
+      "exact_preimage_bytes_restored": true,
+      "original_V3_binding_sha256": "c6549c99678b7a7df998301dec153c694265819bf74c5a1570dabc76006b47bc"
+    }
+  ],
+  "experimental_hooks_removed_from_current_runtime": [
+    {
+      "former_runtime_path": "net01/clearance_tuning.py",
+      "preserved_source_relative_repo": "local-runs/ns3-first-release-20261115/backups/clearance-inflation040-peer052-v1/source/net01/clearance_tuning.py"
+    },
+    {
+      "former_runtime_path": "net01/clearance_tuning_launch.py",
+      "preserved_source_relative_repo": "local-runs/ns3-first-release-20261115/backups/clearance-inflation040-peer052-v1/source/net01/clearance_tuning_launch.py"
+    }
+  ],
+  "current_default": {
+    "inflation_radius_m": 0.55,
+    "peer_radius_m": 0.55,
+    "robot_radius_m": 0.25
+  },
+  "actual_source_Nav2_parameters": [
+    {
+      "robot": "tb1",
+      "costmap": "global_costmap",
+      "inflation_radius_m": 0.55,
+      "robot_radius_m": 0.25,
+      "cost_scaling_factor": 3.0,
+      "source_relative_repo": "workspace/src/multi_robot/params/nav2_params_tb1_0.yaml"
+    },
+    {
+      "robot": "tb1",
+      "costmap": "local_costmap",
+      "inflation_radius_m": 0.55,
+      "robot_radius_m": 0.25,
+      "cost_scaling_factor": 3.0,
+      "source_relative_repo": "workspace/src/multi_robot/params/nav2_params_tb1_0.yaml"
+    },
+    {
+      "robot": "tb2",
+      "costmap": "global_costmap",
+      "inflation_radius_m": 0.55,
+      "robot_radius_m": 0.25,
+      "cost_scaling_factor": 3.0,
+      "source_relative_repo": "workspace/src/multi_robot/params/nav2_params_tb2_0.yaml"
+    },
+    {
+      "robot": "tb2",
+      "costmap": "local_costmap",
+      "inflation_radius_m": 0.55,
+      "robot_radius_m": 0.25,
+      "cost_scaling_factor": 3.0,
+      "source_relative_repo": "workspace/src/multi_robot/params/nav2_params_tb2_0.yaml"
+    },
+    {
+      "robot": "tb3",
+      "costmap": "global_costmap",
+      "inflation_radius_m": 0.55,
+      "robot_radius_m": 0.25,
+      "cost_scaling_factor": 3.0,
+      "source_relative_repo": "workspace/src/multi_robot/params/nav2_params_tb3_0.yaml"
+    },
+    {
+      "robot": "tb3",
+      "costmap": "local_costmap",
+      "inflation_radius_m": 0.55,
+      "robot_radius_m": 0.25,
+      "cost_scaling_factor": 3.0,
+      "source_relative_repo": "workspace/src/multi_robot/params/nav2_params_tb3_0.yaml"
+    }
+  ],
+  "no_experimental_clearance_dispatch_in_restored_entrypoints": true,
+  "experimental_READYs_retired": [
+    "local-runs/clearance-tuning-20261115/ready/a01.ready.json",
+    "local-runs/clearance-tuning-20261115/ready/a02.ready.json",
+    "local-runs/clearance-tuning-20261115/ready/a03.ready.json",
+    "local-runs/clearance-tuning-20261115/ready/a03s.ready.json",
+    "local-runs/clearance-tuning-20261115/ready/a04.ready.json",
+    "local-runs/clearance-tuning-20261115/ready/a05.ready.json",
+    "local-runs/clearance-tuning-20261115/ready/a06.ready.json"
+  ],
+  "retirement_scope": "Original historical READY bytes, COMMON81, raw and results are unchanged. Their tuning identity is archived in the exact backup source tree; those consumed paths/sessions are retired and will fail current source/ownership admission, not silently run with restored radii.",
+  "non_clearance_contracts_unchanged": [
+    "PPO weights and 701 encoding",
+    "robot physical body",
+    "repair-v1 Nav2simclock/circularcandidate/actualgoalguard",
+    "source and receipt freshness",
+    "G20/slots/40wall-ms absolute pacing",
+    "native WiFi transport",
+    "stop/copy/UUID ownership gates"
+  ],
+  "verification_scope": "Four exact PREIMAGE byte matches and AST, actual three source YAML pairs and frozen peer constant, restored entrypoint hook absence. No Gazebo, training, repeated metric computation or new source/native/DSO hashes.",
+  "passed": true
+}

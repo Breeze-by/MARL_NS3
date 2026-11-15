@@ -8,10 +8,20 @@ import signal
 import subprocess
 import time
 
-from execution_profile import load_profile
+from execution_profile import load_profile,SIM_BUSINESS_PROFILE_ID,SIM_BUSINESS60_PROFILE_ID,NATIVE_RAM60_SCOPE,BUSINESS60_PROFILE_IDS,FIXED_START60_PROFILE_ID,REPAIR120_PROFILE_ID,NATIVE_RAM120_SCOPE,REPAIR_PROFILE_IDS,COMPARISON40_PROFILE_ID,COMPARISON40_V2_PROFILE_ID,COMPARISON40_V3_PROFILE_ID,ROS_DELAY_PROFILE_ID
 
 CONTROLLED_SCOPE='NET01 controlled-time 120sim engineering; not 180sim qualification'
 CONTROLLED180_SCOPE='NET01 controlled-time 180sim common A1/B baseline; original safety gates'
+CONTROLLED_BUSINESS180_SCOPE='NET01 sim-business-v1 controlled180sim pace40 engineering; causal qualification pending'
+CONTROLLED_BUSINESS60_SCOPE='NET01 sim-business-v1 controlled60sim pace40 RAM6GiB-reserve2GiB engineering; causal qualification pending'
+CONTROLLED_FIXED_START60_SCOPE='NET01 fixed-G20 attempt-G25-grid5-end80 consumer-v1 controlled60sim pace40 RAM6GiB-reserve2GiB engineering; causal qualification pending'
+CONTROLLED_REPAIR120_SCOPE='NET01 exploration-repair-v1 fixed-G20 attempt-G25-grid5-end140 consumer-v1 controlled120sim pace40 RAM8GiB-reserve2GiB engineering; T95 post-exit only'
+CONTROLLED_COMPARISON40_SCOPE='NET01 comparison40 repair-v1 four-condition fixed-G20 end140 source-take-v1 controlled120sim pace40 RAM8GiB-reserve2GiB; T95 post-exit only'
+CONTROLLED_COMPARISON40_V2_SCOPE='NET01 comparison40-v2 repair-v1 fixed-G20 end140 attempt-enter physical-boundary barrier source-take-v1 controlled120sim absolute-pace40 RAM8GiB-reserve2GiB; original pacing gates and T95 post-exit only'
+CONTROLLED_COMPARISON40_V3_SCOPE='NET01 comparison40-v3 repair-v1 all-spawn-exit0-before-first-token fixed-G20 end140 attempt-enter barrier source-take-v1 controlled120sim absolute-pace40 RAM8GiB-reserve2GiB; original pacing gates and T95 post-exit only'
+CONTROLLED_ROS_DELAY_V2_SCOPE='NET01 ROS-local wall-delay-v2 original armed-guard authority lifecycle A0 calibration D0-D500 reliable FIFO source-age .70/.85sim v3 startup-fence attempt-barrier fixed-G20 end140 controlled120sim absolute-pace40 RAM8GiB-reserve2GiB; T95 post-exit only'
+CONTROLLED_ROS_DELAY_V3_SCOPE='NET01 ROS-local wall-delay-v3 common receipt .60sim projectedodom .50sim source .70/.85sim A0 calibration D0-D500 reliable FIFO original armed-guard lifecycle v3 startup-fence attempt-barrier fixed-G20 end140 controlled120sim absolute-pace40 RAM8GiB-reserve2GiB; original60wall evidence grace after strict resource closure; T95 post-exit only'
+CONTROLLED_ROS_DELAY_SCOPE=CONTROLLED_ROS_DELAY_V3_SCOPE
 PLUGIN_CONTAINER='/tmp/net01_time_control.so'
 WITNESS_CONTAINER='/tmp/net01-clock-witness'
 
@@ -23,6 +33,32 @@ def controlled_config(ready):
     if not controlled:
         if config is not None:raise ValueError('Controlled sidecars require the explicit controlled profile')
         return None
+    if net.get('execution_profile') in REPAIR_PROFILE_IDS:
+        scope={COMPARISON40_PROFILE_ID:CONTROLLED_COMPARISON40_SCOPE,
+            COMPARISON40_V2_PROFILE_ID:CONTROLLED_COMPARISON40_V2_SCOPE,
+            COMPARISON40_V3_PROFILE_ID:CONTROLLED_COMPARISON40_V3_SCOPE,
+            ROS_DELAY_PROFILE_ID:CONTROLLED_ROS_DELAY_SCOPE}.get(net['execution_profile'],CONTROLLED_REPAIR120_SCOPE)
+        bounds=tuple(ready[key] for key in ('sim_budget','startup_wall','autonomous_wall','outer_wall','cleanup_wall'))
+        if config is None or config['engineering_scope']!=scope or bounds!=(120,180,720,1000,90):
+            raise ValueError('Explicit exploration-repair120 scope and fixed bounds required')
+        if (net.get('native_evidence_scope')!=NATIVE_RAM120_SCOPE or net.get('native_evidence_ram') is None
+            or net.get('native_ledger_mode','serial')!='serial' or net.get('native_async_ledger',False) is not False
+            or net.get('native_cpu_profile',False) is not False):
+            raise ValueError('Repair120 requires explicit serial RAM8GiB/reserve2GiB without CPU/async diagnostics')
+        return config
+    if net.get('execution_profile') in BUSINESS60_PROFILE_IDS:
+        scope=(CONTROLLED_FIXED_START60_SCOPE if net['execution_profile']==FIXED_START60_PROFILE_ID else CONTROLLED_BUSINESS60_SCOPE)
+        if config is None or (ready['sim_budget'],config['engineering_scope'])!=(60,scope):
+            raise ValueError('Explicit sim-business60 RAM engineering contract required')
+        if (net.get('native_evidence_scope')!=NATIVE_RAM60_SCOPE or net.get('native_evidence_ram') is None
+            or net.get('native_ledger_mode','serial')!='serial' or net.get('native_async_ledger',False) is not False
+            or net.get('native_cpu_profile',False) is not False):
+            raise ValueError('Business60 requires its explicit serial RAM6GiB/reserve2GiB backend without CPU/async diagnostics')
+        return config
+    if net.get('execution_profile')==SIM_BUSINESS_PROFILE_ID:
+        if config is None or (ready['sim_budget'],config['engineering_scope'])!=(180,CONTROLLED_BUSINESS180_SCOPE):
+            raise ValueError('Explicit new sim-business180 engineering contract required')
+        return config
     if config is None or (ready['sim_budget'],config['engineering_scope']) not in (
             (120,CONTROLLED_SCOPE),(180,CONTROLLED180_SCOPE)):
         raise ValueError('Explicit controlled120/180sim admission required')

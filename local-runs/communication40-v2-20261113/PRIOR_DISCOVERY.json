@@ -1,0 +1,107 @@
+{
+  "status": "FROZEN_PRIOR_DISCOVERY_NOT_FORMAL_SAMPLES",
+  "created_utc": "2026-11-13T11:53:12.722068+00:00",
+  "prior_real_Gazebo_cases": 4,
+  "prior_setup_failures": 1,
+  "prior_physical_host_dispatches": 5,
+  "all_four_excluded_together": true,
+  "why": "Newv2 physical decision-boundary ACK is a new common timingprotocol. Exclude all4oldactualcases together, including successful3; no successselection or pooling. Preserve originala04actualfailure andmeasurementerratum, olda01setupseparate.",
+  "individual_cases": [
+    {
+      "physical_id": "a01s",
+      "original_logical": "a01",
+      "map": "Corr6201",
+      "condition": "A0",
+      "old_protocol": "comparison40-v1",
+      "cohort_role": "DISCOVERY_ONLY_EXCLUDED_FROM_ALL_FORMAL_V2_MEANS",
+      "T95_sim_s": 78.14,
+      "last_coverage": 0.9991001414063504,
+      "full_engineering_qualified": true,
+      "actual_autonomy_window": {
+        "start": 20.0,
+        "end": 140.0,
+        "duration": 120.0
+      },
+      "original_row_relative_repo": "local-runs/communication40-20261113/post-exit/a01s/row.json",
+      "actual_owner_exit": true,
+      "copy_complete": true,
+      "raw_preserved": true
+    },
+    {
+      "physical_id": "a02",
+      "original_logical": "a02",
+      "map": "Corr6201",
+      "condition": "A1",
+      "old_protocol": "comparison40-v1",
+      "cohort_role": "DISCOVERY_ONLY_EXCLUDED_FROM_ALL_FORMAL_V2_MEANS",
+      "T95_sim_s": 80.66,
+      "last_coverage": 0.9989715901786862,
+      "full_engineering_qualified": true,
+      "actual_autonomy_window": {
+        "start": 20.0,
+        "end": 140.0,
+        "duration": 120.0
+      },
+      "original_row_relative_repo": "local-runs/communication40-20261113/post-exit/a02/row.json",
+      "actual_owner_exit": true,
+      "copy_complete": true,
+      "raw_preserved": true
+    },
+    {
+      "physical_id": "a03",
+      "original_logical": "a03",
+      "map": "Corr6201",
+      "condition": "C",
+      "old_protocol": "comparison40-v1",
+      "cohort_role": "DISCOVERY_ONLY_EXCLUDED_FROM_ALL_FORMAL_V2_MEANS",
+      "T95_sim_s": 83.1,
+      "last_coverage": 0.9986502121095256,
+      "full_engineering_qualified": true,
+      "actual_autonomy_window": {
+        "start": 20.0,
+        "end": 140.0,
+        "duration": 120.0
+      },
+      "original_row_relative_repo": "local-runs/communication40-20261113/post-exit/a03/row.json",
+      "actual_owner_exit": true,
+      "copy_complete": true,
+      "raw_preserved": true
+    },
+    {
+      "physical_id": "a04",
+      "original_logical": "a04",
+      "map": "Corr6201",
+      "condition": "B",
+      "old_protocol": "comparison40-v1",
+      "cohort_role": "DISCOVERY_ONLY_EXCLUDED_FROM_ALL_FORMAL_V2_MEANS",
+      "T95_sim_s": null,
+      "last_coverage": 0.6590178686206454,
+      "full_engineering_qualified": false,
+      "actual_autonomy_window": {
+        "start": 20.0,
+        "end": 50.07,
+        "duration": 30.07
+      },
+      "original_row_relative_repo": "local-runs/communication40-20261113/post-exit/a04/row.json",
+      "actual_owner_exit": true,
+      "copy_complete": true,
+      "raw_preserved": true,
+      "engineering_failure": "fixed decision slot missed: G50 actual50.05, attemptedfalse; notrerun/replaced",
+      "HQ_delivery": "UNMEASURED/UNKNOWN: trace flush incomplete, originalzeroHQ observation cannotbe interpretedaszero reception",
+      "measurement_erratum_relative_repo": "local-runs/communication40-20261113/post-exit/a04/MEASUREMENT_ERRATUM_V2.json",
+      "corrected_row_relative_repo": "local-runs/communication40-20261113/post-exit/a04/row.corrected-v2.json",
+      "T95_null_retained": true
+    }
+  ],
+  "setup_failure": {
+    "physical_id": "a01",
+    "session_id": 2026111401,
+    "actual_Gazebo_started": false,
+    "reason": "Task Unix socket parent missing beforeROS/Gazebo; raw/READY/RAM/journal retained",
+    "amendment_relative_repo": "local-runs/communication40-20261113/AMENDMENT01.json"
+  },
+  "old_plan_relative_repo": "local-runs/communication40-20261113/PLAN.draft.json",
+  "old_plan_batch_enabled": false,
+  "old_raw_READY_journal_binding_untouched": true,
+  "no_descriptive_means_computed": true
+}

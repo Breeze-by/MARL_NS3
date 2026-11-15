@@ -1,0 +1,79 @@
+{
+  "diagnostic_only": true,
+  "case": "local-runs/sg41/d01",
+  "session_id": 2026111601,
+  "only_one_START": true,
+  "SIGSEGV_reproduced": false,
+  "actual_GDB_launcher_pid": 3898175,
+  "actual_observed_direct_child_inferior_pid": 3898424,
+  "inferior_exit": "normal per original GDB launch log",
+  "original_result_gazebo_started": false,
+  "original_result_marker_limitation": "saved inferior marker is only bound at original post-preflight driver check or real SIGSEGV hook; neither occurred. Actual GDB direct child was read from /proc during execution.",
+  "HQ_started": false,
+  "first_rpc_actual_step_wall_s": 4.305686024,
+  "control_failure": "physics_RPC_wall_timeout",
+  "physical_ns": 10000000,
+  "barrier_wait": null,
+  "native_horizon": 0,
+  "rpc_metadata": [
+    [
+      "physical_token",
+      790503526358519,
+      4890452790,
+      "RUN",
+      null,
+      0,
+      null,
+      790503526302806,
+      0
+    ],
+    [
+      "independent_progress_wall_failure",
+      790505526346081,
+      5573096763,
+      "physics_RPC_wall_timeout"
+    ],
+    [
+      "post_physics_ACK",
+      790507834163893,
+      6273705796,
+      true,
+      0,
+      10000000,
+      0,
+      10,
+      10
+    ],
+    [
+      "physics_step_server_timing_v1",
+      790507834175494,
+      6273712426,
+      {
+        "callback_index": 1,
+        "callback_enter_mono_ns": 790503527108001,
+        "step_begin_mono_ns": 790503527179439,
+        "step_end_mono_ns": 790507832865463,
+        "step_called": true,
+        "response_ready_mono_ns": 790507832913678
+      }
+    ]
+  ],
+  "spawn_and_GDB_log_excerpt": [
+    "[spawn_entity.py-5] [INFO] [1794573461.904259127] [spawn_entity]: Calling service /spawn_entity",
+    "[spawn_entity.py-5] [INFO] [1794573462.604138229] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [tb1]",
+    "[gzserver-3] [INFO] [1794573466.094811094] [tb1.turtlebot3_diff_drive]: BASE01 state_sync=1",
+    "[spawn_entity.py-17] [INFO] [1794573466.194671804] [spawn_entity]: Calling service /spawn_entity",
+    "[spawn_entity.py-17] [INFO] [1794573467.048998810] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [tb2]",
+    "[gzserver-3] [INFO] [1794573467.292606639] [tb2.turtlebot3_diff_drive]: BASE01 state_sync=1",
+    "[spawn_entity.py-30] [INFO] [1794573470.441373473] [spawn_entity]: Calling service /spawn_entity",
+    "[spawn_entity.py-30] [INFO] [1794573471.554422235] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [tb3]",
+    "[gzserver-3] [INFO] [1794573471.826239340] [tb3.turtlebot3_diff_drive]: BASE01 state_sync=1",
+    "[gzserver-3] [Inferior 1 (process 3898424) exited normally]"
+  ],
+  "monotonic_to_realtime_offset_ns": 1793782958517644233,
+  "three_spawn_success": true,
+  "no_automatic_retry": true,
+  "formal_queues_remain_closed": true,
+  "owners_and_copy_proof": "POST_EXIT_OWNERS_COPY.json",
+  "interpretation": "No SIGSEGV stack obtained. Original2wall step watchdog fired during startup; all three spawn calls later succeeded while no further physical token was admitted. This supports feasibility of paused-world spawn loading after the initial .01 step, not proof of zero-step startup or a confirmed SIGSEGV repair."
+}

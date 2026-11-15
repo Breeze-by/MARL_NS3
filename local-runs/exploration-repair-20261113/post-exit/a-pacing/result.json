@@ -1,0 +1,32 @@
+{
+  "case": "local-runs/er13/a",
+  "status": "PASS",
+  "pacing": {
+    "start_G": 20.0,
+    "end_G": 140.0,
+    "sim_span_s": 120.0,
+    "wall_span_s": 480.0003151893616,
+    "rtf": 0.24999983583898197,
+    "physical_tokens": 12000,
+    "lateness_wall_ms": {
+      "n": 12000,
+      "min": 0.318189,
+      "median": 1.4234765,
+      "p95": 2.5748123499999953,
+      "max": 214.622793
+    },
+    "above_40wall_ms_count": 10,
+    "above_40wall_ms_fraction": 0.0008333333333333334,
+    "gates": {
+      "rtf_within_predeclared_band": true,
+      "lateness_p95_le_20wall_ms": true,
+      "lateness_above_40wall_ms_fraction_le_point01": true
+    },
+    "pass_": true,
+    "token_selection": "physical_token before-G in [autonomy start,end); tuple index8 is original lateness ns",
+    "global_first_step_lateness_excluded": true
+  },
+  "analysis_source": "local-runs/causal-fix-20261113/integration/analyze_pacing_feedback.py",
+  "analysis_selection": "Exact original analyze() prefix through pacing=dict; AST return before all control journal/feedback/bag reads; original .245-.255/20ms/.01 thresholds unchanged",
+  "scope": "Single repaired120 B case, post-exit only; no paired RF qualification or comparison with changed old behavior"
+}

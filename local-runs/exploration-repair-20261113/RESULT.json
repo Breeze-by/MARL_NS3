@@ -1,0 +1,434 @@
+{
+  "status": "ROOT_REVIEWED_SINGLE_REPAIR_BASELINE_ACCEPTED_T95_REACHED",
+  "case": "local-runs/er13/a",
+  "session_id": 2026111373,
+  "actual_starts": 1,
+  "no_further_experiment": true,
+  "contract": "New explicit behavior baseline: Nav2 simclock + circular candidate geometry + NavFn active-goal guard. Same PPO weights and701 structure; not pooled with old RF comparisons.",
+  "source_binding": "COMMON_BINDING.json (72 paths)",
+  "original_native": "Original d53 ELF/build-source identity separate from current native source;13 DSO identities inherited without rehash",
+  "stop": {
+    "end_reason": "simulation_budget",
+    "online_T95_stop": false,
+    "sim_elapsed": 120.0,
+    "wall_elapsed": 479.99984012998175,
+    "host_wall_s": 633.3013268300565,
+    "run_integrity": true,
+    "observed_stop": true,
+    "hazard": null,
+    "owned_request_closure": {
+      "closed": true,
+      "authority_stopped": true,
+      "requests": 16,
+      "unresolved_requests": [],
+      "owned_goals": {
+        "tb1": [
+          "266f65e8e9d94da6bf7caf5ca4ad0292",
+          "397cbf014d8145a1ad3ad01b75660de3",
+          "b953683966284e07b742d0a7cad15326",
+          "ee82b572cd294dc28e1c86e4a1277eee",
+          "f9f74bdb96254816b70925980c8872d8"
+        ],
+        "tb2": [
+          "03b006d1e47a4103a135f6477281ac4d",
+          "11967213bc0c44768a883aada0e4065f",
+          "91945f89e45340d8bd09170055ab9e39",
+          "966fdf1628e643e2a969c9e62e15e489",
+          "a0d0c4f6ed8046d7841558f05c3a06a8"
+        ],
+        "tb3": [
+          "04167f100bb44730bb681f56376e0401",
+          "44232107c8114176b55e928b0e849860",
+          "4db3ca2e61c4428eaae18094ee96c184",
+          "9c5b86f5685249c182e3b0f42a1b6c56",
+          "ec9e9362fd3240e880b149d0742da40c",
+          "f6eec471f381443a8e0b11b50cdd9bd1"
+        ]
+      },
+      "unterminated_UUIDs": {
+        "tb1": [],
+        "tb2": [],
+        "tb3": []
+      },
+      "record_errors": []
+    },
+    "all_owners_writers_gone": true,
+    "runner_exit": 0,
+    "hub_exit": 0,
+    "controller_exit": 0,
+    "controlled_integrity": true,
+    "daemon_cleanup": true
+  },
+  "native_copy": {
+    "complete": true,
+    "bytes": 6348446912,
+    "budget_bytes": 8589934592,
+    "disk_raw_retained": true,
+    "RAM_released": "a.RAM-release.json"
+  },
+  "T95": {
+    "T0": 20.0,
+    "endG": 140.0,
+    "budget": 120.0,
+    "reference_free_cells": 15558,
+    "views": {
+      "local_union": {
+        "T95_sim_s": 43.15,
+        "status": "reached",
+        "threshold_observation": {
+          "observation_sim": 63.15,
+          "elapsed_sim_s": 43.15,
+          "coverage": 0.971911556755367,
+          "map_quality_valid": true,
+          "map_quality_warnings": [],
+          "sources": [
+            {
+              "topic": "/tb1/map",
+              "header_stamp_sim": 63.05,
+              "observation_sim": 63.15,
+              "timing": "R bag receipt; not source generation"
+            },
+            {
+              "topic": "/tb2/map",
+              "header_stamp_sim": 61.74,
+              "observation_sim": 61.91,
+              "timing": "R bag receipt; not source generation"
+            },
+            {
+              "topic": "/tb3/map",
+              "header_stamp_sim": 62.86,
+              "observation_sim": 63.01,
+              "timing": "R bag receipt; not source generation"
+            }
+          ]
+        },
+        "last_observation": {
+          "observation_sim": 139.42,
+          "elapsed_sim_s": 119.41999999999999,
+          "coverage": 0.9976218022882118,
+          "map_quality_valid": true
+        },
+        "total_samples": 289,
+        "quality_valid_samples": 289,
+        "quality_invalid_samples": 0,
+        "warning_kinds": [],
+        "max_raw_coverage": 0.9976218022882118,
+        "raw_ge95_but_invalid": 0,
+        "at60_previous_actual_sample": {
+          "observation_sim": "79.41",
+          "elapsed_sim_s": "59.41",
+          "coverage": "0.991387067746497",
+          "map_quality_valid": "True"
+        },
+        "at60_next_actual_sample": {
+          "observation_sim": "80.51",
+          "elapsed_sim_s": "60.510000000000005",
+          "coverage": "0.991387067746497",
+          "map_quality_valid": "True"
+        },
+        "missing_sources": []
+      },
+      "central_merged": {
+        "T95_sim_s": 43.17,
+        "status": "reached",
+        "threshold_observation": {
+          "observation_sim": 63.17,
+          "elapsed_sim_s": 43.17,
+          "coverage": 0.9702403907957321,
+          "map_quality_valid": true,
+          "map_quality_warnings": [],
+          "sources": [
+            {
+              "topic": "/merge_map",
+              "header_stamp_sim": 61.74,
+              "observation_sim": 63.17,
+              "cdr_file": "000145.cdr",
+              "timing": "C Gateway callback node clock; not merge generation or policy consumption"
+            }
+          ]
+        },
+        "last_observation": {
+          "observation_sim": 139.45,
+          "elapsed_sim_s": 119.44999999999999,
+          "coverage": 0.996529116853066,
+          "map_quality_valid": true
+        },
+        "total_samples": 289,
+        "quality_valid_samples": 269,
+        "quality_invalid_samples": 20,
+        "warning_kinds": [
+          "[\"occupied_alignment_p95_above_0.25m\"]"
+        ],
+        "max_raw_coverage": 0.9969147705360586,
+        "raw_ge95_but_invalid": 0,
+        "at60_previous_actual_sample": {
+          "observation_sim": "79.44",
+          "elapsed_sim_s": "59.44",
+          "coverage": "0.9897801774006941",
+          "map_quality_valid": "True"
+        },
+        "at60_next_actual_sample": {
+          "observation_sim": "80.54",
+          "elapsed_sim_s": "60.540000000000006",
+          "coverage": "0.9897801774006941",
+          "map_quality_valid": "True"
+        },
+        "missing_sources": []
+      },
+      "robot_received": {
+        "T95_sim_s": 43.18,
+        "status": "reached",
+        "threshold_observation": {
+          "observation_sim": 63.18,
+          "elapsed_sim_s": 43.18,
+          "coverage": 0.9702403907957321,
+          "map_quality_valid": true,
+          "map_quality_warnings": [],
+          "sources": [
+            {
+              "topic": "/merge_map",
+              "header_stamp_sim": 61.74,
+              "observation_sim": 63.18,
+              "timing": "R bag receipt; not source generation"
+            }
+          ]
+        },
+        "last_observation": {
+          "observation_sim": 139.46,
+          "elapsed_sim_s": 119.46000000000001,
+          "coverage": 0.996529116853066,
+          "map_quality_valid": true
+        },
+        "total_samples": 289,
+        "quality_valid_samples": 269,
+        "quality_invalid_samples": 20,
+        "warning_kinds": [
+          "[\"occupied_alignment_p95_above_0.25m\"]"
+        ],
+        "max_raw_coverage": 0.9969147705360586,
+        "raw_ge95_but_invalid": 0,
+        "at60_previous_actual_sample": {
+          "observation_sim": "79.45",
+          "elapsed_sim_s": "59.45",
+          "coverage": "0.9897801774006941",
+          "map_quality_valid": "True"
+        },
+        "at60_next_actual_sample": {
+          "observation_sim": "80.55",
+          "elapsed_sim_s": "60.55",
+          "coverage": "0.9897801774006941",
+          "map_quality_valid": "True"
+        },
+        "missing_sources": []
+      }
+    }
+  },
+  "pacing": {
+    "case": "local-runs/er13/a",
+    "status": "PASS",
+    "pacing": {
+      "start_G": 20.0,
+      "end_G": 140.0,
+      "sim_span_s": 120.0,
+      "wall_span_s": 480.0003151893616,
+      "rtf": 0.24999983583898197,
+      "physical_tokens": 12000,
+      "lateness_wall_ms": {
+        "n": 12000,
+        "min": 0.318189,
+        "median": 1.4234765,
+        "p95": 2.5748123499999953,
+        "max": 214.622793
+      },
+      "above_40wall_ms_count": 10,
+      "above_40wall_ms_fraction": 0.0008333333333333334,
+      "gates": {
+        "rtf_within_predeclared_band": true,
+        "lateness_p95_le_20wall_ms": true,
+        "lateness_above_40wall_ms_fraction_le_point01": true
+      },
+      "pass_": true,
+      "token_selection": "physical_token before-G in [autonomy start,end); tuple index8 is original lateness ns",
+      "global_first_step_lateness_excluded": true
+    },
+    "analysis_source": "local-runs/causal-fix-20261113/integration/analyze_pacing_feedback.py",
+    "analysis_selection": "Exact original analyze() prefix through pacing=dict; AST return before all control journal/feedback/bag reads; original .245-.255/20ms/.01 thresholds unchanged",
+    "scope": "Single repaired120 B case, post-exit only; no paired RF qualification or comparison with changed old behavior"
+  },
+  "repair_runtime": {
+    "case": "local-runs/er13/a",
+    "status": "PASS",
+    "checks": {
+      "new_Nav2_revision_applied_before_actions": true,
+      "all21_generated_clock_keys_true": true,
+      "only_clock_additions_in_generated_params": true,
+      "guard_recorded_primitives_match_actual_original_requests": true,
+      "all_actual_requests_accepted": true,
+      "all_actual_requests_have_real_R_terminal": true,
+      "owned_request_chain_closed": true,
+      "no_new_submission_at_or_after140": true,
+      "no_budget_gate_rejections": true
+    },
+    "generated_clock": [
+      {
+        "robot": "tb1",
+        "enabled_node_use_sim_time": {
+          "controller_server": true,
+          "smoother_server": true,
+          "planner_server": true,
+          "behavior_server": true,
+          "bt_navigator": true,
+          "waypoint_follower": true,
+          "velocity_smoother": true
+        },
+        "before_missing_nodes": [
+          "smoother_server",
+          "behavior_server",
+          "waypoint_follower",
+          "velocity_smoother"
+        ],
+        "other_generated_values_exactly_unchanged": true
+      },
+      {
+        "robot": "tb2",
+        "enabled_node_use_sim_time": {
+          "controller_server": true,
+          "smoother_server": true,
+          "planner_server": true,
+          "behavior_server": true,
+          "bt_navigator": true,
+          "waypoint_follower": true,
+          "velocity_smoother": true
+        },
+        "before_missing_nodes": [
+          "smoother_server",
+          "behavior_server",
+          "waypoint_follower",
+          "velocity_smoother"
+        ],
+        "other_generated_values_exactly_unchanged": true
+      },
+      {
+        "robot": "tb3",
+        "enabled_node_use_sim_time": {
+          "controller_server": true,
+          "smoother_server": true,
+          "planner_server": true,
+          "behavior_server": true,
+          "bt_navigator": true,
+          "waypoint_follower": true,
+          "velocity_smoother": true
+        },
+        "before_missing_nodes": [
+          "smoother_server",
+          "behavior_server",
+          "waypoint_follower",
+          "velocity_smoother"
+        ],
+        "other_generated_values_exactly_unchanged": true
+      }
+    ],
+    "revision": "nav2-simclock-common-v1",
+    "scope_of_clock": "Effective generated YAML applied by reviewed installed launch; runtime GetParameters snapshot for all7 nodes was not recorded in this case and is UNMEASURED. Prior actual behavior-server clock/Wait component separately preserved; not rerun.",
+    "guard": {
+      "assignment_rejections": 0,
+      "cancellation_requests": 0,
+      "trigger_chains": [],
+      "last_actual_primitive_checks": [
+        {
+          "robot": "tb1",
+          "uuid": "ee82b572cd294dc28e1c86e4a1277eee",
+          "matches_actual_original_request": true
+        },
+        {
+          "robot": "tb2",
+          "uuid": "91945f89e45340d8bd09170055ab9e39",
+          "matches_actual_original_request": true
+        },
+        {
+          "robot": "tb3",
+          "uuid": "04167f100bb44730bb681f56376e0401",
+          "matches_actual_original_request": true
+        }
+      ],
+      "integrated_active_invalidation_branch": "UNEXERCISED: zero guard-triggered cancellations. Cannot infer new integration cancellation/false-positive performance from no triggers; actual DDS lifecycle component covers mechanics only."
+    },
+    "goals": {
+      "actual_requests": 16,
+      "accepted": 16,
+      "C_raw_terminal_counts": {
+        "4": 12,
+        "6": 1
+      },
+      "R_raw_terminal_counts": {
+        "4": 12,
+        "6": 1,
+        "5": 3
+      },
+      "C_terminal_not_seen_before_controller_exit": [
+        "ee82b572cd294dc28e1c86e4a1277eee",
+        "04167f100bb44730bb681f56376e0401",
+        "91945f89e45340d8bd09170055ab9e39"
+      ],
+      "R_budget_cancels": [
+        {
+          "uuid": "91945f89e45340d8bd09170055ab9e39",
+          "sim": 140.02,
+          "robot": "tb2"
+        },
+        {
+          "uuid": "04167f100bb44730bb681f56376e0401",
+          "sim": 140.02,
+          "robot": "tb3"
+        },
+        {
+          "uuid": "ee82b572cd294dc28e1c86e4a1277eee",
+          "sim": 140.03,
+          "robot": "tb1"
+        }
+      ],
+      "missing_R_terminal": [],
+      "terminal_classifications": []
+    },
+    "startup": {
+      "attempt_count": 23,
+      "permission_end_ns": 140000000000,
+      "gate_failure": null,
+      "refused_goal_entries": []
+    },
+    "scope": "One post-exit repaired120 B baseline. Existing small metadata and streaming journals only; no bag/native ledger/model replay/new run/source edit. No pooled old-case or RF causal claim."
+  },
+  "candidate_actual": {
+    "clearance": {
+      "contract": {
+        "id": "nav2-circular-footprint-v1",
+        "nav2_robot_radius_m": {
+          "tb1": 0.25,
+          "tb2": 0.25,
+          "tb3": 0.25
+        },
+        "map_resolution_m": 0.05
+      },
+      "calls": 23,
+      "derived_occupied_centre_clearance_m": 0.28535533905932736,
+      "formula": "occupied-centre inflation radius = nav2_robot_radius_m + map_resolution_m/sqrt(2)",
+      "scope": "New candidate behavior baseline; same original allocator, input grids, policy weights and 701 structure; no continuous-path guarantee"
+    },
+    "inference_count": 23,
+    "each_inference_expected_one_forward": true,
+    "wait_count": 0,
+    "action_rejections": [],
+    "idle_zero_valid_candidates": [],
+    "actual_goal_request_count": 16,
+    "same_robot_repeat_targets_within_20cm": [],
+    "actual_ledger_deltas": {
+      "ros_allocator_observation_build": 23,
+      "policy_forward": 23,
+      "policy_forward_samples": 23
+    }
+  },
+  "startup_small": "a.startup-and-consumer-small.json",
+  "interpretation": "C T95 43.17sim and C sample59.44sim98.978% show this case reached within prior60sim window; not merely a120sim-budget success. One changed-behavior case cannot allocate effect among3fixes or prove stable improvement/RF causality.1 realNav2abort remains. Active goal-guard cancellation unexercised here; actualROS Action mechanism component is distinct from ns3-integrated trigger evidence.",
+  "raw_and_failure_preservation": "All previous60 outcomes/oldB180/a startupfailures/retiredREADYs and all current diskraw remain unchanged. No extra experiment.",
+  "completed_utc": "2026-11-13T09:18:45.558006+00:00"
+}

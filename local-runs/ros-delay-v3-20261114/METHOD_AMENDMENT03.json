@@ -1,0 +1,105 @@
+{
+  "schema": "ros-delay-v3-offline-method-amendment03-draft",
+  "status": "ROOT_FINAL_ACTUAL_RECOVERY_ACCEPTED_RESUME_AUTHORIZED",
+  "created_utc": "2026-11-14T17:11:27.226753+00:00",
+  "post_hoc": true,
+  "observed_fault": {
+    "physical_slot": "f016",
+    "flow": 63,
+    "identity": 279473,
+    "original_classification": "ENGINEERING_BLOCK_STOP_ROOT_REVIEW",
+    "original_task_metric_status": "UNKNOWN",
+    "original_method_reason": "capture_identity_or_integrity_error",
+    "fact": "Actual admitted capture146524 and sole destination have equal92B digest1b3789; rejected postclose capture146528 atG144.77 reusedlastid with digest8e02. Original per-capture all-epoch digest comparator falsely associates rejected capture to admitted destination. Not last-wins/padding/proven transport corruption.",
+    "evidence": "F016_TARGETED_IDENTITY_EVIDENCE.json"
+  },
+  "implementation": {
+    "only_changed_bound_method": "analyze_delay_delivery.py",
+    "runtime79_changed": false,
+    "other8_methods_changed": false,
+    "original_COMMON_and_consumed_READY_changed": false,
+    "source_and_hq_and_capture_indexes_preserved": true,
+    "window_wire_and_hold_selection_preserved": true,
+    "association": "Only repeated (flow,direct_native_id): unique actual queue admission + destination actual sendmeta; unique capture endpoint<=sendmeta<=admit<close. Route/bytes/RPC/backend/due/release/receive/publish/closed pending proof. No digest-based candidate choice.",
+    "exception": "Other duplicate callbacks must be >=actual window end, strictly after queue close/admit, matching side and outside-epoch count, with source_key disjoint from actual-window observed sourcecohort. Retain as NOT_ADMITTED_POST_CLOSE audit and invalid capture identity, not network loss.",
+    "strict_retained": "Every actual admitted CDR mismatch including closing_drain remains BLOCK. Existing conflicting duplicates with window overlap, absent/nonunique admission, missing close/count/order/source-key disjoint proof remain BLOCK. No broad ignore-postwindow rule; original no-dest/no-digest-conflict behavior is preserved.",
+    "trigger": "Only duplicate (flow,direct_native_id) groups with exactly one destination and at least one original capture-to-destination digest conflict enter new proof. Digest only detects an existing error; never selects actual admitted capture. No-destination and no-original-conflict groups retain original paths, no new errors/disposition."
+  },
+  "old15_numeric_equivalence": {
+    "scope": "Static dataflow argument plus pure fixture comparison, no actual previous15 metrics recomputed",
+    "argument": "Old fifteen passed with identity_errors0, hence no unique-destination per-capture digest conflict and no new AM3 proof branch entry. No-destination/no-digest-conflict groups retain exact original behavior. Only original failed conflicts may receive a strictly evidenced postclose disposition. All source/HQ/publication/captures_by_source indexes and window wire/hold paths unchanged; excluded source_keys additionally disjoint from window sourcecohort. No prior fifteen metrics rerun.",
+    "fixture_preserved_fields": [
+      "source_cohort",
+      "source_cohort_by_topic",
+      "source_publish_to_hq_take_return_wall_ms",
+      "source_publish_to_hq_take_return_wall_ms_by_topic",
+      "wire_capture_to_destination_publish",
+      "a1_local_fifo_clock_witness_delta_sim_ms",
+      "goal_acceptance_within_budget",
+      "injected_hold_queue"
+    ]
+  },
+  "components": {
+    "path": "METHOD_AMENDMENT03_COMPONENT_RESULT.json",
+    "checks": 10,
+    "scope": "Ten narrow pure offline fixtures: copied original small counterexample + synthetic corruptions and original-pass preservation for multi-flow no-destination/no-conflict rows. No actual run reanalysis/Gazebo/ROS/native.",
+    "syntax": "AST parse changed analyzer and narrow fixture PASS"
+  },
+  "binding_and_future_READY": "Root-authorized AM3 binding prepared: same runtime79 and other8 identities, only analyzer newhash. Future54READY snapshotted then only three evaluation offline fields updated; consumedREADY/originalCOMMON unchanged. Root final actual-outcome acceptance, canonical amended CONTINUE and RESUME still pending.",
+  "no_actual_reanalysis": false,
+  "no_START": false,
+  "finalized_utc": "2026-11-14T17:24:48.119628+00:00",
+  "actual_single_reanalysis": {
+    "manifest": "F016_AMENDMENT03_RECOVERY.json",
+    "result": "post-exit/f016-AMENDMENT03/result.json",
+    "row": "post-exit/f016-AMENDMENT03/row.json",
+    "outcome": {
+      "batch_classification": "QUALIFIED_REACHED_CONTINUE",
+      "task_window_measurement_qualified": true,
+      "full_engineering_qualified": true,
+      "clean_exit": true,
+      "T95_sim_s": 108.94,
+      "task_metric_status": "CONFIRMED_REACHED"
+    },
+    "only_delivery_tool_exit": 0,
+    "T95_process_executed": false,
+    "postclose_not_admitted_count": 15,
+    "main_window_fields_equal": {
+      "window_sim_ns": true,
+      "source_cohort": true,
+      "source_cohort_by_topic": true,
+      "source_publish_to_hq_take_return_wall_ms": true,
+      "source_publish_to_hq_take_return_wall_ms_by_topic": true,
+      "negative_wall_intervals": true,
+      "wire_capture_to_destination_publish": true,
+      "goal_acceptance_within_budget": true,
+      "a1_local_fifo_clock_witness_delta_sim_ms": true
+    },
+    "scope": "Post-hoc offline correction; original f016 first-analysis BLOCK/UNKNOWN remains. This is the same actual task window, not an extra experiment/successor."
+  },
+  "binding": "COMMON_BINDING_METHOD_AMENDMENT03.json",
+  "future_READY": {
+    "count": 54,
+    "scope": "Only evaluation.offline_method_binding_relative_repo / offline_method_sha256_relative_repo / offline_method_amendment changed after snapshots",
+    "preimages": "snapshots/pre-method-amendment03/future-ready",
+    "consumed_READY_unchanged": true
+  },
+  "root_acceptance_and_canonical_CONTINUE_pending": false,
+  "implemented_single_reanalysis": {
+    "entry": "Existing post_case.analyze(plan,slot,ready,output,runner=...) API, not CLI default output",
+    "independent_output": "post-exit/f016-AMENDMENT03",
+    "proof": "Copy original proof.json bytes into independent output; provenance marks REUSED_ORIGINAL_PROOF_NOT_NEW_VERIFY",
+    "delivery": "Exactly one normal updated analyzer command into new directory",
+    "T95": "Runner intercepts only exact original T95 command, copies existing original T95 artifacts after validating existing case/reference/budget identity; no T95 tool/bag recomputation",
+    "provenance": "Dedicated one-case recovery command manifest/root approval/actual command exits; original case/READY/COMMON/proof/T95/delivery/result/row/BLOCK never overwritten; no RAM release or case dispatch",
+    "classification": "Original frozen strict post_case classifier, no assumed PASS; retain original FAIL/UNKNOWN alongside amended outcome",
+    "authorization": "Root specifically authorized the one completed independent f016 delivery pass; actual commands/exits recorded in F016_AMENDMENT03_RECOVERY.json; no T95 execution/verify/Gazebo/RAM operation."
+  },
+  "root_acceptance_and_RESUME": {
+    "slot": "CONTROL",
+    "state": "ROOT_ACCEPTED_OFFLINE_METHOD_AMENDMENT03_AND_RESUME_F017_F070",
+    "utc": "2026-11-14T17:27:38.726921+00:00",
+    "origin": "ROOT_ACCEPTED_OFFLINE_METHOD_AMENDMENT03",
+    "scope": "Root directly reviewed finalAM3/READYcheck/metadata/recoverycode/actualmanifest and independent method+recoveryPASS. Accept samef016 actual task window under post-hoc offline correction, originalBLOCK/UNKNOWN/firstanalysis remain unchanged. Source79 unchanged throughout, only analyzer method revised; old15 original outputs retained with static no-conflict equivalence, not all70sameanalysisHash. No runtime/Gazebo/T95 rerun or newexperiment. ExistingCONTINUE skipf016 then originalf017..f070 once. Existingf002 functionalreview accepted. Originalf005/f012startupFAIL/raw/RAM remain. Any new unknown/qualification/startupfault blocks Root; no auto successor."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "clearance-tuning-startup-register-v1",
+  "failures": [
+    {
+      "physical_slot": "a03",
+      "logical_slot": "a03",
+      "map": "Corr6201",
+      "block": 2,
+      "session_id": 2026112103,
+      "status": "STARTUP_ENGINEERING_FAIL",
+      "task_metric_status": "N/A_NO_AUTONOMY",
+      "T95_sim_s": null,
+      "reason": "Local Gazebo /spawn_entity response-send timeout: tb1/tb2 exit0, tb3 no successful response/exit0; no factory fence/RUN/HQ/NN/Goal",
+      "original_observed_stop": true,
+      "lifecycle_pause_healthy": false,
+      "run_integrity": false,
+      "seal_qualified": false,
+      "original_safe_stop_qualification": false,
+      "known_actor_PID_count": 54,
+      "recorded_actors_gone": true,
+      "host_pid": 2690191,
+      "host_actual_gone": true,
+      "copy_complete": true,
+      "copied_native_bytes": 495923,
+      "disk_raw_retained": true,
+      "RAM_retained": "/dev/shm/ct15-a03",
+      "proof_not_created": true,
+      "original_ready_relative_repo": "local-runs/clearance-tuning-20261115/ready/a03.ready.json",
+      "result_relative_repo": "local-runs/ct15/a03/result.json",
+      "host_exit_relative_repo": "local-runs/ct15/a03.host-exit.json",
+      "verify_log_relative_repo": "local-runs/clearance-tuning-20261115/driver-logs/a03-verify.log"
+    }
+  ],
+  "count": 1,
+  "scope": "Actual startup reliability denominator; no autonomy measurement, not T95 non-completion"
+}

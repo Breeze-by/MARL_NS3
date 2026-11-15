@@ -1,0 +1,59 @@
+{
+  "id": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1",
+  "world_real_time_update_rate": 1000,
+  "physics_max_step_size_unchanged": 0.001,
+  "clock_publish_rate_sim_hz": 100.0,
+  "native_step_quantum_ns": 10000000,
+  "scope": "Explicit repaired-behavior single B baseline, maximum120sim. Same pace40/business clocks/fixedG20/original5sim attempts and independent wall protection. New version includes explicit Nav2 simclock and nav2-circular-footprint-v1 candidate geometry, with fixed PPO weights/701/remaining goal lifecycle/peer safety. This is a separate behavior baseline, not a communication causal contrast or a retroactive PASS of prior60sim outcomes. Original budget stop/owned cancel/zero/PAUSE/closure retained; T95 evaluated only after exit, no live truth evaluator/administrative STOP or frozen main copy. 8GiB native evidence plus2GiB reserve requires10GiB free tmpfs and MemAvailable24GiB, serial evidence copied only after native child exit; CPU/async disabled. Old60 scopes and180/default16GiB unchanged. No automatic run or extra cohort.",
+  "controlled_physics": true,
+  "physical_token_steps": 10,
+  "physical_lookahead_quanta": 2,
+  "token_wall_period_ns": 40000000,
+  "peer_mask_raster": "broadcast-v1",
+  "health_mask_receipt_clock": "R-ros-sim-v1",
+  "progress_wall_timeout_s": 2.0,
+  "gateway_poststop_evidence_total_wall_s": 60,
+  "business_clock": "ros-sim-v1",
+  "peer_odom_receipt_clock": "ros-sim-v1",
+  "predecessor": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-60sim-fixedstart-consumertrace-v1",
+  "run_bounds": {
+    "sim_budget": 120,
+    "startup_wall": 180,
+    "autonomous_wall": 720,
+    "outer_wall": 1000,
+    "cleanup_wall": 90
+  },
+  "native_evidence_budget_bytes": 8589934592,
+  "native_evidence_reserve_bytes": 2147483648,
+  "native_evidence_scope": "physical120sim-ram8GiB-reserve2GiB-v1",
+  "consumer_trace": "hq-consumer-trace-v1",
+  "startup_contract": {
+    "id": "fixed-G20-attempt-G25-grid5-end140-v1",
+    "autonomy_epoch_ns": 20000000000,
+    "first_decision_ns": 25000000000,
+    "decision_period_ns": 5000000000,
+    "decision_permission_end_ns": 140000000000,
+    "timing_tolerance_ns": 10000000,
+    "readiness": "initialized gate received through original flow95; original readiness and no-motion safety only",
+    "first_slot": "unchanged original allocation ATTEMPT, including awaiting observations or WAIT; no NN/candidate content admission",
+    "late_slot": "record actual; timing failure; no backdate, catch-up or moving epoch",
+    "end": "new decision and original send_goal entry permission [25,140); actual timestamps preserved, previously admitted inflight/feedback/cancel/stop ownership unchanged; not DDS send/acceptance timestamp"
+  },
+  "common_execution_revision": "nav2-simclock-common-v1",
+  "candidate_clearance": {
+    "id": "nav2-circular-footprint-v1",
+    "nav2_robot_radius_m": {
+      "tb1": 0.25,
+      "tb2": 0.25,
+      "tb3": 0.25
+    },
+    "map_resolution_m": 0.05
+  },
+  "evaluation_stop": "Original budget-only legal stop; quality-valid T95 is independent post-exit evaluation only.",
+  "nav2_goal_guard": {
+    "id": "navfn-round-active-goal-v1",
+    "fresh_map_max_age_sim_s": 2.0,
+    "occupied_value": 100,
+    "reason": "same2sim order as existing state freshness; stale map cannot trigger new invalidation and does not extend health guards"
+  }
+}

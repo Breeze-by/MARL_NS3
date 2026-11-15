@@ -1,0 +1,748 @@
+{
+  "formal_window_count": 40,
+  "robot_trace_count": 120,
+  "total_points": 144120,
+  "samples_per_robot": 1201,
+  "all_first_sim_s": 20.0,
+  "all_last_sim_s": 140.0,
+  "sample_dt_distribution_sim_s": {
+    "0.01": 9,
+    "0.04": 3,
+    "0.06": 87,
+    "0.07": 69,
+    "0.08": 108,
+    "0.09": 87,
+    "0.1": 143262,
+    "0.11": 90,
+    "0.12": 108,
+    "0.13": 75,
+    "0.14": 90,
+    "0.15": 6,
+    "0.16": 6
+  },
+  "nonpositive_dt_count": 0,
+  "dt_at_least_0_20_count": 0,
+  "irregular_clock_edge_count": 177,
+  "total_edges": 144000,
+  "optional_goal_decoration": "Omitted: original goals are Nav2 map-frame data; trajectories/background already complete in world frame. No new coordinate conversion inferred.",
+  "maps": {
+    "Corr6201": {
+      "background_npz": "background-Corr6201.npz",
+      "arrays": [
+        "physical_obstacles",
+        "reference_free",
+        "origin",
+        "resolution",
+        "extent"
+      ],
+      "shape": [
+        218,
+        261
+      ],
+      "origin": [
+        -5.800000000000001,
+        -5.6000000000000005
+      ],
+      "resolution": 0.05,
+      "extent": [
+        -5.800000000000001,
+        7.25,
+        -5.6000000000000005,
+        5.3
+      ],
+      "imshow_origin": "lower",
+      "coordinate_frame": "Gazebo world",
+      "world_relative_repo": "inputs/worlds/eval-corridor-common-6201.sdf",
+      "assets_relative_repo": "assets/gazebo_models",
+      "reference_free_cells": 15558,
+      "reference_free_area_m2": 38.89500000000001,
+      "start_xy_yaw": [
+        [
+          0.7249999999999996,
+          -0.1499999999999999,
+          0.0
+        ],
+        [
+          0.34999999999999964,
+          -0.7999999999999999,
+          0.0
+        ],
+        [
+          1.0999999999999996,
+          -0.7999999999999999,
+          0.0
+        ]
+      ],
+      "boundary_connections": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "use": "Offline plot background only; no recomputation of published coverage or policy input"
+    },
+    "Rooms6101": {
+      "background_npz": "background-Rooms6101.npz",
+      "arrays": [
+        "physical_obstacles",
+        "reference_free",
+        "origin",
+        "resolution",
+        "extent"
+      ],
+      "shape": [
+        218,
+        261
+      ],
+      "origin": [
+        -5.800000000000001,
+        -5.6000000000000005
+      ],
+      "resolution": 0.05,
+      "extent": [
+        -5.800000000000001,
+        7.25,
+        -5.6000000000000005,
+        5.3
+      ],
+      "imshow_origin": "lower",
+      "coordinate_frame": "Gazebo world",
+      "world_relative_repo": "inputs/worlds/eval-rooms-common-6101.sdf",
+      "assets_relative_repo": "assets/gazebo_models",
+      "reference_free_cells": 40076,
+      "reference_free_area_m2": 100.19000000000003,
+      "start_xy_yaw": [
+        [
+          -3.4237836473654566,
+          -3.581773649437976,
+          0.0
+        ],
+        [
+          -3.7987836473654566,
+          -4.231773649437976,
+          0.0
+        ],
+        [
+          -3.0487836473654566,
+          -4.231773649437976,
+          0.0
+        ]
+      ],
+      "boundary_connections": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "use": "Offline plot background only; no recomputation of published coverage or policy input"
+    }
+  },
+  "trajectory_sources": [
+    {
+      "logical_slot": "c01",
+      "physical_slot": "c01",
+      "trajectory_csv_relative_repo": "local-runs/c42/c01/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c01/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c01/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b1.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c02",
+      "physical_slot": "c02",
+      "trajectory_csv_relative_repo": "local-runs/c42/c02/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c02/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c02/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b1.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c03",
+      "physical_slot": "c03",
+      "trajectory_csv_relative_repo": "local-runs/c42/c03/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c03/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c03/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b1.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c04",
+      "physical_slot": "c04",
+      "trajectory_csv_relative_repo": "local-runs/c42/c04/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c04/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c04/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b1.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c05",
+      "physical_slot": "c05",
+      "trajectory_csv_relative_repo": "local-runs/c42/c05/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c05/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c05/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b1.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c06",
+      "physical_slot": "c06",
+      "trajectory_csv_relative_repo": "local-runs/c42/c06/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c06/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c06/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b1.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c07",
+      "physical_slot": "c07",
+      "trajectory_csv_relative_repo": "local-runs/c42/c07/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c07/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c07/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b1.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c08",
+      "physical_slot": "c08",
+      "trajectory_csv_relative_repo": "local-runs/c42/c08/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c08/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c08/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b1.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c09",
+      "physical_slot": "c09",
+      "trajectory_csv_relative_repo": "local-runs/c42/c09/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c09/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c09/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b2.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c10",
+      "physical_slot": "c10",
+      "trajectory_csv_relative_repo": "local-runs/c42/c10/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c10/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c10/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b2.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c11",
+      "physical_slot": "c11",
+      "trajectory_csv_relative_repo": "local-runs/c42/c11/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c11/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c11/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b2.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c12",
+      "physical_slot": "c12",
+      "trajectory_csv_relative_repo": "local-runs/c42/c12/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c12/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c12/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b2.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c13",
+      "physical_slot": "c13",
+      "trajectory_csv_relative_repo": "local-runs/c42/c13/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c13/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c13/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b2.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c14",
+      "physical_slot": "c14",
+      "trajectory_csv_relative_repo": "local-runs/c42/c14/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c14/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c14/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b2.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c15",
+      "physical_slot": "c15",
+      "trajectory_csv_relative_repo": "local-runs/c42/c15/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c15/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c15/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b2.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c16",
+      "physical_slot": "c16s",
+      "trajectory_csv_relative_repo": "local-runs/c42/c16s/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c16s/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c16s/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b2.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": "c16"
+    },
+    {
+      "logical_slot": "c17",
+      "physical_slot": "c17",
+      "trajectory_csv_relative_repo": "local-runs/c42/c17/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c17/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c17/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b3.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c18",
+      "physical_slot": "c18",
+      "trajectory_csv_relative_repo": "local-runs/c42/c18/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c18/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c18/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b3.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c19",
+      "physical_slot": "c19",
+      "trajectory_csv_relative_repo": "local-runs/c42/c19/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c19/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c19/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b3.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c20",
+      "physical_slot": "c20",
+      "trajectory_csv_relative_repo": "local-runs/c42/c20/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c20/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c20/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b3.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c21",
+      "physical_slot": "c21",
+      "trajectory_csv_relative_repo": "local-runs/c42/c21/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c21/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c21/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b3.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c22",
+      "physical_slot": "c22",
+      "trajectory_csv_relative_repo": "local-runs/c42/c22/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c22/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c22/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b3.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c23",
+      "physical_slot": "c23",
+      "trajectory_csv_relative_repo": "local-runs/c42/c23/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c23/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c23/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b3.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c24",
+      "physical_slot": "c24",
+      "trajectory_csv_relative_repo": "local-runs/c42/c24/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c24/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c24/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b3.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c25",
+      "physical_slot": "c25",
+      "trajectory_csv_relative_repo": "local-runs/c42/c25/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c25/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c25/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b4.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c26",
+      "physical_slot": "c26",
+      "trajectory_csv_relative_repo": "local-runs/c42/c26/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c26/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c26/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b4.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c27",
+      "physical_slot": "c27",
+      "trajectory_csv_relative_repo": "local-runs/c42/c27/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c27/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c27/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b4.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c28",
+      "physical_slot": "c28",
+      "trajectory_csv_relative_repo": "local-runs/c42/c28/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c28/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c28/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b4.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c29",
+      "physical_slot": "c29s",
+      "trajectory_csv_relative_repo": "local-runs/c42/c29s/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c29s/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c29s/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b4.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": "c29"
+    },
+    {
+      "logical_slot": "c30",
+      "physical_slot": "c30",
+      "trajectory_csv_relative_repo": "local-runs/c42/c30/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c30/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c30/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b4.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c31",
+      "physical_slot": "c31",
+      "trajectory_csv_relative_repo": "local-runs/c42/c31/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c31/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c31/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b4.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c32",
+      "physical_slot": "c32",
+      "trajectory_csv_relative_repo": "local-runs/c42/c32/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c32/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c32/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b4.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c33",
+      "physical_slot": "c33",
+      "trajectory_csv_relative_repo": "local-runs/c42/c33/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c33/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c33/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b5.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c34",
+      "physical_slot": "c34",
+      "trajectory_csv_relative_repo": "local-runs/c42/c34/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c34/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c34/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b5.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c35",
+      "physical_slot": "c35",
+      "trajectory_csv_relative_repo": "local-runs/c42/c35/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c35/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c35/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b5.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c36",
+      "physical_slot": "c36",
+      "trajectory_csv_relative_repo": "local-runs/c42/c36/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c36/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c36/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b5.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c37",
+      "physical_slot": "c37",
+      "trajectory_csv_relative_repo": "local-runs/c42/c37/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c37/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c37/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b5.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c38",
+      "physical_slot": "c38",
+      "trajectory_csv_relative_repo": "local-runs/c42/c38/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c38/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c38/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b5.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c39",
+      "physical_slot": "c39",
+      "trajectory_csv_relative_repo": "local-runs/c42/c39/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c39/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c39/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b5.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    },
+    {
+      "logical_slot": "c40",
+      "physical_slot": "c40",
+      "trajectory_csv_relative_repo": "local-runs/c42/c40/trajectories.csv",
+      "result_relative_repo": "local-runs/c42/c40/result.json",
+      "effective_world_relative_repo": "local-runs/c42/c40/effective_world.sdf",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b5.json",
+      "source_frame": "Gazebo world",
+      "source_observer": "workspace/gz01/run_case.py::Observer.models lines293-324",
+      "window": [
+        20.0,
+        140.0
+      ],
+      "original_startup_failure_predecessor": null
+    }
+  ],
+  "reused_tools": [
+    "Desktop/通信方式对比图表汇总/make_summary.py::read_csv/load_old/path plot definition",
+    "workspace/gz01/metrics.py::load_reference",
+    "workspace/src/multi_robot_exploration/multi_robot_exploration/rl_world.py::ProjectedWorld"
+  ],
+  "scope": "Offline read-only evaluation/visualization only. No bag, native packet ledger, ROS/Gazebo/ns-3 execution, training, or policy truth input. Original 42 attempts/failures untouched."
+}

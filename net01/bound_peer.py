@@ -18,6 +18,7 @@ FROZEN_WORKSPACE = Path(__file__).resolve().parents[1] / "workspace"
 sys.path.insert(0, str(FROZEN_WORKSPACE / "gz01"))
 sys.path.insert(0, str(FROZEN_WORKSPACE / "src/multi_robot_exploration"))
 import peer_keepout as frozen
+from business_peer import BusinessPeer
 from execution_profile import load_profile
 from peer_mask_raster import broadcast_peer_mask
 import rclpy
@@ -116,9 +117,16 @@ def decode_bound(packet, robot, session_id):
     return meta, message
 
 
-class BoundPeer(frozen.PeerKeepout):
+class BoundPeer(BusinessPeer):
     def __init__(self, scene, directory, *, session_id, health_trace=None,execution_profile=None):
         self.execution_profile=load_profile(execution_profile)
+        self.source_freshness_applied=None
+        if self.execution_profile is not None and self.execution_profile.get('source_freshness') is not None:
+            from ros_delay_runtime import install_source_freshness
+            self.source_freshness_applied=install_source_freshness(self.execution_profile,'BoundPeer')
+        self.sim_business_receipt=(self.execution_profile or {}).get('peer_odom_receipt_clock')=='ros-sim-v1'
+        self.odom_receipt_sim_ns={}
+        self.valid_receipt_sim_ns={}
         self.peer_mask_raster=('original' if self.execution_profile is None
             else self.execution_profile.get('peer_mask_raster','original'))
         # One explicit implementation choice before constructing this process's
@@ -190,7 +198,9 @@ class BoundPeer(frozen.PeerKeepout):
             pending_undelimited_masks=len(self.binding.pending),gc_runtime=self.gc_runtime,
             execution_profile=None if self.execution_profile is None else self.execution_profile['id'],
             peer_mask_raster=self.peer_mask_raster,
-            peer_mask_raster_scope='Explicit process-local implementation; original frozen publication/source/safety rules retained'))+"\n")
+            peer_mask_raster_scope='Explicit process-local implementation; original frozen publication/source/safety rules retained',
+            **({'source_freshness_applied':self.source_freshness_applied}
+                if self.source_freshness_applied is not None else {})))+"\n")
 
 
 def main():

@@ -1,0 +1,3432 @@
+{
+  "status": "COMPLETE_40_CONDITIONAL_WINDOWS_42_ACTUAL_ATTEMPTS_ALL_SIMULATION_STOPPED",
+  "created_utc": "2026-11-13T13:12:24.836834+00:00",
+  "execution_authorized": true,
+  "authorized_gz01_execution": true,
+  "authorized_net01_execution": true,
+  "batch_execution_enabled": false,
+  "objective": "Fortyfullyfreshformalv3experiments,2maps×4conditions×5seedblocks, identicaldeclaredschedule. No olddiscovery/setup/GDBrow in formalmeans.",
+  "formal_target": 40,
+  "prior_register_relative_repo": "local-runs/communication40-v3-20261113/PRIOR_COHORTS_AND_DIAGNOSTICS.json",
+  "protocol": {
+    "version": "comparison40-v3",
+    "proposed_profile_id": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-comparison40-v3",
+    "proposed_profile_file": "net01/config/EXECUTION_PROFILE_COMPARISON40_V3_120SIM.json",
+    "startup_spawn_gate": {
+      "id": "all-spawn-exit0-factory-cycle-fence-v1",
+      "ready": "exact original tb1/tb2/tb3 spawn_entity action OnProcessExit, three unique actual PIDs and returncode0, then one same-world entity_info(tb3) query exit0 with genuine top-level Model.name=tb3",
+      "channel": "existing_owned_time_control_ack.sock_administrative_datagram",
+      "phase": "RUN only before first physical token, including bootstrap tokens; original startup180 bounds waiting",
+      "timing": "no token/no RPC deadline before ready; no synthetic native/clock; original first begin_step anchors deadline then absolute40wall-ms unchanged",
+      "stop": "original authority-exited STOP_COUPLED/FAULT_STOP_OBSERVE may step for cleanup without claiming startup admission",
+      "interpretation": "initialization/stepping separation only, not confirmed SIGSEGV repair; G0 paused-world factory feasibility requires actual startup validation",
+      "limitation": "Spawn process exit0 only certifies model existence. The subsequent World request reply establishes a factory-cycle fence, not completion of all asynchronous sensors or a confirmed SIGSEGV repair. Exact CLI-native request send/response timestamps are unmeasured; recorded process admission/start/exit times are brackets. Model pose/velocity never enter readiness, RL or business data.",
+      "factory_cycle_fence": "After three exit0, existing gz model -w effective_world.name -m tb3 -i requests entity_info synchronously on World.ProcessRequestMsgs. It brackets the completed factory Init/LoadPlugins cycle; CLI exit0 alone or Unable text cannot qualify. No fixed sleep/new ROS reader; original launch owns the query process."
+    },
+    "description": "Wait foractualthreeoriginalspawn ProcessExited PID/code0, then one actualGazebo entity_info factory-cycle fence withcorrectexit/top-levelModel.name reply beforefirstphysicaltoken. Keepv2actualdecisionentrybarrier. No changedPPO/radio/seed/2s/pacing/window.",
+    "cause_limit": "Initializationordering contract isexplicitnewprotocol; not proofSIGSEGVrootcauseorrepair. Requires newindependentG0pausedstartup probe actualPASS androotreview beforeformalbinding/START.",
+    "status": "ROOT_ACCEPTED_INITIALIZATION_FACTS_AND_METHODS_FINAL_LOCKED",
+    "attempt_entry_barrier": {
+      "id": "physical-boundary-attempt-enter-v1",
+      "channel": "existing_owned_time_control_ack.sock_administrative_datagram",
+      "release": "same-session/profile/current-slot/actual-C-clock ACK before original decision_callback; not callback completion",
+      "timeout": "original 2wall progress limit, no added budget; missing first ACK is also bounded",
+      "pacing": "absolute40wall-ms deadlines unchanged; no reanchor/no hold-time subtraction; original qualifiers retained",
+      "stop": "authority-exited STOP_COUPLED/FAULT_STOP_OBSERVE bypasses allocation barrier for actual cleanup"
+    },
+    "startup_contract": {
+      "id": "fixed-G20-attempt-G25-grid5-end140-barrier-v2",
+      "autonomy_epoch_ns": 20000000000,
+      "first_decision_ns": 25000000000,
+      "decision_period_ns": 5000000000,
+      "decision_permission_end_ns": 140000000000,
+      "timing_tolerance_ns": 10000000,
+      "readiness": "initialized gate received through original flow95; original readiness and no-motion safety only",
+      "first_slot": "unchanged original allocation ATTEMPT, including awaiting observations or WAIT; no NN/candidate content admission",
+      "late_slot": "record actual; timing failure; no backdate, catch-up or moving epoch",
+      "end": "new decision and original send_goal entry permission [25,140); actual timestamps preserved, previously admitted inflight/feedback/cancel/stop ownership unchanged; not DDS send/acceptance timestamp"
+    },
+    "G0_qualification": "Initializationadmission/firstRPCfactsaccepted only. OriginalGDBprobe preflightfalse/host1andSEGrootcauseunknown retained; no fullformalcasepassed yet."
+  },
+  "maps": {
+    "Corr6201": {
+      "source_scene_relative_repo": "inputs/scenes/regression-corridor-common-6201-dwb-v1.json",
+      "world_relative_repo": "inputs/worlds/eval-corridor-common-6201.sdf",
+      "world_sha256_inherited_not_rehashed": "01b0dfff13b09a6d98abc4dceb7803568af3764fa27296000423028dbf547f3b",
+      "reference_cells": 15558,
+      "reference_area_m2": 38.89500000000001,
+      "reference_bounds": [
+        -5.800000000000001,
+        -5.6000000000000005,
+        7.25,
+        5.300000000000001
+      ],
+      "start_xy_yaw": [
+        [
+          0.7249999999999996,
+          -0.1499999999999999,
+          0.0
+        ],
+        [
+          0.34999999999999964,
+          -0.7999999999999999,
+          0.0
+        ],
+        [
+          1.0999999999999996,
+          -0.7999999999999999,
+          0.0
+        ]
+      ],
+      "calibration": "Original per-scene spawn/merge/TF offsets from scene_launch; no outcome selection or recentering",
+      "qualification": "Previously exposed validated geometry/common start. Repair radius .25m / map resolution .05m compatible; latest repaired Rooms integration not yet prospectively run."
+    },
+    "Rooms6101": {
+      "source_scene_relative_repo": "inputs/scenes/regression-rooms-common-6101-dwb-v1.json",
+      "world_relative_repo": "inputs/worlds/eval-rooms-common-6101.sdf",
+      "world_sha256_inherited_not_rehashed": "fad70119bfec926ba397b37704a46286384ca31c5bafdf37b6050301b14e751d",
+      "reference_cells": 40076,
+      "reference_area_m2": 100.19000000000003,
+      "reference_bounds": [
+        -5.800000000000001,
+        -5.6000000000000005,
+        7.25,
+        5.300000000000001
+      ],
+      "start_xy_yaw": [
+        [
+          -3.4237836473654566,
+          -3.581773649437976,
+          0.0
+        ],
+        [
+          -3.7987836473654566,
+          -4.231773649437976,
+          0.0
+        ],
+        [
+          -3.0487836473654566,
+          -4.231773649437976,
+          0.0
+        ]
+      ],
+      "calibration": "Original per-scene spawn/merge/TF offsets from scene_launch; no outcome selection or recentering",
+      "qualification": "Previously exposed validated geometry/common start. Repair radius .25m / map resolution .05m compatible; latest repaired Rooms integration not yet prospectively run."
+    }
+  },
+  "conditions": {
+    "A0": {
+      "mode": "A",
+      "direct_reference": true,
+      "native_profile": "B",
+      "description": "Original ROS direct business; common native time/position control only"
+    },
+    "A1": {
+      "mode": "A",
+      "direct_reference": false,
+      "native_profile": "B",
+      "description": "Gateway business reference; common native time/position control"
+    },
+    "B": {
+      "mode": "B",
+      "direct_reference": false,
+      "native_profile": "B",
+      "description": "Better Wi-Fi: VhtMcs9,16dBm,log-distance exponent2"
+    },
+    "C": {
+      "mode": "C",
+      "direct_reference": false,
+      "native_profile": "C",
+      "description": "Locked compound poorer-capacity Wi-Fi: VhtMcs3/2dBm/exponent3, root-reviewed same-input no-motion qualification; not single-factor B-loss3 or task outcome guarantee."
+    }
+  },
+  "budget": {
+    "sim_budget": 120,
+    "startup_wall": 180,
+    "autonomous_wall": 720,
+    "outer_wall": 1000,
+    "cleanup_wall": 90,
+    "decision_limit": 130,
+    "host_absolute_wall_s": 1100,
+    "Hub_wall_s": 1120,
+    "T0_planned_G_sim": 20,
+    "planned_attempts_G_sim": [
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100,
+      105,
+      110,
+      115,
+      120,
+      125,
+      130,
+      135
+    ],
+    "timing_tolerance_sim_s": 0.01
+  },
+  "budget_basis": {
+    "common_sim_s": 120,
+    "source_report": "evidence/followup-10/FOLLOWUP_REPORT.md",
+    "historical_RL_T95_sim_s": {
+      "Corr6201": 61.8,
+      "Rooms6101": 90.2
+    },
+    "historical_Rooms_traditional_T95_sim_s": 101.3,
+    "interpretation": "Historical different-baseline single cases support a common finite120sim window; 29.8sim beyond prior Rooms RL. Not a guarantee for new repaired behavior/poor Wi-Fi. No pilot/outcome-based per-arm extension; unreached retained null. Latest repair Corr C43.17sim is separate prior evidence."
+  },
+  "seed_design": {
+    "blocks": 5,
+    "physics_seed_by_block": [
+      2026111301,
+      2026111302,
+      2026111303,
+      2026111304,
+      2026111305
+    ],
+    "native_seed": 2026110901,
+    "native_run_by_block": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "within_block": "Same physics seed and native seed/run across four conditions; A0/A1 business-network metrics N/A; native common-control seed/run still explicit",
+    "between_maps": "Reuse declared block seeds across maps as paired blocks, not ten independent RF runs",
+    "independence_limits": "Five distinct declared ns-3 random substreams and physics seeds; fresh process each slot. Deterministic seeds do not imply independent outcomes or five independent draws of every software scheduler. Old fixedrun1 samples excluded.",
+    "scene_variants": "Reuse exact10 prior task-owned physicsseed-only scenes andexistingidentity map unchanged, no newmaps or hashes."
+  },
+  "order_design": {
+    "first_four_Corr_orders": [
+      [
+        "A0",
+        "A1",
+        "C",
+        "B"
+      ],
+      [
+        "A1",
+        "B",
+        "A0",
+        "C"
+      ],
+      [
+        "B",
+        "C",
+        "A1",
+        "A0"
+      ],
+      [
+        "C",
+        "A0",
+        "B",
+        "A1"
+      ]
+    ],
+    "Rooms_row_offset": 2,
+    "fifth_block": "Repeat each map first row; with five repeats/four conditions exact position balance impossible. Each condition occupies each position once in first four and twice in one position in fifth.",
+    "map_order": "Odd block Corr first, even block Rooms first; predeclared, no result-driven reordering",
+    "new_slots": 40,
+    "each_slot_start_limit": 1,
+    "no_automatic_replacement_or_retry": true,
+    "engineering_failure": "Preserve evidence, stop queue for root review; never silently replace slot. Task T95-unreached with valid engineering run alone does not block remaining declared slots.",
+    "source": "Cloneall40olddeclaredordinals map/condition/physicsseed/native seed/run/order/window, newc01..c40identityonly; no outcome-basedreordering."
+  },
+  "stop": "Original budget/failure legalstop: actualhalt/ownedcancel/zero/PAUSE/closure. NoonlineT95stop/liveevaluation/newSTOP/frozenmaincopy. Post-exitT95attainmentcountscoveragecompletion,notnaturaltermination. Extendedwindowisnotitselfevidenceoffixeffect.",
+  "evaluation": {
+    "primary": "Quality-valid95% correctfree coverage at actual central application map callback relative fixedG20: A0 central application inR92, other pathsC91. Per-map independent fixed reference; originalmapheader notgeneration/timestamp substitute.",
+    "T95_only": true,
+    "no_T98_or_AUC": true,
+    "truth_only_offline": true,
+    "unreached_T95": null,
+    "per_map_condition": "Five declared rows, reached/5 task success rate, runtime/quality pass/missing separately, end coverage mean±sampleSD when measured n reported",
+    "T95_summary": "If5/5reached: mean±sampleSD acrossfive. Otherwise fullfiveT95mean=N/A; show reachedn/5 and explicitly labeled reached-only mean(n), not five-slot expected completion time. No120imputation.",
+    "communication_measurement_status": "ROOT_REVIEWED_TRACE_COMPLETION_AUDIT_V2_FINAL_BOUND",
+    "communication_candidate": "Common existing R Observer map/odom/tf/tf_static originaltake sourcepublicationcohort -> actualHQ take return wall-ms using actualDDS source_timestamp. Unknown/ambiguous metadata remain in denominator with lower/upper bounds; not all publisher messages/loss. A0 wire metrics N/A; A1/B/C capture->destpublish separate, B/C actualnative service sim-ms separate. Never compare recentGatewaypublisher timestamp to A0original or convertwall byRTF.",
+    "additional_diagnostics": "Local/R T95 diagnostics; qualityvalid/invalid counts, raw≥95 invalid if any; callback.begin→use.begin includes callback processing, not generationAoI. No source-to-use claim without measured source boundary.",
+    "aggregation": "Per-case delivered-message delay and observed-cohort delivery/rate bounds first, then equal-weight5case map×condition mean/sampleSD; missing metrics stayN/A with available n. Reached-onlyT95 n separately labeled. Actual validpartial windows remain explicitly labeled, not full120 comparisons.",
+    "comparison_measurement": "source-take-v1",
+    "delivery_entry": "tools/analyze_comparison_delivery.py run --case <case> --path <A0|A1|B|C> --start-s 20 --budget-s 120 --output <newslotoutput>; --hub-ingress only B/C real ingressfile",
+    "latency_censoring": "Delay only for delivered matched messages, alongside conditionaldelivery rate/bounds, undelivered/unknown/ambiguous and actual observation duration. Lower mean after losing slow messages is not communication improvement. No autonomouswindow => taskperiodlatency N/A; never substitute warmup.",
+    "goal_delivery": "ActualoriginalGoal UUID request -> budget-window realaccepted ratio separately, A0 measurementthroughoriginalrecord/realAction path; missing not fakeaccepted.",
+    "partial_runs": "Preserve actual measured T95 attained before protection even when later runFAIL. For valid actual partial autonomous windows, keep source conditionaldelivery, latency/status/n/by-topic and observed duration as separately labeled partial diagnostics/conditional summaries. Common full120run communication means remainN/A for partial slots. Never silently exclude partial protection outcomes or shrink declared5slot denominator. No autonomy=>T95/latency N/A, not warmup substitution.",
+    "source_samples": "Each row retains sourcecohort/wiredenominator/statuscounts, actual matched latency n and native/FIFO n, per-robot/topic sourcecohort andwalllatency details. Source unknown/ambiguous bounds retained; not packetloss.",
+    "source_diagnostic_erratum": "Prior a04 lackedcompleteHQtrace; originalv1zeroobserved count isnot verified0delivery. Nevercopy that intoformal40means.",
+    "analysis_revision": "trace-completion-audit-v2",
+    "metric": "Quality-validT95 at actualcentralapplicationcallback(A0R92,othersC91), original120simwindow, sourcepublication cohort delivery separate. No generationAoI.",
+    "formal_scope": "Onlynewv3c01..c40, eachactualslot kept; allprior5declaredGazebo+setup+2GDBdiagnostics separate, no pooling.",
+    "block_RTF_formula": "(maxRTF-minRTF)/((maxRTF+minRTF)/2)<=0.01; missing=>N/A, actualpartialwindow descriptivelyretained, full120qualification separate."
+  },
+  "qualification": {
+    "run_stop_network_copy_exit": "Separateactualevidence,failuresretained",
+    "pace40": true,
+    "RTF_band": [
+      0.245,
+      0.255
+    ],
+    "autonomous_token_late_p95_wall_ms_max": 20,
+    "token_late_above40wall_ms_fraction_max": 0.01,
+    "quality": "Original fixed per-map reference/quality gates unchanged; valid/invalid and missing separately",
+    "unreached": "null; reached-only mean explicitlyn, fullfive meanN/A ifcensored",
+    "source_information": "Onlyactualbusinessobservations,truthonlypost-exitevaluation; noPolicy/robotidealinput",
+    "block_RTF_relative_difference_max": 0.01,
+    "all_attempts": "23 planned slots atG25..135, no candidate-content/WAIT admission selection",
+    "decision_boundary_barrier": "Full120window:23exactG25..135 gateACK_sent uniquelymatched coordinatorreleased/directorpendingactualphysicalACK; no adminphysical/native/clock/nextwalldeadline mutation. Partial/noautonomy actualscope only, independentoriginalpacing/2s/stop/copy gates retained.",
+    "same_map_block_four_arm_RTF": "(maxRTF-minRTF)/((maxRTF+minRTF)/2)<=0.01. Any actualRTFmissing=>span/passN/A; partialdurationretained, all_four_full_120_qualified=false; no changedindividualpacing/clocklimits."
+  },
+  "scope": "C is locked compound MCS3/2dBm/exponent3 versus B MCS9/16dBm/exponent2;4.767x prior service qualification applies only fixed8m no-motion402messagecohort. Gazebo walls do not automatically introduce RFwallshadowing: map effects enter this network model mainly through motion positions/business load. No calibrated real-indoorWiFi or uniqueRFcausality claim.",
+  "native": {
+    "selected_artifact": {
+      "selected_native_config_relative_repo": "local-runs/communication40-20261113/native-config.json",
+      "selected_native_build_identity_relative_repo": "local-runs/communication40-20261113/native-build-identity.json",
+      "selected_ELF_SHA256": "0d882bc9ff79f7e9326dba7d7e5c16216ec0db12fed1153131aec2645d452b81",
+      "selected_ELF_relative_repo": "local-runs/comparison40-20261113/native-build/net01-payload-tcp",
+      "source_scope": "Same actual0d882 seed/run-capable ELF/build-source from prior independentnativebuild, unchanged by Pythonv2boundarybarrier. Originald53 predecessor separatelypreserved; nativeCPU/asyncfalse and13DSO identities inherited without rehash.",
+      "predecessor_d53_identity": "local-runs/causal-fix-20261113/transport/build-identity.json",
+      "native_cpu_profile": false,
+      "native_async_ledger": false,
+      "DSO_scope": "Original13DSO names/paths and prior identity inherited, no DSO hash/rebuild. Actualnative exe/maps/parent and effective seed/run/radio settings checked per case."
+    },
+    "reuse_without_hash_rebuild": true
+  },
+  "scene_identity_inherited": {
+    "local-runs/communication40-20261113/scenes/corr6201-b1.json": "74b9d5ab9194e2160fba567e107a077d9f7e99a9f2fb7d0312f89c5182de5d4d",
+    "local-runs/communication40-20261113/scenes/corr6201-b2.json": "077ac6eebd4d682497d60b2ba5e22ac7e872b43552470a51de71e55438d8389c",
+    "local-runs/communication40-20261113/scenes/corr6201-b3.json": "febcb5f7edfa81cda770f159a95294c6aed7a8a26187685242f2596eb942fa9b",
+    "local-runs/communication40-20261113/scenes/corr6201-b4.json": "9bd3aaf85ef64844cdd24659c874e2401e86f107862936ce07453a5462d98afc",
+    "local-runs/communication40-20261113/scenes/corr6201-b5.json": "8a8f59d2c046c16f16e8e29f627887fb4a154f96ad421d268d7ff0ccab5a4b8d",
+    "local-runs/communication40-20261113/scenes/rooms6101-b1.json": "a098e0f330fca671123380bd794ca028eeb7c54aac8100efdb8d5cb850436d35",
+    "local-runs/communication40-20261113/scenes/rooms6101-b2.json": "d59e9663a385d5c8d3ee459cc003d50bfa2736475fa671c47e97a189891fa556",
+    "local-runs/communication40-20261113/scenes/rooms6101-b3.json": "de5db55a3d11ac9fac0b9fe793083ebc4e53850e4e5094185b62334d8054d2f1",
+    "local-runs/communication40-20261113/scenes/rooms6101-b4.json": "aa855642dc107cf0cb623797bc01d08e3947c049c0a7fa0229cb0e0c1dbe8c01",
+    "local-runs/communication40-20261113/scenes/rooms6101-b5.json": "66424c8867e9cd2ad62e03c3d38f3826f6b1cec24f742b3dfa7e69e06edd2d92"
+  },
+  "source_binding_status": "FINAL77_RUNTIME_8_METHOD_IDENTITIES_LOCKED",
+  "driver": {
+    "status": "FINAL_NEW_V3_DRIVER_AND_HOOKS_ROOT_REVIEWED_LOCKED",
+    "future_path": "local-runs/communication40-v3-20261113/run_batch.py",
+    "future_post_case": "local-runs/communication40-v3-20261113/post_case.py",
+    "canonical_journal": "local-runs/communication40-v3-20261113/execution.jsonl",
+    "canonical_lock": "local-runs/communication40-v3-20261113/execution.lock",
+    "old_v1_v2_methods_untouched": true,
+    "planned_minimum": "After source+G0rootreview only, copyselectedminimalbatch/hooks to newroot; exactc42taskRAMprefix. Addonlyactualspawn/fence/barrierqualification using finalruntimefields. No newframework or loosenedfailurerule.",
+    "actual_changes": "Driveronlyc42taskRAMprefix. Poststartupspawn/factory/admin/firstACKproof plusoriginalbarrier/clock/pacing/2s/stop/copy; formalGDBfalse; rowblock/actualRTF. Sharedsummaryrootlocked symmetricspan/missing/partialscope."
+  },
+  "paths": {
+    "raw_root": "local-runs/c42",
+    "socket_parent": "local-runs/c42/i",
+    "socket_parent_exists": true,
+    "socket_parent_writable": true,
+    "all40case_socket_RAM_leafs_unused": "Historical pre-START check; c01..c04 consumed. See READY_CHECK_METHOD_AMENDMENT01 for remaining36.",
+    "max_socket_bytes": 72,
+    "max_ack_bytes": 87,
+    "session_range": [
+      2026111701,
+      2026111740
+    ],
+    "old_task_READY_metadata_files_checked": 95,
+    "actual_prior_session_collision": false,
+    "independent_probe_reserved_session": 2026111691
+  },
+  "resources": {
+    "native_evidence_budget_bytes": 8589934592,
+    "reserve_bytes": 2147483648,
+    "required_tmpfs_bytes": 10737418240,
+    "required_MemAvailable_bytes": 25769803776,
+    "tmpfs_available_snapshot_bytes": 16813572096,
+    "MemAvailable_snapshot_bytes": 64335015936,
+    "disk_available_snapshot_bytes": 1462547632128,
+    "full40_raw_estimate_bytes": 301571193920,
+    "estimate_not_upper_bound": true,
+    "only_exacttask_RAM_after_original_exit_copy_proof": true,
+    "old_a01_b01_d01_RAM_retained": true
+  },
+  "old_queues": {
+    "v1_batch_enabled": false,
+    "v2_batch_enabled": false,
+    "old_readies_raw_journals_unchanged": true
+  },
+  "attempt_accounting": {
+    "observed_host_dispatches_before_v3": 7,
+    "observed_prior_exploration_declared_Gazebo_cases": 5,
+    "observed_independent_GDB_diagnostic_Gazebo_cases": 1,
+    "observed_setup_no_Gazebo": 1,
+    "new_formal_target": 40,
+    "prospective_host_total_if_one_G0_probe_and_all40_formal_start": 48,
+    "prospective_Gazebo_total_including_diagnostics_if_all_start": 47,
+    "warning": "Prospectiveonly; finalactualcount follows realSTART/owner/inferior evidence. Noautomaticretry/replacement or furtherprobe authorization.",
+    "observed_host_dispatches_before_formal_v3": 8,
+    "observed_prior_Gazebo_processes_including_diagnostics": 7,
+    "independent_v3_G0_probe_actual_STARTs": 1,
+    "AMENDMENT03": {
+      "primary_comparison_logical_rows": 40,
+      "additional_actual_startup_failures": 1,
+      "physical_host_START_upper_bound": 41,
+      "Corr_C_attempt_upper_bound": 6,
+      "Corr_C_comparison_slots": 5,
+      "scope": "Post-hoc one-successor conditional autonomous-window comparison; original startup reliability reported against actual attempts, no missing-at-random claim, no second automatic successor."
+    },
+    "AMENDMENT04": {
+      "primary_conditional_comparison_rows": 40,
+      "additional_actual_startup_failures": 2,
+      "physical_START_upper_bound": 42,
+      "Corr_C_attempt_upper_bound": 7,
+      "Corr_C_comparison_slots": 5,
+      "named_successors_only": [
+        "c16s",
+        "c29s"
+      ],
+      "scope": "Actual counts from canonical journal, not prefilled; primary comparison conditional on autonomy, all-start full/clean reliability separate. No automatic successor."
+    }
+  },
+  "remaining": [
+    "Rootformalv3overallSTART; batch_execution_enabledfalse untilrootmessage.",
+    "Eachcase originalunused/resource/native/source/2s/clock/pacing/stop/copyqualifiers, full23barrier andnewstartupfacts required; failuresretained/noautomaticreplacement."
+  ],
+  "slots": [
+    {
+      "slot": 1,
+      "map": "Corr6201",
+      "block": 1,
+      "within_map_block_position": 1,
+      "condition": "A0",
+      "physics_seed": 2026111301,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 1,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b1.json",
+      "id": "c01",
+      "logical_slot": "c01",
+      "physical_case_id": "c01",
+      "schedule_origin_ordinal": 1,
+      "session_id": 2026111701,
+      "case_relative_repo": "local-runs/c42/c01",
+      "network_relative_repo": "local-runs/c42/c01.network",
+      "socket_relative_repo": "local-runs/c42/i/c01.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c01.sock",
+      "native_evidence_ram": "/dev/shm/c42-c01",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c01.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c01"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c01-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c01-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c01"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c01-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c01/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c01"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c01-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c01/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c01/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c01/RAM-release.json"
+      },
+      "summary_row_result_relative_repo": "local-runs/communication40-v3-20261113/post-exit/c01/row.amended01.json"
+    },
+    {
+      "slot": 2,
+      "map": "Corr6201",
+      "block": 1,
+      "within_map_block_position": 2,
+      "condition": "A1",
+      "physics_seed": 2026111301,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 1,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b1.json",
+      "id": "c02",
+      "logical_slot": "c02",
+      "physical_case_id": "c02",
+      "schedule_origin_ordinal": 2,
+      "session_id": 2026111702,
+      "case_relative_repo": "local-runs/c42/c02",
+      "network_relative_repo": "local-runs/c42/c02.network",
+      "socket_relative_repo": "local-runs/c42/i/c02.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c02.sock",
+      "native_evidence_ram": "/dev/shm/c42-c02",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c02.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c02"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c02-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c02-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c02"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c02-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c02/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c02"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c02-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c02/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c02/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c02/RAM-release.json"
+      },
+      "summary_row_result_relative_repo": "local-runs/communication40-v3-20261113/post-exit/c02/row.amended01.json"
+    },
+    {
+      "slot": 3,
+      "map": "Corr6201",
+      "block": 1,
+      "within_map_block_position": 3,
+      "condition": "C",
+      "physics_seed": 2026111301,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 1,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 1
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b1.json",
+      "id": "c03",
+      "logical_slot": "c03",
+      "physical_case_id": "c03",
+      "schedule_origin_ordinal": 3,
+      "session_id": 2026111703,
+      "case_relative_repo": "local-runs/c42/c03",
+      "network_relative_repo": "local-runs/c42/c03.network",
+      "socket_relative_repo": "local-runs/c42/i/c03.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c03.sock",
+      "native_evidence_ram": "/dev/shm/c42-c03",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c03.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c03"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c03-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c03-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c03"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c03-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c03/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c03"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c03-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c03/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c03/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c03/RAM-release.json"
+      },
+      "summary_row_result_relative_repo": "local-runs/communication40-v3-20261113/post-exit/c03/row.amended01.json"
+    },
+    {
+      "slot": 4,
+      "map": "Corr6201",
+      "block": 1,
+      "within_map_block_position": 4,
+      "condition": "B",
+      "physics_seed": 2026111301,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 1,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 1
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b1.json",
+      "id": "c04",
+      "logical_slot": "c04",
+      "physical_case_id": "c04",
+      "schedule_origin_ordinal": 4,
+      "session_id": 2026111704,
+      "case_relative_repo": "local-runs/c42/c04",
+      "network_relative_repo": "local-runs/c42/c04.network",
+      "socket_relative_repo": "local-runs/c42/i/c04.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c04.sock",
+      "native_evidence_ram": "/dev/shm/c42-c04",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c04.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c04"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c04-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c04-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c04"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c04-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c04/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c04"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c04-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c04/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c04/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c04/RAM-release.json"
+      },
+      "summary_row_result_relative_repo": "local-runs/communication40-v3-20261113/post-exit/c04/row.amended01.json"
+    },
+    {
+      "slot": 5,
+      "map": "Rooms6101",
+      "block": 1,
+      "within_map_block_position": 1,
+      "condition": "B",
+      "physics_seed": 2026111301,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 1,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 1
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b1.json",
+      "id": "c05",
+      "logical_slot": "c05",
+      "physical_case_id": "c05",
+      "schedule_origin_ordinal": 5,
+      "session_id": 2026111705,
+      "case_relative_repo": "local-runs/c42/c05",
+      "network_relative_repo": "local-runs/c42/c05.network",
+      "socket_relative_repo": "local-runs/c42/i/c05.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c05.sock",
+      "native_evidence_ram": "/dev/shm/c42-c05",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c05.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c05"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c05-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c05-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c05"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c05-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c05/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c05"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c05-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c05/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c05/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c05/RAM-release.json"
+      }
+    },
+    {
+      "slot": 6,
+      "map": "Rooms6101",
+      "block": 1,
+      "within_map_block_position": 2,
+      "condition": "C",
+      "physics_seed": 2026111301,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 1,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 1
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b1.json",
+      "id": "c06",
+      "logical_slot": "c06",
+      "physical_case_id": "c06",
+      "schedule_origin_ordinal": 6,
+      "session_id": 2026111706,
+      "case_relative_repo": "local-runs/c42/c06",
+      "network_relative_repo": "local-runs/c42/c06.network",
+      "socket_relative_repo": "local-runs/c42/i/c06.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c06.sock",
+      "native_evidence_ram": "/dev/shm/c42-c06",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c06.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c06"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c06-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c06-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c06"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c06-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c06/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c06"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c06-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c06/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c06/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c06/RAM-release.json"
+      }
+    },
+    {
+      "slot": 7,
+      "map": "Rooms6101",
+      "block": 1,
+      "within_map_block_position": 3,
+      "condition": "A1",
+      "physics_seed": 2026111301,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 1,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b1.json",
+      "id": "c07",
+      "logical_slot": "c07",
+      "physical_case_id": "c07",
+      "schedule_origin_ordinal": 7,
+      "session_id": 2026111707,
+      "case_relative_repo": "local-runs/c42/c07",
+      "network_relative_repo": "local-runs/c42/c07.network",
+      "socket_relative_repo": "local-runs/c42/i/c07.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c07.sock",
+      "native_evidence_ram": "/dev/shm/c42-c07",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c07.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c07"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c07-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c07-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c07"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c07-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c07/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c07"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c07-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c07/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c07/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c07/RAM-release.json"
+      }
+    },
+    {
+      "slot": 8,
+      "map": "Rooms6101",
+      "block": 1,
+      "within_map_block_position": 4,
+      "condition": "A0",
+      "physics_seed": 2026111301,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 1,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b1.json",
+      "id": "c08",
+      "logical_slot": "c08",
+      "physical_case_id": "c08",
+      "schedule_origin_ordinal": 8,
+      "session_id": 2026111708,
+      "case_relative_repo": "local-runs/c42/c08",
+      "network_relative_repo": "local-runs/c42/c08.network",
+      "socket_relative_repo": "local-runs/c42/i/c08.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c08.sock",
+      "native_evidence_ram": "/dev/shm/c42-c08",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c08.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c08"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c08-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c08-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c08"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c08-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c08/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c08"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c08-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c08/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c08/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c08/RAM-release.json"
+      }
+    },
+    {
+      "slot": 9,
+      "map": "Rooms6101",
+      "block": 2,
+      "within_map_block_position": 1,
+      "condition": "C",
+      "physics_seed": 2026111302,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 2,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 2
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b2.json",
+      "id": "c09",
+      "logical_slot": "c09",
+      "physical_case_id": "c09",
+      "schedule_origin_ordinal": 9,
+      "session_id": 2026111709,
+      "case_relative_repo": "local-runs/c42/c09",
+      "network_relative_repo": "local-runs/c42/c09.network",
+      "socket_relative_repo": "local-runs/c42/i/c09.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c09.sock",
+      "native_evidence_ram": "/dev/shm/c42-c09",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c09.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c09"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c09-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c09-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c09"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c09-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c09/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c09"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c09-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c09/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c09/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c09/RAM-release.json"
+      }
+    },
+    {
+      "slot": 10,
+      "map": "Rooms6101",
+      "block": 2,
+      "within_map_block_position": 2,
+      "condition": "A0",
+      "physics_seed": 2026111302,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 2,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b2.json",
+      "id": "c10",
+      "logical_slot": "c10",
+      "physical_case_id": "c10",
+      "schedule_origin_ordinal": 10,
+      "session_id": 2026111710,
+      "case_relative_repo": "local-runs/c42/c10",
+      "network_relative_repo": "local-runs/c42/c10.network",
+      "socket_relative_repo": "local-runs/c42/i/c10.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c10.sock",
+      "native_evidence_ram": "/dev/shm/c42-c10",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c10.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c10"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c10-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c10-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c10"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c10-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c10/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c10"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c10-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c10/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c10/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c10/RAM-release.json"
+      }
+    },
+    {
+      "slot": 11,
+      "map": "Rooms6101",
+      "block": 2,
+      "within_map_block_position": 3,
+      "condition": "B",
+      "physics_seed": 2026111302,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 2,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 2
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b2.json",
+      "id": "c11",
+      "logical_slot": "c11",
+      "physical_case_id": "c11",
+      "schedule_origin_ordinal": 11,
+      "session_id": 2026111711,
+      "case_relative_repo": "local-runs/c42/c11",
+      "network_relative_repo": "local-runs/c42/c11.network",
+      "socket_relative_repo": "local-runs/c42/i/c11.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c11.sock",
+      "native_evidence_ram": "/dev/shm/c42-c11",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c11.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c11"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c11-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c11-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c11"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c11-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c11/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c11"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c11-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c11/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c11/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c11/RAM-release.json"
+      }
+    },
+    {
+      "slot": 12,
+      "map": "Rooms6101",
+      "block": 2,
+      "within_map_block_position": 4,
+      "condition": "A1",
+      "physics_seed": 2026111302,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 2,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b2.json",
+      "id": "c12",
+      "logical_slot": "c12",
+      "physical_case_id": "c12",
+      "schedule_origin_ordinal": 12,
+      "session_id": 2026111712,
+      "case_relative_repo": "local-runs/c42/c12",
+      "network_relative_repo": "local-runs/c42/c12.network",
+      "socket_relative_repo": "local-runs/c42/i/c12.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c12.sock",
+      "native_evidence_ram": "/dev/shm/c42-c12",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c12.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c12"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c12-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c12-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c12"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c12-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c12/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c12"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c12-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c12/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c12/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c12/RAM-release.json"
+      }
+    },
+    {
+      "slot": 13,
+      "map": "Corr6201",
+      "block": 2,
+      "within_map_block_position": 1,
+      "condition": "A1",
+      "physics_seed": 2026111302,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 2,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b2.json",
+      "id": "c13",
+      "logical_slot": "c13",
+      "physical_case_id": "c13",
+      "schedule_origin_ordinal": 13,
+      "session_id": 2026111713,
+      "case_relative_repo": "local-runs/c42/c13",
+      "network_relative_repo": "local-runs/c42/c13.network",
+      "socket_relative_repo": "local-runs/c42/i/c13.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c13.sock",
+      "native_evidence_ram": "/dev/shm/c42-c13",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c13.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c13"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c13-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c13-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c13"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c13-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c13/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c13"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c13-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c13/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c13/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c13/RAM-release.json"
+      }
+    },
+    {
+      "slot": 14,
+      "map": "Corr6201",
+      "block": 2,
+      "within_map_block_position": 2,
+      "condition": "B",
+      "physics_seed": 2026111302,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 2,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 2
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b2.json",
+      "id": "c14",
+      "logical_slot": "c14",
+      "physical_case_id": "c14",
+      "schedule_origin_ordinal": 14,
+      "session_id": 2026111714,
+      "case_relative_repo": "local-runs/c42/c14",
+      "network_relative_repo": "local-runs/c42/c14.network",
+      "socket_relative_repo": "local-runs/c42/i/c14.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c14.sock",
+      "native_evidence_ram": "/dev/shm/c42-c14",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c14.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c14"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c14-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c14-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c14"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c14-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c14/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c14"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c14-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c14/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c14/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c14/RAM-release.json"
+      }
+    },
+    {
+      "slot": 15,
+      "map": "Corr6201",
+      "block": 2,
+      "within_map_block_position": 3,
+      "condition": "A0",
+      "physics_seed": 2026111302,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 2,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b2.json",
+      "id": "c15",
+      "logical_slot": "c15",
+      "physical_case_id": "c15",
+      "schedule_origin_ordinal": 15,
+      "session_id": 2026111715,
+      "case_relative_repo": "local-runs/c42/c15",
+      "network_relative_repo": "local-runs/c42/c15.network",
+      "socket_relative_repo": "local-runs/c42/i/c15.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c15.sock",
+      "native_evidence_ram": "/dev/shm/c42-c15",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c15.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c15"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c15-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c15-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c15"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c15-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c15/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c15"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c15-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c15/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c15/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c15/RAM-release.json"
+      }
+    },
+    {
+      "slot": 16,
+      "map": "Corr6201",
+      "block": 2,
+      "within_map_block_position": 4,
+      "condition": "C",
+      "physics_seed": 2026111302,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 2,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 2
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b2.json",
+      "id": "c16s",
+      "logical_slot": "c16",
+      "physical_case_id": "c16s",
+      "schedule_origin_ordinal": 16,
+      "session_id": 2026111741,
+      "case_relative_repo": "local-runs/c42/c16s",
+      "network_relative_repo": "local-runs/c42/c16s.network",
+      "socket_relative_repo": "local-runs/c42/i/c16s.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c16s.sock",
+      "native_evidence_ram": "/dev/shm/c42-c16s",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c16s.ready.json",
+      "socket_host_utf8_bytes": 73,
+      "ack_host_utf8_bytes": 88,
+      "batch_hooks": {
+        "status": "ROOT_PROTOCOL_REVIEWED_FRESH_SUCCESSOR_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c16s"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c16s-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c16s-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c16s"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c16s-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c16s/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c16s"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c16s-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c16s/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c16s/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c16s/RAM-release.json"
+      },
+      "startup_failure_predecessor": "c16",
+      "amendment_relative_repo": "local-runs/communication40-v3-20261113/STARTUP_REPLACEMENT_AMENDMENT03.json"
+    },
+    {
+      "slot": 17,
+      "map": "Corr6201",
+      "block": 3,
+      "within_map_block_position": 1,
+      "condition": "B",
+      "physics_seed": 2026111303,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 3,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 3
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b3.json",
+      "id": "c17",
+      "logical_slot": "c17",
+      "physical_case_id": "c17",
+      "schedule_origin_ordinal": 17,
+      "session_id": 2026111717,
+      "case_relative_repo": "local-runs/c42/c17",
+      "network_relative_repo": "local-runs/c42/c17.network",
+      "socket_relative_repo": "local-runs/c42/i/c17.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c17.sock",
+      "native_evidence_ram": "/dev/shm/c42-c17",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c17.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c17"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c17-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c17-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c17"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c17-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c17/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c17"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c17-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c17/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c17/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c17/RAM-release.json"
+      }
+    },
+    {
+      "slot": 18,
+      "map": "Corr6201",
+      "block": 3,
+      "within_map_block_position": 2,
+      "condition": "C",
+      "physics_seed": 2026111303,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 3,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 3
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b3.json",
+      "id": "c18",
+      "logical_slot": "c18",
+      "physical_case_id": "c18",
+      "schedule_origin_ordinal": 18,
+      "session_id": 2026111718,
+      "case_relative_repo": "local-runs/c42/c18",
+      "network_relative_repo": "local-runs/c42/c18.network",
+      "socket_relative_repo": "local-runs/c42/i/c18.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c18.sock",
+      "native_evidence_ram": "/dev/shm/c42-c18",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c18.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c18"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c18-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c18-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c18"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c18-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c18/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c18"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c18-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c18/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c18/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c18/RAM-release.json"
+      }
+    },
+    {
+      "slot": 19,
+      "map": "Corr6201",
+      "block": 3,
+      "within_map_block_position": 3,
+      "condition": "A1",
+      "physics_seed": 2026111303,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 3,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b3.json",
+      "id": "c19",
+      "logical_slot": "c19",
+      "physical_case_id": "c19",
+      "schedule_origin_ordinal": 19,
+      "session_id": 2026111719,
+      "case_relative_repo": "local-runs/c42/c19",
+      "network_relative_repo": "local-runs/c42/c19.network",
+      "socket_relative_repo": "local-runs/c42/i/c19.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c19.sock",
+      "native_evidence_ram": "/dev/shm/c42-c19",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c19.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c19"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c19-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c19-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c19"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c19-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c19/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c19"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c19-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c19/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c19/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c19/RAM-release.json"
+      }
+    },
+    {
+      "slot": 20,
+      "map": "Corr6201",
+      "block": 3,
+      "within_map_block_position": 4,
+      "condition": "A0",
+      "physics_seed": 2026111303,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 3,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b3.json",
+      "id": "c20",
+      "logical_slot": "c20",
+      "physical_case_id": "c20",
+      "schedule_origin_ordinal": 20,
+      "session_id": 2026111720,
+      "case_relative_repo": "local-runs/c42/c20",
+      "network_relative_repo": "local-runs/c42/c20.network",
+      "socket_relative_repo": "local-runs/c42/i/c20.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c20.sock",
+      "native_evidence_ram": "/dev/shm/c42-c20",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c20.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c20"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c20-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c20-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c20"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c20-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c20/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c20"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c20-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c20/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c20/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c20/RAM-release.json"
+      }
+    },
+    {
+      "slot": 21,
+      "map": "Rooms6101",
+      "block": 3,
+      "within_map_block_position": 1,
+      "condition": "A0",
+      "physics_seed": 2026111303,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 3,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b3.json",
+      "id": "c21",
+      "logical_slot": "c21",
+      "physical_case_id": "c21",
+      "schedule_origin_ordinal": 21,
+      "session_id": 2026111721,
+      "case_relative_repo": "local-runs/c42/c21",
+      "network_relative_repo": "local-runs/c42/c21.network",
+      "socket_relative_repo": "local-runs/c42/i/c21.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c21.sock",
+      "native_evidence_ram": "/dev/shm/c42-c21",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c21.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c21"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c21-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c21-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c21"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c21-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c21/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c21"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c21-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c21/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c21/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c21/RAM-release.json"
+      }
+    },
+    {
+      "slot": 22,
+      "map": "Rooms6101",
+      "block": 3,
+      "within_map_block_position": 2,
+      "condition": "A1",
+      "physics_seed": 2026111303,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 3,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b3.json",
+      "id": "c22",
+      "logical_slot": "c22",
+      "physical_case_id": "c22",
+      "schedule_origin_ordinal": 22,
+      "session_id": 2026111722,
+      "case_relative_repo": "local-runs/c42/c22",
+      "network_relative_repo": "local-runs/c42/c22.network",
+      "socket_relative_repo": "local-runs/c42/i/c22.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c22.sock",
+      "native_evidence_ram": "/dev/shm/c42-c22",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c22.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c22"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c22-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c22-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c22"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c22-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c22/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c22"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c22-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c22/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c22/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c22/RAM-release.json"
+      }
+    },
+    {
+      "slot": 23,
+      "map": "Rooms6101",
+      "block": 3,
+      "within_map_block_position": 3,
+      "condition": "C",
+      "physics_seed": 2026111303,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 3,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 3
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b3.json",
+      "id": "c23",
+      "logical_slot": "c23",
+      "physical_case_id": "c23",
+      "schedule_origin_ordinal": 23,
+      "session_id": 2026111723,
+      "case_relative_repo": "local-runs/c42/c23",
+      "network_relative_repo": "local-runs/c42/c23.network",
+      "socket_relative_repo": "local-runs/c42/i/c23.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c23.sock",
+      "native_evidence_ram": "/dev/shm/c42-c23",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c23.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c23"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c23-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c23-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c23"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c23-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c23/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c23"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c23-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c23/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c23/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c23/RAM-release.json"
+      }
+    },
+    {
+      "slot": 24,
+      "map": "Rooms6101",
+      "block": 3,
+      "within_map_block_position": 4,
+      "condition": "B",
+      "physics_seed": 2026111303,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 3,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 3
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b3.json",
+      "id": "c24",
+      "logical_slot": "c24",
+      "physical_case_id": "c24",
+      "schedule_origin_ordinal": 24,
+      "session_id": 2026111724,
+      "case_relative_repo": "local-runs/c42/c24",
+      "network_relative_repo": "local-runs/c42/c24.network",
+      "socket_relative_repo": "local-runs/c42/i/c24.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c24.sock",
+      "native_evidence_ram": "/dev/shm/c42-c24",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c24.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c24"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c24-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c24-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c24"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c24-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c24/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c24"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c24-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c24/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c24/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c24/RAM-release.json"
+      }
+    },
+    {
+      "slot": 25,
+      "map": "Rooms6101",
+      "block": 4,
+      "within_map_block_position": 1,
+      "condition": "A1",
+      "physics_seed": 2026111304,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 4,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b4.json",
+      "id": "c25",
+      "logical_slot": "c25",
+      "physical_case_id": "c25",
+      "schedule_origin_ordinal": 25,
+      "session_id": 2026111725,
+      "case_relative_repo": "local-runs/c42/c25",
+      "network_relative_repo": "local-runs/c42/c25.network",
+      "socket_relative_repo": "local-runs/c42/i/c25.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c25.sock",
+      "native_evidence_ram": "/dev/shm/c42-c25",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c25.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c25"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c25-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c25-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c25"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c25-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c25/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c25"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c25-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c25/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c25/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c25/RAM-release.json"
+      }
+    },
+    {
+      "slot": 26,
+      "map": "Rooms6101",
+      "block": 4,
+      "within_map_block_position": 2,
+      "condition": "B",
+      "physics_seed": 2026111304,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 4,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 4
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b4.json",
+      "id": "c26",
+      "logical_slot": "c26",
+      "physical_case_id": "c26",
+      "schedule_origin_ordinal": 26,
+      "session_id": 2026111726,
+      "case_relative_repo": "local-runs/c42/c26",
+      "network_relative_repo": "local-runs/c42/c26.network",
+      "socket_relative_repo": "local-runs/c42/i/c26.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c26.sock",
+      "native_evidence_ram": "/dev/shm/c42-c26",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c26.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c26"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c26-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c26-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c26"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c26-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c26/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c26"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c26-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c26/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c26/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c26/RAM-release.json"
+      }
+    },
+    {
+      "slot": 27,
+      "map": "Rooms6101",
+      "block": 4,
+      "within_map_block_position": 3,
+      "condition": "A0",
+      "physics_seed": 2026111304,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 4,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b4.json",
+      "id": "c27",
+      "logical_slot": "c27",
+      "physical_case_id": "c27",
+      "schedule_origin_ordinal": 27,
+      "session_id": 2026111727,
+      "case_relative_repo": "local-runs/c42/c27",
+      "network_relative_repo": "local-runs/c42/c27.network",
+      "socket_relative_repo": "local-runs/c42/i/c27.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c27.sock",
+      "native_evidence_ram": "/dev/shm/c42-c27",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c27.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c27"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c27-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c27-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c27"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c27-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c27/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c27"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c27-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c27/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c27/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c27/RAM-release.json"
+      }
+    },
+    {
+      "slot": 28,
+      "map": "Rooms6101",
+      "block": 4,
+      "within_map_block_position": 4,
+      "condition": "C",
+      "physics_seed": 2026111304,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 4,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 4
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b4.json",
+      "id": "c28",
+      "logical_slot": "c28",
+      "physical_case_id": "c28",
+      "schedule_origin_ordinal": 28,
+      "session_id": 2026111728,
+      "case_relative_repo": "local-runs/c42/c28",
+      "network_relative_repo": "local-runs/c42/c28.network",
+      "socket_relative_repo": "local-runs/c42/i/c28.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c28.sock",
+      "native_evidence_ram": "/dev/shm/c42-c28",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c28.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c28"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c28-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c28-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c28"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c28-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c28/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c28"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c28-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c28/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c28/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c28/RAM-release.json"
+      }
+    },
+    {
+      "slot": 29,
+      "map": "Corr6201",
+      "block": 4,
+      "within_map_block_position": 1,
+      "condition": "C",
+      "physics_seed": 2026111304,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 4,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 4
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b4.json",
+      "id": "c29s",
+      "logical_slot": "c29",
+      "physical_case_id": "c29s",
+      "schedule_origin_ordinal": 29,
+      "session_id": 2026111742,
+      "case_relative_repo": "local-runs/c42/c29s",
+      "network_relative_repo": "local-runs/c42/c29s.network",
+      "socket_relative_repo": "local-runs/c42/i/c29s.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c29s.sock",
+      "native_evidence_ram": "/dev/shm/c42-c29s",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c29s.ready.json",
+      "socket_host_utf8_bytes": 73,
+      "ack_host_utf8_bytes": 88,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_NAMED_SUCCESSOR_AM4_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c29s"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c29s-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c29s-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c29s"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c29s-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c29s/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c29s"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c29s-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c29s/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c29s/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c29s/RAM-release.json"
+      },
+      "startup_failure_predecessor": "c29",
+      "amendment_relative_repo": "local-runs/communication40-v3-20261113/STARTUP_REPLACEMENT_AMENDMENT04.json"
+    },
+    {
+      "slot": 30,
+      "map": "Corr6201",
+      "block": 4,
+      "within_map_block_position": 2,
+      "condition": "A0",
+      "physics_seed": 2026111304,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 4,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b4.json",
+      "id": "c30",
+      "logical_slot": "c30",
+      "physical_case_id": "c30",
+      "schedule_origin_ordinal": 30,
+      "session_id": 2026111730,
+      "case_relative_repo": "local-runs/c42/c30",
+      "network_relative_repo": "local-runs/c42/c30.network",
+      "socket_relative_repo": "local-runs/c42/i/c30.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c30.sock",
+      "native_evidence_ram": "/dev/shm/c42-c30",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c30.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c30"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c30-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c30-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c30"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c30-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c30/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c30"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c30-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c30/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c30/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c30/RAM-release.json"
+      }
+    },
+    {
+      "slot": 31,
+      "map": "Corr6201",
+      "block": 4,
+      "within_map_block_position": 3,
+      "condition": "B",
+      "physics_seed": 2026111304,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 4,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 4
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b4.json",
+      "id": "c31",
+      "logical_slot": "c31",
+      "physical_case_id": "c31",
+      "schedule_origin_ordinal": 31,
+      "session_id": 2026111731,
+      "case_relative_repo": "local-runs/c42/c31",
+      "network_relative_repo": "local-runs/c42/c31.network",
+      "socket_relative_repo": "local-runs/c42/i/c31.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c31.sock",
+      "native_evidence_ram": "/dev/shm/c42-c31",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c31.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c31"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c31-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c31-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c31"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c31-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c31/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c31"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c31-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c31/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c31/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c31/RAM-release.json"
+      }
+    },
+    {
+      "slot": 32,
+      "map": "Corr6201",
+      "block": 4,
+      "within_map_block_position": 4,
+      "condition": "A1",
+      "physics_seed": 2026111304,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 4,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b4.json",
+      "id": "c32",
+      "logical_slot": "c32",
+      "physical_case_id": "c32",
+      "schedule_origin_ordinal": 32,
+      "session_id": 2026111732,
+      "case_relative_repo": "local-runs/c42/c32",
+      "network_relative_repo": "local-runs/c42/c32.network",
+      "socket_relative_repo": "local-runs/c42/i/c32.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c32.sock",
+      "native_evidence_ram": "/dev/shm/c42-c32",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c32.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c32"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c32-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c32-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c32"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c32-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c32/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c32"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c32-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c32/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c32/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c32/RAM-release.json"
+      }
+    },
+    {
+      "slot": 33,
+      "map": "Corr6201",
+      "block": 5,
+      "within_map_block_position": 1,
+      "condition": "A0",
+      "physics_seed": 2026111305,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 5,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b5.json",
+      "id": "c33",
+      "logical_slot": "c33",
+      "physical_case_id": "c33",
+      "schedule_origin_ordinal": 33,
+      "session_id": 2026111733,
+      "case_relative_repo": "local-runs/c42/c33",
+      "network_relative_repo": "local-runs/c42/c33.network",
+      "socket_relative_repo": "local-runs/c42/i/c33.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c33.sock",
+      "native_evidence_ram": "/dev/shm/c42-c33",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c33.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c33"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c33-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c33-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c33"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c33-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c33/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c33"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c33-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c33/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c33/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c33/RAM-release.json"
+      }
+    },
+    {
+      "slot": 34,
+      "map": "Corr6201",
+      "block": 5,
+      "within_map_block_position": 2,
+      "condition": "A1",
+      "physics_seed": 2026111305,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 5,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b5.json",
+      "id": "c34",
+      "logical_slot": "c34",
+      "physical_case_id": "c34",
+      "schedule_origin_ordinal": 34,
+      "session_id": 2026111734,
+      "case_relative_repo": "local-runs/c42/c34",
+      "network_relative_repo": "local-runs/c42/c34.network",
+      "socket_relative_repo": "local-runs/c42/i/c34.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c34.sock",
+      "native_evidence_ram": "/dev/shm/c42-c34",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c34.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c34"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c34-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c34-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c34"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c34-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c34/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c34"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c34-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c34/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c34/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c34/RAM-release.json"
+      }
+    },
+    {
+      "slot": 35,
+      "map": "Corr6201",
+      "block": 5,
+      "within_map_block_position": 3,
+      "condition": "C",
+      "physics_seed": 2026111305,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 5,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 5
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b5.json",
+      "id": "c35",
+      "logical_slot": "c35",
+      "physical_case_id": "c35",
+      "schedule_origin_ordinal": 35,
+      "session_id": 2026111735,
+      "case_relative_repo": "local-runs/c42/c35",
+      "network_relative_repo": "local-runs/c42/c35.network",
+      "socket_relative_repo": "local-runs/c42/i/c35.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c35.sock",
+      "native_evidence_ram": "/dev/shm/c42-c35",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c35.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c35"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c35-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c35-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c35"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c35-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c35/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c35"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c35-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c35/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c35/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c35/RAM-release.json"
+      }
+    },
+    {
+      "slot": 36,
+      "map": "Corr6201",
+      "block": 5,
+      "within_map_block_position": 4,
+      "condition": "B",
+      "physics_seed": 2026111305,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 5,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 5
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/corr6201-b5.json",
+      "id": "c36",
+      "logical_slot": "c36",
+      "physical_case_id": "c36",
+      "schedule_origin_ordinal": 36,
+      "session_id": 2026111736,
+      "case_relative_repo": "local-runs/c42/c36",
+      "network_relative_repo": "local-runs/c42/c36.network",
+      "socket_relative_repo": "local-runs/c42/i/c36.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c36.sock",
+      "native_evidence_ram": "/dev/shm/c42-c36",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c36.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c36"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c36-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c36-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c36"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c36-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c36/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c36"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c36-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c36/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c36/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c36/RAM-release.json"
+      }
+    },
+    {
+      "slot": 37,
+      "map": "Rooms6101",
+      "block": 5,
+      "within_map_block_position": 1,
+      "condition": "B",
+      "physics_seed": 2026111305,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 5,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 5
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b5.json",
+      "id": "c37",
+      "logical_slot": "c37",
+      "physical_case_id": "c37",
+      "schedule_origin_ordinal": 37,
+      "session_id": 2026111737,
+      "case_relative_repo": "local-runs/c42/c37",
+      "network_relative_repo": "local-runs/c42/c37.network",
+      "socket_relative_repo": "local-runs/c42/i/c37.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c37.sock",
+      "native_evidence_ram": "/dev/shm/c42-c37",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c37.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c37"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c37-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c37-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c37"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c37-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c37/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c37"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c37-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c37/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c37/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c37/RAM-release.json"
+      }
+    },
+    {
+      "slot": 38,
+      "map": "Rooms6101",
+      "block": 5,
+      "within_map_block_position": 2,
+      "condition": "C",
+      "physics_seed": 2026111305,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 5,
+      "business_network_rng": {
+        "seed": 2026110901,
+        "run": 5
+      },
+      "business_network_rng_status": "APPLICABLE",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b5.json",
+      "id": "c38",
+      "logical_slot": "c38",
+      "physical_case_id": "c38",
+      "schedule_origin_ordinal": 38,
+      "session_id": 2026111738,
+      "case_relative_repo": "local-runs/c42/c38",
+      "network_relative_repo": "local-runs/c42/c38.network",
+      "socket_relative_repo": "local-runs/c42/i/c38.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c38.sock",
+      "native_evidence_ram": "/dev/shm/c42-c38",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c38.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c38"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c38-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c38-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c38"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c38-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c38/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c38"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c38-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c38/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c38/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c38/RAM-release.json"
+      }
+    },
+    {
+      "slot": 39,
+      "map": "Rooms6101",
+      "block": 5,
+      "within_map_block_position": 3,
+      "condition": "A1",
+      "physics_seed": 2026111305,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 5,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b5.json",
+      "id": "c39",
+      "logical_slot": "c39",
+      "physical_case_id": "c39",
+      "schedule_origin_ordinal": 39,
+      "session_id": 2026111739,
+      "case_relative_repo": "local-runs/c42/c39",
+      "network_relative_repo": "local-runs/c42/c39.network",
+      "socket_relative_repo": "local-runs/c42/i/c39.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c39.sock",
+      "native_evidence_ram": "/dev/shm/c42-c39",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c39.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c39"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c39-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c39-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c39"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c39-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c39/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c39"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c39-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c39/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c39/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c39/RAM-release.json"
+      }
+    },
+    {
+      "slot": 40,
+      "map": "Rooms6101",
+      "block": 5,
+      "within_map_block_position": 4,
+      "condition": "A0",
+      "physics_seed": 2026111305,
+      "native_rng_seed": 2026110901,
+      "native_rng_run": 5,
+      "business_network_rng": null,
+      "business_network_rng_status": "N/A: native seed/run used for common control only",
+      "scene_relative_repo": "local-runs/communication40-20261113/scenes/rooms6101-b5.json",
+      "id": "c40",
+      "logical_slot": "c40",
+      "physical_case_id": "c40",
+      "schedule_origin_ordinal": 40,
+      "session_id": 2026111740,
+      "case_relative_repo": "local-runs/c42/c40",
+      "network_relative_repo": "local-runs/c42/c40.network",
+      "socket_relative_repo": "local-runs/c42/i/c40.sock",
+      "socket_container": "/mnt/local-runs/c42/i/c40.sock",
+      "native_evidence_ram": "/dev/shm/c42-c40",
+      "ready_relative_repo": "local-runs/communication40-v3-20261113/ready/c40.ready.json",
+      "socket_host_utf8_bytes": 72,
+      "ack_host_utf8_bytes": 87,
+      "batch_hooks": {
+        "status": "ROOT_REVIEWED_FINAL_V3_READY_ONLY",
+        "pre_start_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "preflight",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c40"
+        ],
+        "pre_start_log": "local-runs/communication40-v3-20261113/driver-logs/c40-preflight.log",
+        "host_log": "local-runs/communication40-v3-20261113/driver-logs/c40-host.log",
+        "post_exit_verify_argv": [
+          "python3",
+          "-B",
+          "local-runs/communication40-v3-20261113/post_case.py",
+          "verify",
+          "--plan",
+          "local-runs/communication40-v3-20261113/PLAN.draft.json",
+          "--slot",
+          "c40"
+        ],
+        "post_exit_verify_log": "local-runs/communication40-v3-20261113/driver-logs/c40-verify.log",
+        "post_exit_proof": "local-runs/communication40-v3-20261113/post-exit/c40/proof.json",
+        "analysis_argv": [
+          [
+            "python3",
+            "-B",
+            "local-runs/communication40-v3-20261113/post_case.py",
+            "analyze",
+            "--plan",
+            "local-runs/communication40-v3-20261113/PLAN.draft.json",
+            "--slot",
+            "c40"
+          ]
+        ],
+        "analysis_logs": [
+          "local-runs/communication40-v3-20261113/driver-logs/c40-analysis.log"
+        ],
+        "classified_result": "local-runs/communication40-v3-20261113/post-exit/c40/result.json",
+        "row_result": "local-runs/communication40-v3-20261113/post-exit/c40/row.json",
+        "ram_release_result": "local-runs/communication40-v3-20261113/post-exit/c40/RAM-release.json"
+      }
+    }
+  ],
+  "source_binding_relative_repo": "local-runs/communication40-v3-20261113/COMMON_BINDING.json",
+  "offline_method_binding_relative_repo": "local-runs/communication40-v3-20261113/COMMON_BINDING_METHOD_AMENDMENT04.json",
+  "ready_generated_utc": "2026-11-13T13:39:40.423827+00:00",
+  "profile": {
+    "execution_profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-comparison40-v3",
+    "profile_file_relative_repo": "net01/config/EXECUTION_PROFILE_COMPARISON40_V3_120SIM.json",
+    "controlled_scope": "NET01 comparison40-v3 repair-v1 all-spawn-exit0-before-first-token fixed-G20 end140 attempt-enter barrier source-take-v1 controlled120sim absolute-pace40 RAM8GiB-reserve2GiB; original pacing gates and T95 post-exit only",
+    "native_evidence_scope": "physical120sim-ram8GiB-reserve2GiB-v1"
+  },
+  "components": {
+    "runtime_initialization": "RUNTIME_RESULT.json + RUNTIME_PATCH.diff",
+    "factory_fence20": "fence-component/result-01/result.json",
+    "G0_actualfacts": "PROBE_RESULT.json + PROBE_POST_EXIT_OWNERS_COPY.json",
+    "new_post_startup6": "post-startup-component/result-01/result.json",
+    "methodpatch": "METHOD_PATCH.diff",
+    "methodresult": "METHOD_RESULT.json",
+    "existing_v2_barrier_and_entry": "local-runs/communication40-v2-20261113/RUNTIME_RESULT.json (priorrootreview, no rerun)",
+    "trace_completion15": "local-runs/communication40-20261113/post-exit/a04/fixture-result-v2.json",
+    "native_model4": "local-runs/communication40-20261113/network-sanity/RESULT.json (unchangedELF, no rerun)",
+    "limits": "G0initializationfacts only, not wholeprobePASS, noSIGSEGVcause/fixclaim. FirstformalcasefullnonGDBqualification pendingactualexecution."
+  },
+  "root_overall_START": {
+    "slot": "CONTROL",
+    "state": "ROOT_OVERALL_START_FORMAL_V3",
+    "utc": "2026-11-13T13:44:04.012168+00:00",
+    "scope": "Root finalreviewed all40READY/77runtime/8methods/uniformv3contracts/GDBfalse/resources. Exactlyc01..c40 in lockedorder atmostonce, originalCONTINUEclasses only; engineeringblock stopsrootreview. No replacement/source/radio/budgetchange. Priorcohorts/diag/RAM remainseparate."
+  },
+  "latest_execution_block": {
+    "utc": "2026-11-13T14:34:11.491688+00:00",
+    "slot": "c04",
+    "canonical_state": "ENGINEERING_BLOCK_STOP_ROOT_REVIEW",
+    "reason": "Original network_run_integrity false: gateway final process exit -15; original 120sim run/clock/pacing/stop retained. Cause under root review.",
+    "driver_exited": true,
+    "all_known_59_pids_gone": true,
+    "c05_not_started": true,
+    "copy_complete": true,
+    "c04_RAM_release_already_recorded": true,
+    "raw_and_original_results_retained": true
+  },
+  "method_amendment_relative_repo": "local-runs/communication40-v3-20261113/WINDOW_METHOD_AMENDMENT01.json",
+  "root_RESUME_METHOD_AMENDMENT01": {
+    "utc": "2026-11-13T14:59:16.792113+00:00",
+    "authorization": "Root final reviewed method amendment READY/canonical/4prior/36unused. Resume same canonical driver, skip consumed c01..c04, execute c05..c40 once in original order. Runtime77 frozen; unknown/engineering failure stops queue.",
+    "first_remaining": "c05",
+    "last": "c40"
+  },
+  "latest_offline_method_amendment_relative_repo": "local-runs/communication40-v3-20261113/STARTUP_REPLACEMENT_AMENDMENT04.json",
+  "root_RESUME_METHOD_AMENDMENT02": {
+    "utc": "2026-11-13T15:22:22.816719+00:00",
+    "authorization": "Root AM2 approved after c06 report display correction; actual original c06=C unchanged. Resume same canonical driver c06..c40 once, skip consumed c01..c05; runtime77 frozen."
+  },
+  "additional_actual_attempts": [
+    {
+      "physical_slot": "c16",
+      "logical_slot": "c16",
+      "map": "Corr6201",
+      "path": "C",
+      "block": 2,
+      "session_id": 2026111716,
+      "classification": "STARTUP_ENGINEERING_FAIL",
+      "T95_sim_s": null,
+      "T95_status": "N/A_NO_AUTONOMY",
+      "autonomy_started": false,
+      "actual_RUN_tokens": 0,
+      "HQ_started": false,
+      "inferences": 0,
+      "Goals": 0,
+      "original_safe_stop": false,
+      "original_lifecycle_pause_healthy": false,
+      "full_engineering_qualified": false,
+      "clean_exit": false,
+      "known_56_PIDs_gone": true,
+      "copy_complete": true,
+      "raw_RAM_retained": "/dev/shm/c42-c16",
+      "raw_case": "local-runs/c42/c16",
+      "original_result": "local-runs/c42/c16/result.json",
+      "original_consumed_READY": "local-runs/communication40-v3-20261113/ready/c16.ready.json",
+      "canonical_original_BLOCK_retained": true,
+      "root_cause": "Actual tb3 /spawn_entity server response transport timeout; client never exits0, so no factory fence or startup ready. G5.30 belongs solely to530 STOP_COUPLED cleanup tokens, no RUN.",
+      "successor": "c16s",
+      "successor_limit": 1
+    },
+    {
+      "physical_slot": "c29",
+      "logical_slot": "c29",
+      "map": "Corr6201",
+      "path": "C",
+      "block": 4,
+      "session_id": 2026111729,
+      "classification": "STARTUP_ENGINEERING_FAIL",
+      "T95_sim_s": null,
+      "T95_status": "N/A_NO_AUTONOMY",
+      "autonomy_started": false,
+      "actual_RUN_tokens": 0,
+      "HQ_started": false,
+      "inferences": 0,
+      "Goals": 0,
+      "original_safe_stop": false,
+      "original_lifecycle_pause_healthy": false,
+      "full_engineering_qualified": false,
+      "clean_exit": false,
+      "known_56_PIDs_gone": true,
+      "copy_complete": true,
+      "raw_RAM_retained": "/dev/shm/c42-c29",
+      "raw_case": "local-runs/c42/c29",
+      "original_result": "local-runs/c42/c29/result.json",
+      "original_consumed_READY": "local-runs/communication40-v3-20261113/ready/c29.ready.json",
+      "canonical_original_BLOCK_retained": true,
+      "root_cause": "Actual tb3 /spawn_entity response transport timeout, client future never completes until cleanupSIGINT-2; no three exit0/fence/ready,530/530 STOP_COUPLED only. No claim lower DDS cause or randomness.",
+      "successor": "c29s",
+      "successor_limit": 1
+    }
+  ],
+  "startup_successor_amendment_relative_repo": "local-runs/communication40-v3-20261113/STARTUP_REPLACEMENT_AMENDMENT04.json",
+  "root_RESUME_STARTUP_AMENDMENT03": {
+    "utc": "2026-11-13T17:32:04.573493+00:00",
+    "authorization": "Root reviewed AM3 JSON/method diff/PLAN physical key and actual journal. Resume one c16s/session1741 before unchanged c17..c40; runtime77 fixed, original c16 RAM/stop FAIL/BLOCK retained, any new engineering fault stops."
+  },
+  "root_RESUME_STARTUP_AMENDMENT04": {
+    "utc": "2026-11-13T20:16:43.674843+00:00",
+    "authorization": "Root reviewed AM4 JSON/check/source diff; resume exactly named c29s/session1742 then unchanged c30..c40; runtime77/timeouts/network/policy fixed, original c16/c29 failure/RAM retained. Any new engineering fault stops; no automatic additional successor."
+  },
+  "actual_final_execution_check_relative_repo": "local-runs/communication40-v3-20261113/FINAL_EXECUTION_CHECK.json"
+}

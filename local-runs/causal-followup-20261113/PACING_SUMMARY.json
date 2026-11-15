@@ -1,0 +1,145 @@
+{
+  "status": "PASS",
+  "cohort": "post-fix fixed startup six logical cases g,h,i,j,k,l; logical i stored physical m",
+  "arms": [
+    {
+      "logical_case": "g",
+      "physical_case": "g",
+      "reference": "g-pacing/result.json",
+      "rtf": 0.25000037799336045,
+      "physical_tokens": 6000,
+      "lateness_p95_wall_ms": 5.29937545,
+      "lateness_max_wall_ms": 37.575912,
+      "above40_count": 0,
+      "above40_fraction": 0.0,
+      "gates": {
+        "rtf_within_predeclared_band": true,
+        "lateness_p95_le_20wall_ms": true,
+        "lateness_above_40wall_ms_fraction_le_point01": true
+      },
+      "pass_": true
+    },
+    {
+      "logical_case": "h",
+      "physical_case": "h",
+      "reference": "h-pacing/result.json",
+      "rtf": 0.24999632915284117,
+      "physical_tokens": 6000,
+      "lateness_p95_wall_ms": 7.769756000000003,
+      "lateness_max_wall_ms": 35.808343,
+      "above40_count": 0,
+      "above40_fraction": 0.0,
+      "gates": {
+        "rtf_within_predeclared_band": true,
+        "lateness_p95_le_20wall_ms": true,
+        "lateness_above_40wall_ms_fraction_le_point01": true
+      },
+      "pass_": true
+    },
+    {
+      "logical_case": "i",
+      "physical_case": "m",
+      "reference": "i-pacing/result.json",
+      "rtf": 0.2499980752814974,
+      "physical_tokens": 6000,
+      "lateness_p95_wall_ms": 4.924084400000009,
+      "lateness_max_wall_ms": 29.622313,
+      "above40_count": 0,
+      "above40_fraction": 0.0,
+      "gates": {
+        "rtf_within_predeclared_band": true,
+        "lateness_p95_le_20wall_ms": true,
+        "lateness_above_40wall_ms_fraction_le_point01": true
+      },
+      "pass_": true
+    },
+    {
+      "logical_case": "j",
+      "physical_case": "j",
+      "reference": "j-pacing/result.json",
+      "rtf": 0.2500019612565518,
+      "physical_tokens": 6000,
+      "lateness_p95_wall_ms": 3.4389488000000017,
+      "lateness_max_wall_ms": 22.111059,
+      "above40_count": 0,
+      "above40_fraction": 0.0,
+      "gates": {
+        "rtf_within_predeclared_band": true,
+        "lateness_p95_le_20wall_ms": true,
+        "lateness_above_40wall_ms_fraction_le_point01": true
+      },
+      "pass_": true
+    },
+    {
+      "logical_case": "k",
+      "physical_case": "k",
+      "reference": "k-pacing/result.json",
+      "rtf": 0.24999405209467046,
+      "physical_tokens": 6000,
+      "lateness_p95_wall_ms": 2.1676596,
+      "lateness_max_wall_ms": 26.433595,
+      "above40_count": 0,
+      "above40_fraction": 0.0,
+      "gates": {
+        "rtf_within_predeclared_band": true,
+        "lateness_p95_le_20wall_ms": true,
+        "lateness_above_40wall_ms_fraction_le_point01": true
+      },
+      "pass_": true
+    },
+    {
+      "logical_case": "l",
+      "physical_case": "l",
+      "reference": "l-pacing/result.json",
+      "rtf": 0.2500019031411248,
+      "physical_tokens": 6000,
+      "lateness_p95_wall_ms": 2.1970045,
+      "lateness_max_wall_ms": 30.875081,
+      "above40_count": 0,
+      "above40_fraction": 0.0,
+      "gates": {
+        "rtf_within_predeclared_band": true,
+        "lateness_p95_le_20wall_ms": true,
+        "lateness_above_40wall_ms_fraction_le_point01": true
+      },
+      "pass_": true
+    }
+  ],
+  "pairs": [
+    {
+      "pair": "gh",
+      "reference": "gh-pacing-pair-gates.json",
+      "B_rtf": 0.25000037799336045,
+      "B_loss3_rtf": 0.24999632915284117,
+      "relative_difference": 1.6195337590166843e-05,
+      "limit": 0.01,
+      "pass_": true
+    },
+    {
+      "pair": "ij",
+      "reference": "ij-pacing-pair-gates.json",
+      "B_rtf": 0.2500019612565518,
+      "B_loss3_rtf": 0.2499980752814974,
+      "relative_difference": 1.554377827617046e-05,
+      "limit": 0.01,
+      "pass_": true
+    },
+    {
+      "pair": "kl",
+      "reference": "kl-pacing-pair-gates.json",
+      "B_rtf": 0.24999405209467046,
+      "B_loss3_rtf": 0.2500019031411248,
+      "relative_difference": 3.14049329916474e-05,
+      "limit": 0.01,
+      "pass_": true
+    }
+  ],
+  "thresholds": {
+    "rtf_lower": 0.245,
+    "rtf_upper": 0.255,
+    "lateness_p95_wall_ms_max": 20,
+    "above40_fraction_max": 0.01,
+    "within_pair_rtf_difference_max": 0.01
+  },
+  "scope": "Saved case/pair results combined only; no repeated raw analysis, feedback, bag, native ledger, model, source edit, new run or T95 recomputation. Pacing qualification only; not complete causal proof."
+}

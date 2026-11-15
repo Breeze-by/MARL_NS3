@@ -1,0 +1,300 @@
+{
+  "status": "COMPLETED_7_START_CEILING_REACHED_NO_MORE_EXPERIMENTS",
+  "objective": "Unify startup release and consumer-use evidence, then describe fresh-process variation across three fixed-seed paired repeats.",
+  "scope": "Maximum six new60sim motion cases only after root source/test review; not repeats of oldb2/l2 and not three independent RF seeds.",
+  "task_root": "local-runs/causal-followup-20261113",
+  "order": [
+    {
+      "cohort_slot": 1,
+      "logical_slot": "g",
+      "pair": 1,
+      "arm": "B",
+      "case": "local-runs/causal-followup-20261113/g",
+      "session_id": 2026111367,
+      "candidate": "local-runs/causal-followup-20261113/candidates/g.candidate.json"
+    },
+    {
+      "cohort_slot": 2,
+      "logical_slot": "h",
+      "pair": 1,
+      "arm": "B-loss3",
+      "case": "local-runs/causal-followup-20261113/h",
+      "session_id": 2026111368,
+      "candidate": "local-runs/causal-followup-20261113/candidates/h.candidate.json"
+    },
+    {
+      "cohort_slot": 3,
+      "logical_slot": "i",
+      "pair": 2,
+      "arm": "B-loss3",
+      "case": "local-runs/causal-followup-20261113/m",
+      "session_id": 2026111369,
+      "candidate": "local-runs/causal-followup-20261113/candidates/i.candidate.json"
+    },
+    {
+      "cohort_slot": 4,
+      "logical_slot": "j",
+      "pair": 2,
+      "arm": "B",
+      "case": "local-runs/causal-followup-20261113/j",
+      "session_id": 2026111370,
+      "candidate": "local-runs/causal-followup-20261113/candidates/j.candidate.json"
+    },
+    {
+      "cohort_slot": 5,
+      "logical_slot": "k",
+      "pair": 3,
+      "arm": "B",
+      "case": "local-runs/causal-followup-20261113/k",
+      "session_id": 2026111371,
+      "candidate": "local-runs/causal-followup-20261113/candidates/k.candidate.json"
+    },
+    {
+      "cohort_slot": 6,
+      "logical_slot": "l",
+      "pair": 3,
+      "arm": "B-loss3",
+      "case": "local-runs/causal-followup-20261113/l",
+      "session_id": 2026111372,
+      "candidate": "local-runs/causal-followup-20261113/candidates/l.candidate.json"
+    }
+  ],
+  "frozen_basis": "Original fixed PPO weights/701/Frontier/joint masking/goal lifecycle, SLAM/Nav2, physics, same scene/start positions; existing dirty communication fixes retained.",
+  "seed_scope": "Same physics_seed2026110601/network_seed2026110901/native_run1,6post-fix fresh-process cases only; not independentRF seeds. Olda/oldb2/l2 never pooled with thiscohort.",
+  "seeds": {
+    "physics_seed": 2026110601,
+    "network_seed": 2026110901,
+    "network_rng_run": 1,
+    "physics_config": "inputs/scenes/regression-corridor-common-6201-dwb-v1.json",
+    "network_config": "net01/config/NETWORK_LOCK_V3.json",
+    "execution_scope": "Same fixed seeds and native run1; six fresh-process repeats, not independent RF-seed samples."
+  },
+  "only_between_arm_factor": "LogDistance exponent2(B) versus3(B-loss3); fixed VhtMcs9/16dBm/TCP/queue/application source rules.",
+  "startup": {
+    "status": "ROOT_REVIEWED_FIXED_START_V1",
+    "release_rule": "One predeclared simulation release time and first decision cadence shared across all six cases; never chosen from coverage/candidate/logit/trajectory outcomes.",
+    "failure_rule": "If legitimate preparation/readiness is incomplete at fixed release or budget expires, retain a startup failure; do not postpone T0, refresh stamps or replace the failed case.",
+    "received_data": "Use only own actual delivered maps/state/TF/costmap/health. Equal initial observation values are not fabricated; source ages and first701/candidates/use inputs must be traced, and differences remain explicit.",
+    "no_ideal_crossarm_fill": true,
+    "no_result_based_release": true,
+    "id": "fixed-G20-attempt-G25-grid5-end80-v1",
+    "autonomy_epoch_ns": 20000000000,
+    "first_decision_ns": 25000000000,
+    "decision_period_ns": 5000000000,
+    "decision_permission_end_ns": 80000000000,
+    "timing_tolerance_ns": 10000000,
+    "readiness": "initialized gate received through original flow95; original readiness and no-motion safety only",
+    "first_slot": "unchanged original allocation ATTEMPT, including awaiting observations or WAIT; no NN/candidate content admission",
+    "late_slot": "record actual; timing failure; no backdate, catch-up or moving epoch",
+    "end": "new decision permission [25,80); original send_goal entry has same budget gate, not a DDS send/acceptance timestamp; previously admitted inflight/feedback/cancel/stop ownership unchanged",
+    "planned_attempts_G_sim": [
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "actual_epoch_and_attempt_timestamps": "Actual R/C timestamps are recorded separately; no backdating or reanchoring. Original awaiting observations and WAIT remain attempts, not startup-admission rejection."
+  },
+  "consumer_trace": {
+    "status": "ROOT_REVIEWED_HQ_CONSUMER_TRACE_V1",
+    "boundaries": [
+      "source information stamp/generation boundary where observable",
+      "Gateway capture/native admission",
+      "complete native RX",
+      "destination publish",
+      "actual consumer callback/state application",
+      "policy use or current task state use"
+    ],
+    "identity": "Use available flow/route/session/RPC/UUID and actual message identity. Repeated body/header hashes are not unique generation IDs; ambiguous matches stay ambiguous.",
+    "time_rule": "Sim durations compare only sim clocks, wall only wall; header is not publisher generation/first arrival. No source timestamp rewriting.",
+    "minimal_load": "Passive capture around existing callbacks/use points; no new business topics, source rate changes, prioritized delivery or ideal observation fallback.",
+    "acceptance": "Trace must show what the consumer actually applied/used. Missing or ambiguous source boundaries are UNMEASURED rather than assumed from bag or nearest timestamp.",
+    "schema": "hq-consumer-trace-v1",
+    "artifact": "case/controller/consumer-trace.jsonl and consumer-trace-summary.json after controller exit; actual location follows bootstrap",
+    "source_paths": [
+      "net01/consumer_trace.py",
+      "net01/consumer_controller_bootstrap.py",
+      "net01/consumer_topic_wire.py"
+    ],
+    "scope": "One actual native take preserves original message and actual RMW source/received timestamps (GID absent=null); original callback receipt/state-apply/lookup/build/use referenced. observation_event_id binds shallow-copy build/use. source_callback_refs are successful current state/cache snapshots, not proof each costmap entered701. Original branch read/reject records and callback refs are retained. Gateway publication real/mono brackets permit only observed unique candidates; unknown/ambiguous retained. First701 uses original NPZ, no extra NN.",
+    "analysis_entry": "tools/analyze_consumer_trace.py"
+  },
+  "bounds": {
+    "maximum_sim_s": 60,
+    "decision_limit": 130,
+    "startup_wall": 180,
+    "autonomous_wall": 480,
+    "outer_wall": 720,
+    "cleanup_wall": 90,
+    "host_ceiling_wall": 820,
+    "hub_ceiling_wall": 840,
+    "status": "FINAL_COMMON_PROFILE_ROOT_REVIEWED"
+  },
+  "RAM": {
+    "scope": "physical60sim-ram6GiB-reserve2GiB-v1",
+    "evidence_budget_bytes": 6442450944,
+    "reserved_free_bytes": 2147483648,
+    "required_free_tmpfs_bytes": 8589934592,
+    "required_MemAvailable_bytes": 25769803776,
+    "legacy_default16GiB_unchanged": true,
+    "release": "Only newly owned source after actual owner/writer exit and existing verified copy; disk originals retained; old RAM never touched."
+  },
+  "qualification": {
+    "run_stop_network_copy": "Existing actual stop/ownedUUID/PAUSE/nativecopy/process gates; preserve failures",
+    "per_arm_rtf": {
+      "target": 0.25,
+      "relative_tolerance": 0.02
+    },
+    "within_pair_relative_RTF_difference_max": 0.01,
+    "token_lateness_p95_wall_ms_max": 20.0,
+    "token_lateness_above40wall_ms_fraction_max": 0.01,
+    "clock_scope": "Autonomous actual release to bound/failure; original absolute schedule/debt retained. No global initial-step maximum as autonomy statistic.",
+    "failure_rule": "Any actual blocking startup/run/stop/network/copy or timing qualification failure is retained and execution stops for root review before any further case; no automatic retry, sample replacement, tuning or relaxed threshold.",
+    "startup": "Original legal readiness/no-motion plus initialized marker through original flow95, fixed R epochG20 and C attemptsG25..75 within10sim-ms tolerance. G80 suppresses new original send_goal entry; admitted inflight/feedback/cancel unchanged. This is not a DDS send/accept timestamp claim."
+  },
+  "metric": {
+    "primary": "Central Gateway first sampled quality-valid T95, locked before READY; consumer-use trace is diagnostic and never selects or replaces the primary metric.",
+    "existing_entry": "tools/analyze_t95_views.py --budget-s60; map quality/reference unchanged, one topic-filtered read per shard only after all writers exit.",
+    "T95_unreached": "null + not_reached_within_budget/early_stop/missing_data; never impute60 or calculate success-only mean.",
+    "diagnostics": "Local latest-map union and R downlink receipt T95, first observation/choice/use trace, navigation/stop and exact consumer freshness where available."
+  },
+  "analysis": {
+    "primary_report": "Report originala startup failure plus all6newcohort rows and3post-fix pairs; all actual starts/failures remain visible. Pair T95 difference only where both reached; no pvalue/statistical sufficiency. a is not autonomousRFsample.",
+    "within_arm_variation": "Show repeated B and repeated B-loss3 T95/coverage/first-input/consumer-age variation without mixing old b2/l2.",
+    "causal_limit": "Goal and route divergence may mediate RF effects; do not force identical trajectories. Small fixed-run repeats and uncontrolled initial input differences cannot identify RF as the unique cause.",
+    "old_samples_excluded": [
+      "local-runs/causal-fix-20261113/gz/b",
+      "local-runs/causal-fix-20261113/gz/b2",
+      "local-runs/causal-fix-20261113/gz/l2"
+    ],
+    "minimum_per_case": [
+      "All11 planned slots with actual times and noNN/WAIT preserved",
+      "Primary centralGateway T95 plus local/R diagnostic60sim views",
+      "First actual inference originalNPZ701/received grids/candidates compared elementwise within arms and pairs; first physical targets",
+      "Successful consumer state sources, actual observation branches, callback-to-use ages, wire unknown/ambiguous counts",
+      "Run/stop/network/copy and original pacing qualification; no active-stage bag/ledger analysis"
+    ]
+  },
+  "native_artifact_provenance": {
+    "selected_native_config_relative_repo": "local-runs/causal-fix-20261113/transport/native-config.json",
+    "selected_native_build_identity_relative_repo": "local-runs/causal-fix-20261113/transport/build-identity.json",
+    "selected_ELF_SHA256": "d53b9143dff96307e4a81c64aac797f6dfd7e2eeb3a6b2f01ef0b070f46b16c3",
+    "source_scope": "Actual native model is the original d53 ELF and build-source identity recorded in transport/build-identity.json. Current native .cc/tcp source includes later opt-in diagnostic probes; a future current adapter map does not claim d53 was rebuilt from that tree.",
+    "diagnostic_native_variants_not_selected": true,
+    "native_cpu_profile": false,
+    "native_async_ledger": false,
+    "DSO_scope": "Original 13 LTO DSO names/paths and prior build identity inherited; no repeated DSO hashing. Actual child exe/maps gate required at launch."
+  },
+  "admission": "COMPLETED7STARTceiling;no furtherexperimentauthorized. OldREADY/STARTsingle-usehistoricalevidence.",
+  "stop": "No NET02, training, compression/priority optimization, new map or automatic seventh case.",
+  "execution_profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-60sim-fixedstart-consumertrace-v1",
+  "controlled_scope": "NET01 fixed-G20 attempt-G25-grid5-end80 consumer-v1 controlled60sim pace40 RAM6GiB-reserve2GiB engineering; causal qualification pending",
+  "common_binding_relative_repo": "local-runs/causal-followup-20261113/COMMON_BINDING_POSTFIX.json",
+  "component_evidence": {
+    "startup_final": "startup/component-03/result.json:19 checks PASS",
+    "production_entry": "startup/entry-01/result.json:23 checks PASS with realROS entities; exec/native/GZ intercepted",
+    "consumer_final": "consumer-component-04/result.json: cache and actualDDS PASS; earlier test failures retained",
+    "root_review": "Parent explicitly reviewed final source and these checks; authorized6freshREADY only, noSTART",
+    "postfix_exporter": "startup/journal-native-02: real exporter\u2192DDS\u2192Hub/originald53 WiFi\u2192R actual callback PASS; oldmarker filtered/newmarker exactlyonce, original fullCDR equal, no forcedexit. Root reviewed."
+  },
+  "actual_execution": {
+    "started_slots": [
+      1
+    ],
+    "failed_slots": [
+      1
+    ],
+    "slots2to6": "Originalb-f retired without START; newg-l not started",
+    "qualification_summary": "a.integration-exit-summary.json",
+    "new_cohort": "g-l freshREADY; noSTART yet",
+    "postfix_started_slots": [
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l"
+    ],
+    "postfix_completed": {
+      "g": "Engineering qualificationPASS, centralT95null (not reached), consumerdetailedpairpending",
+      "h": "Engineering qualificationPASS,centralT95=38.50sim; rootreviewpending",
+      "i": "EngineeringPASS; centralT95null, pair2pendingj",
+      "j": "EngineeringPASS;centralT95null,pair2consumerpending",
+      "k": "EngineeringPASS,T95null",
+      "l": "EngineeringPASS,T95null,G80closeeventUNOBSERVEDatshutdown"
+    },
+    "total_actual_starts": 7,
+    "pair1_result": "local-runs/causal-followup-20261113/PAIR1_RESULT.json",
+    "all_analysis_paused": true,
+    "pair2_result": "local-runs/causal-followup-20261113/PAIR2_RESULT.json",
+    "final_result": "local-runs/causal-followup-20261113/COHORT_RESULT.json"
+  },
+  "cohort": "postfix-g-l",
+  "pre_fix_order_preserved": [
+    {
+      "slot": 1,
+      "pair": 1,
+      "arm": "B",
+      "case": "local-runs/causal-followup-20261113/a"
+    },
+    {
+      "slot": 2,
+      "pair": 1,
+      "arm": "B-loss3",
+      "case": "local-runs/causal-followup-20261113/b"
+    },
+    {
+      "slot": 3,
+      "pair": 2,
+      "arm": "B-loss3",
+      "case": "local-runs/causal-followup-20261113/c"
+    },
+    {
+      "slot": 4,
+      "pair": 2,
+      "arm": "B",
+      "case": "local-runs/causal-followup-20261113/d"
+    },
+    {
+      "slot": 5,
+      "pair": 3,
+      "arm": "B",
+      "case": "local-runs/causal-followup-20261113/e"
+    },
+    {
+      "slot": 6,
+      "pair": 3,
+      "arm": "B-loss3",
+      "case": "local-runs/causal-followup-20261113/f"
+    }
+  ],
+  "ready_retirement": "local-runs/causal-followup-20261113/RETIRED_PRE_FIX_READY.json",
+  "attempt_accounting": {
+    "original_a": {
+      "actual_starts": 1,
+      "status": "STARTUP_FAIL_ADAPTER_FUNCTIONAL_BUG_NOT_RF",
+      "never_removed_or_replaced": true,
+      "qualified_autonomous_RF_samples": 0
+    },
+    "original_b_to_f": {
+      "actual_starts": 0,
+      "READY_status": "RETIRED_PRESERVED_UNUSABLE"
+    },
+    "postfix_g_to_l": {
+      "maximum_actual_starts": 6,
+      "status": "FRESH_READY_NO_START",
+      "purpose": "Complete original authorized3paired repeats under one reviewed post-fix source"
+    },
+    "maximum_total_actual_starts": 7,
+    "no_automatic_eighth": true,
+    "failure_rule": "Any actual blocking startup/qualification failure remains in total attempted-case denominator and stops for root review; no retry/replacement."
+  },
+  "path_exception": "Logicalslot i uses physicalcase m, session2026111369. Preexisting i/ originalsocketdir remains untouched; caseACK106B andsocket91B, both below107B."
+}

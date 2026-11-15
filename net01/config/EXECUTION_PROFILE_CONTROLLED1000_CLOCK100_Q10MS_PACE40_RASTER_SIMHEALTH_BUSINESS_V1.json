@@ -1,0 +1,26 @@
+{
+  "id": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1",
+  "world_real_time_update_rate": 1000,
+  "physics_max_step_size_unchanged": 0.001,
+  "clock_publish_rate_sim_hz": 100.0,
+  "native_step_quantum_ns": 10000000,
+  "scope": "Explicit new common communication execution contract. Action readiness .5, RPC confirmation 1.0 and retry .2 seconds, Peer odom receipt .2 seconds and journal export .02 seconds use ROS simulation time. All source-age, navigation, policy and physical semantics remain inherited; original profiles retain their wall timing. Independent wall progress, local stop, process liveness and exit bounds remain unchanged. Peer receipt diagnostics retain original wall receipt timestamps alongside sim receipt ages. Nav2 internal wall timers are not changed or certified by this profile. Rebuild all communication baselines; no old READY or run evidence is reusable as this contract. Planned 10sim-ms/40wall-ms target .25RTF gives common compute margin over the prior observed ~23ms B token cost; it is not an achieved-rate guarantee. Qualification must measure actual pacing and feedback loads in both Wi-Fi arms before closed-loop causal claims.",
+  "controlled_physics": true,
+  "physical_token_steps": 10,
+  "physical_lookahead_quanta": 2,
+  "token_wall_period_ns": 40000000,
+  "peer_mask_raster": "broadcast-v1",
+  "health_mask_receipt_clock": "R-ros-sim-v1",
+  "progress_wall_timeout_s": 2.0,
+  "gateway_poststop_evidence_total_wall_s": 60,
+  "business_clock": "ros-sim-v1",
+  "peer_odom_receipt_clock": "ros-sim-v1",
+  "predecessor": "controlled1000-clock100-q10ms-pace20-raster-simhealth",
+  "run_bounds": {
+    "sim_budget": 180,
+    "startup_wall": 180,
+    "autonomous_wall": 960,
+    "outer_wall": 1200,
+    "cleanup_wall": 90
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "status": "STARTUP_FACTORY_CYCLE_AND_FIRST_RPC_MEASURED__ORIGINAL_GDB_BIND_BOOKKEEPING_FAILURE_RETAINED",
+  "diagnostic_only": true,
+  "only_one_probe_START": true,
+  "session_id": 2026111691,
+  "case": "local-runs/sg42/d01",
+  "checks": {
+    "three_unique_actual_spawn_exit0": true,
+    "fence_after_all_exit0": true,
+    "real_same_world_fence": true,
+    "no_RUN_token_before_administrative_accept": true,
+    "administrative_before_after_no_synthetic_time": true,
+    "first_token_after_fence_and_accept": true,
+    "first_actual_physics_from_G0": true,
+    "first_server_RPC_within_original_2s": true,
+    "no_controlled_failure": true,
+    "actual_GDB_inferior_gone": true,
+    "original_stop": true,
+    "original_copy_complete": true
+  },
+  "original_result_preserved": {
+    "error": "Expected one owned gzserver inferior, got []",
+    "preflight": false,
+    "end_reason": "fatal_error",
+    "observed_stop": true,
+    "gazebo_started": false
+  },
+  "host_exit": 1,
+  "GDB": {
+    "launcher_pid": 3980293,
+    "actual_inferior_pid": 3980554,
+    "parent_evidence": "original case/processes.txt has inferior PPID exactly launcher; GDB launch log says same inferior exited normally",
+    "SIGSEGV_reproduced": false,
+    "stack_obtained": false
+  },
+  "startup_timing": {
+    "actual_spawn_exits": [
+      {
+        "robot": "tb1",
+        "pid": 3980297,
+        "returncode": 0,
+        "monotonic_ns": 792726076326979,
+        "realtime_ns": 1794575684593972835
+      },
+      {
+        "robot": "tb2",
+        "pid": 3981216,
+        "returncode": 0,
+        "monotonic_ns": 792731119664005,
+        "realtime_ns": 1794575689637310159
+      },
+      {
+        "robot": "tb3",
+        "pid": 3981602,
+        "returncode": 0,
+        "monotonic_ns": 792735352574635,
+        "realtime_ns": 1794575693870222344
+      }
+    ],
+    "fence": {
+      "request": "entity_info",
+      "world_name": "rl02_branching_corridors_6201",
+      "model_name": "tb3",
+      "command": [
+        "gz",
+        "model",
+        "-w",
+        "rl02_branching_corridors_6201",
+        "-m",
+        "tb3",
+        "-i"
+      ],
+      "requested_monotonic_ns": 792735355133309,
+      "requested_realtime_ns": 1794575693872779242,
+      "timestamp_scope": "CLI process admission/start/exit brackets; exact native request send/response timestamps unmeasured",
+      "pid": 3981934,
+      "started_monotonic_ns": 792735360219523,
+      "started_realtime_ns": 1794575693877865488,
+      "returncode": 0,
+      "exited_monotonic_ns": 792736464129950,
+      "exited_realtime_ns": 1794575694981775501,
+      "response_model_name": "tb3"
+    },
+    "admin_accept_monotonic_ns": 792736465355730,
+    "admin_before": {
+      "physical_ns": null,
+      "iterations": null,
+      "clock_ns": null,
+      "native_ns": 0,
+      "inflight": false,
+      "next_wall_ns": null
+    },
+    "admin_after": {
+      "physical_ns": null,
+      "iterations": null,
+      "clock_ns": null,
+      "native_ns": 0,
+      "inflight": false,
+      "next_wall_ns": null
+    },
+    "first_token": [
+      "physical_token",
+      792736469604231,
+      9019690470,
+      "RUN",
+      null,
+      0,
+      null,
+      792736469542507,
+      0
+    ],
+    "first_actual_ACK": [
+      "post_physics_ACK",
+      792736486476636,
+      9028564119,
+      true,
+      0,
+      10000000,
+      0,
+      10,
+      10
+    ],
+    "first_server_timing": {
+      "callback_index": 1,
+      "callback_enter_mono_ns": 792736471108822,
+      "step_begin_mono_ns": 792736471150479,
+      "step_end_mono_ns": 792736485038822,
+      "step_called": true,
+      "response_ready_mono_ns": 792736485079175
+    },
+    "first_server_step_wall_ms": 13.888343,
+    "driver_initialization": [
+      {
+        "robot": "tb1",
+        "driver_init_realtime_ns": 1794575686787870360,
+        "before_first_step": true,
+        "first_step_minus_driver_ms": 8200.925975
+      },
+      {
+        "robot": "tb2",
+        "driver_init_realtime_ns": 1794575687990177170,
+        "before_first_step": true,
+        "first_step_minus_driver_ms": 6998.619165
+      },
+      {
+        "robot": "tb3",
+        "driver_init_realtime_ns": 1794575693728852307,
+        "before_first_step": true,
+        "first_step_minus_driver_ms": 1259.944028
+      }
+    ]
+  },
+  "final_physical_ns": 6510000000,
+  "HQ_started": false,
+  "autonomy_started": false,
+  "all_owner_copy_proof": "PROBE_POST_EXIT_OWNERS_COPY.json",
+  "RAM_retained": true,
+  "scope": "One GDB stationary-only diagnostic, not formal40, not debugger pacing qualification, not a universal initialization/sensor/SIGSEGV fix. Original bookkeeping error and preflight false retained; no retry or further source edits/experiments.",
+  "debugger_auxiliary_error": {
+    "resolved": false,
+    "original_error_retained": "Expected one owned gzserver inferior, got []",
+    "precise_cause": "UNMEASURED; saved PS parent chain does not establish whether basename, task-children visibility or another helper condition caused the empty match",
+    "formal_no_GDB_path": "boot_network.py141-142 removes GZ01_BATCH_GDB when gzserver_batch_gdb=false. run_case.py558-559 calls bind_owned_inferior only if GZ01_BATCH_GDB==1, otherwise uses the actual launch PID directly for original loaded-driver maps/inode checks. The debugger-only helper failure does not govern this no-GDB branch.",
+    "runtime_source_changed": false,
+    "new_test_or_probe": false
+  }
+}

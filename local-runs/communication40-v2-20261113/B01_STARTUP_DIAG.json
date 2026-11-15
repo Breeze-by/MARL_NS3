@@ -1,0 +1,79 @@
+{
+  "scope": "Read-only resource/kernel and activation-contract audit after b01 exit; no source/threshold/process/core configuration changes",
+  "case": "local-runs/c41/b01",
+  "observed_local": "2026-11-13T20:25:55.248975+08:00",
+  "host_snapshot": {
+    "memory_total": "125GiB",
+    "memory_available": "59GiB",
+    "swap_total": "2GiB",
+    "swap_used": "2GiB",
+    "vmstat_recent_swap_in_out_zero": true,
+    "logical_cpus": 80,
+    "load_1_5_15": [
+      44.41,
+      44.45,
+      44.44
+    ],
+    "recent_cpu_idle_percent": [
+      46,
+      43,
+      44
+    ],
+    "cpu_psi_avg10": 0.0,
+    "memory_psi_avg10_avg60_avg300": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "kernel": {
+    "window_local": [
+      "2026-11-13T20:10:00+08:00",
+      "2026-11-13T20:25:00+08:00"
+    ],
+    "oom_or_killed_process_events_found": false,
+    "exact_segfault_line": "Nov 13 20:18:38 zhuyulab kernel: gzserver[3855274]: segfault at 178 ip 000073b6f336ac7d sp 000073b24ffed2d8 error 4 in libgazebo_ode.so.11.10.2[73b6f3361000+85000] likely on CPU 77 (core 26, socket 1)",
+    "kernel_pid_or_tid": 3855274,
+    "launch_gzserver_pid": 3854654,
+    "launch_exit": -11,
+    "pid_tid_relationship": "UNMEASURED; exact PID differs, timestamp/name/library support crash association but do not prove thread-group mapping"
+  },
+  "core": {
+    "core_pattern": "|/usr/share/apport/apport -p%p -s%s -c%c -d%d -P%P -u%u -g%g -F%F -- %E",
+    "searched_named_files": [
+      "/var/crash/*gzserver* or *gazebo*",
+      "/var/lib/apport/coredump/*gzserver* or *gazebo*",
+      "/var/lib/systemd/coredump/*gzserver* or *gazebo*"
+    ],
+    "matching_named_files_found": []
+  },
+  "ownership": {
+    "all_recorded_pids_gone": true,
+    "cleanup_pass": true,
+    "remaining_owned_groups": [],
+    "no_active_gazebo_native_hub_task_found": true,
+    "other_user_processes_untouched": true
+  },
+  "contract": {
+    "execution_profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-comparison40-v2",
+    "physics_RPC_progress_wall_timeout_ns": 2000000000,
+    "startup_wall_s": 180,
+    "physical_sim_ns": 2250000000,
+    "native_ACK_ns": 2240000000,
+    "fixed_offset_ns": 10000000,
+    "motion_armed_since_monotonic_ns": null,
+    "physical_RPC_issued_monotonic_ns": 789359223892694,
+    "timeout_observed_monotonic_ns": 789361224749606,
+    "actual_rpc_wait_wall_s": 2.000856912,
+    "interpretation": "An in-flight physics RPC is checked from issue even before R Guard armed; the whole startup180 budget does not extend each RPC deadline. Clock/native global-progress checks are separately activated by motion armed."
+  },
+  "conclusion": "Current resource snapshot and inspected kernel window do not support OOM/resource exhaustion as root cause. Actual Gazebo SIGSEGV makes RPC timeout a downstream symptom; physics/spawn crash root cause remains under runtime investigation.",
+  "limits": "Resource readings are post-failure snapshots, not historical per-process samples at crash; transient pressure or per-core contention cannot be excluded. No accessible matching named core was found, not proof no core exists anywhere.",
+  "evidence": [
+    "local-runs/c41/b01.host-exit.json",
+    "local-runs/c41/b01/launch.log",
+    "local-runs/c41/b01.time-control/coordinator.json",
+    "net01/time_control_state.py:check_progress",
+    "net01/config/EXECUTION_PROFILE_COMPARISON40_V2_120SIM.json"
+  ]
+}

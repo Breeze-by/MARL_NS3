@@ -27,15 +27,21 @@ SERVICES=((0, NavigateToPose.Impl.SendGoalService, 'send_goal'),
 class ActionWire:
     def __init__(self, node, send, *, robot=None, robots=(1, 2, 3),
                  session_id=1, readiness_period_s=.1, readiness_timeout_s=.5, guardian=None,
-                 reliable=False, transport_error=None):
+                 reliable=False, transport_error=None, business_now_ns=None):
         self.node, self.send, self.robot = node, send, robot
         self.guardian=guardian
         self.robots=tuple(robots) if robot is None else (robot,)
         if not self.robots or any(r not in (1,2,3) for r in self.robots):
             raise ValueError('ActionWire supports robot peers 1..3')
         self.session_id=session_id;self.counter=0
+        # Legacy sessions retain wall deadlines. The explicit business profile
+        # supplies the same ROS simulation clock that drives readiness timers.
+        self.business_now_ns=business_now_ns
+        self.business_clock_basis='monotonic-v1' if business_now_ns is None else 'ros-sim-v1'
         self.group=ReentrantCallbackGroup()
-        self.timeout=readiness_timeout_s
+        self.timeout=readiness_timeout_s if business_now_ns is None else round(readiness_timeout_s*1e9)
+        self.retry_interval=.2 if business_now_ns is None else 200_000_000
+        self.confirmation_timeout=1. if business_now_ns is None else 1_000_000_000
         self.ready={r:False for r in self.robots}
         self.ready_received={};self.ready_sequence={}
         self.endpoints={};self.generation={r:0 for r in self.robots}
@@ -71,7 +77,11 @@ class ActionWire:
         return (self.session_id<<32)|self.counter
 
     def _transport_event(self,kind,**fields):
-        self.reliability_events.append(dict(kind=kind,monotonic=time.monotonic(),**fields))
+        self.reliability_events.append(dict(kind=kind,monotonic=time.monotonic(),
+            business_time=self.now(),business_time_unit='s' if self.business_now_ns is None else 'ns',business_clock_basis=self.business_clock_basis,**fields))
+
+    def now(self):
+        return time.monotonic() if self.business_now_ns is None else self.business_now_ns()
 
     def stop_reliability(self,reason):
         if self.transport_failed is None:
@@ -94,7 +104,7 @@ class ActionWire:
 
     def _attempt_transfer(self,key,item,now):
         robot,offset,rpc=key
-        item['attempts']+=1;item['next_attempt']=now+.2
+        item['attempts']+=1;item['next_attempt']=now+self.retry_interval
         self._transport_event('original_CDR_attempt',robot=robot,offset=offset,rpc_id=rpc,
             attempt=item['attempts'],body_bytes=len(item['body']))
         self.send(robot if self.robot is None else 0,self.flow(robot,offset),item['body'],rpc)
@@ -104,13 +114,13 @@ class ActionWire:
         if not self.reliable:
             self.send(robot if self.robot is None else 0,self.flow(robot,offset),body,rpc);return
         if self.transport_failed is not None:return
-        key=(robot,offset,rpc);now=time.monotonic()
+        key=(robot,offset,rpc);now=self.now()
         # An ACKed response needs no new automatic transfer. A request duplicate
         # can still elicit the original response while confirmation is pending.
         if key in self.transfers:
             if self.transfers[key]['body']!=body:raise ValueError('Action transfer identity reused with different CDR')
             return
-        item=dict(body=body,attempts=0,deadline=now+1.,next_attempt=now,state='WAIT_CONFIRMATION')
+        item=dict(body=body,attempts=0,deadline=now+self.confirmation_timeout,next_attempt=now,state='WAIT_CONFIRMATION')
         self.transfers[key]=item
         self._attempt_transfer(key,item,now)
 
@@ -120,14 +130,14 @@ class ActionWire:
             self._transport_event('confirmation_enqueued',robot=robot,offset=offset,rpc_id=rpc)
 
     def reliability_tick(self):
-        now=time.monotonic();self._expire_transfers(now)
+        now=self.now();self._expire_transfers(now)
         if not self.reliable or self.transport_failed is not None:return
         for key,item in self.transfers.items():
             if item['state']=='WAIT_CONFIRMATION' and item['attempts']<5 and now>=item['next_attempt']:
                 self._attempt_transfer(key,item,now)
 
     def reliability_status(self):
-        return dict(enabled=self.reliable,failure=self.transport_failed,
+        return dict(enabled=self.reliable,failure=self.transport_failed,business_clock_basis=self.business_clock_basis,
             waiting=sum(t['state']=='WAIT_CONFIRMATION' for t in self.transfers.values()),
             unconfirmed=sum(t['state']=='UNCONFIRMED' for t in self.transfers.values()))
 
@@ -163,7 +173,7 @@ class ActionWire:
             self.ready[self.robot]=ready
             self._publish_wire(self.robot,8,Bool(data=ready))
         else:
-            now=time.monotonic()
+            now=self.now()
             for robot in self.robots:
                 if self.ready[robot] and now-self.ready_received[robot]>self.timeout:
                     self._set_ready(robot,False)
@@ -230,8 +240,8 @@ class ActionWire:
             raise ValueError('Action peer/flow does not match this endpoint')
         if rpc_id>>32!=self.session_id:return
         body=bytes(body)
-        # A newly processed late ACK/response cannot erase a real wall expiry.
-        self._expire_transfers(time.monotonic())
+        # A newly processed late ACK/response cannot erase a deadline in the selected business clock.
+        self._expire_transfers(self.now())
         if self.reliable and self.transport_failed is not None:
             self._transport_event('late_packet_after_failure',robot=robot,offset=offset,rpc_id=rpc_id)
             return
@@ -249,7 +259,7 @@ class ActionWire:
         if self.robot is None:
             if offset==8:
                 if rpc_id<=self.ready_sequence.get(robot,-1):return
-                self.ready_sequence[robot]=rpc_id;self.ready_received[robot]=time.monotonic()
+                self.ready_sequence[robot]=rpc_id;self.ready_received[robot]=self.now()
                 self._set_ready(robot,deserialize_message(body,Bool).data)
             elif offset in (1,3,5):
                 key=(robot,offset,rpc_id)

@@ -1,0 +1,77 @@
+{
+  "revision": "trace-completion-audit-v2",
+  "scope": "Offline correction of a04 only; original raw/delivery/result/row retained as v1; no rerun or outcome replacement",
+  "reason": "HQ RAM trace persistence interrupted by KeyboardInterrupt, final completion summary absent",
+  "hq_prefix": {
+    "rows": 1999,
+    "native_takes": 915,
+    "min_sim": 10.53,
+    "max_sim": 11.62,
+    "autonomy_native_takes_recorded": 0
+  },
+  "old_source_cohort": {
+    "denominator": 24325,
+    "status_counts": {
+      "NOT_OBSERVED_BY_BUDGET": 24325
+    },
+    "exact_success_rate": 0.0,
+    "success_rate_lower": 0.0,
+    "success_rate_upper": 0.0
+  },
+  "corrected_source_cohort": {
+    "denominator": 24325,
+    "status_counts": {
+      "UNKNOWN_HQ_TRACE_INCOMPLETE": 24325
+    },
+    "exact_success_rate": null,
+    "success_rate_lower": 0.0,
+    "success_rate_upper": 1.0
+  },
+  "trace_completion": {
+    "source": {
+      "complete": true,
+      "declared_rows": 43037,
+      "actual_rows": 43037,
+      "last_record_id": 43037,
+      "reasons": [],
+      "completion_boundary": "summary created after trace close"
+    },
+    "hq": {
+      "complete": false,
+      "declared_rows": null,
+      "actual_rows": 1999,
+      "last_record_id": 1999,
+      "reasons": [
+        "completion_summary_missing_or_invalid",
+        "declared_actual_row_count_mismatch"
+      ],
+      "completion_boundary": "summary created after trace close"
+    },
+    "wire_saved": true
+  },
+  "unchanged": {
+    "batch_classification": "ENGINEERING_BLOCK_STOP_ROOT_REVIEW",
+    "t95_sim_s": null
+  },
+  "complete_predecessors": {
+    "a01s": {
+      "summary_rows": 240712,
+      "actual_rows": 240712,
+      "last_event_id": 240712,
+      "pending": 0
+    },
+    "a02": {
+      "summary_rows": 240001,
+      "actual_rows": 240001,
+      "last_event_id": 240001,
+      "pending": 0
+    },
+    "a03": {
+      "summary_rows": 245932,
+      "actual_rows": 245932,
+      "last_event_id": 245932,
+      "pending": 0
+    }
+  },
+  "limits": "Complete predecessor facts were audited once; no earlier delivery recomputation. HQ unknown is not proof of wireless loss or zero reception. Independent wire-stage measurements remain descriptive and separate."
+}

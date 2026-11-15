@@ -1,0 +1,725 @@
+{
+  "created_utc": "2026-11-13T04:45:00.908562+00:00",
+  "scope": "Two completed60sim RAM engineering qualifications only; descriptive sampled T95 and original pacing gates. Not statistical benefit or pureRF causal attribution.",
+  "common": {
+    "profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-60sim",
+    "maximum_sim_s": 60,
+    "only_radio_factor": "LogDistance exponent2 to3, fixed VhtMcs9/16dBm/TCP/seed/run",
+    "native_ELF": "d53b9143dff96307e4a81c64aac797f6dfd7e2eeb3a6b2f01ef0b070f46b16c3",
+    "native_build_identity": "local-runs/causal-fix-20261113/transport/build-identity.json",
+    "adapter_binding": "local-runs/causal-fix-20261113/integration60/COMMON_BINDING.json",
+    "native_cpu_profile": false,
+    "native_async_ledger": false,
+    "native_ledger_mode": "serial",
+    "evidence_backend": "owned tmpfs then existing verified copy after native exit",
+    "evidence_budget_bytes": 6442450944,
+    "free_reserve_bytes": 2147483648,
+    "MemAvailable_min_bytes": 25769803776
+  },
+  "cases": {
+    "b2": {
+      "native_profile": "B",
+      "effective_network": {
+        "profile": "B",
+        "base_lock": "NETWORK_LOCK_V3",
+        "data_mode": "VhtMcs9",
+        "tx_power_dbm": 16,
+        "pathloss_exponent": 2,
+        "single_factor_from_B": null
+      },
+      "run_stop_network_copy_pass": true,
+      "autonomy_sim_s": 60.0,
+      "autonomy_wall_s": 239.99643683433533,
+      "start_sim": 9.78,
+      "end_sim": 69.78,
+      "owned_goal_requests": 9,
+      "owned_UUIDs_closed": true,
+      "all_robot_motion": true,
+      "main_owned_exit_codes": {
+        "outer_exit": 0,
+        "runner_exit": 0,
+        "hub_exit": 0,
+        "native_exit": 0,
+        "controller_exit": 0
+      },
+      "controlled_exit_codes": {
+        "coordinator": 0,
+        "clock_R": 0,
+        "clock_C": 0
+      },
+      "original_error": null,
+      "original_hazard": null,
+      "all_known_PIDs_gone": true,
+      "daemon_cleanup_pass": true,
+      "copied_bytes": 3099790074,
+      "evidence_budget_bytes": 6442450944,
+      "under_declared_budget": true,
+      "reference_free_cells": 15558,
+      "T95": {
+        "local_union": {
+          "status": "reached",
+          "sim_s": 37.04,
+          "missing_sources": [],
+          "task_coverage_complete": true,
+          "last_sample_coverage": 0.9664481295796374,
+          "last_sample_quality_valid": true,
+          "last_sample_elapsed_sim_s": 59.59
+        },
+        "central_merged": {
+          "status": "reached",
+          "sim_s": 37.07,
+          "missing_sources": [],
+          "task_coverage_complete": true,
+          "last_sample_coverage": 0.9650983416891631,
+          "last_sample_quality_valid": true,
+          "last_sample_elapsed_sim_s": 59.61
+        },
+        "robot_received": {
+          "status": "reached",
+          "sim_s": 37.08,
+          "missing_sources": [],
+          "task_coverage_complete": true,
+          "last_sample_coverage": 0.9650983416891631,
+          "last_sample_quality_valid": true,
+          "last_sample_elapsed_sim_s": 59.620000000000005
+        }
+      },
+      "pacing": {
+        "file": "local-runs/causal-fix-20261113/integration60/b2-pacing-feedback/result.json",
+        "rtf": 0.2500037116860063,
+        "physical_tokens": 6000,
+        "lateness_p95_wall_ms": 3.560814550000003,
+        "above_40wall_ms_count": 1,
+        "above_40wall_ms_fraction": 0.00016666666666666666,
+        "gates": {
+          "rtf_within_predeclared_band": true,
+          "lateness_p95_le_20wall_ms": true,
+          "lateness_above_40wall_ms_fraction_le_point01": true
+        },
+        "pacing_pass": true
+      },
+      "feedback_descriptive": {
+        "owned_UUIDs": 9,
+        "R_bag_receipts_per_observed_active_sim_s_range": [
+          399.5249406175773,
+          400.2754820936638
+        ],
+        "R_sampled_every10_callback_wall_interval_median_range_s": [
+          0.09993243217468262,
+          0.1000514030456543
+        ],
+        "exact_R_source_callback_per_UUID": "UNMEASURED: source publisher callbacks are not bag receipt callbacks. Gateway has unsampled captures but no decoded UUID; its large JSON/native ledgers were intentionally not read.",
+        "C_feedback": "Stored separately in each pacing-feedback result; no C/R count subtraction as loss."
+      },
+      "native_summary": {
+        "counts": {
+          "actual_clock_horizon_known": 7134,
+          "horizon_return": 7133,
+          "ipc_ingress": 136466,
+          "mac_data_retry": 162714,
+          "mac_final_data_drop": 30,
+          "mac_rx": 434056,
+          "mac_tx": 434072,
+          "message_deliver": 136449,
+          "model_ready": 1,
+          "network_mobility_control": 2108,
+          "phy_rx_drop": 254257,
+          "phy_rx_end": 1477539,
+          "phy_tx_end": 578079,
+          "tcp_accepted": 3,
+          "tcp_connected": 3,
+          "tcp_effective_attributes": 6,
+          "tcp_frame_rx": 451730,
+          "tcp_listener_effective_attributes": 3,
+          "tcp_rx": 433974,
+          "tcp_stream_read": 290774,
+          "tcp_tx": 434053,
+          "tcp_write": 479318,
+          "transport_end": 1,
+          "wifi_sniffer_rx": 1471779
+        },
+        "pending_incomplete": 0,
+        "completed_messages": 136449,
+        "ns3_ns": 71330000000
+      },
+      "evidence": {
+        "exit": "local-runs/causal-fix-20261113/integration60/b2.integration-exit-summary.json",
+        "metric": "local-runs/causal-fix-20261113/metrics/b2/result.json",
+        "metric_validation": "local-runs/causal-fix-20261113/metrics/b2.validation.json",
+        "pacing_feedback": "local-runs/causal-fix-20261113/integration60/b2-pacing-feedback/result.json"
+      }
+    },
+    "l2": {
+      "native_profile": "B-loss3",
+      "effective_network": {
+        "profile": "B-loss3",
+        "base_lock": "NETWORK_LOCK_V3",
+        "data_mode": "VhtMcs9",
+        "tx_power_dbm": 16,
+        "pathloss_exponent": 3,
+        "single_factor_from_B": "pathloss_exponent"
+      },
+      "run_stop_network_copy_pass": true,
+      "autonomy_sim_s": 60.0,
+      "autonomy_wall_s": 239.9557602405548,
+      "start_sim": 10.19,
+      "end_sim": 70.19,
+      "owned_goal_requests": 10,
+      "owned_UUIDs_closed": true,
+      "all_robot_motion": true,
+      "main_owned_exit_codes": {
+        "outer_exit": 0,
+        "runner_exit": 0,
+        "hub_exit": 0,
+        "native_exit": 0,
+        "controller_exit": 0
+      },
+      "controlled_exit_codes": {
+        "coordinator": 0,
+        "clock_R": 0,
+        "clock_C": 0
+      },
+      "original_error": null,
+      "original_hazard": null,
+      "all_known_PIDs_gone": true,
+      "daemon_cleanup_pass": true,
+      "copied_bytes": 3088738011,
+      "evidence_budget_bytes": 6442450944,
+      "under_declared_budget": true,
+      "reference_free_cells": 15558,
+      "T95": {
+        "local_union": {
+          "status": "not_reached_within_budget",
+          "sim_s": null,
+          "missing_sources": [],
+          "task_coverage_complete": false,
+          "last_sample_coverage": 0.8906029052577452,
+          "last_sample_quality_valid": true,
+          "last_sample_elapsed_sim_s": 59.510000000000005
+        },
+        "central_merged": {
+          "status": "not_reached_within_budget",
+          "sim_s": null,
+          "missing_sources": [],
+          "task_coverage_complete": false,
+          "last_sample_coverage": 0.8886746368427818,
+          "last_sample_quality_valid": true,
+          "last_sample_elapsed_sim_s": 59.540000000000006
+        },
+        "robot_received": {
+          "status": "not_reached_within_budget",
+          "sim_s": null,
+          "missing_sources": [],
+          "task_coverage_complete": false,
+          "last_sample_coverage": 0.8886746368427818,
+          "last_sample_quality_valid": true,
+          "last_sample_elapsed_sim_s": 59.55
+        }
+      },
+      "pacing": {
+        "file": "local-runs/causal-fix-20261113/integration60/l2-pacing-feedback/result.json",
+        "rtf": 0.2500460915789236,
+        "physical_tokens": 6000,
+        "lateness_p95_wall_ms": 2.836250600000004,
+        "above_40wall_ms_count": 1,
+        "above_40wall_ms_fraction": 0.00016666666666666666,
+        "gates": {
+          "rtf_within_predeclared_band": true,
+          "lateness_p95_le_20wall_ms": true,
+          "lateness_above_40wall_ms_fraction_le_point01": true
+        },
+        "pacing_pass": true
+      },
+      "feedback_descriptive": {
+        "owned_UUIDs": 10,
+        "R_bag_receipts_per_observed_active_sim_s_range": [
+          400.0,
+          400.22909507445604
+        ],
+        "R_sampled_every10_callback_wall_interval_median_range_s": [
+          0.0999457836151123,
+          0.10004448890686035
+        ],
+        "exact_R_source_callback_per_UUID": "UNMEASURED: source publisher callbacks are not bag receipt callbacks. Gateway has unsampled captures but no decoded UUID; its large JSON/native ledgers were intentionally not read.",
+        "C_feedback": "Stored separately in each pacing-feedback result; no C/R count subtraction as loss."
+      },
+      "native_summary": {
+        "counts": {
+          "actual_clock_horizon_known": 7176,
+          "horizon_return": 7175,
+          "ipc_ingress": 135721,
+          "mac_data_retry": 149244,
+          "mac_final_data_drop": 20,
+          "mac_rx": 435852,
+          "mac_tx": 435862,
+          "message_deliver": 135715,
+          "model_ready": 1,
+          "network_mobility_control": 2112,
+          "phy_rx_drop": 226225,
+          "phy_rx_end": 1488963,
+          "phy_tx_end": 572574,
+          "tcp_accepted": 3,
+          "tcp_connected": 3,
+          "tcp_effective_attributes": 6,
+          "tcp_frame_rx": 452552,
+          "tcp_listener_effective_attributes": 3,
+          "tcp_rx": 435822,
+          "tcp_stream_read": 292175,
+          "tcp_tx": 435843,
+          "tcp_write": 479866,
+          "transport_end": 1,
+          "wifi_sniffer_rx": 1465174
+        },
+        "pending_incomplete": 0,
+        "completed_messages": 135715,
+        "ns3_ns": 71750000000
+      },
+      "evidence": {
+        "exit": "local-runs/causal-fix-20261113/integration60/l2.integration-exit-summary.json",
+        "metric": "local-runs/causal-fix-20261113/metrics/l2/result.json",
+        "metric_validation": "local-runs/causal-fix-20261113/metrics/l2.validation.json",
+        "pacing_feedback": "local-runs/causal-fix-20261113/integration60/l2-pacing-feedback/result.json"
+      }
+    }
+  },
+  "between_arm_rtf": {
+    "reference_case": "/mnt/local-runs/causal-fix-20261113/gz/b2",
+    "formula": "abs(RTF_B-RTF_loss3)/RTF_B",
+    "relative_difference": 0.0001695170548927859,
+    "limit": 0.01,
+    "pass_": true
+  },
+  "pair_pacing_pass": true,
+  "T95_difference_sim_s": null,
+  "T95_difference_reason": "B central sampled T95 reached37.07; B-loss3 not observed to reachT95 within60sim and remains null, never imputed60.",
+  "interpretation": "Observed B-loss3 local and central mapping remains belowT95 in this one60sim window while original pacing gates pass. All autonomous native ingress has complete RX by each end; aggregate native service p95 has no uniform deterioration; first observations are not equal. Single pair does not identify RF as the unique task-loss cause. No missing T95 imputation, p-value or automatic extra case.",
+  "preserved_prior_failure": {
+    "case": "local-runs/causal-fix-20261113/gz/b",
+    "autonomy_sim_s": 180,
+    "pacing": "FAIL",
+    "late_gt40ms": 255,
+    "tokens": 18000,
+    "fraction": 0.014166666666666666,
+    "threshold": 0.01,
+    "replaced": false
+  },
+  "retained_limits": [
+    "Nav2 internal wall loops unchanged; only this declared pacing qualification is passed.",
+    "Exact R publisher/Gateway source callback per UUID remains UNMEASURED; R bag receipt and sampled Observer callback are different boundaries.",
+    "One scene, seed/run and one case per RF profile; no p-value, success-only mean, imputation or automatic additional case.",
+    "Budget stop and owned-UUID closure do not imply every goal succeeded or natural task termination."
+  ],
+  "status": "ENGINEERING_PACING_PASS_TASK_CAUSALITY_INSUFFICIENT",
+  "finalized_utc": "2026-11-13T04:54:27.311140+00:00",
+  "mechanism_review": {
+    "evidence": "local-runs/causal-fix-20261113/integration60/mechanism-review/result.json",
+    "assessment": {
+      "metadata_identity_match": "PASS within each case: no route/flow/source-stamp/byte mismatch for actual message_id matches; no full-CDR cross-case identity claim",
+      "autonomous_delivery": "All126280 B and125289 loss3 admitted attempts have actual complete native RX by their own autonomous end; no application non-delivery in this cohort. This does not assert zero lower-layer loss.",
+      "service_change": "No uniform worse-service pattern: aggregate p95 B6.1572242/loss3 5.972239sim-ms; local-map flows41/61 p95 increase while several other flows decrease. Offered input/positions differ, so these are descriptive flow results.",
+      "first_inference": "Both first inference at absoluteG15; T0-relative5.22 vs4.81sim. Candidate pools6 vs7, shared-map header14.13 vs14.25 and received poses/stamps differ.",
+      "first_target_comparison": {
+        "tb1": {
+          "B": [
+            0.8250000000000002,
+            0.8750000000000009
+          ],
+          "loss3": [
+            0.8250000000000002,
+            0.8750000000000009
+          ],
+          "distance_m": 0.0
+        },
+        "tb2": {
+          "B": [
+            -0.5249999999999995,
+            -0.3749999999999991
+          ],
+          "loss3": [
+            -0.5249999999999995,
+            -0.3749999999999991
+          ],
+          "distance_m": 0.0
+        },
+        "tb3": {
+          "B": [
+            0.8250000000000002,
+            -1.8749999999999996
+          ],
+          "loss3": [
+            0.7750000000000004,
+            -1.8749999999999996
+          ],
+          "distance_m": 0.04999999999999982
+        }
+      },
+      "choice_index_limit": "Choices [0,4,5] vs[0,5,6] partly reflect candidate renumbering. First tb1/tb2 physical targets are the same; tb3 target shifts0.05m. Do not claim all three initial tasks differ.",
+      "exact_initial_grid_or_701_identity": "UNMEASURED; no NPZ/model replay performed",
+      "wireless_task_causality": "INSUFFICIENT. RF parameters and realized transport service are documented, but this single closed-loop pair has different initial observations and subsequent endogenous inputs. No matched counterfactual chain identifies RF as the unique cause of the T95 difference. Pacing PASS does not remove every ROS/Gazebo/SLAM/navigation variation.",
+      "scope_stop": "No new experiment, stronger RF condition, additional map/feedback analysis or native packet-ledger read performed."
+    },
+    "semantics": [
+      "IDs match only within a case; equal IDs across cases are not equal messages.",
+      "Identity matching is native message_id plus route/flow/source-stamp/byte metadata, not full CDR hash or RPC decoded from Hub metadata.",
+      "Latency is actual native admission to full ns-3 application RX, never consumer AoI or end-to-end ROS latency.",
+      "Autonomy source cohort uses [T0,end) after the actual fixed clock offset; late complete RX and right-censored no-RX are explicit.",
+      "Retries and repeated source messages remain attempts, without deduplication.",
+      "MAC retry/drop counts cover the complete native run under different offered traffic/positions; not packet-loss rates or independent same-input RF effects.",
+      "First observations/candidate indices are process-local; different inputs/goals can reflect both communication mediation and ROS/Gazebo variation.",
+      "One pair cannot uniquely attribute its task difference to RF; no summed p95 is used to explain a task time gap."
+    ],
+    "cases": {
+      "b2": {
+        "autonomous_admission_cohort": {
+          "admitted_attempts": 126280,
+          "admitted_bytes_including_RPC_prefix": 336549552,
+          "delivered_by_autonomy_end": 126280,
+          "delivered_after_autonomy_before_native_END": 0,
+          "not_delivered_by_autonomy_end": 0,
+          "no_complete_RX_in_recorded_native_horizon": 0,
+          "admission_to_RX_sim_ms_matched_only": {
+            "n": 126280,
+            "min": 0.052951,
+            "median": 0.915369,
+            "p95": 6.1572241999999955,
+            "max": 34.915724
+          }
+        },
+        "identity_mismatch_count": 0,
+        "first_inference": {
+          "sim": 15.000000000000002,
+          "policy_start_sim": 15.000000000000002,
+          "decision_id": 1,
+          "raw_choices": [
+            0,
+            4,
+            5
+          ],
+          "choices": [
+            0,
+            4,
+            5
+          ],
+          "conditional_options": [
+            1,
+            1,
+            1
+          ],
+          "elapsed_from_autonomy_start": 5.220000000000002,
+          "map": {
+            "resolution": 0.05,
+            "origin": [
+              -5.8,
+              -5.6
+            ],
+            "stamp": 14.13,
+            "source": "/merge_map",
+            "frame": "merge_map",
+            "version": 1
+          },
+          "robots": [
+            {
+              "id": "tb1",
+              "pose": [
+                0.7249133783445225,
+                -0.1500000310994236,
+                0.0007257169545988145
+              ],
+              "pose_stamp": 14.976,
+              "pose_source": "/tb1/odom + namespaced TF",
+              "velocity": [
+                1.937746795852503e-06,
+                1.4062559503450075e-09,
+                4.8617181007011495e-05
+              ],
+              "state": "idle",
+              "target": null,
+              "task_token": 0,
+              "action_uuid": null
+            },
+            {
+              "id": "tb2",
+              "pose": [
+                0.349919159915585,
+                -0.8000000270427409,
+                0.0006772423864537603
+              ],
+              "pose_stamp": 14.982,
+              "pose_source": "/tb2/odom + namespaced TF",
+              "velocity": [
+                1.598608432816418e-05,
+                1.0826455555667794e-08,
+                4.924663803066762e-05
+              ],
+              "state": "idle",
+              "target": null,
+              "task_token": 0,
+              "action_uuid": null
+            },
+            {
+              "id": "tb3",
+              "pose": [
+                1.0999254739692095,
+                -0.800000022934952,
+                0.0006237651937536794
+              ],
+              "pose_stamp": 14.982,
+              "pose_source": "/tb3/odom + namespaced TF",
+              "velocity": [
+                1.8368717943236956e-05,
+                1.1457768392877624e-08,
+                4.936140394915178e-05
+              ],
+              "state": "idle",
+              "target": null,
+              "task_token": 0,
+              "action_uuid": null
+            }
+          ],
+          "candidate_count": 6,
+          "candidates": [
+            {
+              "index": 0,
+              "robot": "tb1",
+              "position": [
+                0.8250000000000002,
+                0.8750000000000009
+              ],
+              "valid": true
+            },
+            {
+              "index": 1,
+              "robot": "tb1",
+              "position": [
+                -0.47499999999999964,
+                -0.17499999999999893
+              ],
+              "valid": true
+            },
+            {
+              "index": 2,
+              "robot": "tb2",
+              "position": [
+                0.7250000000000005,
+                -1.8749999999999996
+              ],
+              "valid": true
+            },
+            {
+              "index": 3,
+              "robot": "tb2",
+              "position": [
+                0.27500000000000036,
+                0.47500000000000053
+              ],
+              "valid": true
+            },
+            {
+              "index": 4,
+              "robot": "tb2",
+              "position": [
+                -0.5249999999999995,
+                -0.3749999999999991
+              ],
+              "valid": true
+            },
+            {
+              "index": 5,
+              "robot": "tb3",
+              "position": [
+                0.8250000000000002,
+                -1.8749999999999996
+              ],
+              "valid": true
+            }
+          ],
+          "valid_counts": [
+            2,
+            3,
+            1
+          ]
+        }
+      },
+      "l2": {
+        "autonomous_admission_cohort": {
+          "admitted_attempts": 125289,
+          "admitted_bytes_including_RPC_prefix": 336532348,
+          "delivered_by_autonomy_end": 125289,
+          "delivered_after_autonomy_before_native_END": 0,
+          "not_delivered_by_autonomy_end": 0,
+          "no_complete_RX_in_recorded_native_horizon": 0,
+          "admission_to_RX_sim_ms_matched_only": {
+            "n": 125289,
+            "min": 0.048018,
+            "median": 0.885041,
+            "p95": 5.972239,
+            "max": 31.682258
+          }
+        },
+        "identity_mismatch_count": 0,
+        "first_inference": {
+          "sim": 15.000000000000002,
+          "policy_start_sim": 15.000000000000002,
+          "decision_id": 1,
+          "raw_choices": [
+            0,
+            5,
+            6
+          ],
+          "choices": [
+            0,
+            5,
+            6
+          ],
+          "conditional_options": [
+            2,
+            1,
+            1
+          ],
+          "elapsed_from_autonomy_start": 4.810000000000002,
+          "map": {
+            "resolution": 0.05,
+            "origin": [
+              -5.8,
+              -5.6
+            ],
+            "stamp": 14.25,
+            "source": "/merge_map",
+            "frame": "merge_map",
+            "version": 1
+          },
+          "robots": [
+            {
+              "id": "tb1",
+              "pose": [
+                0.7249133783445225,
+                -0.1500000310994236,
+                0.0007257169545988145
+              ],
+              "pose_stamp": 14.976,
+              "pose_source": "/tb1/odom + namespaced TF",
+              "velocity": [
+                1.937746795852503e-06,
+                1.4062559503450075e-09,
+                4.8617181007011495e-05
+              ],
+              "state": "idle",
+              "target": null,
+              "task_token": 0,
+              "action_uuid": null
+            },
+            {
+              "id": "tb2",
+              "pose": [
+                0.34992126696765846,
+                -0.8000000256348089,
+                0.0006588588864094734
+              ],
+              "pose_stamp": 14.96,
+              "pose_source": "/tb2/odom + namespaced TF",
+              "velocity": [
+                2.711969419844721e-05,
+                1.78680541048323e-08,
+                4.864408776908464e-05
+              ],
+              "state": "idle",
+              "target": null,
+              "task_token": 0,
+              "action_uuid": null
+            },
+            {
+              "id": "tb3",
+              "pose": [
+                1.099928872806206,
+                -0.8000000208646,
+                0.0005953676220639945
+              ],
+              "pose_stamp": 14.964,
+              "pose_source": "/tb3/odom + namespaced TF",
+              "velocity": [
+                6.8009009930039185e-06,
+                4.0490367305081156e-09,
+                4.960447534149698e-05
+              ],
+              "state": "idle",
+              "target": null,
+              "task_token": 0,
+              "action_uuid": null
+            }
+          ],
+          "candidate_count": 7,
+          "candidates": [
+            {
+              "index": 0,
+              "robot": "tb1",
+              "position": [
+                0.8250000000000002,
+                0.8750000000000009
+              ],
+              "valid": true
+            },
+            {
+              "index": 1,
+              "robot": "tb1",
+              "position": [
+                -0.47499999999999964,
+                -0.17499999999999893
+              ],
+              "valid": true
+            },
+            {
+              "index": 2,
+              "robot": "tb1",
+              "position": [
+                1.1750000000000007,
+                0.22500000000000053
+              ],
+              "valid": true
+            },
+            {
+              "index": 3,
+              "robot": "tb2",
+              "position": [
+                0.27500000000000036,
+                0.47500000000000053
+              ],
+              "valid": true
+            },
+            {
+              "index": 4,
+              "robot": "tb2",
+              "position": [
+                0.7250000000000005,
+                -1.8749999999999996
+              ],
+              "valid": true
+            },
+            {
+              "index": 5,
+              "robot": "tb2",
+              "position": [
+                -0.5249999999999995,
+                -0.3749999999999991
+              ],
+              "valid": true
+            },
+            {
+              "index": 6,
+              "robot": "tb3",
+              "position": [
+                0.7750000000000004,
+                -1.8749999999999996
+              ],
+              "valid": true
+            }
+          ],
+          "valid_counts": [
+            3,
+            3,
+            1
+          ]
+        }
+      }
+    }
+  }
+}

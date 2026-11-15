@@ -1,0 +1,54 @@
+{
+  "status": "EXPORTER_FIX_COMPONENT_PASS_ROOT_REVIEW_PENDING",
+  "profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-60sim-fixedstart-consumertrace-v1",
+  "tests": {
+    "component-03/result.json": "19 final startup adapter checks PASS: fake sim clock/process around actual startup adapter; no model/physical process",
+    "entry-01/result.json": "23 new-profile production ROS entity/source/bounds/host ceiling checks PASS; exec/native/Gazebo intercepted. Before final startup-gate send_goal budget hook and timestamp-only runner edits; production entry code unchanged afterwards.",
+    "diff_check": "PASS"
+  },
+  "contract": {
+    "planned_autonomy_G_sim": 20,
+    "planned_attempts_G_sim": [
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75
+    ],
+    "timing_tolerance_sim_s": 0.01,
+    "goal_permission": "entry to original send_goal in [25,80), no claim about actual DDS send/acceptance; previously admitted inflight/feedback/cancel unchanged",
+    "first_attempt": "original allocator gate called even without valid observation or NN; awaiting/WAIT retained",
+    "readiness": "process initialized marker through original flow95 plus original safety readiness and no-motion thresholds",
+    "process_ownership": "real PID recorded immediately at Popen return; frozen runner takes same process without second launch/record; startup failure stops real owner"
+  },
+  "outputs": {
+    "R_startup": "case/fixed-startup-observer.json includes Popen request/return local monotonic/realtime brackets, planned epoch and actual R sim epoch; no backdating",
+    "C_startup": "case/controller/startup_gate.json at original controller destroy includes planned slots, actual C sim/host clock attempts, return and original send_goal admission brackets"
+  },
+  "scope": "No Gazebo/native experiment/READY/admission marker/training; all old180/default and predecessor60 contracts retained; all explicit failed attempts retained in planned six-case denominator",
+  "preserved_integration_failure": {
+    "case": "a",
+    "outcome": "STARTUP_FAIL no autonomous motion/NN; never retried",
+    "cause": "new marker recorded in local journal but original Gateway exporter allowed only four goal/halt kinds, so marker never entered flow95",
+    "validation_gap": "earlier startup component prefilled received_controller, missing actual exporter allowlist"
+  },
+  "exporter_fix": {
+    "source": "net01/gateway.py; only explicit FIXED_START60_PROFILE_ID additionally exports fixed_startup_initialized; original four kinds unchanged",
+    "fixture": "journal-native-02/component/result.json",
+    "outer_owner": "journal-native-02/owner-result.json",
+    "native_result": "journal-native-02/hub/result.json",
+    "status": "PASS",
+    "sim_horizon": 2.5,
+    "total_wall_s": 2.269526095013134,
+    "native_transport": "original reviewed d53 ELF tcp-mtu-v2, serial ledger; no diagnostics/RAM change",
+    "verified": "actual exporter -> C96 DDS source/capture -> Hub/native real HELLO/ACK + WiFi -> original complete CDR R97 publish -> actual NetworkObserver.controller_record from empty list; legacy marker/pose filtered, halt retained; new marker+halt exactly once each, ordinary pose still filtered; full wire CDR exact",
+    "old_fixture_failure_preserved": "journal-native-01: AF_UNIX socket path too long before native/ROS startup; moved only fixture socket to short owned i/j1.sock",
+    "cleanup": "component0/Hub0/native0; no forced groups"
+  }
+}

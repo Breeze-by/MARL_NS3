@@ -1,0 +1,994 @@
+{
+  "scope": "Sixpostfixcaseconsumer summary reusingexistingpairs; logicali storedphysicalm. Originala startupfailurepermanentlyretainedseparately, notRFsample; nooldcasereanalysis.",
+  "matching": "Same-topic actual RMW source timestamp lies inside measured publish realtime bracket; unique observed candidate only. No GID or TF-publication identity inferred. Matching every received forwarded take does not prove every original source message was delivered or loss-free.",
+  "ages": "Interval from the beginning of the callback that successfully updated the referenced state/cache to policy-use begin, including callback processing (use.begin - callback.begin). It is not time since apply/end or generation-to-use AoI; map header is the oldest contributing stamp, not generation.",
+  "cached_sources": "Refs identify actually successful state/cache application. Original observation read records separately identify executed/rejected branches; cached availability alone does not prove entry into 701.",
+  "pair_summary_files": [
+    "g-h.consumer-summary.json",
+    "i-j.consumer-summary.json",
+    "k-l.consumer-summary.json"
+  ],
+  "cases": {
+    "g": {
+      "take_match_counts": {
+        "UNIQUE_OBSERVED_PUBLICATION_CANDIDATE": 56183,
+        "C_LOCAL_DERIVED_PUBLICATION_NOT_GATEWAY_UPLINK_PUBLISH": 827
+      },
+      "unresolved_wire_takes": 0,
+      "policy_uses": 11,
+      "policy_source_match_counts": {
+        "UNIQUE_OBSERVED_PUBLICATION_CANDIDATE": 99,
+        "C_LOCAL_DERIVED_PUBLICATION_NOT_GATEWAY_UPLINK_PUBLISH": 22
+      },
+      "callback_to_use_sim_ms_by_role": {
+        "local_map:tb1": {
+          "n": 11,
+          "median": 620.0,
+          "p95_nearest_rank": 620.0,
+          "max": 620.0
+        },
+        "local_map:tb2": {
+          "n": 11,
+          "median": 500.0,
+          "p95_nearest_rank": 500.0,
+          "max": 500.0
+        },
+        "local_map:tb3": {
+          "n": 11,
+          "median": 560.0,
+          "p95_nearest_rank": 560.0,
+          "max": 560.0
+        },
+        "costmap:tb1": {
+          "n": 11,
+          "median": 280.0,
+          "p95_nearest_rank": 530.0,
+          "max": 530.0
+        },
+        "costmap:tb2": {
+          "n": 11,
+          "median": 260.0,
+          "p95_nearest_rank": 510.0,
+          "max": 510.0
+        },
+        "costmap:tb3": {
+          "n": 11,
+          "median": 230.0,
+          "p95_nearest_rank": 530.0,
+          "max": 530.0
+        },
+        "peer_state": {
+          "n": 11,
+          "median": 100.0,
+          "p95_nearest_rank": 100.0,
+          "max": 100.0
+        },
+        "pose:tb3": {
+          "n": 11,
+          "median": 30.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        },
+        "pose:tb1": {
+          "n": 11,
+          "median": 30.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        },
+        "pose:tb2": {
+          "n": 11,
+          "median": 20.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        },
+        "shared_map": {
+          "n": 11,
+          "median": 490.0,
+          "p95_nearest_rank": 490.0,
+          "max": 490.0
+        }
+      },
+      "callback_to_use_wall_ms_by_role": {
+        "local_map:tb1": {
+          "n": 11,
+          "median": 3470.419969,
+          "p95_nearest_rank": 4285.161507,
+          "max": 4285.161507
+        },
+        "local_map:tb2": {
+          "n": 11,
+          "median": 2995.157827,
+          "p95_nearest_rank": 3801.079573,
+          "max": 3801.079573
+        },
+        "local_map:tb3": {
+          "n": 11,
+          "median": 3229.694685,
+          "p95_nearest_rank": 4030.299855,
+          "max": 4030.299855
+        },
+        "costmap:tb1": {
+          "n": 11,
+          "median": 2203.247372,
+          "p95_nearest_rank": 3680.897325,
+          "max": 3680.897325
+        },
+        "costmap:tb2": {
+          "n": 11,
+          "median": 1920.668268,
+          "p95_nearest_rank": 3441.589217,
+          "max": 3441.589217
+        },
+        "costmap:tb3": {
+          "n": 11,
+          "median": 2144.760171,
+          "p95_nearest_rank": 3155.348281,
+          "max": 3155.348281
+        },
+        "peer_state": {
+          "n": 11,
+          "median": 1382.335783,
+          "p95_nearest_rank": 2199.379175,
+          "max": 2199.379175
+        },
+        "pose:tb3": {
+          "n": 11,
+          "median": 1073.770253,
+          "p95_nearest_rank": 1923.155251,
+          "max": 1923.155251
+        },
+        "pose:tb1": {
+          "n": 11,
+          "median": 1116.442237,
+          "p95_nearest_rank": 1932.493221,
+          "max": 1932.493221
+        },
+        "pose:tb2": {
+          "n": 11,
+          "median": 1041.477924,
+          "p95_nearest_rank": 1846.695223,
+          "max": 1846.695223
+        },
+        "shared_map": {
+          "n": 11,
+          "median": 2944.864761,
+          "p95_nearest_rank": 3725.450963,
+          "max": 3725.450963
+        }
+      },
+      "original_observation_read_record_counts": {
+        "gz01_peer_routing_mask": 33,
+        "local_navigation_grid": 33,
+        "gz01_seed_connection": 33
+      },
+      "seed_connection_branch_reasons": {
+        "trusted_known_free_seed_connection": 10,
+        "normal_seed_unchanged": 20,
+        "Nav2_seed_not_below_inscribed": 2,
+        "peer_guard_at_seed": 1
+      },
+      "first_policy_local_sim_ns": 25000000000,
+      "trace_rows": 130568,
+      "pending_take_without_callback": 0,
+      "diagnostic_wall_s": 10.546990261,
+      "diagnostic_thread_cpu_s": 9.515046479
+    },
+    "h": {
+      "take_match_counts": {
+        "UNIQUE_OBSERVED_PUBLICATION_CANDIDATE": 55949,
+        "C_LOCAL_DERIVED_PUBLICATION_NOT_GATEWAY_UPLINK_PUBLISH": 825
+      },
+      "unresolved_wire_takes": 0,
+      "policy_uses": 11,
+      "policy_source_match_counts": {
+        "UNIQUE_OBSERVED_PUBLICATION_CANDIDATE": 99,
+        "C_LOCAL_DERIVED_PUBLICATION_NOT_GATEWAY_UPLINK_PUBLISH": 22
+      },
+      "callback_to_use_sim_ms_by_role": {
+        "local_map:tb1": {
+          "n": 11,
+          "median": 590.0,
+          "p95_nearest_rank": 590.0,
+          "max": 590.0
+        },
+        "local_map:tb2": {
+          "n": 11,
+          "median": 510.0,
+          "p95_nearest_rank": 510.0,
+          "max": 510.0
+        },
+        "local_map:tb3": {
+          "n": 11,
+          "median": 260.0,
+          "p95_nearest_rank": 260.0,
+          "max": 260.0
+        },
+        "costmap:tb1": {
+          "n": 11,
+          "median": 330.0,
+          "p95_nearest_rank": 480.0,
+          "max": 480.0
+        },
+        "costmap:tb2": {
+          "n": 11,
+          "median": 310.0,
+          "p95_nearest_rank": 510.0,
+          "max": 510.0
+        },
+        "costmap:tb3": {
+          "n": 11,
+          "median": 330.0,
+          "p95_nearest_rank": 540.0,
+          "max": 540.0
+        },
+        "peer_state": {
+          "n": 11,
+          "median": 100.0,
+          "p95_nearest_rank": 100.0,
+          "max": 100.0
+        },
+        "pose:tb3": {
+          "n": 11,
+          "median": 40.0,
+          "p95_nearest_rank": 60.0,
+          "max": 60.0
+        },
+        "pose:tb2": {
+          "n": 11,
+          "median": 20.0,
+          "p95_nearest_rank": 30.0,
+          "max": 30.0
+        },
+        "pose:tb1": {
+          "n": 11,
+          "median": 30.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        },
+        "shared_map": {
+          "n": 11,
+          "median": 250.0,
+          "p95_nearest_rank": 250.0,
+          "max": 250.0
+        }
+      },
+      "callback_to_use_wall_ms_by_role": {
+        "local_map:tb1": {
+          "n": 11,
+          "median": 3411.810948,
+          "p95_nearest_rank": 3814.388058,
+          "max": 3814.388058
+        },
+        "local_map:tb2": {
+          "n": 11,
+          "median": 3120.27979,
+          "p95_nearest_rank": 3506.619725,
+          "max": 3506.619725
+        },
+        "local_map:tb3": {
+          "n": 11,
+          "median": 2106.755559,
+          "p95_nearest_rank": 2510.181729,
+          "max": 2510.181729
+        },
+        "costmap:tb1": {
+          "n": 11,
+          "median": 2397.087681,
+          "p95_nearest_rank": 3368.150422,
+          "max": 3368.150422
+        },
+        "costmap:tb2": {
+          "n": 11,
+          "median": 2111.128836,
+          "p95_nearest_rank": 3157.632516,
+          "max": 3157.632516
+        },
+        "costmap:tb3": {
+          "n": 11,
+          "median": 2119.710986,
+          "p95_nearest_rank": 3621.804386,
+          "max": 3621.804386
+        },
+        "peer_state": {
+          "n": 11,
+          "median": 1481.555418,
+          "p95_nearest_rank": 1873.863567,
+          "max": 1873.863567
+        },
+        "pose:tb3": {
+          "n": 11,
+          "median": 1280.797225,
+          "p95_nearest_rank": 1649.08873,
+          "max": 1649.08873
+        },
+        "pose:tb2": {
+          "n": 11,
+          "median": 1199.913108,
+          "p95_nearest_rank": 1559.367747,
+          "max": 1559.367747
+        },
+        "pose:tb1": {
+          "n": 11,
+          "median": 1245.845538,
+          "p95_nearest_rank": 1625.376348,
+          "max": 1625.376348
+        },
+        "shared_map": {
+          "n": 11,
+          "median": 2055.912291,
+          "p95_nearest_rank": 2461.335997,
+          "max": 2461.335997
+        }
+      },
+      "original_observation_read_record_counts": {
+        "gz01_peer_routing_mask": 33,
+        "local_navigation_grid": 33,
+        "gz01_seed_connection": 33
+      },
+      "seed_connection_branch_reasons": {
+        "trusted_known_free_seed_connection": 10,
+        "normal_seed_unchanged": 23
+      },
+      "first_policy_local_sim_ns": 25000000000,
+      "trace_rows": 131018,
+      "pending_take_without_callback": 0,
+      "diagnostic_wall_s": 10.106250144,
+      "diagnostic_thread_cpu_s": 9.088017272
+    },
+    "i": {
+      "take_match_counts": {
+        "UNIQUE_OBSERVED_PUBLICATION_CANDIDATE": 56291,
+        "C_LOCAL_DERIVED_PUBLICATION_NOT_GATEWAY_UPLINK_PUBLISH": 832
+      },
+      "unresolved_wire_takes": 0,
+      "policy_uses": 11,
+      "policy_source_match_counts": {
+        "UNIQUE_OBSERVED_PUBLICATION_CANDIDATE": 99,
+        "C_LOCAL_DERIVED_PUBLICATION_NOT_GATEWAY_UPLINK_PUBLISH": 22
+      },
+      "callback_to_use_sim_ms_by_role": {
+        "local_map:tb1": {
+          "n": 11,
+          "median": 580.0,
+          "p95_nearest_rank": 590.0,
+          "max": 590.0
+        },
+        "local_map:tb2": {
+          "n": 11,
+          "median": 570.0,
+          "p95_nearest_rank": 570.0,
+          "max": 570.0
+        },
+        "local_map:tb3": {
+          "n": 11,
+          "median": 650.0,
+          "p95_nearest_rank": 650.0,
+          "max": 650.0
+        },
+        "costmap:tb1": {
+          "n": 11,
+          "median": 230.0,
+          "p95_nearest_rank": 540.0,
+          "max": 540.0
+        },
+        "costmap:tb2": {
+          "n": 11,
+          "median": 260.0,
+          "p95_nearest_rank": 510.0,
+          "max": 510.0
+        },
+        "costmap:tb3": {
+          "n": 11,
+          "median": 280.0,
+          "p95_nearest_rank": 540.0,
+          "max": 540.0
+        },
+        "pose:tb1": {
+          "n": 11,
+          "median": 30.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        },
+        "peer_state": {
+          "n": 11,
+          "median": 100.0,
+          "p95_nearest_rank": 100.0,
+          "max": 100.0
+        },
+        "pose:tb2": {
+          "n": 11,
+          "median": 30.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        },
+        "pose:tb3": {
+          "n": 11,
+          "median": 20.0,
+          "p95_nearest_rank": 70.0,
+          "max": 70.0
+        },
+        "shared_map": {
+          "n": 11,
+          "median": 550.0,
+          "p95_nearest_rank": 560.0,
+          "max": 560.0
+        }
+      },
+      "callback_to_use_wall_ms_by_role": {
+        "local_map:tb1": {
+          "n": 11,
+          "median": 3325.37429,
+          "p95_nearest_rank": 3960.398068,
+          "max": 3960.398068
+        },
+        "local_map:tb2": {
+          "n": 11,
+          "median": 3170.091948,
+          "p95_nearest_rank": 3901.881971,
+          "max": 3901.881971
+        },
+        "local_map:tb3": {
+          "n": 11,
+          "median": 3602.506373,
+          "p95_nearest_rank": 4262.461929,
+          "max": 4262.461929
+        },
+        "costmap:tb1": {
+          "n": 11,
+          "median": 2116.788141,
+          "p95_nearest_rank": 2987.283696,
+          "max": 2987.283696
+        },
+        "costmap:tb2": {
+          "n": 11,
+          "median": 1886.385006,
+          "p95_nearest_rank": 3080.831131,
+          "max": 3080.831131
+        },
+        "costmap:tb3": {
+          "n": 11,
+          "median": 2340.934334,
+          "p95_nearest_rank": 2971.135705,
+          "max": 2971.135705
+        },
+        "pose:tb1": {
+          "n": 11,
+          "median": 1082.602552,
+          "p95_nearest_rank": 1710.434093,
+          "max": 1710.434093
+        },
+        "peer_state": {
+          "n": 11,
+          "median": 1402.894308,
+          "p95_nearest_rank": 2066.252854,
+          "max": 2066.252854
+        },
+        "pose:tb2": {
+          "n": 11,
+          "median": 1080.107488,
+          "p95_nearest_rank": 1821.731464,
+          "max": 1821.731464
+        },
+        "pose:tb3": {
+          "n": 11,
+          "median": 1092.943917,
+          "p95_nearest_rank": 1919.917686,
+          "max": 1919.917686
+        },
+        "shared_map": {
+          "n": 11,
+          "median": 3118.052394,
+          "p95_nearest_rank": 3852.168769,
+          "max": 3852.168769
+        }
+      },
+      "original_observation_read_record_counts": {
+        "gz01_peer_routing_mask": 33,
+        "local_navigation_grid": 33,
+        "gz01_seed_connection": 33
+      },
+      "seed_connection_branch_reasons": {
+        "trusted_known_free_seed_connection": 14,
+        "normal_seed_unchanged": 19
+      },
+      "first_policy_local_sim_ns": 25000000000,
+      "trace_rows": 128673,
+      "pending_take_without_callback": 0,
+      "diagnostic_wall_s": 10.013635088,
+      "diagnostic_thread_cpu_s": 9.008203518
+    },
+    "j": {
+      "take_match_counts": {
+        "UNIQUE_OBSERVED_PUBLICATION_CANDIDATE": 56353,
+        "C_LOCAL_DERIVED_PUBLICATION_NOT_GATEWAY_UPLINK_PUBLISH": 832
+      },
+      "unresolved_wire_takes": 0,
+      "policy_uses": 11,
+      "policy_source_match_counts": {
+        "UNIQUE_OBSERVED_PUBLICATION_CANDIDATE": 99,
+        "C_LOCAL_DERIVED_PUBLICATION_NOT_GATEWAY_UPLINK_PUBLISH": 22
+      },
+      "callback_to_use_sim_ms_by_role": {
+        "local_map:tb1": {
+          "n": 11,
+          "median": 660.0,
+          "p95_nearest_rank": 660.0,
+          "max": 660.0
+        },
+        "local_map:tb2": {
+          "n": 11,
+          "median": 530.0,
+          "p95_nearest_rank": 530.0,
+          "max": 530.0
+        },
+        "local_map:tb3": {
+          "n": 11,
+          "median": 690.0,
+          "p95_nearest_rank": 690.0,
+          "max": 690.0
+        },
+        "costmap:tb1": {
+          "n": 11,
+          "median": 240.0,
+          "p95_nearest_rank": 530.0,
+          "max": 530.0
+        },
+        "costmap:tb2": {
+          "n": 11,
+          "median": 260.0,
+          "p95_nearest_rank": 510.0,
+          "max": 510.0
+        },
+        "costmap:tb3": {
+          "n": 11,
+          "median": 330.0,
+          "p95_nearest_rank": 530.0,
+          "max": 530.0
+        },
+        "pose:tb1": {
+          "n": 11,
+          "median": 20.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        },
+        "peer_state": {
+          "n": 11,
+          "median": 100.0,
+          "p95_nearest_rank": 100.0,
+          "max": 100.0
+        },
+        "pose:tb2": {
+          "n": 11,
+          "median": 20.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        },
+        "pose:tb3": {
+          "n": 11,
+          "median": 20.0,
+          "p95_nearest_rank": 30.0,
+          "max": 30.0
+        },
+        "shared_map": {
+          "n": 11,
+          "median": 520.0,
+          "p95_nearest_rank": 520.0,
+          "max": 520.0
+        }
+      },
+      "callback_to_use_wall_ms_by_role": {
+        "local_map:tb1": {
+          "n": 11,
+          "median": 3611.022095,
+          "p95_nearest_rank": 4033.250569,
+          "max": 4033.250569
+        },
+        "local_map:tb2": {
+          "n": 11,
+          "median": 3112.631543,
+          "p95_nearest_rank": 3527.284589,
+          "max": 3527.284589
+        },
+        "local_map:tb3": {
+          "n": 11,
+          "median": 3730.200632,
+          "p95_nearest_rank": 4150.832342,
+          "max": 4150.832342
+        },
+        "costmap:tb1": {
+          "n": 11,
+          "median": 1784.440426,
+          "p95_nearest_rank": 3080.070526,
+          "max": 3080.070526
+        },
+        "costmap:tb2": {
+          "n": 11,
+          "median": 1883.242463,
+          "p95_nearest_rank": 3441.989511,
+          "max": 3441.989511
+        },
+        "costmap:tb3": {
+          "n": 11,
+          "median": 2183.492223,
+          "p95_nearest_rank": 3089.507009,
+          "max": 3089.507009
+        },
+        "pose:tb1": {
+          "n": 11,
+          "median": 1081.090942,
+          "p95_nearest_rank": 1458.210071,
+          "max": 1458.210071
+        },
+        "peer_state": {
+          "n": 11,
+          "median": 1393.630949,
+          "p95_nearest_rank": 1808.332588,
+          "max": 1808.332588
+        },
+        "pose:tb2": {
+          "n": 11,
+          "median": 1111.18116,
+          "p95_nearest_rank": 1463.654387,
+          "max": 1463.654387
+        },
+        "pose:tb3": {
+          "n": 11,
+          "median": 1085.712143,
+          "p95_nearest_rank": 1489.994601,
+          "max": 1489.994601
+        },
+        "shared_map": {
+          "n": 11,
+          "median": 3073.361089,
+          "p95_nearest_rank": 3483.177471,
+          "max": 3483.177471
+        }
+      },
+      "original_observation_read_record_counts": {
+        "gz01_peer_routing_mask": 33,
+        "local_navigation_grid": 33,
+        "gz01_seed_connection": 33
+      },
+      "seed_connection_branch_reasons": {
+        "trusted_known_free_seed_connection": 7,
+        "normal_seed_unchanged": 26
+      },
+      "first_policy_local_sim_ns": 25000000000,
+      "trace_rows": 129665,
+      "pending_take_without_callback": 0,
+      "diagnostic_wall_s": 10.573353492,
+      "diagnostic_thread_cpu_s": 9.629052841
+    },
+    "k": {
+      "take_match_counts": {
+        "UNIQUE_OBSERVED_PUBLICATION_CANDIDATE": 56910,
+        "C_LOCAL_DERIVED_PUBLICATION_NOT_GATEWAY_UPLINK_PUBLISH": 839
+      },
+      "unresolved_wire_takes": 0,
+      "policy_uses": 11,
+      "policy_source_match_counts": {
+        "UNIQUE_OBSERVED_PUBLICATION_CANDIDATE": 99,
+        "C_LOCAL_DERIVED_PUBLICATION_NOT_GATEWAY_UPLINK_PUBLISH": 22
+      },
+      "callback_to_use_sim_ms_by_role": {
+        "local_map:tb1": {
+          "n": 11,
+          "median": 50.0,
+          "p95_nearest_rank": 50.0,
+          "max": 50.0
+        },
+        "local_map:tb2": {
+          "n": 11,
+          "median": 120.0,
+          "p95_nearest_rank": 120.0,
+          "max": 120.0
+        },
+        "local_map:tb3": {
+          "n": 11,
+          "median": 110.0,
+          "p95_nearest_rank": 110.0,
+          "max": 110.0
+        },
+        "costmap:tb1": {
+          "n": 11,
+          "median": 280.0,
+          "p95_nearest_rank": 530.0,
+          "max": 530.0
+        },
+        "costmap:tb2": {
+          "n": 11,
+          "median": 210.0,
+          "p95_nearest_rank": 520.0,
+          "max": 520.0
+        },
+        "costmap:tb3": {
+          "n": 11,
+          "median": 400.0,
+          "p95_nearest_rank": 540.0,
+          "max": 540.0
+        },
+        "pose:tb3": {
+          "n": 11,
+          "median": 50.0,
+          "p95_nearest_rank": 60.0,
+          "max": 60.0
+        },
+        "peer_state": {
+          "n": 11,
+          "median": 100.0,
+          "p95_nearest_rank": 100.0,
+          "max": 100.0
+        },
+        "pose:tb1": {
+          "n": 11,
+          "median": 20.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        },
+        "pose:tb2": {
+          "n": 11,
+          "median": 30.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        },
+        "shared_map": {
+          "n": 11,
+          "median": 40.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        }
+      },
+      "callback_to_use_wall_ms_by_role": {
+        "local_map:tb1": {
+          "n": 11,
+          "median": 1246.969569,
+          "p95_nearest_rank": 1797.230035,
+          "max": 1797.230035
+        },
+        "local_map:tb2": {
+          "n": 11,
+          "median": 1521.443934,
+          "p95_nearest_rank": 2082.856396,
+          "max": 2082.856396
+        },
+        "local_map:tb3": {
+          "n": 11,
+          "median": 1483.290201,
+          "p95_nearest_rank": 2035.095534,
+          "max": 2035.095534
+        },
+        "costmap:tb1": {
+          "n": 11,
+          "median": 2043.039035,
+          "p95_nearest_rank": 3122.693587,
+          "max": 3122.693587
+        },
+        "costmap:tb2": {
+          "n": 11,
+          "median": 2238.002548,
+          "p95_nearest_rank": 3083.428331,
+          "max": 3083.428331
+        },
+        "costmap:tb3": {
+          "n": 11,
+          "median": 2555.621005,
+          "p95_nearest_rank": 3087.274208,
+          "max": 3087.274208
+        },
+        "pose:tb3": {
+          "n": 11,
+          "median": 1239.285601,
+          "p95_nearest_rank": 1792.001215,
+          "max": 1792.001215
+        },
+        "peer_state": {
+          "n": 11,
+          "median": 1439.768244,
+          "p95_nearest_rank": 1997.806941,
+          "max": 1997.806941
+        },
+        "pose:tb1": {
+          "n": 11,
+          "median": 1088.340349,
+          "p95_nearest_rank": 1647.151579,
+          "max": 1647.151579
+        },
+        "pose:tb2": {
+          "n": 11,
+          "median": 1155.733301,
+          "p95_nearest_rank": 1727.597309,
+          "max": 1727.597309
+        },
+        "shared_map": {
+          "n": 11,
+          "median": 1204.099024,
+          "p95_nearest_rank": 1756.460495,
+          "max": 1756.460495
+        }
+      },
+      "original_observation_read_record_counts": {
+        "gz01_peer_routing_mask": 33,
+        "local_navigation_grid": 33,
+        "gz01_seed_connection": 33
+      },
+      "seed_connection_branch_reasons": {
+        "trusted_known_free_seed_connection": 13,
+        "normal_seed_unchanged": 20
+      },
+      "first_policy_local_sim_ns": 25000000000,
+      "trace_rows": 131377,
+      "pending_take_without_callback": 0,
+      "diagnostic_wall_s": 10.423892159,
+      "diagnostic_thread_cpu_s": 9.367769362
+    },
+    "l": {
+      "take_match_counts": {
+        "UNIQUE_OBSERVED_PUBLICATION_CANDIDATE": 56153,
+        "C_LOCAL_DERIVED_PUBLICATION_NOT_GATEWAY_UPLINK_PUBLISH": 827
+      },
+      "unresolved_wire_takes": 0,
+      "policy_uses": 11,
+      "policy_source_match_counts": {
+        "UNIQUE_OBSERVED_PUBLICATION_CANDIDATE": 99,
+        "C_LOCAL_DERIVED_PUBLICATION_NOT_GATEWAY_UPLINK_PUBLISH": 22
+      },
+      "callback_to_use_sim_ms_by_role": {
+        "local_map:tb1": {
+          "n": 11,
+          "median": 500.0,
+          "p95_nearest_rank": 510.0,
+          "max": 510.0
+        },
+        "local_map:tb2": {
+          "n": 11,
+          "median": 610.0,
+          "p95_nearest_rank": 610.0,
+          "max": 610.0
+        },
+        "local_map:tb3": {
+          "n": 11,
+          "median": 370.0,
+          "p95_nearest_rank": 370.0,
+          "max": 370.0
+        },
+        "costmap:tb1": {
+          "n": 11,
+          "median": 280.0,
+          "p95_nearest_rank": 540.0,
+          "max": 540.0
+        },
+        "costmap:tb2": {
+          "n": 11,
+          "median": 310.0,
+          "p95_nearest_rank": 510.0,
+          "max": 510.0
+        },
+        "costmap:tb3": {
+          "n": 11,
+          "median": 290.0,
+          "p95_nearest_rank": 540.0,
+          "max": 540.0
+        },
+        "peer_state": {
+          "n": 11,
+          "median": 100.0,
+          "p95_nearest_rank": 100.0,
+          "max": 100.0
+        },
+        "pose:tb2": {
+          "n": 11,
+          "median": 20.0,
+          "p95_nearest_rank": 30.0,
+          "max": 30.0
+        },
+        "pose:tb3": {
+          "n": 11,
+          "median": 30.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        },
+        "pose:tb1": {
+          "n": 11,
+          "median": 30.0,
+          "p95_nearest_rank": 40.0,
+          "max": 40.0
+        },
+        "shared_map": {
+          "n": 11,
+          "median": 360.0,
+          "p95_nearest_rank": 360.0,
+          "max": 360.0
+        }
+      },
+      "callback_to_use_wall_ms_by_role": {
+        "local_map:tb1": {
+          "n": 11,
+          "median": 3026.441169,
+          "p95_nearest_rank": 3274.095876,
+          "max": 3274.095876
+        },
+        "local_map:tb2": {
+          "n": 11,
+          "median": 3448.413586,
+          "p95_nearest_rank": 3711.673873,
+          "max": 3711.673873
+        },
+        "local_map:tb3": {
+          "n": 11,
+          "median": 2483.39744,
+          "p95_nearest_rank": 2723.959926,
+          "max": 2723.959926
+        },
+        "costmap:tb1": {
+          "n": 11,
+          "median": 2225.014895,
+          "p95_nearest_rank": 3092.096106,
+          "max": 3092.096106
+        },
+        "costmap:tb2": {
+          "n": 11,
+          "median": 2428.663256,
+          "p95_nearest_rank": 2997.41154,
+          "max": 2997.41154
+        },
+        "costmap:tb3": {
+          "n": 11,
+          "median": 2235.932067,
+          "p95_nearest_rank": 3131.671928,
+          "max": 3131.671928
+        },
+        "peer_state": {
+          "n": 11,
+          "median": 1420.629545,
+          "p95_nearest_rank": 1669.79599,
+          "max": 1669.79599
+        },
+        "pose:tb2": {
+          "n": 11,
+          "median": 1091.65686,
+          "p95_nearest_rank": 1359.969011,
+          "max": 1359.969011
+        },
+        "pose:tb3": {
+          "n": 11,
+          "median": 1146.382696,
+          "p95_nearest_rank": 1324.23979,
+          "max": 1324.23979
+        },
+        "pose:tb1": {
+          "n": 11,
+          "median": 1123.250756,
+          "p95_nearest_rank": 1439.489185,
+          "max": 1439.489185
+        },
+        "shared_map": {
+          "n": 11,
+          "median": 2455.251416,
+          "p95_nearest_rank": 2686.13283,
+          "max": 2686.13283
+        }
+      },
+      "original_observation_read_record_counts": {
+        "gz01_peer_routing_mask": 33,
+        "local_navigation_grid": 33,
+        "gz01_seed_connection": 33
+      },
+      "seed_connection_branch_reasons": {
+        "trusted_known_free_seed_connection": 16,
+        "normal_seed_unchanged": 17
+      },
+      "first_policy_local_sim_ns": 25000000000,
+      "trace_rows": 130388,
+      "pending_take_without_callback": 0,
+      "diagnostic_wall_s": 10.05948972,
+      "diagnostic_thread_cpu_s": 9.046075531
+    }
+  },
+  "totals": {
+    "policy_uses": 66,
+    "unresolved_wire_takes": 0,
+    "pending_take_without_callback": 0,
+    "unique_observed_forwarded_takes": 337839,
+    "central_local_derived_takes": 4982
+  }
+}
