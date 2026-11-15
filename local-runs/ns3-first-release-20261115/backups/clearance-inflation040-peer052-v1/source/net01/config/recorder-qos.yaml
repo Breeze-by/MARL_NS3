@@ -1,0 +1,35 @@
+/merge_map:
+  history: keep_last
+  depth: 1
+  reliability: reliable
+  durability: transient_local
+/tb1/map:
+  history: keep_last
+  depth: 1
+  reliability: reliable
+  durability: transient_local
+/tb2/map:
+  history: keep_last
+  depth: 1
+  reliability: reliable
+  durability: transient_local
+/tb3/map:
+  history: keep_last
+  depth: 1
+  reliability: reliable
+  durability: transient_local
+/tb1/tf_static:
+  history: keep_last
+  depth: 100
+  reliability: reliable
+  durability: transient_local
+/tb2/tf_static:
+  history: keep_last
+  depth: 100
+  reliability: reliable
+  durability: transient_local
+/tb3/tf_static:
+  history: keep_last
+  depth: 100
+  reliability: reliable
+  durability: transient_local

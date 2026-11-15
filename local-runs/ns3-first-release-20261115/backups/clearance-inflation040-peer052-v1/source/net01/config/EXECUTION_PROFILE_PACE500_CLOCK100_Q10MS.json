@@ -1,0 +1,16 @@
+{
+  "id": "pace500-clock100-q10ms",
+  "world_real_time_update_rate": 500,
+  "physics_max_step_size_unchanged": 0.001,
+  "clock_publish_rate_sim_hz": 100.0,
+  "native_step_quantum_ns": 10000000,
+  "qualification": {
+    "source_wall_s": 16,
+    "hard_wall_s": 30,
+    "clock_period_wall_s": 0.02,
+    "clock_increment_ns": 10000000,
+    "other_sources": "Original per-wall TF/odom/FB rates retained; conservatively denser per simulated second",
+    "peer": "Original 10Hz simulation-time timer"
+  },
+  "scope": "New matched execution profile; WallRate and sim-time frequencies differ; not pointwise equivalent to v1.1.0 runtime"
+}

@@ -1,0 +1,382 @@
+{
+  "passed": true,
+  "checks": {
+    "old_no_revision_peer_and_metadata_radius_unchanged": true,
+    "old_effective_global_local_parameters_are_055_radius025_scale3": true,
+    "old_original_and_broadcast_masks_equal": true,
+    "Gateway_A0_R92_actual_peer_radius_and_producer_binding": true,
+    "Gateway_A0_R92_freshness_contract_unchanged": true,
+    "BoundPeer_actual_peer_radius_and_producer_binding": true,
+    "BoundPeer_freshness_contract_unchanged": true,
+    "NetworkObserver_R92_actual_peer_radius_and_producer_binding": true,
+    "NetworkObserver_R92_freshness_contract_unchanged": true,
+    "HQ_actual_peer_radius_and_producer_binding": true,
+    "HQ_freshness_contract_unchanged": true,
+    "new_original_and_actual_broadcast_raster_equal": true,
+    "representative_boundary_cell_really_changes": true,
+    "actual_target_predicate_reads_the_new_same_radius": true,
+    "old_target_predicate_rejects_same_boundary_cell": true,
+    "actual_outer_launch_calls_predecessor_once_and_returns_same_actions": true,
+    "tb1_only_two_inflation_keys_changed": true,
+    "tb1_actual_040_and_unchanged_025_scale3": true,
+    "tb2_only_two_inflation_keys_changed": true,
+    "tb2_actual_040_and_unchanged_025_scale3": true,
+    "tb3_only_two_inflation_keys_changed": true,
+    "tb3_actual_040_and_unchanged_025_scale3": true,
+    "actual_LaunchDescription_has_one_replacement_OpaqueFunction": true,
+    "navigation_revision_records_all_six_actual_changes": true,
+    "production_runner_selects_actual_clearance_launch_only_with_revision": true,
+    "no_revision_runner_keeps_original_simclock_launch": true
+  },
+  "owner_component_proofs": [
+    {
+      "owner": "Gateway_A0_R92",
+      "pid": 2627942,
+      "execution_profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-ros-delay-wall-v3",
+      "policy": {
+        "id": "ros-delay-source-age-v1",
+        "odom_max_age_sim_s": 0.7,
+        "correction_max_age_sim_s": 0.85,
+        "allowance_sim_s": 0.3,
+        "scope": "All seven conditions including literal A0: original peer_keepout module globals and business_peer copied constants only; original source stamps, future bounds, missing/ready/localization/collision and progress protections unchanged. Receipt budgets are separately declared in receipt_freshness."
+      },
+      "monotonic_ns": 953113652643961,
+      "before": {
+        "peer_keepout": {
+          "ODOM_MAX_AGE": 0.4,
+          "CORRECTION_MAX_AGE": 0.55
+        },
+        "business_peer": {
+          "ODOM_MAX_AGE": 0.4,
+          "CORRECTION_MAX_AGE": 0.55
+        }
+      },
+      "applied": {
+        "peer_keepout": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        },
+        "business_peer": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        }
+      },
+      "state_fresh_uses_peer_module_globals": true,
+      "scope": "Process-local globals before Node construction; original functions, timestamps and other gates unchanged",
+      "receipt_freshness_applied": {
+        "policy": {
+          "id": "ros-delay-finite-sim-receipt-v1",
+          "health_max_age_sim_s": 0.6,
+          "bound_mask_max_age_sim_s": 0.6,
+          "observer_heartbeat_max_age_sim_s": 0.6,
+          "projected_odom_max_age_sim_s": 0.5,
+          "comparison": "Actual ROS integer nanosecond differences, strict > limit; exactly limit accepted. Legacy paths retain original float comparisons.",
+          "scope": "All seven conditions; only receipt freshness, not source stamps/age, ready/missing/sequence/future checks, local wall status, progress, UUID or collision protections."
+        },
+        "before": {
+          "peer_keepout": 0.2,
+          "business_peer": 0.2
+        },
+        "module_projected_odom_receipt_s": {
+          "peer_keepout": 0.5,
+          "business_peer": 0.5
+        },
+        "producer_function_copied_binding": 0.5,
+        "applicable_instance_limits": {}
+      },
+      "navigation_clearance_applied": {
+        "revision": "inflation040-peer052-v1",
+        "owner": "Gateway_A0_R92",
+        "pid": 2627942,
+        "contract": {
+          "revision": "inflation040-peer052-v1",
+          "inflation_radius_m": 0.4,
+          "peer_radius_m": 0.52
+        },
+        "before": {
+          "peer_keepout": 0.55,
+          "business_peer": 0.55
+        },
+        "actual_module_radius_m": {
+          "peer_keepout": 0.52,
+          "business_peer": 0.52
+        },
+        "producer_state_radius_binding_m": 0.52,
+        "target_allowed_uses_peer_globals": true,
+        "route_blocked_uses_peer_globals": true,
+        "resolution_m": 0.05,
+        "scope": "Same original peer disk/raster/target/route methods, .05 grid cell guard unchanged; source freshness and all safety gates retained"
+      }
+    },
+    {
+      "owner": "BoundPeer",
+      "pid": 2627942,
+      "execution_profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-ros-delay-wall-v3",
+      "policy": {
+        "id": "ros-delay-source-age-v1",
+        "odom_max_age_sim_s": 0.7,
+        "correction_max_age_sim_s": 0.85,
+        "allowance_sim_s": 0.3,
+        "scope": "All seven conditions including literal A0: original peer_keepout module globals and business_peer copied constants only; original source stamps, future bounds, missing/ready/localization/collision and progress protections unchanged. Receipt budgets are separately declared in receipt_freshness."
+      },
+      "monotonic_ns": 953113652709506,
+      "before": {
+        "peer_keepout": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        },
+        "business_peer": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        }
+      },
+      "applied": {
+        "peer_keepout": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        },
+        "business_peer": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        }
+      },
+      "state_fresh_uses_peer_module_globals": true,
+      "scope": "Process-local globals before Node construction; original functions, timestamps and other gates unchanged",
+      "receipt_freshness_applied": {
+        "policy": {
+          "id": "ros-delay-finite-sim-receipt-v1",
+          "health_max_age_sim_s": 0.6,
+          "bound_mask_max_age_sim_s": 0.6,
+          "observer_heartbeat_max_age_sim_s": 0.6,
+          "projected_odom_max_age_sim_s": 0.5,
+          "comparison": "Actual ROS integer nanosecond differences, strict > limit; exactly limit accepted. Legacy paths retain original float comparisons.",
+          "scope": "All seven conditions; only receipt freshness, not source stamps/age, ready/missing/sequence/future checks, local wall status, progress, UUID or collision protections."
+        },
+        "before": {
+          "peer_keepout": 0.5,
+          "business_peer": 0.5
+        },
+        "module_projected_odom_receipt_s": {
+          "peer_keepout": 0.5,
+          "business_peer": 0.5
+        },
+        "producer_function_copied_binding": 0.5,
+        "applicable_instance_limits": {}
+      },
+      "navigation_clearance_applied": {
+        "revision": "inflation040-peer052-v1",
+        "owner": "BoundPeer",
+        "pid": 2627942,
+        "contract": {
+          "revision": "inflation040-peer052-v1",
+          "inflation_radius_m": 0.4,
+          "peer_radius_m": 0.52
+        },
+        "before": {
+          "peer_keepout": 0.52,
+          "business_peer": 0.52
+        },
+        "actual_module_radius_m": {
+          "peer_keepout": 0.52,
+          "business_peer": 0.52
+        },
+        "producer_state_radius_binding_m": 0.52,
+        "target_allowed_uses_peer_globals": true,
+        "route_blocked_uses_peer_globals": true,
+        "resolution_m": 0.05,
+        "scope": "Same original peer disk/raster/target/route methods, .05 grid cell guard unchanged; source freshness and all safety gates retained"
+      }
+    },
+    {
+      "owner": "NetworkObserver_R92",
+      "pid": 2627942,
+      "execution_profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-ros-delay-wall-v3",
+      "policy": {
+        "id": "ros-delay-source-age-v1",
+        "odom_max_age_sim_s": 0.7,
+        "correction_max_age_sim_s": 0.85,
+        "allowance_sim_s": 0.3,
+        "scope": "All seven conditions including literal A0: original peer_keepout module globals and business_peer copied constants only; original source stamps, future bounds, missing/ready/localization/collision and progress protections unchanged. Receipt budgets are separately declared in receipt_freshness."
+      },
+      "monotonic_ns": 953113652769572,
+      "before": {
+        "peer_keepout": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        },
+        "business_peer": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        }
+      },
+      "applied": {
+        "peer_keepout": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        },
+        "business_peer": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        }
+      },
+      "state_fresh_uses_peer_module_globals": true,
+      "scope": "Process-local globals before Node construction; original functions, timestamps and other gates unchanged",
+      "receipt_freshness_applied": {
+        "policy": {
+          "id": "ros-delay-finite-sim-receipt-v1",
+          "health_max_age_sim_s": 0.6,
+          "bound_mask_max_age_sim_s": 0.6,
+          "observer_heartbeat_max_age_sim_s": 0.6,
+          "projected_odom_max_age_sim_s": 0.5,
+          "comparison": "Actual ROS integer nanosecond differences, strict > limit; exactly limit accepted. Legacy paths retain original float comparisons.",
+          "scope": "All seven conditions; only receipt freshness, not source stamps/age, ready/missing/sequence/future checks, local wall status, progress, UUID or collision protections."
+        },
+        "before": {
+          "peer_keepout": 0.5,
+          "business_peer": 0.5
+        },
+        "module_projected_odom_receipt_s": {
+          "peer_keepout": 0.5,
+          "business_peer": 0.5
+        },
+        "producer_function_copied_binding": 0.5,
+        "applicable_instance_limits": {}
+      },
+      "navigation_clearance_applied": {
+        "revision": "inflation040-peer052-v1",
+        "owner": "NetworkObserver_R92",
+        "pid": 2627942,
+        "contract": {
+          "revision": "inflation040-peer052-v1",
+          "inflation_radius_m": 0.4,
+          "peer_radius_m": 0.52
+        },
+        "before": {
+          "peer_keepout": 0.52,
+          "business_peer": 0.52
+        },
+        "actual_module_radius_m": {
+          "peer_keepout": 0.52,
+          "business_peer": 0.52
+        },
+        "producer_state_radius_binding_m": 0.52,
+        "target_allowed_uses_peer_globals": true,
+        "route_blocked_uses_peer_globals": true,
+        "resolution_m": 0.05,
+        "scope": "Same original peer disk/raster/target/route methods, .05 grid cell guard unchanged; source freshness and all safety gates retained"
+      }
+    },
+    {
+      "owner": "HQ",
+      "pid": 2627942,
+      "execution_profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-ros-delay-wall-v3",
+      "policy": {
+        "id": "ros-delay-source-age-v1",
+        "odom_max_age_sim_s": 0.7,
+        "correction_max_age_sim_s": 0.85,
+        "allowance_sim_s": 0.3,
+        "scope": "All seven conditions including literal A0: original peer_keepout module globals and business_peer copied constants only; original source stamps, future bounds, missing/ready/localization/collision and progress protections unchanged. Receipt budgets are separately declared in receipt_freshness."
+      },
+      "monotonic_ns": 953113652811865,
+      "before": {
+        "peer_keepout": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        },
+        "business_peer": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        }
+      },
+      "applied": {
+        "peer_keepout": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        },
+        "business_peer": {
+          "ODOM_MAX_AGE": 0.7,
+          "CORRECTION_MAX_AGE": 0.85
+        }
+      },
+      "state_fresh_uses_peer_module_globals": true,
+      "scope": "Process-local globals before Node construction; original functions, timestamps and other gates unchanged",
+      "receipt_freshness_applied": {
+        "policy": {
+          "id": "ros-delay-finite-sim-receipt-v1",
+          "health_max_age_sim_s": 0.6,
+          "bound_mask_max_age_sim_s": 0.6,
+          "observer_heartbeat_max_age_sim_s": 0.6,
+          "projected_odom_max_age_sim_s": 0.5,
+          "comparison": "Actual ROS integer nanosecond differences, strict > limit; exactly limit accepted. Legacy paths retain original float comparisons.",
+          "scope": "All seven conditions; only receipt freshness, not source stamps/age, ready/missing/sequence/future checks, local wall status, progress, UUID or collision protections."
+        },
+        "before": {
+          "peer_keepout": 0.5,
+          "business_peer": 0.5
+        },
+        "module_projected_odom_receipt_s": {
+          "peer_keepout": 0.5,
+          "business_peer": 0.5
+        },
+        "producer_function_copied_binding": 0.5,
+        "applicable_instance_limits": {}
+      },
+      "navigation_clearance_applied": {
+        "revision": "inflation040-peer052-v1",
+        "owner": "HQ",
+        "pid": 2627942,
+        "contract": {
+          "revision": "inflation040-peer052-v1",
+          "inflation_radius_m": 0.4,
+          "peer_radius_m": 0.52
+        },
+        "before": {
+          "peer_keepout": 0.52,
+          "business_peer": 0.52
+        },
+        "actual_module_radius_m": {
+          "peer_keepout": 0.52,
+          "business_peer": 0.52
+        },
+        "producer_state_radius_binding_m": 0.52,
+        "target_allowed_uses_peer_globals": true,
+        "route_blocked_uses_peer_globals": true,
+        "resolution_m": 0.05,
+        "scope": "Same original peer disk/raster/target/route methods, .05 grid cell guard unchanged; source freshness and all safety gates retained"
+      }
+    }
+  ],
+  "six_parameter_changes": [
+    [
+      "tb1",
+      "global_costmap.global_costmap.ros__parameters.inflation_layer.inflation_radius"
+    ],
+    [
+      "tb1",
+      "local_costmap.local_costmap.ros__parameters.inflation_layer.inflation_radius"
+    ],
+    [
+      "tb2",
+      "global_costmap.global_costmap.ros__parameters.inflation_layer.inflation_radius"
+    ],
+    [
+      "tb2",
+      "local_costmap.local_costmap.ros__parameters.inflation_layer.inflation_radius"
+    ],
+    [
+      "tb3",
+      "global_costmap.global_costmap.ros__parameters.inflation_layer.inflation_radius"
+    ],
+    [
+      "tb3",
+      "local_costmap.local_costmap.ros__parameters.inflation_layer.inflation_radius"
+    ]
+  ],
+  "representative_cell": {
+    "row": 20,
+    "col": 31,
+    "old": 100,
+    "new": -1
+  },
+  "scope": "Pure actual peer/raster/predicate functions and real ROS Launch entities; predecessor action creation/Popen intercepted. No Node, robot, Gazebo, native, publisher or safety-service fixture; not a physical collision certification."
+}

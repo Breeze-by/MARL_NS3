@@ -1,0 +1,14 @@
+{
+  "version": "wifi-B-pathloss-only-v1",
+  "base_lock": "net01/config/NETWORK_LOCK_V3.json",
+  "business_mode": "B",
+  "native_transport": "tcp-mtu-v2",
+  "arms": {
+    "B": {"native_profile": "B", "data_mode": "VhtMcs9", "tx_power_dbm": 16.0, "pathloss_exponent": 2.0},
+    "B-loss3": {"native_profile": "B-loss3", "data_mode": "VhtMcs9", "tx_power_dbm": 16.0, "pathloss_exponent": 3.0}
+  },
+  "only_changed_factor": "LogDistancePropagationLossModel Exponent",
+  "unchanged": "Original B rate/power, TCP, queues, business load, RNG seed/run and common position input. B-loss3 reuses the locked C exponent only, not its MCS or power.",
+  "selection": "network.mode=B and network.native_profile=B or B-loss3; new native identity required. This does not authorize Gazebo execution.",
+  "predeclared": "2026-11-13 before new native transport results; do not tune after observing results"
+}

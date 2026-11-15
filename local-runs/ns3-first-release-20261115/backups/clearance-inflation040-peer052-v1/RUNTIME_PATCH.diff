@@ -1,0 +1,170 @@
+--- pre-clearance/net01/boot_network.py
++++ net01/boot_network.py
+@@ -28,6 +28,10 @@
+     if ready.get("authorized_net01_execution") is not True:raise ValueError("No NET-01 root admission")
+     controlled=controlled_config(ready)
+     direct_reference=net.get("direct_reference",False)
++    clearance=net.get('navigation_clearance')
++    if clearance is not None:
++        from clearance_tuning import validate_contract
++        validate_contract(clearance,net['execution_profile'],direct_reference)
+     controller_exit_adapter=net.get('controller_exit_adapter','original-v1')
+     if controller_exit_adapter not in ('original-v1','net01e-graceful-v1'):
+         raise ValueError('Unknown controller exit adapter')
+@@ -60,6 +64,9 @@
+             required.update(COMPARISON_ADAPTER_FILES)
+         if net.get('execution_profile') == ROS_DELAY_PROFILE_ID:
+             required.update(ROS_DELAY_ADAPTER_FILES)
++        if clearance is not None:
++            from clearance_tuning import ADAPTER_FILES
++            required.update(ADAPTER_FILES)
+         if not required.issubset(net['adapter_sha256']):
+             raise ValueError('Common raw destination source/config binding missing')
+     if type(direct_reference) is not bool:
+@@ -127,6 +134,9 @@
+         if net["adapter_sha256"].get(relative)!=frozen.sha(HERE/relative):
+             raise ValueError("Admission must bind the explicit Nav2 sim-clock revision")
+     os.environ["NET01_COMMON_EXECUTION_REVISION"]=revision
++    if clearance is not None:
++        os.environ['NET01_NAVIGATION_CLEARANCE']=json.dumps(clearance,sort_keys=True)
++    else:os.environ.pop('NET01_NAVIGATION_CLEARANCE',None)
+     case=Path(ready["case_path"]);case.parent.mkdir(parents=True,exist_ok=True)
+     used=case.with_name(case.name+".admission-used.json")
+     with used.open("x") as stream:json.dump(dict(ready_path=str(args.ready.resolve()),
+--- pre-clearance/net01/run_network_case.py
++++ net01/run_network_case.py
+@@ -582,6 +582,8 @@
+             command[2]=str(HERE.parent/"net01e/followup02/static_footprint_launch.py")
+         if os.environ.get("NET01_COMMON_EXECUTION_REVISION")=="nav2-simclock-common-v1":
+             command[2]=str(HERE/'nav2_simclock_launch.py')
++        if os.environ.get('NET01_NAVIGATION_CLEARANCE') is not None:
++            command[2]=str(HERE/'clearance_tuning_launch.py')
+         if observer.controlled_time:
+             command.insert(2,"--noninteractive")
+         log=(observer.directory/"network-gateway.log").open("x")
+--- pre-clearance/net01/ros_delay_runtime.py
++++ net01/ros_delay_runtime.py
+@@ -32,13 +32,18 @@
+                 for module in (peer_keepout, business_peer)},
+             producer_function_copied_binding=business_peer.BusinessPeer.publish_masks.__globals__['ODOM_RECEIPT_MAX_AGE'],
+             applicable_instance_limits={})
++    clearance_proof=None
++    if os.environ.get('NET01_NAVIGATION_CLEARANCE') is not None:
++        from clearance_tuning import install_peer_clearance
++        clearance_proof=install_peer_clearance(profile,owner)
+     return dict(owner=owner, pid=os.getpid(), execution_profile=profile['id'], policy=policy,
+         monotonic_ns=time.monotonic_ns(), before=before,
+         applied={module.__name__: {name: getattr(module, name) for name in names}
+             for module in (peer_keepout, business_peer)},
+         state_fresh_uses_peer_module_globals=peer_keepout.state_fresh.__globals__ is peer_keepout.__dict__,
+         scope='Process-local globals before Node construction; original functions, timestamps and other gates unchanged',
+-        **({'receipt_freshness_applied':receipt_proof} if receipt_proof is not None else {}))
++        **({'receipt_freshness_applied':receipt_proof} if receipt_proof is not None else {}),
++        **({'navigation_clearance_applied':clearance_proof} if clearance_proof is not None else {}))
+ 
+ 
+ def poststop_physical_closure(observer, controller_exited):
+--- pre-clearance/net01e/followup01/production_host.py
++++ net01e/followup01/production_host.py
+@@ -29,6 +29,8 @@
+             keys += list(REPAIR_ADAPTER_FILES)+['../net01e/followup02/static_footprint_launch.py']
+         if expected_profile in COMPARISON_PROFILE_IDS:keys += list(COMPARISON_ADAPTER_FILES)
+         if expected_profile == ROS_DELAY_PROFILE_ID:keys += list(ROS_DELAY_ADAPTER_FILES)
++        if network.get('navigation_clearance') is not None:
++            keys += ['clearance_tuning.py','clearance_tuning_launch.py']
+         keys += ['../net01e/followup01/'+name for name in
+             ('production_gateway.py','production_host.py','raw_destination_wire.py')]
+     else:
+--- /dev/null
++++ net01/clearance_tuning.py
+@@ -0,0 +1,46 @@
++"""Explicit task-only navigation clearance; old processes keep original values."""
++import json
++import os
++
++REVISION='inflation040-peer052-v1'
++ENV='NET01_NAVIGATION_CLEARANCE'
++ADAPTER_FILES=('clearance_tuning.py','clearance_tuning_launch.py')
++CONTRACT=dict(revision=REVISION,inflation_radius_m=.40,peer_radius_m=.52)
++
++
++def validate_contract(contract,profile_id,direct):
++    if contract is None:return None
++    from execution_profile import ROS_DELAY_V3_PROFILE_ID
++    if contract!=CONTRACT or profile_id!=ROS_DELAY_V3_PROFILE_ID or not direct:
++        raise ValueError('Clearance tuning requires its explicit V3 A0 task contract')
++    return contract
++
++
++def install_peer_clearance(profile,owner):
++    encoded=os.environ.get(ENV)
++    if encoded is None:return None
++    contract=validate_contract(json.loads(encoded),profile['id'],os.environ.get('NET01_DIRECT_REFERENCE')=='1')
++    import peer_keepout
++    import business_peer
++    before={module.__name__:module.RADIUS for module in (peer_keepout,business_peer)}
++    peer_keepout.RADIUS=business_peer.RADIUS=contract['peer_radius_m']
++    return dict(revision=REVISION,owner=owner,pid=os.getpid(),contract=contract,before=before,
++        actual_module_radius_m={module.__name__:module.RADIUS for module in (peer_keepout,business_peer)},
++        producer_state_radius_binding_m=business_peer.BusinessPeer.publish_masks.__globals__['RADIUS'],
++        target_allowed_uses_peer_globals=peer_keepout.target_allowed.__globals__ is peer_keepout.__dict__,
++        route_blocked_uses_peer_globals=peer_keepout.route_blocked.__globals__ is peer_keepout.__dict__,
++        resolution_m=peer_keepout.RESOLUTION,
++        scope='Same original peer disk/raster/target/route methods, .05 grid cell guard unchanged; source freshness and all safety gates retained')
++
++
++def set_inflation_parameters(parameters):
++    changes=[]
++    for side in ('global_costmap','local_costmap'):
++        values=parameters[side][side]['ros__parameters']
++        inflation=values['inflation_layer']
++        if values['robot_radius']!=.25 or inflation['cost_scaling_factor']!=3.0 or inflation['inflation_radius']!=.55:
++            raise ValueError('Clearance revision requires the reviewed .25/.55/scale3 baseline')
++        inflation['inflation_radius']=.40
++        changes.append(dict(parameter=side+'.'+side+'.ros__parameters.inflation_layer.inflation_radius',
++            previous=.55,value=.40,robot_radius_m=values['robot_radius'],cost_scaling_factor=inflation['cost_scaling_factor']))
++    return changes
+--- /dev/null
++++ net01/clearance_tuning_launch.py
+@@ -0,0 +1,41 @@
++"""Only new A0 tuning tasks: original launch, then six generated inflation keys."""
++import importlib.util
++import json
++from pathlib import Path
++
++from launch import LaunchDescription
++from launch.actions import OpaqueFunction
++import yaml
++from clearance_tuning import CONTRACT,ENV,REVISION,set_inflation_parameters,validate_contract
++from execution_profile import load_profile
++
++REPO=Path(__file__).resolve().parent.parent
++PREDECESSOR=REPO/'net01/nav2_simclock_launch.py'
++spec=importlib.util.spec_from_file_location('clearance_original_simclock_launch',PREDECESSOR)
++base=importlib.util.module_from_spec(spec);spec.loader.exec_module(base)
++
++
++def launch_setup(context):
++    profile=load_profile(context.environment['NET01_EXECUTION_PROFILE'])
++    validate_contract(json.loads(context.environment[ENV]),profile['id'],context.environment.get('NET01_DIRECT_REFERENCE')=='1')
++    actions=base.launch_setup(context)
++    directory=Path(context.environment['BASE01_RUN_DIR']);changes=[]
++    for robot in ('tb1','tb2','tb3'):
++        path=directory/f'peer_nav2_{robot}.yaml';text=path.read_text();parameters=yaml.safe_load(text)
++        altered=set_inflation_parameters(parameters)
++        before=directory/f'peer_nav2_{robot}.before-clearance-tuning.yaml'
++        with before.open('x') as stream:stream.write(text)
++        path.write_text(yaml.safe_dump(parameters,sort_keys=False))
++        changes.append(dict(robot=robot,effective_params=str(path),before_params=str(before),changes=altered))
++    with (directory/'navigation-clearance-revision.json').open('x') as stream:
++        json.dump(dict(revision=REVISION,contract=CONTRACT,launch_entry=str(Path(__file__).resolve()),
++            predecessor=str(PREDECESSOR),applied_before_actions=True,changes=changes,
++            common_execution_revision_unchanged='nav2-simclock-common-v1',
++            scope='Only six inflation_radius keys changed; original robot_radius, scaling, physical model, policy701, candidate/goal/clock/stop contracts retained'),stream,indent=2)
++        stream.write('\n')
++    return actions
++
++
++def generate_launch_description():
++    return LaunchDescription([OpaqueFunction(function=launch_setup) if isinstance(action,OpaqueFunction)
++        else action for action in base.generate_launch_description().entities])

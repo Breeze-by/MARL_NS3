@@ -1,0 +1,68 @@
+{
+  "id": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-comparison40-v2",
+  "world_real_time_update_rate": 1000,
+  "physics_max_step_size_unchanged": 0.001,
+  "clock_publish_rate_sim_hz": 100.0,
+  "native_step_quantum_ns": 10000000,
+  "scope": "Comparison40-v2 common fixed-repair behavior with a predeclared physical boundary attempt-enter administrative barrier. Sole coordinator stops admission beyond each G25+5k<140 boundary until the same-session/profile/current-slot HQ ACK arrives after original timing qualification and before original decision_callback/NN. No business payload, observation-content readiness, ideal input, extra executor, HOLD/RUN or wall deadline reanchor. Original absolute pace40 token deadlines, 2wall progress protection, pacing qualifications and stop ownership remain; barrier waits are not subtracted from wall/RTF/lateness. Explicit new cohort; comparison40-v1 discoveries remain separate.",
+  "controlled_physics": true,
+  "physical_token_steps": 10,
+  "physical_lookahead_quanta": 2,
+  "token_wall_period_ns": 40000000,
+  "peer_mask_raster": "broadcast-v1",
+  "health_mask_receipt_clock": "R-ros-sim-v1",
+  "progress_wall_timeout_s": 2.0,
+  "gateway_poststop_evidence_total_wall_s": 60,
+  "business_clock": "ros-sim-v1",
+  "peer_odom_receipt_clock": "ros-sim-v1",
+  "predecessor": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-comparison40-v1",
+  "run_bounds": {
+    "sim_budget": 120,
+    "startup_wall": 180,
+    "autonomous_wall": 720,
+    "outer_wall": 1000,
+    "cleanup_wall": 90
+  },
+  "native_evidence_budget_bytes": 8589934592,
+  "native_evidence_reserve_bytes": 2147483648,
+  "native_evidence_scope": "physical120sim-ram8GiB-reserve2GiB-v1",
+  "consumer_trace": "hq-consumer-trace-v1",
+  "startup_contract": {
+    "id": "fixed-G20-attempt-G25-grid5-end140-barrier-v2",
+    "autonomy_epoch_ns": 20000000000,
+    "first_decision_ns": 25000000000,
+    "decision_period_ns": 5000000000,
+    "decision_permission_end_ns": 140000000000,
+    "timing_tolerance_ns": 10000000,
+    "readiness": "initialized gate received through original flow95; original readiness and no-motion safety only",
+    "first_slot": "unchanged original allocation ATTEMPT, including awaiting observations or WAIT; no NN/candidate content admission",
+    "late_slot": "record actual; timing failure; no backdate, catch-up or moving epoch",
+    "end": "new decision and original send_goal entry permission [25,140); actual timestamps preserved, previously admitted inflight/feedback/cancel/stop ownership unchanged; not DDS send/acceptance timestamp"
+  },
+  "common_execution_revision": "nav2-simclock-common-v1",
+  "candidate_clearance": {
+    "id": "nav2-circular-footprint-v1",
+    "nav2_robot_radius_m": {
+      "tb1": 0.25,
+      "tb2": 0.25,
+      "tb3": 0.25
+    },
+    "map_resolution_m": 0.05
+  },
+  "evaluation_stop": "Original budget-only legal stop; quality-valid T95 is independent post-exit evaluation only.",
+  "nav2_goal_guard": {
+    "id": "navfn-round-active-goal-v1",
+    "fresh_map_max_age_sim_s": 2.0,
+    "occupied_value": 100,
+    "reason": "same2sim order as existing state freshness; stale map cannot trigger new invalidation and does not extend health guards"
+  },
+  "comparison_measurement": "source-take-v1",
+  "attempt_entry_barrier": {
+    "id": "physical-boundary-attempt-enter-v1",
+    "channel": "existing_owned_time_control_ack.sock_administrative_datagram",
+    "release": "same-session/profile/current-slot/actual-C-clock ACK before original decision_callback; not callback completion",
+    "timeout": "original 2wall progress limit, no added budget; missing first ACK is also bounded",
+    "pacing": "absolute40wall-ms deadlines unchanged; no reanchor/no hold-time subtraction; original qualifiers retained",
+    "stop": "authority-exited STOP_COUPLED/FAULT_STOP_OBSERVE bypasses allocation barrier for actual cleanup"
+  }
+}

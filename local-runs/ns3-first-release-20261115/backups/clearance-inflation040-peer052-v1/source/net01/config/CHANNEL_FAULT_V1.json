@@ -1,0 +1,13 @@
+{
+  "version": "transparent-range-gate-v1",
+  "scope": "No-motion independent blackout negative only, not performance impairment/tuning; replaces explicit SetOff double-state failure seen in ActionWiFi02",
+  "base_network_lock": "NETWORK_LOCK_V3.json unchanged",
+  "chain": "Original LogDistance then RangePropagationLossModel",
+  "normal_max_range_m": 1000000000.0,
+  "blackout_max_range_m": 0.0,
+  "normal_effect": "DoCalcRxPower returns its input txPowerDbm unchanged, no RNG consumed or additional attenuation for these coordinates",
+  "blackout_effect": "Real channel returns -1000dBm for distinct AP/STA nodes; native PHY/MAC drops/retries and real reassociation, not application drop or sleep",
+  "old_ns3_source_edited": false,
+  "off_window_shrunk": false,
+  "legacy_03_04_PHY_SetOff_evidence": "Preserved as historical short-off tests; new runs must say channel blackout, not powered off"
+}

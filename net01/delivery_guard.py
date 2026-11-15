@@ -4,7 +4,7 @@ from bound_peer import frozen
 
 
 class DeliveryGuard:
-    def __init__(self,robot,session_id,sim_now,stop,wall_now=time.monotonic,*,execution_profile=None,control_stop=None):
+    def __init__(self,robot,session_id,sim_now,stop,wall_now=time.monotonic,*,execution_profile=None,control_stop=None,sim_now_ns=None):
         self.robot=f"tb{robot}"
         self.session_id=session_id
         self.sim_now,self.wall_now,self.stop=sim_now,wall_now,stop
@@ -15,6 +15,16 @@ class DeliveryGuard:
         self.events=[]
         self.receipt_clock_basis=(execution_profile or {}).get('health_mask_receipt_clock','monotonic-v1')
         self.sim_health=self.receipt_clock_basis=='R-ros-sim-v1'
+        receipt=(execution_profile or {}).get('receipt_freshness')
+        self.health_receipt_limit_s=.3 if receipt is None else receipt['health_max_age_sim_s']
+        self.mask_receipt_limit_s=.3 if receipt is None else receipt['bound_mask_max_age_sim_s']
+        self.integer_sim_receipt=receipt is not None and self.sim_health
+        self.sim_now_ns=sim_now_ns
+        if self.integer_sim_receipt and sim_now_ns is None:
+            raise ValueError('Integer receipt profile requires actual ROS nanoseconds')
+        self.health_receipt_limit_ns=round(self.health_receipt_limit_s*1e9)
+        self.mask_receipt_limit_ns=round(self.mask_receipt_limit_s*1e9)
+        self.health_receipt_sim_ns=self.mask_receipt_sim_ns=None
         self.progress_wall_s=(execution_profile or {}).get('progress_wall_timeout_s')
         self.health_receipt_sim=self.mask_receipt_sim=None
         self.control=None;self.control_receipt=None;self.control_stop=control_stop
@@ -47,38 +57,52 @@ class DeliveryGuard:
             if now>self.last_sim:self.last_sim=now;self.last_sim_progress_wall=wall
         return None
 
-    def reason(self):
+    def reason(self,*,receipt_sim_ns=None):
         if self.health is None or self.mask is None:return "missing_health_or_bound_mask"
-        now,wall=self.sim_now(),self.wall_now()
+        now_ns=(self.sim_now_ns() if receipt_sim_ns is None else receipt_sim_ns) if self.integer_sim_receipt else None
+        now,wall=(now_ns/1e9 if self.integer_sim_receipt else self.sim_now()),self.wall_now()
         if self.sim_health:
             progress=self.progress_reason(now,wall)
             if progress:return progress
-        health_age=now-self.health_receipt_sim if self.sim_health else wall-self.health_receipt
-        mask_age=now-self.mask_receipt_sim if self.sim_health else wall-self.mask_receipt
-        if health_age>.3:return "health_heartbeat_stale"
-        if mask_age>.3:return "bound_mask_receipt_stale"
+        if self.integer_sim_receipt:
+            if now_ns-self.health_receipt_sim_ns>self.health_receipt_limit_ns:return "health_heartbeat_stale"
+            if now_ns-self.mask_receipt_sim_ns>self.mask_receipt_limit_ns:return "bound_mask_receipt_stale"
+        else:
+            health_age=now-self.health_receipt_sim if self.sim_health else wall-self.health_receipt
+            mask_age=now-self.mask_receipt_sim if self.sim_health else wall-self.mask_receipt
+            if health_age>self.health_receipt_limit_s:return "health_heartbeat_stale"
+            if mask_age>self.mask_receipt_limit_s:return "bound_mask_receipt_stale"
         if not frozen.state_fresh(self.health,now):return "health_original_sources_stale"
         if not frozen.state_fresh(self.mask["bound_state"],now):return "bound_mask_original_sources_stale"
         return None
 
-    def trip(self,reason):
+    def trip(self,reason,*,sim_ns=None):
         if self.fault is None:
             self.fault=reason
+            if self.integer_sim_receipt and sim_ns is None:sim_ns=self.sim_now_ns()
             event=dict(kind="latched_INVALID",reason=reason,robot=self.robot,
-                session_id=self.session_id,sim=self.sim_now(),monotonic=self.wall_now(),receipt_clock_basis=self.receipt_clock_basis)
+                session_id=self.session_id,sim=(sim_ns/1e9 if self.integer_sim_receipt else self.sim_now()),
+                monotonic=self.wall_now(),receipt_clock_basis=self.receipt_clock_basis)
+            if self.integer_sim_receipt:event['sim_ns']=sim_ns
             if self.sim_health:
                 event['progress_context']=dict(control_receipt_monotonic=self.control_receipt,
                     last_sim_progress_wall=self.last_sim_progress_wall,last_sim=self.last_sim,
                     health_receipt_sim=self.health_receipt_sim,mask_receipt_sim=self.mask_receipt_sim,
                     control_mode=None if self.control is None else self.control['mode'],
                     control_failure=None if self.control is None else self.control['failure'])
+                if self.integer_sim_receipt:
+                    event['progress_context'].update(health_receipt_sim_ns=self.health_receipt_sim_ns,
+                        mask_receipt_sim_ns=self.mask_receipt_sim_ns,
+                        health_receipt_limit_ns=self.health_receipt_limit_ns,
+                        mask_receipt_limit_ns=self.mask_receipt_limit_ns)
             self.events.append(event)
             self.stop(reason)
 
     def tick(self):
         if self.armed and self.fault is None:
-            reason=self.reason()
-            if reason:self.trip(reason)
+            now_ns=self.sim_now_ns() if self.integer_sim_receipt else None
+            reason=self.reason(receipt_sim_ns=now_ns)
+            if reason:self.trip(reason,sim_ns=now_ns)
 
     def receive_health(self,state):
         # Check the previous interval first. A newly delivered packet cannot
@@ -88,7 +112,10 @@ class DeliveryGuard:
             return False
         self.health=state
         self.health_receipt=self.wall_now()
-        if self.sim_health:self.health_receipt_sim=self.sim_now()
+        if self.integer_sim_receipt:
+            self.health_receipt_sim_ns=self.sim_now_ns()
+            self.health_receipt_sim=self.health_receipt_sim_ns/1e9
+        elif self.sim_health:self.health_receipt_sim=self.sim_now()
         self.tick()
         return self.fault is None
 
@@ -105,7 +132,10 @@ class DeliveryGuard:
             return False
         self.mask=binding
         self.mask_receipt=self.wall_now()
-        if self.sim_health:self.mask_receipt_sim=self.sim_now()
+        if self.integer_sim_receipt:
+            self.mask_receipt_sim_ns=self.sim_now_ns()
+            self.mask_receipt_sim=self.mask_receipt_sim_ns/1e9
+        elif self.sim_health:self.mask_receipt_sim=self.sim_now()
         self.tick()
         return self.fault is None
 
@@ -150,7 +180,8 @@ class LocalStop:
         self.status_subscription=node.create_subscription(GoalStatusArray,
             prefix+"/navigate_to_pose/_action/status",self.observe_status,qos_profile_action_status_default)
         self.guard=DeliveryGuard(robot,session_id,lambda:node.get_clock().now().nanoseconds/1e9,self.stop,
-            execution_profile=execution_profile,control_stop=lambda reason:self.stop(reason,publish_fault=False))
+            execution_profile=execution_profile,control_stop=lambda reason:self.stop(reason,publish_fault=False),
+            sim_now_ns=lambda:node.get_clock().now().nanoseconds)
         self.timer=node.create_timer(.02,self.tick,clock=Clock(clock_type=ClockType.STEADY_TIME))
 
     def tick(self):

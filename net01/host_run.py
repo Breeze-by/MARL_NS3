@@ -16,10 +16,21 @@ import sys
 import time
 from time_control_runtime import ControlledRuntime,controlled_config
 from cli_daemon_cleanup import cleanup_owned_cli_daemon
+from execution_profile import BUSINESS60_PROFILE_IDS,NATIVE_RAM60_SCOPE,REPAIR_PROFILE_IDS,NATIVE_RAM120_SCOPE
 
 HERE=Path(__file__).resolve().parent
 REPO=HERE.parent
 PHASE=REPO.parent
+
+
+def host_wall_limits(ready,controlled):
+    bounded180=controlled is not None and ready['sim_budget']==180
+    bounded60=(controlled is not None and ready['sim_budget']==60
+        and ready['network'].get('execution_profile') in BUSINESS60_PROFILE_IDS)
+    bounded120=(controlled is not None and ready['sim_budget']==120
+        and ready['network'].get('execution_profile') in REPAIR_PROFILE_IDS)
+    bounded=bounded180 or bounded60 or bounded120
+    return bounded,(ready['outer_wall']+ready['cleanup_wall']+10 if bounded else 1000)
 
 
 def capture_native_load(hub,native,libraries,expected_names,case):
@@ -90,28 +101,60 @@ def main():
         libraries=Path(runtime['library_directory']).resolve(strict=True)
         native_env=dict(os.environ,LD_LIBRARY_PATH=str(libraries))
         for name in ('LD_PRELOAD','LD_AUDIT'):native_env.pop(name,None)
-    bounded180=controlled_config(ready) is not None and ready['sim_budget']==180
+    config=controlled_config(ready)
+    bounded180=config is not None and ready['sim_budget']==180
+    bounded_case,runner_wall=host_wall_limits(ready,config)
+    physical60_ram=net.get('native_evidence_scope')==NATIVE_RAM60_SCOPE
+    if physical60_ram and (net.get('execution_profile') not in BUSINESS60_PROFILE_IDS or ready['sim_budget']!=60):
+        raise ValueError('RAM6GiB/reserve2GiB scope requires the explicit business60 contract')
+    physical120_ram=net.get('native_evidence_scope')==NATIVE_RAM120_SCOPE
+    if physical120_ram and (net.get('execution_profile') not in REPAIR_PROFILE_IDS or ready['sim_budget']!=120):
+        raise ValueError('RAM8GiB/reserve2GiB scope requires explicit repair120 contract')
     ledger_mode=net.get('native_ledger_mode','serial')
     if ledger_mode not in ('serial','session-ram-v1'):
         raise ValueError('Unknown reviewed native ledger mode')
     session_ram=ledger_mode=='session-ram-v1'
+    native_async_ledger=net.get('native_async_ledger',False)
+    if type(native_async_ledger) is not bool:
+        raise ValueError('native_async_ledger must be an explicit JSON bool')
+    if native_async_ledger and session_ram:
+        raise ValueError('Async and session RAM ledgers are mutually exclusive')
+    native_cpu_profile=net.get('native_cpu_profile',False)
+    if type(native_cpu_profile) is not bool:
+        raise ValueError('native_cpu_profile must be an explicit JSON bool')
+    if native_cpu_profile and not net.get('control_trace',False):
+        raise ValueError('Native CPU profile requires its control trace')
     if session_ram and not bounded180:
         raise ValueError('Session RAM candidate requires the existing bounded180 host owner')
-    runner_wall=ready['outer_wall']+ready['cleanup_wall']+10 if bounded180 else 1000
+    finalized_ram=session_ram or physical60_ram or physical120_ram
     # Check the actual executable/header before any native model is started.
     for key,path in (("binary",native),("generated_header",PHASE/net["native_identity"]["generated_header"]["relative_phase"])):
         actual=hashlib.sha256(path.read_bytes()).hexdigest()
         if actual!=net["native_identity"][key]["sha256"]:
             raise ValueError("Reviewed native "+key+" changed")
+    default_native_profile="C" if net["mode"]=="C" else "B"
+    native_profile=net.get('native_profile',default_native_profile)
+    if native_profile!=default_native_profile and not (native_profile=='B-loss3' and net['mode']=='B'):
+        raise ValueError('Single-factor B-loss3 requires the normal mode B business path')
     command=[sys.executable,"-B",str(HERE/"tools/packet_hub.py"),"--socket",str(socket),
-        "--native",str(native),"--output",str(evidence),"--profile",("C" if net["mode"]=="C" else "B"),
-        "--wall",str(runner_wall+20 if bounded180 else 1000),"--clock-source","gazebo"]
+        "--native",str(native),"--output",str(evidence),"--profile",native_profile,
+        "--wall",str(runner_wall+20 if bounded_case else 1000),"--clock-source","gazebo"]
+    for key,flag in (('native_rng_seed','--rng-seed'),('native_rng_run','--rng-run')):
+        if key in net:
+            if type(net[key]) is not int or net[key]<=0:raise ValueError('Positive integer '+key+' required')
+            command += [flag,str(net[key])]
     if net.get('control_trace',False):command.append('--control-trace')
+    if native_async_ledger:command.append('--native-async-ledger')
+    if native_cpu_profile:command.append('--native-cpu-profile')
     native_transport=net.get('native_transport','udp')
     if native_transport not in ('udp','tcp-v1','tcp-mtu-v2'):raise ValueError('Unknown reviewed native transport')
     command += ['--native-transport',native_transport]
     if net.get('native_evidence_ram') is not None:
         command += ['--native-evidence-ram',net['native_evidence_ram']]
+    if physical60_ram:
+        command += ['--native-evidence-scope',NATIVE_RAM60_SCOPE,'--bounded-sim-budget','60']
+    if physical120_ram:
+        command += ['--native-evidence-scope',NATIVE_RAM120_SCOPE,'--bounded-sim-budget','120']
     result=dict(start_utc=datetime.now(timezone.utc).isoformat(),hub_argv=command,runner_exit=None,
         runner_outer_wait_wall_s=runner_wall)
     if runtime is not None:result['native_loader_environment']=dict(LD_LIBRARY_PATH=str(libraries),
@@ -120,9 +163,9 @@ def main():
     controlled=ControlledRuntime(ready,REPO,case) if controlled_config(ready) is not None else None
     hub_log=case.with_name(case.name+".hub.log").open("x")
     host_begin=time.monotonic()
-    host_deadline=host_begin+runner_wall if bounded180 else None
-    if session_ram:command += ['--native-ledger-mode',ledger_mode,
-        '--finalize-hard-deadline-ns',str(int(host_deadline*1e9))]
+    host_deadline=host_begin+runner_wall if bounded_case else None
+    if session_ram:command += ['--native-ledger-mode',ledger_mode]
+    if finalized_ram:command += ['--finalize-hard-deadline-ns',str(int(host_deadline*1e9))]
     def remaining(limit):
         return limit if host_deadline is None else max(0.,min(limit,host_deadline-time.monotonic()))
     try:
@@ -150,7 +193,7 @@ def main():
             try:result["runner_exit"]=runner.wait(timeout=remaining(runner_wall))
             except subprocess.TimeoutExpired:
                 result["host_timeout"]=True
-                if bounded180:
+                if bounded_case:
                     terminate_recorded(case)
                     os.killpg(runner.pid,signal.SIGKILL);result["runner_exit"]=runner.wait()
                 else:
@@ -161,7 +204,7 @@ def main():
                         os.killpg(runner.pid,signal.SIGKILL);result["runner_exit"]=runner.wait()
         finalize_deadline=None
         hub_wait=15
-        if session_ram:
+        if finalized_ram:
             marker=evidence/'poststop-finalize.json'
             # END is normally read before the Gateway and runner exit. If not
             # yet observed, this earlier host90s bound cannot add a second90s.
@@ -173,8 +216,8 @@ def main():
         try:result["hub_exit"]=hub.wait(timeout=remaining(hub_wait))
         except subprocess.TimeoutExpired:
             result["hub_timeout_after_runner"]=True
-            os.killpg(hub.pid,signal.SIGKILL if session_ram else signal.SIGINT)
-            try:result["hub_exit"]=hub.wait(timeout=0 if session_ram else remaining(5))
+            os.killpg(hub.pid,signal.SIGKILL if finalized_ram else signal.SIGINT)
+            try:result["hub_exit"]=hub.wait(timeout=0 if finalized_ram else remaining(5))
             except subprocess.TimeoutExpired:os.killpg(hub.pid,signal.SIGKILL);result["hub_exit"]=hub.wait()
     except BaseException as error:
         result["error"]=repr(error)
@@ -188,7 +231,7 @@ def main():
                 except subprocess.TimeoutExpired:os.killpg(process.pid,signal.SIGKILL);process.wait()
         if controlled is not None and controlled.directory.exists():result['controlled_time']=controlled.close()
         hub_log.close()
-        if bounded180:result['host_force_escalation_wall_s']=runner_wall
+        if bounded_case:result['host_force_escalation_wall_s']=runner_wall
         controller_path=case/'network-controller-exit.json'
         result['controller_exit']=(json.loads(controller_path.read_text()) if controller_path.exists()
             else dict(started=False,returncode=None,reason='missing controller exit evidence'))

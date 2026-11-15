@@ -1,0 +1,78 @@
+{
+  "revision": "inflation040-peer052-v1",
+  "contract": {
+    "revision": "inflation040-peer052-v1",
+    "inflation_radius_m": 0.4,
+    "peer_radius_m": 0.52
+  },
+  "launch_entry": "/mnt/net01/clearance_tuning_launch.py",
+  "predecessor": "/mnt/net01/nav2_simclock_launch.py",
+  "applied_before_actions": true,
+  "changes": [
+    {
+      "robot": "tb1",
+      "effective_params": "/mnt/local-runs/clearance-tuning-20261115/runtime-component-02/generated/peer_nav2_tb1.yaml",
+      "before_params": "/mnt/local-runs/clearance-tuning-20261115/runtime-component-02/generated/peer_nav2_tb1.before-clearance-tuning.yaml",
+      "changes": [
+        {
+          "parameter": "global_costmap.global_costmap.ros__parameters.inflation_layer.inflation_radius",
+          "previous": 0.55,
+          "value": 0.4,
+          "robot_radius_m": 0.25,
+          "cost_scaling_factor": 3.0
+        },
+        {
+          "parameter": "local_costmap.local_costmap.ros__parameters.inflation_layer.inflation_radius",
+          "previous": 0.55,
+          "value": 0.4,
+          "robot_radius_m": 0.25,
+          "cost_scaling_factor": 3.0
+        }
+      ]
+    },
+    {
+      "robot": "tb2",
+      "effective_params": "/mnt/local-runs/clearance-tuning-20261115/runtime-component-02/generated/peer_nav2_tb2.yaml",
+      "before_params": "/mnt/local-runs/clearance-tuning-20261115/runtime-component-02/generated/peer_nav2_tb2.before-clearance-tuning.yaml",
+      "changes": [
+        {
+          "parameter": "global_costmap.global_costmap.ros__parameters.inflation_layer.inflation_radius",
+          "previous": 0.55,
+          "value": 0.4,
+          "robot_radius_m": 0.25,
+          "cost_scaling_factor": 3.0
+        },
+        {
+          "parameter": "local_costmap.local_costmap.ros__parameters.inflation_layer.inflation_radius",
+          "previous": 0.55,
+          "value": 0.4,
+          "robot_radius_m": 0.25,
+          "cost_scaling_factor": 3.0
+        }
+      ]
+    },
+    {
+      "robot": "tb3",
+      "effective_params": "/mnt/local-runs/clearance-tuning-20261115/runtime-component-02/generated/peer_nav2_tb3.yaml",
+      "before_params": "/mnt/local-runs/clearance-tuning-20261115/runtime-component-02/generated/peer_nav2_tb3.before-clearance-tuning.yaml",
+      "changes": [
+        {
+          "parameter": "global_costmap.global_costmap.ros__parameters.inflation_layer.inflation_radius",
+          "previous": 0.55,
+          "value": 0.4,
+          "robot_radius_m": 0.25,
+          "cost_scaling_factor": 3.0
+        },
+        {
+          "parameter": "local_costmap.local_costmap.ros__parameters.inflation_layer.inflation_radius",
+          "previous": 0.55,
+          "value": 0.4,
+          "robot_radius_m": 0.25,
+          "cost_scaling_factor": 3.0
+        }
+      ]
+    }
+  ],
+  "common_execution_revision_unchanged": "nav2-simclock-common-v1",
+  "scope": "Only six inflation_radius keys changed; original robot_radius, scaling, physical model, policy701, candidate/goal/clock/stop contracts retained"
+}

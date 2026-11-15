@@ -13,29 +13,74 @@ import shutil
 import socket
 import time
 
+PHYSICAL60_RAM_SCOPE='physical60sim-ram6GiB-reserve2GiB-v1'
+PHYSICAL120_RAM_SCOPE='physical120sim-ram8GiB-reserve2GiB-v1'
 
-async def read_frame(reader):
+class SyncWorkProfile:
+    """Opt-in spans closed before await; never charge another coroutine's CPU."""
+    def __init__(self):
+        self.totals={};self.longspans=[];self.steps=[]
+
+    def begin(self):return time.monotonic_ns(),time.thread_time_ns()
+
+    def end(self,stage,begin,**fields):
+        cpu=time.thread_time_ns();wall=time.monotonic_ns()
+        wall_ns=wall-begin[0];cpu_ns=cpu-begin[1]
+        row=self.totals.get(stage)
+        if row is None:
+            row=self.totals[stage]=dict(calls=0,wall_ns=0,thread_cpu_ns=0,max_wall_ns=0,max_thread_cpu_ns=0)
+        row['calls']+=1;row['wall_ns']+=wall_ns;row['thread_cpu_ns']+=cpu_ns
+        row['max_wall_ns']=max(row['max_wall_ns'],wall_ns)
+        row['max_thread_cpu_ns']=max(row['max_thread_cpu_ns'],cpu_ns)
+        if wall_ns>=10_000_000:
+            self.longspans.append(dict(stage=stage,begin_monotonic_ns=begin[0],end_monotonic_ns=wall,
+                begin_thread_cpu_ns=begin[1],end_thread_cpu_ns=cpu,wall_ns=wall_ns,thread_cpu_ns=cpu_ns,**fields))
+
+    def step(self,horizon):
+        self.steps.append(dict(horizon_ns=horizon,monotonic_ns=time.monotonic_ns(),
+            thread_cpu_ns=time.thread_time_ns(),
+            cumulative={stage:[row['calls'],row['wall_ns'],row['thread_cpu_ns']]
+                for stage,row in self.totals.items()}))
+
+    def snapshot(self):
+        return dict(totals=self.totals,longspans=self.longspans,steps=self.steps,
+            longspan_threshold_wall_ns=10_000_000,
+            cumulative_columns=['calls','wall_ns','thread_cpu_ns'],
+            scope='Disjoint synchronous Hub processing only; each span closes before await. Await/pipe/socket/OS waiting is not assigned coroutine CPU. Wall minus CPU can include descheduling or synchronous blocking.',
+            step_scope='Cumulative snapshot immediately before constructing clock_return; current return construction/diagnostic cost appears in the next snapshot or final totals. No extra business/wire message.',
+            overhead='Opt-in clock calls and RAM accounting included in execution; no per-packet diagnostic row or runtime disk write added.')
+
+
+async def read_frame(reader,profile=None):
     line = await reader.readline()
     if not line:
         return None, None
+    begin=profile.begin() if profile is not None else None
     meta = json.loads(line)
+    if profile is not None:profile.end('endpoint.frame_json',begin)
     body = await reader.readexactly(meta.get("bytes", 0))
     return meta, body
 
 
-def prepare_native_evidence(ram, destination):
+def prepare_native_evidence(ram, destination, *, fixed15_budget=False, physical60_budget=False, physical120_budget=False):
     if not ram.is_absolute() or ram.parent != Path('/dev/shm'):
         raise ValueError('Native RAM evidence must be an exclusive direct /dev/shm child')
     space = os.statvfs('/dev/shm')
     available = space.f_bavail * space.f_frsize
     memory = next(int(line.split()[1]) * 1024 for line in
         Path('/proc/meminfo').read_text().splitlines() if line.startswith('MemAvailable:'))
-    if available < 16 * 1024**3 or memory < 24 * 1024**3:
-        raise RuntimeError('Native RAM evidence requires 16GiB tmpfs and 24GiB MemAvailable')
+    if sum((fixed15_budget,physical60_budget,physical120_budget))>1:raise ValueError('RAM budget scopes are mutually exclusive')
+    required_free=(10 if physical120_budget else 8 if physical60_budget else 2 if fixed15_budget else 16)*1024**3
+    if available < required_free or memory < 24 * 1024**3:
+        raise RuntimeError(f'Native RAM evidence requires {required_free} free tmpfs bytes and 24GiB MemAvailable')
     ram.mkdir(mode=0o700, exist_ok=False)
     return dict(backend='owned_tmpfs_then_copy_after_native_exit', source=str(ram),
         destination=str(destination), available_tmpfs_bytes=available,
-        MemAvailable_bytes=memory, source_retained=True)
+        MemAvailable_bytes=memory, source_retained=True,
+        admission_scope=PHYSICAL120_RAM_SCOPE if physical120_budget else PHYSICAL60_RAM_SCOPE if physical60_budget else 'fixed15sim-9605-v1' if fixed15_budget else 'default-16GiB-v1',
+        required_free_tmpfs_bytes=required_free,
+        evidence_budget_bytes=8*1024**3 if physical120_budget else 6*1024**3 if physical60_budget else 1024**3 if fixed15_budget else None,
+        reserved_free_bytes=2*1024**3 if (physical60_budget or physical120_budget) else 1024**3 if fixed15_budget else None)
 
 
 def check_finalize_deadline(deadline):
@@ -69,10 +114,13 @@ def copy_native_evidence(storage, native_exit, control_trace, deadline=None):
         storage.update(copied_files=copied, copied_bytes=sum(copied.values()))
         if files != copied:
             raise RuntimeError('Native evidence copied file/size set differs')
+        if storage.get('evidence_budget_bytes') is not None and storage['source_bytes']>storage['evidence_budget_bytes']:
+            raise RuntimeError('Native evidence exceeds its explicit scoped budget; all copied evidence retained')
         required = {'configured-lock.json', 'packet-ledger.jsonl', 'ledger-status.json',
             'native-summary.json', *(f'wifi-{node}-0.pcap' for node in range(4))}
         if control_trace:
             required.add('control-step-trace.jsonl')
+        if storage.get('admission_scope') in ('fixed15sim-9605-v1',PHYSICAL60_RAM_SCOPE,PHYSICAL120_RAM_SCOPE):required.add('effective-network.json')
         if not required.issubset(files) or any(files[name] == 0 for name in required):
             raise RuntimeError('Native evidence is incomplete')
         ledger = json.loads((destination/'ledger-status.json').read_text())
@@ -91,8 +139,19 @@ def copy_native_evidence(storage, native_exit, control_trace, deadline=None):
 
 async def main(args):
     session_ram=args.native_ledger_mode=='session-ram-v1'
+    physical60_ram=args.native_evidence_scope==PHYSICAL60_RAM_SCOPE
+    physical120_ram=args.native_evidence_scope==PHYSICAL120_RAM_SCOPE
+    physical_ram=physical60_ram or physical120_ram
+    scoped_budget=120 if physical120_ram else 60
     if session_ram and args.finalize_hard_deadline_ns is None:
         raise ValueError('Session RAM requires an explicit host hard deadline')
+    if physical_ram and (args.native_evidence_ram is None or args.step_observer is None
+            or args.bounded_sim_budget!=scoped_budget or args.finalize_hard_deadline_ns is None
+            or args.finalize_hard_deadline_ns<=time.monotonic_ns()
+            or args.clock_source!='gazebo' or session_ram or args.native_cpu_profile or args.native_async_ledger):
+        raise ValueError('Physical RAM scope requires its matching bounded budget, actual-clock sidecars, serial ledger and a future absolute host deadline')
+    if args.fixed15_ram_budget and (args.native_evidence_ram is None or args.step_observer is not None):
+        raise ValueError('Fixed15 RAM budget requires a standalone fixed-input native fixture, not physical sidecars')
     args.output.mkdir(parents=True, exist_ok=False)
     native_output = args.output / "native"
     storage = None
@@ -100,7 +159,10 @@ async def main(args):
         native_output.mkdir()
     else:
         try:
-            storage = prepare_native_evidence(args.native_evidence_ram, native_output)
+            storage = prepare_native_evidence(args.native_evidence_ram, native_output,
+                fixed15_budget=args.fixed15_ram_budget,physical60_budget=physical60_ram,physical120_budget=physical120_ram)
+            if physical_ram:storage.update(bounded_sim_budget=args.bounded_sim_budget,
+                host_hard_deadline_monotonic_ns=args.finalize_hard_deadline_ns)
         except Exception as error:
             (args.output/'result.json').write_text(json.dumps(dict(status='FAIL',
                 phase='before_native_start', error=repr(error)), indent=2)+'\n')
@@ -109,13 +171,17 @@ async def main(args):
     stderr = (args.output / "native.stderr.txt").open("xb")
     command = [str(args.native.resolve()), f"--output={native_output.resolve()}", f"--profile={args.profile}"]
     if args.native_transport != "udp":command.append("--transport="+args.native_transport)
+    if args.rng_seed is not None:command.append("--rngSeed="+str(args.rng_seed))
+    if args.rng_run is not None:command.append("--rngRun="+str(args.rng_run))
+    if args.native_async_ledger:command.append('--asyncLedger=1')
     if session_ram:command.append('--ledgerMode=session-ram-v1')
     if args.control_trace:command.append('--controlTrace=1')
     if args.native_cpu_profile:command.append('--cpuProfile=1')
     process = await asyncio.create_subprocess_exec(*command, stdin=asyncio.subprocess.PIPE,
         stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE if args.control_trace else stderr)
     result = dict(argv=command, scope="Unix IPC to actual ns3 full-payload transport", status="FAIL",
-                  native_transport=args.native_transport,native_cpu_profile=args.native_cpu_profile)
+                  native_transport=args.native_transport,native_cpu_profile=args.native_cpu_profile,
+                  native_async_ledger=args.native_async_ledger)
     if storage is not None:result['native_evidence_storage'] = storage
     server = None
     owner = None
@@ -133,13 +199,14 @@ async def main(args):
     control_trace=[]
     native_boundaries=[]
     native_stderr=[]
+    sync_profile=SyncWorkProfile() if args.native_cpu_profile else None
     step_observer=socket.socket(socket.AF_UNIX,socket.SOCK_DGRAM) if args.step_observer else None
     if step_observer is not None:step_observer.setblocking(False)
     last_native_horizon=0
     finalize=None
     def start_finalize(trigger=None):
         nonlocal finalize
-        if not session_ram or finalize is not None:return
+        if not (session_ram or physical60_ram) or finalize is not None:return
         now=time.monotonic_ns()
         finalize=dict(END_monotonic_ns=now,
             deadline_monotonic_ns=min(now+90_000_000_000,args.finalize_hard_deadline_ns),
@@ -155,7 +222,8 @@ async def main(args):
             step_observer.sendto(json.dumps(dict(kind=kind,horizon_ns=horizon,
                 monotonic_ns=time.monotonic_ns())).encode(),str(args.step_observer))
     def control_event(kind,**fields):
-        if args.control_trace:control_trace.append(dict(kind=kind,monotonic_ns=time.monotonic_ns(),**fields))
+        if args.control_trace:control_trace.append(dict(kind=kind,monotonic_ns=time.monotonic_ns(),
+            thread_cpu_ns=time.thread_time_ns(),**fields))
     def fail(stage,error,**fields):
         nonlocal quiescing
         quiescing=True
@@ -165,12 +233,15 @@ async def main(args):
 
     async def native_diagnostics():
         while line := await process.stderr.readline():
+            begin=sync_profile.begin() if sync_profile is not None else None
             received=time.monotonic_ns()
             native_stderr.append(line)
             if line.startswith(b'NET01_CONTROL '):
                 row=json.loads(line[len(b'NET01_CONTROL '):])
                 row['hub_receive_monotonic_ns']=received
+                if sync_profile is not None:row['hub_receive_thread_cpu_ns']=time.thread_time_ns()
                 native_boundaries.append(row)
+            if sync_profile is not None:sync_profile.end('native_diagnostics.line',begin,bytes=len(line))
 
     diagnostics_task=asyncio.create_task(native_diagnostics()) if args.control_trace else None
 
@@ -179,6 +250,7 @@ async def main(args):
         active_mid=None
         try:
             while line := await process.stdout.readline():
+                begin=sync_profile.begin() if sync_profile is not None else None
                 active_mid=None
                 words = line.decode().split()
                 if words[0] == "RX":
@@ -186,8 +258,11 @@ async def main(args):
                     active_mid=mid
                     detailed=args.control_trace and (size>=16384 or flow in (31,51,71))
                     if detailed:control_event('hub_payload_read_begin',message_id=mid,bytes=size)
+                    if sync_profile is not None:sync_profile.end('native_rx.header_RX',begin,message_id=mid)
                     payload = await process.stdout.readexactly(size)
-                    if await process.stdout.readexactly(1) != b"\n":
+                    delimiter=await process.stdout.readexactly(1)
+                    begin=sync_profile.begin() if sync_profile is not None else None
+                    if delimiter != b"\n":
                         raise ValueError("Native body framing mismatch")
                     if detailed:control_event('hub_payload_read_end',message_id=mid,bytes=size)
                     meta = dict(kind="delivered", sender=sender, receiver=receiver, flow=flow,
@@ -196,17 +271,22 @@ async def main(args):
                     deliveries.append(meta)
                     if quiescing:
                         meta['not_forwarded_during_error_cleanup']=True
+                        if sync_profile is not None:sync_profile.end('native_rx.delivery_write',begin,message_id=mid,bytes=size)
                         continue
                     if owner is None:
                         raise RuntimeError("Native delivery without an owned endpoint session")
                     if detailed:control_event('hub_owner_output_begin',message_id=mid,bytes=size)
                     owner.write(json.dumps(meta).encode()+b"\n"+payload)
+                    if sync_profile is not None:sync_profile.end('native_rx.delivery_write',begin,message_id=mid,bytes=size)
                     await owner.drain()
+                    begin=sync_profile.begin() if sync_profile is not None else None
                     if detailed:control_event('hub_owner_output_end',message_id=mid,bytes=size)
+                    if sync_profile is not None:sync_profile.end('native_rx.after_owner_drain',begin,message_id=mid)
                 elif words[0] == "STEP":
                     control_event('hub_native_STEP_received',horizon_ns=int(words[1]))
                     last_native_horizon=int(words[1])
                     observe_native('step',last_native_horizon)
+                    if sync_profile is not None:sync_profile.end('native_rx.header_STEP',begin,horizon_ns=last_native_horizon)
                     await received_steps.put(int(words[1]))
                 else:
                     raise ValueError("Unexpected native output")
@@ -222,10 +302,13 @@ async def main(args):
         owner = writer
         endpoint_task=asyncio.current_task()
         try:
+            begin=sync_profile.begin() if sync_profile is not None else None
             writer.write(b'{"kind":"ready","bytes":0}\n')
+            if sync_profile is not None:sync_profile.end('endpoint.ready_write',begin)
             await writer.drain()
             while not quiescing:
-                meta, body = await read_frame(reader)
+                meta, body = await read_frame(reader,sync_profile)
+                begin=sync_profile.begin() if sync_profile is not None else None
                 if quiescing:break
                 if meta is None:
                     raise RuntimeError("Owner disconnected without END")
@@ -246,32 +329,48 @@ async def main(args):
                     if health:control_event('health_native_write_before',flow=flow,message_id=next_message)
                     process.stdin.write(header.encode()+body+b"\n")
                     if health:control_event('health_native_write_returned',flow=flow,message_id=next_message)
+                    if sync_profile is not None:sync_profile.end('endpoint.send_write',begin,message_id=next_message,bytes=len(body))
                     await process.stdin.drain()
+                    begin=sync_profile.begin() if sync_profile is not None else None
                     if health:control_event('health_native_drain_returned',flow=flow,message_id=next_message)
+                    if sync_profile is not None:sync_profile.end('endpoint.after_send_drain',begin,message_id=next_message)
                 elif op=="observed_clock" and args.clock_source=="gazebo":
                     horizon=meta["horizon_ns"]
                     if horizon<known_horizon:raise ValueError("Actual observed clock rollback")
                     known_horizon=horizon
-                    process.stdin.write(f"KNOWN {horizon}\n".encode());await process.stdin.drain()
+                    process.stdin.write(f"KNOWN {horizon}\n".encode())
+                    if sync_profile is not None:sync_profile.end('endpoint.known_write',begin,horizon_ns=horizon)
+                    await process.stdin.drain()
                 elif op=="position":
                     robot=meta["robot"];x,y,z=meta["xyz"]
-                    process.stdin.write(f"POSITION {robot} {x:.17g} {y:.17g} {z:.17g}\n".encode());await process.stdin.drain()
+                    process.stdin.write(f"POSITION {robot} {x:.17g} {y:.17g} {z:.17g}\n".encode())
+                    if sync_profile is not None:sync_profile.end('endpoint.position_write',begin,robot=robot)
+                    await process.stdin.drain()
                 elif op == "clock":
                     horizon = meta["horizon_ns"]
                     control_event('hub_clock_frame_received',horizon_ns=horizon)
                     if args.clock_source=="gazebo" and horizon>known_horizon:raise ValueError("Network attempted to lead real /clock")
                     control_event('hub_native_STEP_write',horizon_ns=horizon)
                     process.stdin.write(f"STEP {horizon}\n".encode())
+                    if sync_profile is not None:sync_profile.end('endpoint.clock_write',begin,horizon_ns=horizon)
                     await process.stdin.drain()
+                    begin=sync_profile.begin() if sync_profile is not None else None
                     control_event('hub_native_stdin_drain_returned',horizon_ns=horizon)
+                    if sync_profile is not None:sync_profile.end('endpoint.after_clock_stdin_drain',begin,horizon_ns=horizon)
                     returned = await asyncio.wait_for(received_steps.get(), timeout=2)
                     if quiescing:break
+                    begin=sync_profile.begin() if sync_profile is not None else None
+                    if sync_profile is not None:sync_profile.step(returned)
                     writer.write(json.dumps(dict(kind="clock_return", horizon_ns=returned,
                         hub_clock_return_monotonic_ns=time.monotonic_ns(), bytes=0)).encode()+b"\n")
+                    if sync_profile is not None:sync_profile.end('endpoint.clock_return_write',begin,horizon_ns=returned)
                     await writer.drain()
+                    begin=sync_profile.begin() if sync_profile is not None else None
                     control_event('hub_clock_response_drain_returned',horizon_ns=returned)
+                    if sync_profile is not None:sync_profile.end('endpoint.after_clock_return_drain',begin,horizon_ns=returned)
                 elif op == "radio_fault" and args.allow_radio_fault:
                     process.stdin.write(f"RADIO {int(meta['enabled'])}\n".encode())
+                    if sync_profile is not None:sync_profile.end('endpoint.radio_write',begin)
                     await process.stdin.drain()
                 elif op == "end":
                     owner_END_received=True;end_attempted=True
@@ -279,6 +378,7 @@ async def main(args):
                         owner_END_parsed_monotonic_ns=time.monotonic_ns())
                     start_finalize()
                     process.stdin.write(b"END\n")
+                    if sync_profile is not None:sync_profile.end('endpoint.end_write',begin)
                     await process.stdin.drain()
                     owner_shutdown['native_END_stdin_drain_returned_monotonic_ns']=time.monotonic_ns()
                     process.stdin.close()
@@ -422,6 +522,8 @@ async def main(args):
         (args.output/"hub-ingress.json").write_text(json.dumps(ingress, indent=2)+"\n")
         (args.output/"hub-deliveries.json").write_text(json.dumps(deliveries, indent=2)+"\n")
         if args.control_trace:(args.output/'hub-clock-control.json').write_text(json.dumps(control_trace,indent=2)+'\n')
+        if sync_profile is not None:
+            (args.output/'hub-sync-cpu-summary.json').write_text(json.dumps(sync_profile.snapshot(),indent=2)+'\n')
         if args.socket.exists():
             args.socket.unlink()
         copy_error = None
@@ -459,11 +561,15 @@ if __name__ == "__main__":
     parser.add_argument("--socket", type=Path, required=True)
     parser.add_argument("--native", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--profile", choices=("B", "C"), default="B")
+    parser.add_argument("--profile", choices=("B", "C", "B-loss3"), default="B")
     parser.add_argument("--native-transport", choices=("udp","tcp-v1","tcp-mtu-v2"), default="udp")
     parser.add_argument('--native-ledger-mode',choices=('serial','session-ram-v1'),default='serial')
+    parser.add_argument('--native-async-ledger',action='store_true',
+        help='Existing bounded native ledger writer; STEP still waits for its ledger flush barrier')
     parser.add_argument('--finalize-hard-deadline-ns',type=int,
-        help='Session RAM only: same absolute monotonic deadline enforced by its host owner')
+        help='Session RAM or explicit physical60 RAM scope: absolute monotonic deadline enforced by host')
+    parser.add_argument("--rng-seed",type=int,help="Explicit ns3 seed; absent retains native locked default")
+    parser.add_argument("--rng-run",type=int,help="Explicit ns3 run; absent retains native locked default")
     parser.add_argument("--wall", type=float, default=120)
     parser.add_argument("--allow-radio-fault", action="store_true", help="Independent no-motion negative fixture only")
     parser.add_argument("--clock-source", choices=("synthetic","gazebo"), default="synthetic")
@@ -472,6 +578,11 @@ if __name__ == "__main__":
         help='Opt-in native CPU attribution, with added chrono/output overhead; use with control trace')
     parser.add_argument('--native-evidence-ram',type=Path,
         help='Explicit owned /dev/shm directory; copy all native evidence after actual exit')
+    parser.add_argument('--fixed15-ram-budget',action='store_true',
+        help='Explicit validated 15sim/9605 fixture only: 1GiB evidence plus 1GiB free reserve; old default remains16GiB')
+    parser.add_argument('--native-evidence-scope',choices=(PHYSICAL60_RAM_SCOPE,PHYSICAL120_RAM_SCOPE),
+        help='Explicit physical60/repair120 RAM budget; requires matching bounded sidecars and host absolute deadline')
+    parser.add_argument('--bounded-sim-budget',type=int,choices=(60,120))
     parser.add_argument('--step-observer',type=Path,
         help='Explicit independent controlled-time receiver; only real native progress, no business data')
     asyncio.run(main(parser.parse_args()))

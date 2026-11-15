@@ -1,0 +1,42 @@
+{
+  "id": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-60sim-fixedstart-consumertrace-v1",
+  "world_real_time_update_rate": 1000,
+  "physics_max_step_size_unchanged": 0.001,
+  "clock_publish_rate_sim_hz": 100.0,
+  "native_step_quantum_ns": 10000000,
+  "scope": "New six-case common startup/consumer contract; do not pool with predecessor b2/l2. Explicit 60sim common engineering window over pace40 sim-business-v1. Action/Peer/journal, fixed policy, Nav2, physical10sim-ms tokens,20sim-ms native credit, absolute40wall-ms grid and independent wall safeguards are unchanged. Both Wi-Fi arms require the same serial native ledger and all native evidence on owned tmpfs: 6GiB evidence budget plus2GiB free reserve (8GiB admission), MemAvailable24GiB; copy after child exits and preserve failures. The prior180sim profile and16GiB default remain unchanged. This storage condition is motivated by identical-model fixed-input RAM evidence (lower tail, not integrated qualification); it neither guarantees pacing nor identifies a unique cause. Coverage completion uses observed quality-valid T95 only, unreached at60sim remains unreached. No automatic run, re-anchor, Nav2 change, higher coverage target or causal pass is authorized by selecting this profile. Prewarm after original preflight without goals; fixed planned autonomy G20 and original decision attempts G25+5k in [25,80), tolerance one10sim-ms tick. Actual timestamps remain actual. Consumer diagnostics are passive local evidence, not additional journal business load. Missing observations/WAIT are retained outcomes; all explicit startup failures stay in attempted-case denominator.",
+  "controlled_physics": true,
+  "physical_token_steps": 10,
+  "physical_lookahead_quanta": 2,
+  "token_wall_period_ns": 40000000,
+  "peer_mask_raster": "broadcast-v1",
+  "health_mask_receipt_clock": "R-ros-sim-v1",
+  "progress_wall_timeout_s": 2.0,
+  "gateway_poststop_evidence_total_wall_s": 60,
+  "business_clock": "ros-sim-v1",
+  "peer_odom_receipt_clock": "ros-sim-v1",
+  "predecessor": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-60sim",
+  "run_bounds": {
+    "sim_budget": 60,
+    "startup_wall": 180,
+    "autonomous_wall": 480,
+    "outer_wall": 720,
+    "cleanup_wall": 90
+  },
+  "native_evidence_budget_bytes": 6442450944,
+  "native_evidence_reserve_bytes": 2147483648,
+  "native_evidence_scope": "physical60sim-ram6GiB-reserve2GiB-v1",
+  "consumer_trace": "hq-consumer-trace-v1",
+  "startup_contract": {
+    "id": "fixed-G20-attempt-G25-grid5-end80-v1",
+    "autonomy_epoch_ns": 20000000000,
+    "first_decision_ns": 25000000000,
+    "decision_period_ns": 5000000000,
+    "decision_permission_end_ns": 80000000000,
+    "timing_tolerance_ns": 10000000,
+    "readiness": "initialized gate received through original flow95; original readiness and no-motion safety only",
+    "first_slot": "unchanged original allocation ATTEMPT, including awaiting observations or WAIT; no NN/candidate content admission",
+    "late_slot": "record actual; timing failure; no backdate, catch-up or moving epoch",
+    "end": "new decision permission [25,80); original send_goal entry has same budget gate, not a DDS send/acceptance timestamp; previously admitted inflight/feedback/cancel/stop ownership unchanged"
+  }
+}

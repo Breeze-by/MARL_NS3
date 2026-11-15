@@ -1,0 +1,57 @@
+{
+  "execution_authorized": true,
+  "status": "ROOT_COMMON_V2_ACTIVATION_PHASE_I_EIGHT_CASES_OPTIONAL_ROUND3_REQUIRES_USER_TOTAL13",
+  "candidate": "net01e/controller/graceful_controller_bootstrap.py",
+  "shared_adapter": "net01e/controller/graceful_spin.py",
+  "all_four_arms_same_adapter_required": true,
+  "production_activation_allowed": true,
+  "gazebo_motion_allowed": true,
+  "frozen_policy_source_changes": false,
+  "root_START": "ROOT_COMMON_V2_ACTIVATION_OF_SHARED_SOURCE_ONLY; NOT_A_SPECIFIC_CASE_START",
+  "reviewed_source_commit": "26559f4a3694f1bb4ca9cedbb97c67b00dd9006c",
+  "execution_scope": {
+    "version": "NET01E_COMMON_V2",
+    "scene": "Corr6201",
+    "actual_runtime_source_commit": "26559f4a3694f1bb4ca9cedbb97c67b00dd9006c",
+    "phase_I": {
+      "rounds": 2,
+      "order_each_round": [
+        "A1",
+        "B",
+        "A0",
+        "C"
+      ],
+      "new_physical_episodes": 8,
+      "maximum_cases_per_arm": 2
+    },
+    "old_physical_failure": {
+      "case": "corr6201-r01-a1-p2",
+      "physical_episodes_consumed": 1,
+      "status": "PROCESS_FAIL_GATEWAY_MINUS15_RETAINED_SEPARATELY_NOT_A_V2_REPEAT"
+    },
+    "total_budget_rule": {
+      "current_authorized_overall_maximum": 12,
+      "old_physical_failure_counts_toward_overall_total": true,
+      "phase_I_plus_old_physical_failure": 9,
+      "optional_round3": {
+        "order": [
+          "A1",
+          "B",
+          "A0",
+          "C"
+        ],
+        "new_physical_episodes": 4,
+        "enabled_only_if": "User explicitly authorizes overall physical episode budget13; evidence required in each specific READY before Root START. Without that explicit authorization the optional full round is forbidden.",
+        "overall_total_if_executed": 13
+      },
+      "no_partial_automatic_round3_using_remaining_three_slots": true
+    },
+    "maximum_new_V2_cases_per_arm": 3,
+    "each_case_requires_specific_READY_and_Root_START": true,
+    "no_automatic_retry": true,
+    "stop_remaining_on_first_blocking_failure": true,
+    "common_profile": "controlled1000-clock100-q10ms-pace20-raster-simhealth",
+    "no_extra_Gazebo_qualification_outside_declared_budget": true,
+    "immutable_scope_condition": "Optional-round user authorization is external per-case evidence, not a later mutation of these shared activation bytes."
+  }
+}

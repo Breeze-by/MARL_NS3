@@ -1,0 +1,586 @@
+{
+  "schema": "clearance-experimental-version-small-text-backup-v1",
+  "created_utc": "2026-11-15T13:38:48.321201+00:00",
+  "original_task_relative_repo": "local-runs/clearance-tuning-20261115",
+  "navigation_revision": "inflation040-peer052-v1",
+  "parameters": {
+    "inflation_radius_m": 0.4,
+    "peer_radius_m": 0.52,
+    "robot_radius_m": 0.25
+  },
+  "runtime_count": 81,
+  "runtime_bytes": 542248,
+  "runtime": [
+    {
+      "source_relative_repo": "net01d/followup01/main_thread_sampler.py",
+      "backup_relative": "source/net01d/followup01/main_thread_sampler.py",
+      "bytes": 6648,
+      "inherited_original_binding_sha256": "d0cedacfc5f497d3906c4eb1f04d4a8a3a93b42e8073b2a9d1291f9fd75b4940"
+    },
+    {
+      "source_relative_repo": "net01d/followup02/native/CMakeLists.txt",
+      "backup_relative": "source/net01d/followup02/native/CMakeLists.txt",
+      "bytes": 1040,
+      "inherited_original_binding_sha256": "eb1c3c7ce3e4989e0a45ecf7f04a7b1ae1a65c37b69e2d0c0f182aa90a29b903"
+    },
+    {
+      "source_relative_repo": "net01d/followup02/native/tcp_stream_draft.inc",
+      "backup_relative": "source/net01d/followup02/native/tcp_stream_draft.inc",
+      "bytes": 13981,
+      "inherited_original_binding_sha256": "1ee6c9d3a20696f455cee2f5c85675a0d9261b780e50341999d84fee980dde0a"
+    },
+    {
+      "source_relative_repo": "net01d/health/trace.py",
+      "backup_relative": "source/net01d/health/trace.py",
+      "bytes": 1030,
+      "inherited_original_binding_sha256": "1ca363b159315e13da1dd55c59bfd4383dfecd1ed7f3e406296de2ca50af799c"
+    },
+    {
+      "source_relative_repo": "net01e/controller/GRACEFUL_ADMISSION.json",
+      "backup_relative": "source/net01e/controller/GRACEFUL_ADMISSION.json",
+      "bytes": 2331,
+      "inherited_original_binding_sha256": "c841d281efd1dd2236ff5ad40b8790260da239608ee893a1b18047b839993684"
+    },
+    {
+      "source_relative_repo": "net01e/controller/graceful_controller_bootstrap.py",
+      "backup_relative": "source/net01e/controller/graceful_controller_bootstrap.py",
+      "bytes": 1185,
+      "inherited_original_binding_sha256": "330542b545999b21c55ae389ad2cca24b1bacdd3dc5dd5a8db531d930ad700b5"
+    },
+    {
+      "source_relative_repo": "net01e/controller/graceful_spin.py",
+      "backup_relative": "source/net01e/controller/graceful_spin.py",
+      "bytes": 3568,
+      "inherited_original_binding_sha256": "23db61c3e1704a1653b7d59381343faab4fb9db75cb39a599ad613622fbe66d3"
+    },
+    {
+      "source_relative_repo": "net01e/controller/host_run.py",
+      "backup_relative": "source/net01e/controller/host_run.py",
+      "bytes": 1446,
+      "inherited_original_binding_sha256": "df0a103d4d1bb2af8afcc9ef4aa793310fdac2fdf4089e13bc5aab423d533525"
+    },
+    {
+      "source_relative_repo": "net01e/followup01/PRODUCTION_ADMISSION.json",
+      "backup_relative": "source/net01e/followup01/PRODUCTION_ADMISSION.json",
+      "bytes": 2418,
+      "inherited_original_binding_sha256": "5373e48716728357bfddcde2320bed6137dbbadf031ab112bca56550d84fdda2"
+    },
+    {
+      "source_relative_repo": "net01e/followup01/production_gateway.py",
+      "backup_relative": "source/net01e/followup01/production_gateway.py",
+      "bytes": 8763,
+      "inherited_original_binding_sha256": "008cf598996ce16577f4ad3db2869dc6de4ce48832e4e94cf0c078458398cdf8"
+    },
+    {
+      "source_relative_repo": "net01e/followup01/production_host.py",
+      "backup_relative": "source/net01e/followup01/production_host.py",
+      "bytes": 3534,
+      "inherited_original_binding_sha256": "50daea1fc552990f4eb4ec8f9697fb4b88ff23456d22e89117ee58836cfdf6f6"
+    },
+    {
+      "source_relative_repo": "net01e/followup01/raw_destination_wire.py",
+      "backup_relative": "source/net01e/followup01/raw_destination_wire.py",
+      "bytes": 1659,
+      "inherited_original_binding_sha256": "8abb2cf67a6b0b459d2b96047cbb107ca01835ae46b45dbf39695eb030d59f43"
+    },
+    {
+      "source_relative_repo": "net01e/followup02/static_footprint_launch.py",
+      "backup_relative": "source/net01e/followup02/static_footprint_launch.py",
+      "bytes": 2761,
+      "inherited_original_binding_sha256": "66fdbcb6144e5f18a71af445dbb297be3b185fd02dfda1179238bf88de3a5c81"
+    },
+    {
+      "source_relative_repo": "net01e/followup03/time_control_plugin/CMakeLists.txt",
+      "backup_relative": "source/net01e/followup03/time_control_plugin/CMakeLists.txt",
+      "bytes": 656,
+      "inherited_original_binding_sha256": "427703ad3d38ce5c254680f083f927ae9bd3608ec61c0492110d0898c28c4b32"
+    },
+    {
+      "source_relative_repo": "net01e/followup03/time_control_plugin/time_control_plugin.cc",
+      "backup_relative": "source/net01e/followup03/time_control_plugin/time_control_plugin.cc",
+      "bytes": 3843,
+      "inherited_original_binding_sha256": "95798f791aada9fc8d11dc22e0a09aee85274c6cf5976712916d2714e738b0d1"
+    },
+    {
+      "source_relative_repo": "net01/a0_controller_bootstrap.py",
+      "backup_relative": "source/net01/a0_controller_bootstrap.py",
+      "bytes": 2887,
+      "inherited_original_binding_sha256": "e4f452e8afb50333b50c86439e963965c22ce9f77f14bca12476ae21c48511bc"
+    },
+    {
+      "source_relative_repo": "net01/a0_gateway.py",
+      "backup_relative": "source/net01/a0_gateway.py",
+      "bytes": 6398,
+      "inherited_original_binding_sha256": "f95e284afef2eda507749492e9148ce483e922b2816ba3286eb51856ccb17eb2"
+    },
+    {
+      "source_relative_repo": "net01/a0_runtime.py",
+      "backup_relative": "source/net01/a0_runtime.py",
+      "bytes": 11768,
+      "inherited_original_binding_sha256": "e732db769ff27561059f3851d0618b2c5bb92ae5be88a28d984034ad4581a340"
+    },
+    {
+      "source_relative_repo": "net01/action_wire.py",
+      "backup_relative": "source/net01/action_wire.py",
+      "bytes": 18409,
+      "inherited_original_binding_sha256": "e9b8d023ae9388de7fac0570b02c5166fc84e36ab92bda009567e42cbca6c5da"
+    },
+    {
+      "source_relative_repo": "net01/adapter_node.py",
+      "backup_relative": "source/net01/adapter_node.py",
+      "bytes": 791,
+      "inherited_original_binding_sha256": "b10ff2f2d6434ac59a1bb9f306938ba7dd20ec34cd515f6b1d13042eca6a98c7"
+    },
+    {
+      "source_relative_repo": "net01/boot_network.py",
+      "backup_relative": "source/net01/boot_network.py",
+      "bytes": 13812,
+      "inherited_original_binding_sha256": "d01312cadd3be7881caa878cc2ceda9abc5955293403adadfebbd76ea53b51c6"
+    },
+    {
+      "source_relative_repo": "net01/bound_mask_wire.py",
+      "backup_relative": "source/net01/bound_mask_wire.py",
+      "bytes": 2031,
+      "inherited_original_binding_sha256": "3d98a0903830dc9cf92e231336d6df5b267e49ed3b5b3c66b4bc150d4558230a"
+    },
+    {
+      "source_relative_repo": "net01/bound_peer.py",
+      "backup_relative": "source/net01/bound_peer.py",
+      "bytes": 11315,
+      "inherited_original_binding_sha256": "811ab96957a73bff49d785ee5c13d41d85a97e0dc3de13d7e154d2896716656c"
+    },
+    {
+      "source_relative_repo": "net01/business_peer.py",
+      "backup_relative": "source/net01/business_peer.py",
+      "bytes": 5252,
+      "inherited_original_binding_sha256": "28b2af8a71858cdf905d4f3021b2ac0645b0fd5da5b1e823c6e78be0cc84f49c"
+    },
+    {
+      "source_relative_repo": "net01/candidate_clearance.py",
+      "backup_relative": "source/net01/candidate_clearance.py",
+      "bytes": 3987,
+      "inherited_original_binding_sha256": "7dfa2fb8d779f9879877f70a06b14c67f86a3ac06d1fc9e25ed2efc4313d5216"
+    },
+    {
+      "source_relative_repo": "net01/check_composition_cleanup.py",
+      "backup_relative": "source/net01/check_composition_cleanup.py",
+      "bytes": 6480,
+      "inherited_original_binding_sha256": "9671539f2f59131ec89a0ed795e9c0525de474a549aa7e20bc5e4155fc95ae2c"
+    },
+    {
+      "source_relative_repo": "net01/cli_daemon_cleanup.py",
+      "backup_relative": "source/net01/cli_daemon_cleanup.py",
+      "bytes": 5498,
+      "inherited_original_binding_sha256": "c78292fd5f428cb74b4328cbf23c031fe53c34297d4323ff1af61310998a4544"
+    },
+    {
+      "source_relative_repo": "net01/clock_witness/CMakeLists.txt",
+      "backup_relative": "source/net01/clock_witness/CMakeLists.txt",
+      "bytes": 353,
+      "inherited_original_binding_sha256": "1f374b62913299b0bdfcbf394dcd7001a56e2c1261f536bd4e5eac35ceb208cd"
+    },
+    {
+      "source_relative_repo": "net01/clock_witness/clock_witness.cc",
+      "backup_relative": "source/net01/clock_witness/clock_witness.cc",
+      "bytes": 3126,
+      "inherited_original_binding_sha256": "4388f83e555febc25ce0b2b7d355f0af2cf95021cdfb44faa938a802e098c8e7"
+    },
+    {
+      "source_relative_repo": "net01/comparison_direct_gateway.py",
+      "backup_relative": "source/net01/comparison_direct_gateway.py",
+      "bytes": 2008,
+      "inherited_original_binding_sha256": "58902aacd0cc9e77a9cb79ff4e1a980848babf1180b3f6dd1548ce3c268eaaed"
+    },
+    {
+      "source_relative_repo": "net01/comparison_measurement.py",
+      "backup_relative": "source/net01/comparison_measurement.py",
+      "bytes": 5183,
+      "inherited_original_binding_sha256": "13c6180cea8d28fa94cfad3cf4b7c77c96cb0cc233aa80f13fbc51e65e6b7862"
+    },
+    {
+      "source_relative_repo": "net01/comparison_topic_wire.py",
+      "backup_relative": "source/net01/comparison_topic_wire.py",
+      "bytes": 2169,
+      "inherited_original_binding_sha256": "3295a126bd52560731afde95a875585dd164f6480913b67cfd146df32f9e89e6"
+    },
+    {
+      "source_relative_repo": "net01/config/CHANNEL_FAULT_V1.json",
+      "backup_relative": "source/net01/config/CHANNEL_FAULT_V1.json",
+      "bytes": 901,
+      "inherited_original_binding_sha256": "c32357d82e360c3dbc17dddbcedd3434c85fb07c5fdc4889ede0c6cc3da28434"
+    },
+    {
+      "source_relative_repo": "net01/config/EXECUTION_PROFILE_COMPARISON40_V1_120SIM.json",
+      "backup_relative": "source/net01/config/EXECUTION_PROFILE_COMPARISON40_V1_120SIM.json",
+      "bytes": 3385,
+      "inherited_original_binding_sha256": "6f0bf46a6de173b19b5a16bb9f0ab376c2d6993885eafd5bf7aa5cfa8b2dde37"
+    },
+    {
+      "source_relative_repo": "net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS.json",
+      "backup_relative": "source/net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS.json",
+      "bytes": 1298,
+      "inherited_original_binding_sha256": "e8e6ee64d4c62a8ba80bd6c98e2097028990968fa4055253d08ecff9fcf6bc65"
+    },
+    {
+      "source_relative_repo": "net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10.json",
+      "backup_relative": "source/net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10.json",
+      "bytes": 1649,
+      "inherited_original_binding_sha256": "28fca52a27c8bf4a8b69b346c5f87932e1de96cb8c26579b5866fa94bf1164f4"
+    },
+    {
+      "source_relative_repo": "net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER.json",
+      "backup_relative": "source/net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER.json",
+      "bytes": 2406,
+      "inherited_original_binding_sha256": "48afe7c0325b9489a618c97a0b3068f6d4ff79d16e5f8731baceda5ba773d2d9"
+    },
+    {
+      "source_relative_repo": "net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER_SIMHEALTH.json",
+      "backup_relative": "source/net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE10_RASTER_SIMHEALTH.json",
+      "bytes": 3717,
+      "inherited_original_binding_sha256": "fb8a990539ac1645a713b18999383aee04d90ccfde01004d9965d943d920ab32"
+    },
+    {
+      "source_relative_repo": "net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE20_RASTER_SIMHEALTH.json",
+      "backup_relative": "source/net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE20_RASTER_SIMHEALTH.json",
+      "bytes": 4096,
+      "inherited_original_binding_sha256": "61f8863dabd6830e60b543d2f46a8b3cdbab6569afe00e34e1e8f55d42eab261"
+    },
+    {
+      "source_relative_repo": "net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE40_RASTER_SIMHEALTH_BUSINESS_V1.json",
+      "backup_relative": "source/net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE40_RASTER_SIMHEALTH_BUSINESS_V1.json",
+      "bytes": 1785,
+      "inherited_original_binding_sha256": "e2175cfe4a5dcf7959f859376ec0d0d915c242931705811d83f79f1f602d5415"
+    },
+    {
+      "source_relative_repo": "net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE40_RASTER_SIMHEALTH_BUSINESS_V1_60SIM.json",
+      "backup_relative": "source/net01/config/EXECUTION_PROFILE_CONTROLLED1000_CLOCK100_Q10MS_PACE40_RASTER_SIMHEALTH_BUSINESS_V1_60SIM.json",
+      "bytes": 1931,
+      "inherited_original_binding_sha256": "88a502419e6790d3e4b10006350008b9fe3150af2873924dd3db5d9829076e80"
+    },
+    {
+      "source_relative_repo": "net01/config/EXECUTION_PROFILE_EXPLORATION_REPAIR_V1_120SIM.json",
+      "backup_relative": "source/net01/config/EXECUTION_PROFILE_EXPLORATION_REPAIR_V1_120SIM.json",
+      "bytes": 3420,
+      "inherited_original_binding_sha256": "40c99b76f5d1280583d7b88e2a19ba6868c8fc2a67df69871929d63c100ff3b0"
+    },
+    {
+      "source_relative_repo": "net01/config/EXECUTION_PROFILE_FIXEDSTART_CONSUMERTRACE_V1_60SIM.json",
+      "backup_relative": "source/net01/config/EXECUTION_PROFILE_FIXEDSTART_CONSUMERTRACE_V1_60SIM.json",
+      "bytes": 3297,
+      "inherited_original_binding_sha256": "6cda2436599c360da12178e059c3de054282c23e5d3590f366c4609cc834b53a"
+    },
+    {
+      "source_relative_repo": "net01/config/EXECUTION_PROFILE_PACE500_CLOCK100_Q10MS.json",
+      "backup_relative": "source/net01/config/EXECUTION_PROFILE_PACE500_CLOCK100_Q10MS.json",
+      "bytes": 630,
+      "inherited_original_binding_sha256": "6b6d99d938fd1eb4e51feef5e0afe835887e989c632b5e527e8bf97ea6d78eb3"
+    },
+    {
+      "source_relative_repo": "net01/config/NATIVE_IDENTITY.json",
+      "backup_relative": "source/net01/config/NATIVE_IDENTITY.json",
+      "bytes": 2078,
+      "inherited_original_binding_sha256": "ebcd428cd3e057c1defbdbe82dc1b03ed5dd4dc3eb4199d164c29dabf5e327f0"
+    },
+    {
+      "source_relative_repo": "net01/config/NETWORK_LOCK_V3.json",
+      "backup_relative": "source/net01/config/NETWORK_LOCK_V3.json",
+      "bytes": 4363,
+      "inherited_original_binding_sha256": "a04fbd942781a81fdfa12320e6a542b20f984f727b182903f1cd05b07cb647b8"
+    },
+    {
+      "source_relative_repo": "net01/config/RF_SINGLE_FACTOR_V1.json",
+      "backup_relative": "source/net01/config/RF_SINGLE_FACTOR_V1.json",
+      "bytes": 888,
+      "inherited_original_binding_sha256": "3f3e2e4abc892c1471d56cb6776b0f7fe9df65af88bda3a413ea53ca271fefbc"
+    },
+    {
+      "source_relative_repo": "net01/config/recorder-qos.yaml",
+      "backup_relative": "source/net01/config/recorder-qos.yaml",
+      "bytes": 698,
+      "inherited_original_binding_sha256": "c044780c4ea0cf82bdf85717142acd7ce64d1d123c142816a1caf45b2d4d39a8"
+    },
+    {
+      "source_relative_repo": "net01/consumer_controller_bootstrap.py",
+      "backup_relative": "source/net01/consumer_controller_bootstrap.py",
+      "bytes": 1917,
+      "inherited_original_binding_sha256": "5a3b6cc68eea9da6a9c94b7849d841b4b6d67003b0e9c5b8eaacc58860c4cb88"
+    },
+    {
+      "source_relative_repo": "net01/consumer_topic_wire.py",
+      "backup_relative": "source/net01/consumer_topic_wire.py",
+      "bytes": 1977,
+      "inherited_original_binding_sha256": "bac318cd84b1986d6ca7ad7a19698f41262898e6e1b4a4b523bee85440ac1359"
+    },
+    {
+      "source_relative_repo": "net01/consumer_trace.py",
+      "backup_relative": "source/net01/consumer_trace.py",
+      "bytes": 18698,
+      "inherited_original_binding_sha256": "06d30ff3f447106a8d3d45a07c36d71e8bb94f1ecfbd2bdafa2a439f00b15851"
+    },
+    {
+      "source_relative_repo": "net01/controller_bootstrap.py",
+      "backup_relative": "source/net01/controller_bootstrap.py",
+      "bytes": 5043,
+      "inherited_original_binding_sha256": "8632fd644ff1f89ae1a141e1c42cd1de2e56f2903788858bbf2902c732e46af8"
+    },
+    {
+      "source_relative_repo": "net01/delivery_guard.py",
+      "backup_relative": "source/net01/delivery_guard.py",
+      "bytes": 13668,
+      "inherited_original_binding_sha256": "92693e2d09a7fc753c915d02338be6a528ab6e51725bf64a5a0ed827c0ebac8a"
+    },
+    {
+      "source_relative_repo": "net01/execution_profile.py",
+      "backup_relative": "source/net01/execution_profile.py",
+      "bytes": 5119,
+      "inherited_original_binding_sha256": "03566380cce4dc7a7f7f4a3d98180e64c846a3948731be5c178db99da4b4b6e9"
+    },
+    {
+      "source_relative_repo": "net01/exploration_controller_bootstrap.py",
+      "backup_relative": "source/net01/exploration_controller_bootstrap.py",
+      "bytes": 1665,
+      "inherited_original_binding_sha256": "66ea477f7614ad4ec2ffde762c6433b0ea1c0a15680baf79e33c0700b350985c"
+    },
+    {
+      "source_relative_repo": "net01/fixed_startup.py",
+      "backup_relative": "source/net01/fixed_startup.py",
+      "bytes": 5493,
+      "inherited_original_binding_sha256": "48e96e00f4eafe6055fdb4052ea508fe5862c713a3b43425d930a496473d925c"
+    },
+    {
+      "source_relative_repo": "net01/gateway.py",
+      "backup_relative": "source/net01/gateway.py",
+      "bytes": 56217,
+      "inherited_original_binding_sha256": "c9b9ee0d82ceba0e1a51e52fe4c82a91731b969754d5735d206be15413b94fd0"
+    },
+    {
+      "source_relative_repo": "net01/host_run.py",
+      "backup_relative": "source/net01/host_run.py",
+      "bytes": 16755,
+      "inherited_original_binding_sha256": "62a521d3e979f7f09964b62d7a1d4a982f08b04b1ed0432272a8638982bb1823"
+    },
+    {
+      "source_relative_repo": "net01/hub_client.py",
+      "backup_relative": "source/net01/hub_client.py",
+      "bytes": 7856,
+      "inherited_original_binding_sha256": "906b9b888ffc4df62a01bdd75b573593b762cbb8a8cfae58d87fd9685aa2977f"
+    },
+    {
+      "source_relative_repo": "net01/link_session.py",
+      "backup_relative": "source/net01/link_session.py",
+      "bytes": 1747,
+      "inherited_original_binding_sha256": "c91e043cc86539f7cff746d4ef0abed6ef9429ffe7f0739d6a334909f4ec5de9"
+    },
+    {
+      "source_relative_repo": "net01/native/CMakeLists.txt",
+      "backup_relative": "source/net01/native/CMakeLists.txt",
+      "bytes": 1258,
+      "inherited_original_binding_sha256": "7c8dbe443c226e28270d34f62ac1425882c0f81f578dca8a9afdae41b3545a3b"
+    },
+    {
+      "source_relative_repo": "net01/native/event_ledger.h",
+      "backup_relative": "source/net01/native/event_ledger.h",
+      "bytes": 8525,
+      "inherited_original_binding_sha256": "b7e4a4702f34aef2aebb95c2eabe520af1b8059181373910af03c1d6064f7b1e"
+    },
+    {
+      "source_relative_repo": "net01/native/payload_transport.cc",
+      "backup_relative": "source/net01/native/payload_transport.cc",
+      "bytes": 28672,
+      "inherited_original_binding_sha256": "a421b3ac22fdc6f930ab7a3b2f06c586f420b114d6dd3a0802899d352eaaabd7"
+    },
+    {
+      "source_relative_repo": "net01/nav2_goal_guard.py",
+      "backup_relative": "source/net01/nav2_goal_guard.py",
+      "bytes": 4443,
+      "inherited_original_binding_sha256": "dcf7184d1fb36476567f1d29841ca9c81f162ba501e1ea3e2f90aa79005fd90e"
+    },
+    {
+      "source_relative_repo": "net01/nav2_simclock_launch.py",
+      "backup_relative": "source/net01/nav2_simclock_launch.py",
+      "bytes": 2747,
+      "inherited_original_binding_sha256": "039d56862e7dd0c7bfec086dac073405d5970349f055170c49800d03368e9397"
+    },
+    {
+      "source_relative_repo": "net01/net_scene_launch.py",
+      "backup_relative": "source/net01/net_scene_launch.py",
+      "bytes": 10945,
+      "inherited_original_binding_sha256": "feba1c0c88964d72462e453d7578cdb7bf85b843c0f75fe4de26c48d819664ac"
+    },
+    {
+      "source_relative_repo": "net01/peer_mask_raster.py",
+      "backup_relative": "source/net01/peer_mask_raster.py",
+      "bytes": 630,
+      "inherited_original_binding_sha256": "a8a3a1376eaed08c6a5fbc9130643b37f7900c8361d026ac886286b6a98ec462"
+    },
+    {
+      "source_relative_repo": "net01/ros-python.sh",
+      "backup_relative": "source/net01/ros-python.sh",
+      "bytes": 1240,
+      "inherited_original_binding_sha256": "402578957bdb9e7aa294adac2d035dbfeb39a0d36207da79c311b8637cc931eb"
+    },
+    {
+      "source_relative_repo": "net01/run_network_case.py",
+      "backup_relative": "source/net01/run_network_case.py",
+      "bytes": 38800,
+      "inherited_original_binding_sha256": "e4f9e84e1812ce271437892785b3cfd9470d3c0d8fa23391789e537d4a8c8533"
+    },
+    {
+      "source_relative_repo": "net01/time_control_plugin/CMakeLists.txt",
+      "backup_relative": "source/net01/time_control_plugin/CMakeLists.txt",
+      "bytes": 656,
+      "inherited_original_binding_sha256": "427703ad3d38ce5c254680f083f927ae9bd3608ec61c0492110d0898c28c4b32"
+    },
+    {
+      "source_relative_repo": "net01/time_control_plugin/time_control_plugin.cc",
+      "backup_relative": "source/net01/time_control_plugin/time_control_plugin.cc",
+      "bytes": 2434,
+      "inherited_original_binding_sha256": "716d8f2b4d4208efbc8a4d475c5e1873d6b95df4f22d0f99efd6c4101fab132b"
+    },
+    {
+      "source_relative_repo": "net01/time_control_runtime.py",
+      "backup_relative": "source/net01/time_control_runtime.py",
+      "bytes": 14132,
+      "inherited_original_binding_sha256": "6d8c4136bf0108fb9fb32f300b5e87c7cdef0da46daa2a72702e88a86087fc64"
+    },
+    {
+      "source_relative_repo": "net01/time_control_state.py",
+      "backup_relative": "source/net01/time_control_state.py",
+      "bytes": 11865,
+      "inherited_original_binding_sha256": "1fdf942a3383cab88969a5405cc4989d309d9cfc855464435d05bbe7b2d4e0bf"
+    },
+    {
+      "source_relative_repo": "net01/time_controller.py",
+      "backup_relative": "source/net01/time_controller.py",
+      "bytes": 18026,
+      "inherited_original_binding_sha256": "c0f6f8f230f9c69a7d12c30d26a4a9eae0e5d87b35a2a239f4caa437c917e237"
+    },
+    {
+      "source_relative_repo": "net01/tools/packet_hub.py",
+      "backup_relative": "source/net01/tools/packet_hub.py",
+      "bytes": 35654,
+      "inherited_original_binding_sha256": "e6777e295622f83bd5f1f65671d29c3141c1655d3c848c40e19ead95c28f46d5"
+    },
+    {
+      "source_relative_repo": "net01/topic_wire.py",
+      "backup_relative": "source/net01/topic_wire.py",
+      "bytes": 7049,
+      "inherited_original_binding_sha256": "f90ccfe6226ee4e15f25b0fcd52805f45376ddf0ce491ad3506cc3066ff0d42e"
+    },
+    {
+      "source_relative_repo": "net01/ros_delay_runtime.py",
+      "backup_relative": "source/net01/ros_delay_runtime.py",
+      "bytes": 4738,
+      "inherited_original_binding_sha256": "b83b43024f971ef0962308ffe7a64eefef9d25dd4d46b85a78913ed2b0a70bb7"
+    },
+    {
+      "source_relative_repo": "net01/ros_delay_gateway.py",
+      "backup_relative": "source/net01/ros_delay_gateway.py",
+      "bytes": 7934,
+      "inherited_original_binding_sha256": "b5e6463e7e7bf6567a1b0580dd3903159ba8d40520af43433111481ce551b1c2"
+    },
+    {
+      "source_relative_repo": "net01/config/EXECUTION_PROFILE_ROS_DELAY_WALL_V3_120SIM.json",
+      "backup_relative": "source/net01/config/EXECUTION_PROFILE_ROS_DELAY_WALL_V3_120SIM.json",
+      "bytes": 8688,
+      "inherited_original_binding_sha256": "4103ab8e789091d080990745a657eb4696f7f24ecb3455d7d1fe3c56c73c5447"
+    },
+    {
+      "source_relative_repo": "net01/clearance_tuning.py",
+      "backup_relative": "source/net01/clearance_tuning.py",
+      "bytes": 2513,
+      "inherited_original_binding_sha256": "890e4947f90a65e4d1a8f8db14078bb723cdf9e623c71544e9e21684a5efa044"
+    },
+    {
+      "source_relative_repo": "net01/clearance_tuning_launch.py",
+      "backup_relative": "source/net01/clearance_tuning_launch.py",
+      "bytes": 2272,
+      "inherited_original_binding_sha256": "3b23d4dbf2a885dc286f89dc102b756316f842e384b8f2717b12b03b4e62b050"
+    }
+  ],
+  "method_count": 9,
+  "methods": [
+    {
+      "source_relative_repo": "tools/analyze_t95_views.py",
+      "backup_relative": "methods/tools/analyze_t95_views.py",
+      "bytes": 11894,
+      "inherited_original_binding_sha256": "9a521ab224d4d7f4fd5206735c58101379153729bbad3db25b0696035f27bca9"
+    },
+    {
+      "source_relative_repo": "tools/analyze_consumer_trace.py",
+      "backup_relative": "methods/tools/analyze_consumer_trace.py",
+      "bytes": 6115,
+      "inherited_original_binding_sha256": "37cb21d162ef7d27facb4a614fc42ce4ccf7a1753db2d88eec490bc16f543304"
+    },
+    {
+      "source_relative_repo": "local-runs/causal-fix-20261113/integration/analyze_pacing_feedback.py",
+      "backup_relative": "methods/local-runs/causal-fix-20261113/integration/analyze_pacing_feedback.py",
+      "bytes": 11104,
+      "inherited_original_binding_sha256": "fc23662abc8066719c9e39dfbe159ff2df4690c04ad564ce3cf248197d96324c"
+    },
+    {
+      "source_relative_repo": "workspace/gz01/metrics.py",
+      "backup_relative": "methods/workspace/gz01/metrics.py",
+      "bytes": 4836,
+      "inherited_original_binding_sha256": "d097b1786450a7ba700abaefd3fe49c321d40599c8b419b8f5e178d6401c631b"
+    },
+    {
+      "source_relative_repo": "workspace/src/multi_robot_exploration/multi_robot_exploration/rl_world.py",
+      "backup_relative": "methods/workspace/src/multi_robot_exploration/multi_robot_exploration/rl_world.py",
+      "bytes": 6846,
+      "inherited_original_binding_sha256": "0ae43902af3e0ac0ca2fbc3ee4031ce787e6f94da58e049cfb5eb5b569025a0c"
+    },
+    {
+      "source_relative_repo": "local-runs/ros-delay-v3-20261114/analyze_delay_delivery.py",
+      "backup_relative": "methods/local-runs/ros-delay-v3-20261114/analyze_delay_delivery.py",
+      "bytes": 28994,
+      "inherited_original_binding_sha256": "49b011ea72bafc1e09bdc3561220a10a351b87da95981bcddf0d5012006293d0"
+    },
+    {
+      "source_relative_repo": "local-runs/ros-delay-v3-20261114/analyze_delay_hold.py",
+      "backup_relative": "methods/local-runs/ros-delay-v3-20261114/analyze_delay_hold.py",
+      "bytes": 7868,
+      "inherited_original_binding_sha256": "29b270d1e8a6133b38cf8420b860970313fb3b94b5170bd0e29f37b0af146059"
+    },
+    {
+      "source_relative_repo": "local-runs/clearance-tuning-20261115/run_batch.py",
+      "backup_relative": "methods/local-runs/clearance-tuning-20261115/run_batch.py",
+      "bytes": 13468,
+      "inherited_original_binding_sha256": "8d517f8c37f5df3dd3a583d6db26ed0a4e727c6ece209dded539ad19718409ca"
+    },
+    {
+      "source_relative_repo": "local-runs/clearance-tuning-20261115/post_case.py",
+      "backup_relative": "methods/local-runs/clearance-tuning-20261115/post_case.py",
+      "bytes": 59897,
+      "inherited_original_binding_sha256": "856244c6921c24ac976028d3c77145442052a177ebe970fa03c3ac904fec3afa"
+    }
+  ],
+  "metadata": [
+    "COMMON_BINDING.json",
+    "PREIMAGE.json",
+    "RUNTIME_PATCH.diff",
+    "RUNTIME_RESULT.json",
+    "PLAN.draft.json",
+    "FINAL_EXECUTION_CHECK.json",
+    "STARTUP_FAILURE_REGISTER.json",
+    "STARTUP_SUCCESSOR_AMENDMENT01.json",
+    "STARTUP_SUCCESSOR_AMENDMENT01.diff",
+    "HISTORICAL_A0_REFERENCES.json",
+    "NAVIGATION_OUTCOMES.csv",
+    "NAVIGATION_OUTCOMES.json",
+    "REPORT.md",
+    "SUMMARY.json",
+    "execution.jsonl",
+    "RESOURCE_PLAN_CHECK.json",
+    "READY_CHECK.json",
+    "READY_CHECK_STARTUP_AMENDMENT01.json"
+  ],
+  "ready_count": 7,
+  "raw_copied": false,
+  "raw_original_roots": [
+    "local-runs/ct15",
+    "local-runs/clearance-tuning-20261115/post-exit"
+  ],
+  "hashes_scope": "Original bound SHA strings inherited as identity metadata; files copied directly from the exact listed current small-text paths, no repeated full-source/native/DSO hashing.",
+  "execution_scope": "Archived source/config identity only. Original READYs contain old absolute paths, consumed sessions and authorization; this backup is not an automatically runnable or authorized case. New run would need fresh ownership/paths/identity and explicit authorization."
+}

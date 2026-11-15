@@ -29,6 +29,7 @@ static std::string tcpDirection(const TcpEndpoint& endpoint) {
 }
 static void tcpTrace(uint8_t local,uint8_t remote,std::string kind,
     Ptr<const Packet> packet,const TcpHeader& header,Ptr<const TcpSocketBase>) {
+  CpuScope measure(TraceCpu);  // Includes diagnostic TCP field formatting, not TCP processing.
   std::string values;values.reserve(192);
   values+=",\"local\":";LedgerText::integer(values,local);
   values+=",\"remote\":";LedgerText::integer(values,remote);

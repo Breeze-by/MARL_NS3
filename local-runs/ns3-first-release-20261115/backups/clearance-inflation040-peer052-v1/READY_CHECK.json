@@ -1,0 +1,56 @@
+{
+  "created_utc": "2026-11-15T09:52:20.450482+00:00",
+  "status": "READY_PREPARED_NO_EXPERIMENT_STARTED",
+  "source_paths": 81,
+  "methods": 9,
+  "runtime_new_or_refreshed_keys": [
+    "boot_network.py",
+    "run_network_case.py",
+    "ros_delay_runtime.py",
+    "../net01e/followup01/production_host.py",
+    "clearance_tuning.py",
+    "clearance_tuning_launch.py"
+  ],
+  "unchanged_identity_inherited": true,
+  "native_ELF_and_13DSO_not_rehashed": true,
+  "sessions_declared_unused": [
+    2026112101,
+    2026112102,
+    2026112103,
+    2026112104,
+    2026112105,
+    2026112106
+  ],
+  "slot_count": 6,
+  "counts_by_map": {
+    "Corr6201": 3,
+    "Rooms6101": 3
+  },
+  "max_native_socket_bytes": 73,
+  "max_ack_socket_bytes": 88,
+  "all_output_RAM_leaves_unused": true,
+  "socket_parent_exists_writable": true,
+  "tmpfs_free_bytes": 16423964672,
+  "MemAvailable_bytes": 63566073856,
+  "required_tmpfs_bytes": 10737418240,
+  "required_MemAvailable_bytes": 25769803776,
+  "canonical_journal_unused": true,
+  "driver_not_started": true,
+  "source_components": {
+    "result": "local-runs/clearance-tuning-20261115/RUNTIME_RESULT.json",
+    "component": "local-runs/clearance-tuning-20261115/runtime-component-02/result.json",
+    "checks": 26,
+    "scope": "Pure peer functions and intercepted actual Launch entity production entry; not actual four Node processes nor Gazebo qualification"
+  },
+  "first_READY": "local-runs/clearance-tuning-20261115/ready/a01.ready.json",
+  "checkpoint": "a01 unconditional, remaining5 only after root engineering review, no T95 score selection",
+  "actual_preflight_pending": false,
+  "a01_original_preflight": {
+    "unused": true,
+    "exclusive": true,
+    "tmpfs_free_bytes": 16423964672,
+    "MemAvailable_bytes": 63549358080,
+    "executed_utc": "2026-11-15T09:52:43.371381+00:00"
+  },
+  "actual_host_source_native_gates": "Still performed by unchanged production START entry; no simulated PASS"
+}

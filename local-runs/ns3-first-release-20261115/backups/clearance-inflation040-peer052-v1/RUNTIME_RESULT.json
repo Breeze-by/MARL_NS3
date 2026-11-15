@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "component": "runtime-component-02/result.json",
+  "checks_passed": 26,
+  "checks_total": 26,
+  "first_component_failure_preserved": "runtime-component-01/result.json: fixture path conflict FileExistsError; no runtime change to repair fixture",
+  "syntax_passed": [
+    "net01/boot_network.py",
+    "net01/run_network_case.py",
+    "net01/ros_delay_runtime.py",
+    "net01e/followup01/production_host.py",
+    "net01/clearance_tuning.py",
+    "net01/clearance_tuning_launch.py"
+  ],
+  "changed_runtime_paths": [
+    "net01/boot_network.py",
+    "net01/run_network_case.py",
+    "net01/ros_delay_runtime.py",
+    "net01e/followup01/production_host.py"
+  ],
+  "new_runtime_paths": [
+    "net01/clearance_tuning.py",
+    "net01/clearance_tuning_launch.py"
+  ],
+  "component_pids": [
+    2627941,
+    2627942
+  ],
+  "component_pids_gone": true,
+  "scope": "Pure actual peer/raster/predicate functions and real ROS Launch entities; predecessor action creation/Popen intercepted. No Node, robot, Gazebo, native, publisher or safety-service fixture; not a physical collision certification.",
+  "freshness_pacing_stop_copy_native_policy_unchanged": true,
+  "no_robot_started": true,
+  "source_stable": true
+}

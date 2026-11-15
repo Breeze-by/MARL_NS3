@@ -1,0 +1,29 @@
+{
+  "id": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-60sim",
+  "world_real_time_update_rate": 1000,
+  "physics_max_step_size_unchanged": 0.001,
+  "clock_publish_rate_sim_hz": 100.0,
+  "native_step_quantum_ns": 10000000,
+  "scope": "Explicit 60sim common engineering window over pace40 sim-business-v1. Action/Peer/journal, fixed policy, Nav2, physical10sim-ms tokens,20sim-ms native credit, absolute40wall-ms grid and independent wall safeguards are unchanged. Both Wi-Fi arms require the same serial native ledger and all native evidence on owned tmpfs: 6GiB evidence budget plus2GiB free reserve (8GiB admission), MemAvailable24GiB; copy after child exits and preserve failures. The prior180sim profile and16GiB default remain unchanged. This storage condition is motivated by identical-model fixed-input RAM evidence (lower tail, not integrated qualification); it neither guarantees pacing nor identifies a unique cause. Coverage completion uses observed quality-valid T95 only, unreached at60sim remains unreached. No automatic run, re-anchor, Nav2 change, higher coverage target or causal pass is authorized by selecting this profile.",
+  "controlled_physics": true,
+  "physical_token_steps": 10,
+  "physical_lookahead_quanta": 2,
+  "token_wall_period_ns": 40000000,
+  "peer_mask_raster": "broadcast-v1",
+  "health_mask_receipt_clock": "R-ros-sim-v1",
+  "progress_wall_timeout_s": 2.0,
+  "gateway_poststop_evidence_total_wall_s": 60,
+  "business_clock": "ros-sim-v1",
+  "peer_odom_receipt_clock": "ros-sim-v1",
+  "predecessor": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1",
+  "run_bounds": {
+    "sim_budget": 60,
+    "startup_wall": 180,
+    "autonomous_wall": 480,
+    "outer_wall": 720,
+    "cleanup_wall": 90
+  },
+  "native_evidence_budget_bytes": 6442450944,
+  "native_evidence_reserve_bytes": 2147483648,
+  "native_evidence_scope": "physical60sim-ram6GiB-reserve2GiB-v1"
+}

@@ -1,0 +1,51 @@
+{"slot": "a01", "state": "CLAIMED", "utc": "2026-11-15T09:52:57.342300+00:00", "ready": "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a01.ready.json"}
+{"slot": "a01", "state": "HOST_DISPATCH", "utc": "2026-11-15T09:52:57.455914+00:00", "argv": ["python3", "-B", "net01e/followup01/production_host.py", "--ready", "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a01.ready.json"]}
+{"slot": "a01", "state": "HOST_STARTED", "utc": "2026-11-15T09:52:57.663422+00:00", "pid": 2639233}
+{"slot": "a01", "state": "HOST_EXITED", "utc": "2026-11-15T10:03:14.406626+00:00", "returncode": 0}
+{"slot": "a01", "state": "POST_EXIT_COPY_PROVEN", "utc": "2026-11-15T10:03:19.161839+00:00", "proof": "local-runs/clearance-tuning-20261115/post-exit/a01/proof.json"}
+{"slot": "a01", "state": "ANALYSIS_CLAIMED", "utc": "2026-11-15T10:03:19.247740+00:00", "index": 0, "argv": ["python3", "-B", "local-runs/clearance-tuning-20261115/post_case.py", "analyze", "--plan", "local-runs/clearance-tuning-20261115/PLAN.draft.json", "--slot", "a01"]}
+{"slot": "a01", "state": "QUALIFIED_REACHED_CONTINUE", "utc": "2026-11-15T10:04:02.468098+00:00", "result": "local-runs/clearance-tuning-20261115/post-exit/a01/result.json"}
+{"slot": "CONTROL", "state": "ROOT_REVIEW_CHECKPOINT", "utc": "2026-11-15T10:04:02.544292+00:00", "after_slot": "a01", "scope": "Unconditional formal baseline review; no score/coverage/motion selection. No nextslot or finalSUMMARY dispatched."}
+{"slot": "a02", "state": "CLAIMED", "utc": "2026-11-15T10:05:14.948232+00:00", "ready": "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a02.ready.json"}
+{"slot": "a02", "state": "HOST_DISPATCH", "utc": "2026-11-15T10:05:15.063864+00:00", "argv": ["python3", "-B", "net01e/followup01/production_host.py", "--ready", "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a02.ready.json"]}
+{"slot": "a02", "state": "HOST_STARTED", "utc": "2026-11-15T10:05:15.170094+00:00", "pid": 2665903}
+{"slot": "a02", "state": "HOST_EXITED", "utc": "2026-11-15T10:15:35.353955+00:00", "returncode": 0}
+{"slot": "a02", "state": "POST_EXIT_COPY_PROVEN", "utc": "2026-11-15T10:15:39.820102+00:00", "proof": "local-runs/clearance-tuning-20261115/post-exit/a02/proof.json"}
+{"slot": "a02", "state": "ANALYSIS_CLAIMED", "utc": "2026-11-15T10:15:40.098116+00:00", "index": 0, "argv": ["python3", "-B", "local-runs/clearance-tuning-20261115/post_case.py", "analyze", "--plan", "local-runs/clearance-tuning-20261115/PLAN.draft.json", "--slot", "a02"]}
+{"slot": "a02", "state": "QUALIFIED_UNREACHED_CONTINUE", "utc": "2026-11-15T10:16:20.506221+00:00", "result": "local-runs/clearance-tuning-20261115/post-exit/a02/result.json"}
+{"slot": "a03", "state": "CLAIMED", "utc": "2026-11-15T10:16:20.813095+00:00", "ready": "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a03.ready.json"}
+{"slot": "a03", "state": "HOST_DISPATCH", "utc": "2026-11-15T10:16:20.896375+00:00", "argv": ["python3", "-B", "net01e/followup01/production_host.py", "--ready", "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a03.ready.json"]}
+{"slot": "a03", "state": "HOST_STARTED", "utc": "2026-11-15T10:16:20.986425+00:00", "pid": 2690191}
+{"slot": "a03", "state": "HOST_EXITED", "utc": "2026-11-15T10:19:51.581976+00:00", "returncode": 1}
+{"slot": "a03", "state": "ENGINEERING_BLOCK_STOP_ROOT_REVIEW", "utc": "2026-11-15T10:19:51.981995+00:00", "error": "RuntimeError('Post-exit owner/stop/copy verification blocked')", "dry_run": false}
+{"slot": "CONTROL", "state": "ROOT_NAMED_SUCCESSOR_A03S_AUTHORIZED", "utc": "2026-11-15T10:23:06.998507+00:00", "logical_slot": "a03", "physical_slot": "a03s", "session_id": 2026112107, "scope": "One named zero-autonomy startup successor; original a03 FAIL/RAM retained, remaining a04-a06 unchanged, max7actualstarts; no automatic retry"}
+{"slot": "a03s", "state": "CLAIMED", "utc": "2026-11-15T10:23:07.983576+00:00", "ready": "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a03s.ready.json"}
+{"slot": "a03s", "state": "HOST_DISPATCH", "utc": "2026-11-15T10:23:08.088697+00:00", "argv": ["python3", "-B", "net01e/followup01/production_host.py", "--ready", "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a03s.ready.json"]}
+{"slot": "a03s", "state": "HOST_STARTED", "utc": "2026-11-15T10:23:08.178673+00:00", "pid": 2705748}
+{"slot": "a03s", "state": "HOST_EXITED", "utc": "2026-11-15T10:33:25.388457+00:00", "returncode": 0}
+{"slot": "a03s", "state": "POST_EXIT_COPY_PROVEN", "utc": "2026-11-15T10:33:29.655184+00:00", "proof": "local-runs/clearance-tuning-20261115/post-exit/a03s/proof.json"}
+{"slot": "a03s", "state": "ANALYSIS_CLAIMED", "utc": "2026-11-15T10:33:30.355797+00:00", "index": 0, "argv": ["python3", "-B", "local-runs/clearance-tuning-20261115/post_case.py", "analyze", "--plan", "local-runs/clearance-tuning-20261115/PLAN.draft.json", "--slot", "a03s"]}
+{"slot": "a03s", "state": "QUALIFIED_REACHED_CONTINUE", "utc": "2026-11-15T10:34:11.421560+00:00", "result": "local-runs/clearance-tuning-20261115/post-exit/a03s/result.json"}
+{"slot": "a04", "state": "CLAIMED", "utc": "2026-11-15T10:34:12.037830+00:00", "ready": "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a04.ready.json"}
+{"slot": "a04", "state": "HOST_DISPATCH", "utc": "2026-11-15T10:34:12.121203+00:00", "argv": ["python3", "-B", "net01e/followup01/production_host.py", "--ready", "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a04.ready.json"]}
+{"slot": "a04", "state": "HOST_STARTED", "utc": "2026-11-15T10:34:12.200371+00:00", "pid": 2730363}
+{"slot": "a04", "state": "HOST_EXITED", "utc": "2026-11-15T10:44:31.916248+00:00", "returncode": 0}
+{"slot": "a04", "state": "POST_EXIT_COPY_PROVEN", "utc": "2026-11-15T10:44:36.339539+00:00", "proof": "local-runs/clearance-tuning-20261115/post-exit/a04/proof.json"}
+{"slot": "a04", "state": "ANALYSIS_CLAIMED", "utc": "2026-11-15T10:44:37.468056+00:00", "index": 0, "argv": ["python3", "-B", "local-runs/clearance-tuning-20261115/post_case.py", "analyze", "--plan", "local-runs/clearance-tuning-20261115/PLAN.draft.json", "--slot", "a04"]}
+{"slot": "a04", "state": "QUALIFIED_REACHED_CONTINUE", "utc": "2026-11-15T10:45:18.464883+00:00", "result": "local-runs/clearance-tuning-20261115/post-exit/a04/result.json"}
+{"slot": "a05", "state": "CLAIMED", "utc": "2026-11-15T10:45:18.947823+00:00", "ready": "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a05.ready.json"}
+{"slot": "a05", "state": "HOST_DISPATCH", "utc": "2026-11-15T10:45:19.020233+00:00", "argv": ["python3", "-B", "net01e/followup01/production_host.py", "--ready", "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a05.ready.json"]}
+{"slot": "a05", "state": "HOST_STARTED", "utc": "2026-11-15T10:45:19.099278+00:00", "pid": 2754864}
+{"slot": "a05", "state": "HOST_EXITED", "utc": "2026-11-15T10:55:35.159818+00:00", "returncode": 0}
+{"slot": "a05", "state": "POST_EXIT_COPY_PROVEN", "utc": "2026-11-15T10:55:39.723191+00:00", "proof": "local-runs/clearance-tuning-20261115/post-exit/a05/proof.json"}
+{"slot": "a05", "state": "ANALYSIS_CLAIMED", "utc": "2026-11-15T10:55:39.801640+00:00", "index": 0, "argv": ["python3", "-B", "local-runs/clearance-tuning-20261115/post_case.py", "analyze", "--plan", "local-runs/clearance-tuning-20261115/PLAN.draft.json", "--slot", "a05"]}
+{"slot": "a05", "state": "QUALIFIED_REACHED_CONTINUE", "utc": "2026-11-15T10:56:20.233184+00:00", "result": "local-runs/clearance-tuning-20261115/post-exit/a05/result.json"}
+{"slot": "a06", "state": "CLAIMED", "utc": "2026-11-15T10:56:20.525990+00:00", "ready": "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a06.ready.json"}
+{"slot": "a06", "state": "HOST_DISPATCH", "utc": "2026-11-15T10:56:20.598441+00:00", "argv": ["python3", "-B", "net01e/followup01/production_host.py", "--ready", "/home/zhuyulab/ns3-workspace/net-01d/workspace/local-runs/clearance-tuning-20261115/ready/a06.ready.json"]}
+{"slot": "a06", "state": "HOST_STARTED", "utc": "2026-11-15T10:56:20.699788+00:00", "pid": 2759800}
+{"slot": "a06", "state": "HOST_EXITED", "utc": "2026-11-15T11:06:38.597374+00:00", "returncode": 0}
+{"slot": "a06", "state": "POST_EXIT_COPY_PROVEN", "utc": "2026-11-15T11:06:42.605959+00:00", "proof": "local-runs/clearance-tuning-20261115/post-exit/a06/proof.json"}
+{"slot": "a06", "state": "ANALYSIS_CLAIMED", "utc": "2026-11-15T11:06:42.698509+00:00", "index": 0, "argv": ["python3", "-B", "local-runs/clearance-tuning-20261115/post_case.py", "analyze", "--plan", "local-runs/clearance-tuning-20261115/PLAN.draft.json", "--slot", "a06"]}
+{"slot": "a06", "state": "QUALIFIED_UNREACHED_CONTINUE", "utc": "2026-11-15T11:07:15.118304+00:00", "result": "local-runs/clearance-tuning-20261115/post-exit/a06/result.json"}
+{"slot": "BATCH", "state": "SUMMARY_CLAIMED", "utc": "2026-11-15T11:07:15.205515+00:00"}
+{"slot": "BATCH", "state": "SUMMARY_COMPLETE", "utc": "2026-11-15T11:07:15.498249+00:00"}

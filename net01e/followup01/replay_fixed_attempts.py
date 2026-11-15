@@ -35,10 +35,18 @@ def percentile95(values):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--arm', choices=('A1','B','C'), required=True)
+    parser.add_argument('--arm', choices=('A1','B','C','B-loss3'), required=True)
     parser.add_argument('--corpus', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
-    parser.add_argument('--ram', type=Path, required=True)
+    parser.add_argument('--ram', type=Path, help='Optional exclusive tmpfs evidence; otherwise write directly to task output')
+    parser.add_argument('--network-config', type=Path,
+        help='Explicit native identity/runtime JSON, independent of historical READY files')
+    parser.add_argument('--socket', type=Path, help='Explicit short Unix IPC path for long task directories')
+    parser.add_argument('--native-async-ledger',action='store_true')
+    parser.add_argument('--native-cpu-profile',action='store_true')
+    parser.add_argument('--fixed15-ram-budget',action='store_true')
+    parser.add_argument('--radio-blackout', action='store_true',
+        help='No-motion negative fixture: block channel at 3.0..3.2 native seconds')
     args = parser.parse_args(); args.output = args.output.resolve()
     manifest = json.loads((args.corpus/'manifest.json').read_text())
     rows = [json.loads(line) for line in (args.corpus/'attempts.jsonl').open()]
@@ -48,6 +56,8 @@ def main():
             or manifest['main_native_duration_ns']!=10_000_000_000
             or manifest['proposed_drain_native_ns']!=2_000_000_000):
         raise ValueError('Corpus does not match the fixed admitted schedule')
+    if args.fixed15_ram_budget and (args.ram is None or len(rows)!=9605):
+        raise ValueError('Explicit fixed15 RAM budget requires the validated 9605-attempt/15sim corpus and RAM destination')
     previous = -1
     for index,row in enumerate(rows):
         due = row['native_admission_ns']
@@ -57,13 +67,18 @@ def main():
         row.update(state='PLANNED', clock_return_confirmed=False, received=None)
     args.output.mkdir(parents=True, exist_ok=False)
     atomic_json(args.output/'input-manifest.json',manifest)
-    config = json.loads((REPO/'net01d/followup04/requests/gz-simhealth-b1-02.ready.json').read_text())['network']
+    if args.radio_blackout and args.arm=='A1':raise ValueError('Radio negative requires actual native transport')
+    config = (json.loads(args.network_config.read_text()) if args.network_config else
+        json.loads((REPO/'net01d/followup04/requests/gz-simhealth-b1-02.ready.json').read_text())['network'])
     native = Path(config['native_identity']['binary']['relative_phase'])
     libraries = Path(config['native_runtime']['library_directory'])
     env = dict(os.environ,LD_LIBRARY_PATH=str(libraries))
     for name in ('LD_PRELOAD','LD_AUDIT'):env.pop(name,None)
     began = time.monotonic_ns(); active_deadline = began+55_000_000_000; whole_deadline = began+60_000_000_000
     result = dict(arm=args.arm,status='FAIL',corpus=str(args.corpus),planned=len(rows),
+        network_config=str(args.network_config),radio_blackout=args.radio_blackout,
+        native_async_ledger=args.native_async_ledger,
+        native_cpu_profile=args.native_cpu_profile,
         logical_quantum_ns=QUANTUM,planned_wall_period_ns=WALL_PERIOD,
         prewarm_native_ns=3_000_000_000,main_end_native_ns=13_000_000_000,cutoff_native_ns=END,
         active_deadline_monotonic_ns=active_deadline,whole_deadline_monotonic_ns=whole_deadline,
@@ -92,6 +107,8 @@ def main():
             raise ValueError('Actual native receive changed route/RPC/source/body or duplicated message_id')
         delay=meta['ns3_rx_ns']-row['native_admission_ns']
         if delay<0:raise ValueError('Actual native receive precedes scheduled admission')
+        if args.radio_blackout and 3_000_000_000<=meta['ns3_rx_ns']<3_200_000_000:
+            raise ValueError('Actual destination delivery occurred during channel blackout')
         validation_return=time.monotonic_ns()
         row['received']=dict(meta,backend='actual-native-RX',rpc_id=rpc,
             replay_ordinal=row['replay_ordinal'],source_ordinal=row['source_ordinal'],
@@ -111,11 +128,16 @@ def main():
             matches=actual_native_sha==expected_native_sha,hashed_files=1)
         del native_bytes
         if actual_native_sha!=expected_native_sha:raise ValueError('Reviewed native executable SHA changed')
-        address=args.output/'wire.sock'
+        address=args.socket.resolve() if args.socket is not None else args.output/'wire.sock'
         command=[sys.executable,'-B',str(REPO/'net01/tools/packet_hub.py'),'--socket',str(address),
-            '--native',str(native),'--output',str(args.output/'hub'),'--profile','C' if args.arm=='C' else 'B',
+            '--native',str(native),'--output',str(args.output/'hub'),'--profile','B' if args.arm=='A1' else args.arm,
             '--native-transport','tcp-mtu-v2','--wall','60','--clock-source','gazebo',
-            '--control-trace','--native-evidence-ram',str(args.ram)]
+            '--control-trace']
+        if args.ram is not None:command+=['--native-evidence-ram',str(args.ram)]
+        if args.fixed15_ram_budget:command.append('--fixed15-ram-budget')
+        if args.native_async_ledger:command.append('--native-async-ledger')
+        if args.native_cpu_profile:command.append('--native-cpu-profile')
+        if args.radio_blackout:command.append('--allow-radio-fault')
         result['hub_argv']=command
         hub=subprocess.Popen(command,stdout=out,stderr=err,start_new_session=True,env=env)
         result['hub_pid']=hub.pid
@@ -158,6 +180,8 @@ def main():
             until=min(active_deadline,issue+2_000_000_000)
             while client.horizon_ns<horizon:pump(until)
             if client.horizon_ns!=horizon:raise ValueError('Unexpected native clock return')
+            if args.radio_blackout and horizon in (3_000_000_000,3_200_000_000):
+                client.radio_fault(horizon==3_200_000_000)
             for row in rows[begin:next_row]:row.update(state='ADMITTED',clock_return_confirmed=True)
             clock_returns.append(dict(horizon_ns=horizon,planned_monotonic_ns=planned,
                 issue_monotonic_ns=issue,return_monotonic_ns=time.monotonic_ns(),lateness_ns=max(0,issue-planned)))
@@ -194,6 +218,8 @@ def main():
     result['known_native_PID_gone']=(load is not None and not (Path('/proc')/str(load['pid'])).exists())
     result['known_Hub_PID_gone']=(hub is not None and hub.poll() is not None)
     valid_hub=result['actual_Hub_result']
+    effective_path=args.output/'hub/native/effective-network.json'
+    if effective_path.exists():result['effective_network']=json.loads(effective_path.read_text())
     ingress_path=args.output/'hub/hub-ingress.json'; ingress_mapping=[]
     result['ingress_identity_scope']='Hub ingress has metadata only: no body hash or RPC. Full CDR/RPC equality is independently checked only for actually received attempts, not missing packets.'
     try:
@@ -236,6 +262,15 @@ def main():
         row['cutoff_outcome']=('NOT_ADMITTED' if not row['clock_return_confirmed'] else
             'DELIVERED_BY_CUTOFF' if row['received'] and row['received']['within_cutoff'] else 'NOT_DELIVERED_AT_CUTOFF')
     result['outcomes']=dict(Counter(row['cutoff_outcome'] for row in rows))
+    if args.radio_blackout:
+        during=[row for row in rows if 3_000_000_000<=row['native_admission_ns']<3_200_000_000]
+        result['blackout_negative']=dict(begin_ns=3_000_000_000,end_ns=3_200_000_000,
+            admitted_during=sum(row['clock_return_confirmed'] for row in during),
+            destination_deliveries_during=sum(row['received'] is not None and
+                3_000_000_000<=row['received']['ns3_rx_ns']<3_200_000_000 for row in rows),
+            scope='Actual native channel only; no ROS consumers, Action readiness or robot-stop qualification')
+        if not result['blackout_negative']['admitted_during']:
+            result['error']=result['error'] or 'No admitted business during the blackout negative'
     result['per_flow_direction']={key:{kind:counts[(key,kind)] for kind in ('planned','admitted','delivered_by_cutoff')}
         for key in sorted({key for key,kind in counts})}
     result['native_transport_delay_p95_ns']=percentile95(latency)

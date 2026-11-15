@@ -14,7 +14,7 @@ import resource
 import signal
 import time
 import os
-from execution_profile import load_profile
+from execution_profile import load_profile,FIXED_START_PROFILE_IDS
 
 import rclpy
 from rclpy.clock import Clock, ClockType
@@ -109,6 +109,9 @@ class Gateway:
             node_type=AdapterNode
         elif adapter_qos_events!='sdk-default':raise ValueError('Unknown adapter QoS event version')
         self.execution_profile=load_profile(execution_profile)
+        self.comparison_measurement=(self.execution_profile or {}).get('comparison_measurement')=='source-take-v1'
+        self.central_capture_side='C';self.central_capture_domain=91
+        self.sim_business=(self.execution_profile or {}).get('business_clock')=='ros-sim-v1'
         self.control_clock_lane=(self.execution_profile is not None and
             self.execution_profile.get('gateway_control_clock_lane')=='separate-executor-v1')
         self.step_quantum_ns=100_000_000 if self.execution_profile is None else self.execution_profile['native_step_quantum_ns']
@@ -191,7 +194,7 @@ class Gateway:
         self.journal_position=0
         self.journal_pub=self.c.create_publisher(String,"/net01/controller_records",100)
         self.journal_timer=self.c.create_timer(.02,self.export_controller_records,
-            clock=Clock(clock_type=ClockType.STEADY_TIME))
+            **({} if self.sim_business else {'clock':Clock(clock_type=ClockType.STEADY_TIME)}))
         if dispatch_profile:
             self.gc_callback=self.observe_gc
             gc.callbacks.append(self.gc_callback)
@@ -313,11 +316,14 @@ class Gateway:
         self.bound_r=BoundMaskWire(self.r,"R",self.send,self.session_id,
             lambda robot,binding,meta:self.guards[robot].guard.receive_bound(binding,meta))
         self.action_c=ActionWire(self.c,lambda peer,flow,body,rpc:self.send(0,peer,flow,body,rpc),
-            session_id=self.session_id,reliable=True,transport_error=self.fail)
+            session_id=self.session_id,reliable=True,transport_error=self.fail,
+            business_now_ns=(lambda:self.c.get_clock().now().nanoseconds) if self.sim_business else None)
         self.action_r={r:ActionWire(self.r,
             lambda peer,flow,body,rpc,r=r:self.send(r,peer,flow,body,rpc),
             robot=r,session_id=self.session_id,guardian=self.guards[r],
-            reliable=True,transport_error=self.fail) for r in (1,2,3)}
+            reliable=True,transport_error=self.fail,
+            business_now_ns=(lambda:self.r.get_clock().now().nanoseconds) if self.sim_business else None)
+            for r in (1,2,3)}
         if self.cpu_profile is not None:
             for side,wire in self.wires.items():
                 outgoing=[flow for flow,spec in wire.specs.items()
@@ -336,6 +342,9 @@ class Gateway:
 
     def retain_central_map(self,body,row):
         # Passive references to the exact already serialized/hashed wire sample.
+        if self.comparison_measurement:
+            row.update(capture_side=self.central_capture_side,central_application_domain=self.central_capture_domain,
+                capture_boundary='central_application_Gateway_callback')
         self.central_map_captures.append((body,row,self.gz))
 
     def persist_central_maps(self):
@@ -346,12 +355,14 @@ class Gateway:
             filename=f'{index:06d}.cdr'
             with (directory/filename).open('xb') as stream:stream.write(body)
             samples.append(dict(row,cdr_file=filename,last_observed_R_clock_ns=gz))
-        index=dict(scope='C_Gateway_capture',flow=89,topic='/merge_map',samples=samples,
-            semantics='Original CDR at the C Gateway callback, not merge producer or HQ decision time. '
+        index=dict(scope=('A0_R92_direct_central_application_capture' if self.central_capture_side=='R' else 'C_Gateway_capture'),
+            capture_side=self.central_capture_side,central_application_domain=self.central_capture_domain,
+            flow=89,topic='/merge_map',samples=samples,
+            semantics='Original CDR at the recorded central application domain callback, not merge producer or HQ decision time. '
                 'source_stamp_ns is the oldest contributing local-map header stamp, not generation time. '
-                'capture_node_sim_ns is the C node ROS clock; last_observed_R_clock_ns is only the '
+                'capture_node_sim_ns is the recorded capture-side node ROS clock; last_observed_R_clock_ns is only the '
                 'latest R /clock callback already processed by this Gateway. '
-                'endpoint_capture_monotonic_ns is callback entry. SHA and length reuse the wire row. '
+                'endpoint_capture_monotonic_ns is callback entry. C captures reuse the wire row; A0 retains the original raw DDS body. '
                 'No sample is published from this capture; R receipt coverage remains a separate metric.')
         with (directory/'index.json').open('x') as stream:json.dump(index,stream)
 
@@ -461,9 +472,12 @@ class Gateway:
             self.profile_longspans,'C:journal_call_inclusive')
 
     def _export_controller_records(self):
-        # This is a C-side source. Only actual delivered flow95 reaches R runtime.
+        return self._export_controller_records_to(self.journal_pub,require_business_wires=True)
+
+    def _export_controller_records_to(self,publisher,*,require_business_wires):
+        # A0 comparison may publish locally in R; other modes require real wires.
         path=self.directory/"controller/allocation-events.jsonl"
-        if not path.exists() or self.wires is None:return
+        if not path.exists() or (require_business_wires and self.wires is None):return
         with open(path, opener=lambda filename, flags: os.open(filename, flags | os.O_NOATIME)) as stream:
             stream.seek(self.journal_position)
             while True:
@@ -471,8 +485,10 @@ class Gateway:
                 if not line or not line.endswith("\n"):
                     self.journal_position=position;return
                 row=json.loads(line)
-                if row.get("kind") in ("rl_actual_nav2_goal_request","rl_actual_nav2_goal_response","rl_actual_nav2_goal_result","rl_halt_requested"):
-                    self.journal_pub.publish(String(data=line.rstrip("\n")))
+                if (row.get("kind") in ("rl_actual_nav2_goal_request","rl_actual_nav2_goal_response","rl_actual_nav2_goal_result","rl_halt_requested")
+                    or (self.execution_profile is not None and self.execution_profile['id'] in FIXED_START_PROFILE_IDS
+                        and row.get("kind")=="fixed_startup_initialized")):
+                    publisher.publish(String(data=line.rstrip("\n")))
 
     def fail(self,reason):
         if self.failure is not None:return
@@ -722,6 +738,9 @@ class Gateway:
             temporary.replace(self.directory/'network-gateway-resources-closed.json')
 
     def persist(self):
+        if self.comparison_measurement:
+            from comparison_measurement import persist_gateway_measurement
+            persist_gateway_measurement(self)
         persist_begin=time.monotonic()
         if 'hub_shutdown' in self.cleanup:
             with (self.directory/'hub-poststop-opaque.bin').open('xb') as stream:
