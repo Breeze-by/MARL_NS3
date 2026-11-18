@@ -1,0 +1,25 @@
+{
+  "revision": "gazebo-spawn-reply-maxblocking1s-v1",
+  "XML_relative": "config/SPAWN_REPLY_MAXBLOCK_1S_V1.xml",
+  "DDS_writer_profile": "rr/spawn_entityReply",
+  "reliability_kind": "RELIABLE",
+  "max_blocking_time_ns": 1000000000,
+  "is_default_profile": false,
+  "environment_variable": "FASTRTPS_DEFAULT_PROFILES_FILE",
+  "no_overwrite_environment": [
+    "FASTRTPS_DEFAULT_PROFILES_FILE",
+    "FASTDDS_DEFAULT_PROFILES_FILE",
+    "RMW_FASTRTPS_USE_QOS_FROM_XML",
+    "RMW_FASTRTPS_PUBLICATION_MODE",
+    "SKIP_DEFAULT_XML",
+    "FASTDDS_ENVIRONMENT_FILE"
+  ],
+  "default_XML_names": [
+    "DEFAULT_FASTRTPS_PROFILES.xml",
+    "DEFAULT_FASTDDS_PROFILES.xml"
+  ],
+  "process_scope": "Only owned Gazebo server process environment; all plugin Nodes inside share it. QoS target isolation is exact DDS reply-profile name. External spawn clients/Nav2/SLAM/HQ processes do not receive this environment.",
+  "gate": "Original three actual spawn child exit0 and original same-world factory-cycle fence retained; no wrapper, synthesized response, postcondition substitution or budget extension.",
+  "native_probe": "local-runs/direct-nav-repair-20261116/startup-reliability/rmw-probe/RESULT.json",
+  "scope_limit": "Actual middleware component proves exact QoS effect, not past failure root cause or future reliability. Runtime process metadata proves applied environment, not an in-Gazebo get_qos observation."
+}

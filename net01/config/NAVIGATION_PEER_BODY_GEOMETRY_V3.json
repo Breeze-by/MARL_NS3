@@ -1,0 +1,16 @@
+{
+  "revision": "peer-body-postfilter-inflation-v3",
+  "center_clearance_radius_m": 0.55,
+  "peer_body_envelope_radius_m": 0.237,
+  "nominal_margin_m": 0.063,
+  "nav2_lethal_radius_m": 0.3,
+  "raster_rule": "cell_center_distance_le_0.30m",
+  "resolution_m": 0.05,
+  "minimum_continuous_covered_radius_m": 0.2646446609406726,
+  "minimum_continuous_margin_m": 0.02764466094067264,
+  "postfilter_inflation_radius_m": 0.55,
+  "cost_scaling_factor": 3.0,
+  "own_robot_radius_m": 0.25,
+  "scope": "Only actual Nav2 producer masks become raw body-plus-margin obstacles, followed by native footprint-aware inflation. HQ endpoint/route exclusion remains original center radius .55; source, freshness, collision and physical footprint unchanged.",
+  "limitations": "Nominal 63mm margin is not a complete continuous-disk guarantee; minimum guaranteed margin is 27.645mm. Isolated peer component does not prove escape from static walls."
+}

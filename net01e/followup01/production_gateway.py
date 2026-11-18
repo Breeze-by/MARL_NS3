@@ -59,7 +59,7 @@ def main():
     parser.add_argument('--execution-profile', required=True)
     selected, _ = parser.parse_known_args()
     sys.path.insert(0,str(REPO/'net01'))
-    from execution_profile import SIM_BUSINESS_PROFILE_FILES,FIXED_START_PROFILE_IDS,COMPARISON_PROFILE_IDS,COMPARISON40_V3_PROFILE_ID,ROS_DELAY_PROFILE_ID,load_profile
+    from execution_profile import SIM_BUSINESS_PROFILE_FILES,FIXED_START_PROFILE_IDS,COMPARISON_PROFILE_IDS,COMPARISON40_V3_PROFILE_ID,ROS_DELAY_PROFILE_ID,PHYSICS_DELAY_PROFILE_ID,DELAY_FRESHNESS_PROFILE_IDS,load_profile
     if selected.execution_profile in SIM_BUSINESS_PROFILE_FILES:
         expected_profile=selected.execution_profile
         expected_controller='net01e-graceful-v1'
@@ -79,8 +79,8 @@ def main():
     from raw_destination_wire import RawDestinationTopicWire
     direct = os.environ.get('NET01_DIRECT_REFERENCE') == '1'
     comparison = selected.execution_profile in COMPARISON_PROFILE_IDS
-    delay_profile = selected.execution_profile == ROS_DELAY_PROFILE_ID
-    explicit_poststop_exit = selected.execution_profile in (COMPARISON40_V3_PROFILE_ID, ROS_DELAY_PROFILE_ID)
+    delay_profile = selected.execution_profile in DELAY_FRESHNESS_PROFILE_IDS
+    explicit_poststop_exit = selected.execution_profile in (COMPARISON40_V3_PROFILE_ID,*DELAY_FRESHNESS_PROFILE_IDS)
     retained = []
     if direct:
         from a0_gateway import DirectReferenceGateway
@@ -90,7 +90,10 @@ def main():
         else:
             original_factory = DirectReferenceGateway
     else:
-        if delay_profile:
+        if selected.execution_profile == PHYSICS_DELAY_PROFILE_ID:
+            from physical_delay_gateway import PhysicalDelayGateway
+            original_factory = PhysicalDelayGateway
+        elif delay_profile:
             from ros_delay_gateway import ROSDelayGateway
             original_factory = ROSDelayGateway
         else:

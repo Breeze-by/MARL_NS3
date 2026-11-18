@@ -1,12 +1,36 @@
 # 三机器人探索与无线通信项目现状及部署差距
 
-本版完成ns-3业务接入；目前结果尚未建立通信导致任务完成度下降的可靠因果证据，这也不证明通信没有影响。默认导航半径已恢复为 inflation/peer/robot = **0.55/0.55/0.25 m**；试验源码另行备份。见[本版发布与备份记录](releases/ns3-integration-v1.0.0.md)。
+## 第二次工程定版
+
+固定的 ROS 直连 A0 第四版已在三图两新种子下完成六个 120 仿真秒合格窗口。Rooms 和 Corr 各 2/2 达中央 T95，OpenRing 1/2。未达窗口为 OpenRing t2，末覆盖 80.5856%。另有一次 native IPC 启动超时，保留原 t1 并用同条件新工单 t1s 完成逻辑窗口。下文第三、第四版定点试验作为独立开发证据。[配置与逐轮证据](releases/ns3-integration-v2.0.0.md)
+
+## 2026-11-18 ROS 直连导航修复验证
+
+A0 试验中，各机先用本机 SLAM 图完成至少一个真实导航目标，三机各自成功后启用融合导航地图。调度器在分配新目标时，将候选路线的起始 0.442 m 与邻机当前持有目标对应的有效 Nav2 路线比较，沿用 0.55 m 净空门。第三版在 Open1704、Open1703、Corr1703 分别以 111.53、109.45、52.90 仿真秒达到中央 T95，末覆盖 98.3246%、98.8651%、99.8457%。Rooms1701 末覆盖 91.0096%，未达标。四轮均通过工程验收。[Open1704 结果](../local-runs/direct-nav-shared-map-route-20261118/post-exit/p1/row.json) · [Rooms1701](../local-runs/direct-nav-shared-map-v3-confirmation-20261118/post-exit/r1/row.json) · [Open1703](../local-runs/direct-nav-shared-map-v3-confirmation-20261118/post-exit/r2/row.json) · [Corr1703](../local-runs/direct-nav-shared-map-v3-confirmation-20261118/post-exit/r3/row.json)
+
+第四版修复了起点连接检查遗漏已验证的自体栅格排除的问题。Rooms1701 原记录的 17 个决策槽经回放均从 0 个合法候选恢复为 5 个。第四版实跑 u2 中央 T95 为 93.48 仿真秒，末覆盖 98.7174%，工程验收通过。u2 的 63 次起点检查均未触发修复分支，回放证实的是分支修复，实跑测量的是整套配置。首次 u1 在物理仿真启动前被 READY 配置检查拦截，作为工程失败保留。第三版与第四版按各自的运行配置记录，证据限于已验证场景和运行次数。[原始槽位回放](../local-runs/direct-nav-shared-seed-route-corrected-20261118/ROOMS_SEED_REPLAY.json) · [u2 结果](../local-runs/direct-nav-shared-seed-route-corrected-20261118/post-exit/u2/row.json) · [u2 分支记录](../local-runs/direct-nav-shared-seed-route-corrected-20261118/post-exit/u2/shared-navigation-application.json) · [u1 启动日志](../local-runs/direct-nav-shared-seed-route-20261118/driver-logs/u1.host.log)
+
+上述功能仅供 ROS 直连 A0 显式启用。READY 的 `network.navigation_shared_map.revision` 设为 `a0-shared-navigation-active-route-v3` 启用第三版。第四版在此基础上设置 `network.navigation_seed_route.revision` 为 `a0-approved-shared-seed-route-v1`。PPO 权重、701 维观测结构和既有碰撞保护都沿用原配置。[第四版实跑 READY](../local-runs/direct-nav-shared-seed-route-corrected-20261118/ready/u2.json)
+
+## 2026-11-17批次已闭合
+
+2026-11-17 的 ROS 直连修复批次结束时，原三失败场景仍未全部在 120 仿真秒内达到 95%。最后代表点A版三目标末覆盖为Open1704 86.2112%、Rooms1701 83.7833%、Open1703 78.3133%，均未达；仅走廊回归T95 40.30仿真秒，A不推荐。共27真实HOST分列为24个合格完整自主窗（6行为版本各4）、1零自主启动FAIL、2独立非性能诊断，不混作同一T95或工程成功率分母，原q15另列。已修padded-footprint检查盲点与stationary host模式谓词；Position是影响yaw输入/转移分布的任务语义试验，其他启发式未证稳定收益。所有失败/raw保留、队列关闭；该批次尚未实现或验证共享导航地图，试验范围为 ROS 直连 A0，详见[中文最终报告与原曲线路径](../local-runs/direct-nav-followup-repair-20261117/REPORT.md)。
+
+以下保留此前已封存结果。
+
+此前固定版本ROS直连三地图重复验证已闭合：原出生不变，Rooms/Corr/OpenRing各5轮、共15个完整120仿真秒工程合格窗口；中央95%覆盖分别4/5、5/5、3/5，合计12达标、3明确未达、0缺测/启动失败。Rooms首轮存在局部导航受阻，Open两次未达均无整体Goal中止，不能把未达统称同一故障，也不保证所有轮次达95%。版本固定沿用下述最终q导航与初始化配置，仅A0 opt-in，不池化旧RF/延时/修复组；完整逐轮结果、三图覆盖曲线与路径见[本批中文报告](../local-runs/direct-nav-validation-20261117/REPORT.md)。末离线汇总接线纠错单列AM，原窗口/T95不重算；当前派发全部关闭。
+
+此前ROS直连导航修复与初始化回复范围修正已完成本轮验证：当前选用保守geometryv3/Smac4及精确spawn回复writer的1s等待上限，Rooms1302/Rooms1301/Corr1301三窗中央T95分别102.91/87.89/91.69sim，均达标且原工程完整。全迭代15次启动含11完整合格窗、4次原初始化FAIL；旧未达、V5有效75.8309%及失败RAM/raw全部保留。仅A0 opt-in，固定PPO/701、Gazebo模型、Nav2名义robot_radius/足迹半径0.25m，原padding未变，peer包络0.237m及格网最小连续余量27.645mm见[本次完整结果](../local-runs/direct-nav-repair-20261116/REPORT.md)。三例不证明普遍加速或间歇初始化故障根治，不池化旧RF/延时组；所有实验已停。
+
+此前独立物理延时测试已执行闭合：48轮逻辑实验、52次启动，45合格/3UNKNOWN；房间D0达9/12，P500的11个可测任务全部未达、另1未知，local union也未达。走廊D0为8达4未达，P500为6达4未达2未知。三个UNKNOWN令正式主p不计算；大延时下房间观察到明显退化，有力支持通信延时会影响闭环探索，但不作Wi-Fi RF唯一归因或跨地图普遍结论。见[中文报告与完整分母](../local-runs/communication-causal-test-20261116/REPORT.md)。本批单向500sim-ms约2wall-s，旧70/40结果不池化；全部仿真已停。中文主报告10页、24配对图集及MD已通过QA并交付桌面新目录，实际入口见上述报告。
+
+首次ns-3集成定版时，尚未建立Wi-Fi射频条件导致任务损失的可靠因果证据，也未证明其没有影响；本次人工固定延时结果见上，原正式主检验因3个UNKNOWN未完成。当时默认导航半径恢复为 inflation/peer/robot = **0.55/0.55/0.25 m**；试验源码另行备份。见[本版发布与备份记录](releases/ns3-integration-v1.0.0.md)。
 
 新增[导航间距参数六例试验](../local-runs/clearance-tuning-20261115/REPORT.md)已闭合：inflation 0.40m、peer 0.52m、robot仍0.25m；6个完整120sim合格窗口中走廊3/3、房间1/3达T95（合计4达/2明确未达/0未知），全部窗口工程与clean通过。实际7次启动中的原a03零自主spawn响应故障、PAUSE/sealFAIL及RAM保留，named a03s另记，不把启动失败算预算未达。该参数组合未显示普遍加速或稳定改善，保留为试验配置；旧默认不改，历史同seed只作描述参考。
 
-截至2026年11月15日。最新ROS wall延时V3已完成：**78次实际启动、70个完整120sim合格窗口，55次中央质量有效T95达标、15明确未达、0缺测**。8次无自主窗口启动工程FAIL、原stop/PAUSE/sealFAIL与raw/RAM永久保留；全工程/clean为70/78，不冒全PASS。两图七条件各5个任务窗，原前序32attempt不混。见[本批14组结果与均值表](../local-runs/ros-delay-v3-20261114/REPORT.md)、[统计投影](../local-runs/ros-delay-v3-20261114/SUMMARY_STATISTICS.json)。
+此前独立ROS wall延时V3于2026年11月15日完成：**78次实际启动、70个完整120sim合格窗口，55次中央质量有效T95达标、15明确未达、0缺测**。8次无自主窗口启动工程FAIL、原stop/PAUSE/sealFAIL与raw/RAM永久保留；全工程/clean为70/78，不冒全PASS。两图七条件各5个任务窗，原前序32attempt不混。见[本批14组结果与均值表](../local-runs/ros-delay-v3-20261114/REPORT.md)、[统计投影](../local-runs/ros-delay-v3-20261114/SUMMARY_STATISTICS.json)。
 
-## 最新70窗口：实际wall延时消融已闭合
+## 此前70窗口：实际wall延时消融已闭合
 
 A0为fresh literal ROS直连校准；D0/D100/D200/D300/D400/D500共用本地ROS/CDR FIFO代理、新增单向实际wall-ms。全部无ns-3 WiFi业务，不能叫无线丢包实验；纯delay比较只在D组内。按上述七组顺序，Corr达标5/5/5/4/4/4/5次，Rooms为4/5/3/4/2/3/2次（每组分母5）。主publication→HQ take wall延时增加，但任务T95/达标率未逐档单调恶化；只达标者均值不能冒全五次均值。
 

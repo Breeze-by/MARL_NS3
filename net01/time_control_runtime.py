@@ -8,7 +8,7 @@ import signal
 import subprocess
 import time
 
-from execution_profile import load_profile,SIM_BUSINESS_PROFILE_ID,SIM_BUSINESS60_PROFILE_ID,NATIVE_RAM60_SCOPE,BUSINESS60_PROFILE_IDS,FIXED_START60_PROFILE_ID,REPAIR120_PROFILE_ID,NATIVE_RAM120_SCOPE,REPAIR_PROFILE_IDS,COMPARISON40_PROFILE_ID,COMPARISON40_V2_PROFILE_ID,COMPARISON40_V3_PROFILE_ID,ROS_DELAY_PROFILE_ID
+from execution_profile import load_profile,SIM_BUSINESS_PROFILE_ID,SIM_BUSINESS60_PROFILE_ID,NATIVE_RAM60_SCOPE,BUSINESS60_PROFILE_IDS,FIXED_START60_PROFILE_ID,REPAIR120_PROFILE_ID,NATIVE_RAM120_SCOPE,REPAIR_PROFILE_IDS,COMPARISON40_PROFILE_ID,COMPARISON40_V2_PROFILE_ID,COMPARISON40_V3_PROFILE_ID,ROS_DELAY_PROFILE_ID,PHYSICS_DELAY_PROFILE_ID,A0_CADENCE_PROFILE_ID
 
 CONTROLLED_SCOPE='NET01 controlled-time 120sim engineering; not 180sim qualification'
 CONTROLLED180_SCOPE='NET01 controlled-time 180sim common A1/B baseline; original safety gates'
@@ -22,6 +22,8 @@ CONTROLLED_COMPARISON40_V3_SCOPE='NET01 comparison40-v3 repair-v1 all-spawn-exit
 CONTROLLED_ROS_DELAY_V2_SCOPE='NET01 ROS-local wall-delay-v2 original armed-guard authority lifecycle A0 calibration D0-D500 reliable FIFO source-age .70/.85sim v3 startup-fence attempt-barrier fixed-G20 end140 controlled120sim absolute-pace40 RAM8GiB-reserve2GiB; T95 post-exit only'
 CONTROLLED_ROS_DELAY_V3_SCOPE='NET01 ROS-local wall-delay-v3 common receipt .60sim projectedodom .50sim source .70/.85sim A0 calibration D0-D500 reliable FIFO original armed-guard lifecycle v3 startup-fence attempt-barrier fixed-G20 end140 controlled120sim absolute-pace40 RAM8GiB-reserve2GiB; original60wall evidence grace after strict resource closure; T95 post-exit only'
 CONTROLLED_ROS_DELAY_SCOPE=CONTROLLED_ROS_DELAY_V3_SCOPE
+CONTROLLED_A0_CADENCE_SCOPE='NET01 literalA0 cadence2p5 G20 first25 last137.5 end140 46 physical-boundary attempts source.70/.85 receipt.60 producer.50 controlled120sim Q10ms absolutepace40 RAM8GiB-reserve2GiB; original startup health progress RPC STOP copy gates andT95postexit'
+CONTROLLED_PHYSICS_DELAY_SCOPE='NET01 physical-ACK FIFO D0/P500 anchorG20 source1.50/1.65 receipt.75/producer.65 repair-v1 fixed-G20 end140 controlled120sim absolute-pace40 RAM8GiB-reserve2GiB; original stop budgets and T95 post-exit only'
 PLUGIN_CONTAINER='/tmp/net01_time_control.so'
 WITNESS_CONTAINER='/tmp/net01-clock-witness'
 
@@ -37,7 +39,9 @@ def controlled_config(ready):
         scope={COMPARISON40_PROFILE_ID:CONTROLLED_COMPARISON40_SCOPE,
             COMPARISON40_V2_PROFILE_ID:CONTROLLED_COMPARISON40_V2_SCOPE,
             COMPARISON40_V3_PROFILE_ID:CONTROLLED_COMPARISON40_V3_SCOPE,
-            ROS_DELAY_PROFILE_ID:CONTROLLED_ROS_DELAY_SCOPE}.get(net['execution_profile'],CONTROLLED_REPAIR120_SCOPE)
+            ROS_DELAY_PROFILE_ID:CONTROLLED_ROS_DELAY_SCOPE,
+            A0_CADENCE_PROFILE_ID:CONTROLLED_A0_CADENCE_SCOPE,
+            PHYSICS_DELAY_PROFILE_ID:CONTROLLED_PHYSICS_DELAY_SCOPE}.get(net['execution_profile'],CONTROLLED_REPAIR120_SCOPE)
         bounds=tuple(ready[key] for key in ('sim_budget','startup_wall','autonomous_wall','outer_wall','cleanup_wall'))
         if config is None or config['engineering_scope']!=scope or bounds!=(120,180,720,1000,90):
             raise ValueError('Explicit exploration-repair120 scope and fixed bounds required')

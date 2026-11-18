@@ -1,0 +1,25 @@
+{
+  "revision": "peer-body-postfilter-circumscribed-v5",
+  "center_clearance_radius_m": 0.55,
+  "peer_body_envelope_radius_m": 0.237,
+  "nominal_margin_m": 0.063,
+  "nav2_lethal_radius_m": 0.3,
+  "raster_rule": "cell_center_distance_le_0.30m",
+  "resolution_m": 0.05,
+  "minimum_continuous_covered_radius_m": 0.2646446609406726,
+  "minimum_continuous_margin_m": 0.02764466094067264,
+  "postfilter_inflation_radius_m": 0.26414213562373096,
+  "cost_scaling_factor": 3.0,
+  "own_robot_radius_m": 0.25,
+  "scope": "Only peer postfilter soft extent shrinks from .55 to native padded-footprint circumscribed radius. Raw body .30, hard253/254 bands, primary wall .55, scale3, HQ center .55, real footprint, source/freshness/collision and Smac planner stay unchanged.",
+  "limitations": "Nominal 63mm margin is not a complete continuous-disk guarantee; minimum guaranteed margin is 27.645mm. Isolated peer component does not prove escape from static walls.",
+  "postfilter_radius_basis": {
+    "kind": "actual_native_padded_footprint_circumscribed_radius",
+    "circumscribed_radius_m": 0.26414213562373096,
+    "inscribed_radius_m": 0.2549278141963876,
+    "source": "direct-nav-repair-20261116 geometry/library-result actual native makeFootprintFromRadius(.25),padFootprint(.01),16points",
+    "runtime_footprint_change": false
+  },
+  "primary_wall_inflation_radius_m": 0.55,
+  "compatible_planner_revision": "smac2d-floor-planner-v4"
+}

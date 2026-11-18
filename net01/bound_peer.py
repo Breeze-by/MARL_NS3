@@ -8,6 +8,7 @@ from array import array
 import gc
 import hashlib
 import json
+import os
 from pathlib import Path
 import resource
 import struct
@@ -78,6 +79,8 @@ class BatchBinding:
         # Values are copied only from this actual health message, never from
         # an asynchronously received 'latest' state or simulator ground truth.
         source = {name:state[name] for name in ("ready", "generated_sim", "sequence", "odom_stamps", "correction_stamps")}
+        if "nav2_peer_geometry" in state:
+            source["nav2_peer_geometry"] = state["nav2_peer_geometry"]
         health_sha = hashlib.sha256(serialize_message(message)).hexdigest()
         for robot in frozen.ROBOTS:
             body, header = self.pending[robot]
@@ -135,6 +138,9 @@ class BoundPeer(BusinessPeer):
         self.health_trace=health_trace
         self.tf_input_records=[]
         super().__init__(scene,directory,timing=False)
+        if os.environ.get("NET01_NAVIGATION_PEER_GEOMETRY_REVISION"):
+            from peer_geometry import install_producer_geometry
+            install_producer_geometry(self, directory, session_id)
         qos = QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL)
         self.bound_publishers = {r:self.create_publisher(UInt8MultiArray,
             f"/net01/{r}/peer_mask_bound",qos) for r in frozen.ROBOTS}

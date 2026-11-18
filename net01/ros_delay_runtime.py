@@ -3,16 +3,17 @@ from collections import deque
 import os
 import time
 
-from execution_profile import ROS_DELAY_PROFILE_ID
+from execution_profile import ROS_DELAY_PROFILE_ID,PHYSICS_DELAY_PROFILE_ID,DELAY_FRESHNESS_PROFILE_IDS
 
 
 def install_source_freshness(profile, owner):
-    if profile is None or profile['id'] != ROS_DELAY_PROFILE_ID:
+    if profile is None or profile['id'] not in DELAY_FRESHNESS_PROFILE_IDS:
         return None
     import peer_keepout
     import business_peer
     policy = profile['source_freshness']
-    if policy['id'] != 'ros-delay-source-age-v1':
+    expected_policy=('physics-delay-source-age-v1' if profile['id']==PHYSICS_DELAY_PROFILE_ID else 'ros-delay-source-age-v1')
+    if policy['id'] != expected_policy:
         raise ValueError('Unknown source-age contract')
     names = ('ODOM_MAX_AGE', 'CORRECTION_MAX_AGE')
     before = {module.__name__: {name: getattr(module, name) for name in names}

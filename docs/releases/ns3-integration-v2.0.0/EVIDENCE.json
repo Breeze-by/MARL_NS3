@@ -1,0 +1,408 @@
+{
+  "schema": "mr3-ros-direct-v4-release-evidence-v1",
+  "release": "MR3-NS3-INTEGRATION-v2.0.0",
+  "metric": "First quality-valid central application T95, relative to G20 (A0); no score-based stopping.",
+  "cohort": {
+    "completed_utc": "2026-11-18T08:45:41.187305+00:00",
+    "production_sources_fixed": "Exact u2 V4 binding for all: staged shared route v3 and approved seed route v1.",
+    "physical_host_starts": 7,
+    "engineering_qualified_windows": 6,
+    "T95_confirmed": 5,
+    "T95_unreached": 1,
+    "original_startup_failure": {
+      "slot": "t1",
+      "map": "Rooms6101",
+      "physics_seed": 2026111801,
+      "error": "TimeoutError('Owned native IPC startup did not complete in 10wall')",
+      "no_autonomy_actual_window": true,
+      "known_owned_processes_gone": true
+    },
+    "named_successor": "t1s",
+    "full_window_launch_order": [
+      "t2",
+      "t3",
+      "t4",
+      "t5",
+      "t6",
+      "t1s"
+    ],
+    "windows": [
+      {
+        "case": "t2",
+        "map": "OpenRing6301",
+        "physics_seed": 2026111801,
+        "measured_status": "EXPLICITLY_UNREACHED_IN_OBSERVED_WINDOW",
+        "central_T95_sim_s": null,
+        "central_last_coverage": 0.8058564865993564,
+        "actual_window": {
+          "start": 20.0,
+          "end": 140.0,
+          "duration": 120.0
+        },
+        "original_engineering": true,
+        "clean_exit": true,
+        "owned_accepted_goals": 15,
+        "original_goal_outcomes": {
+          "succeeded": 11,
+          "simulation_budget_stop_canceled": 3,
+          "progress_guard_canceled": 1
+        },
+        "recovery_after_progress_cancel_or_abort": {
+          "total": 1,
+          "accepted_another": 1,
+          "succeeded_another_inside_budget": 0
+        },
+        "original_tasks_owned_groups_gone": true,
+        "owner_uuid_closed": true,
+        "copied": true,
+        "physical_stop_pass": true,
+        "native_RAM_released": true,
+        "staged_activation_G": 35.800000000000004,
+        "all_three_native_maps_correlated": true,
+        "route_application_evidence_ok": true,
+        "native_plan_uses_matched": 47,
+        "candidate_prefixes_checked": 48,
+        "candidate_prefixes_excluded": 4,
+        "approved_seed_retry_attempts": 1,
+        "approved_seed_retry_bridges": 0
+      },
+      {
+        "case": "t3",
+        "map": "Corr6201",
+        "physics_seed": 2026111801,
+        "measured_status": "CONFIRMED_REACHED",
+        "central_T95_sim_s": 75.53,
+        "central_last_coverage": 0.998843038951022,
+        "actual_window": {
+          "start": 20.0,
+          "end": 140.0,
+          "duration": 120.0
+        },
+        "original_engineering": true,
+        "clean_exit": true,
+        "owned_accepted_goals": 11,
+        "original_goal_outcomes": {
+          "succeeded": 11
+        },
+        "recovery_after_progress_cancel_or_abort": {
+          "total": 0,
+          "accepted_another": 0,
+          "succeeded_another_inside_budget": 0
+        },
+        "original_tasks_owned_groups_gone": true,
+        "owner_uuid_closed": true,
+        "copied": true,
+        "physical_stop_pass": true,
+        "native_RAM_released": true,
+        "staged_activation_G": 44.39,
+        "all_three_native_maps_correlated": true,
+        "route_application_evidence_ok": true,
+        "native_plan_uses_matched": 29,
+        "candidate_prefixes_checked": 27,
+        "candidate_prefixes_excluded": 10,
+        "approved_seed_retry_attempts": 0,
+        "approved_seed_retry_bridges": 0
+      },
+      {
+        "case": "t4",
+        "map": "OpenRing6301",
+        "physics_seed": 2026111802,
+        "measured_status": "CONFIRMED_REACHED",
+        "central_T95_sim_s": 96.51,
+        "central_last_coverage": 0.9994595524111333,
+        "actual_window": {
+          "start": 20.0,
+          "end": 140.0,
+          "duration": 120.0
+        },
+        "original_engineering": true,
+        "clean_exit": true,
+        "owned_accepted_goals": 13,
+        "original_goal_outcomes": {
+          "succeeded": 11,
+          "simulation_budget_stop_canceled": 2
+        },
+        "recovery_after_progress_cancel_or_abort": {
+          "total": 0,
+          "accepted_another": 0,
+          "succeeded_another_inside_budget": 0
+        },
+        "original_tasks_owned_groups_gone": true,
+        "owner_uuid_closed": true,
+        "copied": true,
+        "physical_stop_pass": true,
+        "native_RAM_released": true,
+        "staged_activation_G": 34.650000000000006,
+        "all_three_native_maps_correlated": true,
+        "route_application_evidence_ok": true,
+        "native_plan_uses_matched": 51,
+        "candidate_prefixes_checked": 31,
+        "candidate_prefixes_excluded": 2,
+        "approved_seed_retry_attempts": 0,
+        "approved_seed_retry_bridges": 0
+      },
+      {
+        "case": "t5",
+        "map": "Corr6201",
+        "physics_seed": 2026111802,
+        "measured_status": "CONFIRMED_REACHED",
+        "central_T95_sim_s": 99.21,
+        "central_last_coverage": 0.9982645584265329,
+        "actual_window": {
+          "start": 20.0,
+          "end": 140.0,
+          "duration": 120.0
+        },
+        "original_engineering": true,
+        "clean_exit": true,
+        "owned_accepted_goals": 13,
+        "original_goal_outcomes": {
+          "succeeded": 10,
+          "progress_guard_canceled": 2,
+          "simulation_budget_stop_canceled": 1
+        },
+        "recovery_after_progress_cancel_or_abort": {
+          "total": 2,
+          "accepted_another": 2,
+          "succeeded_another_inside_budget": 2
+        },
+        "original_tasks_owned_groups_gone": true,
+        "owner_uuid_closed": true,
+        "copied": true,
+        "physical_stop_pass": true,
+        "native_RAM_released": true,
+        "staged_activation_G": 74.26,
+        "all_three_native_maps_correlated": true,
+        "route_application_evidence_ok": true,
+        "native_plan_uses_matched": 18,
+        "candidate_prefixes_checked": 7,
+        "candidate_prefixes_excluded": 0,
+        "approved_seed_retry_attempts": 0,
+        "approved_seed_retry_bridges": 0
+      },
+      {
+        "case": "t6",
+        "map": "Rooms6101",
+        "physics_seed": 2026111802,
+        "measured_status": "CONFIRMED_REACHED",
+        "central_T95_sim_s": 104.05,
+        "central_last_coverage": 0.998328176464717,
+        "actual_window": {
+          "start": 20.0,
+          "end": 140.0,
+          "duration": 120.0
+        },
+        "original_engineering": true,
+        "clean_exit": true,
+        "owned_accepted_goals": 16,
+        "original_goal_outcomes": {
+          "succeeded": 11,
+          "progress_guard_canceled": 2,
+          "simulation_budget_stop_canceled": 2,
+          "nav2_aborted": 1
+        },
+        "recovery_after_progress_cancel_or_abort": {
+          "total": 3,
+          "accepted_another": 3,
+          "succeeded_another_inside_budget": 3
+        },
+        "original_tasks_owned_groups_gone": true,
+        "owner_uuid_closed": true,
+        "copied": true,
+        "physical_stop_pass": true,
+        "native_RAM_released": true,
+        "staged_activation_G": 35.97,
+        "all_three_native_maps_correlated": true,
+        "route_application_evidence_ok": true,
+        "native_plan_uses_matched": 47,
+        "candidate_prefixes_checked": 40,
+        "candidate_prefixes_excluded": 3,
+        "approved_seed_retry_attempts": 0,
+        "approved_seed_retry_bridges": 0
+      },
+      {
+        "case": "t1s",
+        "map": "Rooms6101",
+        "physics_seed": 2026111801,
+        "measured_status": "CONFIRMED_REACHED",
+        "central_T95_sim_s": 109.13,
+        "central_last_coverage": 0.9891456233157002,
+        "actual_window": {
+          "start": 20.0,
+          "end": 140.0,
+          "duration": 120.0
+        },
+        "original_engineering": true,
+        "clean_exit": true,
+        "owned_accepted_goals": 12,
+        "original_goal_outcomes": {
+          "succeeded": 8,
+          "canceled_cause_unconfirmed_or_multiple": 1,
+          "progress_guard_canceled": 1,
+          "simulation_budget_stop_canceled": 2
+        },
+        "recovery_after_progress_cancel_or_abort": {
+          "total": 1,
+          "accepted_another": 1,
+          "succeeded_another_inside_budget": 1
+        },
+        "original_tasks_owned_groups_gone": true,
+        "owner_uuid_closed": true,
+        "copied": true,
+        "physical_stop_pass": true,
+        "native_RAM_released": true,
+        "staged_activation_G": 36.410000000000004,
+        "all_three_native_maps_correlated": true,
+        "route_application_evidence_ok": true,
+        "native_plan_uses_matched": 53,
+        "candidate_prefixes_checked": 35,
+        "candidate_prefixes_excluded": 0,
+        "approved_seed_retry_attempts": 0,
+        "approved_seed_retry_bridges": 0
+      }
+    ],
+    "all_full_windows_stop_owned_copy_RAM_closure": true,
+    "branch_application": {
+      "three_map_applied": 6,
+      "route_witness_pass": 6,
+      "seed_retry_attempts": 1,
+      "seed_retry_bridges": 0
+    },
+    "total_accepted_goals": 80,
+    "bound_navigation_counts": {
+      "succeeded": 62,
+      "simulation_budget_stop_canceled": 10,
+      "progress_guard_canceled": 6,
+      "nav2_aborted": 1,
+      "canceled_cause_unconfirmed_or_multiple": 1
+    },
+    "supplemental_native_observation": {
+      "case": "t1s",
+      "robot": "tb1",
+      "token": 3,
+      "immutable_bound_stall_result": "canceled_cause_unconfirmed_or_multiple",
+      "exact_native_topic": "/tb1/navigate_to_pose/_action/status",
+      "sqlite_message_rows": [
+        {
+          "id": 47854,
+          "sim_ns": 112360000000,
+          "raw": 2
+        },
+        {
+          "id": 119369,
+          "sim_ns": 140000000000,
+          "raw": 3
+        },
+        {
+          "id": 119374,
+          "sim_ns": 140000000000,
+          "raw": 5
+        }
+      ],
+      "note": "The bound observer missed raw3. Native bag has the status transition in one ordered stream at the original stop boundary, and raw5 is observed after the exact stop signal. No named progress, occupancy or timeout cause competes."
+    },
+    "navigation_counts_after_supplemental_observation": {
+      "succeeded": 62,
+      "simulation_budget_stop_canceled": 11,
+      "progress_guard_canceled": 6,
+      "nav2_aborted": 1
+    },
+    "source_record": "direct-nav-v4-new-seeds-20261118 / SUMMARY.json (local archive)"
+  },
+  "earlier_targeted_runs": [
+    {
+      "case": "m1",
+      "revision": "V1 immediate fusion",
+      "original_case": "Open1704",
+      "central_T95_sim_s": null,
+      "central_last_coverage_percent": 63.3601
+    },
+    {
+      "case": "s1",
+      "revision": "V2 staged fusion",
+      "original_case": "Open1704",
+      "central_T95_sim_s": null,
+      "central_last_coverage_percent": 82.4256
+    },
+    {
+      "case": "p1",
+      "revision": "V3",
+      "original_case": "Open1704",
+      "central_T95_sim_s": 111.53,
+      "central_last_coverage_percent": 98.3246
+    },
+    {
+      "case": "r1",
+      "revision": "V3",
+      "original_case": "Rooms1701",
+      "central_T95_sim_s": null,
+      "central_last_coverage_percent": 91.0096
+    },
+    {
+      "case": "r2",
+      "revision": "V3",
+      "original_case": "Open1703",
+      "central_T95_sim_s": 109.45,
+      "central_last_coverage_percent": 98.8651
+    },
+    {
+      "case": "r3",
+      "revision": "V3",
+      "original_case": "Corr1703",
+      "central_T95_sim_s": 52.9,
+      "central_last_coverage_percent": 99.8457
+    },
+    {
+      "case": "u1",
+      "revision": "V4",
+      "original_case": "Rooms1701",
+      "autonomy_window": false,
+      "error": "READY controlled engineering scope mismatch before physics started"
+    },
+    {
+      "case": "u2",
+      "revision": "V4",
+      "original_case": "Rooms1701",
+      "central_T95_sim_s": 93.48,
+      "central_last_coverage_percent": 98.7174,
+      "seed_checks": 63,
+      "approved_seed_retries": 0
+    }
+  ],
+  "r1_seed_replay": {
+    "source_record": "direct-nav-shared-seed-route-corrected-20261118 / ROOMS_SEED_REPLAY.json (local archive)",
+    "sim_s": {
+      "first": 55,
+      "last": 135,
+      "step": 5
+    },
+    "original_legal_candidates_per_decision": 0,
+    "corrected_legal_candidates_per_decision": 5,
+    "corrected_connection_length_m": 0.3,
+    "totals": {
+      "r1_replayed_slots": 17,
+      "v3_no_trusted_connection_slots": 17,
+      "v3_no_candidates_slots": 17,
+      "original_bridge_with_only_own_evidence_also_no_connection_slots": 17,
+      "corrected_bridge_found_slots": 17,
+      "corrected_five_legal_candidates_slots": 17,
+      "actual_local_and_global_cost_0_slots": 17
+    },
+    "scope": "Recorded q/A0 V3 r1 observation snapshots G55–G135. Offline read-only source and native costmap reconstruction. No new policy inference, Nav2 call, physical execution, or T95 calculation.",
+    "method": "Matched actual fused map geometry and known-free count from published source stamps and native OccupancyGrid messages. Projected local Nav2 costmap at original source stamp and TF, matching original exclusion-cell set and cost at the projected seed. Decoded observed active Path messages at their accepted-use source stamps, transformed to merge_map and matched remaining-polyline point counts. Reused original peer raster, visited and assigned goals, idle-body and endpoint guards, and the 0.442 m candidate prefix vs 0.55 m active route threshold.",
+    "limitations": [
+      "Replayed tb1 candidate generation only. Other robots’ observed poses, active goals, and remaining routes were held fixed.",
+      "Previously successful bridges and any original rejection other than no_trusted_connection_to_original_free are preserved by the narrow retry rule.",
+      "The exclusion predicate remains the existing route-only check: near the own pose within 0.25 m, raw shared occupied, already-approved own cell free, and fresh projected local Nav2 cost below inscribed. It does not rewrite published SLAM, fusion or Nav2 maps.",
+      "Native global cost 0 is a floor lookup at the original received continuous pose in the frozen archived global costmap. Legal replayed candidates are separate from an actual successful plan, action completion, or coverage result."
+    ]
+  },
+  "limits": [
+    "Separate original t1 zero-window startup failure from six physically measured windows.",
+    "Observed idle zero eligible spans are not an active physical stall; budget stop cancellation is distinct from confirmed progress cancellation.",
+    "This small prospective seed comparison does not establish universal performance or unique causality.",
+    "Earlier targeted runs and the six-window cohort use separate experimental denominators.",
+    "The seed retry produced no live bridge in the six-window cohort. Its correction was exercised on archived fixed observations.",
+    "The tested data path is literal ROS A0. Cross-condition ns-3 causal comparisons require matched navigation behavior."
+  ]
+}

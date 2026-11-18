@@ -1,0 +1,15 @@
+{
+  "revision": "shared-frontier-cell-reservation-v1",
+  "candidate_mode": "rl04_approach_v2",
+  "metadata_field": "shared_frontier_position",
+  "frame": "merge_map",
+  "cell_resolution_m": 0.05,
+  "equivalence": "Same floor((received endpoint-current sharedmap origin)/0.05) cell; original endpoints are cellcentres. Not groupID, adjacency radius, geometry truth or an entire frontier region.",
+  "within_snapshot": "Union crossrobot sameendpoint pairs into original candidate_conflicts; original conditional masks and maximum-participation rule remain authoritative.",
+  "across_snapshots": "Filter original action_mask for candidates sharing a cell with another robot owned pending/active proposal; update existing valid_counts and wait_mask. Original candidates, generation, order, positions, map and KEEP semantics retained.",
+  "acquisition": "Only after original Allocator.apply returns actual pending proposal, store robot/tasktoken/selectedsharedendpoint before the unchanged sendGoal path.",
+  "release": "Only original Allocator.finish returnsTrue for matching robot/tasktoken; original UUID/realterminal handling unchanged. No release on cancelrequest, stop, mapversion change or elapsedTTL.",
+  "concurrency": "Same existing HQ RLock encloses original method plus adapter state.",
+  "scope": "Explicit literalA0 over q+footprintprevention only. No PPO weights/701codec, candidate generation, controller/geometry/radii/padding, clock, freshness,120sim or original collision/stop/copy changes.",
+  "limitations": "An idle robot may legitimately WAIT if all already-legal candidates are reserved. This does not guarantee coverage or useful alternative candidates; old results are not exact replay. Physical endpoint/route/peer guards remain independently enforced."
+}

@@ -17,6 +17,7 @@ from launch.actions import ExecuteProcess, GroupAction, IncludeLaunchDescription
 from launch.event_handlers import OnProcessExit, OnProcessStart
 from launch.utilities import perform_substitutions
 from execution_profile import load_profile
+from shared_navigation_map import selected as shared_navigation_selected
 
 HERE=Path(__file__).resolve().parent
 FROZEN_PATH=HERE.parent/'workspace/gz01/scene_launch.py'
@@ -25,11 +26,32 @@ _frozen=importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_frozen)
 
 
+def startup_match_configuration(context):
+    path=context.environment.get('NET01_SPAWN_MATCH_WITNESS_CONTRACT')
+    if not path:return None
+    contract=json.loads(Path(path).read_text())
+    if contract['revision']!='spawn-rmw-match-boundary-witness-v1':
+        raise ValueError('Unknown startup match witness revision')
+    if any(context.environment.get(k) for k in contract['no_overwrite']):
+        raise ValueError('Existing preload/audit configuration must not be overwritten')
+    return dict(contract=contract,library=str((HERE/contract['library_relative_net01']).resolve()),
+        directory=Path(context.environment['BASE01_RUN_DIR']))
+
+
 def spawn_gated_setup(context,profile):
     """Observe original spawn actions/exits; never replace their arguments."""
     original_node=_frozen.Node
+    witness=startup_match_configuration(context)
     spawns={}
     def capture(*args,**kwargs):
+        if (witness and kwargs.get('package')=='gazebo_ros' and kwargs.get('executable')=='spawn_entity.py'):
+            arguments=kwargs['arguments'];robot=arguments[arguments.index('-entity')+1]
+            extra=dict(kwargs.get('additional_env') or {})
+            if any(extra.get(k) for k in witness['contract']['no_overwrite']):
+                raise ValueError('Original spawn preload/audit configuration conflicts')
+            extra.update(LD_PRELOAD=witness['library'],
+                NET01_SPAWN_MATCH_WITNESS=str(witness['directory']/f'spawn-match-{robot}.jsonl'))
+            kwargs=dict(kwargs,additional_env=extra)
         action=original_node(*args,**kwargs)
         if kwargs.get('package')=='gazebo_ros' and kwargs.get('executable')=='spawn_entity.py':
             arguments=kwargs['arguments'];robot=arguments[arguments.index('-entity')+1]
@@ -100,6 +122,75 @@ def spawn_gated_setup(context,profile):
     return [*handlers,*actions]
 
 
+def spawn_reply_qos_setup(context, actions):
+    """Exact native Reply writer profile only in the owned Gazebo process."""
+    revision=context.environment.get('NET01_SPAWN_REPLY_QOS_REVISION')
+    if not revision:return actions
+    contract=json.loads((HERE/'config/SPAWN_REPLY_QOS_V1.json').read_text())
+    if revision!=contract['revision']:raise ValueError('Unknown spawn reply QoS revision')
+    directory=Path(context.environment['BASE01_RUN_DIR'])
+    original={key:context.environment.get(key) for key in contract['no_overwrite_environment']}
+    defaults={str(folder/name):(folder/name).exists()
+        for folder in (Path.cwd(),Path(context.environment['HOME']))
+        for name in contract['default_XML_names']}
+    if any(original.values()) or any(defaults.values()):
+        raise ValueError('Existing DDS XML/QoS configuration conflicts; never overwrite')
+    XML=HERE/contract['XML_relative'];session=int(context.environment['NET01_SESSION_ID'])
+    witness=startup_match_configuration(context)
+    selected=[];count=0
+    for action in actions:
+        if isinstance(action,IncludeLaunchDescription) and 'world' in dict(action.launch_arguments):
+            count+=1
+            witness_environment=([SetEnvironmentVariable('LD_PRELOAD',witness['library']),
+                SetEnvironmentVariable('NET01_SPAWN_MATCH_WITNESS',str(witness['directory']/'spawn-match-gazebo.jsonl'))]
+                if witness else [])
+            action=GroupAction(actions=[SetEnvironmentVariable(contract['environment_variable'],str(XML)),
+                *witness_environment,action],scoped=True,forwarding=True)
+        selected.append(action)
+    if count!=1:raise RuntimeError('Expected exactly one owned Gazebo server Include')
+    (directory/'spawn-reply-qos-revision.json').write_text(json.dumps(dict(
+        revision=revision,session_id=session,contract=contract,XML=str(XML),
+        original_environment=original,default_XML_files=defaults,
+        environment_scope='Gazebo Include only; parent and sibling process environment restored',
+        applied_before_actions=True),indent=2)+'\n')
+    def started(event,ctx):
+        if not any(Path(word).name=='gzserver' for word in event.cmd):return
+        env=event.env
+        if (env.get('NET01_SESSION_ID')!=str(session)
+                or env.get('BASE01_RUN_DIR')!=str(directory)
+                or env.get(contract['environment_variable'])!=str(XML)):
+            raise RuntimeError('Owned Gazebo actual spawn-reply QoS environment mismatch')
+        row=dict(revision=revision,PID=event.pid,session_id=session,case=str(directory),
+            actual_command=event.cmd,observed_monotonic_ns=time.monotonic_ns(),
+            actual_environment={key:env.get(key) for key in [*contract['no_overwrite_environment'],
+                'ROS_DOMAIN_ID','RMW_IMPLEMENTATION','GAZEBO_MASTER_URI','GZ01_CASE','BASE01_RUN_DIR','NET01_SESSION_ID']},
+            DDS_writer_profile=contract['DDS_writer_profile'],max_blocking_time_ns=contract['max_blocking_time_ns'],
+            evidence_scope='Actual ProcessStarted environment and bound XML contract; not in-Gazebo writer get_qos')
+        with (directory/'spawn-reply-qos-gazebo-process.json').open('x') as stream:
+            json.dump(row,stream,indent=2);stream.write('\n')
+    def witness_started(event,ctx):
+        if not witness:return
+        command=event.cmd
+        if any(Path(word).name=='gzserver' for word in command):role='gazebo'
+        elif any(Path(word).name=='spawn_entity.py' for word in command):
+            role=command[command.index('-entity')+1]
+            if role not in ('tb1','tb2','tb3'):raise RuntimeError('Unexpected witnessed spawn entity')
+        else:return
+        env=event.env;trace=str(witness['directory']/f'spawn-match-{role}.jsonl')
+        if (env.get('LD_PRELOAD')!=witness['library'] or env.get('NET01_SPAWN_MATCH_WITNESS')!=trace
+                or env.get('LD_AUDIT') or env.get('NET01_SESSION_ID')!=str(session)
+                or env.get('BASE01_RUN_DIR')!=str(directory)):
+            raise RuntimeError('Actual owned witness process environment mismatch')
+        row=dict(role=role,PID=event.pid,session_id=session,case=str(directory),actual_command=command,
+            observed_monotonic_ns=time.monotonic_ns(),library=witness['library'],trace=trace,
+            actual_environment={k:env.get(k) for k in ['LD_PRELOAD','LD_AUDIT','NET01_SPAWN_MATCH_WITNESS',
+                'FASTRTPS_DEFAULT_PROFILES_FILE','RMW_FASTRTPS_USE_QOS_FROM_XML','RMW_IMPLEMENTATION']},
+            scope='ProcessStarted environment witness only; actual writer QoS/GUID observations come from shim rows.')
+        with (directory/'spawn-match-processes.jsonl').open('a') as stream:stream.write(json.dumps(row)+'\n')
+    return [RegisterEventHandler(OnProcessStart(on_start=started)),
+        *([RegisterEventHandler(OnProcessStart(on_start=witness_started))] if witness else []),*selected]
+
+
 def launch_setup(context):
     profile=load_profile(context.environment.get('NET01_EXECUTION_PROFILE') or None)
     original=(spawn_gated_setup(context,profile)
@@ -138,6 +229,7 @@ def launch_setup(context):
     peer_script=str(FROZEN_PATH.with_name('peer_keepout.py'))
     session_id=context.environment['NET01_SESSION_ID']
     direct_reference=context.environment.get('NET01_DIRECT_REFERENCE')=='1'
+    shared_navigation=shared_navigation_selected(context.environment)
     placed=[];counts={'merge':0,'peer':0}
     for action in original:
         if profile is not None and isinstance(action,IncludeLaunchDescription) and 'world' in dict(action.launch_arguments):
@@ -151,6 +243,9 @@ def launch_setup(context):
             if len(command)>2 and command[2] in (merge_script,peer_script):
                 if command[2]==merge_script:
                     counts['merge']+=1
+                    if shared_navigation:
+                        command[2]=str(HERE/'shared_navigation_map.py')
+                        action=ExecuteProcess(cmd=command,output='screen')
                 else:
                     counts['peer']+=1
                     command[2]=str(HERE/'bound_peer.py')
@@ -168,7 +263,7 @@ def launch_setup(context):
         placed.append(action)
     if counts!={'merge':1,'peer':1}:
         raise RuntimeError(f'Expected original merge and peer launch points, got {counts}')
-    return placed
+    return spawn_reply_qos_setup(context,placed)
 
 
 def generate_launch_description():

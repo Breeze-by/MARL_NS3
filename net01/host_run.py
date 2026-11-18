@@ -33,6 +33,17 @@ def host_wall_limits(ready,controlled):
     return bounded,(ready['outer_wall']+ready['cleanup_wall']+10 if bounded else 1000)
 
 
+def controller_exit_qualified(mode,record,present,session_id,container_case):
+    if not present:return False
+    if mode!='stationary_only':
+        return record.get('started') is True and record.get('returncode')==0
+    required={'started','pid','returncode','session_id','case','phase'}
+    return (required.issubset(record) and record['started'] is False
+        and record['pid'] is None and record['returncode'] is None
+        and record['session_id']==session_id and record['case']==container_case
+        and record['phase']=='after_original_stop_and_owned_launch_cleanup_attempts')
+
+
 def capture_native_load(hub,native,libraries,expected_names,case):
     """One post-READY read of the actual Hub child, before ROS/Gazebo starts."""
     children=(Path('/proc')/str(hub.pid)/'task'/str(hub.pid)/'children').read_text().split()
@@ -233,7 +244,8 @@ def main():
         hub_log.close()
         if bounded_case:result['host_force_escalation_wall_s']=runner_wall
         controller_path=case/'network-controller-exit.json'
-        result['controller_exit']=(json.loads(controller_path.read_text()) if controller_path.exists()
+        controller_record_present=controller_path.exists()
+        result['controller_exit']=(json.loads(controller_path.read_text()) if controller_record_present
             else dict(started=False,returncode=None,reason='missing controller exit evidence'))
         # Post-run only: all original owners/sidecars have ended above.
         try:
@@ -257,7 +269,8 @@ def main():
     cleanup=saved["network-gateway-saved.json"].get("cleanup",{})
     integrity=(all(row["saved"] for row in saved.values()) and result["runner_exit"]==0
         and result["hub_exit"]==0 and gateway_exit["native_exit"]==0
-        and result['controller_exit']['started'] is True and result['controller_exit']['returncode']==0
+        and controller_exit_qualified(ready['mode'],result['controller_exit'],controller_record_present,
+            net['session_id'],str(Path('/mnt')/case.relative_to(REPO)))
         and result['cli_daemon_cleanup']['cleanup_pass'] is True
         and cleanup.get("resources_destroyed") is True and cleanup.get("end_frame_flushed") is True)
     if controlled is not None:integrity=integrity and result['controlled_time']['integrity']

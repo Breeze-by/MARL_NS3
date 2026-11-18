@@ -17,7 +17,8 @@ SOURCE_REF_SCOPE = ('Latest successfully applied state/cache provenance; cached 
 def input_topic(topic):
     return (topic in ('/merge_map', '/peer_keepout_state') or
             any(topic == f'/tb{r}/{suffix}' for r in (1, 2, 3)
-                for suffix in ('odom', 'map', 'tf', 'tf_static', 'local_costmap/costmap')))
+                for suffix in ('odom', 'map', 'tf', 'tf_static', 'local_costmap/costmap',
+                               'shared_navigation/map')))
 
 
 def stamp_ns(stamp):
@@ -91,7 +92,8 @@ class ConsumerTrace:
                     header_stamp_ns=None if header is None else stamp_ns(header.stamp),
                     header_frame=None if header is None else header.frame_id,
                     header_stamp_semantics=('oldest_contributing_input_stamp_not_generation'
-                        if topic == '/merge_map' else 'original_source_header_stamp'),
+                        if topic == '/merge_map' or topic.endswith('/shared_navigation/map')
+                        else 'original_source_header_stamp'),
                     generated_sim_ns=None, generated_time_status='UNMEASURED',
                     shared_map_applied=False, valid_pose_applied=False)
                 if hasattr(message, 'transforms'):
@@ -108,7 +110,10 @@ class ConsumerTrace:
                 with self.diagnostic():
                     if row['original_returned']:
                         robot = topic.split('/')[1]
-                        if topic.endswith('/map') and topic != '/merge_map':
+                        if topic.endswith('/shared_navigation/map'):
+                            if self.node.shared_navigation_maps.get(robot) is message:
+                                self.sources['shared_navigation_map:' + robot] = row['event_id']
+                        elif topic.endswith('/map') and topic != '/merge_map':
                             if self.node.local_maps.get(robot) is message:
                                 self.sources['local_map:' + robot] = row['event_id']
                         elif topic.endswith('/local_costmap/costmap'):
@@ -243,7 +248,7 @@ class ConsumerTrace:
         kind = event['kind']
         if kind not in ('rl_real_inference', 'traditional_real_decision',
                         'rl_actual_nav2_goal_request', 'rl_actual_nav2_goal_response',
-                        'rl_actual_nav2_goal_result', 'local_navigation_grid',
+                        'rl_actual_nav2_goal_result', 'local_navigation_grid', 'shared_navigation_grid',
                         'gz01_seed_connection', 'gz01_peer_routing_mask'):
             return
         with self.diagnostic():
@@ -254,8 +259,10 @@ class ConsumerTrace:
                 retained = {key: value for key, value in event.items()
                     if key not in ('self_body_excluded_cells', 'connection_cells')}
             read_refs = {}
-            if kind in ('local_navigation_grid', 'gz01_seed_connection', 'gz01_peer_routing_mask'):
+            if kind in ('local_navigation_grid', 'shared_navigation_grid',
+                        'gz01_seed_connection', 'gz01_peer_routing_mask'):
                 role = {'local_navigation_grid': 'local_map:' + event['robot'],
+                        'shared_navigation_grid': 'shared_navigation_map:' + event['robot'],
                         'gz01_seed_connection': 'costmap:' + event['robot'],
                         'gz01_peer_routing_mask': 'peer_state'}[kind]
                 read_refs[role] = self.sources.get(role)

@@ -24,7 +24,34 @@ from std_msgs.msg import String
 from std_srvs.srv import Trigger,Empty,SetBool
 from rcl_interfaces.srv import GetParameters
 from rclpy.qos import QoSProfile,DurabilityPolicy
-from execution_profile import load_profile,FIXED_START_PROFILE_IDS,REPAIR_PROFILE_IDS,COMPARISON_PROFILE_IDS
+from execution_profile import load_profile,FIXED_START_PROFILE_IDS,REPAIR_PROFILE_IDS,COMPARISON_PROFILE_IDS,PHYSICS_DELAY_PROFILE_ID
+
+
+def guard_protection_evidence_drain_allowed(observer,final_stop_basis):
+    """Permit only evidence drain; original invalid seal remains invalid."""
+    if ((observer.execution_profile or {}).get('id')!=PHYSICS_DELAY_PROFILE_ID
+            or not final_stop_basis or observer.hazard):return False
+    control=observer.last_time_control_state;state=observer.network_state
+    session=int(os.environ['NET01_SESSION_ID'])
+    if (control is None or state is None or control['session_id']!=session
+            or control['execution_profile']!=PHYSICS_DELAY_PROFILE_ID
+            or control['physics_failed'] or not control['authority_exited']
+            or control['mode']!='FAULT_STOP_OBSERVE' or control['expected_shutdown']
+            or state['session_id']!=session
+            or state.get('physical_delay',{}).get('execution_profile')!=PHYSICS_DELAY_PROFILE_ID
+            or state['failure'] is not None or observer.network_fault is None
+            or not isinstance(control['failure'],str) or not control['failure'].startswith('guard:')):
+        return False
+    def matches_guard(payload):
+        try:event=json.loads(payload)
+        except (TypeError,json.JSONDecodeError):return False
+        robot=str(event.get('robot'));guard=state['guards'].get(robot)
+        return (event.get('session_id')==session and robot in ('1','2','3')
+            and guard is not None and guard['fault'] is not None
+            and event.get('reason')==guard['fault'])
+    # Coordinator retains its first fault; Observer may have received a later
+    # robot fault. Both must match actual same-session guard state separately.
+    return matches_guard(control['failure'][len('guard:'):]) and matches_guard(observer.network_fault)
 
 
 class NetworkObserver(original.Observer):
@@ -231,12 +258,14 @@ class NetworkObserver(original.Observer):
         last=self.last_stop_result or {};evidence=last.get('observed_stop') or {}
         healthy=(not self.hazard and not self.network_fault and self.last_time_control_state is not None
             and self.last_time_control_state['failure'] is None)
-        valid=(last.get('stage')=='final' and last.get('success') is True
+        final_stop_basis=(last.get('stage')=='final' and last.get('success') is True
             and evidence.get('authority_stopped') is True and evidence.get('ownership_closed') is True
             and evidence.get('request_ownership',{}).get('closed') is True
             and evidence.get('lifecycle_pause_healthy') is True
             and self.paused_robots==set(original.ROBOTS) and self.authority_stopped
-            and (controller_process is None or controller_process.poll() is not None) and healthy)
+            and (controller_process is None or controller_process.poll() is not None))
+        valid=final_stop_basis and healthy
+        protection_drain=not valid and guard_protection_evidence_drain_allowed(self,final_stop_basis)
         required={'C_pending','R_pending','C_service_inflight','C_retired_services',
             'local_cleanup_pending','C_unadmitted_unknown_total'}
         if self.direct_reference:
@@ -245,7 +274,7 @@ class NetworkObserver(original.Observer):
         # Reserve half of the original six-second total for HOLD and actual
         # pause; drain does not acquire a separate extension of this deadline.
         drain_until=deadline-3
-        if valid:
+        if valid or protection_drain:
             while time.monotonic()<drain_until:
                 state=self.network_state
                 if (state is not None and state['session_id']==int(os.environ['NET01_SESSION_ID'])
@@ -262,7 +291,8 @@ class NetworkObserver(original.Observer):
             (self.network_state['failure'] or any(g['fault'] for g in self.network_state['guards'].values()))):
             first_error=first_error or RuntimeError('Network failed during shutdown drain')
         self.event('time_control_seal_evidence',valid_final_stop=valid,rpc_drained=drained,
-            actual_rpc_cleanup=last_counts,last_stop=last)
+            actual_rpc_cleanup=last_counts,last_stop=last,
+            protection_evidence_only_drain=protection_drain)
         try:self.pause_with_hold(deadline)
         except Exception as error:
             if first_error is None:first_error=error
@@ -582,6 +612,17 @@ def popen(command,*args,**kwargs):
             command[2]=str(HERE.parent/"net01e/followup02/static_footprint_launch.py")
         if os.environ.get("NET01_COMMON_EXECUTION_REVISION")=="nav2-simclock-common-v1":
             command[2]=str(HERE/'nav2_simclock_launch.py')
+        if os.environ.get('NET01_NAVIGATION_RECOVERY_REVISION') == 'followpath-context-backup-v2':
+            command[2] = str(HERE/'nav2_recovery_launch.py')
+        if os.environ.get('NET01_NAVIGATION_PEER_GEOMETRY_REVISION') in (
+                'peer-body-postfilter-inflation-v3','peer-body-postfilter-circumscribed-v5'):
+            command[2] = str(HERE/'nav2_peer_geometry_launch.py')
+        if os.environ.get('NET01_NAVIGATION_PLANNER_REVISION') == 'smac2d-floor-planner-v4':
+            command[2] = str(HERE/'nav2_smac_launch.py')
+        if os.environ.get('NET01_NAVIGATION_CONTROLLER_REVISION') == 'dwb-padded-footprint-obstacle-prevention-v1':
+            command[2] = str(HERE/'nav2_footprint_critic_launch.py')
+        if os.environ.get('NET01_NAVIGATION_GOAL_CHECKER_REVISION') == 'xy-position-goal-checker-v1':
+            command[2] = str(HERE/'nav2_position_goal_launch.py')
         if observer.controlled_time:
             command.insert(2,"--noninteractive")
         log=(observer.directory/"network-gateway.log").open("x")

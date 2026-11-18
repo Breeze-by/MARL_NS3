@@ -1,0 +1,13 @@
+{
+  "revision": "direct-frontier-meaningful-mincost-v1",
+  "behavior_change": "A single factor: choose a strictly shorter local-path representative only for direct frontier from the original final admissible free set; actual candidate values/701 input and Goal behavior intentionally differ. PPO weights/701 structure unchanged.",
+  "candidate_kind": "frontier only; approach shared endpoint and middle Goal unchanged",
+  "minimum_nominal_distance_m": 1.25,
+  "distance_basis": "original Smac tolerance .5 + Position XY tolerance .25 + translation progress radius .5; nominal received-pose distance, no physical motion guarantee",
+  "selection": "Run original centroid min/key once. Within same original finalfree, filter nominal Euclidean distance from received robot pose >=1.25m; choose minimum (local_paths[point], original row/column cell tuple). Return it only when local cost strictly less than original centroid representative; otherwise return original object.",
+  "unchanged_downstream": "Original target, local cost, direct shared endpoint, initial route prefix, eligibility, conflicts, deduplication/top5 and masks are recomputed by original Allocator code after this min return; no final observation-field substitution.",
+  "original_safety": "All original localadmissible/peer/failed/visited/assigned/pathbudget filtering untouched; no extra callback/TF/peer evaluation, no active cancel or lifecycle change.",
+  "baseline": "Currentcadence46/120sim PositionGoalChecker+ObstacleFootprint, Smac and original safety/clock/freshness/cleanup20 unchanged. Diagnostic/budget/lease/mixedpair disabled.",
+  "persistence": "Discard temporary raw summaries after each getobs; RAM stores only actual replaced final-retained point/original-new cost records (<=15/decision); unchanged/unretained groups not persisted. HQ original destroy writes frontier-representative.json beside events.",
+  "minimum_distance_limit": "1.25m is existing-parameter-derived heuristic on received pose, not guaranteed physical travel or equal information gain."
+}

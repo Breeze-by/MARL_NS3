@@ -1,0 +1,19 @@
+{
+  "revision": "dwb-padded-footprint-obstacle-prevention-v1",
+  "controller_id": "FollowPath",
+  "controller_plugin": "dwb_core::DWBLocalPlanner",
+  "original_critics": ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"],
+  "original_critic": "BaseObstacle",
+  "selected_critic": "ObstacleFootprint",
+  "selected_plugin": "dwb_critics::ObstacleFootprintCritic",
+  "original_configured_scale": 0.02,
+  "costmap_resolution_m": 0.05,
+  "selected_configured_scale": 0.4,
+  "effective_native_scale": 0.02,
+  "scale_rule": "BaseObstacle.getScale=scale; ObstacleFootprint.getScale=costmap_resolution*scale. Keep effective weight0.02; native component measured both0.02.",
+  "robot_radius_m": 0.25,
+  "footprint_padding_default_m": 0.01,
+  "footprint_source": "Original Costmap2DROS robot footprint and unchanged padding; do not replace or clear footprint/costmap.",
+  "scope": "Prevention of entering padded-footprint collision states; original DWB generator, all other critics/order/weights, geometryv3, Smac4, progress1/recovery2, PPO701, all safety/freshness/clock/stop/copy and120sim budgets unchanged.",
+  "limitation": "Native collision comparison on original recorded maps is not original optimizer chosen-trajectory replay, a physical escape proof, or a guarantee of95% coverage. Already-colliding footprints still reject motion. Native critic checks footprint boundary against lethal/unknown and retains inflated soft costs."
+}

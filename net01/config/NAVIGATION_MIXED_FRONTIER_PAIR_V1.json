@@ -1,0 +1,16 @@
+{
+  "revision": "shared-endpoint-mixed-kind-pair-k-preserving-v1",
+  "candidate_mode": "rl04_approach_v2",
+  "cell_resolution_m": 0.05,
+  "endpoint_metadata": "shared_frontier_position",
+  "frame": "merge_map",
+  "eligibility": "Both candidateowners trulyidle in this originalsnapshot and originalaction_mask bittrue; differentrobots, kindfrontier vsapproach only.",
+  "estimated_cost_rule": "direct.path_cost_estimate_m < approach.path_cost_estimate_m + approach.remaining_shared_path_m. Received grid estimates only, not realtraveleddistance or strict route/coverage Pareto proof.",
+  "endpoint_equivalence": "Samefloor((receivedendpoint-currentmaporigin)/.05) cell; no groupID/neighborhood radius.",
+  "participation_guard": "K0=original joint._suffix_work(original_snapshot,0,()); propose sortedunique pairs; each cumulative trial original_suffix_work >=sameK0 beforeaccept. Skip pair ifreducesoriginalmaximumnewtasks.",
+  "only_changed_field": "candidate_conflicts union acceptedpairs; originalcandidates/values/action_mask/KEEPWAIT/maximum-participation/701 encoding/actorweights unchanged.",
+  "lifecycle": "Snapshot-only constraints, no ownership/reservations/TTL/cancel/finish/apply wrapper; originalUUID/goallifecycle untouched.",
+  "required_baseline": "LiteralA0 footprintprevention + nativePositionGoalChecker; old frontierintent disabled.",
+  "safety_scope": "Original physicalendpoint/route/peer/footprint/collision/clock/freshness/120sim/stopcopy gates andvelocities unchanged.",
+  "limitations": "Preserves maximum feasible newtask count, not every action or nearrobot service. May prevent duplicate selecteddirect+approach work but does notguarantee95 or causalperformance benefit; no deadlinefilter/greedyreplacement."
+}

@@ -99,6 +99,18 @@ def route_separation(left, right):
     return min(segment_distance(a,b,c,d) for a,b in aa for c,d in bb)
 
 
+def grid_route(target, seed, predecessors, width, resolution, origin, pose):
+    path = [target]
+    while path[-1] != seed:
+        row, column = path[-1]
+        path.append(divmod(int(predecessors[row * width + column]), width))
+    ox, oy = origin
+    return [pose[:2]] + [
+        ((column + .5) * resolution + ox, (row + .5) * resolution + oy)
+        for row, column in reversed(path)
+    ]
+
+
 def observed_approach(path, local_inflated, position, admissible, pose, goal_tolerance):
     """Last admissible local prefix before an unknown edge, never a known wall.
 
@@ -198,6 +210,7 @@ class Allocator:
         self.planner_goal_admissibility = False
         self.peer_routing_mask = None
         self.initial_route_conflicts = None
+        self.active_route_guard = None
         self.seed_connection = seed_connection
         self.self_body_route_exclusion = False
         self.idle_body_goal_clearance_m = None
@@ -245,6 +258,7 @@ class Allocator:
         candidates, robot_rows, masks = [], [], []
         initial_routes=(self.initial_route_conflicts is not None and not self.history and
             all(r.state=='idle' for r in self.robots.values()))
+        active_route_guard = self.active_route_guard() if self.active_route_guard is not None else None
         idle_guard=({} if self.idle_body_goal_clearance_m is None else dict(
             idle_body_goal_clearance_m=self.idle_body_goal_clearance_m,
             idle_body_positions={r.name:r.pose for r in self.robots.values()
@@ -307,7 +321,9 @@ class Allocator:
                 if local_data is not None:local_data[peer_blocked]=1
                 if peer_blocked[r,column]:continue
             if local_data is not None:
-                if initial_routes:local_paths,local_predecessors=distances(local_data,(r,column),res,return_predecessors=True)
+                check_active_route = active_route_guard is not None and robot.state == 'idle'
+                if initial_routes or check_active_route:
+                    local_paths,local_predecessors=distances(local_data,(r,column),res,return_predecessors=True)
                 else:local_paths=distances(local_data,(r,column),res)
             if approach_mode:path_costs,predecessors=distances(routing_data,(r,column),res,return_predecessors=True)
             else:path_costs=distances(routing_data,(r,column),res)
@@ -369,11 +385,7 @@ class Allocator:
                     candidate.update(metadata or dict(kind='frontier',shared_frontier_position=target,remaining_shared_path_m=0.,unknown_boundary_cells=()))
                     candidate['proxy']='associated shared-frontier cell area; approach gain may be delayed'
                 if initial_routes:
-                    path=[(rr,cc)]
-                    while path[-1]!=(r,column):
-                        path.append(divmod(int(local_predecessors[path[-1][0]*w+path[-1][1]]),w))
-                    path.reverse()
-                    route=[robot.pose[:2]]+[((cc+.5)*res+ox,(rr+.5)*res+oy) for rr,cc in path]
+                    route=grid_route((rr,cc),(r,column),local_predecessors,w,res,(ox,oy),robot.pose)
                     candidate['initial_route_prefix']=route_prefix(route,self.initial_route_conflicts[0])
                 candidates.append(candidate)
             if approach_mode:
@@ -383,6 +395,15 @@ class Allocator:
                         unique.append(candidate)
                 selected={c['index'] for c in unique}
                 candidates[robot_begin:]=[c for c in raw if c['index'] in selected][:5]
+            if local_data is not None and check_active_route:
+                for candidate in candidates[robot_begin:]:
+                    if not candidate['valid']:
+                        continue
+                    x, y = candidate['position']
+                    target = (math.floor((y - oy) / res), math.floor((x - ox) / res))
+                    route = grid_route(target, (r, column), local_predecessors, w, res, (ox, oy), robot.pose)
+                    if not active_route_guard(candidate, route):
+                        candidate['valid'] = candidate['traditional_eligible'] = False
         if self.candidate_mode in ('rl04_approach_v1','rl04_approach_v2'):
             for index,candidate in enumerate(candidates):candidate['index']=index
         for robot in robot_rows:

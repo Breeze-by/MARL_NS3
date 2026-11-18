@@ -62,6 +62,8 @@ class BusinessPeer(frozen.PeerKeepout):
                    localization_contract='loop-confidence-v2-latched-correction-guard',
                    localization_invalid=self.localization_invalid.copy(),
                    source='CURRENT encoder odom x latest RECEIVED SLAM correction; separate stamps/ages; no prediction or Gazebo truth')
+        state.update(getattr(self,'nav2_peer_geometry_metadata',{}))
+        mask_builder=getattr(self,'nav2_peer_mask_builder',frozen.peer_mask)
         timing['snapshot_monotonic']=time.monotonic()
         for robot in ROBOTS:
             begin=time.monotonic()
@@ -69,7 +71,7 @@ class BusinessPeer(frozen.PeerKeepout):
             grid.info.resolution=RESOLUTION;grid.info.width=grid.info.height=SIZE
             grid.info.origin.position.x,grid.info.origin.position.y=origins[robot];grid.info.origin.orientation.w=1.
             if ready:grid.header.frame_id=self.mask_frames[robot]
-            data=frozen.peer_mask(robot,mask_poses(robot,state),origins[robot]) if ready else np.full((SIZE,SIZE),100,dtype=np.int8)
+            data=mask_builder(robot,mask_poses(robot,state),origins[robot]) if ready else np.full((SIZE,SIZE),100,dtype=np.int8)
             built=time.monotonic()
             grid.data=array('b',data.tobytes());before=time.monotonic()
             self.maps[robot].publish(grid)

@@ -1,0 +1,22 @@
+{
+  "revision": "nominal-goal-budget-age-tolerance-credit-v1",
+  "candidate_mode": "rl04_approach_v2",
+  "execution_profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-ros-delay-wall-v3",
+  "startup_contract_id": "fixed-G20-attempt-G25-grid5-end140-barrier-v2",
+  "permission_end_ns": 140000000000,
+  "vmax_m_per_sim_s": 0.26,
+  "smac_tolerance_m": 0.5,
+  "xy_tolerance_m": 0.25,
+  "formula": "vmax*(remaining_slot_seconds+max(0,planned_time-pose_stamp))+Smactolerance+XYtolerance; Euclidean distance to current candidate.position <=allowance.",
+  "parameter_sources": {
+    "speed": "Original effective FollowPath max_vel_x=max_speed_xy=.26, threep1YAML",
+    "smac": "Original GridBased tolerance.5, NAVIGATION_SMAC2D_FLOOR_V4.json",
+    "XY": "Original PositionGoalChecker XY.25, NAVIGATION_POSITION_GOAL_CHECKER_V1.json"
+  },
+  "time_binding": "At get_observation invocation dynamically read original node._fixed_startup_gate currently in-progress attempted row planned_sim_ns and gate.contract.decision_permission_end_ns. Gate is installed AFTER HQ construction; do not capture it ininstaller. Original hq_attempt_enter physicalboundary validation remains originalcoordinator/perrunproof, no newreader or extraACK wait.",
+  "clock_scope": "No node.now/get_clock read, no cachedHQCtime or next_slot (alreadyincremented); originalsourcepose_stamp onlygives nonnegative explicitagecredit, not exactphysicalAoI.",
+  "filter": "Only originalidle originalmasklegal candidates; ifatleastoneinside, tryremoveoutside for thatrow. Allfar/noalternative staysoriginal. Update intendedactionmask/derivedvalidcounts/waitmask only, keepmap/robots/candidatevalues/701 numericalencoding/weights unchanged.",
+  "participation": "Baseline originaljoint._suffix_work(original,0,()) K0. In originalrobotorder cumulative rowtrial must keep K>=K0, otherwise skiprow. KEEP/WAIT semantics original; no syntheticwork or activecancel.",
+  "no_extra_behaviors": "No lease/mixedpair/deadline variants/epsilon/remaining_shared_path/currentGoal retarget/rejectterminal/velocitychange. Original Position+FP/physicalgeometry/freshness/safety/120sim/23slots/stopcopy unchanged.",
+  "limitations": "Optimistic nominalpoint budget estimate withexplicit originalterminalcredits, not a physicalimpossibility/success/95coverage certificate. Legal joint alternative existence is not predictedPPOchoice or trajectory."
+}

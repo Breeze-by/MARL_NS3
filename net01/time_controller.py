@@ -41,6 +41,8 @@ class TimeController(Node):
         self.output=Path(output);self.records=[]
         self.first_physical_token_wall_ns=None;self.first_physical_before_ns=None
         self.last_physical_ACK_wall_ns=None
+        self.last_physical_ACK_ns=None
+        self.physical_delay_ACK=(self.execution_profile.get('physics_ack_delay',{}).get('id')=='physical-step-ack-fifo-v1')
         self.session_id=session_id;self.gateway_prerequisite=None
         self.ack_socket=Path(ack_socket)
         self.socket=socket.socket(socket.AF_UNIX,socket.SOCK_DGRAM)
@@ -67,7 +69,7 @@ class TimeController(Node):
     def snapshot(self):
         sim_span=None if self.first_physical_before_ns is None else self.state.physical_ns-self.first_physical_before_ns
         wall_span=None if self.last_physical_ACK_wall_ns is None else self.last_physical_ACK_wall_ns-self.first_physical_token_wall_ns
-        return dict(mode=self.state.mode,failure=self.state.failure,
+        result=dict(mode=self.state.mode,failure=self.state.failure,
             expected_shutdown=self.state.expected_shutdown,physics_failed=self.state.physics_failed,
             physical_ns=self.state.physical_ns,iterations=self.state.iterations,
             actual_clock_ns=self.state.clock_ns,native_ACK_ns=self.state.native_ns,
@@ -93,6 +95,10 @@ class TimeController(Node):
             achieved_rtf_scope='First physical token issue through latest successful actual physics ACK; not a rate guarantee',
             next_earliest_wall_ns=self.state.next_wall_ns,
             max_token_lateness_ns=self.state.max_lateness_ns,late_tokens=self.state.late_tokens)
+        if self.physical_delay_ACK:
+            result.update(last_successful_physics_ACK_monotonic_ns=self.last_physical_ACK_wall_ns,
+                last_successful_physics_ACK_physical_ns=self.last_physical_ACK_ns)
+        return result
 
     def publish_state(self):self.publisher.publish(String(data=json.dumps(self.snapshot())))
 
@@ -185,6 +191,7 @@ class TimeController(Node):
                 if not self.state.physics_failed:
                     if self.first_physical_before_ns is None:self.first_physical_before_ns=data['before_ns']
                     self.last_physical_ACK_wall_ns=time.monotonic_ns()
+                    self.last_physical_ACK_ns=data['after_ns']
         except Exception as error:
             self.state.inflight=False;self.state.fail('physics_RPC_failed:'+repr(error),physics=True)
             self.record('physics_RPC_failed',repr(error))

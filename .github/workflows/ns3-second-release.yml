@@ -1,0 +1,28 @@
+name: Publish second ns-3 integration release
+on:
+  push:
+    tags:
+      - MR3-NS3-INTEGRATION-v2.0.0
+permissions: {}
+jobs:
+  release:
+    if: github.repository == 'Breeze-by/MARL_NS3'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Read versioned release notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh api -H "Accept: application/vnd.github.raw+json"
+          "repos/Breeze-by/MARL_NS3/contents/docs/releases/ns3-integration-v2.0.0.md?ref=$GITHUB_SHA"
+          > "$RUNNER_TEMP/ns3-release-notes.md"
+      - name: Publish the verified integration tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create MR3-NS3-INTEGRATION-v2.0.0
+          --verify-tag --latest --repo Breeze-by/MARL_NS3
+          --title "第二次工程定版 v2.0.0｜ROS 直连多机器人导航底座"
+          --notes-file "$RUNNER_TEMP/ns3-release-notes.md"

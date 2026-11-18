@@ -1,0 +1,24 @@
+{
+  "revision": "read-only-retained-representatives-v1",
+  "diagnostic_only": true,
+  "performance_cohort": false,
+  "profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-ros-delay-wall-v3-a0-cadence2p5-v1",
+  "time_contract": "Original current cadence G20..140, first25/period2.5/46attempts; no timer or selection change",
+  "final_free": "Original final local-admissible free list: chosen/raw path-cost argmin/derived-distance subset argmin only",
+  "derived_nominal_distance_m": 1.25,
+  "derived_distance_basis": "original Smac tolerance .5 + Position XY tolerance .25 + translation progress radius .5; diagnostic scale only",
+  "shared_free": "Original centroid shared endpoint and same existing path_costs argmin reference only; not locally admissible and no alternative observed_approach bridge computed",
+  "retention": "Original <=15 returned candidates; one final-free summary each plus one shared endpoint summary per retained approach, <=30 rows/decision; no discarded groups or full free arrays",
+  "unchanged": [
+    "original min/key evaluated once and original selected object returned",
+    "complete observation/candidates/701/action mask",
+    "admissible/TF/peer/planner callbacks and original Goal lifecycle",
+    "all clock/freshness/collision/STOP/120sim bounds"
+  ],
+  "persistence": "HQ RAM summaries; original destroy writes compact candidate-representatives.json beside original events",
+  "disabled_helpers": [
+    "budget",
+    "lease",
+    "mixedpair"
+  ]
+}

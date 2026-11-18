@@ -1,0 +1,27 @@
+{
+  "revision": "smac2d-floor-planner-v4",
+  "plugin_id": "GridBased",
+  "plugin": "nav2_smac_planner/SmacPlanner2D",
+  "installed_package_version": "1.1.20",
+  "tolerance": 0.5,
+  "allow_unknown": true,
+  "use_final_approach_orientation": false,
+  "final_orientation_source": "Original NavFn effective YAML omits key; matching installed 1.1.20 source declares false. This is source-default evidence, not original runtime parameter dump.",
+  "downsample_costmap": false,
+  "downsampling_factor": 1,
+  "smoother": {
+    "tolerance": 1e-10,
+    "max_iterations": 1000,
+    "w_data": 0.2,
+    "w_smooth": 0.3,
+    "do_refinement": true
+  },
+  "smoothing_scope": "Explicit installed Smac2D native smoother defaults; no separate smooth_path option in this installed 2D implementation.",
+  "goal_guard": {
+    "id": "smac-floor-active-goal-v1",
+    "fresh_map_max_age_sim_s": 2.0,
+    "occupied_value": 100,
+    "reason": "Costmap2D worldToMap floor, original own-free-cell/orientation checks and active goal lifecycle preserved; old NavFn contract unchanged."
+  },
+  "scope": "Only global planner and corresponding HQ map lattice contract. Geometryv3, progress20sim/.5m, recoveryv2, physical footprint, PPO701, local DWB/collision, clock/budget unchanged."
+}

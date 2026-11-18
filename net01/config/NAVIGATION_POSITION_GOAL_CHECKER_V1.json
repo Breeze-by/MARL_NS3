@@ -1,0 +1,14 @@
+{
+  "revision": "xy-position-goal-checker-v1",
+  "goal_checker_id": "goal_checker",
+  "original_plugin": "nav2_controller::SimpleGoalChecker",
+  "selected_plugin": "nav2_controller::PositionGoalChecker",
+  "xy_goal_tolerance_m": 0.25,
+  "stateful": true,
+  "original_yaw_goal_tolerance_unused": 0.25,
+  "predecessor_controller_revision": "dwb-padded-footprint-obstacle-prevention-v1",
+  "intent_reservations_enabled": false,
+  "task_semantics": "PPO selects only shared XY; actual local Goal orientation is map-from-merge_map TF rotation, not policy desiredheading. Native Position checker ignores yaw; preserve original XY boundary and stateful/reset behavior.",
+  "scope": "Only native GoalChecker plugin changes in3YAML with original id/XY/stateful, oldunused yaw parameter retained for exact singlekey delta. Original DWB generator/critic/scale/geometry/footprint/padding/PPO701/freshness/120/stop/copy unchanged. Original real Nav2 Action status/UUID lifecycle, no synthetic success.",
+  "limitations": "Does not bypass DWB collision computation or guarantee escape/success/95percentcoverage. Original ControllerServer may reject invalid motion before goal check; no collision or stop protection relaxed."
+}

@@ -16,7 +16,7 @@ def main():
     args = parser.parse_args()
     network = json.loads(args.ready.read_text())['network']
     sys.path.insert(0,str(REPO/'net01'))
-    from execution_profile import SIM_BUSINESS_PROFILE_FILES,FIXED_START_PROFILE_IDS,FIXED_START_ADAPTER_FILES,REPAIR120_PROFILE_ID,REPAIR_ADAPTER_FILES,REPAIR_PROFILE_IDS,COMPARISON_PROFILE_IDS,COMPARISON_ADAPTER_FILES,ROS_DELAY_PROFILE_ID,ROS_DELAY_ADAPTER_FILES
+    from execution_profile import SIM_BUSINESS_PROFILE_FILES,FIXED_START_PROFILE_IDS,FIXED_START_ADAPTER_FILES,REPAIR120_PROFILE_ID,REPAIR_ADAPTER_FILES,REPAIR_PROFILE_IDS,COMPARISON_PROFILE_IDS,COMPARISON_ADAPTER_FILES,ROS_DELAY_PROFILE_ID,ROS_DELAY_ADAPTER_FILES,PHYSICS_DELAY_PROFILE_ID,PHYSICS_DELAY_ADAPTER_FILES
     if network.get('execution_profile') in SIM_BUSINESS_PROFILE_FILES:
         # A new per-case source binding replaces historical experiment admission.
         expected_profile=network['execution_profile']
@@ -29,6 +29,7 @@ def main():
             keys += list(REPAIR_ADAPTER_FILES)+['../net01e/followup02/static_footprint_launch.py']
         if expected_profile in COMPARISON_PROFILE_IDS:keys += list(COMPARISON_ADAPTER_FILES)
         if expected_profile == ROS_DELAY_PROFILE_ID:keys += list(ROS_DELAY_ADAPTER_FILES)
+        if expected_profile == PHYSICS_DELAY_PROFILE_ID:keys += list(PHYSICS_DELAY_ADAPTER_FILES)
         keys += ['../net01e/followup01/'+name for name in
             ('production_gateway.py','production_host.py','raw_destination_wire.py')]
     else:

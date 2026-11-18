@@ -14,7 +14,7 @@ import resource
 import signal
 import time
 import os
-from execution_profile import load_profile,FIXED_START_PROFILE_IDS
+from execution_profile import load_profile,FIXED_START_PROFILE_IDS,PHYSICS_DELAY_PROFILE_ID
 
 import rclpy
 from rclpy.clock import Clock, ClockType
@@ -799,6 +799,30 @@ class Gateway:
             peak_afterpersist_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss))+"\n")
 
     def close(self):
+        if (self.execution_profile or {}).get('id')!=PHYSICS_DELAY_PROFILE_ID:
+            return self._close_and_persist()
+        # This opt-in profile keeps automatic cyclic scans deferred through
+        # persistence, after all owned resources have already been closed.
+        # Restore on either teardown or persistence failure; do not extend the
+        # original supervisor budget or reinterpret any close qualification.
+        try:clean=self._close_and_persist(defer_gc_restore=True)
+        finally:self._restore_runtime_gc()
+        with (self.directory/'network-gateway-gc-restored.json').open('x') as stream:
+            json.dump(dict(pid=os.getpid(),session_id=self.session_id,
+                case=str(self.directory.resolve()),execution_profile=self.execution_profile['id'],
+                gc_runtime=self.gc_runtime,
+                scope='Actual GC restoration after successful persistence; original close phases unchanged'),stream)
+        return clean
+
+    def _restore_runtime_gc(self):
+        if self.gc_original_enabled:gc.enable()
+        else:gc.disable()
+        if self.gc_callback is not None:gc.callbacks.remove(self.gc_callback)
+        self.gc_runtime.update(restored_enabled=gc.isenabled(),
+            restored_thresholds=gc.get_threshold(),restored_monotonic_ns=time.monotonic_ns(),
+            peak_rss_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+
+    def _close_and_persist(self,*,defer_gc_restore=False):
         self.poststop_phase("close_begin")
         try:clean=self._close()
         finally:
@@ -806,12 +830,9 @@ class Gateway:
                 self.cleanup['main_thread_sampler']=self.main_thread_sampler.stop()
             self.gc_runtime['processing_end_monotonic_ns']=time.monotonic_ns()
             self.gc_runtime['processing_end_enabled']=gc.isenabled()
-            if self.gc_original_enabled:gc.enable()
-            else:gc.disable()
-            if self.gc_callback is not None:gc.callbacks.remove(self.gc_callback)
-            self.gc_runtime.update(restored_enabled=gc.isenabled(),
-                restored_thresholds=gc.get_threshold(),restored_monotonic_ns=time.monotonic_ns(),
-                peak_rss_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+            if defer_gc_restore:
+                self.gc_runtime['restoration_deferred_until_persist']=True
+            else:self._restore_runtime_gc()
         if self.main_thread_sampler is not None:
             status=self.cleanup['main_thread_sampler']
             clean=clean and status['joined'] and status['failure'] is None

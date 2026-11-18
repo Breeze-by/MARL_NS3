@@ -1,0 +1,198 @@
+{
+  "schema": "mr3-ros-direct-v4-navigation-profile-v1",
+  "release": "MR3-NS3-INTEGRATION-v2.0.0",
+  "scope": "ROS_DIRECT literal A0 navigation reference; opt in by reviewed fresh case admission.",
+  "strategy": "fixed MR3-RL-POLICY-v1.1.0 PPO, 701-dimensional observation",
+  "ready_fragment": {
+    "mode": "autonomous",
+    "arm": "rl",
+    "peer_guard": true,
+    "gzserver_batch_gdb": false,
+    "system_variant": "peer-compact-v1",
+    "joint_participation": true,
+    "joint_assignment_rule": "maximum-participation-v1",
+    "checkpoint_relative_phase": "runs/formal-01/checkpoint-00512.pt",
+    "checkpoint_sha256": "6d4c51ba6f96737ccd89393c9738a888acb82606770483f97dd562051ee01d5d",
+    "selection_sha256": "54c7a70938007bc273432b66f56709df4768d0e1380706e91fbd082a855c22f6",
+    "sim_budget": 120,
+    "decision_limit": 130,
+    "startup_wall": 180,
+    "autonomous_wall": 720,
+    "outer_wall": 1000,
+    "cleanup_wall": 90,
+    "startup_contract": {
+      "id": "fixed-G20-attempt-G25-grid5-end140-barrier-v2",
+      "autonomy_epoch_ns": 20000000000,
+      "first_decision_ns": 25000000000,
+      "decision_period_ns": 5000000000,
+      "decision_permission_end_ns": 140000000000,
+      "timing_tolerance_ns": 10000000,
+      "readiness": "initialized gate received through original flow95; original readiness and no-motion safety only",
+      "first_slot": "unchanged original allocation ATTEMPT, including awaiting observations or WAIT; no NN/candidate content admission",
+      "late_slot": "record actual; timing failure; no backdate, catch-up or moving epoch",
+      "end": "new decision and original send_goal entry permission [25,140); actual timestamps preserved, previously admitted inflight/feedback/cancel/stop ownership unchanged; not DDS send/acceptance timestamp"
+    },
+    "source_freshness": {
+      "id": "ros-delay-source-age-v1",
+      "odom_max_age_sim_s": 0.7,
+      "correction_max_age_sim_s": 0.85,
+      "allowance_sim_s": 0.3,
+      "scope": "All seven conditions including literal A0: original peer_keepout module globals and business_peer copied constants only; original source stamps, future bounds, missing/ready/localization/collision and progress protections unchanged. Receipt budgets are separately declared in receipt_freshness."
+    },
+    "receipt_freshness": {
+      "id": "ros-delay-finite-sim-receipt-v1",
+      "health_max_age_sim_s": 0.6,
+      "bound_mask_max_age_sim_s": 0.6,
+      "observer_heartbeat_max_age_sim_s": 0.6,
+      "projected_odom_max_age_sim_s": 0.5,
+      "comparison": "Actual ROS integer nanosecond differences, strict > limit; exactly limit accepted. Legacy paths retain original float comparisons.",
+      "scope": "All seven conditions; only receipt freshness, not source stamps/age, ready/missing/sequence/future checks, local wall status, progress, UUID or collision protections."
+    },
+    "network": {
+      "mode": "A",
+      "direct_reference": true,
+      "label": "A0 staged shared map, owned active route gate and approved shared seed route",
+      "execution_profile": "controlled1000-clock100-q10ms-pace40-raster-simhealth-business-v1-120sim-exploration-repair-v1-ros-delay-wall-v3",
+      "domain_C": 91,
+      "domain_R": 92,
+      "profile": "B",
+      "native_profile": "B",
+      "native_transport": "tcp-mtu-v2",
+      "native_ledger_mode": "serial",
+      "native_async_ledger": false,
+      "native_cpu_profile": false,
+      "native_evidence_scope": "physical120sim-ram8GiB-reserve2GiB-v1",
+      "controller_exit_adapter": "net01e-graceful-v1",
+      "common_execution_revision": "nav2-simclock-common-v1",
+      "comparison_condition": "A0",
+      "ros_delay": {
+        "condition": "A0",
+        "one_way_wall_ms": null
+      },
+      "navigation_progress": {
+        "revision": "owned-goal-source-odom-progress-v1"
+      },
+      "navigation_recovery": {
+        "revision": "followpath-context-backup-v2"
+      },
+      "navigation_peer_geometry": {
+        "revision": "peer-body-postfilter-inflation-v3"
+      },
+      "navigation_planner": {
+        "revision": "smac2d-floor-planner-v4"
+      },
+      "spawn_reply_qos": {
+        "revision": "gazebo-spawn-reply-maxblocking1s-v1"
+      },
+      "navigation_controller": {
+        "revision": "dwb-padded-footprint-obstacle-prevention-v1"
+      },
+      "navigation_shared_map": {
+        "revision": "a0-shared-navigation-active-route-v3"
+      },
+      "navigation_seed_route": {
+        "revision": "a0-approved-shared-seed-route-v1"
+      },
+      "controlled_time": {
+        "engineering_scope": "NET01 ROS-local wall-delay-v3 common receipt .60sim projectedodom .50sim source .70/.85sim A0 calibration D0-D500 reliable FIFO original armed-guard lifecycle v3 startup-fence attempt-barrier fixed-G20 end140 controlled120sim absolute-pace40 RAM8GiB-reserve2GiB; original60wall evidence grace after strict resource closure; T95 post-exit only"
+      }
+    },
+    "execution_authorized": false,
+    "authorized_net01_execution": false,
+    "authorized_gz01_execution": false
+  },
+  "scenes": {
+    "Rooms6101": {
+      "relative_repo": "inputs/scenes/regression-rooms-common-6101-dwb-v1.json",
+      "original_start_xy_yaw": [
+        [
+          -3.4237836473654566,
+          -3.581773649437976,
+          0.0
+        ],
+        [
+          -3.7987836473654566,
+          -4.231773649437976,
+          0.0
+        ],
+        [
+          -3.0487836473654566,
+          -4.231773649437976,
+          0.0
+        ]
+      ]
+    },
+    "OpenRing6301": {
+      "relative_repo": "inputs/scenes/eval-open-ring-common-6301.json",
+      "original_start_xy_yaw": [
+        [
+          -4.292113299282114,
+          0.09126247063870929,
+          0.0
+        ],
+        [
+          -4.667113299282114,
+          -0.5587375293612907,
+          0.0
+        ],
+        [
+          -3.9171132992821143,
+          -0.5587375293612907,
+          0.0
+        ]
+      ]
+    },
+    "Corr6201": {
+      "relative_repo": "inputs/scenes/regression-corridor-common-6201-dwb-v1.json",
+      "original_start_xy_yaw": [
+        [
+          0.7249999999999996,
+          -0.1499999999999999,
+          0.0
+        ],
+        [
+          0.34999999999999964,
+          -0.7999999999999999,
+          0.0
+        ],
+        [
+          1.0999999999999996,
+          -0.7999999999999999,
+          0.0
+        ]
+      ]
+    }
+  },
+  "scene_fields_for_120sim_reference": {
+    "maximum_autonomy_sim_s": 120,
+    "maximum_decisions": 23
+  },
+  "clock": {
+    "autonomy_window_G": [
+      20,
+      140
+    ],
+    "decisions_first_G": 25,
+    "decisions_period_sim_s": 5,
+    "decision_attempt_slots": 23,
+    "step_sim_s": 0.01,
+    "pace_wall_s": 0.04,
+    "RTF": 0.25,
+    "host_limit_wall_s": 1100,
+    "hub_limit_wall_s": 1120
+  },
+  "geometry_m": {
+    "Nav2_inflation": 0.55,
+    "peer_routing_clearance": 0.55,
+    "Nav2_robot_radius": 0.25,
+    "candidate_prefix_length": 0.442,
+    "new_candidate_to_active_path_clearance": 0.55
+  },
+  "case_local_requirements": [
+    "New case identity and directory, DDS/IPC/session, physics/native seeds and reviewed scene identity",
+    "Verified local ROS/Gazebo workspace, native runtime and clock/physics sidecar paths, current source and runtime bindings",
+    "Original playback, startup, absolute pacing, ownership, safe stop, evidence copy and RAM admission gates",
+    "Independent approval for activation and execution of a new case"
+  ],
+  "note": "The READY fragment omits machine-specific paths, prior sessions and release credentials."
+}
